@@ -107,6 +107,7 @@ const locale = currentLocale === "de" ? "de" : "en";
 const homeHref = locale === "de" ? `${basePath}/de/` : `${basePath}/`;
 const deliverablesSection = deliverablesContent[locale];
 const featuresSectionId = locale === "de" ? "so-arbeiten-wir" : "how-we-work";
+const heroParticles = Array.from({ length: 18 }, (_, index) => index + 1);
 const approachContent = {
   en: {
     heading: "Our approach (proven & lean)",
@@ -184,34 +185,65 @@ const approachSection = approachContent[locale];
     homeHref={homeHref}
     alternateLocaleHref={alternateLocaleHref}
   />
-  <main class="flex flex-1 flex-col gap-y-24 pb-20">
-    <!-- Center RotatingHeadline inside hero title section -->
-    <section id="about-us" class="section-spacing bg-white">
-      <div
-        class="container-responsive mx-auto max-w-4xl space-y-4 text-center"
-      >
+  <main class="flex flex-1 flex-col pb-20">
+    <section id="about-us" class="spark-hero section-spacing">
+      <div class="spark-hero__backdrop" aria-hidden="true">
+        <div class="spark-hero__grid"></div>
+        <div class="spark-hero__glow spark-hero__glow--violet"></div>
+        <div class="spark-hero__glow spark-hero__glow--cyan"></div>
+        <div class="spark-hero__glow spark-hero__glow--emerald"></div>
+        <div class="spark-hero__particles">
+          {heroParticles.map((particle) => <span style={`--i: ${particle}`} />)}
+        </div>
+        <span class="spark-hero__shape spark-hero__shape--one"></span>
+        <span class="spark-hero__shape spark-hero__shape--two"></span>
+        <span class="spark-hero__shape spark-hero__shape--three"></span>
+      </div>
 
-	<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">
-		{hero.kicker}
-	</p>
+      <div class="spark-hero__inner container-responsive">
+        <div class="spark-hero__copy">
+          <p class="spark-hero__kicker">
+            {hero.kicker}
+          </p>
 
-	<h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-		<RotatingHeadline words={hero.rotatingWords} />
-	</h1>
+          <h1 class="spark-hero__title">
+            <RotatingHeadline words={hero.rotatingWords} />
+          </h1>
 
-	<p class="text-base text-slate-600 sm:text-lg md:text-xl">{hero.subtitle}</p>
+          <p class="spark-hero__subtitle">{hero.subtitle}</p>
 
-	<div class="flex w-full flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
-		<Button href={hero.primaryHref}>{hero.primaryCta}</Button>
-		{hero.secondaryHref && hero.secondaryCta ? (
-			<a
-				class="inline-flex min-h-[2.75rem] w-full items-center justify-center rounded-full border border-transparent px-4 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:w-auto"
-				href={hero.secondaryHref}
-			>
-				{hero.secondaryCta}
-			</a>
-		) : null}
-	</div>
+          <div class="flex w-full flex-col items-center gap-3 pt-4 sm:flex-row lg:items-start">
+            <Button href={hero.primaryHref}>{hero.primaryCta}</Button>
+            {hero.secondaryHref && hero.secondaryCta ? (
+              <a
+                class="inline-flex min-h-[2.75rem] w-full items-center justify-center rounded-full border border-white/20 bg-white/5 px-4 text-sm font-semibold text-slate-100 shadow-[0_0_26px_rgba(168,85,247,0.18)] backdrop-blur transition hover:border-cyan-300/50 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 sm:w-auto"
+                href={hero.secondaryHref}
+              >
+                {hero.secondaryCta}
+              </a>
+            ) : null}
+          </div>
+        </div>
+
+        <div class="spark-hero__visual" aria-hidden="true">
+          <div class="spark-orbit spark-orbit--outer"></div>
+          <div class="spark-orbit spark-orbit--middle"></div>
+          <div class="spark-orbit spark-orbit--inner"></div>
+          <div class="spark-core">
+            <svg class="spark-core__icon" viewBox="0 0 160 160" role="img">
+              <path
+                d="M80 8C85 51 109 75 152 80C109 85 85 109 80 152C75 109 51 85 8 80C51 75 75 51 80 8Z"
+                fill="currentColor"
+              />
+              <circle cx="80" cy="8" r="8" fill="currentColor" />
+              <circle cx="80" cy="152" r="7" fill="currentColor" />
+              <circle cx="8" cy="80" r="6" fill="currentColor" />
+            </svg>
+          </div>
+          <span class="spark-node spark-node--one"></span>
+          <span class="spark-node spark-node--two"></span>
+          <span class="spark-node spark-node--three"></span>
+        </div>
       </div>
     </section>
     <section class="section-spacing bg-slate-50">
@@ -375,3 +407,467 @@ const approachSection = approachContent[locale];
   </main>
   <Footer currentLocale={locale} />
 </div>
+
+<style>
+  .spark-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: clamp(42rem, 78vh, 54rem);
+    margin-inline: calc(clamp(1.5rem, 5vw, 3rem) * -1);
+    color: white;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(34, 211, 238, 0.34), transparent 28rem),
+      radial-gradient(circle at 18% 22%, rgba(168, 85, 247, 0.32), transparent 30rem),
+      linear-gradient(135deg, #050816 0%, #0d1228 38%, #111827 68%, #15102a 100%);
+  }
+
+  .spark-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+      linear-gradient(115deg, rgba(124, 58, 237, 0.18), transparent 35%, rgba(6, 182, 212, 0.2) 70%, transparent),
+      linear-gradient(220deg, rgba(15, 23, 42, 0), rgba(88, 28, 135, 0.28), rgba(8, 47, 73, 0.14));
+    background-size: 180% 180%;
+    animation: hero-gradient-shift 16s ease-in-out infinite alternate;
+  }
+
+  .spark-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 4.5rem 4.5rem;
+    mask-image: radial-gradient(circle at 68% 44%, black, transparent 72%);
+    opacity: 0.55;
+  }
+
+  .spark-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  .spark-hero__grid {
+    position: absolute;
+    inset: auto -10% -28% -10%;
+    height: 55%;
+    background:
+      linear-gradient(rgba(34, 211, 238, 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168, 85, 247, 0.18) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    transform: perspective(42rem) rotateX(66deg);
+    transform-origin: top center;
+    opacity: 0.48;
+  }
+
+  .spark-hero__glow {
+    position: absolute;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 9999px;
+    filter: blur(4rem);
+    opacity: 0.52;
+  }
+
+  .spark-hero__glow--violet {
+    top: 8%;
+    left: 4%;
+    background: rgba(147, 51, 234, 0.66);
+  }
+
+  .spark-hero__glow--cyan {
+    top: 4%;
+    right: 12%;
+    background: rgba(6, 182, 212, 0.52);
+  }
+
+  .spark-hero__glow--emerald {
+    right: 24%;
+    bottom: -18%;
+    background: rgba(16, 185, 129, 0.24);
+  }
+
+  .spark-hero__particles span {
+    position: absolute;
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 9999px;
+    background: rgba(226, 232, 240, 0.82);
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.82);
+    animation: particle-drift 9s linear infinite;
+    animation-delay: calc(var(--i) * -0.65s);
+  }
+
+  .spark-hero__particles span:nth-child(1) { left: 8%; top: 16%; }
+  .spark-hero__particles span:nth-child(2) { left: 18%; top: 72%; }
+  .spark-hero__particles span:nth-child(3) { left: 27%; top: 28%; }
+  .spark-hero__particles span:nth-child(4) { left: 36%; top: 82%; }
+  .spark-hero__particles span:nth-child(5) { left: 44%; top: 12%; }
+  .spark-hero__particles span:nth-child(6) { left: 52%; top: 62%; }
+  .spark-hero__particles span:nth-child(7) { left: 62%; top: 22%; }
+  .spark-hero__particles span:nth-child(8) { left: 72%; top: 76%; }
+  .spark-hero__particles span:nth-child(9) { left: 84%; top: 18%; }
+  .spark-hero__particles span:nth-child(10) { left: 91%; top: 52%; }
+  .spark-hero__particles span:nth-child(11) { left: 13%; top: 48%; }
+  .spark-hero__particles span:nth-child(12) { left: 31%; top: 56%; }
+  .spark-hero__particles span:nth-child(13) { left: 47%; top: 38%; }
+  .spark-hero__particles span:nth-child(14) { left: 57%; top: 86%; }
+  .spark-hero__particles span:nth-child(15) { left: 67%; top: 44%; }
+  .spark-hero__particles span:nth-child(16) { left: 78%; top: 32%; }
+  .spark-hero__particles span:nth-child(17) { left: 88%; top: 83%; }
+  .spark-hero__particles span:nth-child(18) { left: 95%; top: 25%; }
+
+  .spark-hero__shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+    box-shadow: inset 0 0 28px rgba(255, 255, 255, 0.06), 0 0 40px rgba(34, 211, 238, 0.14);
+    backdrop-filter: blur(10px);
+    animation: shape-float 10s ease-in-out infinite;
+  }
+
+  .spark-hero__shape--one {
+    top: 16%;
+    right: 8%;
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(18deg);
+  }
+
+  .spark-hero__shape--two {
+    bottom: 18%;
+    left: 7%;
+    width: 5.5rem;
+    height: 2.6rem;
+    border-radius: 9999px;
+    animation-delay: -3s;
+  }
+
+  .spark-hero__shape--three {
+    right: 34%;
+    bottom: 9%;
+    width: 3rem;
+    height: 3rem;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    animation-delay: -6s;
+  }
+
+  .spark-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    min-height: inherit;
+    grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.85fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4.5rem);
+  }
+
+  .spark-hero__copy {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-width: 0;
+    max-width: 50rem;
+    text-align: left;
+  }
+
+  .spark-hero__kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgb(125 211 252);
+    text-shadow: 0 0 24px rgba(34, 211, 238, 0.45);
+  }
+
+  .spark-hero__title {
+    margin-top: 1rem;
+    font-size: 2.35rem;
+    font-weight: 700;
+    line-height: 0.95;
+    color: white;
+    text-wrap: balance;
+    text-shadow:
+      0 0 26px rgba(168, 85, 247, 0.4),
+      0 0 56px rgba(34, 211, 238, 0.22);
+  }
+
+  .spark-hero__subtitle {
+    margin-top: 1.4rem;
+    max-width: 35rem;
+    font-size: clamp(1.05rem, 2vw, 1.32rem);
+    line-height: 1.65;
+    color: rgb(203 213 225);
+  }
+
+  :global(.spark-hero .rotating-headline) {
+    text-align: left;
+  }
+
+  .spark-hero__visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: clamp(22rem, 42vw, 36rem);
+    transform: translateX(clamp(3rem, 7vw, 7rem));
+  }
+
+  .spark-hero__visual::before {
+    content: "";
+    position: absolute;
+    width: min(32rem, 80vw);
+    height: min(32rem, 80vw);
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 38%),
+      conic-gradient(from 180deg, rgba(34, 211, 238, 0.24), rgba(168, 85, 247, 0.28), rgba(16, 185, 129, 0.16), rgba(34, 211, 238, 0.24));
+    filter: blur(2px);
+    opacity: 0.72;
+    animation: aura-breathe 5s ease-in-out infinite;
+  }
+
+  .spark-orbit {
+    position: absolute;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      inset 0 0 30px rgba(34, 211, 238, 0.08),
+      0 0 32px rgba(168, 85, 247, 0.16);
+  }
+
+  .spark-orbit::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border-top: 2px solid rgba(34, 211, 238, 0.92);
+    border-right: 2px solid rgba(168, 85, 247, 0.64);
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    filter: drop-shadow(0 0 18px rgba(34, 211, 238, 0.62));
+  }
+
+  .spark-orbit--outer {
+    width: min(31rem, 78vw);
+    height: min(31rem, 78vw);
+    animation: orbit-spin 18s linear infinite;
+  }
+
+  .spark-orbit--middle {
+    width: min(24rem, 62vw);
+    height: min(24rem, 62vw);
+    animation: orbit-spin 12s linear infinite reverse;
+  }
+
+  .spark-orbit--inner {
+    width: min(16rem, 44vw);
+    height: min(16rem, 44vw);
+    animation: orbit-spin 9s linear infinite;
+  }
+
+  .spark-core {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(13rem, 34vw);
+    min-width: 8rem;
+    aspect-ratio: 1;
+    color: #a855f7;
+    filter:
+      drop-shadow(0 0 18px rgba(168, 85, 247, 0.95))
+      drop-shadow(0 0 54px rgba(34, 211, 238, 0.55));
+    animation: spark-pulse 3.6s ease-in-out infinite;
+  }
+
+  .spark-core::before,
+  .spark-core::after {
+    content: "";
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.34), transparent 68%);
+    inset: -35%;
+    z-index: -1;
+  }
+
+  .spark-core::after {
+    inset: -70%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 64%);
+  }
+
+  .spark-core__icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  .spark-node {
+    position: absolute;
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 9999px;
+    background: #e0f2fe;
+    box-shadow: 0 0 26px rgba(125, 211, 252, 0.95);
+  }
+
+  .spark-node--one {
+    top: 21%;
+    right: 26%;
+  }
+
+  .spark-node--two {
+    bottom: 22%;
+    left: 28%;
+    background: #d8b4fe;
+    box-shadow: 0 0 26px rgba(216, 180, 254, 0.95);
+  }
+
+  .spark-node--three {
+    top: 50%;
+    left: 14%;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  @keyframes hero-gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes particle-drift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(0.8);
+      opacity: 0.18;
+    }
+    45% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translate3d(1.8rem, -4.5rem, 0) scale(1.1);
+      opacity: 0.08;
+    }
+  }
+
+  @keyframes shape-float {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(18deg);
+    }
+    50% {
+      transform: translate3d(0.6rem, -1.1rem, 0) rotate(28deg);
+    }
+  }
+
+  @keyframes aura-breathe {
+    0%, 100% {
+      transform: scale(0.96);
+      opacity: 0.54;
+    }
+    50% {
+      transform: scale(1.04);
+      opacity: 0.82;
+    }
+  }
+
+  @keyframes orbit-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spark-pulse {
+    0%, 100% {
+      transform: scale(0.96);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .spark-hero {
+      min-height: auto;
+    }
+
+    .spark-hero__inner {
+      grid-template-columns: 1fr;
+      padding-block: 1rem;
+    }
+
+    .spark-hero__copy {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .spark-hero__subtitle {
+      margin-inline: auto;
+    }
+
+    :global(.spark-hero .rotating-headline) {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    :global(.spark-hero .rotating-headline__slot) {
+      max-width: 100%;
+      min-width: min(var(--rotating-headline-width, 7ch), 100%);
+    }
+
+    .spark-hero__visual {
+      transform: none;
+      min-height: 20rem;
+    }
+
+    .spark-hero__shape--one,
+    .spark-hero__shape--three {
+      display: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .spark-hero__title {
+      font-size: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .spark-hero__title {
+      font-size: 4.25rem;
+    }
+
+    .spark-hero__copy {
+      margin-top: clamp(1rem, 5vh, 3.25rem);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .spark-hero__title {
+      font-size: 5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spark-hero::before,
+    .spark-hero__particles span,
+    .spark-hero__shape,
+    .spark-hero__visual::before,
+    .spark-orbit,
+    .spark-core {
+      animation: none;
+    }
+  }
+</style>

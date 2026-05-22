@@ -9,11 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.8",
-    "@astrojs/react": "^4.4.1",
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/react": "^5.0.5",
     "@tailwindcss/vite": "^4.1.16",
     "@types/canvas-confetti": "^1.9.0",
-    "astro": "^5.15.1",
+    "astro": "^6.3.7",
     "canvas-confetti": "^1.9.3",
     "lucide-static": "^0.548.0",
     "react": "^19.2.0",
