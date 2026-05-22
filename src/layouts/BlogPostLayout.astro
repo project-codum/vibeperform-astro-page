@@ -19,7 +19,7 @@ const {
 
 const locale = lang === 'de' ? 'de' : 'en';
 const nav = homeContent[locale].nav;
-const homeHref = locale === 'de' ? '/de/' : '/';
+const homeHref = locale === 'de' ? '/de/' : '/en/';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 
 const formattedDate = new Date(date).toLocaleDateString(
@@ -28,7 +28,7 @@ const formattedDate = new Date(date).toLocaleDateString(
 );
 
 const backText = locale === 'de' ? 'Zurück zum Blog' : 'Back to Blog';
-const backHref = locale === 'de' ? '/de/blog' : '/blog';
+const backHref = locale === 'de' ? '/de/blog' : '/en/blog';
 
 const ctaTitle = locale === 'de' 
 	? 'Bereit für den nächsten Schritt?' 
@@ -52,7 +52,7 @@ const ctaButtonText = locale === 'de'
 
 	<body class="bg-white text-slate-900 antialiased">
 		<div class="flex min-h-screen flex-col bg-white">
-			<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} />
+			<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={locale} />
 
 			<main class="flex flex-1 flex-col pb-24">
 				{/* Article Wrapper */}

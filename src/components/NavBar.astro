@@ -7,9 +7,11 @@ interface Props {
 	nav: NavContent;
 	homeHref: string;
 	alternateLocaleHref: string;
+	currentLocale: 'de' | 'en';
 }
 
-const { nav, homeHref, alternateLocaleHref } = Astro.props as Props;
+const { nav, homeHref, alternateLocaleHref, currentLocale } = Astro.props as Props;
+const alternateLocale = currentLocale === 'de' ? 'en' : 'de';
 const baseUrl = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const logoUrl = `${baseUrl}/vibeperform-logo.png`;
 const toggleId = `nav-toggle-${Math.random().toString(36).slice(2, 9)}`;
@@ -47,6 +49,8 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 				class="inline-flex min-h-[2.5rem] items-center justify-center rounded-full border border-slate-400 px-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 hover:border-slate-600 hover:text-slate-900"
 				href={alternateLocaleHref}
 				aria-label={nav.toggleAriaLabel}
+				data-locale-switch
+				data-target-locale={alternateLocale}
 			>
 				{nav.toggleLabel}
 			</a>
@@ -88,6 +92,8 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 			class="mt-2 inline-flex min-h-[2.75rem] items-center justify-center rounded-full border border-slate-400 px-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 hover:border-slate-600 hover:text-slate-900"
 			href={alternateLocaleHref}
 			aria-label={nav.toggleAriaLabel}
+			data-locale-switch
+			data-target-locale={alternateLocale}
 		>
 			{nav.toggleLabel}
 		</a>
@@ -345,6 +351,21 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 			}
 
 			setupNav(toggleElement, menu);
+		});
+
+		document.querySelectorAll('[data-locale-switch]').forEach((link) => {
+			link.addEventListener('click', () => {
+				const targetLocale = link.getAttribute('data-target-locale');
+				if (targetLocale !== 'de' && targetLocale !== 'en') {
+					return;
+				}
+
+				try {
+					window.localStorage.setItem('vibeperform:locale', targetLocale);
+				} catch (_error) {
+					// Ignore storage failures so language switching still works.
+				}
+			});
 		});
 	})();
 </script>

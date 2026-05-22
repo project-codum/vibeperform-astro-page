@@ -4,10 +4,10 @@ import NavBar from '../../../components/NavBar.astro';
 import Footer from '../../../components/Footer.astro';
 import { homeContent } from '../../../data/homeContent';
 
-const locale = 'de';
+const locale = 'en';
 const nav = homeContent[locale].nav;
-const homeHref = '/de/';
-const alternateLocaleHref = '/en/blog';
+const homeHref = '/en/';
+const alternateLocaleHref = '/de/blog';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 
 interface Post {
@@ -30,10 +30,10 @@ const sortedPosts = Object.values(postsMap).sort(
 );
 
 const pageTitle = "Blog & Insights — Vibeperform";
-const heroKicker = "Einblicke & Strategie";
-const heroTitle = "KI & Automatisierung in der Praxis";
-const heroSubtitle = "Praxisnahe Ratschläge, Konzepte und Realitäten bei der Implementierung künstlicher Intelligenz für kleine und mittlere Unternehmen.";
-const readMoreText = "Artikel lesen";
+const heroKicker = "Insights & Strategy";
+const heroTitle = "AI & automation in practice";
+const heroSubtitle = "Practical advice, concepts, and realities of implementing artificial intelligence for small and medium-sized enterprises.";
+const readMoreText = "Read article";
 ---
 
 <html lang={locale}>
@@ -64,13 +64,13 @@ const readMoreText = "Artikel lesen";
 				<section class="container-responsive">
 					{sortedPosts.length === 0 ? (
 						<div class="rounded-3xl border border-slate-200 bg-slate-50 p-12 text-center">
-							<p class="text-slate-500">Bisher sind noch keine Blog-Beiträge verfügbar. Schau bald wieder vorbei!</p>
+							<p class="text-slate-500">No blog posts available yet. Check back soon!</p>
 						</div>
 					) : (
 						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 							{sortedPosts.map((post) => {
 								const { title, kicker, date, readTime, coverImage, excerpt } = post.frontmatter;
-								const formattedDate = new Date(date).toLocaleDateString('de-DE', {
+								const formattedDate = new Date(date).toLocaleDateString('en-US', {
 									year: 'numeric',
 									month: 'short',
 									day: 'numeric'

@@ -8,7 +8,7 @@ readTime: "4 Min. Lesezeit"
 coverImage: "/blog/ai-reasoning-advantage.png"
 excerpt: "Wie der Münchner Mittelstand und Tech-Startups Reasoning-Fähigkeiten von KI nutzen können, um echte Wettbewerbsvorteile zu erzielen."
 lang: "de"
-alternateLocaleHref: "/blog/ai-reasoning-competitive-advantage"
+alternateLocaleHref: "/en/blog/ai-reasoning-competitive-advantage"
 ---
 
 Diese Aussage trifft den Nagel auf den Kopf. Doch die Übersetzung für kleine und mittlere Unternehmen (KMU) – insbesondere im einzigartigen, hochpräzisen Geschäftsökosystem rund um München – erfordert einen kleinen Perspektivwechsel.

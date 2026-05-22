@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "AI and its ability to reason leads to competitive advantage, when applied correctly"
 kicker: "AI Strategy"
 date: "2026-05-22"

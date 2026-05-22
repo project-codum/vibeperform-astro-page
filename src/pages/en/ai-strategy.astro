@@ -4,23 +4,23 @@ import StrategyPage from '../../components/StrategyPage.astro';
 import { strategyContent } from '../../data/strategyContent';
 import { homeContent } from '../../data/homeContent';
 
-const nav = homeContent.de.nav;
-const homeHref = '/de/';
-const alternateLocaleHref = '/en/ai-strategy';
+const nav = homeContent.en.nav;
+const homeHref = '/en/';
+const alternateLocaleHref = '/de/ki-strategie';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 ---
 
-<html lang="de">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={faviconHref} />
-		<title>{strategyContent.de.metaTitle}</title>
+		<title>{strategyContent.en.metaTitle}</title>
 	</head>
 	<body class="bg-white text-slate-900">
 		<StrategyPage
-			content={strategyContent.de}
-			currentLocale="de"
+			content={strategyContent.en}
+			currentLocale="en"
 			nav={nav}
 			homeHref={homeHref}
 			alternateLocaleHref={alternateLocaleHref}

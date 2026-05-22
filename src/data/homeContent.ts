@@ -5,9 +5,9 @@ export const homeContent = {
 		nav: {
 			brand: 'vibeperform',
 			links: [
-				{ label: 'Workshops', href: '/workshops' },
-				{ label: 'Blog', href: '/blog' },
-				{ label: 'About us', href: '/about-us' },
+				{ label: 'Workshops', href: '/en/workshops' },
+				{ label: 'Blog', href: '/en/blog' },
+				{ label: 'About us', href: '/en/about-us' },
 			],
 			toggleLabel: 'DE',
 			toggleAriaLabel: 'Switch language to German',
@@ -43,7 +43,7 @@ export const homeContent = {
 				},
 				secondary: {
 					label: 'Explore workshops',
-					href: `${BASE_PATH}/workshops`,
+					href: `${BASE_PATH}/en/workshops`,
 				},
 			},
 		},
