@@ -104,7 +104,7 @@ const { content, currentLocale, alternateLocaleHref } = Astro.props as Props;
 const { nav, hero, features } = content;
 const basePath = "";
 const locale = currentLocale === "de" ? "de" : "en";
-const homeHref = locale === "de" ? `${basePath}/de/` : `${basePath}/`;
+const homeHref = locale === "de" ? `${basePath}/de/` : `${basePath}/en/`;
 const deliverablesSection = deliverablesContent[locale];
 const featuresSectionId = locale === "de" ? "so-arbeiten-wir" : "how-we-work";
 const approachContent = {
@@ -183,6 +183,7 @@ const approachSection = approachContent[locale];
     nav={nav}
     homeHref={homeHref}
     alternateLocaleHref={alternateLocaleHref}
+    currentLocale={locale}
   />
   <main class="flex flex-1 flex-col gap-y-24 pb-20">
     <!-- Center RotatingHeadline inside hero title section -->

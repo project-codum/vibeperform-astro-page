@@ -1,5 +1,5 @@
 ---
-const targetHref = '/en/workshops';
+const targetHref = '/en/blog';
 ---
 
 <html lang="en">
@@ -8,12 +8,12 @@ const targetHref = '/en/workshops';
 		<meta name="robots" content="noindex" />
 		<meta http-equiv="refresh" content={`0;url=${targetHref}`} />
 		<link rel="canonical" href={targetHref} />
-		<title>Redirecting to Workshops</title>
+		<title>Redirecting to Blog</title>
 		<script is:inline define:vars={{ targetHref }}>
 			window.location.replace(`${targetHref}${window.location.search}${window.location.hash}`);
 		</script>
 	</head>
 	<body>
-		<a href={targetHref}>Continue to Workshops</a>
+		<a href={targetHref}>Continue to Blog</a>
 	</body>
 </html>

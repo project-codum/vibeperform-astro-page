@@ -1,28 +1,28 @@
 ---
 import '../../styles/global.css';
-import AboutPage from '../../components/AboutPage.astro';
-import { aboutContent } from '../../data/aboutContent';
+import WorkshopsPage from '../../components/WorkshopsPage.astro';
+import { workshopsContent } from '../../data/workshopsContent';
 
-const content = aboutContent.de;
-const homeHref = '/de/';
-const alternateLocaleHref = '/en/about-us';
+const content = workshopsContent.en;
+const homeHref = '/en/';
+const alternateLocaleHref = '/de/workshops';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 ---
 
-<html lang="de">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={faviconHref} />
-		<title>{aboutContent.de.metaTitle}</title>
+		<title>{content.metaTitle}</title>
 	</head>
 
 	<body class="bg-white text-slate-900">
-		<AboutPage
+		<WorkshopsPage
 			content={content}
 			homeHref={homeHref}
 			alternateLocaleHref={alternateLocaleHref}
-			currentLocale="de"
+			currentLocale="en"
 		/>
 	</body>
 </html>

@@ -1,0 +1,147 @@
+---
+import '../../../styles/global.css';
+import NavBar from '../../../components/NavBar.astro';
+import Footer from '../../../components/Footer.astro';
+import { homeContent } from '../../../data/homeContent';
+
+const locale = 'de';
+const nav = homeContent[locale].nav;
+const homeHref = '/de/';
+const alternateLocaleHref = '/en/blog';
+const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+
+interface Post {
+	url: string;
+	frontmatter: {
+		title: string;
+		kicker: string;
+		date: string;
+		readTime: string;
+		coverImage: string;
+		excerpt: string;
+		lang: string;
+		alternateLocaleHref: string;
+	};
+}
+
+const postsMap = import.meta.glob<Post>('./*.md', { eager: true });
+const sortedPosts = Object.values(postsMap).sort(
+	(a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+);
+
+const pageTitle = "Blog & Insights — Vibeperform";
+const heroKicker = "Einblicke & Strategie";
+const heroTitle = "KI & Automatisierung in der Praxis";
+const heroSubtitle = "Praxisnahe Ratschläge, Konzepte und Realitäten bei der Implementierung künstlicher Intelligenz für kleine und mittlere Unternehmen.";
+const readMoreText = "Artikel lesen";
+---
+
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={faviconHref} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+		<meta name="description" content={heroSubtitle} />
+	</head>
+
+	<body class="bg-white text-slate-900 antialiased">
+		<div class="flex min-h-screen flex-col bg-white">
+			<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={locale} />
+
+			<main class="flex flex-1 flex-col gap-y-16 pb-20">
+				{/* Hero Section */}
+				<section class="section-spacing-tight">
+					<div class="container-responsive mx-auto max-w-4xl space-y-6 text-left">
+						<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">{heroKicker}</p>
+						<h1 class="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">{heroTitle}</h1>
+						<p class="text-base text-slate-600 sm:text-lg md:text-xl max-w-2xl">{heroSubtitle}</p>
+					</div>
+				</section>
+
+				{/* Blog Posts Grid */}
+				<section class="container-responsive">
+					{sortedPosts.length === 0 ? (
+						<div class="rounded-3xl border border-slate-200 bg-slate-50 p-12 text-center">
+							<p class="text-slate-500">Bisher sind noch keine Blog-Beiträge verfügbar. Schau bald wieder vorbei!</p>
+						</div>
+					) : (
+						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+							{sortedPosts.map((post) => {
+								const { title, kicker, date, readTime, coverImage, excerpt } = post.frontmatter;
+								const formattedDate = new Date(date).toLocaleDateString('de-DE', {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric'
+								});
+
+								return (
+									<article class="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+										<a href={post.url} class="flex h-full flex-col">
+											{/* Post Cover Image */}
+											{coverImage && (
+												<div class="aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+													<img
+														src={coverImage}
+														alt={title}
+														class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-103"
+														loading="lazy"
+														decoding="async"
+													/>
+												</div>
+											)}
+											
+											{/* Content */}
+											<div class="flex flex-1 flex-col justify-between p-6">
+												<div class="space-y-3">
+													<p class="text-xs font-bold uppercase tracking-[0.25em] text-purple-600">
+														{kicker}
+													</p>
+													<h2 class="text-xl font-bold leading-snug text-slate-900 group-hover:text-purple-600 transition-colors [text-wrap:pretty]">
+														{title}
+													</h2>
+													<p class="text-sm leading-relaxed text-slate-600 line-clamp-3">
+														{excerpt}
+													</p>
+												</div>
+
+												{/* Card Footer */}
+												<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+													<div class="flex items-center gap-2">
+														<span>{formattedDate}</span>
+														<span class="inline-block h-1 w-1 rounded-full bg-slate-300" />
+														<span>{readTime}</span>
+													</div>
+													<span class="inline-flex items-center gap-1 font-semibold uppercase tracking-[0.1em] text-purple-600 group-hover:text-purple-700 transition-colors">
+														{readMoreText}
+														<svg
+															xmlns="http://www.w3.org/2000/svg"
+															class="h-3 w-3 transform transition-transform group-hover:translate-x-0.5"
+															fill="none"
+															viewBox="0 0 24 24"
+															stroke="currentColor"
+														>
+															<path
+																stroke-linecap="round"
+																stroke-linejoin="round"
+																stroke-width="2.5"
+																d="M9 5l7 7-7 7"
+															/>
+														</svg>
+													</span>
+												</div>
+											</div>
+										</a>
+									</article>
+								);
+							})}
+						</div>
+					)}
+				</section>
+			</main>
+
+			<Footer currentLocale={locale} />
+		</div>
+	</body>
+</html>

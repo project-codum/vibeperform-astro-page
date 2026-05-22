@@ -1,28 +1,19 @@
 ---
-import '../styles/global.css';
-import AboutPage from '../components/AboutPage.astro';
-import { aboutContent } from '../data/aboutContent';
-
-const content = aboutContent.en;
-const homeHref = '/';
-const alternateLocaleHref = '/de/ueber-uns';
-const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+const targetHref = '/en/about-us';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={faviconHref} />
-		<title>{aboutContent.en.metaTitle}</title>
+		<meta name="robots" content="noindex" />
+		<meta http-equiv="refresh" content={`0;url=${targetHref}`} />
+		<link rel="canonical" href={targetHref} />
+		<title>Redirecting to About us</title>
+		<script is:inline define:vars={{ targetHref }}>
+			window.location.replace(`${targetHref}${window.location.search}${window.location.hash}`);
+		</script>
 	</head>
-
-	<body class="bg-white text-slate-900">
-		<AboutPage
-			content={content}
-			homeHref={homeHref}
-			alternateLocaleHref={alternateLocaleHref}
-			currentLocale="en"
-		/>
+	<body>
+		<a href={targetHref}>Continue to About us</a>
 	</body>
 </html>

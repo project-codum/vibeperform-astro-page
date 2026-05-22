@@ -1,29 +1,19 @@
 ---
-import '../styles/global.css';
-import StrategyPage from '../components/StrategyPage.astro';
-import { strategyContent } from '../data/strategyContent';
-import { homeContent } from '../data/homeContent';
-
-const nav = homeContent.en.nav;
-const homeHref = '/';
-const alternateLocaleHref = '/de/ki-strategie';
-const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+const targetHref = '/en/ai-strategy';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={faviconHref} />
-		<title>{strategyContent.en.metaTitle}</title>
+		<meta name="robots" content="noindex" />
+		<meta http-equiv="refresh" content={`0;url=${targetHref}`} />
+		<link rel="canonical" href={targetHref} />
+		<title>Redirecting to AI Strategy</title>
+		<script is:inline define:vars={{ targetHref }}>
+			window.location.replace(`${targetHref}${window.location.search}${window.location.hash}`);
+		</script>
 	</head>
-	<body class="bg-white text-slate-900">
-		<StrategyPage
-			content={strategyContent.en}
-			currentLocale="en"
-			nav={nav}
-			homeHref={homeHref}
-			alternateLocaleHref={alternateLocaleHref}
-		/>
+	<body>
+		<a href={targetHref}>Continue to AI Strategy</a>
 	</body>
 </html>

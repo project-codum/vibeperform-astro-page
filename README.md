@@ -18,7 +18,7 @@ Keep Node versions in sync across local environments and CI to avoid lockfile dr
    ```sh
    npm run dev
    ```
-   Astro prints a local URL (default `http://localhost:4321`). Use `?lang=de` when previewing locale-specific routes if your browser caches redirects.
+   Astro prints a local URL (default `http://localhost:4321`). The root route redirects to the remembered language preference or `/de/` by default.
 3. Create optimized production output before deploying:
    ```sh
    npm run build
@@ -44,10 +44,11 @@ src/
     aboutContent.ts     # Localised About page copy blocks
     workshopsContent.ts # Localised Workshops page copy blocks
   pages/
-    index.astro         # English landing page
+    index.astro         # Locale preference redirect
+    en/index.astro      # English landing page
     de/index.astro      # German landing page
-    workshops.astro     # English detail page
-    about-us.astro      # English detail page
+    en/workshops.astro  # English detail page
+    en/about-us.astro   # English detail page
     de/workshops.astro  # German counterpart
     de/ueber-uns.astro  # German counterpart
     markdown-page.md    # Sample markdown content page
@@ -55,12 +56,13 @@ styles/
   global.css            # Tailwind base styles + custom utilities
 ```
 
-Astro routes map 1:1 to files (`src/pages/**/*.astro`). English pages live at `/...`; German pages sit under `/de/...`.
+Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under `/de/...`; English pages live under `/en/...`. Legacy English root paths such as `/workshops` redirect to their `/en/...` equivalents.
 
 ## 4. Navigation & Routing Best Practices
 - `NavBar.astro` is the single source of truth for navigation markup. When creating new pages, import it instead of rebuilding headers.
-- Set `homeHref` using the `/vibeperform-astro-page` prefix so deployments under a project subpath keep working.
-- Each page’s locale toggle (`alternateLocaleHref`) should point to the equivalent page in the other language. Keep these links absolute to the project root (e.g. `/de/workshops`).
+- Set `homeHref` to `/de/` or `/en/` according to the page locale.
+- Each page’s locale toggle (`alternateLocaleHref`) should point to the equivalent page in the other language. Keep these links absolute to the project root (e.g. `/de/workshops` or `/en/workshops`).
+- The shared nav stores explicit language toggles in `localStorage` under `vibeperform:locale`; `/` uses that value to route returning visitors, with `/de/` as the fallback.
 - Use `npm run build` to validate that generated asset paths respect the base path before publishing.
 
 ## 5. Styling & Color System

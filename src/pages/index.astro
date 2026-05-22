@@ -1,23 +1,28 @@
 ---
-import '../styles/global.css';
-import HomePage from '../components/HomePage.astro';
-import { homeContent } from '../data/homeContent';
-const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const fallbackHref = '/de/';
 ---
 
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={faviconHref} />
-		<meta name="generator" content={Astro.generator} />
+		<meta http-equiv="refresh" content={`0;url=${fallbackHref}`} />
 		<title>Vibeperform</title>
-	</head>
+		<script is:inline>
+			(() => {
+				const fallbackHref = '/de/';
 
-	<body class="bg-white text-slate-900">
-		<HomePage content={homeContent.en} currentLocale="en" alternateLocaleHref="/de/" />
+				try {
+					const preferredLocale = window.localStorage.getItem('vibeperform:locale');
+					const targetPath = preferredLocale === 'en' ? '/en/' : fallbackHref;
+					window.location.replace(`${targetPath}${window.location.search}${window.location.hash}`);
+				} catch (_error) {
+					window.location.replace(`${fallbackHref}${window.location.search}${window.location.hash}`);
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<a href={fallbackHref}>Weiter zu Vibeperform</a>
 	</body>
 </html>
