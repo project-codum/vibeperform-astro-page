@@ -6,6 +6,7 @@ export const homeContent = {
 			brand: 'vibeperform',
 			links: [
 				{ label: 'Workshops', href: '/workshops' },
+				{ label: 'Blog', href: '/blog' },
 				{ label: 'About us', href: '/about-us' },
 			],
 			toggleLabel: 'DE',
@@ -111,6 +112,7 @@ export const homeContent = {
 			links: [
 				// { label: 'KI Strategie', href: '/de/ki-strategie' },
 				{ label: 'Workshops', href: '/de/workshops' },
+				{ label: 'Blog', href: '/de/blog' },
 				{ label: 'Über uns', href: '/de/ueber-uns' },
 			],
 			toggleLabel: 'EN',
