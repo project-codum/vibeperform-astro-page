@@ -158,7 +158,7 @@ export const workshopsContent = {
 			hero: {
 				kicker: 'Workshops',
 				title: 'Unsere Workshops im Überblick',
-				intro: 'In unseren Workshops identifizieren wir gemeinsam KI-Potenziale für eure Prozesse. Darauf aufbauend entwickeln wir greifbare Lösungen.',
+				intro: 'In unseren Workshops identifizieren wir gemeinsam KI-Potenziale für eure Prozesse. Darauf aufbauend entwickeln oder installieren wir greifbare Lösungen für euch.',
 			// sub: 'Keine Folienschlacht. Wir arbeiten direkt an euren Abläufen, mit eurem Team, auf ein konkretes Ergebnis hin.',
 		},
 
@@ -236,7 +236,7 @@ export const workshopsContent = {
 					name: 'Kernprozess transformieren',
 					description:
 						'Wir identifizieren gemeinsam, wo in euren Arbeitsabläufen Potenzial für KI steckt.',
-					scoreFocus: ['Wo geht Zeit verloren?', 'Wo brechen Abläufe?', 'Wo liegen Chancen für neue Aufträge?'],
+					scoreFocus: ['Wie wird KI zun Wettbewerbsvorteil?', 'Wo geht Zeit verloren oder brechen Abläufe?', 'Wo liegen Chancen für neue Aufträge?'],
 					nextMoves: [
 						'Nordstern-KPIs und No-Gos definieren',
 						'Piloten mit klarer Change-Story planen',

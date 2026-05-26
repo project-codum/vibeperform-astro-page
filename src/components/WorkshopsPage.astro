@@ -20,6 +20,8 @@ const scenarioList = otherScenarios.length ? otherScenarios : scorecard.scenario
 const heroCards = [
 	{
 		title: 'Explore Workshop',
+		href: locale === 'de' ? '/de/workshop/explore-workshop' : '/workshop/explore-workshop',
+		ctaLabel: locale === 'de' ? 'Explore Workshop ansehen' : 'View Explore Workshop',
 		image: '/workshop2.webp',
 		description:
 			locale === 'de'
@@ -117,7 +119,12 @@ const renderValueIcon = (key?: keyof typeof valueIcons | string) => {
 						</div>
 						<div class="grid gap-6 lg:grid-cols-2">
 						{heroCards.map((card) => (
-							<div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+							<article class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+								{card.href ? (
+									<a class="absolute inset-0 z-10" href={card.href} aria-label={card.ctaLabel}>
+										<span class="sr-only">{card.ctaLabel}</span>
+									</a>
+								) : null}
 								<div class="h-48 w-full overflow-hidden bg-slate-100 sm:h-56">
 									<img
 										src={card.image}
@@ -154,8 +161,13 @@ const renderValueIcon = (key?: keyof typeof valueIcons | string) => {
 											</ul>
 										</div>
 									) : null}
+									{card.href ? (
+										<p class="text-sm font-semibold text-purple-700">
+											{card.ctaLabel}
+										</p>
+									) : null}
 								</div>
-							</div>
+							</article>
 						))}
 					</div>
 				</div>
