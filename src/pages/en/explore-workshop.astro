@@ -1,22 +1,19 @@
 ---
-import '../../styles/global.css';
-import ExploreWorkshopPage from '../../components/ExploreWorkshopPage.astro';
-
-const title = 'Phase 1 Workshop | Strategic Discovery Sprint | Vibeperform';
-const description =
-	'Strategic Discovery Sprint: AI roadmap, use-case prioritization, and clear technical prerequisites for effective AI solutions.';
-const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+const targetHref = '/en/workshop/explore-workshop';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={faviconHref} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
+		<meta name="robots" content="noindex" />
+		<meta http-equiv="refresh" content={`0;url=${targetHref}`} />
+		<link rel="canonical" href={targetHref} />
+		<title>Redirecting to Explore Workshop</title>
+		<script is:inline define:vars={{ targetHref }}>
+			window.location.replace(`${targetHref}${window.location.search}${window.location.hash}`);
+		</script>
 	</head>
-	<body class="bg-white text-slate-900">
-		<ExploreWorkshopPage currentLocale="en" />
+	<body>
+		<a href={targetHref}>Continue to Explore Workshop</a>
 	</body>
 </html>

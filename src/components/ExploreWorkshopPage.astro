@@ -3,25 +3,37 @@ import Button from './Button.astro';
 import Footer from './Footer.astro';
 import NavBar from './NavBar.astro';
 import { homeContent } from '../data/homeContent';
+import { BarChart3, CheckCircle2, DatabaseZap, Route, SearchCheck, Target, Workflow } from 'lucide-static';
 
 type Locale = 'de' | 'en';
 
 interface Props {
 	currentLocale?: Locale;
+	alternateLocaleHref?: string;
+	workshopsHref?: string;
 }
 
-const { currentLocale = 'de' } = Astro.props as Props;
+const { currentLocale = 'de', alternateLocaleHref, workshopsHref } = Astro.props as Props;
 const locale: Locale = currentLocale === 'en' ? 'en' : 'de';
 const nav = homeContent[locale].nav;
 const calendarHref = 'https://calendar.app.google/utFQgw33PwJTiDk56';
 const mailHref = 'mailto:contact@vibeperform.com?subject=Strategic%20Discovery%20Sprint';
-const workshopImage = '/explore-workshop/strategic-discovery-workshop.png';
-const roadmapImage = '/explore-workshop/impact-roadmap-table.png';
+const workshopImage = '/explore-workshop/vibeperform-explore-workshop-hero.png';
+const roadmapImage = '/explore-workshop/vibeperform-explore-roadmap.png';
+const frameworkIcons = [Target, SearchCheck, DatabaseZap, Workflow, Route] as const;
+const deliverableIcons = [Route, BarChart3, DatabaseZap] as const;
+const renderIcon = (iconSvg: string, className = 'h-5 w-5') =>
+	iconSvg
+		.replace('class="lucide', `class="lucide ${className}`)
+		.replace('width="24"', 'width="20"')
+		.replace('height="24"', 'height="20"');
 
 const pageContent = {
 	de: {
 		homeHref: '/de/',
-		alternateLocaleHref: '/en/explore-workshop',
+		alternateLocaleHref: '/en/workshop/explore-workshop',
+		workshopsHref: '/de/workshops',
+		backToWorkshops: 'Zurück zu den Workshops',
 		outcomeId: 'ergebnis',
 		phaseLabel: 'Phase 1',
 		title: 'Der strategische Explore Workshop',
@@ -113,7 +125,9 @@ const pageContent = {
 	},
 	en: {
 		homeHref: '/en/',
-		alternateLocaleHref: '/de/explore-workshop',
+		alternateLocaleHref: '/de/workshop/explore-workshop',
+		workshopsHref: '/en/workshops',
+		backToWorkshops: 'Back to workshops',
 		outcomeId: 'outcome',
 		phaseLabel: 'Phase 1',
 		title: 'The Strategic Explore Workshop',
@@ -212,152 +226,173 @@ const content = pageContent[locale];
 	<NavBar
 		nav={nav}
 		homeHref={content.homeHref as string}
-		alternateLocaleHref={content.alternateLocaleHref as string}
+		alternateLocaleHref={alternateLocaleHref ?? (content.alternateLocaleHref as string)}
 		currentLocale={locale}
 	/>
 
-	<main class="phase-main flex flex-1 flex-col overflow-hidden">
-		<section class="mx-auto grid w-full max-w-[74rem] gap-10 px-6 pb-16 pt-4 sm:px-8 lg:grid-cols-[0.98fr_1.02fr] lg:gap-14 lg:px-10 lg:pb-20 lg:pt-8">
-			<div class="flex max-w-[36rem] flex-col justify-center">
-				<p class="mb-5 text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">
+	<main class="phase-main flex flex-1 flex-col gap-y-24 overflow-hidden pb-20">
+		<section class="section-spacing pt-2">
+			<div class="container-responsive grid gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-center">
+				<div class="max-w-2xl space-y-6">
+				<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">
 					{content.phaseLabel}
 				</p>
-				<h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+				<h1 class="max-w-[20rem] text-4xl font-semibold tracking-tight text-slate-900 sm:max-w-none sm:text-5xl lg:text-6xl">
 					{content.title}
 				</h1>
-				<p class="mt-6 text-base text-slate-600 [text-wrap:balance] sm:text-lg md:text-xl">
+				<p class="text-base text-slate-600 [text-wrap:balance] sm:text-lg md:text-xl">
 					{content.subtitle}
 				</p>
-				<p class="mt-4 text-sm leading-7 text-slate-500 md:text-base md:leading-8">
+				<p class="max-w-xl text-sm leading-7 text-slate-500 md:text-base md:leading-8">
 					{content.intro}
 				</p>
-				<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+				<div class="flex flex-col gap-3 pt-2 sm:flex-row">
 					<Button href={calendarHref}>{content.primaryCta}</Button>
 					<a
-						class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 text-sm font-semibold text-slate-800 transition hover:border-slate-500 hover:bg-slate-50"
+						class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 text-sm font-semibold text-slate-800 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-700"
 						href={`#${content.outcomeId}`}
 					>
 						{content.secondaryCta}
 					</a>
+					<a
+						class="inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-950"
+						href={workshopsHref ?? (content.workshopsHref as string)}
+					>
+						{content.backToWorkshops}
+					</a>
 				</div>
-			</div>
+				</div>
 
-			<figure class="relative min-h-[21rem] overflow-hidden bg-slate-100 sm:min-h-[26rem]">
-				<img
-					src={workshopImage}
-					alt={content.heroAlt}
-					class="h-full min-h-[21rem] w-full object-cover object-center sm:min-h-[26rem]"
-					loading="eager"
-					decoding="async"
-				/>
-				<div class="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-b from-transparent to-white/85"></div>
-			</figure>
+				<figure class="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-xl shadow-slate-900/10">
+					<div class="absolute inset-x-10 -top-14 h-40 rounded-full bg-purple-300/35 blur-3xl" aria-hidden="true" />
+					<img
+						src={workshopImage}
+						alt={content.heroAlt}
+						class="relative aspect-[16/10] w-full object-cover"
+						loading="eager"
+						decoding="async"
+					/>
+				</figure>
+			</div>
 		</section>
 
-		<section class="border-y border-[#dfe5df] bg-[#f5f7f3]">
-			<div class="mx-auto grid w-full max-w-[74rem] gap-9 px-6 py-16 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-20">
-				<h2 class="text-[clamp(2rem,4.3vw,3.375rem)] font-semibold leading-[1.04] text-[#121414]">
+		<section class="section-spacing bg-slate-50">
+			<div class="container-responsive space-y-10">
+				<div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+				<h2 class="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
 					{content.introTitle}
 				</h2>
-				<p class="text-xl leading-9 text-[#3e4843]">{content.introBody}</p>
-			</div>
-			<div class="mx-auto grid w-full max-w-[74rem] gap-px px-6 pb-16 sm:px-8 lg:grid-cols-3 lg:px-10 lg:pb-24">
-				{content.proofItems.map((item) => (
-					<div class="min-h-40 bg-[#121414] p-7 text-white">
-						<strong class="block text-[clamp(2.125rem,4vw,3.25rem)] font-semibold leading-none">{item.stat}</strong>
-						<span class="mt-5 block text-sm leading-6 text-[#dbe5d2]">{item.copy}</span>
-					</div>
-				))}
+				<p class="text-base leading-8 text-slate-600 sm:text-lg">{content.introBody}</p>
+				</div>
+				<div class="grid gap-5 lg:grid-cols-3">
+					{content.proofItems.map((item) => (
+						<div class="min-h-44 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-purple-200 hover:shadow-lg">
+							<strong class="block text-[clamp(2.125rem,4vw,3.25rem)] font-semibold leading-none text-purple-600">{item.stat}</strong>
+							<span class="mt-5 block text-sm leading-6 text-slate-600">{item.copy}</span>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 
-		<div class="mx-auto w-full max-w-[74rem] px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
-			<section class="mb-24 grid items-center gap-12 lg:grid-cols-[1fr_0.86fr] lg:gap-18">
-				<div>
-					<h2 class="text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-tight text-[#121414]">
+		<div class="container-responsive">
+			<section class="grid items-center gap-12 lg:grid-cols-[1fr_0.86fr]">
+				<div class="max-w-2xl">
+					<h2 class="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
 						{content.experienceTitle}
 					</h2>
 					{content.experienceBody.map((paragraph) => (
 						<p class="mt-5 text-lg leading-8 text-slate-600">{paragraph}</p>
 					))}
 				</div>
-				<div class="border border-[#dfe5df] bg-[#f5f7f3]">
+				<div class="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm">
 					<img
 						src={workshopImage}
 						alt={content.experienceAlt}
-						class="aspect-4/3 w-full object-cover"
+						class="aspect-[4/3] w-full object-cover"
 						loading="eager"
 						decoding="async"
 					/>
 				</div>
 			</section>
 
-			<section class="mb-24 grid border-y border-[#dfe5df] lg:grid-cols-[0.9fr_1.1fr]">
-				<div class="bg-[#121414] p-8 text-white sm:p-12 lg:p-14">
-					<h2 class="text-[clamp(1.875rem,4vw,3rem)] font-semibold leading-tight">{content.frameworkTitle}</h2>
-					<p class="mt-6 text-base leading-8 text-[#dfe8dc]">{content.frameworkBody}</p>
+			<section class="mt-24 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+				<div class="relative overflow-hidden rounded-3xl bg-slate-900 p-8 text-white shadow-xl shadow-slate-900/10 sm:p-12 lg:p-14">
+					<div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-purple-500/25 blur-3xl" aria-hidden="true" />
+					<div class="relative">
+						<h2 class="text-3xl font-semibold leading-tight sm:text-4xl">{content.frameworkTitle}</h2>
+						<p class="mt-6 text-base leading-8 text-slate-300">{content.frameworkBody}</p>
+					</div>
 				</div>
-				<div class="grid bg-white sm:grid-cols-2 xl:grid-cols-5">
+				<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
 					{content.frameworkSteps.map((step, index) => (
-						<article class="min-h-64 border-t border-[#dfe5df] p-6 sm:border-l sm:border-t-0 xl:min-h-[17rem]">
-							<span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#d9e5c5] text-sm font-semibold text-[#27351f]">
-								{index + 1}
+						<article class="min-h-64 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-purple-200 hover:shadow-lg xl:min-h-[17rem]">
+							<span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-100 text-purple-600" aria-hidden="true">
+								<div set:html={renderIcon(frameworkIcons[index] ?? Target)} />
 							</span>
-							<h3 class="mt-6 text-lg font-semibold leading-snug text-[#121414]">{step.title}</h3>
+							<h3 class="mt-6 text-lg font-semibold leading-snug text-slate-900">{step.title}</h3>
 							<p class="mt-4 text-sm leading-6 text-slate-600">{step.copy}</p>
 						</article>
 					))}
 				</div>
 			</section>
 
-			<section class="mb-24 grid bg-[#f5f7f3] lg:grid-cols-[0.95fr_1.05fr]">
+			<section class="mt-24 grid overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
+				<img
+					src={roadmapImage}
+					alt={content.roadmapAlt}
+					class="h-full min-h-[24rem] w-full object-cover lg:min-h-[34rem]"
+					loading="lazy"
+					decoding="async"
+				/>
 				<div class="p-8 sm:p-12 lg:p-14">
-					<h2 class="text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-tight text-[#121414]">{content.priorityTitle}</h2>
+					<h2 class="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">{content.priorityTitle}</h2>
 					<p class="mt-6 text-base leading-8 text-slate-600">{content.priorityBody}</p>
 					<div class="mt-8 grid gap-3" aria-label={content.useCasesLabel}>
 						{content.useCases.map((useCase) => (
-							<div class="flex min-h-14 items-center gap-4 border border-[#dfe5df] bg-white px-4 py-3">
-								<span class="h-2.5 w-2.5 flex-none rounded-full bg-[#6b7f45]"></span>
-								<span class="text-base text-[#3e4843]">{useCase}</span>
+							<div class="flex min-h-14 items-center gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+								<span class="inline-flex h-7 w-7 flex-none items-center justify-center rounded-full bg-purple-100 text-purple-600" aria-hidden="true">
+									<div set:html={renderIcon(CheckCircle2, 'h-4 w-4')} />
+								</span>
+								<span class="text-base text-slate-700">{useCase}</span>
 							</div>
 						))}
 					</div>
 				</div>
-				<img
-					src={roadmapImage}
-					alt={content.roadmapAlt}
-					class="h-full min-h-[24rem] w-full object-cover lg:min-h-[32rem]"
-					loading="eager"
-					decoding="async"
-				/>
 			</section>
 
-			<section id={content.outcomeId}>
+			<section id={content.outcomeId} class="mt-24">
 				<div class="max-w-3xl">
-					<h2 class="text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-tight text-[#121414]">{content.outcomeTitle}</h2>
+					<h2 class="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">{content.outcomeTitle}</h2>
 					<p class="mt-6 text-lg leading-8 text-slate-600">{content.outcomeBody}</p>
 				</div>
-				<div class="mt-10 grid gap-px lg:grid-cols-3">
-					{content.deliverables.map((item) => (
-						<article class="min-h-56 bg-[#f5f7f3] p-7">
-							<h3 class="text-xl font-semibold leading-snug text-[#121414]">{item.title}</h3>
+				<div class="mt-10 grid gap-6 lg:grid-cols-3">
+					{content.deliverables.map((item, index) => (
+						<article class="min-h-56 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-purple-200 hover:shadow-lg">
+							<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-purple-600" aria-hidden="true">
+								<div set:html={renderIcon(deliverableIcons[index] ?? Route)} />
+							</span>
+							<h3 class="mt-6 text-xl font-semibold leading-snug text-slate-900">{item.title}</h3>
 							<p class="mt-4 text-sm leading-6 text-slate-600">{item.copy}</p>
 						</article>
 					))}
 				</div>
 			</section>
 
-			<section class="mt-14 bg-[#121414] p-8 text-white sm:p-12 lg:p-16">
-				<h2 class="max-w-3xl text-[clamp(2.125rem,5vw,3.625rem)] font-semibold leading-[1.03]">
-					{content.finalTitle}
-				</h2>
-				<p class="mt-6 max-w-2xl text-lg leading-8 text-[#dfe8dc]">{content.finalBody}</p>
-				<a
-					class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-white bg-white px-6 text-sm font-semibold text-[#121414] transition hover:bg-[#f5f7f3]"
-					href={mailHref}
-				>
-					{content.finalCta}
-				</a>
+			<section class="mt-16 overflow-hidden rounded-3xl bg-slate-900 p-8 text-white shadow-xl shadow-slate-900/10 sm:p-12 lg:p-16">
+				<div class="relative">
+					<div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-purple-500/25 blur-3xl" aria-hidden="true" />
+					<h2 class="relative max-w-3xl text-[clamp(2.125rem,5vw,3.625rem)] font-semibold leading-[1.03]">
+						{content.finalTitle}
+					</h2>
+					<p class="relative mt-6 max-w-2xl text-lg leading-8 text-slate-300">{content.finalBody}</p>
+					<a
+						class="relative mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-white bg-white px-6 text-sm font-semibold text-purple-600 shadow-sm transition hover:bg-purple-50 hover:text-purple-700"
+						href={mailHref}
+					>
+						{content.finalCta}
+					</a>
+				</div>
 			</section>
 		</div>
 	</main>
