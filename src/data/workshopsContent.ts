@@ -147,7 +147,7 @@ export const workshopsContent = {
 			body: "Book a no-strings intro. We'll recommend the workshop that matches your team and goals.",
 			button: {
 				label: 'Book a call',
-				href: 'mailto:hello@vibeperform.com',
+				href: 'mailto:contact@vibeperform.com',
 			},
 		},
 	},
@@ -298,7 +298,7 @@ export const workshopsContent = {
 				'Buche hier ein unverbindliches Kennenlernen. Wir empfehlen dir den richtigen Workshop für euer Team und Ziel.',
 			button: {
 				label: 'Gespräch buchen',
-				href: 'mailto:hello@vibeperform.com',
+				href: 'mailto:contact@vibeperform.com',
 			},
 		},
 	},

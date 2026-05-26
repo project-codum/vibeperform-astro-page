@@ -27,7 +27,7 @@ Rebuild the existing React landing page defined in `docs/landingpage.tsx` as an 
    - Centered layout with `text-center`.
    - Heading text exactly “KI schnell nutzbar machen – ohne große Projekte, ohne Risiko.” with classes `text-4xl ... sm:text-6xl`.
    - Supporting paragraph copy verbatim, `mt-6 text-lg leading-8 text-slate-400 max-w-3xl mx-auto`.
-   - CTA button linking to `mailto:hello@vibeperform.com`, classes `rounded-md bg-purple-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline ... transition-colors duration-200`.
+   - CTA button linking to `mailto:contact@vibeperform.com`, classes `rounded-md bg-purple-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline ... transition-colors duration-200`.
 7. “Was wir liefern” section:
    - Section spacing `mt-24 sm:mt-32`; inner heading, paragraph text as in React.
    - 4-item responsive grid `grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4`.
@@ -59,7 +59,7 @@ Rebuild the existing React landing page defined in `docs/landingpage.tsx` as an 
 15. Footer:
     - Wrapper `mx-auto max-w-7xl px-6 lg:px-8 mt-16 sm:mt-24 pb-12`.
     - Top border `border-t border-slate-700 pt-8 text-center`.
-    - Contact area with label “Kontakt:”, email `hello@vibeperform.com` (mailto link, purple hover), website link `https://vibeperform.com` (opens in new tab with `target="_blank"` and `rel="noopener noreferrer"`), divider `|`.
+    - Contact area with label “Kontakt:”, email `contact@vibeperform.com` (mailto link, purple hover), website link `https://vibeperform.com` (opens in new tab with `target="_blank"` and `rel="noopener noreferrer"`), divider `|`.
     - Closing note `text-sm text-slate-500 bg-slate-800/50 p-3 rounded-md inline-block` containing copy about sharing the One-Pager.
 16. Iconography must use the same components from `./components/Icons` (or Astro equivalent path). Ensure all icons receive appropriate `aria-hidden` when decorative and class names for sizing.
 17. All sections must inherit the responsive spacing from Tailwind classes exactly as in the React version (`mt-24 sm:mt-32`, `max-w-*`, grid breakpoint classes, etc.) to guarantee parity without relying on custom CSS.

@@ -22,13 +22,13 @@
 
 - **Page inventory:** `index.astro` and `de/index.astro` already load localized data via `HomePage` and `homeContent`. `ai-strategy.astro` and `de/ki-strategie.astro` load `strategyContent`. `about-us.astro`, `de/ueber-uns.astro`, `workshops.astro`, and `de/workshops.astro` contain inline copy that must migrate to data modules.
 - **Shared dependencies:** All pages rely on `homeContent.<locale>.nav` when rendering `NavBar`, alongside locale-specific `homeHref`/`alternateLocaleHref` permutations.
-- **Content consistency callouts:** Existing CTAs use `mailto:hello@vibeperform.com`; German pages include umlaut-less spellings (e.g., `Ueber`) that must stay unchanged in copy and routes.
+- **Content consistency callouts:** Existing CTAs use `mailto:contact@vibeperform.com`; German pages include umlaut-less spellings (e.g., `Ueber`) that must stay unchanged in copy and routes.
 - **Typing patterns:** `homeContent` and `strategyContent` both rely on `as const` exports with derived `Locale` and `Content` types. Nested structures are typed implicitly via the literal, ensuring TypeScript infers readonly string arrays.
 - **Proposed About/Workshops schema:** New data modules will export `content = { en: { nav, metaTitle, hero: { kicker, title, intro }, highlights/cards, cta }, ... } as const`, along with `Locale`/`Content` types. `nav` will point to `homeContent.<locale>.nav` so navigation text continues to source from a single definition while living alongside page copy.
 - **Typing alignment:** Continue to derive types from the literal export, optionally exporting helper interfaces if reuse emerges; no new shared type files required yet.
 - **Assumptions:** Team is comfortable with the `as const` pattern and derived types; future locales can extend the same shapes without additional tooling.
 - **New data modules:** `aboutContent` and `workshopsContent` now export locale-keyed objects with derived `Locale`/`Content` types to enforce field completeness.
-- **Translation check:** German entries mirror existing wording (including ASCII transliterations like `Ueber`, `rueckwaerts`) and retain shared CTA routes (`mailto:hello@vibeperform.com`).
+- **Translation check:** German entries mirror existing wording (including ASCII transliterations like `Ueber`, `rueckwaerts`) and retain shared CTA routes (`mailto:contact@vibeperform.com`).
 - **Page refactors (EN):** `about-us.astro` and `workshops.astro` now import their respective content modules, destructure localized data, and render with mapped sections and dynamic meta titles.
 - **Page refactors (DE):** `de/ueber-uns.astro` and `de/workshops.astro` mirror the English pattern using localized data exports and preserve existing transliterated copy.
 - **Validation status:** `npm run build` currently fails because Astro requires Node >= 18.20.8 (local environment reports v18.15.0).

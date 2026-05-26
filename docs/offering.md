@@ -200,7 +200,7 @@ Ergebnis: **Zeitgewinn, Qualität, Umsatzhebel** – nachweisbar an klaren KPIs.
 ### Kontakt
 
 **VibePerform – KI-Beratung für den Mittelstand**
-[hello@vibeperform.com](mailto:hello@vibeperform.com) • [www.vibeperform.com](http://www.vibeperform.com)
+[contact@vibeperform.com](mailto:contact@vibeperform.com) • [www.vibeperform.com](http://www.vibeperform.com)
 
 > **Ready, steady, deploy.** Von der Idee zur Wirkung – in Wochen, nicht Monaten.
 

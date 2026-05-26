@@ -69,7 +69,7 @@ const App: React.FC = () => {
 						</p>
 						<div className="mt-10 flex items-center justify-center gap-x-6">
 							<a
-								href="mailto:hello@vibeperform.com"
+								href="mailto:contact@vibeperform.com"
 								className="rounded-md bg-purple-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 transition-colors duration-200"
 							>
 								Intro-Call vereinbaren
@@ -236,8 +236,8 @@ const App: React.FC = () => {
 					<div className="border-t border-slate-700 pt-8 text-center">
 						<div className="mb-4">
 							<p className="text-base text-slate-400">Kontakt:</p>
-							<a href="mailto:hello@vibeperform.com" className="font-semibold text-purple-400 hover:text-purple-300">
-								hello@vibeperform.com
+							<a href="mailto:contact@vibeperform.com" className="font-semibold text-purple-400 hover:text-purple-300">
+								contact@vibeperform.com
 							</a>
 							<span className="mx-2 text-slate-600">|</span>
 							<a
