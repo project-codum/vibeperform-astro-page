@@ -15,65 +15,52 @@ interface Props {
 const { content, homeHref, alternateLocaleHref, currentLocale } = Astro.props as Props;
 const { nav, hero, valueSection, offeringsIntro, offerings, scorecard, finalCta } = content;
 const locale = currentLocale === 'de' ? 'de' : 'en';
-const nextMovesLabel = locale === 'de' ? 'Nächste Schritte' : 'Next moves';
 const [heroScenario, ...otherScenarios] = scorecard.scenarios;
 const scenarioList = otherScenarios.length ? otherScenarios : scorecard.scenarios;
-const heroCardTitles = ['Prompt Engineering', 'Explore Workshop', 'Design Workshop'];
-const heroCardDescriptions = heroCardTitles.map((_, index) => {
-	if (index === 1) {
-		return locale === 'de'
-			? "Wir identifizieren gemeinsam, wo in euren Arbeitsabläufen Potenzial für KI steckt. Dem Explore Workshop folgt der 'Design'-Workshop."
-			: 'Together we surface where your workflows have the most AI potential. The Design Workshop follows the Explore session.';
-	}
-	if (index === 2) {
-		return locale === 'de'
-			? "Wir entwickeln ein Lösungsszenario mit KI für den priorisierten Use-Case. Dieser Workshop baut auf dem 'Explore'-Workshop auf."
-			: "We design an AI-enabled solution scenario for the prioritised use case. This session builds on the Explore workshop.";
-	}
-	return heroScenario.description;
-});
-const designFocusOverrides = {
-	de: ['Was brauchen die Nutzer der Lösung?', 'Wie sieht der neue Ablauf aus?', 'Wie wird Erfolg gemessen?'],
-	en: ['Who uses the solution?', 'What does the new workflow look like?', 'How do we measure success?'],
-} as const;
-const promptFocusOverrides = {
-	de: ['Was will ich erreichen?', 'Was sind die Best Practices?', 'Wie kann ich Kontext nutzen?'],
-	en: ['What do I want to achieve?', 'What are the best practices?', 'How can I leverage context?'],
-} as const;
-const promptResultsOverrides = {
-	de: [
-		'Kennenlernen von verschiedenen Tools',
-		'Direktes Feedback zu euren Prompts',
-		'Best Practices abgestimmt auf eure Bereiche',
-	],
-	en: [
-		'Frameworks for text, image, data, and automation prompts',
-		'Instant feedback on your prompts',
-		'Guides tailored to your teams and workflows',
-	],
-} as const;
-const designResultsOverrides = {
-	de: [
-		'Zukünftiger Prozess mit KI-Unterstützung',
-		'Feature-Set und Datenbedarf',
-		'Vertrauens- und Qualitätskriterien fürs Team',
-	],
-	en: [
-		'Future-state workflow with AI in the loop',
-		'Defined feature set and data requirements',
-		'Trust and quality criteria for the team',
-	],
-} as const;
-
-const exploreResultsOverrides = {
-	de: [
-		'Übersicht über eure größten Pain Points',
-		'Shortlist an KI-/Automations-Ideen',
-		'Empfehlung: Womit starten und warum',
-	],
-	en: ['Map of current bottlenecks', 'Shortlist of AI/automation ideas', 'Recommendation on where to start and why'],
-} as const;
-
+const heroCards = [
+	{
+		title: 'Explore Workshop',
+		image: '/workshop2.webp',
+		description:
+			locale === 'de'
+				? "Wir identifizieren gemeinsam, wo in euren Arbeitsabläufen Potenzial für KI steckt. Dem Explore Workshop folgt der 'Design'-Workshop."
+				: 'Together we surface where your workflows have the most AI potential. The Design Workshop follows the Explore session.',
+		focus: heroScenario.scoreFocus,
+		results: [
+			...(locale === 'de'
+				? [
+						'Übersicht über eure größten Pain Points',
+						'Shortlist an KI-/Automations-Ideen',
+						'Empfehlung: Womit starten und warum',
+					]
+				: ['Map of current bottlenecks', 'Shortlist of AI/automation ideas', 'Recommendation on where to start and why']),
+		],
+	},
+	{
+		title: 'Design Workshop',
+		image: '/workshop3.webp',
+		description:
+			locale === 'de'
+				? "Wir entwickeln ein Lösungsszenario mit KI für den priorisierten Use-Case. Dieser Workshop baut auf dem 'Explore'-Workshop auf."
+				: "We design an AI-enabled solution scenario for the prioritised use case. This session builds on the Explore workshop.",
+		focus:
+			locale === 'de'
+				? ['Was brauchen die Nutzer der Lösung?', 'Wie sieht der neue Ablauf aus?', 'Wie wird Erfolg gemessen?']
+				: ['Who uses the solution?', 'What does the new workflow look like?', 'How do we measure success?'],
+		results:
+			locale === 'de'
+				? [
+						'Zukünftiger Prozess mit KI-Unterstützung',
+						'Feature-Set und Datenbedarf',
+						'Vertrauens- und Qualitätskriterien fürs Team',
+					]
+				: [
+						'Future-state workflow with AI in the loop',
+						'Defined feature set and data requirements',
+						'Trust and quality criteria for the team',
+					],
+	},
+];
 const valueIcons = {
 	lightbulb: Lightbulb,
 	'user-round-cog': UserRoundCog,
@@ -128,89 +115,42 @@ const renderValueIcon = (key?: keyof typeof valueIcons | string) => {
 										: 'We run workshops on-site in and around Munich as well as remotely.'}
 								</p>
 						</div>
-						<div class="grid gap-6 lg:grid-cols-3">
-						{heroCardTitles.map((title, index) => (
+						<div class="grid gap-6 lg:grid-cols-2">
+						{heroCards.map((card) => (
 							<div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
 								<div class="h-48 w-full overflow-hidden bg-slate-100 sm:h-56">
 									<img
-										src={
-											index === 0
-												? '/workshop1.webp'
-												: index === 1
-													? '/workshop2.webp'
-													: '/workshop3.webp'
-										}
-										alt={title}
+										src={card.image}
+										alt={card.title}
 										class="h-full w-full object-cover"
 										loading="lazy"
 										decoding="async"
 									/>
 								</div>
 								<div class="space-y-6 p-6">
-										<p class="text-lg font-semibold text-slate-900">{title}</p>
+										<p class="text-lg font-semibold text-slate-900">{card.title}</p>
 										<p class="text-sm leading-relaxed text-slate-600">
-												{index === 0
-													? locale === 'de'
-														? 'Wir machen euer Team prompt-stark – für Text, Bild, und Prozesse. Inhalte und Beispiele passen wir an euren Bereich an (Marketing, Vertrieb, HR, ...).'
-														: 'We level up your team’s prompt skills across text, image, and workflows, tailoring examples to your domain.'
-													: heroCardDescriptions[index] ?? heroScenario.description}
+												{card.description}
 										</p>
 										<div class="grid gap-2">
-											{heroScenario.scoreFocus.map((focus, focusIndex) => (
+											{card.focus.map((focus) => (
 												<div class="rounded-2xl border border-transparent bg-slate-50 px-3 py-2 text-sm text-slate-600">
-													{index === 0
-														? promptFocusOverrides[locale][focusIndex] ?? focus
-														: index === 2
-															? designFocusOverrides[locale][focusIndex] ?? focus
-															: focus}
+													{focus}
 												</div>
 											))}
 										</div>
 										{heroScenario.nextMoves?.length ? (
 											<div class="rounded-2xl border border-purple-200 bg-purple-50 p-4 text-sm text-slate-700">
 												<p class="text-xs font-semibold uppercase tracking-[0.25em] text-purple-700">
-													{index === 0 || index === 1 || index === 2
-														? locale === 'de'
-															? 'Ergebnis'
-															: 'Outcome'
-														: nextMovesLabel}
+													{locale === 'de' ? 'Ergebnis' : 'Outcome'}
 												</p>
 												<ul class="mt-3 space-y-2">
-													{index === 0 ? (
-														<>
-															{promptResultsOverrides[locale].map((line) => (
-																<li class="flex gap-3">
-																	<span aria-hidden="true" class="mt-2 h-1.5 w-1.5 rounded-full bg-purple-500" />
-																	<span>{line}</span>
-																</li>
-															))}
-														</>
-													) : index === 1 ? (
-														<>
-															{exploreResultsOverrides[locale].map((line) => (
-																<li class="flex gap-3">
-																	<span aria-hidden="true" class="mt-2 h-1.5 w-1.5 rounded-full bg-purple-500" />
-																	<span>{line}</span>
-																</li>
-															))}
-														</>
-													) : index === 2 ? (
-														<>
-															{designResultsOverrides[locale].map((line) => (
-																<li class="flex gap-3">
-																	<span aria-hidden="true" class="mt-2 h-1.5 w-1.5 rounded-full bg-purple-500" />
-																	<span>{line}</span>
-																</li>
-															))}
-														</>
-													) : (
-														heroScenario.nextMoves.map((move) => (
-															<li class="flex gap-3">
-																<span aria-hidden="true" class="mt-2 h-1.5 w-1.5 rounded-full bg-purple-500" />
-																<span>{move}</span>
+													{card.results.map((line) => (
+														<li class="flex gap-3">
+															<span aria-hidden="true" class="mt-2 h-1.5 w-1.5 rounded-full bg-purple-500" />
+															<span>{line}</span>
 														</li>
-													))
-												)}
+													))}
 											</ul>
 										</div>
 									) : null}
