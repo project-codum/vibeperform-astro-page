@@ -80,16 +80,16 @@ export const landingHighlightsContent = {
           ],
         },
         {
-          title: "Vertriebs-Copilot (Next Best Action)",
+          title: "Vertriebs-Copilot (Entscheidungshilfe)",
           imageSrc: "/example2.png",
           imageAlt: "Vertriebs-Copilot Beispiel",
           description:
             "Wir priorisieren Leads, fassen Interaktionen zusammen und schlagen nächste Schritte vor.",
           highlight: "+10–20 % Conversion, −30 % Admin-Aufwand.",
           examples: [
-            "Lead-Priorisierung: Scoring aus CRM-Daten, Website-Signalen und E-Mail-Engagement.",
-            "Kontakt-Zusammenfassungen: Mails/Calls/Meetings als CRM-Notiz in einer Minute.",
-            "Folgeaktionen: Vorschläge inklusive Mail-/Call-Entwürfen sowie Termin- und Task-Anlage.",
+            "Lead-Priorisierung: Bewertung aus CRM-Daten, Website-Signalen und E-Mail-Engagement.",
+            "Kontakt-Zusammenfassungen: Mails/Anrufe/Termine als CRM-Notiz in einer Minute.",
+            "Folgeaktionen: Vorschläge inklusive Mail-/Anruf-Entwürfen sowie Terminanlage.",
           ],
         },
         {
@@ -110,10 +110,10 @@ export const landingHighlightsContent = {
     security: {
       heading: "Datenschutz & Sicherheit",
       body: [
-        "Wir arbeiten DSGVO-konform, nutzen sichere Setups wie isolierte Tenants, API-basierte Verarbeitung und Datenminimierung und schließen bei Bedarf NDA. Private Cloud und On-Prem-Szenarien sind Teil unseres Werkzeugkastens.",
+        "Wir arbeiten DSGVO-konform, nutzen sichere Setups wie isolierte Tenants, API-basierte Verarbeitung und Datenminimierung. Private Cloud und On-Prem-Szenarien sind Teil unseres Werkzeugkastens.",
       ],
       highlight:
-        "Kein Training auf euren proprietären Daten ohne ausdrückliche Freigabe.",
+        "Kein Training auf Ihren proprietären Daten.",
     },
     audience: {
       heading: "Für wen ist unser Angebot gemacht?",

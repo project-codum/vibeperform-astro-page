@@ -16,8 +16,8 @@ export const homeContent = {
 		hero: {
 			kicker: 'AI consulting & implementation',
 			title: '',
-			rotatingWords: ['Understand AI.', 'Seize opportunities.', 'Gain efficiency.'],
-			subtitle: 'We make AI & automation actionable for SMBs in and around Munich.',
+			rotatingWords: ['Independent advice.', 'On-site analysis.', 'Turnkey implementation.'],
+			subtitle: 'The all-in-one AI solution for SMBs: vendor-independent consulting, on-site workshop analysis, and turnkey implementation that turns AI into a tangible competitive advantage.',
 			primaryCta: 'Get in touch',
 			primaryHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
 			secondaryCta: 'How we work',
@@ -30,10 +30,10 @@ export const homeContent = {
 			],
 		},
 		features: {
-			kicker: 'From idea to implementation.',
-			heading: 'How we work',
+			kicker: 'All-in-one for SMBs.',
+			heading: 'How we turn AI into advantage',
 			subheading:
-				'We provide end-to-end: understand the real problems, choose or build the right solutions, embed them in day-to-day work, and make them measurable.',
+				'We analyse your processes on site, advise independently of vendors, and implement the right solution turnkey - so your team can feel the impact in daily work quickly.',
 			items: [],
 			cta: {
 				heading: 'Sound like the right approach?',
@@ -122,8 +122,8 @@ export const homeContent = {
 		hero: {
 			kicker: 'KI Beratung & Umsetzung',
 			title: '',
-			rotatingWords: ['KI verstehen.', 'Chancen nutzen.', 'Effizienz gewinnen.'],
-			subtitle: 'Wir machen KI & Automatisierung für KMU in und rund um München umsetzbar.',
+			rotatingWords: ['Unabhängig beraten.', 'Vor Ort analysieren.', 'Schlüsselfertige Umsetzung.'],
+			subtitle: 'Der KI-Partner für KMU: Alles aus einer Hand. Von unabhängiger Beratung über Vor-Ort-Workshops bis zur fertigen Implementierung, damit Ihr Wettbewerbsvorteil direkt spürbar wird.',
 			primaryCta: 'Kontakt aufnehmen',
 			primaryHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
 			secondaryCta: 'So arbeiten wir',
@@ -136,10 +136,10 @@ export const homeContent = {
 			],
 		},
 		features: {
-			kicker: 'Von der Idee bis zur Umsetzung.',
-			heading: 'So arbeiten wir',
+			kicker: 'All-in-one für KMU.',
+			heading: 'So wird KI zum Wettbewerbsvorteil',
 			subheading:
-				'Wir bieten End-to-End: echte Probleme verstehen, passende Lösungen auswählen oder bauen, im Alltag verankern und messbar machen.',
+				'Wir analysieren eure Abläufe vor Ort, beraten anbieterunabhängig und implementieren die passende Lösung schlüsselfertig - damit euer Team den Nutzen schnell im Alltag spürt.',
 			items: [],
 			cta: {
 				heading: 'Klingt nach dem richtigen Ansatz?',

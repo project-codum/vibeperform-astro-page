@@ -1,0 +1,19 @@
+---
+const targetHref = '/de/explore-workshop';
+---
+
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="robots" content="noindex" />
+		<meta http-equiv="refresh" content={`0;url=${targetHref}`} />
+		<link rel="canonical" href={targetHref} />
+		<title>Weiterleitung zum Explore Workshop</title>
+		<script is:inline define:vars={{ targetHref }}>
+			window.location.replace(`${targetHref}${window.location.search}${window.location.hash}`);
+		</script>
+	</head>
+	<body>
+		<a href={targetHref}>Weiter zum Explore Workshop</a>
+	</body>
+</html>

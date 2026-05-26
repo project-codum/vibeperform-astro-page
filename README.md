@@ -47,6 +47,8 @@ src/
     index.astro         # Locale preference redirect
     en/index.astro      # English landing page
     de/index.astro      # German landing page
+    en/explore-workshop.astro # English Phase 1 Workshop page
+    de/explore-workshop.astro # German Phase 1 Workshop page
     en/workshops.astro  # English detail page
     en/about-us.astro   # English detail page
     de/workshops.astro  # German counterpart
@@ -56,12 +58,12 @@ styles/
   global.css            # Tailwind base styles + custom utilities
 ```
 
-Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under `/de/...`; English pages live under `/en/...`. Legacy English root paths such as `/workshops` redirect to their `/en/...` equivalents.
+Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under `/de/...`; English pages live under `/en/...`. German is the default locale, so new canonical pages should still use the `/de/` prefix. Legacy English root paths such as `/workshops` redirect to their `/en/...` equivalents; unprefixed German-first campaign paths such as `/explore-workshop` redirect to `/de/explore-workshop`.
 
 ## 4. Navigation & Routing Best Practices
 - `NavBar.astro` is the single source of truth for navigation markup. When creating new pages, import it instead of rebuilding headers.
 - Set `homeHref` to `/de/` or `/en/` according to the page locale.
-- Each page’s locale toggle (`alternateLocaleHref`) should point to the equivalent page in the other language. Keep these links absolute to the project root (e.g. `/de/workshops` or `/en/workshops`).
+- Each page’s locale toggle (`alternateLocaleHref`) should point to the equivalent page in the other language. Keep these links absolute to the project root (e.g. `/de/workshops`, `/en/workshops`, `/de/explore-workshop`, or `/en/explore-workshop`).
 - The shared nav stores explicit language toggles in `localStorage` under `vibeperform:locale`; `/` uses that value to route returning visitors, with `/de/` as the fallback.
 - Use `npm run build` to validate that generated asset paths respect the base path before publishing.
 
