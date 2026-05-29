@@ -81,11 +81,13 @@ Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under 
   - `homeContent.ts` drives the navigation and home page hero/features.
   - `strategyContent.ts` feeds the AI strategy detail component.
   - `aboutContent.ts` and `workshopsContent.ts` export locale-keyed objects (`en`/`de`) that power the About and Workshops pages.
+  - `exploreWorkshopContent.ts` feeds the dedicated Explore Workshop page and the agent-readable Markdown layer.
 - Each content module exports both the literal data (`as const`) and derived TypeScript types to catch missing fields at build time. Reuse these types when wiring props into components.
 - Honour the structure:
   - `nav.links` controls both label text and target URLs. Use absolute URLs that include `/vibeperform-astro-page` so navigation works in production.
   - Locale objects should expose the same keys (`hero`, `values`, `cta`, etc.) across languages to keep toggles symmetrical.
 - When adding or updating copy, edit the relevant data module rather than the `.astro` page. Rendering files should only orchestrate layout and pass the correct locale slice.
+- Agent-readable files are generated from the same content sources. Run `npm run generate:agent` to refresh `public/llms.txt`, `public/llms-full.txt`, `public/agent/**`, `public/robots.txt`, and `public/sitemap.xml`; `npm run build` does this automatically before Astro builds.
 - When adding a new locale:
   1. Duplicate the page structure under a new directory (e.g., `src/pages/fr/`).
   2. Extend each relevant content module with the new locale key.

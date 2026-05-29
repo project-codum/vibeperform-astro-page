@@ -11,7 +11,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.playwright-mcp/
 
+# generated local previews
+.tmp_offer_render/
 
 # environment variables
 .env

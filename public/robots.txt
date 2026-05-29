@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.vibeperform.com/sitemap.xml
+
+# Agent-readable content:
+# LLM-Content: https://www.vibeperform.com/llms.txt
+# LLM-Full-Content: https://www.vibeperform.com/llms-full.txt

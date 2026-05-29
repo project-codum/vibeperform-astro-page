@@ -3,6 +3,7 @@ import '../../../styles/global.css';
 import NavBar from '../../../components/NavBar.astro';
 import Footer from '../../../components/Footer.astro';
 import { homeContent } from '../../../data/homeContent';
+import { absoluteUrl } from '../../../lib/siteMetadata';
 
 const locale = 'en';
 const nav = homeContent[locale].nav;
@@ -34,6 +35,8 @@ const heroKicker = "Insights & Strategy";
 const heroTitle = "AI & automation in practice";
 const heroSubtitle = "Practical advice, concepts, and realities of implementing artificial intelligence for small and medium-sized enterprises.";
 const readMoreText = "Read article";
+const canonicalUrl = absoluteUrl('/en/blog');
+const alternateUrl = absoluteUrl(alternateLocaleHref);
 ---
 
 <html lang={locale}>
@@ -44,6 +47,10 @@ const readMoreText = "Read article";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<meta name="description" content={heroSubtitle} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="en" href={canonicalUrl} />
+		<link rel="alternate" hreflang="de" href={alternateUrl} />
+		<link rel="alternate" hreflang="x-default" href={alternateUrl} />
 	</head>
 
 	<body class="bg-white text-slate-900 antialiased">

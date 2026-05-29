@@ -3,6 +3,7 @@ import '../../../styles/global.css';
 import NavBar from '../../../components/NavBar.astro';
 import Footer from '../../../components/Footer.astro';
 import { homeContent } from '../../../data/homeContent';
+import { absoluteUrl } from '../../../lib/siteMetadata';
 
 const locale = 'de';
 const nav = homeContent[locale].nav;
@@ -34,6 +35,8 @@ const heroKicker = "Einblicke & Strategie";
 const heroTitle = "KI & Automatisierung in der Praxis";
 const heroSubtitle = "Praxisnahe Ratschläge, Konzepte und Realitäten bei der Implementierung künstlicher Intelligenz für kleine und mittlere Unternehmen.";
 const readMoreText = "Artikel lesen";
+const canonicalUrl = absoluteUrl('/de/blog');
+const alternateUrl = absoluteUrl(alternateLocaleHref);
 ---
 
 <html lang={locale}>
@@ -44,6 +47,10 @@ const readMoreText = "Artikel lesen";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<meta name="description" content={heroSubtitle} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="de" href={canonicalUrl} />
+		<link rel="alternate" hreflang="en" href={alternateUrl} />
+		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 	</head>
 
 	<body class="bg-white text-slate-900 antialiased">

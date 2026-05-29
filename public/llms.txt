@@ -1,0 +1,29 @@
+# Vibeperform
+
+Vibeperform ist ein KI-Beratungs- und Umsetzungspartner für kleine und mittlere Unternehmen. Die kanonische agentenlesbare Sprache ist Deutsch. Englische Webseiten bleiben als Alternativen verlinkt.
+
+## Wichtige Agentenressourcen
+
+- [Vollständiger Agenten-Kontext](https://www.vibeperform.com/llms-full.txt) — Ein Markdown-Bundle der wichtigsten deutschen Inhalte.
+- [Startseite](https://www.vibeperform.com/agent/index.md) — Positionierung, Zielgruppen, Use Cases und Kontakt.
+- [Workshops](https://www.vibeperform.com/agent/workshops.md) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
+- [Strategischer Explore Workshop](https://www.vibeperform.com/agent/explore-workshop.md) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
+- [Über Vibeperform](https://www.vibeperform.com/agent/about.md) — Team, Arbeitsweise und Kontakt.
+
+## Blog
+
+- [KI-Agenten: So wird aus dem Hype echter Geschäftsnutzen](https://www.vibeperform.com/agent/blog/ki-agenten-geschaeftsnutzen-roi.md) — Warum KI-Agenten für Münchner KMUs erst dann echten ROI liefern, wenn Datenqualität, Governance und Mitarbeiterakzeptanz zusammenspielen.
+- [KI und seine Fähigkeit logisch zu Denken („Reasoning“) sind der Schlüssel zum Wettbewerbsvorteil](https://www.vibeperform.com/agent/blog/ki-denkfaehigkeit-wettbewerbsvorteil.md) — Wie der Münchner Mittelstand und Tech-Startups Reasoning-Fähigkeiten von KI nutzen können, um echte Wettbewerbsvorteile zu erzielen.
+- [Der 4-Phasen-Guide für KI-Erfolg im Münchner Mittelstand](https://www.vibeperform.com/agent/blog/ki-erfolg-muenchner-mittelstand-4-phasen.md) — Wie Münchner KMUs Künstliche Intelligenz strukturiert von der ersten Idee bis zur echten Wertschöpfung bringen.
+
+## Kontakt und Aktionen
+
+- E-Mail: contact@vibeperform.com
+- Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
+- Website: https://www.vibeperform.com/de/
+
+## Hinweise für Agenten
+
+- Verwende die Dateien unter /agent/ für kompakten Inhalt ohne Navigation, Layout, JavaScript oder Styling.
+- Verwende /de/ als kanonische Website-Sprache für Zusammenfassungen und Zitate.
+- Verwende die englischen Alternativ-URLs nur, wenn ein Nutzer explizit englische Inhalte benötigt.
