@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 import { homeContent } from '../data/homeContent';
 import Button from '../components/Button.astro';
+import { absoluteUrl, blogPostingSchema, jsonLd } from '../lib/siteMetadata';
 
 const { frontmatter } = Astro.props;
 const {
@@ -13,6 +14,7 @@ const {
 	author,
 	readTime,
 	coverImage,
+	excerpt,
 	lang,
 	alternateLocaleHref,
 } = frontmatter;
@@ -39,6 +41,17 @@ const ctaBody = locale === 'de'
 const ctaButtonText = locale === 'de'
 	? 'Erstgespräch vereinbaren'
 	: 'Book a discovery call';
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const alternateUrl = absoluteUrl(alternateLocaleHref);
+const structuredData = blogPostingSchema({
+	title,
+	description: excerpt,
+	pathname: Astro.url.pathname,
+	image: coverImage,
+	datePublished: date,
+	author,
+	locale,
+});
 ---
 
 <html lang={locale}>
@@ -48,6 +61,12 @@ const ctaButtonText = locale === 'de'
 		<link rel="icon" type="image/svg+xml" href={faviconHref} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} — Vibeperform Blog</title>
+		{excerpt ? <meta name="description" content={excerpt} /> : null}
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang={locale} href={canonicalUrl} />
+		<link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={alternateUrl} />
+		<link rel="alternate" hreflang="x-default" href={locale === 'de' ? canonicalUrl : alternateUrl} />
+		<script type="application/ld+json" set:html={jsonLd(structuredData)} />
 	</head>
 
 	<body class="bg-white text-slate-900 antialiased">

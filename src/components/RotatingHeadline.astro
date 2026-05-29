@@ -20,6 +20,8 @@ const hasPrefix = prefix.length > 0;
 	data-rotator-root
 	aria-live="polite"
 	data-has-prefix={hasPrefix ? 'true' : 'false'}
+	data-rotator-words={JSON.stringify(words)}
+	data-rotator-interval={interval}
 >
 	{hasPrefix ? (
 		<span class="rotating-headline__prefix">{prefix}</span>
@@ -44,8 +46,8 @@ const hasPrefix = prefix.length > 0;
 </span>
 
 {hasWords && words.length > 1 ? (
-	<script is:inline define:vars={{ words, interval }}>
-		const root = document.currentScript?.previousElementSibling;
+	<script>
+		const setupRotatingHeadline = (root) => {
 		if (!(root instanceof HTMLElement)) {
 			console.warn('RotatingHeadline: host element not found');
 			return;
@@ -64,7 +66,15 @@ const hasPrefix = prefix.length > 0;
 			return;
 		}
 
-		const entries = Array.isArray(words) ? [...words] : [];
+		let parsedWords = [];
+		try {
+			parsedWords = JSON.parse(root.dataset.rotatorWords ?? '[]');
+		} catch (_error) {
+			parsedWords = [];
+		}
+
+		const entries = Array.isArray(parsedWords) ? [...parsedWords] : [];
+		const interval = Number.parseInt(root.dataset.rotatorInterval ?? '2000', 10) || 2000;
 		if (entries.length < 2) {
 			return;
 		}
@@ -179,6 +189,9 @@ const hasPrefix = prefix.length > 0;
 
 		// Sofortiger erster Wechsel
 		requestAnimationFrame(tick);
+	};
+
+	document.querySelectorAll('[data-rotator-root]').forEach(setupRotatingHeadline);
 	</script>
 ) : null}
 

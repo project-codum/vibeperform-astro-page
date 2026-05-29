@@ -1,11 +1,22 @@
 ---
 import '../../../styles/global.css';
 import ExploreWorkshopPage from '../../../components/ExploreWorkshopPage.astro';
+import { exploreWorkshopContent } from '../../../data/exploreWorkshopContent';
+import { absoluteUrl, jsonLd, serviceSchema } from '../../../lib/siteMetadata';
 
 const title = 'Phase 1 Workshop | Strategic Discovery Sprint | Vibeperform';
 const description =
 	'Strategic Discovery Sprint: AI roadmap, use-case prioritization, and clear technical prerequisites for effective AI solutions.';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+const canonicalUrl = absoluteUrl('/en/workshop/explore-workshop');
+const alternateUrl = absoluteUrl('/de/workshop/explore-workshop');
+const structuredData = serviceSchema({
+	name: exploreWorkshopContent.en.title,
+	description,
+	pathname: '/en/workshop/explore-workshop',
+	locale: 'en',
+	serviceType: 'Strategic AI explore workshop',
+});
 ---
 
 <html lang="en">
@@ -15,6 +26,11 @@ const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 		<link rel="icon" type="image/svg+xml" href={faviconHref} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="en" href={canonicalUrl} />
+		<link rel="alternate" hreflang="de" href={alternateUrl} />
+		<link rel="alternate" hreflang="x-default" href={alternateUrl} />
+		<script type="application/ld+json" set:html={jsonLd(structuredData)} />
 	</head>
 	<body class="bg-white text-slate-900">
 		<ExploreWorkshopPage currentLocale="en" />

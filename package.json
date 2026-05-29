@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "generate:agent": "node scripts/generate-agent-readable.mjs",
+    "build": "npm run generate:agent && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
