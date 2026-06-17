@@ -10,9 +10,9 @@ const currentLocale: LandingLocale = locale === "de" ? "de" : "en";
 const t = landingHighlightsContent[currentLocale];
 ---
 
-<section class="section-spacing bg-slate-50">
+<section class="section-spacing bg-slate-50" data-animate="use-cases-section">
   <div class="container-responsive space-y-8">
-    <div class="space-y-3 text-center">
+    <div class="space-y-3 text-center" data-animate="use-cases-heading">
       <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
         Use Cases
       </p>
@@ -32,8 +32,8 @@ const t = landingHighlightsContent[currentLocale];
         const layoutClass = isImageRight ? "md:flex-row" : "md:flex-row-reverse";
         const imageRotateClass = isImageRight ? "md:rotate-3" : "md:-rotate-3";
         return (
-          <article class={`flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md md:items-stretch md:p-8 ${layoutClass}`}>
-            <div class="space-y-4 md:flex-1">
+          <article class={`flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md md:items-stretch md:p-8 ${layoutClass}`} data-animate="use-case-card">
+            <div class="space-y-4 md:flex-1" data-animate="use-case-copy">
               <header class="space-y-2">
                 <p class="text-xs font-semibold uppercase tracking-[0.35em] text-purple-500">
                   {locale === "de" ? "Use Case" : "Use case"}
@@ -71,13 +71,14 @@ const t = landingHighlightsContent[currentLocale];
                 </div>
               ) : null}
             </div>
-            <div class="relative overflow-hidden rounded-3xl bg-purple-50 p-4 sm:p-6 md:flex md:w-2/5 md:items-center md:justify-center">
+            <div class="relative overflow-hidden rounded-3xl bg-purple-50 p-4 sm:p-6 md:flex md:w-2/5 md:items-center md:justify-center" data-animate="use-case-media">
               {card.imageSrc ? (
                 <img
                   src={card.imageSrc}
                   alt={card.imageAlt ?? card.title}
                   class={`max-h-80 w-full origin-center rounded-2xl object-contain shadow-md md:max-h-[22rem] ${imageRotateClass}`}
                   loading="lazy"
+                  data-animate="use-case-image"
                 />
               ) : (
                 <div class="flex h-full items-center justify-center text-purple-200">

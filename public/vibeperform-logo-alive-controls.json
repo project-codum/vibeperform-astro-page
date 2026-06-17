@@ -1,0 +1,16 @@
+{
+  "controls": [
+    {
+      "sid": "bgColor",
+      "label": "Background color"
+    },
+    {
+      "sid": "pulseColor",
+      "label": "Spark pulse color"
+    },
+    {
+      "sid": "nodeColor",
+      "label": "Living node color"
+    }
+  ]
+}

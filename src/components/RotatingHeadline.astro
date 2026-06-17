@@ -220,6 +220,7 @@ const hasPrefix = prefix.length > 0;
 		line-height: inherit;
 		padding-block: 0.1em;
 		min-width: var(--rotating-headline-width, 7ch);
+		max-width: 100%;
 		min-height: calc(var(--rotating-headline-height, 1em) + 0.2em);
 		margin-inline: auto;
 	}
@@ -268,6 +269,19 @@ const hasPrefix = prefix.length > 0;
 		transform: translateY(100%);
 		z-index: 0;
 		opacity: 1;
+	}
+
+	@media (max-width: 40rem) {
+		.rotating-headline__slot {
+			width: 100%;
+			min-width: min(var(--rotating-headline-width, 7ch), 100%);
+			min-height: calc((var(--rotating-headline-height, 1em) * 2) + 0.4em);
+		}
+
+		.rotating-headline__word {
+			white-space: normal;
+			text-wrap: balance;
+		}
 	}
 
 

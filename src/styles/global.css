@@ -51,4 +51,18 @@
 		display: grid;
 		gap: clamp(1.5rem, 3vw, 2.75rem);
 	}
+
+	[data-animate="hero-kicker"],
+	[data-animate="hero-headline"],
+	[data-animate="hero-subtitle"],
+	[data-animate="hero-cta-group"],
+	[data-animate="deliverables-heading"],
+	[data-animate="deliverable-card"],
+	[data-animate="deliverable-icon"],
+	[data-animate="use-cases-heading"],
+	[data-animate="use-case-copy"],
+	[data-animate="use-case-media"],
+	[data-animate="use-case-image"] {
+		will-change: transform, opacity;
+	}
 }

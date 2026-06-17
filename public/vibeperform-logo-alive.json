@@ -1,0 +1,2527 @@
+{
+  "v": "5.7.0",
+  "fr": 60,
+  "ip": 0,
+  "op": 240,
+  "w": 640,
+  "h": 272,
+  "nm": "Vibeperform logo alive",
+  "ddd": 0,
+  "assets": [
+    {
+      "id": "logo_0",
+      "w": 505,
+      "h": 214,
+      "u": "",
+      "p": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfkAAADWCAYAAADSO/uzAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADYWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI1LTExLTA3PC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPjc3Mzg0NzM0LTFiNDEtNDgyOC05ZDA1LTA0NmI3YzcwMTRjZTwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz52aWJlcGVyZm9ybS1sb2dvIC0gMTwvcmRmOmxpPgogICA8L3JkZjpBbHQ+CiAgPC9kYzp0aXRsZT4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4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",
+      "e": 1
+    }
+  ],
+  "slots": {
+    "bgColor": {
+      "p": {
+        "a": 0,
+        "k": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "pulseColor": {
+      "p": {
+        "a": 0,
+        "k": [
+          0.62,
+          0.26,
+          1,
+          1
+        ]
+      }
+    },
+    "nodeColor": {
+      "p": {
+        "a": 0,
+        "k": [
+          0.86,
+          0.74,
+          1,
+          1
+        ]
+      }
+    }
+  },
+  "layers": [
+    {
+      "ddd": 0,
+      "ind": 1,
+      "ty": 4,
+      "nm": "living node 1",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                45
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 40,
+              "s": [
+                90
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 100,
+              "s": [
+                55
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 170,
+              "s": [
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                45
+              ]
+            }
+          ]
+        },
+        "r": {
+          "a": 0,
+          "k": 0
+        },
+        "p": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                335,
+                84,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 60,
+              "s": [
+                381,
+                128,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 120,
+              "s": [
+                334,
+                184,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 180,
+              "s": [
+                291,
+                130,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                335,
+                84,
+                0
+              ]
+            }
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                78,
+                78,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 30,
+              "s": [
+                118,
+                118,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 90,
+              "s": [
+                88,
+                88,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 150,
+              "s": [
+                122,
+                122,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 210,
+              "s": [
+                82,
+                82,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                78,
+                78,
+                100
+              ]
+            }
+          ]
+        }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "nm": "living node 1",
+          "it": [
+            {
+              "ty": "el",
+              "nm": "living node 1 ellipse",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  7,
+                  7
+                ]
+              }
+            },
+            {
+              "ty": "fl",
+              "nm": "living node 1 fill",
+              "c": {
+                "a": 0,
+                "k": {
+                  "sid": "nodeColor",
+                  "a": 0,
+                  "k": [
+                    0.86,
+                    0.74,
+                    1,
+                    1
+                  ]
+                }
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            },
+            {
+              "ty": "tr",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "a": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  100,
+                  100
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            }
+          ]
+        }
+      ],
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 2,
+      "ty": 4,
+      "nm": "living node 2",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                37
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 40,
+              "s": [
+                90
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 100,
+              "s": [
+                55
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 170,
+              "s": [
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                37
+              ]
+            }
+          ]
+        },
+        "r": {
+          "a": 0,
+          "k": 0
+        },
+        "p": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                382,
+                137,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 60,
+              "s": [
+                331,
+                181,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 120,
+              "s": [
+                289,
+                130,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 180,
+              "s": [
+                334,
+                84,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                382,
+                137,
+                0
+              ]
+            }
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                78,
+                78,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 30,
+              "s": [
+                118,
+                118,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 90,
+              "s": [
+                88,
+                88,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 150,
+              "s": [
+                122,
+                122,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 210,
+              "s": [
+                82,
+                82,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                78,
+                78,
+                100
+              ]
+            }
+          ]
+        }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "nm": "living node 2",
+          "it": [
+            {
+              "ty": "el",
+              "nm": "living node 2 ellipse",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  5,
+                  5
+                ]
+              }
+            },
+            {
+              "ty": "fl",
+              "nm": "living node 2 fill",
+              "c": {
+                "a": 0,
+                "k": {
+                  "a": 0,
+                  "k": [
+                    0.86,
+                    0.74,
+                    1,
+                    1
+                  ]
+                }
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            },
+            {
+              "ty": "tr",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "a": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  100,
+                  100
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            }
+          ]
+        }
+      ],
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 3,
+      "ty": 4,
+      "nm": "living node 3",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                50
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 40,
+              "s": [
+                90
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 100,
+              "s": [
+                55
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 170,
+              "s": [
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                50
+              ]
+            }
+          ]
+        },
+        "r": {
+          "a": 0,
+          "k": 0
+        },
+        "p": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                293,
+                128,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 60,
+              "s": [
+                336,
+                83,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 120,
+              "s": [
+                382,
+                137,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 180,
+              "s": [
+                336,
+                183,
+                0
+              ],
+              "i": {
+                "x": [
+                  1
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                293,
+                128,
+                0
+              ]
+            }
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                78,
+                78,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 30,
+              "s": [
+                118,
+                118,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 90,
+              "s": [
+                88,
+                88,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 150,
+              "s": [
+                122,
+                122,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 210,
+              "s": [
+                82,
+                82,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                78,
+                78,
+                100
+              ]
+            }
+          ]
+        }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "nm": "living node 3",
+          "it": [
+            {
+              "ty": "el",
+              "nm": "living node 3 ellipse",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  4,
+                  4
+                ]
+              }
+            },
+            {
+              "ty": "fl",
+              "nm": "living node 3 fill",
+              "c": {
+                "a": 0,
+                "k": {
+                  "a": 0,
+                  "k": [
+                    0.72,
+                    0.46,
+                    1,
+                    1
+                  ]
+                }
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            },
+            {
+              "ty": "tr",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "a": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  100,
+                  100
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            }
+          ]
+        }
+      ],
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 4,
+      "ty": 4,
+      "nm": "spark pulse",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                0
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 28,
+              "s": [
+                26
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 70,
+              "s": [
+                8
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 140,
+              "s": [
+                18
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                0
+              ]
+            }
+          ]
+        },
+        "r": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                0
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 120,
+              "s": [
+                5
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                0
+              ]
+            }
+          ]
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            337,
+            136,
+            0
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                70,
+                70,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 42,
+              "s": [
+                104,
+                104,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 92,
+              "s": [
+                82,
+                82,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 158,
+              "s": [
+                98,
+                98,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                70,
+                70,
+                100
+              ]
+            }
+          ]
+        }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "nm": "spark pulse group",
+          "it": [
+            {
+              "ty": "sh",
+              "nm": "spark pulse path",
+              "ks": {
+                "a": 0,
+                "k": {
+                  "c": true,
+                  "v": [
+                    [
+                      0,
+                      -38
+                    ],
+                    [
+                      6,
+                      -10
+                    ],
+                    [
+                      37,
+                      -1
+                    ],
+                    [
+                      7,
+                      9
+                    ],
+                    [
+                      0,
+                      38
+                    ],
+                    [
+                      -7,
+                      9
+                    ],
+                    [
+                      -37,
+                      -1
+                    ],
+                    [
+                      -6,
+                      -10
+                    ]
+                  ],
+                  "i": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "o": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "ty": "fl",
+              "nm": "spark pulse fill",
+              "c": {
+                "sid": "pulseColor",
+                "a": 0,
+                "k": [
+                  0.62,
+                  0.26,
+                  1,
+                  1
+                ]
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            },
+            {
+              "ty": "tr",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "a": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  100,
+                  100
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            }
+          ]
+        }
+      ],
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 5,
+      "ty": 4,
+      "nm": "breathing halo",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 0,
+          "k": 100
+        },
+        "r": {
+          "a": 0,
+          "k": 0
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            337,
+            136,
+            0
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                68,
+                68,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 56,
+              "s": [
+                118,
+                118,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 112,
+              "s": [
+                72,
+                72,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 176,
+              "s": [
+                108,
+                108,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                68,
+                68,
+                100
+              ]
+            }
+          ]
+        }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "nm": "halo ring",
+          "it": [
+            {
+              "ty": "el",
+              "nm": "halo ring ellipse",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  92,
+                  92
+                ]
+              }
+            },
+            {
+              "ty": "st",
+              "nm": "halo ring stroke",
+              "c": {
+                "sid": "pulseColor",
+                "a": 0,
+                "k": [
+                  0.62,
+                  0.26,
+                  1,
+                  1
+                ]
+              },
+              "o": {
+                "a": 1,
+                "k": [
+                  {
+                    "t": 0,
+                    "s": [
+                      0
+                    ],
+                    "i": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        1
+                      ]
+                    },
+                    "o": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        0
+                      ]
+                    }
+                  },
+                  {
+                    "t": 36,
+                    "s": [
+                      22
+                    ],
+                    "i": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        1
+                      ]
+                    },
+                    "o": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        0
+                      ]
+                    }
+                  },
+                  {
+                    "t": 92,
+                    "s": [
+                      0
+                    ],
+                    "i": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        1
+                      ]
+                    },
+                    "o": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        0
+                      ]
+                    }
+                  },
+                  {
+                    "t": 146,
+                    "s": [
+                      16
+                    ],
+                    "i": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        1
+                      ]
+                    },
+                    "o": {
+                      "x": [
+                        0.5
+                      ],
+                      "y": [
+                        0
+                      ]
+                    }
+                  },
+                  {
+                    "t": 240,
+                    "s": [
+                      0
+                    ]
+                  }
+                ]
+              },
+              "w": {
+                "a": 0,
+                "k": 1.6
+              },
+              "lc": 2,
+              "lj": 2
+            },
+            {
+              "ty": "tr",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "a": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  100,
+                  100
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            }
+          ]
+        }
+      ],
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 6,
+      "ty": 2,
+      "nm": "vibeperform logo base",
+      "refId": "logo_0",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 0,
+          "k": 100
+        },
+        "r": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                0
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 80,
+              "s": [
+                -0.35
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 160,
+              "s": [
+                0.28
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                0
+              ]
+            }
+          ]
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            320,
+            136,
+            0
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            252.5,
+            107,
+            0
+          ]
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "t": 0,
+              "s": [
+                100,
+                100,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 54,
+              "s": [
+                101.7,
+                101.7,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 112,
+              "s": [
+                99.6,
+                99.6,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 176,
+              "s": [
+                101.2,
+                101.2,
+                100
+              ],
+              "i": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.5
+                ],
+                "y": [
+                  0
+                ]
+              }
+            },
+            {
+              "t": 240,
+              "s": [
+                100,
+                100,
+                100
+              ]
+            }
+          ]
+        }
+      },
+      "ao": 0,
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 7,
+      "ty": 4,
+      "nm": "transparent background",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 0,
+          "k": 100
+        },
+        "r": {
+          "a": 0,
+          "k": 0
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            0,
+            0,
+            0
+          ]
+        },
+        "s": {
+          "a": 0,
+          "k": [
+            100,
+            100,
+            100
+          ]
+        }
+      },
+      "ao": 0,
+      "shapes": [
+        {
+          "ty": "gr",
+          "nm": "background group",
+          "it": [
+            {
+              "ty": "rc",
+              "nm": "background rectangle",
+              "p": {
+                "a": 0,
+                "k": [
+                  320,
+                  136
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  640,
+                  272
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              }
+            },
+            {
+              "ty": "fl",
+              "nm": "background fill",
+              "c": {
+                "sid": "bgColor",
+                "a": 0,
+                "k": [
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            },
+            {
+              "ty": "tr",
+              "p": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "a": {
+                "a": 0,
+                "k": [
+                  0,
+                  0
+                ]
+              },
+              "s": {
+                "a": 0,
+                "k": [
+                  100,
+                  100
+                ]
+              },
+              "r": {
+                "a": 0,
+                "k": 0
+              },
+              "o": {
+                "a": 0,
+                "k": 100
+              }
+            }
+          ]
+        }
+      ],
+      "ip": 0,
+      "op": 240,
+      "st": 0,
+      "bm": 0
+    }
+  ]
+}
