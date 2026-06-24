@@ -358,6 +358,19 @@ const approachSection = approachContent[locale];
               <h3 class="text-2xl font-semibold text-slate-900 sm:text-3xl">
                 {features.cta.heading}
               </h3>
+              {
+                features.cta.chat ? (
+                  <iframe
+                    id={features.cta.chat.id}
+                    src={features.cta.chat.src}
+                    title={features.cta.chat.title}
+                    style="width:100%;min-height:520px;border:0;background:transparent;"
+                    loading="eager"
+                    allow="clipboard-write"
+                    data-cmp-ab="1"
+                  />
+                ) : null
+              }
               <div class="flex flex-col gap-3 sm:flex-row sm:justify-center">
                 <a
                   class="inline-flex items-center justify-center rounded-full bg-purple-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400 sm:text-base"
@@ -385,4 +398,14 @@ const approachSection = approachContent[locale];
 
 <script>
   import "../scripts/homeAnimations";
+</script>
+
+<script>
+  window.addEventListener("message", (event) => {
+    if (event.origin !== "https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app") return;
+    if (event.data?.type !== "transparent-chat:update") return;
+    const iframe = document.getElementById("vibeperform-chat");
+    if (!iframe || typeof event.data.height !== "number") return;
+    iframe.style.height = `${Math.max(event.data.height, 520)}px`;
+  });
 </script>

@@ -45,6 +45,7 @@ export const homeContent = {
 					label: 'Explore workshops',
 					href: `${BASE_PATH}/en/workshops`,
 				},
+				chat: null,
 			},
 		},
 		useCases: {
@@ -142,7 +143,7 @@ export const homeContent = {
 				'Wir analysieren eure Abläufe vor Ort, beraten anbieterunabhängig und implementieren die passende Lösung schlüsselfertig - damit euer Team den Nutzen schnell im Alltag spürt.',
 			items: [],
 			cta: {
-				heading: 'Klingt nach dem richtigen Ansatz?',
+				heading: 'Noch Fragen? Nutzen Sie unsere KI-Assistenz',
 				primary: {
 					label: 'Kostenloses Erstgespräch vereinbaren',
 					href: 'https://calendar.app.google/utFQgw33PwJTiDk56',
@@ -150,6 +151,11 @@ export const homeContent = {
 				secondary: {
 					label: 'Workshops ansehen',
 					href: `${BASE_PATH}/de/workshops`,
+				},
+				chat: {
+					id: 'vibeperform-chat',
+					src: 'https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app/?mode=full',
+					title: 'Vibeperform Chat',
 				},
 			},
 		},
