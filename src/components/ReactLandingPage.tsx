@@ -96,7 +96,7 @@ const App: React.FC = () => {
 						</div>
 						<div className="mt-16 space-y-12">
 							<ProcessStep number="1" title="Explore Workshop" subtitle="Wertvolle KI-Ideen finden">
-								In 1 Tag (oder 2×½ Tage remote) identifizieren wir Herausforderungen, generieren Use Cases mit Karten/Leitfäden und priorisieren gemeinsam.
+								In 1 Tag vor Ort identifizieren wir Herausforderungen, generieren Use Cases mit Karten/Leitfäden und priorisieren gemeinsam.
 							</ProcessStep>
 							<ProcessStep number="2" title="Design Workshop" subtitle="To-Be-Szenario definieren">
 								Wir vertiefen 1–3 Favoriten: Journey, Daten, „Capability Idea Napkins“, Qualität/Verifikation, KPIs. Ergebnis: umsetzbarer Zielzustand.

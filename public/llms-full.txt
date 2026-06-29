@@ -133,7 +133,7 @@ Drei Bausteine. Einstieg niedrigschwellig. Kombinierbar, wenn es schnell gehen s
 
 ### Explore Session
 
-1 Stunde / remote / Geschäftsführung + Schlüsselrollen
+1 Stunde / vor Ort / Geschäftsführung + Schlüsselrollen
 
 Wir identifizieren, wo in eurem Alltag Potenzial für KI steckt: Wo geht Zeit verloren? Wo brechen Abläufe? Wo liegen Chancen für neue Aufträge? Ergebnis: 2–3 priorisierte Use Cases mit klarer Wirkung.
 
@@ -144,7 +144,7 @@ Ergebnisse:
 
 ### Design Workshop
 
-1 Tag / vor Ort oder remote / bis 8 Personen
+1 Tag / vor Ort / bis 8 Personen
 
 Wir nehmen den wichtigsten Use Case auseinander: Wer nutzt die Lösung? Welche Daten braucht sie? Wie sieht der Ablauf aus? Wie wird Erfolg gemessen? Ergebnis ist ein klares Soll-Szenario.
 

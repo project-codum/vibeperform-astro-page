@@ -41,7 +41,7 @@ export const workshopsContent = {
 		offerings: [
 			{
 				title: 'Explore Session',
-				meta: '1 hour / remote / leadership + key operators',
+				meta: '1 hour / on-site / leadership + key operators',
 				description:
 					'Identify high-value AI opportunities in your business. We look at where time is lost, where quality breaks, and where capacity is limited. You leave with 2–3 use cases ranked by impact and feasibility.',
 				outcomes: [
@@ -53,7 +53,7 @@ export const workshopsContent = {
 			},
 			{
 				title: 'Design Workshop',
-				meta: '1 day / on-site or remote / up to 8 people',
+				meta: '1 day / on-site / up to 8 people',
 				description:
 					'We take the top use case and design it in detail: how it fits into your workflow, what inputs it needs, what it should deliver, and how we measure success.',
 				outcomes: [
@@ -191,7 +191,7 @@ export const workshopsContent = {
 		offerings: [
 			{
 				title: 'Explore Session',
-				meta: '1 Stunde / remote / Geschäftsführung + Schlüsselrollen',
+				meta: '1 Stunde / vor Ort / Geschäftsführung + Schlüsselrollen',
 				description:
 					'Wir identifizieren, wo in eurem Alltag Potenzial für KI steckt: Wo geht Zeit verloren? Wo brechen Abläufe? Wo liegen Chancen für neue Aufträge? Ergebnis: 2–3 priorisierte Use Cases mit klarer Wirkung.',
 				outcomes: [
@@ -203,7 +203,7 @@ export const workshopsContent = {
 			},
 			{
 				title: 'Design Workshop',
-				meta: '1 Tag / vor Ort oder remote / bis 8 Personen',
+				meta: '1 Tag / vor Ort / bis 8 Personen',
 				description:
 					'Wir nehmen den wichtigsten Use Case auseinander: Wer nutzt die Lösung? Welche Daten braucht sie? Wie sieht der Ablauf aus? Wie wird Erfolg gemessen? Ergebnis ist ein klares Soll-Szenario.',
 				outcomes: [

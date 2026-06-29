@@ -30,7 +30,7 @@ Ergebnis: **Zeitgewinn, Qualität, Umsatzhebel** – nachweisbar an klaren KPIs.
 
 # Unsere Leistungsbausteine
 
-## 1) KI-Quickstart (3 h, remote)
+## 1) KI-Quickstart (3 h, vor Ort)
 
 **Ziel:** Gemeinsames Verständnis, Ziele schärfen, Chancenkarte erstellen.
 **Ablauf:**
@@ -44,7 +44,7 @@ Ergebnis: **Zeitgewinn, Qualität, Umsatzhebel** – nachweisbar an klaren KPIs.
 
 ---
 
-## 2) Explore-Workshop (1 Tag, vor Ort oder 2 Tage remote)
+## 2) Explore-Workshop (1 Tag vor Ort)
 
 **Ziel:** **Business-relevante Use-Cases** sauber beschreiben & vergleichen.
 **Ablauf (Auszug):**
