@@ -14,8 +14,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -23,11 +23,16 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
+      - name: Install, build, and prepare site with Astro
         uses: withastro/action@v3
         with:
           node-version: 24
           package-manager: npm
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # adjust this path if your Astro output directory is different
+          path: ./dist
 
   deploy:
     needs: build
@@ -40,4 +45,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
         with:
-          timeout: 900000
+          # 1 hour timeout (milliseconds). Increase if needed during peak times.
+          timeout: 3600000
