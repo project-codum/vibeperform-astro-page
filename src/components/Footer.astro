@@ -16,6 +16,7 @@ const copy = {
 	en: {
 		tagline: 'We partner with operators to design, build, and embed AI that teams actually use.',
 		linksLabel: 'Explore',
+		legalLinksLabel: 'Legal',
 		contactLabel: 'Contact',
 		contactIntro: 'Say hello or share what you are working on.',
 		locationLabel: 'Where we work',
@@ -24,10 +25,15 @@ const copy = {
 		actionLabel: 'Book an intro call',
 		actionHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
 		legal: 'All rights reserved.',
+		legalLinks: [
+			{ label: 'Legal notice', href: '/en/legal-notice' },
+			{ label: 'Privacy', href: '/en/privacy' },
+		],
 	},
 	de: {
 		tagline: 'Wir begleiten Teams dabei, Mehrwerte durch KI zu erkennen und umzusetzen.',
 		linksLabel: 'Entdecken',
+		legalLinksLabel: 'Rechtliches',
 		contactLabel: 'Kontakt',
 		contactIntro: 'Erzähl uns, woran ihr arbeitet.',
 		locationLabel: 'Wo wir arbeiten',
@@ -36,14 +42,12 @@ const copy = {
 		actionLabel: 'Kostenloses Gespräch buchen',
 		actionHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
 		legal: 'Alle Rechte vorbehalten.',
+		legalLinks: [
+			{ label: 'Impressum', href: '/de/impressum' },
+			{ label: 'Datenschutz', href: '/de/datenschutz' },
+		],
 	},
-} satisfies Record<
-	Locale,
-	Record<
-		string,
-		string
-	>
->;
+} as const;
 
 const localizedCopy = copy[locale];
 ---
@@ -62,11 +66,24 @@ const localizedCopy = copy[locale];
 					</a>
 			</div>
 
-			<div class="grid gap-10 sm:grid-cols-2">
+			<div class="grid gap-10 sm:grid-cols-3">
 				<div>
 					<p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-400">{localizedCopy.linksLabel}</p>
 					<ul class="mt-4 space-y-2 text-sm text-slate-200">
 						{nav.links.map((link) => (
+							<li>
+								<a class="hover:text-white" href={link.href}>
+									{link.label}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<div>
+					<p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-400">{localizedCopy.legalLinksLabel}</p>
+					<ul class="mt-4 space-y-2 text-sm text-slate-200">
+						{localizedCopy.legalLinks.map((link) => (
 							<li>
 								<a class="hover:text-white" href={link.href}>
 									{link.label}
