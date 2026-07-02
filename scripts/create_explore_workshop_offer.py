@@ -363,7 +363,7 @@ def add_cover(doc):
     rows = [
         ("Angebot für", "[Kundenname / Organisation]"),
         ("Leistungsbaustein", "Phase 1: Strategic Discovery Sprint"),
-        ("Format", "1 Tag vor Ort oder 2 Tage remote"),
+        ("Format", "1 Tag vor Ort"),
         ("Stand", date.today().strftime("%d.%m.%Y")),
     ]
     for idx, (label, value) in enumerate(rows):
@@ -489,7 +489,7 @@ def add_deliverables(doc):
     for item in [
         "Teilnehmerkreis: idealerweise 6-12 Personen aus Business, IT/Data und relevanten Fachbereichen.",
         "Vorabmaterial: grobe Prozessskizzen, bekannte Engpässe, vorhandene KI-/Automationsideen und Systemübersicht.",
-        "Format: 1 Tag vor Ort in und um München oder 2 halbe Tage remote.",
+        "Format: 1 Tag vor Ort in und um München.",
         "Sprache: Deutsch oder Englisch nach Bedarf.",
         "Investition: Festpreis nach finaler Abstimmung von Format, Teilnehmerkreis und Vorbereitungsaufwand.",
     ]:
