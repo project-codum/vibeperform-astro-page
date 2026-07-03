@@ -3,8 +3,8 @@
 A bilingual marketing site built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The project targets deployment under the `/vibeperform-astro-page` base path (for example on GitHub Pages) and ships with reusable UI primitives and structured content for fast iteration.
 
 ## 1. Prerequisites
-- Node.js 20 LTS (aligns with the GitHub Actions workflow)
-- npm (comes with Node 20)  
+- Node.js 24 LTS (aligns with the GitHub Actions workflow)
+- npm (comes with Node.js)
 - Optional: `npx astro` for project utilities
 
 Keep Node versions in sync across local environments and CI to avoid lockfile drift.
@@ -98,7 +98,7 @@ Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under 
   - `homeHref` derivation in `HomePage.astro`
   - All hard-coded `homeHref` and locale URLs in the content pages
   - The navigation links in `homeContent.ts`
-- Keep CI/CD on Node 20 (`actions/setup-node` already pins it). Regenerate `package-lock.json` only with that version to avoid inconsistencies.
+- Keep CI/CD and lockfile updates on Node 24 to match the GitHub Pages workflow.
 - After each deploy, smoke-test both locales, the locale toggle, and static assets (`favicon.png`, CSS) to confirm base URLs are correct.
 
 ## 8. Recommended Workflow

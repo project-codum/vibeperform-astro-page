@@ -22,17 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
-      - name: Install, build, and prepare site with Astro
-        uses: withastro/action@v3
+        uses: actions/checkout@v6
+      - name: Install, build, and upload your site with Astro
+        uses: withastro/action@v6
         with:
           node-version: 24
           package-manager: npm
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # adjust this path if your Astro output directory is different
-          path: ./dist
 
   deploy:
     needs: build
@@ -44,6 +39,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-        with:
-          # 1 hour timeout (milliseconds). Increase if needed during peak times.
-          timeout: 3600000
