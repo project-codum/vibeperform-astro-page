@@ -362,12 +362,18 @@ const approachSection = approachContent[locale];
                 features.cta.chat ? (
                   <iframe
                     id={features.cta.chat.id}
-                    src={features.cta.chat.src}
+                    src="about:blank"
+                    data-cmp-src={features.cta.chat.src}
                     title={features.cta.chat.title}
+                    class="cmplazyload"
                     style="width:100%;min-height:520px;border:0;background:transparent;"
-                    loading="eager"
+                    loading="lazy"
                     allow="clipboard-write"
-                    data-cmp-ab="1"
+                    data-cmp-block="textblocking"
+                    data-cmp-preview="320x520"
+                    data-cmp-preview-headline="Vibeperform Chat"
+                    data-cmp-preview-text={locale === "de" ? "Der Chat wird nach Ihrer Zustimmung geladen." : "The chat loads after your consent."}
+                    data-cmp-preview-btn={locale === "de" ? "Chat laden" : "Load chat"}
                   />
                 ) : null
               }
@@ -397,7 +403,46 @@ const approachSection = approachContent[locale];
 </div>
 
 <script>
-  import "../scripts/homeAnimations";
+  const loadHomeAnimations = (() => {
+    let importPromise;
+    return () => {
+      importPromise ??= import("../scripts/homeAnimations");
+      return importPromise;
+    };
+  })();
+
+  const loadHomeAnimationsOnIntent = () => {
+    window.removeEventListener("pointerdown", loadHomeAnimationsOnIntent);
+    window.removeEventListener("keydown", loadHomeAnimationsOnIntent);
+    window.removeEventListener("scroll", loadHomeAnimationsOnIntent);
+    window.removeEventListener("touchstart", loadHomeAnimationsOnIntent);
+    void loadHomeAnimations();
+  };
+
+  const scheduleHomeAnimations = () => {
+    const start = () => {
+      void loadHomeAnimations();
+    };
+
+    window.setTimeout(() => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(start, { timeout: 1200 });
+      } else {
+        start();
+      }
+    }, 6200);
+  };
+
+  window.addEventListener("pointerdown", loadHomeAnimationsOnIntent, { once: true, passive: true });
+  window.addEventListener("keydown", loadHomeAnimationsOnIntent, { once: true });
+  window.addEventListener("scroll", loadHomeAnimationsOnIntent, { once: true, passive: true });
+  window.addEventListener("touchstart", loadHomeAnimationsOnIntent, { once: true, passive: true });
+
+  if (document.readyState === "complete") {
+    window.setTimeout(scheduleHomeAnimations, 1200);
+  } else {
+    window.addEventListener("load", () => window.setTimeout(scheduleHomeAnimations, 1200), { once: true });
+  }
 </script>
 
 <script>

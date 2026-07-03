@@ -178,9 +178,8 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 </style>
 
 <script>
-	import lottie from 'lottie-web/build/player/lottie_light';
-
 	const activeLogoAnimations = new Map();
+	let lottieImportPromise;
 
 	const destroyLogoAnimations = () => {
 		activeLogoAnimations.forEach((animation, container) => {
@@ -191,8 +190,23 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 		activeLogoAnimations.clear();
 	};
 
-	const setupLogoAnimations = () => {
+	const loadLottie = () => {
+		lottieImportPromise ??= import('lottie-web/build/player/lottie_light').then(
+			(module) => module.default
+		);
+
+		return lottieImportPromise;
+	};
+
+	const setupLogoAnimations = async () => {
 		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const hasDesktopViewport = window.matchMedia('(min-width: 768px)').matches;
+
+		if (reduceMotion || !hasDesktopViewport) {
+			return;
+		}
+
+		const lottie = await loadLottie();
 
 		document.querySelectorAll('[data-logo-lottie]').forEach((container) => {
 			if (!(container instanceof HTMLElement) || container.dataset.logoInitialized === 'true') {
@@ -237,13 +251,26 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 		});
 	};
 
+	const scheduleLogoAnimations = () => {
+		const start = () => {
+			void setupLogoAnimations();
+		};
+
+		if ('requestIdleCallback' in window) {
+			window.requestIdleCallback(start, { timeout: 1800 });
+			return;
+		}
+
+		window.setTimeout(start, 900);
+	};
+
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', setupLogoAnimations, { once: true });
+		document.addEventListener('DOMContentLoaded', scheduleLogoAnimations, { once: true });
 	} else {
-		setupLogoAnimations();
+		scheduleLogoAnimations();
 	}
 
-	document.addEventListener('astro:page-load', setupLogoAnimations);
+	document.addEventListener('astro:page-load', scheduleLogoAnimations);
 	document.addEventListener('astro:before-swap', destroyLogoAnimations);
 </script>
 

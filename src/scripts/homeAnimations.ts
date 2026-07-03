@@ -27,38 +27,11 @@ function setupHero(isDesktop: boolean) {
   const hero = document.querySelector<HTMLElement>(SELECTOR.hero);
   if (!hero) return;
 
-  const targets = [
-    hero.querySelector(SELECTOR.heroKicker),
-    hero.querySelector(SELECTOR.heroHeadline),
-    hero.querySelector(SELECTOR.heroSubtitle),
-    hero.querySelector(SELECTOR.heroCtaGroup),
-  ].filter(Boolean);
-
-  if (!targets.length) return;
-
-  gsap.set(hero, { "--home-gradient-purple-intensity": 0.46 });
-  gsap.set(targets, { autoAlpha: 0, y: isDesktop ? 18 : 12 });
-
-  const timeline = gsap.timeline({
-    defaults: { duration: 0.72, ease: "power3.out" },
+  gsap.to(hero, {
+    "--home-gradient-purple-intensity": 0.9,
+    duration: isDesktop ? 0.9 : 0.6,
+    ease: "sine.out",
   });
-
-  timeline
-    .to(hero, {
-      "--home-gradient-purple-intensity": 0.9,
-      duration: 1.2,
-      ease: "sine.out",
-    })
-    .to(
-      targets,
-      {
-        autoAlpha: 1,
-        y: 0,
-        stagger: 0.09,
-        clearProps: "visibility",
-      },
-      0.08,
-    );
 }
 
 function setupMagneticCta() {
