@@ -56,15 +56,61 @@ const structuredData = blogPostingSchema({
 
 <html lang={locale}>
 	<head>
+		<link rel="preconnect" href="https://cdn.consentmanager.net" crossorigin />
+		<link rel="preconnect" href="https://d.delivery.consentmanager.net" crossorigin />
+		<link rel="preconnect" href="https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app" crossorigin />
 		<script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/4c6af0ac92829.js" data-cmp-host="d.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ744XXNZ7"></script>
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+			window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
 
-			gtag('config', 'G-FQ744XXNZ7');
+			(() => {
+				const measurementId = 'G-FQ744XXNZ7';
+				const tagSrc = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+
+				const loadGoogleTag = () => {
+					if (window.__vibeperformGoogleTagLoaded) return;
+					window.__vibeperformGoogleTagLoaded = true;
+
+					const script = document.createElement('script');
+					script.async = true;
+					script.src = tagSrc;
+					script.onload = () => {
+						window.gtag('js', new Date());
+						window.gtag('config', measurementId);
+					};
+					document.head.appendChild(script);
+				};
+
+				const hasAcceptedAllConsent = (cmpData) => {
+					const groups = [cmpData?.purposeConsents, cmpData?.vendorConsents].filter(Boolean);
+					return groups.length > 0 && groups.every((group) => Object.values(group).length > 0 && Object.values(group).every(Boolean));
+				};
+
+				const loadIfStoredConsentAllows = () => {
+					try {
+						const cmpData = window.__cmp?.('getCMPData');
+						if (hasAcceptedAllConsent(cmpData)) loadGoogleTag();
+					} catch (_error) {
+						// Keep analytics disabled if CMP data is unavailable.
+					}
+				};
+
+				const handleCmpEvent = (eventName) => {
+					if (eventName === 'consentapproved') {
+						loadGoogleTag();
+						return;
+					}
+					if (eventName === 'consent' || eventName === 'loadNotShowing') loadIfStoredConsentAllows();
+				};
+
+				if (typeof window.__cmp === 'function') {
+					window.__cmp('addEventListener', ['consentapproved', handleCmpEvent, false], null);
+					window.__cmp('addEventListener', ['consent', handleCmpEvent, false], null);
+					window.__cmp('addEventListener', ['loadNotShowing', handleCmpEvent, false], null);
+					loadIfStoredConsentAllows();
+				}
+			})();
 		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
