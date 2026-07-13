@@ -123,8 +123,8 @@ Summary: In unseren Workshops identifizieren wir gemeinsam KI-Potenziale für eu
 
 ## Warum Teams mit uns arbeiten
 
-- Weniger Theorie. Mehr Umsetzung. Ihr braucht Klarheit, wo KI echten Mehrwert bringt, Zeit spart oder Engpässe löst. Genau das machen wir mit euch – in unter einem Tag.
-- Wir bauen mit euch. Wir verbinden Software-Entwicklung mit Lern- und Change-Kompetenz. Heißt: Wir entwerfen die Lösung mit euch – und setzen sie um.
+- Weniger Theorie. Mehr Umsetzung. Ihr braucht Klarheit, wo KI echten Mehrwert bringt, Zeit spart oder Engpässe löst. Genau das machen wir mit euch, und zwar in unter einem Tag.
+- Wir bauen mit euch. Wir verbinden Software-Entwicklung mit Lern- und Change-Kompetenz. Heißt: Wir entwerfen die Lösung mit euch und setzen sie um.
 - Klarheit. Nächste Schritte. Loslegen. Am Ende steht ein priorisierter Use Case mit Nutzen, Erfolgskennzahlen und Umsetzungsplan.
 
 ## Unsere Formate
@@ -135,7 +135,7 @@ Drei Bausteine. Einstieg niedrigschwellig. Kombinierbar, wenn es schnell gehen s
 
 1 Stunde / vor Ort / Geschäftsführung + Schlüsselrollen
 
-Wir identifizieren, wo in eurem Alltag Potenzial für KI steckt: Wo geht Zeit verloren? Wo brechen Abläufe? Wo liegen Chancen für neue Aufträge? Ergebnis: 2–3 priorisierte Use Cases mit klarer Wirkung.
+Wir identifizieren, wo in eurem Alltag Potenzial für KI steckt: Wo geht Zeit verloren? Wo brechen Abläufe? Wo liegen Chancen für neue Aufträge? Ergebnis: 2-3 priorisierte Use Cases mit klarer Wirkung.
 
 Ergebnisse:
 - Übersicht über eure größten Pain Points
@@ -155,7 +155,7 @@ Ergebnisse:
 
 ### Build Sprint
 
-2–4 Wochen / Umsetzung mit echten Daten
+2-4 Wochen / Umsetzung mit echten Daten
 
 Wir bauen einen funktionierenden Prototypen oder automatisieren einen Teilprozess. Typische Ergebnisse: Angebots-Assistent, Social-Content-Generator, Lead-Intake-Bot, interne Wissenssuche.
 
@@ -166,13 +166,13 @@ Ergebnisse:
 
 ## Was nach dem Workshop passiert
 
-+6 Stunden / Woche: Durch automatisierte Angebots-Nachverfolgung musste ein Handwerksbetrieb deutlich weniger manuell nachfassen – ohne Qualitätsverlust.
++6 Stunden / Woche: Durch automatisierte Angebots-Nachverfolgung musste ein Handwerksbetrieb deutlich weniger manuell nachfassen, ohne Qualitätsverlust.
 Mehr Anfragen, ohne Anzeigenbudget: Ein kleines Unternehmen veröffentlicht jetzt automatisch Social-Posts aus echten Projektfotos. Ergebnis: neue Anfragen statt Warten auf Empfehlungen.
 Kein Anfrageverlust mehr: Ein Assistent auf der Website qualifiziert und sortiert eingehende Anfragen, auch wenn niemand ans Telefon gehen kann.
 
 ## Mit wem ihr arbeitet
 
-Wir sind ein Team aus Entwicklung und Enablement. Wir bringen KI dorthin, wo sie Wirkung hat – in die tägliche Arbeit. Uns ist wichtig: Umsetzung statt Buzzword, Praxis statt Politik.
+Wir sind ein Team aus Entwicklung und Enablement. Wir bringen KI dorthin, wo sie Wirkung hat: in die tägliche Arbeit. Uns ist wichtig: Umsetzung statt Buzzword, Praxis statt Politik.
 
 ## Kontakt
 
@@ -247,13 +247,13 @@ Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
 # Wir sind Partner und Umsetzer, nicht nur Berater.
 Canonical URL: https://www.vibeperform.com/de/ueber-uns
 English alternate: https://www.vibeperform.com/en/about-us
-Summary: Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz – und holen bei Bedarf die richtigen Partner:innen dazu.
+Summary: Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz. Bei Bedarf holen wir die richtigen Partner:innen dazu.
 
 ## Versprechen
 
-Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz – und holen bei Bedarf die richtigen Partner:innen dazu.
+Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz. Bei Bedarf holen wir die richtigen Partner:innen dazu.
 
-Unser Anspruch: Lösungen, die funktionieren – in der Praxis, mit echten Menschen, in realen Prozessen.
+Unser Anspruch: Lösungen, die in der Praxis, mit echten Menschen und in realen Prozessen funktionieren.
 
 ## Wer wir sind
 
@@ -263,7 +263,7 @@ Systemischer Coach & KI-Produktstrategin
 
 Isabella verbindet technologische Expertise mit einem tiefen Verständnis für Lernen und Veränderung.
 
-Als ehemalige Gründerin eines KI-Coaches für Mitarbeiterentwicklung weiß sie, wie Software Menschen wachsen lässt – und was Unternehmen brauchen, um den Anschluss nicht zu verlieren.
+Als ehemalige Gründerin eines KI-Coaches für Mitarbeiterentwicklung weiß sie, wie Software Menschen wachsen lässt und was Unternehmen brauchen, um den Anschluss nicht zu verlieren.
 
 Ihr Fokus: Lifelong Learning, Change Management und sinnvolle Technologieeinsätze.
 
@@ -275,7 +275,7 @@ Marlon kennt die Realität mittelständischer Prozesse aus erster Hand.
 
 Als zertifizierter RAG-Engineer und erfahrener Entwickler baut er KI-Lösungen, die echte Entlastung bringen: weniger manuelle Arbeit, mehr Fokus auf Wertschöpfung.
 
-Sein Antrieb: KI greifbar und zugänglich machen – für Teams jeder Größe. Er entwickelt KI-Lösungen, die Mitarbeitende entlasten, Routinen automatisieren und Zeit für das Wesentliche schaffen.
+Sein Antrieb: KI für Teams jeder Größe greifbar und zugänglich machen. Er entwickelt KI-Lösungen, die Mitarbeitende entlasten, Routinen automatisieren und Zeit für das Wesentliche schaffen.
 
 ## Unser Ansatz
 
@@ -285,7 +285,7 @@ Wir glauben, dass KI erst dann Wert schafft, wenn sie in den Alltag integriert i
 - Wir prüfen vorhandene Tools und Lösungen.
 - Und wir setzen nur dort individuell um, wo es wirklich Sinn macht.
 
-Unser Ziel: Technologie einsetzen, die wirkt – nicht, weil sie neu ist, sondern weil sie hilft.
+Unser Ziel: Technologie einsetzen, die wirkt. Nicht, weil sie neu ist, sondern weil sie hilft.
 
 ## Kontakt
 

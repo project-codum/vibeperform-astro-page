@@ -2,7 +2,7 @@ import { homeContent } from './homeContent.ts';
 
 export const workshopsContent = {
 	en: {
-		metaTitle: 'Workshops – Vibeperform',
+		metaTitle: 'Workshops | Vibeperform',
 		nav: homeContent.en.nav,
 
 		hero: {
@@ -22,7 +22,7 @@ export const workshopsContent = {
 				},
 				{
 					title: 'We build, not just advise.',
-					body: 'We combine software engineering and learning design. We don’t hand you slides – we co-design and then prototype with you.',
+					body: 'We combine software engineering and learning design. We don’t hand you slides. We co-design and then prototype with you.',
 					icon: 'user-round-cog',
 				},
 				{
@@ -43,11 +43,11 @@ export const workshopsContent = {
 				title: 'Explore Session',
 				meta: '1 hour / on-site / leadership + key operators',
 				description:
-					'Identify high-value AI opportunities in your business. We look at where time is lost, where quality breaks, and where capacity is limited. You leave with 2–3 use cases ranked by impact and feasibility.',
+					'Identify high-value AI opportunities in your business. We look at where time is lost, where quality breaks, and where capacity is limited. You leave with 2-3 use cases ranked by impact and feasibility.',
 				outcomes: [
 					'Map of current bottlenecks',
 					'Shortlist of AI/automation use cases',
-					'Which one is worth building first – and why',
+					'Which one is worth building first, and why',
 				],
 				ctaLabel: 'Request Explore Session',
 			},
@@ -65,7 +65,7 @@ export const workshopsContent = {
 			},
 			{
 				title: 'Build Sprint',
-				meta: '2–4 weeks / engineering + iteration with your team',
+				meta: '2-4 weeks / engineering + iteration with your team',
 				description:
 					'We prototype the solution with your real context. That can be workflow automation, smart replies, content generation, internal assistant, or lead intake.',
 				outcomes: [
@@ -127,7 +127,7 @@ export const workshopsContent = {
 				},
 				{
 					stat: 'More inbound without ads',
-					body: 'A craft business now auto-generates social posts from finished project photos – and gets steady leads instead of waiting on referrals only.',
+					body: 'A craft business now auto-generates social posts from finished project photos and gets steady leads instead of waiting on referrals only.',
 				},
 				{
 					stat: 'No more dropped requests',
@@ -152,7 +152,7 @@ export const workshopsContent = {
 		},
 	},
 	de: {
-		metaTitle: 'Workshops – Vibeperform',
+		metaTitle: 'Workshops | Vibeperform',
 		nav: homeContent.de.nav,
 
 			hero: {
@@ -167,12 +167,12 @@ export const workshopsContent = {
 			bullets: [
 				{
 					title: 'Weniger Theorie. Mehr Umsetzung.',
-					body: 'Ihr braucht Klarheit, wo KI echten Mehrwert bringt, Zeit spart oder Engpässe löst. Genau das machen wir mit euch – in unter einem Tag.',
+					body: 'Ihr braucht Klarheit, wo KI echten Mehrwert bringt, Zeit spart oder Engpässe löst. Genau das machen wir mit euch, und zwar in unter einem Tag.',
 					icon: 'lightbulb',
 				},
 				{
 					title: 'Wir bauen mit euch.',
-					body: 'Wir verbinden Software-Entwicklung mit Lern- und Change-Kompetenz. Heißt: Wir entwerfen die Lösung mit euch – und setzen sie um.',
+					body: 'Wir verbinden Software-Entwicklung mit Lern- und Change-Kompetenz. Heißt: Wir entwerfen die Lösung mit euch und setzen sie um.',
 					icon: 'user-round-cog',
 				},
 				{
@@ -193,7 +193,7 @@ export const workshopsContent = {
 				title: 'Explore Session',
 				meta: '1 Stunde / vor Ort / Geschäftsführung + Schlüsselrollen',
 				description:
-					'Wir identifizieren, wo in eurem Alltag Potenzial für KI steckt: Wo geht Zeit verloren? Wo brechen Abläufe? Wo liegen Chancen für neue Aufträge? Ergebnis: 2–3 priorisierte Use Cases mit klarer Wirkung.',
+					'Wir identifizieren, wo in eurem Alltag Potenzial für KI steckt: Wo geht Zeit verloren? Wo brechen Abläufe? Wo liegen Chancen für neue Aufträge? Ergebnis: 2-3 priorisierte Use Cases mit klarer Wirkung.',
 				outcomes: [
 					'Übersicht über eure größten Pain Points',
 					'Shortlist an KI-/Automations-Ideen',
@@ -215,7 +215,7 @@ export const workshopsContent = {
 			},
 			{
 				title: 'Build Sprint',
-				meta: '2–4 Wochen / Umsetzung mit echten Daten',
+				meta: '2-4 Wochen / Umsetzung mit echten Daten',
 				description:
 					'Wir bauen einen funktionierenden Prototypen oder automatisieren einen Teilprozess. Typische Ergebnisse: Angebots-Assistent, Social-Content-Generator, Lead-Intake-Bot, interne Wissenssuche.',
 				outcomes: [
@@ -230,7 +230,7 @@ export const workshopsContent = {
 		scorecard: {
 			title: 'Interaktive Scoring-Canvas',
 			intro:
-				'Wählt das Szenario, das eure Workshop-Ziele am besten trifft – so gewichten wir Wirkung, Machbarkeit und Readiness.',
+				'Wählt das Szenario, das eure Workshop-Ziele am besten trifft. So gewichten wir Wirkung, Machbarkeit und Readiness.',
 			scenarios: [
 				{
 					name: 'Kernprozess transformieren',
@@ -273,7 +273,7 @@ export const workshopsContent = {
 			items: [
 				{
 					stat: '+6 Stunden / Woche',
-					body: 'Durch automatisierte Angebots-Nachverfolgung musste ein Handwerksbetrieb deutlich weniger manuell nachfassen – ohne Qualitätsverlust.',
+					body: 'Durch automatisierte Angebots-Nachverfolgung musste ein Handwerksbetrieb deutlich weniger manuell nachfassen, ohne Qualitätsverlust.',
 				},
 				{
 					stat: 'Mehr Anfragen, ohne Anzeigenbudget',
@@ -289,7 +289,7 @@ export const workshopsContent = {
 		team: {
 			heading: 'Mit wem ihr arbeitet',
 			body:
-				'Wir sind ein Team aus Entwicklung und Enablement. Wir bringen KI dorthin, wo sie Wirkung hat – in die tägliche Arbeit. Uns ist wichtig: Umsetzung statt Buzzword, Praxis statt Politik.',
+				'Wir sind ein Team aus Entwicklung und Enablement. Wir bringen KI dorthin, wo sie Wirkung hat: in die tägliche Arbeit. Uns ist wichtig: Umsetzung statt Buzzword, Praxis statt Politik.',
 		},
 
 			finalCta: {
