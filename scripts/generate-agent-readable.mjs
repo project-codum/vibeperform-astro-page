@@ -199,7 +199,7 @@ function renderBlogAgentPage(post) {
 		alternatePath: post.alternateLocaleHref,
 	})}Kicker: ${post.kicker}
 Datum: ${post.date}
-Autor: ${post.author}
+${post.lastModified ? `Aktualisiert: ${post.lastModified}\n` : ''}Autor: ${post.author}${post.authorRole ? ` — ${post.authorRole}` : ''}
 Lesezeit: ${post.readTime}
 
 ${post.body}`);
@@ -267,7 +267,7 @@ Sitemap: ${absoluteUrl('/sitemap.xml')}
 }
 
 function renderSitemapXml(blogPosts) {
-	const urls = [
+	const staticUrls = [
 		'/de/',
 		'/en/',
 		'/de/workshops',
@@ -282,22 +282,26 @@ function renderSitemapXml(blogPosts) {
 		'/en/privacy',
 		'/de/blog',
 		'/en/blog',
-		'/llms.txt',
-		'/llms-full.txt',
-		'/agent/index.md',
-		'/agent/workshops.md',
-		'/agent/explore-workshop.md',
-		'/agent/about.md',
-		...blogPosts.map((post) => post.canonicalPath),
-		...blogPosts.map((post) => post.agentPath),
 	];
+	const urls = [
+		...staticUrls.map((pathname) => ({ pathname })),
+		...blogPosts.flatMap((post) => {
+			const lastmod = post.lastModified || post.date;
+			return [
+				{ pathname: post.canonicalPath, lastmod },
+				...(post.alternateLocaleHref ? [{ pathname: post.alternateLocaleHref, lastmod }] : []),
+			];
+		}),
+	];
+	const uniqueUrls = [...new Map(urls.map((entry) => [entry.pathname, entry])).values()];
 
 	return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
+${uniqueUrls
 	.map(
-		(url) => `	<url>
-		<loc>${absoluteUrl(url)}</loc>
+		({ pathname, lastmod }) => `	<url>
+		<loc>${absoluteUrl(pathname)}</loc>${lastmod ? `
+		<lastmod>${lastmod}</lastmod>` : ''}
 	</url>`,
 	)
 	.join('\n')}
