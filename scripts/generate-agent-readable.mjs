@@ -289,6 +289,7 @@ function renderSitemapXml(blogPosts) {
 		'/agent/explore-workshop.md',
 		'/agent/about.md',
 		...blogPosts.map((post) => post.canonicalPath),
+		...blogPosts.map((post) => post.alternateLocaleHref).filter(Boolean),
 		...blogPosts.map((post) => post.agentPath),
 	];
 
