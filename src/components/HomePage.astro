@@ -369,28 +369,28 @@ const t = pageCopy[locale];
       </div>
     </section>
 
-    <section id={locale === "de" ? "so-arbeiten-wir" : "how-we-work"} class="section-spacing bg-slate-50 dark:bg-slate-900/55">
+    <section id={locale === "de" ? "so-arbeiten-wir" : "how-we-work"} class="section-spacing bg-[#2a1838] text-purple-50">
       <div class="container-responsive">
         <div class="max-w-3xl" data-reveal>
-          <h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
+          <h2 class="text-3xl font-semibold tracking-[-0.035em] text-[#fffafc] sm:text-4xl lg:text-5xl">
             {t.process.heading}
           </h2>
-          <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
+          <p class="mt-4 max-w-[60ch] text-base leading-7 text-[#d9cae6] sm:text-lg">
             {t.process.intro}
           </p>
         </div>
         <div class="mt-12 grid gap-x-12 gap-y-0 md:grid-cols-2">
           {t.process.steps.map((step) => (
-            <article class="border-t border-slate-300 py-7 dark:border-slate-700" data-reveal>
-              <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50">{step.title}</h3>
-              <p class="mt-2 max-w-[52ch] text-sm leading-6 text-slate-600 dark:text-slate-400 sm:text-base sm:leading-7">{step.body}</p>
+            <article class="border-t border-[#76578a] py-7" data-reveal>
+              <h3 class="text-xl font-semibold text-[#fffafc]">{step.title}</h3>
+              <p class="mt-2 max-w-[52ch] text-sm leading-6 text-[#cdbbda] sm:text-base sm:leading-7">{step.body}</p>
             </article>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="section-spacing bg-white dark:bg-slate-950">
+    <section class="section-spacing bg-[#eeebf4] dark:bg-[#18131e]">
       <div class="container-responsive">
         <div class="max-w-3xl" data-reveal>
           <h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
@@ -419,7 +419,7 @@ const t = pageCopy[locale];
                 </div>
               </article>
             ) : (
-              <article class="rounded-2xl border border-purple-200 bg-purple-50 p-7 dark:border-purple-900 dark:bg-purple-950/65 sm:p-9" data-reveal>
+              <article class="rounded-2xl border border-[#c8b4d8] bg-[#ded2e8] p-7 dark:border-purple-900 dark:bg-purple-950/65 sm:p-9" data-reveal>
                 <h3 class="max-w-[17ch] text-2xl font-semibold tracking-[-0.025em] text-slate-950 dark:text-slate-50 sm:text-3xl">{item.title}</h3>
                 <p class="mt-4 max-w-[48ch] text-base leading-7 text-slate-700 dark:text-slate-300">{item.body}</p>
               </article>
