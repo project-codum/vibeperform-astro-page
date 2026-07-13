@@ -1,23 +1,43 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
-title: "AI Readiness: Why Company Value Creation Starts with Data"
-kicker: "AI Readiness"
+title: "AI Readiness: How an AI-Ready Data Foundation Creates Company Value"
+seoTitle: "AI-Ready Data: Build Business Value | Vibeperform"
+kicker: "AI-Ready Data"
 date: "2026-07-08"
+lastModified: "2026-07-13"
 author: "Marlon Dietrich"
-readTime: "5 min read"
-coverImage: "/blog/ai-readiness-wertsteigerung-datenbasis.png"
-excerpt: "Why AI only creates real company value when CRM, ERP, accounting, and operational data are connected first."
+authorRole: "Software engineer, AI consultant, and certified RAG engineer"
+authorHref: "/en/about-us"
+readTime: "9 min read"
+coverImage: "/blog/ai-readiness-wertsteigerung-datenbasis.avif"
+coverImageFallback: "/blog/ai-readiness-wertsteigerung-datenbasis.jpg"
+coverImageAlt: "Connected business systems feeding a secure data foundation for reports and AI agents"
+coverImageWidth: 1774
+coverImageHeight: 887
+excerpt: "Learn how SMEs can connect CRM, ERP, finance, and operational data, map critical gaps, and turn AI readiness into measurable business value."
 lang: "en"
 alternateLocaleHref: "/de/blog/ki-readiness-wertsteigerung-datenbasis"
+ctaTitle: "Assess your data foundation for AI"
+ctaBody: "In the Explore Workshop, we map systems, data gaps, management metrics, and the most useful first integrations. The result is a prioritized, actionable roadmap rather than an abstract IT transformation program."
+ctaButtonText: "Explore the workshop"
+ctaHref: "/en/workshop/explore-workshop"
 ---
 
-Many companies are talking a lot about AI. In management meetings, strategy sessions, and value creation plans, the same question keeps appearing: How can we use AI to become faster, leaner, and more profitable?
+Many companies are discussing AI, testing individual tools, and automating their first tasks. Yet one more important question often remains unanswered across management, strategy, and finance teams: **Which business data must be connected reliably so that AI does more than generate text and can support better decisions and measurable value creation?**
 
-The hype is understandable. AI can reduce costs, increase team productivity, and create better management information. But in many companies, practical implementation is still thin. There are experiments, individual tools, and isolated automations. The larger lever for clear company value creation is often left untouched because one prerequisite is missing: a reliable data foundation.
+The answer rarely starts with the next AI tool. It starts with the information available to people, reports, workflows, and AI agents. When CRM, ERP, accounting, project management, and spreadsheets present different versions of reality, AI initially scales ambiguity rather than insight.
 
-### The first AI use cases rarely start in the core system
+## What is an AI-ready data foundation?
 
-The realistic entry points for AI are usually not the large strategic end-to-end visions. They sit in support functions and recurring workflows:
+> An AI-ready data foundation consists of business data that is sufficiently complete, accessible, understandable, current, and controlled for a defined use case. The data does not need to be perfect or physically stored in one system. What matters is that people and AI use the same definitions, permissions, and trusted sources.
+
+AI readiness is broader than data management. [PwC's AI Readiness Assessment](https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-readiness-assessment.html), for example, evaluates strategic vision, data governance, talent, risk, business-model resilience, and other enterprise dimensions. This article deliberately focuses on data because that foundation often limits the move from isolated pilots to reliable production use.
+
+For management teams, this is not simply a technical concern. An AI-ready data foundation determines whether a KPI is traceable, whether a workflow can be automated safely, and whether a recommendation is based on business context or guesswork.
+
+## The first AI applications often sit outside the core system
+
+For small and medium-sized enterprises, a realistic entry point into AI is rarely a comprehensive end-to-end transformation. It often starts in support functions and recurring workflows:
 
 * IT first-level support and internal helpdesk processes
 * Sales preparation, lead research, and proposal material
@@ -25,79 +45,117 @@ The realistic entry points for AI are usually not the large strategic end-to-end
 * Drafting presentations, reports, and decision documents
 * Software development, quality assurance, and documentation
 
-The benefit appears in two ways. Either costs go down because manual work is reduced. Or the existing team produces more output without immediately adding headcount.
+These applications can reduce costs or increase the output of an existing team. They also reveal the limits of isolated tools. An assistant can draft an email without understanding the CRM. To prioritize customers, proposals, or capacity reliably, however, it needs current data, unambiguous definitions, and controlled access rights.
 
-Both matter for increasing company value. But both only scale when AI is not operating as a separate layer next to the systems that already run the business.
+That is why early experiments should be connected to a [clear AI strategy](/en/ai-strategy). Not every pilot needs a new platform. Every production process does need a defined information foundation and a person accountable for its quality.
 
-### The bottleneck is almost always the data foundation
+## Five characteristics of AI-ready data
 
-Many companies do not have an insight problem. They have a connection problem. CRM, ERP, accounting, spreadsheets, project management tools, and support systems exist side by side. Each system contains part of the truth, but very few people can answer the full management question quickly:
+A large volume of data is not automatically a useful data foundation. For SMEs, five characteristics matter more than the number of tables or tools.
 
-Which customer, product, region, or channel drives which revenue and which margin?
+### 1. Fit for the use case
 
-This is where AI either remains a productivity toy or becomes a management instrument. An AI agent cannot give a reliable recommendation when customer data lives in the CRM, margins sit in the ERP, invoices are in accounting, and forecasts are maintained in spreadsheets.
+Data does not need to be universally perfect. It needs to be reliable enough for the specific decision or automation. For a margin analysis, consistent links between customers, products, revenue, and costs matter more than cleaning every historical contact record.
 
-For companies, that means AI readiness is first a data and controlling topic. Only after that is it a tool topic.
+This supports our existing principle of [not waiting for perfect data](/en/blog/ai-reasoning-competitive-advantage). The practical approach is to define a valuable use case and assess the data required specifically for that use case.
 
-### AI readiness does not automatically mean a new ERP
+### 2. Accessible and connectable
 
-A common reflex is: if the data is not clean, we need a new core system. In some cases that may be true, but it is rarely the best first move.
+Relevant information must be available through exports, interfaces, data pipelines, or controlled queries. A logically consistent view matters more than moving everything into one physical system. CRM and ERP can remain separate if shared keys and refresh rules enable a trustworthy analysis.
 
-The more pragmatic starting point is usually to connect existing data sources through interfaces, APIs, or connectors into one central data layer. That can be a data warehouse, a data lake, or a lean BI layer. The label matters less than the function: relevant business data becomes consistent, reviewable, and usable.
+### 3. Described in business terms
 
-From there, useful applications become possible:
+A field called “revenue” does not explain whether it represents net revenue, invoiced revenue, or order intake. AI needs semantics as well as values: definitions, relationships, approved calculations, and the context in which a metric may be used.
 
-1. Power BI reports for management, investors, and department leads
-2. Controlling analyses for revenue, margin, liquidity, and capacity
-3. Natural language queries such as "Which product line is losing margin?"
-4. Workflows that check, summarize, or enrich data
-5. AI agents that can access real business context
+[IBM defines AI-ready data](https://www.ibm.com/think/topics/ai-ready-data) around qualities that include accessibility, trust, security, and governance. In practice, a shared metric catalogue and traceable business rules are often more valuable than another disconnected export.
 
-Without this foundation, companies create many small AI islands. With it, they create a controllable operating system for value creation.
+### 4. Controlled and secure
 
-### The opportunity cost of poor data is high
+Permissions, privacy, retention requirements, and sensitive data categories must be part of the design. An AI agent should access only the information required and approved for its task. The research behind the [AIDRIN framework](https://arxiv.org/abs/2505.18213) therefore considers bias, fairness, and privacy alongside data quality when assessing readiness for AI.
 
-Poor data quality rarely shows up as a direct cost line. That is exactly why it is underestimated.
+### 5. Owned and current
 
-In practice, it appears as manual monthly reporting, spreadsheet reconciliation, conflicting numbers in meetings, slow ad hoc analysis, and gut-feel decisions in pricing, sales, or capacity planning. Each of these frictions costs time. More importantly, they hide value creation opportunities.
+Critical data objects need owners, refresh cycles, and a defined process for resolving errors. Who decides which customer ID is authoritative? How quickly must a price change appear in a report? What happens when two systems show conflicting values? Without these rules, even a modern data platform quickly becomes unreliable.
 
-If a company cannot reliably see which customer segments are profitable, where margin is leaking, or which channels tie up liquidity, operational improvements become slower and less precise. AI may still be discussed, but it cannot be used as a real management instrument.
+## AI readiness does not automatically require a new ERP
 
-Companies pay this cost twice: during ongoing business development through missed improvement potential, and during financing, investment, or sale processes through a weaker evidence base for decision-making.
+When data does not align, the first instinct is often to replace the core system. That can be the right decision in some cases, but it is rarely the only option. A pragmatic starting point can combine several building blocks:
 
-### At exit, data quality becomes a value driver
+1. Connect existing systems through APIs, exports, or connectors
+2. Bring relevant data into a warehouse, lakehouse, or lean analytics layer
+3. Define metrics in a BI or semantic layer
+4. Make documents available to controlled search and RAG applications
+5. Add permissions, logging, and automated quality checks
 
-By the time a sale, investment, or financing process starts, it becomes clear whether a company has control over its financial and operational data.
+The architecture should follow the business question. A company that wants to identify which product line is losing margin first needs a consistent relationship between products, revenue, and costs. Only then does a natural-language query such as “Which product line is losing margin, and why?” become useful.
 
-A professional data room is not just a collection of PDFs and uploaded spreadsheets. It builds trust because financials, operational KPIs, customer analyses, product data, and margin logic are consistent. When buyers, investors, banks, or advisors can review Power BI access, clear data models, and traceable KPIs, due diligence becomes less painful.
+This is how companies develop [AI agents with genuine business value](/en/blog/ai-agents-business-roi): not as another isolated tool, but as controlled users of existing business information.
 
-That can accelerate the process and change the quality of the discussion. Instead of debating basic data logic, the conversation can move toward growth, efficiency, and value creation.
+## Poor data creates hidden opportunity costs
 
-The opposite is also true. Conflicting numbers create distrust. They lead to additional questions, delays, weaker financing terms, price reductions, or, in the worst case, a broken deal.
+Poor data quality rarely appears as a separate cost line. It becomes visible in manual monthly reporting, spreadsheet reconciliation, conflicting numbers in meetings, slow ad hoc analysis, and gut-feel decisions in pricing, sales, or capacity planning.
 
-### The best first step is a data map
+Each source of friction consumes time. More importantly, it hides value-creation opportunities. If a company cannot identify which customer segments are profitable, where margin is leaking, or which channels tie up liquidity, operational improvements become slower and more difficult to measure.
 
-AI readiness does not have to start with a large transformation program. The most useful first step is often a clear data map:
+A [2026 SAS and IDC global survey of small and midsize businesses](https://www.sas.com/en/offers/ai-readiness-report-for-small-and-midsize-businesses.html) reports that 70 percent remain in the early stages of AI adoption and only 9 percent have fully embedded AI into strategy, operations, and decision-making. The underlying capabilities include aligned strategy and governance, strong data foundations, skills, business readiness, process integration, and outcome measurement. Data is therefore central, but it is not the only component of AI readiness.
 
-* Which systems contain customer, product, sales, finance, and project data?
-* Which fields are unique, duplicated, or contradictory?
-* Which KPIs does management really need every week or every month?
-* Which reports are still created manually today?
-* Which data would AI agents need to act safely and usefully?
+## Traceability becomes especially important in financing or a sale
 
-<figure>
-	<img src="/blog/datenlandkarte-ai-readiness-workshop.png" alt="Photographed data map from an AI readiness workshop showing CRM, ERP, DATEV, spreadsheets, project tools, support, a shared data foundation, BI reports, controlling, AI agents, and value creation as a whiteboard sketch" loading="lazy" decoding="async" />
-	<figcaption>Example of a working data map: existing systems on the left, a shared data foundation in the middle, and reports, workflows, and AI agents on the right.</figcaption>
-</figure>
+During financing, investment, or sale processes, banks, investors, and buyers examine whether financials, operational KPIs, customer analyses, product data, and margin logic are consistent. A professional data room therefore consists of more than PDFs and uploaded spreadsheets. It should also explain where metrics originate, how they are calculated, and who owns them.
 
-This analysis should not produce an abstract IT roadmap. It should produce a priority list: which sources to connect first, which reports will create immediate impact, and which AI workflows are realistic afterwards.
+A clean data foundation does not guarantee a higher valuation or a successful transaction. It can, however, reduce clarification work, accelerate analysis, and move the discussion from conflicting figures toward growth, efficiency, and future capability. Conversely, metrics that cannot be traced may create uncertainty and require additional diligence.
 
-### Conclusion: AI is a management system topic
+The same principles apply to everyday management. Preparing figures only for due diligence is too late. The greater operational value appears when management and teams already use the same trusted definitions before a transaction begins.
 
-AI is not an isolated tool topic. The real lever is making companies more data-capable, easier to manage, and therefore more valuable.
+## A data map makes the first step concrete
 
-Companies that connect their data properly can use AI productively: for better reporting, faster decisions, more efficient workflows, and stronger future readiness. Companies that ignore this do not automatically become unsellable. But they leave concrete value creation on the table.
+AI readiness does not need to start with a large transformation program. A data map creates a shared view of systems, information flows, responsibilities, and prioritized business outcomes.
 
-The key question is therefore not: Which AI tool should we buy?
+### Illustrative example: contribution margin by customer
 
-The better question is: Which data do we need to connect so AI can work reliably in the first place?
+A typical B2B service company knows invoiced revenue from accounting, customers and proposals from its CRM, and hours worked from its project tool. Yet it cannot calculate contribution margin by customer reliably because customer and project identifiers do not align and internal hourly costs are maintained inconsistently.
+
+In this example, the data map reveals three priorities: a shared customer identifier, an agreed cost model, and an automated flow for revenue and hours. The first useful output would be a traceable management report. An AI query about margin variance should come only after that foundation works. This example is deliberately illustrative; the actual priorities depend on the business model, system landscape, and data risks.
+
+### 1. Define the business question and metric
+
+Do not start with “We want to connect all our data.” Start with a specific question, such as: Which customer and product groups actually contribute to margin? Define which decision should become faster or more accurate.
+
+### 2. Record sources and handovers
+
+List CRM, ERP, accounting, spreadsheets, project tools, support systems, and relevant document repositories. Mark where data is transferred manually, where exports are created, and which interfaces are available.
+
+### 3. Clarify terms and owners
+
+For each critical data object, document the authoritative source, accountable role, and accepted definition. Common candidates include customer, product, order, revenue, margin, project status, and capacity.
+
+### 4. Assess quality and access gaps
+
+Check duplicates, missing keys, freshness, conflicting values, and permissions. Not every gap needs to be fixed immediately. Focus on the gaps that block the selected use case or make it unsafe.
+
+### 5. Sketch the target flow
+
+Map the path from source systems through a controlled data or BI layer to the report, workflow, or AI agent. This reveals which integration is genuinely required and which technology can wait.
+
+### 6. Prioritize by impact and effort
+
+Assess each data flow by expected business value, implementation effort, risk, and dependencies. The result is not an abstract IT roadmap. It is an ordered plan showing which source to connect first, which report can create immediate value, and which AI workflow becomes realistic next.
+
+## A realistic 30-day starting point
+
+An SME can establish its first reliable foundation within a controlled scope:
+
+* **Week 1:** Select one business question, target metric, and accountable owner
+* **Week 2:** Map sources, data flows, definitions, and permissions
+* **Week 3:** Assess the most important quality gaps and establish one limited data flow
+* **Week 4:** Test a report or controlled AI query and evaluate the next step
+
+This is the purpose of our [Explore Workshop](/en/workshop/explore-workshop). It connects business objectives, processes, data, and technical requirements in a prioritized roadmap. Where direct implementation makes sense, that roadmap can lead into a clearly bounded pilot.
+
+## Conclusion: AI-ready data is a management instrument
+
+AI is neither only a tool topic nor only a data topic. Economic value appears when strategy, people, processes, and a trusted information foundation work together.
+
+An AI-ready data foundation does not make a company more valuable automatically. It does improve the conditions for traceable reporting, faster decisions, controlled automation, and scalable AI applications. The best starting question is therefore not “Which AI tool should we buy?” but:
+
+**Which decision do we want to improve, and which data must be connected, understood, and controlled reliably to support it?**

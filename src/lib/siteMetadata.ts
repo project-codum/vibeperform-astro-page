@@ -115,7 +115,10 @@ export const blogPostingSchema = ({
 	pathname,
 	image,
 	datePublished,
+	dateModified,
 	author,
+	authorRole,
+	authorUrl,
 	locale,
 }: {
 	title: string;
@@ -123,22 +126,47 @@ export const blogPostingSchema = ({
 	pathname: string;
 	image?: string;
 	datePublished: string;
+	dateModified?: string;
 	author: string;
+	authorRole?: string;
+	authorUrl?: string;
 	locale: Locale;
 }) => ({
 	'@context': 'https://schema.org',
 	'@type': 'BlogPosting',
+	'@id': `${absoluteUrl(pathname)}#article`,
 	headline: title,
 	description,
 	url: absoluteUrl(pathname),
-	image: image ? absoluteUrl(image) : undefined,
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': absoluteUrl(pathname),
+	},
+	image: image
+		? {
+				'@type': 'ImageObject',
+				url: absoluteUrl(image),
+				contentUrl: absoluteUrl(image),
+				caption: title,
+			}
+		: undefined,
 	datePublished,
+	dateModified: dateModified ?? datePublished,
 	author: {
 		'@type': 'Person',
 		name: author,
+		...(authorRole ? { jobTitle: authorRole } : {}),
+		...(authorUrl ? { url: authorUrl } : {}),
 	},
 	publisher: {
+		'@type': 'Organization',
 		'@id': absoluteUrl('/#organization'),
+		name: brandName,
+		url: absoluteUrl('/de/'),
+		logo: {
+			'@type': 'ImageObject',
+			url: absoluteUrl('/vibeperform-logo.png'),
+		},
 	},
 	inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
 });

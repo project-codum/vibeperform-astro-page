@@ -43,57 +43,35 @@
 		<loc>https://www.vibeperform.com/en/blog</loc>
 	</url>
 	<url>
-		<loc>https://www.vibeperform.com/llms.txt</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/llms-full.txt</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/index.md</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/workshops.md</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/explore-workshop.md</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/about.md</loc>
-	</url>
-	<url>
 		<loc>https://www.vibeperform.com/de/blog/ki-readiness-wertsteigerung-datenbasis</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/de/blog/ki-agenten-geschaeftsnutzen-roi</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen</loc>
+		<lastmod>2026-07-13</lastmod>
 	</url>
 	<url>
 		<loc>https://www.vibeperform.com/en/blog/ai-readiness-company-value-data-foundation</loc>
+		<lastmod>2026-07-13</lastmod>
+	</url>
+	<url>
+		<loc>https://www.vibeperform.com/de/blog/ki-agenten-geschaeftsnutzen-roi</loc>
+		<lastmod>2026-05-26</lastmod>
 	</url>
 	<url>
 		<loc>https://www.vibeperform.com/en/blog/ai-agents-business-roi</loc>
+		<lastmod>2026-05-26</lastmod>
+	</url>
+	<url>
+		<loc>https://www.vibeperform.com/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil</loc>
+		<lastmod>2026-05-22</lastmod>
 	</url>
 	<url>
 		<loc>https://www.vibeperform.com/en/blog/ai-reasoning-competitive-advantage</loc>
+		<lastmod>2026-05-22</lastmod>
+	</url>
+	<url>
+		<loc>https://www.vibeperform.com/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen</loc>
+		<lastmod>2026-05-18</lastmod>
 	</url>
 	<url>
 		<loc>https://www.vibeperform.com/en/blog/ai-success-munich-smes-4-phase-guide</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/blog/ki-readiness-wertsteigerung-datenbasis.md</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/blog/ki-agenten-geschaeftsnutzen-roi.md</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/blog/ki-denkfaehigkeit-wettbewerbsvorteil.md</loc>
-	</url>
-	<url>
-		<loc>https://www.vibeperform.com/agent/blog/ki-erfolg-muenchner-mittelstand-4-phasen.md</loc>
+		<lastmod>2026-05-18</lastmod>
 	</url>
 </urlset>
