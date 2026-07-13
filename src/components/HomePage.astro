@@ -1,19 +1,13 @@
 ---
+import {
+  ArrowRight,
+  Check,
+  ShieldCheck,
+} from "lucide-static";
 import Button from "./Button.astro";
 import Footer from "./Footer.astro";
-import LandingHighlights from "./LandingHighlights.astro";
-import LandingTrustSections from "./LandingTrustSections.astro";
 import NavBar from "./NavBar.astro";
-import RotatingHeadline from "./RotatingHeadline.astro";
 import type { HomeContent } from "../data/homeContent";
-import {
-  FileText,
-  FlaskConical,
-  Layers,
-  SearchCheck,
-  Users,
-  Workflow,
-} from "lucide-static";
 
 interface Props {
   content: HomeContent;
@@ -21,436 +15,560 @@ interface Props {
   alternateLocaleHref: string;
 }
 
-const featureIcons = {
-  "search-check": SearchCheck,
-  workflow: Workflow,
-} as const;
-
-const deliverablesContent = {
-  en: {
-    heading: "What we deliver",
-    subheading:
-      "Everything SMBs need to move from AI ambition to working advantage.",
-    cards: [
-      {
-        title: "Vendor-independent advice",
-        description:
-          "Clear build-or-buy decisions without platform bias or tool lock-in.",
-        icon: Layers,
-      },
-      {
-        title: "On-site process analysis",
-        description:
-          "Workshops with your team to find the highest-leverage workflows and constraints.",
-        icon: FileText,
-      },
-      {
-        title: "Turnkey implementation",
-        description:
-          "Ready-to-run AI and automation solutions embedded into day-to-day work.",
-        icon: FlaskConical,
-      },
-      {
-        title: "Measurable advantage",
-        description:
-          "Your team quickly feels the impact through faster processes, better quality, or new capacity.",
-        icon: Users,
-      },
-    ],
-  },
-  de: {
-    heading: "Was wir liefern",
-    subheading:
-      "Alles, was KMU brauchen, um aus KI-Ambition einen spürbaren Wettbewerbsvorteil zu machen.",
-    cards: [
-      {
-        title: "Anbieterunabhängige Beratung",
-        description:
-          "Klare Build-or-Buy-Entscheidungen ohne Plattform-Bias und ohne Tool-Lock-in.",
-        icon: Layers,
-      },
-      {
-        title: "Vor-Ort-Analyse",
-        description:
-          "Workshops mit eurem Team, um die wirksamsten Prozesse, Engpässe und Hebel zu identifizieren.",
-        icon: FileText,
-      },
-      {
-        title: "Schlüsselfertige Umsetzung",
-        description:
-          "Einsatzbereite KI- und Automatisierungslösungen, die direkt in euren Arbeitsalltag eingebettet werden.",
-        icon: FlaskConical,
-      },
-      {
-        title: "Spürbarer Vorsprung",
-        description:
-          "Euer Team erlebt den Nutzen schnell durch schnellere Abläufe, bessere Qualität oder neue Kapazität.",
-        icon: Users,
-      },
-    ],
-  },
-} as const;
-
-const renderFeatureIcon = (key?: keyof typeof featureIcons | string) => {
-  const iconSvg =
-    key && key in featureIcons
-      ? featureIcons[key as keyof typeof featureIcons]
-      : featureIcons["search-check"];
-
-  return iconSvg
-    .replace('class="lucide', 'class="lucide h-10 w-10')
-    .replace('width="24"', 'width="40"')
-    .replace('height="24"', 'height="40"');
-};
-
-const renderDeliverableIcon = (iconSvg: string) =>
-  iconSvg.replace('class="lucide', 'class="lucide h-6 w-6 text-purple-600');
-
 const { content, currentLocale, alternateLocaleHref } = Astro.props as Props;
-const { nav, hero, features } = content;
-const basePath = "";
+const { nav, hero } = content;
 const locale = currentLocale === "de" ? "de" : "en";
+const basePath = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "");
 const homeHref = locale === "de" ? `${basePath}/de/` : `${basePath}/en/`;
-const deliverablesSection = deliverablesContent[locale];
-const featuresSectionId = locale === "de" ? "so-arbeiten-wir" : "how-we-work";
-const approachContent = {
-  en: {
-    heading: "Our approach (proven & lean)",
-    steps: [
-      {
-        number: "1",
-        title: "Explore Workshop",
-        subheader: "Find valuable AI ideas",
-        description:
-          "In 1 on-site day we surface challenges, generate use cases with curated cards and guides, and prioritise together.",
-      },
-      {
-        number: "2",
-        title: "Design Workshop",
-        subheader: "Define the to-be scenario",
-        description:
-          "We deepen 1–3 shortlisted use cases and shape the target state that can actually be delivered.",
-      },
-      {
-        number: "3",
-        title: "Market & Tool Scan",
-        subheader: "Decide build or buy",
-        description:
-          "If battle-tested solutions already exist that solve your challenge faster or at lower cost, we recommend them transparently. If nothing fits, we co-design a tailored AI or automation solution.",
-      },
-      {
-        number: "4",
-        title: "Build Sprint (2–4 weeks)",
-        subheader: "Proof over PowerPoint",
-        description:
-          "In 2–4 weeks we co-develop a first testable prototype. Afterwards we decide on deployment together and support change and rollout so the solution lands in everyday work.",
-      },
-    ],
-  },
+const assetUrl = (path: string) => `${basePath}${path}`;
+
+const renderIcon = (iconSvg: string, className: string) =>
+  iconSvg
+    .replace('class="lucide', `class="lucide ${className}`)
+    .replace('width="24"', 'width="24"')
+    .replace('height="24"', 'height="24"');
+
+const pageCopy = {
   de: {
-    heading: "Unser Vorgehen (bewährt & schlank)",
-    steps: [
+    heroAlt:
+      "Handwerksmeister und Berater besprechen gemeinsam einen Arbeitsablauf in einer Schreinerei",
+    heroNote: "Beratung und Umsetzung aus einer Hand",
+    signals: [
       {
-        number: "1",
-        title: "Explore Workshop",
-        subheader: "Wertvolle KI-Ideen finden",
-        description:
-          "In 1 Tag vor Ort identifizieren wir Herausforderungen, generieren Use Cases mit Karten/Leitfäden und priorisieren gemeinsam.",
+        title: "Vor Ort",
+        body: "Wir verstehen den Ablauf, bevor wir Technik empfehlen.",
       },
       {
-        number: "2",
-        title: "Design Workshop",
-        subheader: "To-Be-Szenario definieren",
-        description:
-          "Wir vertiefen 1–3 Favoriten Use Cases und definieren den umsetzbaren Zielzustand.",
+        title: "Unabhängig",
+        body: "Wir verkaufen keine Software und beraten ohne Herstellerinteresse.",
       },
       {
-        number: "3",
-        title: "Markt- & Tool-Scan",
-        subheader: "Build-or-Buy entscheiden",
-        description:
-          "Wenn es bereits erprobte Lösungen gibt, die eure Herausforderung schneller oder günstiger lösen, empfehlen wir diese offen weiter. Wenn keine passende Lösung existiert, entwickeln wir gemeinsam eine maßgeschneiderte KI- oder Automatisierungslösung.",
-      },
-      {
-        number: "4",
-        title: "Build Sprint (2–4 Wochen)",
-        subheader: "Schneller Proof statt PowerPoint",
-        description:
-          "In 2–4 Wochen entwickeln wir gemeinsam einen ersten testbaren Prototypen. Danach treffen wir die Einführungsentscheidung und begleiten Weiterentwicklung, Change & Rollout, damit die Lösung im Alltag angenommen wird.",
+        title: "Umsetzungsstark",
+        body: "Wir bleiben, bis die Lösung im Arbeitsalltag funktioniert.",
       },
     ],
+    promise: {
+      heading: "Kein KI-Theater. Klare Verbesserungen im Betrieb.",
+      body: "Unsere Arbeit beginnt nicht mit einem Tool, sondern dort, wo Zeit, Wissen oder Qualität verloren gehen.",
+      points: [
+        {
+          title: "Abläufe verstehen",
+          body: "Wir sprechen mit den Menschen, die die Arbeit jeden Tag erledigen.",
+        },
+        {
+          title: "Sinnvoll entscheiden",
+          body: "Sie erhalten eine klare Empfehlung: kaufen, anpassen, selbst bauen oder bewusst nichts tun.",
+        },
+        {
+          title: "Sauber umsetzen",
+          body: "Wir entwickeln, testen und verankern die Lösung gemeinsam mit Ihrem Team.",
+        },
+      ],
+      imageAlt: "Workshop mit einem Team vor einer Wand mit Arbeitsnotizen",
+    },
+    process: {
+      heading: "Von der Werkbank bis zur fertigen Lösung.",
+      intro:
+        "Ein schlanker Weg, der Entscheidungen früh absichert und schnell etwas Testbares schafft.",
+      steps: [
+        {
+          title: "Betrieb ansehen",
+          body: "Wir kommen zu Ihnen, beobachten Abläufe und sprechen über Engpässe, Daten und Verantwortlichkeiten.",
+        },
+        {
+          title: "Nutzen bewerten",
+          body: "Gemeinsam wählen wir die Fälle aus, die fachlich sinnvoll und wirtschaftlich tragfähig sind.",
+        },
+        {
+          title: "Lösung testen",
+          body: "Ein erster Prototyp zeigt früh, ob Technik, Prozess und Akzeptanz zusammenpassen.",
+        },
+        {
+          title: "Im Alltag verankern",
+          body: "Wir begleiten Einführung, Schulung und Weiterentwicklung, damit die Lösung genutzt wird.",
+        },
+      ],
+    },
+    uses: {
+      heading: "Dort entsteht im Handwerk schnell Nutzen.",
+      intro:
+        "Konkrete Entlastung für Büro, Baustelle und Werkstatt. Immer passend zu Ihren bestehenden Abläufen.",
+      items: [
+        {
+          title: "Angebote schneller vorbereiten",
+          body: "Informationen aus E-Mails, Leistungsverzeichnissen und früheren Projekten werden zu einem prüfbaren Entwurf.",
+          tone: "accent",
+        },
+        {
+          title: "Auftragswissen auffindbar machen",
+          body: "Mitarbeitende finden Antworten in Dokumentationen, Handbüchern und Projektdaten, inklusive nachvollziehbarer Quellen.",
+          image: "/workshop1.webp",
+          imageAlt: "Team bespricht Arbeitsnotizen in einem Workshop",
+        },
+        {
+          title: "Büroarbeit verlässlich abnehmen",
+          body: "Belege, Protokolle und Anfragen werden erfasst, geprüft und an die richtige Stelle weitergegeben.",
+          image: "/workshop3.webp",
+          imageAlt: "Ruhiger Besprechungsraum für die gemeinsame Prozessarbeit",
+        },
+      ],
+    },
+    boundaries: {
+      heading: "Was Sie von uns nicht bekommen.",
+      items: [
+        "Tool-Verkauf mit verstecktem Eigeninteresse",
+        "Monatelange Strategiepapiere ohne Test im Betrieb",
+        "Eine technische Lösung, die Ihr Team allein übernehmen muss",
+      ],
+    },
+    team: {
+      heading: "Direkte Zusammenarbeit statt Übergaben.",
+      body: "Sie arbeiten mit den Menschen, die beraten, konzipieren und umsetzen. Persönlich, erreichbar und verantwortlich.",
+      linkLabel: "Vibeperform kennenlernen",
+      linkHref: "/de/ueber-uns",
+      members: [
+        {
+          name: "Marlon Dietrich",
+          role: "Strategie und Umsetzung",
+          image: "/marlondietrich.webp",
+        },
+        {
+          name: "Isabella Hösch",
+          role: "Workshops und Veränderung",
+          image: "/isabellahoesch.webp",
+        },
+      ],
+    },
+    final: {
+      heading: "Welcher Ablauf kostet Sie heute zu viel Zeit?",
+      body: "In einem ersten Gespräch klären wir, ob und wo KI in Ihrem Betrieb sinnvoll helfen kann.",
+      secondaryLabel: "Workshops ansehen",
+      secondaryHref: "/de/workshops",
+    },
+  },
+  en: {
+    heroAlt:
+      "Master craftsperson and consultant review a workflow together in a joinery workshop",
+    heroNote: "Consulting and implementation from one team",
+    signals: [
+      {
+        title: "On site",
+        body: "We understand the workflow before recommending technology.",
+      },
+      {
+        title: "Independent",
+        body: "We do not sell software and have no vendor incentive.",
+      },
+      {
+        title: "Built to work",
+        body: "We stay involved until the solution works in daily operations.",
+      },
+    ],
+    promise: {
+      heading: "No AI theatre. Clear improvements at work.",
+      body: "Our work starts where time, knowledge or quality gets lost, not with a tool.",
+      points: [
+        {
+          title: "Understand the work",
+          body: "We speak with the people who do the job every day.",
+        },
+        {
+          title: "Make a sound decision",
+          body: "You get a clear recommendation: buy, adapt, build or deliberately leave it alone.",
+        },
+        {
+          title: "Implement it properly",
+          body: "We develop, test and embed the solution together with your team.",
+        },
+      ],
+      imageAlt: "Team workshop in front of a wall with process notes",
+    },
+    process: {
+      heading: "From the workshop floor to a working solution.",
+      intro:
+        "A lean path that validates decisions early and creates something testable quickly.",
+      steps: [
+        {
+          title: "See the operation",
+          body: "We visit your site, observe workflows and discuss constraints, data and responsibilities.",
+        },
+        {
+          title: "Assess the value",
+          body: "Together we select cases that make operational and commercial sense.",
+        },
+        {
+          title: "Test the solution",
+          body: "An early prototype shows whether the technology, process and team fit together.",
+        },
+        {
+          title: "Embed it in daily work",
+          body: "We support rollout, training and iteration so the solution is genuinely used.",
+        },
+      ],
+    },
+    uses: {
+      heading: "Where craft businesses see value quickly.",
+      intro:
+        "Practical relief for office, site and workshop, fitted to the way your business already works.",
+      items: [
+        {
+          title: "Prepare quotes faster",
+          body: "Information from emails, specifications and past projects becomes a draft your team can review.",
+          tone: "accent",
+        },
+        {
+          title: "Make job knowledge searchable",
+          body: "Staff find answers across documentation, manuals and project data, with traceable sources.",
+          image: "/workshop1.webp",
+          imageAlt: "Team discussing process notes in a workshop",
+        },
+        {
+          title: "Reduce repetitive office work",
+          body: "Documents, reports and enquiries are captured, checked and passed to the right person.",
+          image: "/workshop3.webp",
+          imageAlt: "Calm meeting room used for collaborative process work",
+        },
+      ],
+    },
+    boundaries: {
+      heading: "What you will not get from us.",
+      items: [
+        "Software sales disguised as independent advice",
+        "Months of strategy documents without a real operational test",
+        "A technical solution your team is left to adopt alone",
+      ],
+    },
+    team: {
+      heading: "Direct collaboration, without handovers.",
+      body: "You work with the people who advise, design and implement. Personal, available and accountable.",
+      linkLabel: "Meet Vibeperform",
+      linkHref: "/en/about-us",
+      members: [
+        {
+          name: "Marlon Dietrich",
+          role: "Strategy and implementation",
+          image: "/marlondietrich.webp",
+        },
+        {
+          name: "Isabella Hösch",
+          role: "Workshops and change",
+          image: "/isabellahoesch.webp",
+        },
+      ],
+    },
+    final: {
+      heading: "Which workflow is costing you too much time?",
+      body: "In a first conversation, we identify whether and where AI can usefully support your operation.",
+      secondaryLabel: "View workshops",
+      secondaryHref: "/en/workshops",
+    },
   },
 } as const;
-const approachSection = approachContent[locale];
+
+const t = pageCopy[locale];
 ---
 
-<div class="flex min-h-screen flex-col bg-white">
+<div class="home-shell flex min-h-[100dvh] flex-col bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-100">
   <NavBar
     nav={nav}
     homeHref={homeHref}
     alternateLocaleHref={alternateLocaleHref}
     currentLocale={locale}
   />
-  <main class="flex flex-1 flex-col gap-y-24 pb-20">
-    <!-- Center RotatingHeadline inside hero title section -->
-    <section id="about-us" class="section-spacing" data-animate="home-hero">
-      <div
-        class="container-responsive mx-auto max-w-4xl space-y-4 text-center"
-      >
 
-	<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm" data-animate="hero-kicker">
-		{hero.kicker}
-	</p>
+  <main class="home-main flex-1">
+    <section class="home-hero" data-home-hero>
+      <div class="container-responsive grid items-center gap-10 py-10 md:min-h-[calc(100dvh-76px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-12 md:py-12 lg:gap-16">
+        <div class="max-w-2xl">
+          <p class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-purple-700 dark:text-purple-300">
+            {hero.kicker}
+          </p>
+          <h1 class="max-w-[20ch] text-[clamp(2.45rem,4vw,3.9rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-slate-950 dark:text-slate-50">
+            {hero.title}
+          </h1>
+          <p class="mt-6 max-w-[58ch] text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">
+            {hero.subtitle}
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" data-home-cta>
+            <Button href={hero.primaryHref}>{hero.primaryCta}</Button>
+            <a
+              class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-500 hover:bg-slate-100 active:scale-[0.98] dark:border-slate-700 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-900 sm:w-auto"
+              href={hero.secondaryHref}
+            >
+              {hero.secondaryCta}
+              <span aria-hidden="true" set:html={renderIcon(ArrowRight, "h-4 w-4")} />
+            </a>
+          </div>
+        </div>
 
-	<h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl" data-animate="hero-headline">
-		<RotatingHeadline words={hero.rotatingWords} />
-	</h1>
-
-	<p class="text-base text-slate-600 sm:text-lg md:text-xl" data-animate="hero-subtitle">{hero.subtitle}</p>
-
-	<div class="flex w-full flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center" data-animate="hero-cta-group">
-		<Button href={hero.primaryHref}>{hero.primaryCta}</Button>
-		{hero.secondaryHref && hero.secondaryCta ? (
-			<a
-				class="inline-flex min-h-[2.75rem] w-full items-center justify-center rounded-full border border-transparent px-4 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:w-auto"
-				href={hero.secondaryHref}
-			>
-				{hero.secondaryCta}
-			</a>
-		) : null}
-	</div>
+        <figure class="relative md:justify-self-end">
+          <div class="aspect-[8/7] overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900">
+            <img
+              src={assetUrl("/home-hero-craft-1280.webp")}
+              srcset={`${assetUrl("/home-hero-craft-720.webp")} 720w, ${assetUrl("/home-hero-craft-1280.webp")} 1280w`}
+              sizes="(min-width: 768px) 44vw, calc(100vw - 40px)"
+              alt={t.heroAlt}
+              class="h-full w-full object-cover object-[58%_center]"
+              width="1280"
+              height="801"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <figcaption class="mt-3 flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
+            <span aria-hidden="true" set:html={renderIcon(ShieldCheck, "h-4 w-4 text-purple-700 dark:text-purple-300")} />
+            {t.heroNote}
+          </figcaption>
+        </figure>
       </div>
     </section>
-    <section class="section-spacing bg-slate-50" data-animate="deliverables-section">
-      <div class="container-responsive space-y-10">
-        <div class="mx-auto max-w-3xl space-y-3 text-center" data-animate="deliverables-heading">
-          <h2 class="text-3xl font-semibold text-slate-900 sm:text-4xl">
-            {deliverablesSection.heading}
+
+    <section class="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/55" aria-label={locale === "de" ? "Unser Arbeitsversprechen" : "How we work"}>
+      <div class="container-responsive grid gap-0 md:grid-cols-3">
+        {t.signals.map((item) => (
+          <div class="border-b border-slate-200 py-6 last:border-b-0 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0" data-reveal>
+            <p class="font-semibold text-slate-950 dark:text-slate-50">{item.title}</p>
+            <p class="mt-1 max-w-sm text-sm leading-6 text-slate-600 dark:text-slate-400">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white dark:bg-slate-950">
+      <div class="container-responsive grid items-start gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
+        <div class="md:sticky md:top-24" data-reveal>
+          <h2 class="max-w-[15ch] text-3xl font-semibold leading-tight tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
+            {t.promise.heading}
           </h2>
-          <p class="text-base text-slate-600 sm:text-lg md:text-xl">
-            {deliverablesSection.subheading}
+          <p class="mt-5 max-w-[56ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
+            {t.promise.body}
           </p>
+          <img
+            src={assetUrl("/workshop2.webp")}
+            alt={t.promise.imageAlt}
+            class="mt-8 aspect-[16/9] w-full rounded-2xl object-cover"
+            width="1900"
+            height="700"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {deliverablesSection.cards.map((item) => (
-            <article class="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg" data-animate="deliverable-card">
-              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-purple-600" data-animate="deliverable-icon">
-                <span class="sr-only">{`${item.title} Icon`}</span>
-                <div aria-hidden="true" set:html={renderDeliverableIcon(item.icon)} />
+
+        <div class="border-t border-slate-200 dark:border-slate-800">
+          {t.promise.points.map((item) => (
+            <article class="grid gap-3 border-b border-slate-200 py-7 sm:grid-cols-[2.5rem_1fr] dark:border-slate-800" data-reveal>
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-200" aria-hidden="true" set:html={renderIcon(Check, "h-4 w-4")} />
+              <div>
+                <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50">{item.title}</h3>
+                <p class="mt-2 max-w-[52ch] text-base leading-7 text-slate-600 dark:text-slate-400">{item.body}</p>
               </div>
-              <h3 class="text-lg font-semibold text-slate-900">{item.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                {item.description}
-              </p>
             </article>
           ))}
         </div>
       </div>
     </section>
-    <section id={featuresSectionId} class="section-spacing bg-white">
-      <div class="container-responsive space-y-10">
-        <div class="space-y-4 text-center md:text-left">
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500"
-          >
-            {features.kicker ?? "Our Approach"}
-          </p>
-          <h2 class="text-3xl font-semibold text-slate-900 sm:text-4xl">
-            {features.heading}
+
+    <section id={locale === "de" ? "so-arbeiten-wir" : "how-we-work"} class="section-spacing bg-slate-50 dark:bg-slate-900/55">
+      <div class="container-responsive">
+        <div class="max-w-3xl" data-reveal>
+          <h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
+            {t.process.heading}
           </h2>
-          {
-            features.subheading ? (
-              <p class="max-w-2xl [text-wrap:balance] text-sm text-slate-600 sm:text-base">
-                {features.subheading}
-              </p>
-            ) : null
-          }
+          <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
+            {t.process.intro}
+          </p>
         </div>
-        <div class="space-y-6 text-left md:max-w-4xl md:max-h-[420px] md:overflow-y-auto md:pr-4 md:scroll-smooth">
-          {approachSection.steps.map((step) => (
-            <article class="flex flex-col gap-4 pb-6 last:pb-0 sm:flex-row sm:items-start sm:gap-6">
-              <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-lg font-semibold text-purple-600">
-                {step.number}
-              </span>
-              <div class="flex-1 space-y-3">
-                <h3 class="text-xl font-semibold text-slate-900">{step.title}</h3>
-                <p class="text-base font-semibold text-purple-600">
-                  {step.subheader}
-                </p>
-                <p class="text-sm leading-relaxed text-slate-600">{step.description}</p>
-              </div>
+        <div class="mt-12 grid gap-x-12 gap-y-0 md:grid-cols-2">
+          {t.process.steps.map((step) => (
+            <article class="border-t border-slate-300 py-7 dark:border-slate-700" data-reveal>
+              <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50">{step.title}</h3>
+              <p class="mt-2 max-w-[52ch] text-sm leading-6 text-slate-600 dark:text-slate-400 sm:text-base sm:leading-7">{step.body}</p>
             </article>
           ))}
         </div>
-        <div class="grid-responsive md:grid-cols-2">
-          {
-            features.items.map((item) => (
-              <article
-                class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-8"
-                key={item.title}
-              >
-                <div
-                  class="mb-4 flex justify-center text-slate-500"
-                  aria-hidden="true"
-                  set:html={renderFeatureIcon(item.icon)}
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white dark:bg-slate-950">
+      <div class="container-responsive">
+        <div class="max-w-3xl" data-reveal>
+          <h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
+            {t.uses.heading}
+          </h2>
+          <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
+            {t.uses.intro}
+          </p>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-2 md:grid-rows-2">
+          {t.uses.items.map((item, index) => (
+            "image" in item ? (
+              <article class:list={["overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900", index === 1 && "md:row-span-2"]} data-reveal>
+                <img
+                  src={assetUrl(item.image)}
+                  alt={item.imageAlt}
+                  class:list={["w-full object-cover", index === 1 ? "aspect-[4/3] md:h-[58%]" : "aspect-[16/8] md:h-[52%]"]}
+                  width={index === 1 ? "650" : "1440"}
+                  height={index === 1 ? "433" : "1080"}
+                  loading="lazy"
+                  decoding="async"
                 />
-                <h3 class="text-lg font-semibold text-slate-900 sm:text-xl">
-                  {item.title}
-                </h3>
-                {
-                  item.blocks?.map((block, blockIndex) => {
-                    if (block.type === "lead") {
-                      return (
-                        <p
-                          class="mt-4 text-sm text-slate-600 sm:text-base"
-                          key={`${item.title}-block-${blockIndex}`}
-                          set:html={block.html}
-                        />
-                      );
-                    }
-
-                    if (block.type === "paragraph") {
-                      return (
-                        <p
-                          class="mt-3 text-sm text-slate-600 sm:text-base"
-                          key={`${item.title}-block-${blockIndex}`}
-                          set:html={block.html}
-                        />
-                      );
-                    }
-
-                    if (block.type === "heading") {
-                      return (
-                        <p
-                          class="mt-6 text-sm font-semibold text-slate-900 sm:text-base"
-                          key={`${item.title}-block-${blockIndex}`}
-                          set:html={block.html}
-                        />
-                      );
-                    }
-
-                    if (block.type === "list") {
-                      return (
-                        <ul
-                          class="mt-3 space-y-2 text-sm text-slate-600 sm:text-base"
-                          key={`${item.title}-block-${blockIndex}`}
-                        >
-                          {block.items.map((entry, entryIndex) => (
-                            <li class="flex gap-2" key={`${item.title}-block-${blockIndex}-entry-${entryIndex}`}>
-                              <span class="text-slate-400">•</span>
-                              <span class="flex-1" set:html={entry} />
-                            </li>
-                          ))}
-                        </ul>
-                      );
-                    }
-
-                    return null;
-                  })
-                }
+                <div class="p-6 sm:p-7">
+                  <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50 sm:text-2xl">{item.title}</h3>
+                  <p class="mt-3 max-w-[48ch] text-sm leading-6 text-slate-600 dark:text-slate-400 sm:text-base">{item.body}</p>
+                </div>
               </article>
-            ))
-          }
+            ) : (
+              <article class="rounded-2xl border border-purple-200 bg-purple-50 p-7 dark:border-purple-900 dark:bg-purple-950/65 sm:p-9" data-reveal>
+                <h3 class="max-w-[17ch] text-2xl font-semibold tracking-[-0.025em] text-slate-950 dark:text-slate-50 sm:text-3xl">{item.title}</h3>
+                <p class="mt-4 max-w-[48ch] text-base leading-7 text-slate-700 dark:text-slate-300">{item.body}</p>
+              </article>
+            )
+          ))}
         </div>
-        {
-          features.cta ? (
-            <div class="mx-auto max-w-3xl space-y-6 rounded-3xl bg-white p-8 text-center shadow-sm sm:p-10">
-              <h3 class="text-2xl font-semibold text-slate-900 sm:text-3xl">
-                {features.cta.heading}
-              </h3>
-              {
-                features.cta.chat ? (
-                  <iframe
-                    id={features.cta.chat.id}
-                    src="about:blank"
-                    data-cmp-src={features.cta.chat.src}
-                    title={features.cta.chat.title}
-                    class="cmplazyload"
-                    style="width:100%;min-height:520px;border:0;background:transparent;"
-                    loading="lazy"
-                    allow="clipboard-write"
-                    data-cmp-block="textblocking"
-                    data-cmp-preview="320x520"
-                    data-cmp-preview-headline="Vibeperform Chat"
-                    data-cmp-preview-text={locale === "de" ? "Der Chat wird nach Ihrer Zustimmung geladen." : "The chat loads after your consent."}
-                    data-cmp-preview-btn={locale === "de" ? "Chat laden" : "Load chat"}
-                  />
-                ) : null
-              }
-              <div class="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <a
-                  class="inline-flex items-center justify-center rounded-full bg-purple-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400 sm:text-base"
-                  href={features.cta.primary.href}
-                >
-                  {features.cta.primary.label}
-                </a>
-                <a
-                  class="inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-900 sm:text-base"
-                  href={features.cta.secondary.href}
-                >
-                  {features.cta.secondary.label}
-                </a>
-              </div>
-            </div>
-          ) : null
-        }
       </div>
     </section>
-	<LandingHighlights locale={locale} />
-    <LandingTrustSections locale={locale} />
+
+    <section class="section-spacing bg-slate-50 dark:bg-slate-900/55">
+      <div class="container-responsive grid gap-10 md:grid-cols-[0.82fr_1.18fr] md:gap-16">
+        <h2 class="max-w-[13ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl" data-reveal>
+          {t.boundaries.heading}
+        </h2>
+        <ul class="border-t border-slate-300 dark:border-slate-700">
+          {t.boundaries.items.map((item) => (
+            <li class="flex gap-4 border-b border-slate-300 py-5 text-base font-medium leading-7 text-slate-800 dark:border-slate-700 dark:text-slate-200" data-reveal>
+              <span aria-hidden="true" set:html={renderIcon(Check, "mt-1 h-5 w-5 shrink-0 text-purple-700 dark:text-purple-300")} />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white dark:bg-slate-950">
+      <div class="container-responsive grid items-end gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div data-reveal>
+          <h2 class="max-w-[13ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
+            {t.team.heading}
+          </h2>
+          <p class="mt-5 max-w-[48ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">{t.team.body}</p>
+          <a class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-purple-800 underline decoration-purple-300 underline-offset-4 hover:text-purple-950 dark:text-purple-200 dark:decoration-purple-700 dark:hover:text-purple-100" href={t.team.linkHref}>
+            {t.team.linkLabel}
+            <span aria-hidden="true" set:html={renderIcon(ArrowRight, "h-4 w-4")} />
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4 sm:gap-6">
+          {t.team.members.map((member) => (
+            <figure data-reveal>
+              <img
+                src={assetUrl(member.image)}
+                alt={member.name}
+                class="aspect-[4/5] w-full rounded-2xl object-cover object-top"
+                width={member.name.startsWith("Marlon") ? "574" : "1280"}
+                height={member.name.startsWith("Marlon") ? "861" : "1920"}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="mt-3">
+                <p class="font-semibold text-slate-950 dark:text-slate-50">{member.name}</p>
+                <p class="mt-0.5 text-sm text-slate-600 dark:text-slate-400">{member.role}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20 pt-4 sm:pb-28">
+      <div class="container-responsive">
+        <div class="rounded-2xl border border-purple-200 bg-purple-50 px-6 py-10 dark:border-purple-900 dark:bg-purple-950/65 sm:px-10 sm:py-12 lg:px-14" data-reveal>
+          <h2 class="max-w-[18ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
+            {t.final.heading}
+          </h2>
+          <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">{t.final.body}</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href={hero.primaryHref}>{hero.primaryCta}</Button>
+            <a
+              class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-purple-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-purple-500 hover:bg-white active:scale-[0.98] dark:border-purple-800 dark:text-slate-100 dark:hover:border-purple-600 dark:hover:bg-purple-950 sm:w-auto"
+              href={t.final.secondaryHref}
+            >
+              {t.final.secondaryLabel}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <Footer currentLocale={locale} />
 </div>
 
 <script>
-  const loadHomeAnimations = (() => {
-    let importPromise;
-    return () => {
-      importPromise ??= import("../scripts/homeAnimations");
-      return importPromise;
-    };
-  })();
+  const setupHomeReveals = () => {
+    const root = document.querySelector("[data-home-hero]")?.closest(".home-shell");
+    if (!(root instanceof HTMLElement) || root.dataset.revealsReady === "true") return;
 
-  const loadHomeAnimationsOnIntent = () => {
-    window.removeEventListener("pointerdown", loadHomeAnimationsOnIntent);
-    window.removeEventListener("keydown", loadHomeAnimationsOnIntent);
-    window.removeEventListener("scroll", loadHomeAnimationsOnIntent);
-    window.removeEventListener("touchstart", loadHomeAnimationsOnIntent);
-    void loadHomeAnimations();
+    root.dataset.revealsReady = "true";
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const items = Array.from(root.querySelectorAll("[data-reveal]"));
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      items.forEach((item) => item.classList.add("is-visible"));
+      return;
+    }
+
+    root.classList.add("reveal-ready");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8%", threshold: 0.12 },
+    );
+
+    items.forEach((item) => observer.observe(item));
   };
 
-  const scheduleHomeAnimations = () => {
-    const start = () => {
-      void loadHomeAnimations();
-    };
-
-    window.setTimeout(() => {
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(start, { timeout: 1200 });
-      } else {
-        start();
-      }
-    }, 6200);
-  };
-
-  window.addEventListener("pointerdown", loadHomeAnimationsOnIntent, { once: true, passive: true });
-  window.addEventListener("keydown", loadHomeAnimationsOnIntent, { once: true });
-  window.addEventListener("scroll", loadHomeAnimationsOnIntent, { once: true, passive: true });
-  window.addEventListener("touchstart", loadHomeAnimationsOnIntent, { once: true, passive: true });
-
-  if (document.readyState === "complete") {
-    window.setTimeout(scheduleHomeAnimations, 1200);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupHomeReveals, { once: true });
   } else {
-    window.addEventListener("load", () => window.setTimeout(scheduleHomeAnimations, 1200), { once: true });
+    setupHomeReveals();
   }
+
+  document.addEventListener("astro:page-load", setupHomeReveals);
 </script>
 
-<script>
-  window.addEventListener("message", (event) => {
-    if (event.origin !== "https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app") return;
-    if (event.data?.type !== "transparent-chat:update") return;
-    const iframe = document.getElementById("vibeperform-chat");
-    if (!iframe || typeof event.data.height !== "number") return;
-    iframe.style.height = `${Math.max(event.data.height, 520)}px`;
-  });
-</script>
+<style>
+  .home-shell {
+    font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  .home-main {
+    padding-inline: 0;
+  }
+
+  .home-shell.reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 560ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 560ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .home-shell.reveal-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-shell [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+</style>

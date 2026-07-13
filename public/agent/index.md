@@ -1,13 +1,13 @@
 # Vibeperform
 Canonical URL: https://www.vibeperform.com/de/
 English alternate: https://www.vibeperform.com/en/
-Summary: Der KI-Partner für KMU: Alles aus einer Hand. Von unabhängiger Beratung über Vor-Ort-Workshops bis zur fertigen Implementierung, damit Ihr Wettbewerbsvorteil direkt spürbar wird.
+Summary: Wir finden sinnvolle Einsatzfelder, bauen passende Lösungen und bringen sie gemeinsam mit Ihrem Team in den Alltag.
 
 ## Positionierung
 
-KI Beratung & Umsetzung
+KI-Beratung für Handwerk und Mittelstand
 
-Der KI-Partner für KMU: Alles aus einer Hand. Von unabhängiger Beratung über Vor-Ort-Workshops bis zur fertigen Implementierung, damit Ihr Wettbewerbsvorteil direkt spürbar wird.
+Wir finden sinnvolle Einsatzfelder, bauen passende Lösungen und bringen sie gemeinsam mit Ihrem Team in den Alltag.
 
 ## Zentrale Versprechen
 
@@ -26,7 +26,7 @@ Unser Angebot richtet sich an mittelständische Unternehmen, die ihre Abläufe m
 
 ## Bewährte Einsatzfelder
 
-Schnell nutzbar, klar messbar – aus realen Projekten im Mittelstand.
+Schnell nutzbar, klar messbar, aus realen Projekten im Mittelstand.
 
 ### Angebots-Assistent
 
@@ -54,7 +54,7 @@ Antworten mit Quellenzitaten aus Handbuch, Tickets und Confluence. Einheitliche 
 
 Kategorie: Operations
 
-Extrahiert Felder, prüft Regeln und schreibt ins ERP – mit Audit-Trail und Abweichungsreport.
+Extrahiert Felder, prüft Regeln und schreibt ins ERP, mit Audit-Trail und Abweichungsreport.
 
 - Extrahierte Felder (JSON/CSV)
 - Abgleich PO ↔ Rechnung
