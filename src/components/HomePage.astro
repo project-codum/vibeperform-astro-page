@@ -97,7 +97,8 @@ const pageCopy = {
         {
           title: "Angebote schneller vorbereiten",
           body: "Informationen aus E-Mails, Leistungsverzeichnissen und früheren Projekten werden zu einem prüfbaren Entwurf.",
-          tone: "accent",
+          image: "/home-offer-document.webp",
+          imageAlt: "Beispielhaftes deutsches Angebotsdokument für eine Küche mit Leistungsbeschreibung, Material, Arbeitszeit und Gesamtbetrag",
         },
         {
           title: "Auftragswissen auffindbar machen",
@@ -133,7 +134,7 @@ const pageCopy = {
           image: "/marlondietrich.webp",
         },
         {
-          name: "Isabella Hösch",
+          name: "Isabella Hoesch",
           role: "Workshops und Veränderung",
           image: "/isabellahoesch.webp",
         },
@@ -214,7 +215,8 @@ const pageCopy = {
         {
           title: "Prepare quotes faster",
           body: "Information from emails, specifications and past projects becomes a draft your team can review.",
-          tone: "accent",
+          image: "/home-offer-document.webp",
+          imageAlt: "Sample German quote document for a kitchen project with scope, materials, labour and total amount",
         },
         {
           title: "Make job knowledge searchable",
@@ -250,7 +252,7 @@ const pageCopy = {
           image: "/marlondietrich.webp",
         },
         {
-          name: "Isabella Hösch",
+          name: "Isabella Hoesch",
           role: "Workshops and change",
           image: "/isabellahoesch.webp",
         },
@@ -266,6 +268,8 @@ const pageCopy = {
 } as const;
 
 const t = pageCopy[locale];
+const boundaryEmphasis = locale === "de" ? "nicht" : "not";
+const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split(boundaryEmphasis);
 ---
 
 <div class="home-shell flex min-h-[100dvh] flex-col bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-100">
@@ -375,7 +379,7 @@ const t = pageCopy[locale];
           <h2 class="text-3xl font-semibold tracking-[-0.035em] text-[#fffafc] sm:text-4xl lg:text-5xl">
             {t.process.heading}
           </h2>
-          <p class="mt-4 max-w-[60ch] text-base leading-7 text-[#d9cae6] sm:text-lg">
+          <p class="mt-4 max-w-[60ch] text-base leading-7 text-[#f0e7f5] sm:text-lg">
             {t.process.intro}
           </p>
         </div>
@@ -383,7 +387,7 @@ const t = pageCopy[locale];
           {t.process.steps.map((step) => (
             <article class="border-t border-[#76578a] py-7" data-reveal>
               <h3 class="text-xl font-semibold text-[#fffafc]">{step.title}</h3>
-              <p class="mt-2 max-w-[52ch] text-sm leading-6 text-[#cdbbda] sm:text-base sm:leading-7">{step.body}</p>
+              <p class="mt-2 max-w-[52ch] text-sm leading-6 text-[#e7daef] sm:text-base sm:leading-7">{step.body}</p>
             </article>
           ))}
         </div>
@@ -432,7 +436,7 @@ const t = pageCopy[locale];
     <section class="section-spacing bg-slate-50 dark:bg-slate-900/55">
       <div class="container-responsive grid gap-10 md:grid-cols-[0.82fr_1.18fr] md:gap-16">
         <h2 class="max-w-[13ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl" data-reveal>
-          {t.boundaries.heading}
+          {boundaryHeadingBefore}<span class="text-purple-700 underline decoration-2 decoration-purple-500 underline-offset-[0.16em] dark:text-purple-300 dark:decoration-purple-400">{boundaryEmphasis}</span>{boundaryHeadingAfter}
         </h2>
         <ul class="border-t border-slate-300 dark:border-slate-700">
           {t.boundaries.items.map((item) => (
