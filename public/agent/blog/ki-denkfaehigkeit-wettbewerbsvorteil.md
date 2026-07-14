@@ -1,6 +1,6 @@
 # KI und seine Fähigkeit logisch zu Denken („Reasoning“) sind der Schlüssel zum Wettbewerbsvorteil
-Canonical URL: https://www.vibeperform.com/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil
-English alternate: https://www.vibeperform.com/en/blog/ai-reasoning-competitive-advantage
+Canonical URL: https://www.vibeperform.com/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil/
+English alternate: https://www.vibeperform.com/en/blog/ai-reasoning-competitive-advantage/
 Summary: Wie der Münchner Mittelstand und Tech-Startups Reasoning-Fähigkeiten von KI nutzen können, um echte Wettbewerbsvorteile zu erzielen.
 
 Kicker: KI-Strategie

@@ -8,7 +8,7 @@ readTime: "4 min read"
 coverImage: "/blog/ai-reasoning-advantage.png"
 excerpt: "Translating AI's reasoning capabilities into a real-world competitive advantage for Munich's SMEs and Mittelstand."
 lang: "en"
-alternateLocaleHref: "/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil"
+alternateLocaleHref: "/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil/"
 ---
 
 This statement hits the nail on the head, but translating it for a Small to Medium-sized Enterprise (SME)—especially within the business area around Munich—requires a shift in perspective.

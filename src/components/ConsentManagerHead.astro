@@ -1,0 +1,25 @@
+---
+interface Props {
+	locale: 'de' | 'en';
+}
+
+const { locale } = Astro.props as Props;
+const cmpLanguage = locale === 'de' ? 'DE' : 'EN';
+const cmpCoreUrl = `https://cdn.consentmanager.net/delivery/cmp_${locale}.min.js`;
+---
+
+<link rel="preconnect" href="https://cdn.consentmanager.net" crossorigin />
+<link rel="preconnect" href="https://d.delivery.consentmanager.net" crossorigin />
+<script is:inline define:vars={{ cmpLanguage }}>
+	window.cmp_id = 172783;
+	window.cmp_params = '';
+	window.cmp_host = 'd.delivery.consentmanager.net';
+	window.cmp_cdn = 'cdn.consentmanager.net';
+	window.cmp_setlang = cmpLanguage;
+	window.__cmp = window.__cmp || function(){
+		window.__cmp.a = window.__cmp.a || [];
+		window.__cmp.a.push(Array.from(arguments));
+	};
+</script>
+<script async type="text/javascript" data-cmp-ab="1" src={cmpCoreUrl}></script>
+<script async type="text/javascript" data-cmp-ab="1" src="https://d.delivery.consentmanager.net/delivery/cmp.php?id=172783"></script>

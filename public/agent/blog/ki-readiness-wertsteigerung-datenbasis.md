@@ -1,6 +1,6 @@
 # AI Readiness: Wie eine KI-fähige Datenbasis Unternehmenswert schafft
-Canonical URL: https://www.vibeperform.com/de/blog/ki-readiness-wertsteigerung-datenbasis
-English alternate: https://www.vibeperform.com/en/blog/ai-readiness-company-value-data-foundation
+Canonical URL: https://www.vibeperform.com/de/blog/ki-readiness-wertsteigerung-datenbasis/
+English alternate: https://www.vibeperform.com/en/blog/ai-readiness-company-value-data-foundation/
 Summary: Erfahren Sie, wie Mittelständler CRM, ERP und Finanzdaten verbinden, eine Datenlandkarte erstellen und KI in messbaren Geschäftswert übersetzen.
 
 Kicker: KI-fähige Datenbasis
@@ -33,7 +33,7 @@ Der realistische Einstieg in KI ist für kleine und mittlere Unternehmen meisten
 
 Diese Anwendungsfälle können Kosten senken oder den Output eines bestehenden Teams erhöhen. Sie zeigen zugleich, wo die Grenze isolierter Werkzeuge liegt. Ein Assistent kann eine E-Mail formulieren, ohne das CRM zu kennen. Für eine belastbare Priorisierung von Kunden, Angeboten oder Kapazitäten braucht er jedoch aktuelle Daten, eindeutige Definitionen und kontrollierte Zugriffsrechte.
 
-Deshalb lohnt es sich, erste Experimente früh mit einer [klaren KI-Strategie](/de/ki-strategie) zu verbinden. Nicht jeder Pilot benötigt eine neue Plattform. Jeder produktive Prozess benötigt aber eine definierte Informationsgrundlage und eine Person, die für deren Qualität verantwortlich ist.
+Deshalb lohnt es sich, erste Experimente früh mit einer [klaren KI-Strategie](/de/ki-strategie/) zu verbinden. Nicht jeder Pilot benötigt eine neue Plattform. Jeder produktive Prozess benötigt aber eine definierte Informationsgrundlage und eine Person, die für deren Qualität verantwortlich ist.
 
 ## Fünf Merkmale von AI-ready Data
 
@@ -43,7 +43,7 @@ Eine große Datenmenge ist noch keine gute Datenbasis. Für mittelständische Un
 
 Daten müssen nicht universell perfekt sein. Sie müssen für die konkrete Entscheidung oder Automatisierung verlässlich genug sein. Für eine Margenanalyse sind beispielsweise eindeutige Kunden-, Produkt-, Umsatz- und Kostenbezüge wichtiger als die vollständige Bereinigung jedes historischen Kontaktdatensatzes.
 
-Das passt zu unserem bestehenden Leitgedanken, [nicht auf perfekte Daten zu warten](/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil). Der sinnvolle Weg ist, einen wertvollen Anwendungsfall abzugrenzen und genau die dafür benötigten Daten zu prüfen.
+Das passt zu unserem bestehenden Leitgedanken, [nicht auf perfekte Daten zu warten](/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil/). Der sinnvolle Weg ist, einen wertvollen Anwendungsfall abzugrenzen und genau die dafür benötigten Daten zu prüfen.
 
 ### 2. Zugänglich und verbindbar
 
@@ -75,7 +75,7 @@ Wenn Daten nicht zusammenpassen, lautet der erste Reflex oft: Wir brauchen ein n
 
 Die Architektur folgt der Geschäftsfrage, nicht umgekehrt. Wer wissen will, welche Produktlinie Marge verliert, braucht zunächst eine konsistente Verbindung zwischen Produkt, Umsatz und Kosten. Erst wenn dieser Zusammenhang funktioniert, lohnt sich die natürliche Sprachabfrage „Welche Produktlinie verliert Marge – und warum?“
 
-So entstehen schrittweise belastbare [KI-Agenten mit echtem Geschäftsnutzen](/de/blog/ki-agenten-geschaeftsnutzen-roi): nicht als zusätzliche Insel, sondern als kontrollierte Nutzer vorhandener Geschäftsdaten.
+So entstehen schrittweise belastbare [KI-Agenten mit echtem Geschäftsnutzen](/de/blog/ki-agenten-geschaeftsnutzen-roi/): nicht als zusätzliche Insel, sondern als kontrollierte Nutzer vorhandener Geschäftsdaten.
 
 ## Schlechte Daten erzeugen versteckte Opportunitätskosten
 
@@ -136,7 +136,7 @@ Ein mittelständisches Unternehmen kann die erste belastbare Grundlage in einem 
 * **Woche 3:** Die wichtigsten Qualitätslücken prüfen und einen begrenzten Datenfluss herstellen
 * **Woche 4:** Einen Report oder eine kontrollierte KI-Abfrage testen und den nächsten Schritt bewerten
 
-Genau auf diese Entscheidungsgrundlage zielt unser [Explore Workshop](/de/workshop/explore-workshop). Er verbindet Geschäftsziele, Prozesse, Daten und technische Voraussetzungen zu einer priorisierten Roadmap. Wo eine direkte Umsetzung sinnvoll ist, kann daraus anschließend ein klar abgegrenzter Pilot entstehen.
+Genau auf diese Entscheidungsgrundlage zielt unser [Explore Workshop](/de/workshop/explore-workshop/). Er verbindet Geschäftsziele, Prozesse, Daten und technische Voraussetzungen zu einer priorisierten Roadmap. Wo eine direkte Umsetzung sinnvoll ist, kann daraus anschließend ein klar abgegrenzter Pilot entstehen.
 
 ## Fazit: KI-fähige Daten sind ein Steuerungsinstrument
 

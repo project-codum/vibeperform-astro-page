@@ -1,6 +1,6 @@
 # Der 4-Phasen-Guide für KI-Erfolg im Münchner Mittelstand
-Canonical URL: https://www.vibeperform.com/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen
-English alternate: https://www.vibeperform.com/en/blog/ai-success-munich-smes-4-phase-guide
+Canonical URL: https://www.vibeperform.com/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen/
+English alternate: https://www.vibeperform.com/en/blog/ai-success-munich-smes-4-phase-guide/
 Summary: Wie Münchner KMUs Künstliche Intelligenz strukturiert von der ersten Idee bis zur echten Wertschöpfung bringen.
 
 Kicker: KI-Adoption

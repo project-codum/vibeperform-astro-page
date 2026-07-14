@@ -1,10 +1,12 @@
 ---
 import '../../styles/global.css';
 import HomePage from '../../components/HomePage.astro';
+import ConsentManagerHead from '../../components/ConsentManagerHead.astro';
 import { homeContent } from '../../data/homeContent';
 import { absoluteUrl, jsonLd, organizationSchema, websiteSchema } from '../../lib/siteMetadata';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 const description = homeContent.de.hero.subtitle;
+const title = 'KI-Beratung für Handwerk & Mittelstand | Vibeperform';
 const canonicalUrl = absoluteUrl('/de/');
 const alternateUrl = absoluteUrl('/en/');
 const structuredData = [organizationSchema(), websiteSchema('de')];
@@ -13,10 +15,7 @@ const structuredData = [organizationSchema(), websiteSchema('de')];
 <html lang="de">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="preconnect" href="https://cdn.consentmanager.net" crossorigin />
-		<link rel="preconnect" href="https://d.delivery.consentmanager.net" crossorigin />
-		<link rel="preconnect" href="https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app" crossorigin />
-		<script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/4c6af0ac92829.js" data-cmp-host="d.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
+		<ConsentManagerHead locale="de" />
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
@@ -72,7 +71,7 @@ const structuredData = [organizationSchema(), websiteSchema('de')];
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={faviconHref} />
 		<meta name="generator" content={Astro.generator} />
-		<title>Vibeperform</title>
+		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="alternate" hreflang="de" href={canonicalUrl} />

@@ -8,7 +8,7 @@ readTime: "4 Min. Lesezeit"
 coverImage: "/blog/ki-agenten-geschaeftsnutzen-roi.png"
 excerpt: "Warum KI-Agenten für Münchner KMUs erst dann echten ROI liefern, wenn Datenqualität, Governance und Mitarbeiterakzeptanz zusammenspielen."
 lang: "de"
-alternateLocaleHref: "/en/blog/ai-agents-business-roi"
+alternateLocaleHref: "/en/blog/ai-agents-business-roi/"
 ---
 
 München ist als Innovationsstandort weltweit bekannt. Doch während Großkonzerne bereits massiv in **agentische KI** investieren, fragen sich viele Münchner KMUs: Lohnt sich das für uns? Und wie stellen wir sicher, dass die Investition am Ende mehr einbringt, als sie kostet?

@@ -1,6 +1,6 @@
 # Wir sind Partner und Umsetzer, nicht nur Berater.
-Canonical URL: https://www.vibeperform.com/de/ueber-uns
-English alternate: https://www.vibeperform.com/en/about-us
+Canonical URL: https://www.vibeperform.com/de/ueber-uns/
+English alternate: https://www.vibeperform.com/en/about-us/
 Summary: Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz. Bei Bedarf holen wir die richtigen Partner:innen dazu.
 
 ## Versprechen

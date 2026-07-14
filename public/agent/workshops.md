@@ -1,6 +1,6 @@
 # Unsere Workshops im Überblick
-Canonical URL: https://www.vibeperform.com/de/workshops
-English alternate: https://www.vibeperform.com/en/workshops
+Canonical URL: https://www.vibeperform.com/de/workshops/
+English alternate: https://www.vibeperform.com/en/workshops/
 Summary: In unseren Workshops identifizieren wir gemeinsam KI-Potenziale für eure Prozesse. Darauf aufbauend entwickeln oder installieren wir greifbare Lösungen für euch.
 
 ## Warum Teams mit uns arbeiten

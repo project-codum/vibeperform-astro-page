@@ -1,6 +1,6 @@
 # Der strategische Explore Workshop
-Canonical URL: https://www.vibeperform.com/de/workshop/explore-workshop
-English alternate: https://www.vibeperform.com/en/workshop/explore-workshop
+Canonical URL: https://www.vibeperform.com/de/workshop/explore-workshop/
+English alternate: https://www.vibeperform.com/en/workshop/explore-workshop/
 Summary: Isolierte KI-Experimente ohne strategisches Fundament bieten keinen nachhaltigen Mehrwert. Dieser fokussierte Workshop identifiziert die Hebel in Ihrer Organisation, an denen KI-Lösungen die höchste strategische Wirkung entfalten können.
 
 ## Klarheit entsteht, wenn Strategie, Daten und Prozesse gemeinsam betrachtet werden.

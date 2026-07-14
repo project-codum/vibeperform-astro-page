@@ -5,9 +5,9 @@ export const homeContent = {
 		nav: {
 			brand: 'vibeperform',
 			links: [
-				{ label: 'Workshops', href: '/en/workshops' },
-				{ label: 'Blog', href: '/en/blog' },
-				{ label: 'About us', href: '/en/about-us' },
+				{ label: 'Workshops', href: '/en/workshops/' },
+				{ label: 'Blog', href: '/en/blog/' },
+				{ label: 'About us', href: '/en/about-us/' },
 			],
 			toggleLabel: 'DE',
 			toggleAriaLabel: 'Switch language to German',
@@ -43,7 +43,7 @@ export const homeContent = {
 				},
 				secondary: {
 					label: 'Explore workshops',
-					href: `${BASE_PATH}/en/workshops`,
+					href: `${BASE_PATH}/en/workshops/`,
 				},
 				chat: null,
 			},
@@ -111,10 +111,9 @@ export const homeContent = {
 		nav: {
 			brand: 'vibeperform',
 			links: [
-				// { label: 'KI Strategie', href: '/de/ki-strategie' },
-				{ label: 'Workshops', href: '/de/workshops' },
-				{ label: 'Blog', href: '/de/blog' },
-				{ label: 'Über uns', href: '/de/ueber-uns' },
+				{ label: 'Workshops', href: '/de/workshops/' },
+				{ label: 'Blog', href: '/de/blog/' },
+				{ label: 'Über uns', href: '/de/ueber-uns/' },
 			],
 			toggleLabel: 'EN',
 			toggleAriaLabel: 'Sprache zu Englisch wechseln',
@@ -150,7 +149,7 @@ export const homeContent = {
 				},
 				secondary: {
 					label: 'Workshops ansehen',
-					href: `${BASE_PATH}/de/workshops`,
+					href: `${BASE_PATH}/de/workshops/`,
 				},
 				chat: {
 					id: 'vibeperform-chat',

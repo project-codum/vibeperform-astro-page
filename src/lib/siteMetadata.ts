@@ -5,7 +5,24 @@ export const bookingUrl = 'https://calendar.app.google/utFQgw33PwJTiDk56';
 
 export type Locale = 'de' | 'en';
 
-export const absoluteUrl = (pathname = '/') => new URL(pathname, siteUrl).toString();
+const hasFileExtension = (pathname: string) => /\/[^/]+\.[^/]+$/.test(pathname);
+
+export const withTrailingSlash = (pathname: string) => {
+	if (!pathname || pathname === '/' || pathname.startsWith('#')) return pathname || '/';
+
+	const [pathAndQuery, hash = ''] = pathname.split('#', 2);
+	const [path, query = ''] = pathAndQuery.split('?', 2);
+	const normalizedPath = path.endsWith('/') || hasFileExtension(path) ? path : `${path}/`;
+	return `${normalizedPath}${query ? `?${query}` : ''}${hash ? `#${hash}` : ''}`;
+};
+
+export const absoluteUrl = (pathname = '/') => {
+	const url = new URL(pathname, siteUrl);
+	if (url.origin === siteUrl && !url.pathname.endsWith('/') && !hasFileExtension(url.pathname)) {
+		url.pathname = `${url.pathname}/`;
+	}
+	return url.toString();
+};
 
 export const jsonLd = (data: unknown) =>
 	JSON.stringify(data).replace(/</g, '\\u003c');
@@ -21,7 +38,6 @@ export const organizationSchema = () => ({
 	areaServed: ['München', 'Bayern', 'Deutschland', 'Europa'],
 	description:
 		'Vibeperform begleitet mittelständische Unternehmen mit unabhängiger KI-Beratung, Workshops und schlüsselfertiger Umsetzung.',
-	sameAs: [absoluteUrl('/de/')],
 });
 
 export const websiteSchema = (locale: Locale) => ({

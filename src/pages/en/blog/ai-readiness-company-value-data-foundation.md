@@ -7,7 +7,7 @@ date: "2026-07-08"
 lastModified: "2026-07-13"
 author: "Marlon Dietrich"
 authorRole: "Software engineer, AI consultant, and certified RAG engineer"
-authorHref: "/en/about-us"
+authorHref: "/en/about-us/"
 readTime: "9 min read"
 coverImage: "/blog/ai-readiness-wertsteigerung-datenbasis.avif"
 coverImageFallback: "/blog/ai-readiness-wertsteigerung-datenbasis.jpg"
@@ -16,11 +16,11 @@ coverImageWidth: 1774
 coverImageHeight: 887
 excerpt: "Learn how SMEs can connect CRM, ERP, finance, and operational data, map critical gaps, and turn AI readiness into measurable business value."
 lang: "en"
-alternateLocaleHref: "/de/blog/ki-readiness-wertsteigerung-datenbasis"
+alternateLocaleHref: "/de/blog/ki-readiness-wertsteigerung-datenbasis/"
 ctaTitle: "Assess your data foundation for AI"
 ctaBody: "In the Explore Workshop, we map systems, data gaps, management metrics, and the most useful first integrations. The result is a prioritized, actionable roadmap rather than an abstract IT transformation program."
 ctaButtonText: "Explore the workshop"
-ctaHref: "/en/workshop/explore-workshop"
+ctaHref: "/en/workshop/explore-workshop/"
 ---
 
 Many companies are discussing AI, testing individual tools, and automating their first tasks. Yet one more important question often remains unanswered across management, strategy, and finance teams: **Which business data must be connected reliably so that AI does more than generate text and can support better decisions and measurable value creation?**
@@ -47,7 +47,7 @@ For small and medium-sized enterprises, a realistic entry point into AI is rarel
 
 These applications can reduce costs or increase the output of an existing team. They also reveal the limits of isolated tools. An assistant can draft an email without understanding the CRM. To prioritize customers, proposals, or capacity reliably, however, it needs current data, unambiguous definitions, and controlled access rights.
 
-That is why early experiments should be connected to a [clear AI strategy](/en/ai-strategy). Not every pilot needs a new platform. Every production process does need a defined information foundation and a person accountable for its quality.
+That is why early experiments should be connected to a [clear AI strategy](/en/ai-strategy/). Not every pilot needs a new platform. Every production process does need a defined information foundation and a person accountable for its quality.
 
 ## Five characteristics of AI-ready data
 
@@ -57,7 +57,7 @@ A large volume of data is not automatically a useful data foundation. For SMEs, 
 
 Data does not need to be universally perfect. It needs to be reliable enough for the specific decision or automation. For a margin analysis, consistent links between customers, products, revenue, and costs matter more than cleaning every historical contact record.
 
-This supports our existing principle of [not waiting for perfect data](/en/blog/ai-reasoning-competitive-advantage). The practical approach is to define a valuable use case and assess the data required specifically for that use case.
+This supports our existing principle of [not waiting for perfect data](/en/blog/ai-reasoning-competitive-advantage/). The practical approach is to define a valuable use case and assess the data required specifically for that use case.
 
 ### 2. Accessible and connectable
 
@@ -89,7 +89,7 @@ When data does not align, the first instinct is often to replace the core system
 
 The architecture should follow the business question. A company that wants to identify which product line is losing margin first needs a consistent relationship between products, revenue, and costs. Only then does a natural-language query such as “Which product line is losing margin, and why?” become useful.
 
-This is how companies develop [AI agents with genuine business value](/en/blog/ai-agents-business-roi): not as another isolated tool, but as controlled users of existing business information.
+This is how companies develop [AI agents with genuine business value](/en/blog/ai-agents-business-roi/): not as another isolated tool, but as controlled users of existing business information.
 
 ## Poor data creates hidden opportunity costs
 
@@ -150,7 +150,7 @@ An SME can establish its first reliable foundation within a controlled scope:
 * **Week 3:** Assess the most important quality gaps and establish one limited data flow
 * **Week 4:** Test a report or controlled AI query and evaluate the next step
 
-This is the purpose of our [Explore Workshop](/en/workshop/explore-workshop). It connects business objectives, processes, data, and technical requirements in a prioritized roadmap. Where direct implementation makes sense, that roadmap can lead into a clearly bounded pilot.
+This is the purpose of our [Explore Workshop](/en/workshop/explore-workshop/). It connects business objectives, processes, data, and technical requirements in a prioritized roadmap. Where direct implementation makes sense, that roadmap can lead into a clearly bounded pilot.
 
 ## Conclusion: AI-ready data is a management instrument
 

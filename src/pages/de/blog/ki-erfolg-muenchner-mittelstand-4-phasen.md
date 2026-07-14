@@ -8,7 +8,7 @@ readTime: "6 Min. Lesezeit"
 coverImage: "/blog/ki-erfolg-muenchner-mittelstand-4-phasen.png"
 excerpt: "Wie Münchner KMUs Künstliche Intelligenz strukturiert von der ersten Idee bis zur echten Wertschöpfung bringen."
 lang: "de"
-alternateLocaleHref: "/en/blog/ai-success-munich-smes-4-phase-guide"
+alternateLocaleHref: "/en/blog/ai-success-munich-smes-4-phase-guide/"
 ---
 
 Für Münchner KMUs ist Künstliche Intelligenz (KI) längst kein reines Hype-Thema mehr, sondern ein entscheidender Faktor für die zukünftige Wettbewerbsfähigkeit. Doch wie schafft man den Sprung von der ersten Idee bis zur echten Wertschöpfung? Basierend auf bewährten Praxiserfahrungen zeigt dieser Guide den Weg in vier Phasen auf.

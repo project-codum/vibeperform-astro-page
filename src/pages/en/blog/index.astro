@@ -1,4 +1,5 @@
 ---
+import ConsentManagerHead from '../../../components/ConsentManagerHead.astro';
 import '../../../styles/global.css';
 import NavBar from '../../../components/NavBar.astro';
 import Footer from '../../../components/Footer.astro';
@@ -8,7 +9,7 @@ import { absoluteUrl } from '../../../lib/siteMetadata';
 const locale = 'en';
 const nav = homeContent[locale].nav;
 const homeHref = '/en/';
-const alternateLocaleHref = '/de/blog';
+const alternateLocaleHref = '/de/blog/';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
 
 interface Post {
@@ -36,16 +37,13 @@ const heroKicker = "Insights & Strategy";
 const heroTitle = "AI & automation in practice";
 const heroSubtitle = "Practical advice, concepts, and realities of implementing artificial intelligence for small and medium-sized enterprises.";
 const readMoreText = "Read article";
-const canonicalUrl = absoluteUrl('/en/blog');
+const canonicalUrl = absoluteUrl('/en/blog/');
 const alternateUrl = absoluteUrl(alternateLocaleHref);
 ---
 
 <html lang={locale}>
 	<head>
-		<link rel="preconnect" href="https://cdn.consentmanager.net" crossorigin />
-		<link rel="preconnect" href="https://d.delivery.consentmanager.net" crossorigin />
-		<link rel="preconnect" href="https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app" crossorigin />
-		<script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/4c6af0ac92829.js" data-cmp-host="d.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
+		<ConsentManagerHead locale="en" />
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
