@@ -12,7 +12,7 @@ Vibeperform ist ein KI-Beratungs- und Umsetzungspartner für kleine und mittlere
 
 ## Blog
 
-- [AI Readiness: Wie eine KI-fähige Datenbasis Unternehmenswert schafft](https://www.vibeperform.com/agent/blog/ki-readiness-wertsteigerung-datenbasis.md) — Erfahren Sie, wie Mittelständler CRM, ERP und Finanzdaten verbinden, eine Datenlandkarte erstellen und KI in messbaren Geschäftswert übersetzen.
+- [KI Readiness: Wie eine KI-fähige Datenbasis Unternehmenswert schafft](https://www.vibeperform.com/agent/blog/ki-readiness-wertsteigerung-datenbasis.md) — Erfahren Sie, wie Mittelständler CRM, ERP und Finanzdaten verbinden, eine Datenlandkarte erstellen und KI in messbaren Geschäftswert übersetzen.
 - [KI-Agenten: So wird aus dem Hype echter Geschäftsnutzen](https://www.vibeperform.com/agent/blog/ki-agenten-geschaeftsnutzen-roi.md) — Warum KI-Agenten für Münchner KMUs erst dann echten ROI liefern, wenn Datenqualität, Governance und Mitarbeiterakzeptanz zusammenspielen.
 - [KI und seine Fähigkeit logisch zu Denken („Reasoning“) sind der Schlüssel zum Wettbewerbsvorteil](https://www.vibeperform.com/agent/blog/ki-denkfaehigkeit-wettbewerbsvorteil.md) — Wie der Münchner Mittelstand und Tech-Startups Reasoning-Fähigkeiten von KI nutzen können, um echte Wettbewerbsvorteile zu erzielen.
 - [Der 4-Phasen-Guide für KI-Erfolg im Münchner Mittelstand](https://www.vibeperform.com/agent/blog/ki-erfolg-muenchner-mittelstand-4-phasen.md) — Wie Münchner KMUs Künstliche Intelligenz strukturiert von der ersten Idee bis zur echten Wertschöpfung bringen.
