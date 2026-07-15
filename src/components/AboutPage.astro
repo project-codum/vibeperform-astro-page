@@ -2,6 +2,8 @@
 import Button from './Button.astro';
 import Footer from './Footer.astro';
 import NavBar from './NavBar.astro';
+import PageReveals from './PageReveals.astro';
+import { CheckCircle2 } from 'lucide-static';
 import type { AboutContent } from '../data/aboutContent';
 
 interface Props {
@@ -13,57 +15,79 @@ interface Props {
 
 const { content, homeHref, alternateLocaleHref, currentLocale } = Astro.props as Props;
 const { nav, hero, approach, team, connect } = content;
-const approachLabel = currentLocale === 'de' ? 'Ansatz' : 'Approach';
+const locale = currentLocale === 'de' ? 'de' : 'en';
 const assetBaseUrl = import.meta.env.BASE_URL ?? '/';
+const checkIcon = CheckCircle2
+	.replace('class="lucide', 'class="lucide h-5 w-5')
+	.replace('width="24"', 'width="20"')
+	.replace('height="24"', 'height="20"');
 ---
 
-<div class="flex min-h-screen flex-col bg-white">
-	<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={currentLocale} />
+<div class="flex min-h-screen flex-col bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-100">
+	<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={locale} />
 
-	<main class="flex flex-1 flex-col gap-y-24 pb-20">
-		<section class="section-spacing">
-			<div class="container-responsive mx-auto max-w-4xl space-y-6 text-left">
-				<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">{hero.kicker}</p>
-				<h1 class="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">{hero.title}</h1>
-				<p class="text-base text-slate-600 sm:text-lg md:text-xl">{hero.intro}</p>
-				<p class="text-base font-semibold text-slate-900 sm:text-lg">{hero.promise}</p>
+	<main class="about-main flex flex-1 flex-col overflow-hidden">
+		<section class="flex min-h-[calc(100dvh-76px)] items-center py-16 lg:py-20">
+			<div class="container-responsive grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
+				<div class="max-w-3xl lg:col-span-8">
+					<p class="text-xs font-semibold uppercase tracking-[0.28em] text-purple-700 dark:text-purple-300 sm:text-sm">{hero.kicker}</p>
+					<h1 class="mt-5 max-w-[20ch] text-[clamp(2.35rem,4.25vw,3.25rem)] font-semibold leading-[1.03] tracking-[-0.05em] text-slate-950 dark:text-slate-50">
+						{hero.title}
+					</h1>
+					<p class="mt-6 max-w-[55ch] text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{hero.intro}</p>
+					<p class="mt-8 max-w-[52ch] border-l-2 border-purple-600 pl-5 text-base font-semibold leading-7 text-slate-900 dark:border-purple-400 dark:text-slate-100 sm:text-lg">
+						{hero.promise}
+					</p>
+				</div>
+
+				<figure class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-[0_24px_70px_rgba(42,24,56,0.14)] dark:border-slate-800 dark:bg-slate-900 lg:col-span-4">
+					<img
+						src="/workshop3-720.webp"
+						alt={locale === 'de' ? 'Workshop-Raum mit Whiteboard und Vibeperform Bildschirm' : 'Workshop room with a whiteboard and Vibeperform screen'}
+						class="aspect-[16/9] w-full object-cover lg:aspect-[3/4]"
+						loading="eager"
+						fetchpriority="high"
+						decoding="sync"
+						width="720"
+						height="540"
+					/>
+				</figure>
 			</div>
 		</section>
 
-		<section class="section-spacing bg-slate-50">
-			<div class="container-responsive space-y-8">
-				<div class="space-y-2">
-					<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">{team.kicker}</p>
-					<h2 class="text-3xl font-semibold text-slate-900 md:text-4xl">{team.title}</h2>
+		<section class="section-spacing bg-[#eeebf4] dark:bg-[#18131e]">
+			<div class="container-responsive">
+				<div class="max-w-3xl" data-page-reveal>
+					<p class="text-xs font-semibold uppercase tracking-[0.28em] text-purple-700 dark:text-purple-300 sm:text-sm">{team.kicker}</p>
+					<h2 class="mt-4 text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">{team.title}</h2>
+					<p class="mt-5 max-w-[60ch] text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8">
+						{locale === 'de'
+							? 'Technologie, Produktdenken und Veränderungskompetenz kommen bei uns an einem Tisch zusammen.'
+							: 'Technology, product thinking, and change expertise come together at one table.'}
+					</p>
 				</div>
-				<div class="grid gap-6 md:grid-cols-2">
+
+				<div class="mt-12 grid gap-7 lg:grid-cols-2">
 					{team.members.map((member) => (
-						<article
-							class="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-8"
-							key={member.name}
-						>
-							<div class="flex items-start gap-4">
-								{member.image ? (
-									<img
-										class="h-50 w-45 rounded-2xl object-cover"
-										src={`${assetBaseUrl}${member.image.src}`}
-										alt={member.image.alt}
-										loading="lazy"
-										width="160"
-										height="160"
-									/>
-								) : (
-									<div class="h-20 w-20 rounded-2xl bg-slate-100" aria-hidden="true"></div>
-								)}
-								<header class="space-y-1">
-									<h3 class="text-2xl font-semibold text-slate-900">{member.name}</h3>
-									<p class="text-sm italic text-slate-500">{member.tagline}</p>
+						<article class="overflow-hidden rounded-2xl border border-[#c8b4d8] bg-white dark:border-[#4a3659] dark:bg-[#241b2c]" data-page-reveal>
+							{member.image ? (
+								<img
+									class="aspect-[4/3] w-full object-cover object-top"
+									src={`${assetBaseUrl}${member.image.src}`}
+									alt={member.image.alt}
+									loading="lazy"
+									width="720"
+									height="540"
+								/>
+							) : null}
+							<div class="p-6 sm:p-8">
+								<header>
+									<h3 class="text-2xl font-semibold tracking-[-0.025em] text-slate-950 dark:text-slate-50 sm:text-3xl">{member.name}</h3>
+									<p class="mt-2 text-sm font-medium text-purple-800 dark:text-purple-300">{member.tagline}</p>
 								</header>
-							</div>
-							<div class="mt-6 flex flex-1 flex-col space-y-3 text-slate-600">
-								{member.paragraphs.map((paragraph, index) => (
-									<p key={`${member.name}-paragraph-${index}`}>{paragraph}</p>
-								))}
+								<div class="mt-6 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-300">
+									{member.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+								</div>
 							</div>
 						</article>
 					))}
@@ -71,36 +95,47 @@ const assetBaseUrl = import.meta.env.BASE_URL ?? '/';
 			</div>
 		</section>
 
-		<section class="section-spacing">
-			<div class="container-responsive mx-auto max-w-4xl space-y-6">
-				<div class="space-y-3">
-					<p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 sm:text-sm">{approachLabel}</p>
-					<h2 class="text-3xl font-semibold text-slate-900 md:text-4xl">{approach.title}</h2>
-					<p class="text-lg text-slate-600">{approach.intro}</p>
+		<section class="section-spacing bg-[#2a1838] text-purple-50">
+			<div class="container-responsive">
+				<div class="max-w-3xl" data-page-reveal>
+					<h2 class="text-3xl font-semibold tracking-[-0.035em] text-[#fffafc] sm:text-4xl lg:text-5xl">{approach.title}</h2>
+					<p class="mt-5 max-w-[60ch] text-base leading-7 text-[#d9cae6] sm:text-lg sm:leading-8">{approach.intro}</p>
 				</div>
-				<ul class="list-disc space-y-3 pl-5 text-base text-slate-600">
+
+				<div class="mt-12 grid gap-x-10 gap-y-0 md:grid-cols-3">
 					{approach.steps.map((step) => (
-						<li key={step}>{step}</li>
+						<article class="border-t border-[#76578a] py-7" data-page-reveal>
+							<span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#4b2e5c] text-purple-100" aria-hidden="true" set:html={checkIcon} />
+							<p class="mt-5 text-base leading-7 text-[#f0e8f5]">{step}</p>
+						</article>
 					))}
-				</ul>
-				<p class="text-base font-semibold text-slate-900">{approach.closing}</p>
+				</div>
+
+				<p class="mt-7 max-w-3xl text-lg font-semibold leading-8 text-[#fffafc]" data-page-reveal>{approach.closing}</p>
 			</div>
 		</section>
 
-		<section class="section-spacing bg-slate-50">
-			<div class="container-responsive">
-				<div class="mx-auto max-w-3xl space-y-6 rounded-3xl bg-white p-8 text-center shadow-sm sm:p-10">
-					<h2 class="text-3xl font-semibold text-slate-900 sm:text-4xl">{connect.title}</h2>
-					<p class="text-base text-slate-600 sm:text-lg">{connect.body}</p>
-					<div class="flex justify-center pt-2">
-						<Button href={connect.button.href} target="_blank" rel="noreferrer noopener">
-							{connect.button.label}
-						</Button>
+		<section class="section-spacing bg-white dark:bg-slate-950">
+			<div class="container-responsive" data-page-reveal>
+				<div class="grid items-center gap-8 rounded-2xl bg-[#eeebf4] p-7 dark:bg-[#18131e] sm:p-10 lg:grid-cols-[1fr_auto] lg:p-12">
+					<div class="max-w-2xl">
+						<h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl">{connect.title}</h2>
+						<p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">{connect.body}</p>
+					</div>
+					<div class="lg:justify-self-end">
+						<Button href={connect.button.href} target="_blank" rel="noreferrer noopener">{connect.button.label}</Button>
 					</div>
 				</div>
 			</div>
 		</section>
 	</main>
 
-	<Footer currentLocale={currentLocale} />
+	<Footer currentLocale={locale} />
+	<PageReveals />
 </div>
+
+<style>
+	.about-main {
+		padding-inline: 0;
+	}
+</style>

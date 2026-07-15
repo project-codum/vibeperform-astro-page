@@ -3,8 +3,8 @@ type Locale = 'de' | 'en';
 export const exploreWorkshopContent = {
 	de: {
 		homeHref: '/de/',
-		alternateLocaleHref: '/en/workshop/explore-workshop',
-		workshopsHref: '/de/workshops',
+		alternateLocaleHref: '/en/workshop/explore-workshop/',
+		workshopsHref: '/de/workshops/',
 		backToWorkshops: 'Zurück zu den Workshops',
 		outcomeId: 'ergebnis',
 		phaseLabel: 'Phase 1',
@@ -97,8 +97,8 @@ export const exploreWorkshopContent = {
 	},
 	en: {
 		homeHref: '/en/',
-		alternateLocaleHref: '/de/workshop/explore-workshop',
-		workshopsHref: '/en/workshops',
+		alternateLocaleHref: '/de/workshop/explore-workshop/',
+		workshopsHref: '/en/workshops/',
 		backToWorkshops: 'Back to workshops',
 		outcomeId: 'outcome',
 		phaseLabel: 'Phase 1',

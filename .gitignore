@@ -12,6 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 .playwright-mcp/
+.seo-cache/
 
 # generated local previews
 .tmp_offer_render/

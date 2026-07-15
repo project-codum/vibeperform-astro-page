@@ -1,6 +1,6 @@
 # KI-Agenten: So wird aus dem Hype echter Geschäftsnutzen
-Canonical URL: https://www.vibeperform.com/de/blog/ki-agenten-geschaeftsnutzen-roi
-English alternate: https://www.vibeperform.com/en/blog/ai-agents-business-roi
+Canonical URL: https://www.vibeperform.com/de/blog/ki-agenten-geschaeftsnutzen-roi/
+English alternate: https://www.vibeperform.com/en/blog/ai-agents-business-roi/
 Summary: Warum KI-Agenten für Münchner KMUs erst dann echten ROI liefern, wenn Datenqualität, Governance und Mitarbeiterakzeptanz zusammenspielen.
 
 Kicker: Agentische KI

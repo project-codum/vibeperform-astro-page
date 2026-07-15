@@ -5,22 +5,22 @@ export const homeContent = {
 		nav: {
 			brand: 'vibeperform',
 			links: [
-				{ label: 'Workshops', href: '/en/workshops' },
-				{ label: 'Blog', href: '/en/blog' },
-				{ label: 'About us', href: '/en/about-us' },
+				{ label: 'Workshops', href: '/en/workshops/' },
+				{ label: 'Blog', href: '/en/blog/' },
+				{ label: 'About us', href: '/en/about-us/' },
 			],
 			toggleLabel: 'DE',
 			toggleAriaLabel: 'Switch language to German',
 			menuToggleLabel: 'Toggle navigation menu',
 		},
 		hero: {
-			kicker: 'AI consulting & implementation',
-			title: '',
+			kicker: 'AI consulting for craft businesses and SMBs',
+			title: 'AI that works in your operation.',
 			rotatingWords: ['Independent advice.', 'On-site analysis.', 'Turnkey implementation.'],
-			subtitle: 'The all-in-one AI solution for SMBs: vendor-independent consulting, on-site workshop analysis, and turnkey implementation that turns AI into a tangible competitive advantage.',
-			primaryCta: 'Get in touch',
+			subtitle: 'We find useful applications, build the right solution and embed it with your team in daily work.',
+			primaryCta: 'Book an intro call',
 			primaryHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
-			secondaryCta: 'How we work',
+			secondaryCta: 'See our approach',
 			secondaryHref: '#how-we-work',
 			callouts: [
 				{ label: 'Speed', description: 'Weeks, not months' },
@@ -43,7 +43,7 @@ export const homeContent = {
 				},
 				secondary: {
 					label: 'Explore workshops',
-					href: `${BASE_PATH}/en/workshops`,
+					href: `${BASE_PATH}/en/workshops/`,
 				},
 				chat: null,
 			},
@@ -111,23 +111,22 @@ export const homeContent = {
 		nav: {
 			brand: 'vibeperform',
 			links: [
-				// { label: 'KI Strategie', href: '/de/ki-strategie' },
-				{ label: 'Workshops', href: '/de/workshops' },
-				{ label: 'Blog', href: '/de/blog' },
-				{ label: 'Über uns', href: '/de/ueber-uns' },
+				{ label: 'Workshops', href: '/de/workshops/' },
+				{ label: 'Blog', href: '/de/blog/' },
+				{ label: 'Über uns', href: '/de/ueber-uns/' },
 			],
 			toggleLabel: 'EN',
 			toggleAriaLabel: 'Sprache zu Englisch wechseln',
 			menuToggleLabel: 'Navigationsmenue oeffnen',
 		},
 		hero: {
-			kicker: 'KI Beratung & Umsetzung',
-			title: '',
+			kicker: 'KI-Beratung für Handwerk und Mittelstand',
+			title: 'KI, die im Betrieb mitarbeitet.',
 			rotatingWords: ['Unabhängig beraten.', 'Vor Ort analysieren.', 'Schlüsselfertige Umsetzung.'],
-			subtitle: 'Der KI-Partner für KMU: Alles aus einer Hand. Von unabhängiger Beratung über Vor-Ort-Workshops bis zur fertigen Implementierung, damit Ihr Wettbewerbsvorteil direkt spürbar wird.',
-			primaryCta: 'Kontakt aufnehmen',
+			subtitle: 'Wir finden sinnvolle Einsatzfelder, bauen passende Lösungen und bringen sie gemeinsam mit Ihrem Team in den Alltag.',
+			primaryCta: 'Erstgespräch buchen',
 			primaryHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
-			secondaryCta: 'So arbeiten wir',
+			secondaryCta: 'Vorgehen ansehen',
 			secondaryHref: '#so-arbeiten-wir',
 			callouts: [
 				{ label: 'Tempo', description: 'Wochen statt Monate' },
@@ -150,7 +149,7 @@ export const homeContent = {
 				},
 				secondary: {
 					label: 'Workshops ansehen',
-					href: `${BASE_PATH}/de/workshops`,
+					href: `${BASE_PATH}/de/workshops/`,
 				},
 				chat: {
 					id: 'vibeperform-chat',
@@ -176,7 +175,7 @@ export const homeContent = {
 		useCases: {
 			kicker: 'Use Cases',
 			heading: 'Bewährte Einsatzfelder',
-			subheading: 'Schnell nutzbar, klar messbar – aus realen Projekten im Mittelstand.',
+			subheading: 'Schnell nutzbar, klar messbar, aus realen Projekten im Mittelstand.',
 			cards: [
 				{
 					category: 'Vertrieb',
@@ -207,7 +206,7 @@ export const homeContent = {
 				{
 					category: 'Operations',
 					title: 'Dokumenten-Extraktion & Prüfungen',
-					description: 'Extrahiert Felder, prüft Regeln und schreibt ins ERP – mit Audit-Trail und Abweichungsreport.',
+					description: 'Extrahiert Felder, prüft Regeln und schreibt ins ERP, mit Audit-Trail und Abweichungsreport.',
 					highlights: [
 						'Extrahierte Felder (JSON/CSV)',
 						'Abgleich PO ↔ Rechnung',

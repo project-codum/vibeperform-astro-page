@@ -1,5 +1,6 @@
 ---
 import type { HomeContent } from '../data/homeContent';
+import { Menu } from 'lucide-static';
 
 type NavContent = HomeContent['nav'];
 
@@ -17,12 +18,16 @@ const logoUrl = `${baseUrl}/vibeperform-logo.png`;
 const logoAnimationUrl = `${baseUrl}/vibeperform-logo-alive.json`;
 const toggleId = `nav-toggle-${Math.random().toString(36).slice(2, 9)}`;
 const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
+const menuIcon = Menu
+	.replace('class="lucide', 'class="lucide h-5 w-5')
+	.replace('width="24"', 'width="20"')
+	.replace('height="24"', 'height="20"');
 ---
 
-<header class="section-spacing-tight">
-	<nav class="container-responsive flex items-center justify-between gap-4">
+<header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95">
+	<nav class="container-responsive flex h-[76px] items-center justify-between gap-4">
 		<a
-			class="inline-flex items-center"
+			class="inline-flex items-center rounded-xl dark:bg-white dark:px-2"
 			href={homeHref}
 			aria-label={nav.brand}
 		>
@@ -45,17 +50,17 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 			</span>
 		</a>
 
-		<div class="hidden items-center gap-6 md:flex">
+		<div class="hidden items-center gap-7 md:flex">
 			{nav.links.map((link) => (
 				<a
-					class="text-xs font-medium uppercase tracking-[0.25em] text-slate-600 hover:text-slate-900 lg:text-sm"
+					class="text-sm font-semibold text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
 					href={link.href}
 				>
 					{link.label}
 				</a>
 			))}
 			<a
-				class="inline-flex min-h-[2.5rem] items-center justify-center rounded-full border border-slate-400 px-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 hover:border-slate-600 hover:text-slate-900"
+				class="inline-flex min-h-10 items-center justify-center rounded-full border border-slate-300 px-4 text-sm font-semibold text-slate-700 hover:border-slate-500 hover:text-slate-950 active:scale-[0.98] dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:text-white"
 				href={alternateLocaleHref}
 				aria-label={nav.toggleAriaLabel}
 				data-locale-switch
@@ -67,7 +72,7 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 
 		<button
 			id={toggleId}
-			class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-700 hover:border-slate-500 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400 md:hidden"
+			class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-700 hover:border-slate-500 hover:text-slate-950 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:text-white md:hidden"
 			type="button"
 			aria-expanded="false"
 			aria-controls={menuId}
@@ -75,15 +80,13 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 			data-nav-toggle
 		>
 			<span class="sr-only">{nav.menuToggleLabel}</span>
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16" />
-			</svg>
+			<span aria-hidden="true" set:html={menuIcon} />
 		</button>
 	</nav>
 
 	<div
 		id={menuId}
-		class="container-responsive mt-3 grid gap-2 rounded-xl border border-slate-200 bg-white p-4 shadow-lg md:hidden"
+		class="container-responsive mt-3 grid gap-2 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg dark:border-slate-800 dark:bg-slate-900 md:hidden"
 		data-open="false"
 		data-nav-menu
 		aria-hidden="true"
@@ -91,14 +94,14 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 	>
 		{nav.links.map((link) => (
 			<a
-				class="rounded-lg px-3 py-2 text-sm font-medium uppercase tracking-[0.2em] text-slate-700 hover:bg-slate-100"
+				class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
 				href={link.href}
 			>
 				{link.label}
 			</a>
 		))}
 		<a
-			class="mt-2 inline-flex min-h-[2.75rem] items-center justify-center rounded-full border border-slate-400 px-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 hover:border-slate-600 hover:text-slate-900"
+			class="mt-2 inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-4 text-sm font-semibold text-slate-700 hover:border-slate-500 hover:text-slate-950 dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:text-white"
 			href={alternateLocaleHref}
 			aria-label={nav.toggleAriaLabel}
 			data-locale-switch
@@ -113,15 +116,15 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 	.nav-logo-lottie {
 		display: block;
 		position: relative;
-		width: 10.625rem;
-		height: 4.5rem;
+		width: 10.5rem;
+		height: 3.5rem;
 		overflow: hidden;
 	}
 
 	@media (min-width: 768px) {
 		.nav-logo-lottie {
-			width: 11.75rem;
-			height: 5rem;
+			width: 12rem;
+			height: 4rem;
 		}
 	}
 
@@ -132,6 +135,8 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 		inset: 0;
 		width: 100%;
 		height: 100%;
+		transform: scale(1.7);
+		transform-origin: center;
 	}
 
 	.nav-logo-lottie__stage :global(svg),
@@ -277,7 +282,7 @@ const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 <script is:inline>
 	(() => {
 		const focusableSelector =
-			'a[href], button:not([disabled]), [tabindex]:not([-1]), [data-nav-focusable="true"]';
+			'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), [data-nav-focusable="true"]';
 
 		const setupNav = (toggle, menu) => {
 			if (!(toggle instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) {

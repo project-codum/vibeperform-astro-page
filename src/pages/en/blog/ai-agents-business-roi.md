@@ -8,7 +8,7 @@ readTime: "4 min read"
 coverImage: "/blog/ki-agenten-geschaeftsnutzen-roi.png"
 excerpt: "Why AI agents only deliver real ROI for Munich SMEs when data quality, governance, and employee adoption work together."
 lang: "en"
-alternateLocaleHref: "/de/blog/ki-agenten-geschaeftsnutzen-roi"
+alternateLocaleHref: "/de/blog/ki-agenten-geschaeftsnutzen-roi/"
 ---
 
 Munich is known worldwide as a hub for innovation. But while large corporations are already investing heavily in **agentic AI**, many Munich SMEs are asking themselves: Is this worth it for us? And how do we make sure the investment ultimately generates more value than it costs?

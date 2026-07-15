@@ -29,7 +29,14 @@ const deAbout = aboutContent.de;
 const deExplore = exploreWorkshopContent.de;
 const deHighlights = landingHighlightsContent.de;
 
-const absoluteUrl = (pathname) => new URL(pathname, siteUrl).toString();
+const hasFileExtension = (pathname) => /\/[^/]+\.[^/]+$/.test(pathname);
+const absoluteUrl = (pathname) => {
+	const url = new URL(pathname, siteUrl);
+	if (url.origin === siteUrl && !url.pathname.endsWith('/') && !hasFileExtension(url.pathname)) {
+		url.pathname = `${url.pathname}/`;
+	}
+	return url.toString();
+};
 const stripHtml = (value) => String(value).replace(/<[^>]*>/g, '');
 const normalizeBlankLines = (value) => value.replace(/\n{3,}/g, '\n\n').trim() + '\n';
 const bulletList = (items) => items.map((item) => `- ${stripHtml(item)}`).join('\n');
@@ -66,7 +73,7 @@ async function readGermanBlogPosts() {
 			return {
 				slug,
 				agentPath: `/agent/blog/${slug}.md`,
-				canonicalPath: `/de/blog/${slug}`,
+				canonicalPath: `/de/blog/${slug}/`,
 				...data,
 				body,
 			};
@@ -133,9 +140,9 @@ function renderWorkshopsAgentPage() {
 
 	return normalizeBlankLines(`${pageHeader({
 		title: deWorkshops.hero.title,
-		canonicalPath: '/de/workshops',
+		canonicalPath: '/de/workshops/',
 		description: deWorkshops.hero.intro,
-		alternatePath: '/en/workshops',
+		alternatePath: '/en/workshops/',
 	})}${section(deWorkshops.valueSection.heading, bulletList(deWorkshops.valueSection.bullets.map((item) => `${item.title} ${item.body}`)))}
 
 ${section(deWorkshops.offeringsIntro.heading, `${deWorkshops.offeringsIntro.body}\n\n${offerings}`)}
@@ -154,9 +161,9 @@ function renderExploreAgentPage() {
 
 	return normalizeBlankLines(`${pageHeader({
 		title: deExplore.title,
-		canonicalPath: '/de/workshop/explore-workshop',
+		canonicalPath: '/de/workshop/explore-workshop/',
 		description: deExplore.intro,
-		alternatePath: '/en/workshop/explore-workshop',
+		alternatePath: '/en/workshop/explore-workshop/',
 	})}${section(deExplore.introTitle, deExplore.introBody)}
 
 ${section('Kennzahlen und Ergebnisrahmen', proofItems)}
@@ -179,9 +186,9 @@ function renderAboutAgentPage() {
 
 	return normalizeBlankLines(`${pageHeader({
 		title: deAbout.hero.title,
-		canonicalPath: '/de/ueber-uns',
+		canonicalPath: '/de/ueber-uns/',
 		description: deAbout.hero.intro,
-		alternatePath: '/en/about-us',
+		alternatePath: '/en/about-us/',
 	})}${section('Versprechen', `${deAbout.hero.intro}\n\n${deAbout.hero.promise}`)}
 
 ${section(deAbout.team.title, team)}
@@ -270,18 +277,20 @@ function renderSitemapXml(blogPosts) {
 	const staticUrls = [
 		'/de/',
 		'/en/',
-		'/de/workshops',
-		'/en/workshops',
-		'/de/workshop/explore-workshop',
-		'/en/workshop/explore-workshop',
-		'/de/ueber-uns',
-		'/en/about-us',
-		'/de/impressum',
-		'/en/legal-notice',
-		'/de/datenschutz',
-		'/en/privacy',
-		'/de/blog',
-		'/en/blog',
+		'/de/workshops/',
+		'/en/workshops/',
+		'/de/workshop/explore-workshop/',
+		'/en/workshop/explore-workshop/',
+		'/de/ki-strategie/',
+		'/en/ai-strategy/',
+		'/de/ueber-uns/',
+		'/en/about-us/',
+		'/de/impressum/',
+		'/en/legal-notice/',
+		'/de/datenschutz/',
+		'/en/privacy/',
+		'/de/blog/',
+		'/en/blog/',
 	];
 	const urls = [
 		...staticUrls.map((pathname) => ({ pathname })),

@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+	--text-xs: 0.875rem;
+	--text-xs--line-height: 1.25rem;
+	--text-sm: 1rem;
+	--text-sm--line-height: 1.5rem;
+}
+
 :root {
-	--space-section: clamp(3.5rem, 6vw, 6rem);
+	--space-section: clamp(4.5rem, 8vw, 7.5rem);
 	--space-section-tight: clamp(2.5rem, 4vw, 4rem);
 	--radius-pill: 9999px;
 }
@@ -13,7 +20,7 @@
 	}
 
 	body {
-		@apply antialiased bg-white text-slate-900;
+		@apply antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100;
 		line-height: 1.6;
 	}
 

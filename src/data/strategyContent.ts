@@ -1,6 +1,6 @@
 export const strategyContent = {
 	en: {
-		metaTitle: 'AI Strategy Consulting | NEXperts',
+		metaTitle: 'AI Strategy Consulting for SMEs | Vibeperform',
 			hero: {
 				kicker: 'AI Strategy',
 				title: 'Turn your AI vision into a measurable roadmap.',
@@ -68,7 +68,7 @@ export const strategyContent = {
 		valueDrivers: {
 			title: 'The six value drivers we measure',
 			intro:
-				'Every use case is scored across the six NEXperts value drivers so you invest where momentum and payoff are highest. Open a driver to see how we assess it.',
+				'Every use case is scored across six Vibeperform value drivers so you invest where momentum and payoff are highest. Open a driver to see how we assess it.',
 			drivers: [
 				{
 					name: 'Revenue lift',
@@ -207,7 +207,7 @@ export const strategyContent = {
 		},
 	},
 	de: {
-		metaTitle: 'KI Strategie Beratung | NEXperts',
+		metaTitle: 'KI-Strategieberatung für den Mittelstand | Vibeperform',
 			hero: {
 				kicker: 'KI Strategie',
 				title: 'Von der Vision zu konkreten Use Cases.',
@@ -275,7 +275,7 @@ export const strategyContent = {
 		valueDrivers: {
 			title: 'Die sechs Value Driver',
 			intro:
-				'Jeder Use Case wird entlang der sechs NEXperts Value Driver bewertet. So investieren wir dort, wo Momentum und Nutzen am hoechsten sind.',
+				'Jeder Use Case wird entlang der sechs Vibeperform Value Driver bewertet. So investieren wir dort, wo Momentum und Nutzen am hoechsten sind.',
 			drivers: [
 				{
 					name: 'Umsatzhebel',

@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.vibeperform.com',
+	trailingSlash: 'always',
 	// Remove base when using custom domain
 	integrations: [react()],
 	i18n: {

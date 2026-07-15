@@ -8,8 +8,8 @@ export const aboutContent = {
 			kicker: 'About us',
 			title: 'We are partners and implementers, not just advisors.',
 			intro:
-				'As a small, tight-knit team we combine technology expertise, product thinking, and change capability — and bring in the right partners whenever needed.',
-			promise: 'Our promise: solutions that work — in practice, with real people, inside real processes.',
+				'As a small, tight-knit team we combine technology expertise, product thinking, and change capability, bringing in the right partners whenever needed.',
+			promise: 'Our promise: solutions that work in practice, with real people, inside real processes.',
 		},
 		approach: {
 			title: 'Our approach',
@@ -19,7 +19,7 @@ export const aboutContent = {
 				'We review the tools and solutions you already have in place.',
 				'And we only build bespoke elements where it truly makes sense.',
 			],
-			closing: 'Our goal: use technology that works — not because it is new, but because it helps.',
+			closing: 'Our goal is to use technology that works, not because it is new, but because it helps.',
 		},
 		team: {
 			title: 'Who we are',
@@ -34,7 +34,7 @@ export const aboutContent = {
 					tagline: 'Systemic coach & AI product strategist',
 					paragraphs: [
 						'Isabella combines technological expertise with a deep understanding of learning and change.',
-						'As the former founder of an AI coach for employee development she knows how software helps people grow — and what companies need to stay ahead.',
+						'As the former founder of an AI coach for employee development, she knows how software helps people grow and what companies need to stay ahead.',
 						'Her focus: lifelong learning, change management, and meaningful technology adoption.',
 					],
 				},
@@ -69,8 +69,8 @@ export const aboutContent = {
 			kicker: 'Über uns',
 			title: 'Wir sind Partner und Umsetzer, nicht nur Berater.',
 			intro:
-				'Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz – und holen bei Bedarf die richtigen Partner:innen dazu.',
-			promise: 'Unser Anspruch: Lösungen, die funktionieren – in der Praxis, mit echten Menschen, in realen Prozessen.',
+				'Als kleines, eingespieltes Team verbinden wir Technologie-Expertise, Produktdenken und Change-Kompetenz. Bei Bedarf holen wir die richtigen Partner:innen dazu.',
+			promise: 'Unser Anspruch: Lösungen, die in der Praxis, mit echten Menschen und in realen Prozessen funktionieren.',
 		},
 		approach: {
 			title: 'Unser Ansatz',
@@ -80,7 +80,7 @@ export const aboutContent = {
 				'Wir prüfen vorhandene Tools und Lösungen.',
 				'Und wir setzen nur dort individuell um, wo es wirklich Sinn macht.',
 			],
-			closing: 'Unser Ziel: Technologie einsetzen, die wirkt – nicht, weil sie neu ist, sondern weil sie hilft.',
+			closing: 'Unser Ziel: Technologie einsetzen, die wirkt. Nicht, weil sie neu ist, sondern weil sie hilft.',
 		},
 		team: {
 			title: 'Wer wir sind',
@@ -95,7 +95,7 @@ export const aboutContent = {
 					tagline: 'Systemischer Coach & KI-Produktstrategin',
 					paragraphs: [
 						'Isabella verbindet technologische Expertise mit einem tiefen Verständnis für Lernen und Veränderung.',
-						'Als ehemalige Gründerin eines KI-Coaches für Mitarbeiterentwicklung weiß sie, wie Software Menschen wachsen lässt – und was Unternehmen brauchen, um den Anschluss nicht zu verlieren.',
+						'Als ehemalige Gründerin eines KI-Coaches für Mitarbeiterentwicklung weiß sie, wie Software Menschen wachsen lässt und was Unternehmen brauchen, um den Anschluss nicht zu verlieren.',
 						'Ihr Fokus: Lifelong Learning, Change Management und sinnvolle Technologieeinsätze.',
 					],
 				},
@@ -109,7 +109,7 @@ export const aboutContent = {
 					paragraphs: [
 						'Marlon kennt die Realität mittelständischer Prozesse aus erster Hand.',
 						'Als zertifizierter RAG-Engineer und erfahrener Entwickler baut er KI-Lösungen, die echte Entlastung bringen: weniger manuelle Arbeit, mehr Fokus auf Wertschöpfung.',
-						'Sein Antrieb: KI greifbar und zugänglich machen – für Teams jeder Größe. Er entwickelt KI-Lösungen, die Mitarbeitende entlasten, Routinen automatisieren und Zeit für das Wesentliche schaffen.',
+						'Sein Antrieb: KI für Teams jeder Größe greifbar und zugänglich machen. Er entwickelt KI-Lösungen, die Mitarbeitende entlasten, Routinen automatisieren und Zeit für das Wesentliche schaffen.',
 					],
 				},
 			],

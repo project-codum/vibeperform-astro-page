@@ -1,4 +1,5 @@
 ---
+import ConsentManagerHead from '../../../components/ConsentManagerHead.astro';
 import '../../../styles/global.css';
 import ExploreWorkshopPage from '../../../components/ExploreWorkshopPage.astro';
 import { exploreWorkshopContent } from '../../../data/exploreWorkshopContent';
@@ -8,12 +9,12 @@ const title = 'Phase 1 Workshop | Strategic Discovery Sprint | Vibeperform';
 const description =
 	'Strategic Discovery Sprint: KI-Roadmap, Use-Case-Priorisierung und klare technische Voraussetzungen für den Einstieg in wirksame KI-Lösungen.';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
-const canonicalUrl = absoluteUrl('/de/workshop/explore-workshop');
-const alternateUrl = absoluteUrl('/en/workshop/explore-workshop');
+const canonicalUrl = absoluteUrl('/de/workshop/explore-workshop/');
+const alternateUrl = absoluteUrl('/en/workshop/explore-workshop/');
 const structuredData = serviceSchema({
 	name: exploreWorkshopContent.de.title,
 	description,
-	pathname: '/de/workshop/explore-workshop',
+	pathname: '/de/workshop/explore-workshop/',
 	locale: 'de',
 	serviceType: 'Strategischer KI-Explore-Workshop',
 });
@@ -21,10 +22,7 @@ const structuredData = serviceSchema({
 
 <html lang="de">
 	<head>
-		<link rel="preconnect" href="https://cdn.consentmanager.net" crossorigin />
-		<link rel="preconnect" href="https://d.delivery.consentmanager.net" crossorigin />
-		<link rel="preconnect" href="https://vibeperform-chatbot1-2xsjql4cxq-ez.a.run.app" crossorigin />
-		<script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/4c6af0ac92829.js" data-cmp-host="d.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
+		<ConsentManagerHead locale="de" />
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};

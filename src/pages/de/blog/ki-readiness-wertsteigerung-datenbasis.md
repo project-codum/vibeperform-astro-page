@@ -7,7 +7,7 @@ date: "2026-07-08"
 lastModified: "2026-07-13"
 author: "Marlon Dietrich"
 authorRole: "Software Engineer, KI-Berater und zertifizierter RAG-Engineer"
-authorHref: "/de/ueber-uns"
+authorHref: "/de/ueber-uns/"
 readTime: "9 Min. Lesezeit"
 coverImage: "/blog/ai-readiness-wertsteigerung-datenbasis.avif"
 coverImageFallback: "/blog/ai-readiness-wertsteigerung-datenbasis.jpg"
@@ -16,11 +16,11 @@ coverImageWidth: 1774
 coverImageHeight: 887
 excerpt: "Erfahren Sie, wie Mittelständler CRM, ERP und Finanzdaten verbinden, eine Datenlandkarte erstellen und KI in messbaren Geschäftswert übersetzen."
 lang: "de"
-alternateLocaleHref: "/en/blog/ai-readiness-company-value-data-foundation"
+alternateLocaleHref: "/en/blog/ai-readiness-company-value-data-foundation/"
 ctaTitle: "Datenbasis für KI strukturiert prüfen"
 ctaBody: "Im Explore Workshop erfassen wir Systeme, Datenlücken, relevante Kennzahlen und die sinnvollsten ersten Integrationen. Das Ergebnis ist eine priorisierte, umsetzbare Roadmap statt eines abstrakten IT-Großprojekts."
 ctaButtonText: "Explore Workshop ansehen"
-ctaHref: "/de/workshop/explore-workshop"
+ctaHref: "/de/workshop/explore-workshop/"
 ---
 
 Viele Unternehmen sprechen über KI, testen einzelne Werkzeuge und automatisieren erste Aufgaben. Dabei bleibt eine wichtige Frage häufig offen: **Welche Geschäftsdaten müssen zuverlässig verbunden sein, damit KI nicht nur Texte erzeugt, sondern auch bessere Entscheidungen und messbare Ergebnisse ermöglicht?**
@@ -47,7 +47,7 @@ Für kleine und mittlere Unternehmen beginnt der KI-Einsatz meistens nicht mit d
 
 Diese Anwendungen können Kosten senken oder einem bestehenden Team mehr Arbeit abnehmen. Sie zeigen zugleich die Grenzen einzelner, nicht verbundener Werkzeuge. Ein Assistent kann eine E-Mail formulieren, ohne das CRM zu kennen. Soll er jedoch Kunden, Angebote oder freie Kapazitäten zuverlässig priorisieren, braucht er aktuelle Daten, klare Definitionen und kontrollierte Zugriffsrechte.
 
-Deshalb sollten erste Experimente früh mit einer [klaren KI-Strategie](/de/ki-strategie) verbunden werden. Nicht jeder Test benötigt eine neue Plattform. Sobald KI jedoch dauerhaft in einem Prozess eingesetzt wird, braucht sie eine festgelegte Informationsgrundlage und eine Person, die für deren Qualität verantwortlich ist.
+Deshalb sollten erste Experimente früh mit einer [klaren KI-Strategie](/de/ki-strategie/) verbunden werden. Nicht jeder Test benötigt eine neue Plattform. Sobald KI jedoch dauerhaft in einem Prozess eingesetzt wird, braucht sie eine festgelegte Informationsgrundlage und eine Person, die für deren Qualität verantwortlich ist.
 
 ## Fünf Merkmale KI-fähiger Daten
 
@@ -57,7 +57,7 @@ Viele Daten ergeben noch keine gute Datenbasis. Für mittelständische Unternehm
 
 Daten müssen nicht für jeden denkbaren Zweck perfekt sein. Sie müssen für die konkrete Entscheidung oder Automatisierung verlässlich genug sein. Für eine Margenanalyse sind zum Beispiel eindeutige Verbindungen zwischen Kunden, Produkten, Umsätzen und Kosten wichtiger als vollständig bereinigte historische Kontaktdaten.
 
-Der sinnvolle Weg ist deshalb, einen wertvollen Anwendungsfall klar abzugrenzen und genau die dafür benötigten Daten zu prüfen – statt [auf perfekte Daten zu warten](/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil).
+Der sinnvolle Weg ist deshalb, einen wertvollen Anwendungsfall klar abzugrenzen und genau die dafür benötigten Daten zu prüfen – statt [auf perfekte Daten zu warten](/de/blog/ki-denkfaehigkeit-wettbewerbsvorteil/).
 
 ### 2. Zugänglich und verbindbar
 
@@ -89,7 +89,7 @@ Wenn Daten nicht zusammenpassen, lautet der erste Reflex oft: Wir brauchen ein n
 
 Die technische Lösung sollte der Geschäftsfrage folgen, nicht umgekehrt. Wer wissen will, welche Produktlinie Marge verliert, braucht zunächst eine verlässliche Verbindung zwischen Produkt, Umsatz und Kosten. Erst wenn dieser Zusammenhang funktioniert, liefert auch die Frage an eine KI – „Welche Produktlinie verliert Marge und warum?“ – eine belastbare Antwort.
 
-So entstehen schrittweise belastbare [KI-Agenten mit echtem Geschäftsnutzen](/de/blog/ki-agenten-geschaeftsnutzen-roi): nicht als weiteres isoliertes Werkzeug, sondern mit kontrolliertem Zugriff auf vorhandene Geschäftsdaten.
+So entstehen schrittweise belastbare [KI-Agenten mit echtem Geschäftsnutzen](/de/blog/ki-agenten-geschaeftsnutzen-roi/): nicht als weiteres isoliertes Werkzeug, sondern mit kontrolliertem Zugriff auf vorhandene Geschäftsdaten.
 
 ## Schlechte Daten verursachen versteckte Kosten
 
@@ -150,7 +150,7 @@ Ein mittelständisches Unternehmen kann die erste belastbare Grundlage in einem 
 * **Woche 3:** Die wichtigsten Qualitätslücken prüfen und einen begrenzten Datenfluss herstellen
 * **Woche 4:** Einen Report oder eine kontrollierte KI-Abfrage testen und den nächsten Schritt bewerten
 
-Genau auf diese Entscheidungsgrundlage zielt unser [Explore Workshop](/de/workshop/explore-workshop). Er verbindet Geschäftsziele, Prozesse, Daten und technische Voraussetzungen zu einer priorisierten Roadmap. Wo eine direkte Umsetzung sinnvoll ist, kann daraus anschließend ein klar abgegrenzter Pilot entstehen.
+Genau auf diese Entscheidungsgrundlage zielt unser [Explore Workshop](/de/workshop/explore-workshop/). Er verbindet Geschäftsziele, Prozesse, Daten und technische Voraussetzungen zu einer priorisierten Roadmap. Wo eine direkte Umsetzung sinnvoll ist, kann daraus anschließend ein klar abgegrenzter Pilot entstehen.
 
 ## Fazit: KI-fähige Daten sind ein Steuerungsinstrument
 

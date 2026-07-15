@@ -8,7 +8,7 @@ readTime: "6 min read"
 coverImage: "/blog/ki-erfolg-muenchner-mittelstand-4-phasen.png"
 excerpt: "How Munich SMEs can move from their first AI idea to real business value through a structured adoption process."
 lang: "en"
-alternateLocaleHref: "/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen"
+alternateLocaleHref: "/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen/"
 ---
 
 For Munich SMEs, artificial intelligence (AI) is no longer just a hype topic. It has become a decisive factor for future competitiveness. But how do you make the leap from an initial idea to genuine value creation? Based on proven practical experience, this guide maps the journey in four phases.
