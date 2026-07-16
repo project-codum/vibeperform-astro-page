@@ -1,0 +1,116 @@
+---
+interface Props {
+	label: string;
+	class?: string;
+	mediaClass?: string;
+	placement?: 'auto' | 'overlay' | 'below';
+}
+
+const {
+	label,
+	class: className = '',
+	mediaClass = '',
+	placement = 'auto',
+} = Astro.props as Props;
+---
+
+<div class:list={['ai-image-frame', className]} data-placement={placement}>
+	<div class:list={['ai-image-frame__media', mediaClass]}>
+		<slot />
+	</div>
+	<span class="ai-image-frame__badge" role="note">{label}</span>
+</div>
+
+<style>
+	.ai-image-frame {
+		container-name: ai-image-frame;
+		container-type: inline-size;
+		isolation: isolate;
+		position: relative;
+	}
+
+	.ai-image-frame__media {
+		position: relative;
+	}
+
+	.ai-image-frame__badge {
+		align-items: center;
+		background: rgb(15 23 42 / 0.76);
+		border: 1px solid rgb(255 255 255 / 0.3);
+		border-radius: 0.375rem;
+		bottom: 0.5rem;
+		box-shadow: 0 2px 10px rgb(15 23 42 / 0.14);
+		color: rgb(248 250 252);
+		display: inline-flex;
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		max-inline-size: calc(100% - 1rem);
+		padding: 0.25rem 0.4rem;
+		pointer-events: none;
+		position: absolute;
+		right: 0.5rem;
+		text-wrap: balance;
+		-webkit-backdrop-filter: blur(6px);
+		backdrop-filter: blur(6px);
+	}
+
+	.ai-image-frame[data-placement='below'] .ai-image-frame__badge {
+		background: rgb(241 245 249 / 0.96);
+		border-color: rgb(203 213 225);
+		bottom: auto;
+		box-shadow: none;
+		color: rgb(71 85 105);
+		margin: 0.4rem 0 0 auto;
+		max-inline-size: 100%;
+		position: relative;
+		right: auto;
+		width: fit-content;
+	}
+
+	@container ai-image-frame (max-width: 14rem) {
+		.ai-image-frame[data-placement='auto'] .ai-image-frame__badge {
+			background: rgb(241 245 249 / 0.96);
+			border-color: rgb(203 213 225);
+			bottom: auto;
+			box-shadow: none;
+			color: rgb(71 85 105);
+			font-size: 0.625rem;
+			margin: 0.4rem 0 0 auto;
+			max-inline-size: 100%;
+			position: relative;
+			right: auto;
+			width: fit-content;
+		}
+	}
+
+	@media (max-width: 639px) {
+		.ai-image-frame__badge {
+			bottom: 0.375rem;
+			font-size: 0.625rem;
+			padding: 0.2rem 0.35rem;
+			right: 0.375rem;
+		}
+	}
+
+	@media (prefers-reduced-transparency: reduce) {
+		.ai-image-frame__badge {
+			background: rgb(15 23 42 / 0.94);
+			-webkit-backdrop-filter: none;
+			backdrop-filter: none;
+		}
+
+		.ai-image-frame[data-placement='below'] .ai-image-frame__badge {
+			background: rgb(241 245 249);
+		}
+	}
+
+	@media (prefers-reduced-transparency: reduce) {
+		@container ai-image-frame (max-width: 14rem) {
+			.ai-image-frame[data-placement='auto'] .ai-image-frame__badge {
+				background: rgb(241 245 249);
+			}
+		}
+	}
+</style>

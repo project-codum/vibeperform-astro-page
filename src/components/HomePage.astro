@@ -5,6 +5,7 @@ import {
   ShieldCheck,
 } from "lucide-static";
 import Button from "./Button.astro";
+import AiImageFrame from "./AiImageFrame.astro";
 import Footer from "./Footer.astro";
 import NavBar from "./NavBar.astro";
 import type { HomeContent } from "../data/homeContent";
@@ -33,6 +34,7 @@ const pageCopy = {
     heroAlt:
       "Handwerksmeister und Berater besprechen gemeinsam einen Arbeitsablauf in einer Schreinerei",
     heroNote: "Beratung und Umsetzung aus einer Hand",
+    heroDisclosure: "Symbolbild, KI-generiert",
     signals: [
       {
         title: "Vor Ort",
@@ -99,6 +101,7 @@ const pageCopy = {
           body: "Informationen aus E-Mails, Leistungsverzeichnissen und früheren Projekten werden zu einem prüfbaren Entwurf.",
           image: "/home-offer-document.webp",
           imageAlt: "Beispielhaftes deutsches Angebotsdokument für eine Küche mit Leistungsbeschreibung, Material, Arbeitszeit und Gesamtbetrag",
+          imageDisclosure: "Beispielbild, KI-generiert",
         },
         {
           title: "Auftragswissen auffindbar machen",
@@ -151,6 +154,7 @@ const pageCopy = {
     heroAlt:
       "Master craftsperson and consultant review a workflow together in a joinery workshop",
     heroNote: "Consulting and implementation from one team",
+    heroDisclosure: "Illustrative image, AI-generated",
     signals: [
       {
         title: "On site",
@@ -217,6 +221,7 @@ const pageCopy = {
           body: "Information from emails, specifications and past projects becomes a draft your team can review.",
           image: "/home-offer-document.webp",
           imageAlt: "Sample German quote document for a kitchen project with scope, materials, labour and total amount",
+          imageDisclosure: "Sample image, AI-generated",
         },
         {
           title: "Make job knowledge searchable",
@@ -305,8 +310,11 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
           </div>
         </div>
 
-        <figure class="relative md:justify-self-end">
-          <div class="aspect-[8/7] overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900">
+        <figure class="relative w-full md:justify-self-end">
+          <AiImageFrame
+            label={t.heroDisclosure}
+            mediaClass="aspect-[8/7] overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900"
+          >
             <img
               src={assetUrl("/home-hero-craft-1280.webp")}
               srcset={`${assetUrl("/home-hero-craft-720.webp")} 720w, ${assetUrl("/home-hero-craft-1280.webp")} 1280w`}
@@ -319,7 +327,7 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
               fetchpriority="high"
               decoding="async"
             />
-          </div>
+          </AiImageFrame>
           <figcaption class="mt-3 flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
             <span aria-hidden="true" set:html={renderIcon(ShieldCheck, "h-4 w-4 text-purple-700 dark:text-purple-300")} />
             {t.heroNote}
@@ -408,15 +416,29 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
           {t.uses.items.map((item, index) => (
             "image" in item ? (
               <article class:list={["overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900", index === 1 && "md:row-span-2"]} data-reveal>
-                <img
-                  src={assetUrl(item.image)}
-                  alt={item.imageAlt}
-                  class:list={["w-full object-cover", index === 1 ? "aspect-[4/3] md:h-[58%]" : "aspect-[16/8] md:h-[52%]"]}
-                  width={index === 1 ? "650" : "1440"}
-                  height={index === 1 ? "433" : "1080"}
-                  loading="lazy"
-                  decoding="async"
-                />
+                {"imageDisclosure" in item ? (
+                  <AiImageFrame label={item.imageDisclosure}>
+                    <img
+                      src={assetUrl(item.image)}
+                      alt={item.imageAlt}
+                      class:list={["w-full object-cover", index === 1 ? "aspect-[4/3] md:h-[58%]" : "aspect-[16/8] md:h-[52%]"]}
+                      width={index === 1 ? "650" : "1440"}
+                      height={index === 1 ? "433" : "1080"}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </AiImageFrame>
+                ) : (
+                  <img
+                    src={assetUrl(item.image)}
+                    alt={item.imageAlt}
+                    class:list={["w-full object-cover", index === 1 ? "aspect-[4/3] md:h-[58%]" : "aspect-[16/8] md:h-[52%]"]}
+                    width={index === 1 ? "650" : "1440"}
+                    height={index === 1 ? "433" : "1080"}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
                 <div class="p-6 sm:p-7">
                   <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50 sm:text-2xl">{item.title}</h3>
                   <p class="mt-3 max-w-[48ch] text-sm leading-6 text-slate-600 dark:text-slate-400 sm:text-base">{item.body}</p>
