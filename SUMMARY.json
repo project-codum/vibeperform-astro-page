@@ -1,11 +1,13 @@
 {
   "audit_type": "branch_performance_comparison",
   "analyzed_at": "2026-07-16T20:08:11Z",
+  "remediated_at": "2026-07-16T20:34:39Z",
   "base_commit": "1997599579241e44ef1107c409ee9eb02b042797",
-  "head_commit": "7199957bc5df75d95deb15c02db5670956df3b3e",
+  "audited_head_commit": "7199957bc5df75d95deb15c02db5670956df3b3e",
+  "remediation_baseline_commit": "5e7f305",
   "branch": "codex/make-circles-follow-cursor",
-  "verdict": "performance_decreased",
-  "priority": "medium",
+  "verdict": "performance_regression_remediated_in_worktree",
+  "priority": "resolved_pending_commit",
   "data_source": "local_chrome_lab_comparison",
   "real_user_data": null,
   "lighthouse_scores": {
@@ -14,34 +16,45 @@
   },
   "core_web_vitals": {
     "desktop_lab": {
-      "lcp": "0.85s",
+      "lcp": "0.72s",
       "inp": null,
       "cls": "0.000"
     },
     "mobile_lab": {
-      "lcp": "0.88s",
+      "lcp": "0.71s",
       "inp": null,
       "cls": "0.000"
     }
   },
-  "desktop_delta_vs_base": {
-    "lcp_ms": 112,
-    "lcp_percent": 15.2,
-    "encoded_bytes": 28629,
-    "script_encoded_bytes": 28222,
-    "load_task_ms": 125,
-    "pointer_task_ms": 117
-  },
-  "mobile_delta_vs_base": {
-    "lcp_ms": 156,
-    "lcp_percent": 21.7,
-    "encoded_bytes": 28509,
-    "script_encoded_bytes": 28027,
-    "load_task_ms": 56
+  "remediation": {
+    "bundle": {
+      "javascript_raw_bytes_removed": 71464,
+      "javascript_gzip_bytes_removed": 28031,
+      "script_requests_removed": 1,
+      "homepage_inline_gzip_bytes_added": 570,
+      "shared_css_gzip_bytes_added": 102
+    },
+    "desktop": {
+      "lcp_ms_before": 856,
+      "lcp_ms_after": 724,
+      "load_task_ms_before": 606,
+      "load_task_ms_after": 338,
+      "pointer_script_ms_before": 60,
+      "pointer_script_ms_after": 39
+    },
+    "mobile": {
+      "lcp_ms_before": 896,
+      "lcp_ms_after": 712,
+      "load_task_ms_before": 412,
+      "load_task_ms_after": 175,
+      "script_encoded_bytes_before": 29272,
+      "script_encoded_bytes_after": 1305
+    }
   },
   "commit_attribution": {
-    "31de20e": "material_global_javascript_regression",
-    "7199957": "small_markup_and_css_increase"
+    "31de20e": "original_global_javascript_regression",
+    "7199957": "small_markup_and_css_increase",
+    "5e7f305": "removed_unrelated_report_documents"
   },
   "limitations": [
     "Local comparative lab data, not CrUX real-user data",

@@ -2,11 +2,43 @@
 
 ## Verdict
 
-Yes. Compared with merge base `1997599`, this branch introduces a measurable performance regression. The main cause is commit `31de20e` (animated cursor orbit), which adds GSAP to every page. Commit `7199957` (AI image disclosures) adds no JavaScript and has a much smaller payload cost.
+The original implementation in commit `31de20e` introduced a measurable performance regression by loading GSAP for the decorative cursor on every page. That regression is now **remediated in the working tree**: the cursor keeps its visual behavior using a small native `requestAnimationFrame` follower and compositor-only CSS animation.
 
-The regression does **not** breach the skill's high-priority lab thresholds in this controlled test: current median LCP remained below 2.5 seconds and CLS remained below 0.1. It is still worth fixing because the cursor is decorative, the extra JavaScript is global, and mobile devices download/evaluate it even though the cursor is hidden there.
+The optimized implementation removes the 71,464-byte raw / 28,031-byte gzip GSAP navbar chunk and its extra request. Mobile and reduced-motion users no longer run the orbit animations, while eligible desktop users retain the feature.
 
-## Scope and method
+## Remediation validation
+
+Paired production builds were tested with the same local Chrome lab setup as the original audit. Three runs per state and viewport were collected; medians are reported.
+
+### Desktop medians: committed implementation vs optimized working tree
+
+| Metric | Before | Optimized | Change |
+|---|---:|---:|---:|
+| Lab LCP | 856 ms | 724 ms | -132 ms (-15.4%) |
+| Lab CLS | 0.000 | 0.000 | no change |
+| First-party encoded resource bytes | 257,333 | 229,601 | -27,732 (-10.8%) |
+| Script encoded bytes | 77,350 | 49,578 | -27,772 (-35.9%) |
+| Script requests | 3 | 2 | -1 |
+| Main-thread task time through settled load | 606 ms | 338 ms | -268 ms (-44.2%) |
+| Script time through settled load | 121 ms | 66 ms | -55 ms (-45.0%) |
+| Task time during 30 pointer moves | 347 ms | 314 ms | -33 ms (-9.6%) |
+| Script time during 30 pointer moves | 60 ms | 39 ms | -21 ms (-35.0%) |
+
+### Mobile medians: committed implementation vs optimized working tree
+
+| Metric | Before | Optimized | Change |
+|---|---:|---:|---:|
+| Lab LCP | 896 ms | 712 ms | -184 ms (-20.5%) |
+| Lab CLS | 0.000 | 0.000 | no change |
+| First-party encoded resource bytes | 195,274 | 167,422 | -27,852 (-14.3%) |
+| Script encoded bytes | 29,272 | 1,305 | -27,967 (-95.5%) |
+| Script requests | 2 | 1 | -1 |
+| Main-thread task time through settled load | 412 ms | 175 ms | -237 ms (-57.5%) |
+| Script time through settled load | 51 ms | 7 ms | -44 ms (-86.3%) |
+
+The replacement adds about 570 gzip bytes inline to the German homepage and 102 gzip bytes of shared CSS, for a net first-load saving of roughly 27.5 KB. The animation loop sleeps when it reaches the pointer target; the halo and shared node rotation are paused until the cursor becomes visible.
+
+## Original audit scope and method
 
 - Base: `1997599` (`origin/master` merge base)
 - Cursor-only state: `31de20e`
@@ -74,19 +106,17 @@ The lab medians moved slightly from the cursor-only state to current HEAD, but t
 
 Assessment: **small payload increase; no independent JavaScript regression**.
 
-## Repository-only finding
+## Repository-only finding — resolved
 
-Commit `7199957` also adds five PDFs under `docs/reports/`, totaling 501,637 bytes. They are not copied into `dist/`, so they do not affect page loading. They do increase clone/fetch size and their filenames suggest personal insurance/administrative documents unrelated to this UI branch. They should be removed from the branch and, if the repository is public or broadly shared, treated as a potential sensitive-data exposure.
+Commit `5e7f305` removes the five unrelated PDFs from the branch. They no longer appear in the branch diff against `origin/master`.
 
-## Recommended action
+## Follow-up
 
-1. Remove the static GSAP import from `NavBar.astro`. Prefer a small native `requestAnimationFrame`/transform implementation, or dynamically import GSAP only after the desktop/fine-pointer media query matches.
-2. Keep the disclosure component; its cost is small. If paint traces later identify badge cost, remove `backdrop-filter` before changing the semantic disclosure markup.
-3. Remove the five unrelated PDFs from the branch/history before merging.
-4. After optimizing the cursor, repeat the same branch comparison and run Lighthouse against a deployed preview with real third-party behavior. Use CrUX only after enough real-user data exists.
+1. Commit the optimized navbar implementation and updated audit artifacts.
+2. Run Lighthouse against a deployed preview with real third-party behavior. Use CrUX only after enough real-user data exists.
 
 ## Priority
 
-- **Medium:** global decorative JavaScript regression from the cursor commit.
+- **Resolved pending commit:** global decorative JavaScript regression from the cursor commit.
 - **Low:** disclosure markup/CSS overhead.
 - **Low data limitation:** no real-user CrUX, Lighthouse score, or INP for the unpublished branch.
