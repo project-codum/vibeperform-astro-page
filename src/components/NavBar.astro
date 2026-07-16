@@ -112,6 +112,17 @@ const menuIcon = Menu
 	</div>
 </header>
 
+<div class="cursor-orbit" data-cursor-orbit aria-hidden="true">
+	<div class="cursor-orbit__visual">
+		<span class="cursor-orbit__halo"></span>
+		<span class="cursor-orbit__nodes">
+			<span class="cursor-orbit__node cursor-orbit__node--one"></span>
+			<span class="cursor-orbit__node cursor-orbit__node--two"></span>
+			<span class="cursor-orbit__node cursor-orbit__node--three"></span>
+		</span>
+	</div>
+</div>
+
 <style>
 	.nav-logo-lottie {
 		display: block;
@@ -152,6 +163,118 @@ const menuIcon = Menu
 
 	.nav-logo-lottie[data-logo-status='ready'] .nav-logo-lottie__fallback {
 		display: none;
+	}
+
+	.cursor-orbit {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+		visibility: hidden;
+		opacity: 0;
+		transition:
+			opacity 160ms ease,
+			visibility 0s linear 160ms;
+	}
+
+	.cursor-orbit[data-visible='true'] {
+		visibility: visible;
+		opacity: 1;
+		transition-delay: 0s;
+	}
+
+	.cursor-orbit__visual {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 3.5rem;
+		height: 3.5rem;
+		transform: translate(-50%, -50%);
+	}
+
+	.cursor-orbit__halo,
+	.cursor-orbit__nodes,
+	.cursor-orbit__node {
+		position: absolute;
+		inset: 0;
+		border-radius: 9999px;
+	}
+
+	.cursor-orbit__halo {
+		inset: 0.42rem;
+		border: 1.5px solid rgb(158 66 255 / 32%);
+		box-shadow: 0 0 1rem rgb(158 66 255 / 10%);
+		animation: cursor-halo-breathe 4s ease-in-out infinite;
+		animation-play-state: paused;
+	}
+
+	.cursor-orbit__nodes {
+		animation: cursor-node-orbit 6s linear infinite;
+		animation-play-state: paused;
+	}
+
+	.cursor-orbit[data-visible='true'] .cursor-orbit__halo,
+	.cursor-orbit[data-visible='true'] .cursor-orbit__nodes {
+		animation-play-state: running;
+	}
+
+	.cursor-orbit__node::after {
+		position: absolute;
+		top: 0.08rem;
+		left: 50%;
+		width: 0.38rem;
+		height: 0.38rem;
+		border-radius: 9999px;
+		background: rgb(219 189 255);
+		box-shadow: 0 0 0.65rem rgb(158 66 255 / 38%);
+		content: '';
+		transform: translateX(-50%);
+	}
+
+	.cursor-orbit__node--two {
+		transform: rotate(120deg);
+	}
+
+	.cursor-orbit__node--three {
+		transform: rotate(240deg);
+	}
+
+	.cursor-orbit__node--three::after {
+		background: rgb(184 117 255);
+	}
+
+	@keyframes cursor-node-orbit {
+		to {
+			transform: rotate(1turn);
+		}
+	}
+
+	@keyframes cursor-halo-breathe {
+		0%,
+		100% {
+			opacity: 0.42;
+			transform: scale(0.82);
+		}
+
+		50% {
+			opacity: 0.9;
+			transform: scale(1.12);
+		}
+	}
+
+	@media (max-width: 767px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+		.cursor-orbit {
+			display: none;
+		}
+	}
+
+	@media (min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+		.cursor-orbit {
+			will-change: transform, opacity;
+		}
 	}
 
 	[data-nav-menu] {
@@ -277,6 +400,132 @@ const menuIcon = Menu
 
 	document.addEventListener('astro:page-load', scheduleLogoAnimations);
 	document.addEventListener('astro:before-swap', destroyLogoAnimations);
+</script>
+
+<script>
+	let destroyCursorOrbit;
+	const cursorMediaQuery =
+		'(min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)';
+
+	const setupCursorOrbit = () => {
+		const cursor = document.querySelector('[data-cursor-orbit]');
+		if (!(cursor instanceof HTMLElement) || cursor.dataset.cursorInitialized === 'true') {
+			return;
+		}
+
+		cursor.dataset.cursorInitialized = 'true';
+		const media = window.matchMedia(cursorMediaQuery);
+		let deactivate = () => {};
+
+		const syncCursor = () => {
+			deactivate();
+			deactivate = () => {};
+
+			if (!media.matches) {
+				return;
+			}
+
+			let animationFrame = 0;
+			let currentX = 0;
+			let currentY = 0;
+			let targetX = 0;
+			let targetY = 0;
+			let lastFrameTime = 0;
+			let hasPosition = false;
+
+			const render = (time) => {
+				animationFrame = 0;
+				const delta = lastFrameTime ? Math.min(time - lastFrameTime, 32) : 16.7;
+				const smoothing = 1 - Math.exp(-delta / 48);
+				lastFrameTime = time;
+				currentX += (targetX - currentX) * smoothing;
+				currentY += (targetY - currentY) * smoothing;
+				cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+				if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+					animationFrame = window.requestAnimationFrame(render);
+				}
+			};
+
+			const scheduleRender = () => {
+				if (!animationFrame) {
+					lastFrameTime = 0;
+					animationFrame = window.requestAnimationFrame(render);
+				}
+			};
+
+			const show = () => {
+				cursor.dataset.visible = 'true';
+			};
+
+			const hide = () => {
+				cursor.removeAttribute('data-visible');
+				hasPosition = false;
+				lastFrameTime = 0;
+				if (animationFrame) {
+					window.cancelAnimationFrame(animationFrame);
+					animationFrame = 0;
+				}
+			};
+
+			const move = (event) => {
+				targetX = event.clientX;
+				targetY = event.clientY;
+
+				if (!hasPosition) {
+					currentX = targetX;
+					currentY = targetY;
+					cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+					hasPosition = true;
+					show();
+					return;
+				}
+
+				scheduleRender();
+			};
+
+			const leaveWindow = (event) => {
+				if (event.relatedTarget === null) {
+					hide();
+				}
+			};
+
+			document.addEventListener('pointermove', move, { passive: true });
+			document.addEventListener('pointerout', leaveWindow, { passive: true });
+			window.addEventListener('blur', hide);
+
+			deactivate = () => {
+				document.removeEventListener('pointermove', move);
+				document.removeEventListener('pointerout', leaveWindow);
+				window.removeEventListener('blur', hide);
+				hide();
+				cursor.style.removeProperty('transform');
+			};
+		};
+
+		media.addEventListener('change', syncCursor);
+		syncCursor();
+
+		destroyCursorOrbit = () => {
+			deactivate();
+			media.removeEventListener('change', syncCursor);
+			cursor.dataset.cursorInitialized = 'false';
+			destroyCursorOrbit = undefined;
+		};
+	};
+
+	const cleanupCursorOrbit = () => {
+		destroyCursorOrbit?.();
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupCursorOrbit, { once: true });
+	} else {
+		setupCursorOrbit();
+	}
+
+	document.addEventListener('astro:page-load', setupCursorOrbit);
+	document.addEventListener('astro:before-swap', cleanupCursorOrbit);
 </script>
 
 <script is:inline>

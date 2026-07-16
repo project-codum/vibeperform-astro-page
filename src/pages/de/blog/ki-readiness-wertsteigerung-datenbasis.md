@@ -11,6 +11,7 @@ authorHref: "/de/ueber-uns/"
 readTime: "9 Min. Lesezeit"
 coverImage: "/blog/ai-readiness-wertsteigerung-datenbasis.avif"
 coverImageFallback: "/blog/ai-readiness-wertsteigerung-datenbasis.jpg"
+coverImageDisclosure: "KI-generierte Illustration"
 coverImageAlt: "Verbundene Geschäftssysteme speisen eine sichere Datenbasis für Reports und KI-Agenten"
 coverImageWidth: 1774
 coverImageHeight: 887

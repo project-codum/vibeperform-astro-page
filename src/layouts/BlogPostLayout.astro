@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 import { homeContent } from '../data/homeContent';
 import Button from '../components/Button.astro';
+import AiImageFrame from '../components/AiImageFrame.astro';
 import { absoluteUrl, blogPostingSchema, jsonLd } from '../lib/siteMetadata';
 
 const { frontmatter } = Astro.props;
@@ -23,6 +24,7 @@ const {
 	coverImageAlt,
 	coverImageWidth,
 	coverImageHeight,
+	coverImageDisclosure,
 	excerpt,
 	lang,
 	alternateLocaleHref,
@@ -234,7 +236,11 @@ const structuredData = blogPostingSchema({
 
 					{/* Hero Image */}
 					{coverImage && (
-						<div class="mt-8 mb-12 overflow-hidden rounded-3xl border border-slate-200 shadow-md">
+						<AiImageFrame
+							label={coverImageDisclosure ?? (locale === 'de' ? 'KI-generierte Illustration' : 'AI-generated illustration')}
+							class="mt-8 mb-12"
+							mediaClass="overflow-hidden rounded-3xl border border-slate-200 shadow-md"
+						>
 							<picture>
 								{coverImageFallback && coverImage.endsWith('.avif') ? <source srcset={coverImage} type="image/avif" /> : null}
 								<img
@@ -248,7 +254,7 @@ const structuredData = blogPostingSchema({
 									decoding="async"
 								/>
 							</picture>
-						</div>
+						</AiImageFrame>
 					)}
 
 					{/* Content Section */}

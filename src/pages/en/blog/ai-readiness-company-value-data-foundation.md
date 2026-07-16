@@ -11,6 +11,7 @@ authorHref: "/en/about-us/"
 readTime: "9 min read"
 coverImage: "/blog/ai-readiness-wertsteigerung-datenbasis.avif"
 coverImageFallback: "/blog/ai-readiness-wertsteigerung-datenbasis.jpg"
+coverImageDisclosure: "AI-generated illustration"
 coverImageAlt: "Connected business systems feeding a secure data foundation for reports and AI agents"
 coverImageWidth: 1774
 coverImageHeight: 887
