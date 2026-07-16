@@ -112,6 +112,15 @@ const menuIcon = Menu
 	</div>
 </header>
 
+<div class="cursor-orbit" data-cursor-orbit aria-hidden="true">
+	<div class="cursor-orbit__visual">
+		<span class="cursor-orbit__halo"></span>
+		<span class="cursor-orbit__node cursor-orbit__node--one"></span>
+		<span class="cursor-orbit__node cursor-orbit__node--two"></span>
+		<span class="cursor-orbit__node cursor-orbit__node--three"></span>
+	</div>
+</div>
+
 <style>
 	.nav-logo-lottie {
 		display: block;
@@ -152,6 +161,96 @@ const menuIcon = Menu
 
 	.nav-logo-lottie[data-logo-status='ready'] .nav-logo-lottie__fallback {
 		display: none;
+	}
+
+	.cursor-orbit {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+		visibility: hidden;
+		opacity: 0;
+		will-change: transform, opacity;
+	}
+
+	.cursor-orbit__visual {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 3.5rem;
+		height: 3.5rem;
+		transform: translate(-50%, -50%);
+	}
+
+	.cursor-orbit__halo,
+	.cursor-orbit__node {
+		position: absolute;
+		inset: 0;
+		border-radius: 9999px;
+	}
+
+	.cursor-orbit__halo {
+		inset: 0.42rem;
+		border: 1.5px solid rgb(158 66 255 / 32%);
+		box-shadow: 0 0 1rem rgb(158 66 255 / 10%);
+		animation: cursor-halo-breathe 4s ease-in-out infinite;
+	}
+
+	.cursor-orbit__node {
+		animation: cursor-node-orbit 6s linear infinite;
+	}
+
+	.cursor-orbit__node::after {
+		position: absolute;
+		top: 0.08rem;
+		left: 50%;
+		width: 0.38rem;
+		height: 0.38rem;
+		border-radius: 9999px;
+		background: rgb(219 189 255);
+		box-shadow: 0 0 0.65rem rgb(158 66 255 / 38%);
+		content: '';
+		transform: translateX(-50%);
+	}
+
+	.cursor-orbit__node--two {
+		animation-delay: -2s;
+	}
+
+	.cursor-orbit__node--three {
+		animation-delay: -4s;
+	}
+
+	.cursor-orbit__node--three::after {
+		background: rgb(184 117 255);
+	}
+
+	@keyframes cursor-node-orbit {
+		to {
+			transform: rotate(1turn);
+		}
+	}
+
+	@keyframes cursor-halo-breathe {
+		0%,
+		100% {
+			opacity: 0.42;
+			transform: scale(0.82);
+		}
+
+		50% {
+			opacity: 0.9;
+			transform: scale(1.12);
+		}
+	}
+
+	@media (max-width: 767px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+		.cursor-orbit {
+			display: none;
+		}
 	}
 
 	[data-nav-menu] {
@@ -277,6 +376,90 @@ const menuIcon = Menu
 
 	document.addEventListener('astro:page-load', scheduleLogoAnimations);
 	document.addEventListener('astro:before-swap', destroyLogoAnimations);
+</script>
+
+<script>
+	import { gsap } from 'gsap';
+
+	let destroyCursorOrbit;
+
+	const setupCursorOrbit = () => {
+		const cursor = document.querySelector('[data-cursor-orbit]');
+		if (!(cursor instanceof HTMLElement) || cursor.dataset.cursorInitialized === 'true') {
+			return;
+		}
+
+		cursor.dataset.cursorInitialized = 'true';
+		const media = gsap.matchMedia();
+
+		media.add(
+			'(min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)',
+			() => {
+				const xTo = gsap.quickTo(cursor, 'x', { duration: 0.16, ease: 'power3.out' });
+				const yTo = gsap.quickTo(cursor, 'y', { duration: 0.16, ease: 'power3.out' });
+				let hasPosition = false;
+
+				const show = () => {
+					gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: 'auto' });
+				};
+
+				const hide = () => {
+					gsap.to(cursor, { autoAlpha: 0, duration: 0.16, overwrite: 'auto' });
+				};
+
+				const move = (event) => {
+					if (!hasPosition) {
+						gsap.set(cursor, { x: event.clientX, y: event.clientY });
+						hasPosition = true;
+						show();
+						return;
+					}
+
+					xTo(event.clientX);
+					yTo(event.clientY);
+				};
+
+				const leaveWindow = (event) => {
+					if (event.relatedTarget === null) {
+						hide();
+					}
+				};
+
+				document.addEventListener('pointermove', move, { passive: true });
+				document.addEventListener('pointerover', show, { passive: true });
+				document.addEventListener('pointerout', leaveWindow, { passive: true });
+				window.addEventListener('blur', hide);
+
+				return () => {
+					document.removeEventListener('pointermove', move);
+					document.removeEventListener('pointerover', show);
+					document.removeEventListener('pointerout', leaveWindow);
+					window.removeEventListener('blur', hide);
+					gsap.killTweensOf(cursor);
+					gsap.set(cursor, { clearProps: 'transform,opacity,visibility' });
+				};
+			}
+		);
+
+		destroyCursorOrbit = () => {
+			media.revert();
+			cursor.dataset.cursorInitialized = 'false';
+			destroyCursorOrbit = undefined;
+		};
+	};
+
+	const cleanupCursorOrbit = () => {
+		destroyCursorOrbit?.();
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupCursorOrbit, { once: true });
+	} else {
+		setupCursorOrbit();
+	}
+
+	document.addEventListener('astro:page-load', setupCursorOrbit);
+	document.addEventListener('astro:before-swap', cleanupCursorOrbit);
 </script>
 
 <script is:inline>
