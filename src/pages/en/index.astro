@@ -1,7 +1,9 @@
 ---
 import '../../styles/global.css';
+import { getImage } from 'astro:assets';
 import HomePage from '../../components/HomePage.astro';
 import ConsentManagerHead from '../../components/ConsentManagerHead.astro';
+import ogImageSource from '../../assets/home-promise-workshop-ai.png';
 import { homeContent } from '../../data/homeContent';
 import { absoluteUrl, jsonLd, organizationSchema, websiteSchema } from '../../lib/siteMetadata';
 const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
@@ -9,6 +11,15 @@ const description = homeContent.en.hero.subtitle;
 const title = 'AI Consulting for Craft Businesses & SMEs | Vibeperform';
 const canonicalUrl = absoluteUrl('/en/');
 const alternateUrl = absoluteUrl('/de/');
+const ogImage = await getImage({
+	src: ogImageSource,
+	width: 1200,
+	height: 630,
+	fit: 'cover',
+	format: 'jpeg',
+	quality: 85,
+});
+const ogImageUrl = absoluteUrl(ogImage.src);
 const structuredData = [organizationSchema(), websiteSchema('en')];
 
 // Full Astro Component Syntax:
@@ -76,6 +87,18 @@ const structuredData = [organizationSchema(), websiteSchema('en')];
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:alt" content="Three colleagues review a technical plan in a metal workshop" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content="Vibeperform" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale:alternate" content="de_DE" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="alternate" hreflang="en" href={canonicalUrl} />
 		<link rel="alternate" hreflang="de" href={alternateUrl} />
