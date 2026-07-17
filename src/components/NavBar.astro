@@ -27,7 +27,7 @@ const menuIcon = Menu
 <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95">
 	<nav class="container-responsive flex h-[76px] items-center justify-between gap-4">
 		<a
-			class="inline-flex items-center rounded-xl dark:bg-white dark:px-2"
+			class="inline-flex items-center rounded-xl"
 			href={homeHref}
 			aria-label={nav.brand}
 		>
@@ -130,6 +130,12 @@ const menuIcon = Menu
 		width: 10.5rem;
 		height: 3.5rem;
 		overflow: hidden;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.nav-logo-lottie {
+			filter: invert(1) hue-rotate(180deg) saturate(1.2);
+		}
 	}
 
 	@media (min-width: 768px) {

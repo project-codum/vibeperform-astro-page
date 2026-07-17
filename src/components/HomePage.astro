@@ -4,6 +4,8 @@ import {
   Check,
   ShieldCheck,
 } from "lucide-static";
+import { Image } from "astro:assets";
+import promiseWorkshopImage from "../assets/home-promise-workshop-ai.png";
 import Button from "./Button.astro";
 import AiImageFrame from "./AiImageFrame.astro";
 import Footer from "./Footer.astro";
@@ -66,7 +68,9 @@ const pageCopy = {
           body: "Wir entwickeln, testen und verankern die Lösung gemeinsam mit Ihrem Team.",
         },
       ],
-      imageAlt: "Workshop mit einem Team vor einer Wand mit Arbeitsnotizen",
+      imageAlt:
+        "Drei Mitarbeitende besprechen gemeinsam einen Bauplan in einer Metallwerkstatt",
+      imageDisclosure: "Symbolbild, KI-generiert",
     },
     process: {
       heading: "Von der Werkbank bis zur fertigen Lösung.",
@@ -186,7 +190,9 @@ const pageCopy = {
           body: "We develop, test and embed the solution together with your team.",
         },
       ],
-      imageAlt: "Team workshop in front of a wall with process notes",
+      imageAlt:
+        "Three colleagues review a technical plan together in a metal workshop",
+      imageDisclosure: "Illustrative image, AI-generated",
     },
     process: {
       heading: "From the workshop floor to a working solution.",
@@ -356,15 +362,23 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
           <p class="mt-5 max-w-[56ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
             {t.promise.body}
           </p>
-          <img
-            src={assetUrl("/workshop2.webp")}
-            alt={t.promise.imageAlt}
-            class="mt-8 aspect-[16/9] w-full rounded-2xl object-cover"
-            width="1900"
-            height="700"
-            loading="lazy"
-            decoding="async"
-          />
+          <AiImageFrame
+            label={t.promise.imageDisclosure}
+            class="mt-8"
+            mediaClass="aspect-[16/9] overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900"
+          >
+            <Image
+              src={promiseWorkshopImage}
+              alt={t.promise.imageAlt}
+              class="h-full w-full object-cover"
+              widths={[480, 768, 960, 1200]}
+              sizes="(min-width: 768px) 40vw, calc(100vw - 40px)"
+              format="webp"
+              quality={82}
+              loading="lazy"
+              decoding="async"
+            />
+          </AiImageFrame>
         </div>
 
         <div class="border-t border-slate-200 dark:border-slate-800">
