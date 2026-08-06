@@ -292,7 +292,7 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
   />
 
   <main class="home-main flex-1">
-    <section class="home-hero" data-home-hero>
+    <section class="home-hero" data-home-hero data-analytics-section="home-hero">
       <div class="container-responsive grid items-center gap-10 py-10 md:min-h-[calc(100dvh-76px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-12 md:py-12 lg:gap-16">
         <div class="max-w-2xl">
           <p class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-purple-700 dark:text-purple-300">
@@ -305,10 +305,18 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
             {hero.subtitle}
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" data-home-cta>
-            <Button href={hero.primaryHref}>{hero.primaryCta}</Button>
+            <Button
+              href={hero.primaryHref}
+              analyticsEvent="contact_start"
+              analyticsName="book-discovery-call"
+              analyticsLocation="home-hero"
+            >{hero.primaryCta}</Button>
             <a
               class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-500 hover:bg-slate-100 active:scale-[0.98] dark:border-slate-700 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-900 sm:w-auto"
               href={hero.secondaryHref}
+              data-analytics-event="cta_click"
+              data-analytics-name="view-how-we-work"
+              data-analytics-location="home-hero"
             >
               {hero.secondaryCta}
               <span aria-hidden="true" set:html={renderIcon(ArrowRight, "h-4 w-4")} />
@@ -519,7 +527,7 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
       </div>
     </section>
 
-    <section class="pb-20 pt-4 sm:pb-28">
+    <section class="pb-20 pt-4 sm:pb-28" data-analytics-section="home-final-cta">
       <div class="container-responsive">
         <div class="rounded-2xl border border-purple-200 bg-purple-50 px-6 py-10 dark:border-purple-900 dark:bg-purple-950/65 sm:px-10 sm:py-12 lg:px-14" data-reveal>
           <h2 class="max-w-[18ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
@@ -527,10 +535,18 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
           </h2>
           <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">{t.final.body}</p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href={hero.primaryHref}>{hero.primaryCta}</Button>
+            <Button
+              href={hero.primaryHref}
+              analyticsEvent="contact_start"
+              analyticsName="book-discovery-call"
+              analyticsLocation="home-final-cta"
+            >{hero.primaryCta}</Button>
             <a
               class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-purple-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-purple-500 hover:bg-white active:scale-[0.98] dark:border-purple-800 dark:text-slate-100 dark:hover:border-purple-600 dark:hover:bg-purple-950 sm:w-auto"
               href={t.final.secondaryHref}
+              data-analytics-event="cta_click"
+              data-analytics-name="view-workshops"
+              data-analytics-location="home-final-cta"
             >
               {t.final.secondaryLabel}
             </a>
