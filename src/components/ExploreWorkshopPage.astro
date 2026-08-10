@@ -46,7 +46,7 @@ const illustrationDisclosure = locale === 'de' ? 'KI-generierte Illustration' : 
 	/>
 
 	<main class="explore-main flex flex-1 flex-col overflow-hidden">
-		<section class="flex min-h-[calc(100dvh-76px)] items-center py-14 lg:py-18">
+		<section class="flex min-h-[calc(100dvh-76px)] items-center py-14 lg:py-18" data-analytics-section="explore-workshop-hero">
 			<div class="container-responsive grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
 				<div class="max-w-3xl lg:col-span-7">
 					<p class="text-xs font-semibold uppercase tracking-[0.28em] text-purple-700 dark:text-purple-300 sm:text-sm">{content.phaseLabel}</p>
@@ -55,10 +55,18 @@ const illustrationDisclosure = locale === 'de' ? 'KI-generierte Illustration' : 
 					</h1>
 					<p class="mt-6 max-w-[46ch] text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{content.subtitle}</p>
 					<div class="mt-8 flex flex-col gap-3 sm:flex-row">
-						<Button href={calendarHref}>{content.primaryCta}</Button>
+						<Button
+							href={calendarHref}
+							analyticsEvent="contact_start"
+							analyticsName="book-explore-workshop-call"
+							analyticsLocation="explore-workshop-hero"
+						>{content.primaryCta}</Button>
 						<a
 							class="inline-flex min-h-12 w-full items-center justify-center whitespace-nowrap rounded-full border border-purple-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-purple-500 hover:bg-purple-50 active:scale-[0.98] dark:border-purple-800 dark:text-slate-100 dark:hover:border-purple-600 dark:hover:bg-purple-950 sm:w-auto"
 							href={`#${content.outcomeId}`}
+							data-analytics-event="cta_click"
+							data-analytics-name="view-workshop-outcomes"
+							data-analytics-location="explore-workshop-hero"
 						>
 							{content.secondaryCta}
 						</a>
@@ -241,6 +249,9 @@ const illustrationDisclosure = locale === 'de' ? 'KI-generierte Illustration' : 
 					<a
 						class="inline-flex min-h-12 w-full items-center justify-center whitespace-nowrap rounded-full bg-purple-700 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(88,28,135,0.18)] transition hover:bg-purple-800 active:scale-[0.98] dark:bg-purple-500 dark:text-slate-950 dark:hover:bg-purple-400 sm:w-auto"
 						href={mailHref}
+						data-analytics-event="contact_start"
+						data-analytics-name="email-explore-workshop"
+						data-analytics-location="explore-workshop-final-cta"
 					>
 						{content.finalCta}
 					</a>

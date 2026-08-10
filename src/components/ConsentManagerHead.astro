@@ -1,4 +1,6 @@
 ---
+import GoogleAnalytics from './GoogleAnalytics.astro';
+
 interface Props {
 	locale: 'de' | 'en';
 }
@@ -23,3 +25,4 @@ const cmpCoreUrl = `https://cdn.consentmanager.net/delivery/cmp_${locale}.min.js
 </script>
 <script async type="text/javascript" data-cmp-ab="1" src={cmpCoreUrl}></script>
 <script async type="text/javascript" data-cmp-ab="1" src="https://d.delivery.consentmanager.net/delivery/cmp.php?id=172783"></script>
+<GoogleAnalytics />
