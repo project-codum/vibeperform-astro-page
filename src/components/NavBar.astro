@@ -120,6 +120,7 @@ const menuIcon = Menu
 			<span class="cursor-orbit__node cursor-orbit__node--two"></span>
 			<span class="cursor-orbit__node cursor-orbit__node--three"></span>
 		</span>
+		<span class="cursor-orbit__x"></span>
 	</div>
 </div>
 
@@ -203,7 +204,8 @@ const menuIcon = Menu
 
 	.cursor-orbit__halo,
 	.cursor-orbit__nodes,
-	.cursor-orbit__node {
+	.cursor-orbit__node,
+	.cursor-orbit__x {
 		position: absolute;
 		inset: 0;
 		border-radius: 9999px;
@@ -252,6 +254,48 @@ const menuIcon = Menu
 		background: rgb(184 117 255);
 	}
 
+	.cursor-orbit__x {
+		opacity: 0;
+		transform: scale(0.72);
+		transition:
+			opacity 90ms ease,
+			transform 120ms ease;
+	}
+
+	.cursor-orbit__x::before,
+	.cursor-orbit__x::after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 3.65rem;
+		height: 0.72rem;
+		border-radius: 9999px;
+		background: rgb(239 35 60);
+		box-shadow:
+			0 0 0 0.1rem rgb(127 29 29 / 14%),
+			0 0.2rem 0.75rem rgb(220 38 38 / 30%);
+		content: '';
+	}
+
+	.cursor-orbit__x::before {
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	.cursor-orbit__x::after {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+
+	.cursor-orbit[data-variant='reject'] .cursor-orbit__halo,
+	.cursor-orbit[data-variant='reject'] .cursor-orbit__nodes {
+		visibility: hidden;
+		animation-play-state: paused;
+	}
+
+	.cursor-orbit[data-variant='reject'] .cursor-orbit__x {
+		opacity: 1;
+		transform: scale(1);
+	}
+
 	@keyframes cursor-node-orbit {
 		to {
 			transform: rotate(1turn);
@@ -280,6 +324,10 @@ const menuIcon = Menu
 	@media (min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
 		.cursor-orbit {
 			will-change: transform, opacity;
+		}
+
+		:global([data-cursor-x-zone]) {
+			cursor: none;
 		}
 	}
 
@@ -438,9 +486,22 @@ const menuIcon = Menu
 			let targetY = 0;
 			let lastFrameTime = 0;
 			let hasPosition = false;
+			let variantSyncPending = false;
+
+			const syncVariant = (elementAtPointer) => {
+				if (elementAtPointer?.closest('[data-cursor-x-zone]')) {
+					cursor.dataset.variant = 'reject';
+				} else {
+					cursor.removeAttribute('data-variant');
+				}
+			};
 
 			const render = (time) => {
 				animationFrame = 0;
+				if (variantSyncPending) {
+					variantSyncPending = false;
+					syncVariant(document.elementFromPoint(targetX, targetY));
+				}
 				const delta = lastFrameTime ? Math.min(time - lastFrameTime, 32) : 16.7;
 				const smoothing = 1 - Math.exp(-delta / 48);
 				lastFrameTime = time;
@@ -466,7 +527,9 @@ const menuIcon = Menu
 
 			const hide = () => {
 				cursor.removeAttribute('data-visible');
+				cursor.removeAttribute('data-variant');
 				hasPosition = false;
+				variantSyncPending = false;
 				lastFrameTime = 0;
 				if (animationFrame) {
 					window.cancelAnimationFrame(animationFrame);
@@ -477,6 +540,7 @@ const menuIcon = Menu
 			const move = (event) => {
 				targetX = event.clientX;
 				targetY = event.clientY;
+				syncVariant(event.target instanceof Element ? event.target : null);
 
 				if (!hasPosition) {
 					currentX = targetX;
@@ -490,6 +554,13 @@ const menuIcon = Menu
 				scheduleRender();
 			};
 
+			const scroll = () => {
+				if (hasPosition) {
+					variantSyncPending = true;
+					scheduleRender();
+				}
+			};
+
 			const leaveWindow = (event) => {
 				if (event.relatedTarget === null) {
 					hide();
@@ -498,11 +569,13 @@ const menuIcon = Menu
 
 			document.addEventListener('pointermove', move, { passive: true });
 			document.addEventListener('pointerout', leaveWindow, { passive: true });
+			window.addEventListener('scroll', scroll, { passive: true });
 			window.addEventListener('blur', hide);
 
 			deactivate = () => {
 				document.removeEventListener('pointermove', move);
 				document.removeEventListener('pointerout', leaveWindow);
+				window.removeEventListener('scroll', scroll);
 				window.removeEventListener('blur', hide);
 				hide();
 				cursor.style.removeProperty('transform');
