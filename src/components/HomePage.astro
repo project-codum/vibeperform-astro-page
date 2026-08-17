@@ -150,8 +150,6 @@ const pageCopy = {
     final: {
       heading: "Welcher Ablauf kostet Sie heute zu viel Zeit?",
       body: "In einem ersten Gespräch klären wir, ob und wo KI in Ihrem Betrieb sinnvoll helfen kann.",
-      secondaryLabel: "Workshops ansehen",
-      secondaryHref: "/de/workshops/",
     },
   },
   en: {
@@ -272,8 +270,6 @@ const pageCopy = {
     final: {
       heading: "Which workflow is costing you too much time?",
       body: "In a first conversation, we identify whether and where AI can usefully support your operation.",
-      secondaryLabel: "View workshops",
-      secondaryHref: "/en/workshops/",
     },
   },
 } as const;
@@ -521,21 +517,21 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
 
     <section class="pb-20 pt-4 sm:pb-28">
       <div class="container-responsive">
-        <div class="rounded-2xl border border-purple-200 bg-purple-50 px-6 py-10 dark:border-purple-900 dark:bg-purple-950/65 sm:px-10 sm:py-12 lg:px-14" data-reveal>
+        <a
+          class="group block rounded-2xl border border-purple-200 bg-purple-50 px-6 py-10 transition hover:border-purple-400 hover:shadow-[0_18px_48px_rgba(88,28,135,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 dark:border-purple-900 dark:bg-purple-950/65 dark:hover:border-purple-700 sm:px-10 sm:py-12 lg:px-14"
+          href={hero.primaryHref}
+          aria-label={hero.primaryCta}
+          data-cursor-work-zone
+          data-reveal
+        >
           <h2 class="max-w-[18ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
             {t.final.heading}
           </h2>
           <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">{t.final.body}</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href={hero.primaryHref}>{hero.primaryCta}</Button>
-            <a
-              class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-purple-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-purple-500 hover:bg-white active:scale-[0.98] dark:border-purple-800 dark:text-slate-100 dark:hover:border-purple-600 dark:hover:bg-purple-950 sm:w-auto"
-              href={t.final.secondaryHref}
-            >
-              {t.final.secondaryLabel}
-            </a>
-          </div>
-        </div>
+          <span class="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-purple-700 px-6 py-3 text-center text-sm font-semibold text-white shadow-[0_10px_28px_rgba(88,28,135,0.18)] transition group-hover:bg-purple-800 group-active:scale-[0.98] dark:bg-purple-500 dark:text-slate-950 dark:group-hover:bg-purple-400 sm:w-auto">
+            {hero.primaryCta}
+          </span>
+        </a>
       </div>
     </section>
   </main>

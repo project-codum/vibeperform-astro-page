@@ -16,6 +16,7 @@ const alternateLocale = currentLocale === 'de' ? 'en' : 'de';
 const baseUrl = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const logoUrl = `${baseUrl}/vibeperform-logo.png`;
 const logoAnimationUrl = `${baseUrl}/vibeperform-logo-alive.json`;
+const workCursorLabel = currentLocale === 'de' ? 'Mit uns arbeiten' : 'Work with us';
 const toggleId = `nav-toggle-${Math.random().toString(36).slice(2, 9)}`;
 const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
 const menuIcon = Menu
@@ -121,6 +122,7 @@ const menuIcon = Menu
 			<span class="cursor-orbit__node cursor-orbit__node--three"></span>
 		</span>
 		<span class="cursor-orbit__x"></span>
+		<span class="cursor-orbit__work">{workCursorLabel}</span>
 	</div>
 </div>
 
@@ -296,6 +298,49 @@ const menuIcon = Menu
 		transform: scale(1);
 	}
 
+	.cursor-orbit__work {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: grid;
+		width: 7.75rem;
+		height: 7.75rem;
+		place-items: center;
+		padding: 1rem;
+		border: 1px solid rgb(216 180 254 / 55%);
+		border-radius: 9999px;
+		background: rgb(126 34 206);
+		box-shadow:
+			0 1rem 2.5rem rgb(88 28 135 / 28%),
+			inset 0 0 0 0.08rem rgb(255 255 255 / 10%);
+		color: white;
+		font-size: 0.9rem;
+		font-weight: 700;
+		line-height: 1.15;
+		text-align: center;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate(-50%, -50%) scale(0.76);
+		transition:
+			opacity 110ms ease,
+			transform 150ms ease,
+			visibility 0s linear 150ms;
+	}
+
+	.cursor-orbit[data-variant='work'] .cursor-orbit__halo,
+	.cursor-orbit[data-variant='work'] .cursor-orbit__nodes,
+	.cursor-orbit[data-variant='work'] .cursor-orbit__x {
+		visibility: hidden;
+		animation-play-state: paused;
+	}
+
+	.cursor-orbit[data-variant='work'] .cursor-orbit__work {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, -50%) scale(1);
+		transition-delay: 0s;
+	}
+
 	@keyframes cursor-node-orbit {
 		to {
 			transform: rotate(1turn);
@@ -326,7 +371,8 @@ const menuIcon = Menu
 			will-change: transform, opacity;
 		}
 
-		:global([data-cursor-x-zone]) {
+		:global([data-cursor-x-zone]),
+		:global([data-cursor-work-zone]) {
 			cursor: none;
 		}
 	}
@@ -489,7 +535,9 @@ const menuIcon = Menu
 			let variantSyncPending = false;
 
 			const syncVariant = (elementAtPointer) => {
-				if (elementAtPointer?.closest('[data-cursor-x-zone]')) {
+				if (elementAtPointer?.closest('[data-cursor-work-zone]')) {
+					cursor.dataset.variant = 'work';
+				} else if (elementAtPointer?.closest('[data-cursor-x-zone]')) {
 					cursor.dataset.variant = 'reject';
 				} else {
 					cursor.removeAttribute('data-variant');
