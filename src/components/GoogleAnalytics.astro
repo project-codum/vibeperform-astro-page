@@ -1,0 +1,114 @@
+---
+const measurementId = 'G-FQ744XXNZ7';
+---
+
+<script is:inline define:vars={{ measurementId }}>
+	window.dataLayer = window.dataLayer || [];
+	window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+
+	(() => {
+		const tagSrc = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+
+		const loadGoogleTag = () => {
+			if (window.__vibeperformGoogleTagLoaded) return;
+			window.__vibeperformGoogleTagLoaded = true;
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = tagSrc;
+			script.onload = () => {
+				window.gtag('js', new Date());
+				window.gtag('config', measurementId);
+				window.__vibeperformAnalyticsReady = true;
+			};
+			document.head.appendChild(script);
+		};
+
+		const hasAcceptedAllConsent = (cmpData) => {
+			const groups = [cmpData?.purposeConsents, cmpData?.vendorConsents].filter(Boolean);
+			return groups.length > 0 && groups.every((group) => Object.values(group).length > 0 && Object.values(group).every(Boolean));
+		};
+
+		const loadIfStoredConsentAllows = () => {
+			try {
+				const cmpData = window.__cmp?.('getCMPData');
+				if (hasAcceptedAllConsent(cmpData)) loadGoogleTag();
+			} catch (_error) {
+				// Keep analytics disabled if CMP data is unavailable.
+			}
+		};
+
+		const handleCmpEvent = (eventName) => {
+			if (eventName === 'consentapproved') {
+				loadGoogleTag();
+				return;
+			}
+			if (eventName === 'consent' || eventName === 'loadNotShowing') loadIfStoredConsentAllows();
+		};
+
+		if (typeof window.__cmp === 'function') {
+			window.__cmp('addEventListener', ['consentapproved', handleCmpEvent, false], null);
+			window.__cmp('addEventListener', ['consent', handleCmpEvent, false], null);
+			window.__cmp('addEventListener', ['loadNotShowing', handleCmpEvent, false], null);
+			loadIfStoredConsentAllows();
+		}
+
+		if (window.__vibeperformAnalyticsTrackingBound) return;
+		window.__vibeperformAnalyticsTrackingBound = true;
+
+		const normalizeLabel = (value, fallback) => {
+			const normalized = value?.replace(/\s+/g, ' ').trim();
+			return normalized ? normalized.slice(0, 100) : fallback;
+		};
+
+		const getLinkType = (href) => {
+			if (!href) return 'button';
+			if (href.startsWith('mailto:')) return 'email';
+			if (href.includes('calendar.app.google')) return 'calendar';
+			if (href.startsWith('#')) return 'anchor';
+
+			try {
+				return new URL(href, window.location.href).origin === window.location.origin ? 'internal' : 'external';
+			} catch (_error) {
+				return 'other';
+			}
+		};
+
+		const sendEvent = (element, fallbackEventName) => {
+			if (!window.__vibeperformAnalyticsReady || typeof window.gtag !== 'function') return;
+
+			const href = element.getAttribute('href') ?? '';
+			const linkType = getLinkType(href);
+			const eventName = element.dataset.analyticsEvent
+				?? fallbackEventName
+				?? (linkType === 'calendar' || linkType === 'email' ? 'contact_start' : null);
+			if (!eventName) return;
+
+			const section = element.closest('[data-analytics-section]');
+			const eventParameters = {
+				cta_name: normalizeLabel(
+					element.dataset.analyticsName ?? element.getAttribute('aria-label') ?? element.textContent,
+					'unknown',
+				),
+				cta_location: element.dataset.analyticsLocation ?? section?.dataset.analyticsSection ?? 'unknown',
+				link_type: linkType,
+			};
+
+			if (element.dataset.targetLocale) eventParameters.target_locale = element.dataset.targetLocale;
+			window.gtag('event', eventName, eventParameters);
+		};
+
+		document.addEventListener('click', (event) => {
+			const element = event.target instanceof Element
+				? event.target.closest('[data-analytics-event], [data-locale-switch], a[href^="mailto:"], a[href*="calendar.app.google"]')
+				: null;
+			if (!(element instanceof HTMLElement)) return;
+			sendEvent(element, element.matches('[data-locale-switch]') ? 'language_switch' : undefined);
+		});
+
+		document.addEventListener('submit', (event) => {
+			const form = event.target;
+			if (form instanceof HTMLFormElement && form.dataset.analyticsEvent) sendEvent(form);
+		});
+	})();
+</script>

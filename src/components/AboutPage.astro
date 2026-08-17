@@ -123,7 +123,14 @@ const checkIcon = CheckCircle2
 						<p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">{connect.body}</p>
 					</div>
 					<div class="lg:justify-self-end">
-						<Button href={connect.button.href} target="_blank" rel="noreferrer noopener">{connect.button.label}</Button>
+						<Button
+							href={connect.button.href}
+							target="_blank"
+							rel="noreferrer noopener"
+							analyticsEvent="contact_start"
+							analyticsName="book-discovery-call"
+							analyticsLocation="about-final-cta"
+						>{connect.button.label}</Button>
 					</div>
 				</div>
 			</div>
