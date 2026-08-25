@@ -10,6 +10,7 @@
     "generate:agent": "node scripts/generate-agent-readable.mjs",
     "utm": "node scripts/build-utm.mjs",
     "build": "npm run generate:agent && astro build",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -18,7 +18,7 @@ Keep Node versions in sync across local environments and CI to avoid lockfile dr
    ```sh
    npm run dev
    ```
-   Astro prints a local URL (default `http://localhost:4321`). The root route redirects to the remembered language preference or `/de/` by default.
+   Astro prints a local URL (default `http://localhost:4321`). The root route serves the complete German homepage and declares `/de/` as canonical so non-JavaScript clients never receive a redirect stub.
 3. Create optimized production output before deploying:
    ```sh
    npm run build
@@ -44,7 +44,7 @@ src/
     aboutContent.ts     # Localised About page copy blocks
     workshopsContent.ts # Localised Workshops page copy blocks
   pages/
-    index.astro         # Locale preference redirect
+    index.astro         # Full German homepage with /de/ canonical
     en/index.astro      # English landing page
     de/index.astro      # German landing page
     en/explore-workshop.astro # English Phase 1 Workshop page
@@ -64,7 +64,7 @@ Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under 
 - `NavBar.astro` is the single source of truth for navigation markup. When creating new pages, import it instead of rebuilding headers.
 - Set `homeHref` to `/de/` or `/en/` according to the page locale.
 - Each page’s locale toggle (`alternateLocaleHref`) should point to the equivalent page in the other language. Keep these links absolute to the project root (e.g. `/de/workshops`, `/en/workshops`, `/de/explore-workshop`, or `/en/explore-workshop`).
-- The shared nav stores explicit language toggles in `localStorage` under `vibeperform:locale`; `/` uses that value to route returning visitors, with `/de/` as the fallback.
+- The shared nav stores explicit language toggles in `localStorage` under `vibeperform:locale`; visitors switch languages explicitly through the navigation.
 - Use `npm run build` to validate that generated asset paths respect the base path before publishing.
 
 ## 5. Styling & Color System
@@ -88,6 +88,7 @@ Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under 
   - Locale objects should expose the same keys (`hero`, `values`, `cta`, etc.) across languages to keep toggles symmetrical.
 - When adding or updating copy, edit the relevant data module rather than the `.astro` page. Rendering files should only orchestrate layout and pass the correct locale slice.
 - Agent-readable files are generated from the same content sources. Run `npm run generate:agent` to refresh `public/llms.txt`, `public/llms-full.txt`, `public/agent/**`, `public/robots.txt`, and `public/sitemap.xml`; `npm run build` does this automatically before Astro builds.
+- The generator also writes `index.md` siblings for negotiated German routes. `worker/accept-markdown.js` follows the Accept Markdown content-negotiation protocol: it honors q-values, returns `406` for unsupported representations, emits `Vary: Accept`, and advertises Markdown with a `Link` header. GitHub Pages cannot execute this request-time worker; deploy the static build with `wrangler deploy` and route the production hostname to that Worker before expecting negotiated Markdown on the public URL.
 - When adding a new locale:
   1. Duplicate the page structure under a new directory (e.g., `src/pages/fr/`).
   2. Extend each relevant content module with the new locale key.

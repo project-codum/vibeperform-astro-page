@@ -319,7 +319,9 @@ ${uniqueUrls
 }
 
 async function writeFile(relativePath, content) {
-	await fs.writeFile(path.join(publicDir, relativePath), content, 'utf8');
+	const targetPath = path.join(publicDir, relativePath);
+	await fs.mkdir(path.dirname(targetPath), { recursive: true });
+	await fs.writeFile(targetPath, content, 'utf8');
 }
 
 await fs.mkdir(agentBlogDir, { recursive: true });
@@ -331,14 +333,24 @@ const pages = [
 	{ relativePath: 'agent/explore-workshop.md', content: renderExploreAgentPage() },
 	{ relativePath: 'agent/about.md', content: renderAboutAgentPage() },
 ];
+const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
+const negotiatedPages = [
+	{ relativePath: 'index.md', content: pageByPath.get('agent/index.md') },
+	{ relativePath: 'de/index.md', content: pageByPath.get('agent/index.md') },
+	{ relativePath: 'de/workshops/index.md', content: pageByPath.get('agent/workshops.md') },
+	{ relativePath: 'de/workshop/explore-workshop/index.md', content: pageByPath.get('agent/explore-workshop.md') },
+	{ relativePath: 'de/ueber-uns/index.md', content: pageByPath.get('agent/about.md') },
+];
 
 await Promise.all([
 	...pages.map((page) => writeFile(page.relativePath, page.content)),
+	...negotiatedPages.map((page) => writeFile(page.relativePath, page.content)),
 	...blogPosts.map((post) => writeFile(`agent/blog/${post.slug}.md`, renderBlogAgentPage(post))),
+	...blogPosts.map((post) => writeFile(`de/blog/${post.slug}/index.md`, renderBlogAgentPage(post))),
 	writeFile('llms.txt', renderLlmsTxt(blogPosts)),
 	writeFile('llms-full.txt', renderLlmsFull(pages, blogPosts)),
 	writeFile('robots.txt', renderRobotsTxt()),
 	writeFile('sitemap.xml', renderSitemapXml(blogPosts)),
 ]);
 
-console.log(`Generated ${pages.length + blogPosts.length} agent Markdown files, llms.txt, llms-full.txt, robots.txt, and sitemap.xml.`);
+console.log(`Generated ${pages.length + negotiatedPages.length + blogPosts.length * 2} agent Markdown files, llms.txt, llms-full.txt, robots.txt, and sitemap.xml.`);
