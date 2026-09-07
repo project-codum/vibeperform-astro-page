@@ -28,6 +28,23 @@ const deWorkshops = workshopsContent.de;
 const deAbout = aboutContent.de;
 const deExplore = exploreWorkshopContent.de;
 const deHighlights = landingHighlightsContent.de;
+const { potentialAnalysisContent } = await jiti.import('../src/data/potentialAnalysisContent.ts');
+const potentialPaths = { de: '/de/ki-potenzialanalyse/', en: '/en/ai-potential-analysis/' };
+
+function renderPotentialAnalysis(locale) {
+	const c = potentialAnalysisContent[locale];
+	const parts = [
+		`# ${c.hero.title}\n\nCanonical URL: ${absoluteUrl(potentialPaths[locale])}`,
+		c.metaDescription,
+		`${c.hero.kicker}\n\n${c.hero.intro}\n\n${c.hero.asideTitle}\n\n${c.hero.asideBody}\n\n${c.hero.asideFootnote}`,
+		section(c.workflow.title, `${c.workflow.intro}\n\n${c.workflow.steps.map(s => `### ${s.title}\n\n${s.body}`).join('\n\n')}\n\n${c.workflow.programsLabel}\n\n${bulletList(c.workflow.programs)}`),
+		section(c.process.title, c.process.items.map(s => `### ${s.title}\n\n${s.body}`).join('\n\n')),
+		section(c.review.title, `${c.review.intro}\n\n${bulletList(c.review.items)}\n\n${c.review.decisionTitle}\n\n${c.review.decisionBody}`),
+		section(c.faq.kicker, c.faq.items.map(s => `### ${s.question}\n\n${s.answer}`).join('\n\n')),
+		section(c.finalCta.title, `${c.finalCta.body}\n\n[${c.finalCta.button.label}](${c.finalCta.button.href})`),
+	];
+	return normalizeBlankLines(parts.join('\n\n'));
+}
 
 const hasFileExtension = (pathname) => /\/[^/]+\.[^/]+$/.test(pathname);
 const absoluteUrl = (pathname) => {
@@ -319,7 +336,9 @@ ${uniqueUrls
 }
 
 async function writeFile(relativePath, content) {
-	await fs.writeFile(path.join(publicDir, relativePath), content, 'utf8');
+	const targetPath = path.join(publicDir, relativePath);
+	await fs.mkdir(path.dirname(targetPath), { recursive: true });
+	await fs.writeFile(targetPath, content, 'utf8');
 }
 
 await fs.mkdir(agentBlogDir, { recursive: true });
@@ -331,14 +350,25 @@ const pages = [
 	{ relativePath: 'agent/explore-workshop.md', content: renderExploreAgentPage() },
 	{ relativePath: 'agent/about.md', content: renderAboutAgentPage() },
 ];
+const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
+const negotiatedPages = [
+	...Object.keys(potentialPaths).map(locale => ({ relativePath: `${potentialPaths[locale].slice(1)}index.md`, content: renderPotentialAnalysis(locale) })),
+	{ relativePath: 'index.md', content: pageByPath.get('agent/index.md') },
+	{ relativePath: 'de/index.md', content: pageByPath.get('agent/index.md') },
+	{ relativePath: 'de/workshops/index.md', content: pageByPath.get('agent/workshops.md') },
+	{ relativePath: 'de/workshop/explore-workshop/index.md', content: pageByPath.get('agent/explore-workshop.md') },
+	{ relativePath: 'de/ueber-uns/index.md', content: pageByPath.get('agent/about.md') },
+];
 
 await Promise.all([
 	...pages.map((page) => writeFile(page.relativePath, page.content)),
+	...negotiatedPages.map((page) => writeFile(page.relativePath, page.content)),
 	...blogPosts.map((post) => writeFile(`agent/blog/${post.slug}.md`, renderBlogAgentPage(post))),
+	...blogPosts.map((post) => writeFile(`de/blog/${post.slug}/index.md`, renderBlogAgentPage(post))),
 	writeFile('llms.txt', renderLlmsTxt(blogPosts)),
 	writeFile('llms-full.txt', renderLlmsFull(pages, blogPosts)),
 	writeFile('robots.txt', renderRobotsTxt()),
 	writeFile('sitemap.xml', renderSitemapXml(blogPosts)),
 ]);
 
-console.log(`Generated ${pages.length + blogPosts.length} agent Markdown files, llms.txt, llms-full.txt, robots.txt, and sitemap.xml.`);
+console.log(`Generated ${pages.length + negotiatedPages.length + blogPosts.length * 2} agent Markdown files, llms.txt, llms-full.txt, robots.txt, and sitemap.xml.`);

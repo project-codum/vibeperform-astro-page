@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import ConsentManagerHead from './ConsentManagerHead.astro';
+import HomePage from './HomePage.astro';
+import ogImageSource from '../assets/home-promise-workshop-ai.png';
+import { homeContent } from '../data/homeContent';
+import { absoluteUrl, jsonLd, organizationSchema, websiteSchema, type Locale } from '../lib/siteMetadata';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+const metadata = {
+	de: {
+		title: 'KI-Beratung für Handwerk & Mittelstand | Vibeperform',
+		canonicalPath: '/de/',
+		alternatePath: '/en/',
+		ogImageAlt: 'Drei Mitarbeitende besprechen einen Bauplan in einer Metallwerkstatt',
+		ogLocale: 'de_DE',
+		alternateOgLocale: 'en_US',
+	},
+	en: {
+		title: 'AI Consulting for Craft Businesses & SMEs | Vibeperform',
+		canonicalPath: '/en/',
+		alternatePath: '/de/',
+		ogImageAlt: 'Three colleagues review a technical plan in a metal workshop',
+		ogLocale: 'en_US',
+		alternateOgLocale: 'de_DE',
+	},
+} as const;
+const page = metadata[locale];
+const content = homeContent[locale];
+const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+const description = content.hero.subtitle;
+const canonicalUrl = absoluteUrl(page.canonicalPath);
+const alternateUrl = absoluteUrl(page.alternatePath);
+const defaultUrl = absoluteUrl('/de/');
+const ogImage = await getImage({
+	src: ogImageSource,
+	width: 1200,
+	height: 630,
+	fit: 'cover',
+	format: 'jpeg',
+	quality: 85,
+});
+const ogImageUrl = absoluteUrl(ogImage.src);
+const structuredData = [organizationSchema(), websiteSchema(locale)];
+---
+
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<ConsentManagerHead locale={locale} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href={faviconHref} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{page.title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={page.title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:alt" content={page.ogImageAlt} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content="Vibeperform" />
+		<meta property="og:locale" content={page.ogLocale} />
+		<meta property="og:locale:alternate" content={page.alternateOgLocale} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang={locale} href={canonicalUrl} />
+		<link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={alternateUrl} />
+		<link rel="alternate" hreflang="x-default" href={defaultUrl} />
+		<link rel="alternate" type="text/markdown" href={absoluteUrl('/agent/index.md')} />
+		<script type="application/ld+json" set:html={jsonLd(structuredData)} />
+	</head>
+
+	<body class="bg-white text-slate-900">
+		<HomePage content={content} currentLocale={locale} alternateLocaleHref={page.alternatePath} />
+	</body>
+</html>

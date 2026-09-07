@@ -1,28 +1,5 @@
 ---
-const fallbackHref = '/de/';
+import HomeDocument from '../components/HomeDocument.astro';
 ---
 
-<html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv="refresh" content={`0;url=${fallbackHref}`} />
-		<title>Vibeperform</title>
-		<script is:inline>
-			(() => {
-				const fallbackHref = '/de/';
-
-				try {
-					const preferredLocale = window.localStorage.getItem('vibeperform:locale');
-					const targetPath = preferredLocale === 'en' ? '/en/' : fallbackHref;
-					window.location.replace(`${targetPath}${window.location.search}${window.location.hash}`);
-				} catch (_error) {
-					window.location.replace(`${fallbackHref}${window.location.search}${window.location.hash}`);
-				}
-			})();
-		</script>
-	</head>
-	<body>
-		<a href={fallbackHref}>Weiter zu Vibeperform</a>
-	</body>
-</html>
+<HomeDocument locale="de" />

@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import { absoluteUrl } from '../lib/siteMetadata';
+
+const title = '404 – Seite nicht gefunden | Vibeperform';
+---
+
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex, follow" />
+		<title>{title}</title>
+		<meta name="description" content="Die angeforderte Vibeperform-Seite wurde nicht gefunden. Diese Links helfen Menschen und Agenten bei der Navigation." />
+	</head>
+	<body class="bg-slate-950 text-slate-100">
+		<main class="mx-auto flex min-h-screen max-w-3xl items-center px-6 py-16">
+			<article class="w-full rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-2xl sm:p-12">
+				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-purple-300">HTTP 404</p>
+				<h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Seite nicht gefunden.</h1>
+				<p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+					Die angeforderte Adresse existiert nicht. Nutzen Sie eine der folgenden maschinenlesbaren Ressourcen, um den passenden Inhalt zu finden.
+				</p>
+				<nav class="mt-8" aria-label="Wiederherstellungslinks">
+					<ul class="grid gap-3 sm:grid-cols-2">
+						<li><a class="block rounded-xl border border-slate-700 px-4 py-3 font-semibold text-purple-200 hover:border-purple-400" href="/de/">Startseite</a></li>
+						<li><a class="block rounded-xl border border-slate-700 px-4 py-3 font-semibold text-purple-200 hover:border-purple-400" href="/sitemap.xml">XML-Sitemap</a></li>
+						<li><a class="block rounded-xl border border-slate-700 px-4 py-3 font-semibold text-purple-200 hover:border-purple-400" href="/llms.txt">llms.txt</a></li>
+						<li><a class="block rounded-xl border border-slate-700 px-4 py-3 font-semibold text-purple-200 hover:border-purple-400" href="/agent/index.md">Agenten-Index (Markdown)</a></li>
+					</ul>
+				</nav>
+				<section class="mt-8 rounded-xl bg-slate-950 p-5" aria-labelledby="agent-recovery-title">
+					<h2 id="agent-recovery-title" class="sr-only">Markdown recovery body</h2>
+					<pre class="whitespace-pre-wrap text-sm leading-6 text-slate-300"># 404 Not Found
+
+- [Startseite]({absoluteUrl('/de/')})
+- [Sitemap]({absoluteUrl('/sitemap.xml')})
+- [Agenten-Index]({absoluteUrl('/llms.txt')})</pre>
+				</section>
+			</article>
+		</main>
+	</body>
+</html>
