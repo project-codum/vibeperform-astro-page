@@ -28,6 +28,23 @@ const deWorkshops = workshopsContent.de;
 const deAbout = aboutContent.de;
 const deExplore = exploreWorkshopContent.de;
 const deHighlights = landingHighlightsContent.de;
+const { potentialAnalysisContent } = await jiti.import('../src/data/potentialAnalysisContent.ts');
+const potentialPaths = { de: '/de/ki-potenzialanalyse/', en: '/en/ai-potential-analysis/' };
+
+function renderPotentialAnalysis(locale) {
+	const c = potentialAnalysisContent[locale];
+	const parts = [
+		`# ${c.hero.title}\n\nCanonical URL: ${absoluteUrl(potentialPaths[locale])}`,
+		c.metaDescription,
+		`${c.hero.kicker}\n\n${c.hero.intro}\n\n${c.hero.asideTitle}\n\n${c.hero.asideBody}\n\n${c.hero.asideFootnote}`,
+		section(c.workflow.title, `${c.workflow.intro}\n\n${c.workflow.steps.map(s => `### ${s.title}\n\n${s.body}`).join('\n\n')}\n\n${c.workflow.programsLabel}\n\n${bulletList(c.workflow.programs)}`),
+		section(c.process.title, c.process.items.map(s => `### ${s.title}\n\n${s.body}`).join('\n\n')),
+		section(c.review.title, `${c.review.intro}\n\n${bulletList(c.review.items)}\n\n${c.review.decisionTitle}\n\n${c.review.decisionBody}`),
+		section(c.faq.kicker, c.faq.items.map(s => `### ${s.question}\n\n${s.answer}`).join('\n\n')),
+		section(c.finalCta.title, `${c.finalCta.body}\n\n[${c.finalCta.button.label}](${c.finalCta.button.href})`),
+	];
+	return normalizeBlankLines(parts.join('\n\n'));
+}
 
 const hasFileExtension = (pathname) => /\/[^/]+\.[^/]+$/.test(pathname);
 const absoluteUrl = (pathname) => {
@@ -335,6 +352,7 @@ const pages = [
 ];
 const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
 const negotiatedPages = [
+	...Object.keys(potentialPaths).map(locale => ({ relativePath: `${potentialPaths[locale].slice(1)}index.md`, content: renderPotentialAnalysis(locale) })),
 	{ relativePath: 'index.md', content: pageByPath.get('agent/index.md') },
 	{ relativePath: 'de/index.md', content: pageByPath.get('agent/index.md') },
 	{ relativePath: 'de/workshops/index.md', content: pageByPath.get('agent/workshops.md') },

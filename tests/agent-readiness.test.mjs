@@ -3,7 +3,7 @@ import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { handleRequest, markdownPath, preferredType } from '../worker/accept-markdown.js';
+import { handleRequest, markdownPath, preferredType, REDIRECTS } from '../worker/accept-markdown.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -90,6 +90,52 @@ test('custom 404 gives agents machine-readable recovery links', async () => {
 	assert.match(textContent(html), /404 Not Found/);
 });
 
+test('both potential-analysis pages expose matching HTML, Service data, Markdown and contact actions', async () => {
+	for (const pathname of ['de/ki-potenzialanalyse/', 'en/ai-potential-analysis/']) {
+		const html = await load(`${pathname}index.html`);
+		assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+		assert.ok(textContent(html).length > 500);
+		assert.match(html, /mailto:contact@vibeperform.com/);
+		assert.match(html, /name="robots" content="noindex, nofollow"/);
+		assert.ok(!(await load('sitemap.xml')).includes(pathname));
+		assert.match(html, /application\/ld\+json/);
+		const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+		assert.equal(schema['@type'], 'Service');
+		assert.equal(schema.url, `https://www.vibeperform.com/${pathname}`);
+		const response = await handleRequest(new Request(`https://www.vibeperform.com/${pathname}`, { headers: { Accept: 'text/markdown' } }), { ASSETS: mockAssets() });
+		assert.equal(response.status, 200);
+		assert.match(response.headers.get('Content-Type'), /^text\/markdown/);
+		const markdown = await response.text();
+		assert.ok(markdown.length > 500);
+		assert.ok(markdown.includes(schema.url));
+		assert.match(markdown, /mailto:contact@vibeperform.com/);
+	}
+	const headers = await load('_headers');
+	assert.match(headers, /\/de\/ki-potenzialanalyse\/\*\s+X-Robots-Tag: noindex, nofollow/);
+	assert.match(headers, /\/en\/ai-potential-analysis\/\*\s+X-Robots-Tag: noindex, nofollow/);
+});
+
+test('legacy redirects use HTTP 301 and retain campaign queries', async () => {
+	for (const [from, to] of Object.entries(REDIRECTS)) {
+		for (const suffix of ['', '/']) {
+			const response = await handleRequest(new Request(`https://www.vibeperform.com${from}${suffix}?utm_source=test`), { ASSETS: mockAssets() });
+			assert.equal(response.status, 301);
+			assert.equal(response.headers.get('Location'), `https://www.vibeperform.com${to}?utm_source=test`);
+		}
+	}
+});
+
+test('missing URLs return Markdown recovery with 404 and HEAD has no body', async () => {
+	for (const method of ['GET', 'HEAD']) {
+		const response = await handleRequest(new Request('https://www.vibeperform.com/no-such-page', { method, headers: { Accept: 'text/markdown' } }), { ASSETS: mockAssets() });
+		assert.equal(response.status, 404);
+		assert.match(response.headers.get('Content-Type'), /^text\/markdown/);
+		assert.equal(response.headers.get('Vary'), 'Accept');
+		if (method === 'HEAD') assert.equal(await response.text(), '');
+		else assert.match(await response.text(), /\[Sitemap\]\(\/sitemap.xml\)/);
+	}
+});
+
 test('build emits a substantial Markdown representation beside the homepage', async () => {
 	const markdown = await load('de/index.md');
 	assert.match(markdown, /^# Vibeperform\n/);
@@ -147,6 +193,14 @@ test('edge handler returns 404 recovery content and 406 for unsupported represen
 
 test('edge deployment configuration runs negotiation first and serves the custom 404', async () => {
 	const config = JSON.parse(await readFile(path.join(root, 'wrangler.jsonc'), 'utf8'));
+	assert.equal(config.workers_dev, true);
+	assert.deepEqual(
+		config.routes.map(({ pattern, zone_name }) => ({ pattern, zone_name })),
+		[
+			{ pattern: 'vibeperform.com/*', zone_name: 'vibeperform.com' },
+			{ pattern: 'www.vibeperform.com/*', zone_name: 'vibeperform.com' },
+		],
+	);
 	assert.equal(config.assets.directory, './dist');
 	assert.equal(config.assets.run_worker_first, true);
 	assert.equal(config.assets.html_handling, 'auto-trailing-slash');

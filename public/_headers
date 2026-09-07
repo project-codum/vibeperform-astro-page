@@ -18,3 +18,11 @@
 
 /*.xml
   Cache-Control: public, max-age=3600
+
+# These campaign pages intentionally remain outside search and discovery indexes.
+# Apply the same policy to their Markdown representations.
+/de/ki-potenzialanalyse/*
+  X-Robots-Tag: noindex, nofollow
+
+/en/ai-potential-analysis/*
+  X-Robots-Tag: noindex, nofollow

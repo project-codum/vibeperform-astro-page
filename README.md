@@ -1,6 +1,6 @@
 # Vibeperform Astro Site
 
-A bilingual marketing site built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The project targets deployment under the `/vibeperform-astro-page` base path (for example on GitHub Pages) and ships with reusable UI primitives and structured content for fast iteration.
+A bilingual marketing site built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The site is built at the domain root for `https://www.vibeperform.com`, with Cloudflare Workers serving static assets and negotiating Markdown for agents.
 
 ## 1. Prerequisites
 - Node.js 24 LTS (aligns with the GitHub Actions workflow)
@@ -95,12 +95,35 @@ Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under 
   3. Provide translations for every navigation label, CTA, and section string before exposing the locale toggle.
 
 ## 7. Deployment Guidance
-- The site expects the `/vibeperform-astro-page` prefix. If you deploy elsewhere, update:
-  - `homeHref` derivation in `HomePage.astro`
-  - All hard-coded `homeHref` and locale URLs in the content pages
-  - The navigation links in `homeContent.ts`
-- Keep CI/CD and lockfile updates on Node 24 to match the GitHub Pages workflow.
-- After each deploy, smoke-test both locales, the locale toggle, and static assets (`favicon.png`, CSS) to confirm base URLs are correct.
+
+Use Node 24 and `npm ci`, then `npm test` to build and test the combined site.
+Run `npx wrangler whoami` and verify the intended account before deploying with
+`CLOUDFLARE_ACCOUNT_ID=<verified-account-id> npm run deploy`.
+The production routes are declared by zone name in `wrangler.jsonc`; no old zone ID is embedded.
+
+`.github/workflows/cloudflare.yml` deploys on pushes to `master` and manual dispatch.
+It requires repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+Use a scoped deployment token with Workers Scripts Edit and Workers Routes Edit
+for the intended account and zone, plus the read permissions Wrangler needs.
+Never store a developer's Wrangler OAuth credentials in CI.
+
+`npm run verify:live -- https://www.vibeperform.com` checks every built public file,
+both homepages and potential-analysis pages, the sitemap, negotiated Markdown,
+real HTTP redirects with campaign queries, and HTML/Markdown 404 recovery.
+The same command accepts a local Worker or workers.dev URL for preflight testing.
+
+The potential-analysis campaign pages currently retain `noindex, nofollow`, including
+their Markdown siblings via `_headers`, and are excluded from the sitemap and
+`llms.txt`. To launch them for search discovery, remove both the page meta directives
+and matching `_headers` rules, then add their URLs to the discovery generator.
+
+During DNS cutover preserve all five Google Workspace MX records and the Google
+verification TXT record. Check the complete registrar inventory before changing
+nameservers. Keep the existing GitHub Pages deployment as a rollback origin.
+With the existing proxied GitHub DNS records retained, removing only the two
+Worker routes restores the GitHub origin; restoring the previous Namecheap
+nameservers is the DNS-level rollback and requires propagation. A bad Worker
+release can be reverted with `npx wrangler rollback <previous-version-id>`.
 
 ## 8. Recommended Workflow
 1. Branch from `master`.

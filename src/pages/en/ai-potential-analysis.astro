@@ -1,0 +1,43 @@
+---
+import ConsentManagerHead from '../../components/ConsentManagerHead.astro';
+import '../../styles/global.css';
+import PotentialAnalysisPage from '../../components/PotentialAnalysisPage.astro';
+import { potentialAnalysisContent } from '../../data/potentialAnalysisContent';
+import { absoluteUrl, jsonLd, organizationSchema } from '../../lib/siteMetadata';
+
+const content = potentialAnalysisContent.en;
+const canonicalUrl = absoluteUrl('/en/ai-potential-analysis/');
+const alternateUrl = absoluteUrl('/de/ki-potenzialanalyse/');
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'Service',
+	'@id': `${canonicalUrl}#service`,
+	name: content.metaTitle,
+	description: content.metaDescription,
+	serviceType: 'AI potential analysis',
+	url: canonicalUrl,
+	inLanguage: 'en-US',
+	provider: organizationSchema(),
+};
+const faviconHref = `${import.meta.env.BASE_URL}favicon.png`;
+---
+
+<html lang="en">
+	<head>
+		<ConsentManagerHead locale="en" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="icon" type="image/svg+xml" href={faviconHref} />
+		<title>{content.metaTitle}</title>
+		<meta name="description" content={content.metaDescription} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="de" href={alternateUrl} />
+		<link rel="alternate" hreflang="en" href={canonicalUrl} />
+		<link rel="alternate" hreflang="x-default" href={alternateUrl} />
+		<script type="application/ld+json" set:html={jsonLd(structuredData)} />
+	</head>
+	<body>
+		<PotentialAnalysisPage content={content} currentLocale="en" homeHref="/en/" alternateLocaleHref="/de/ki-potenzialanalyse/" />
+	</body>
+</html>

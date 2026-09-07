@@ -1,4 +1,14 @@
 const PRODUCES = ['text/html', 'text/markdown'];
+export const REDIRECTS = {
+	'/about-us': '/en/about-us/',
+	'/ai-strategy': '/en/ai-strategy/',
+	'/workshops': '/en/workshops/',
+	'/blog': '/en/blog/',
+	'/blog/ai-reasoning-competitive-advantage': '/en/blog/ai-reasoning-competitive-advantage/',
+	'/explore-workshop': '/en/workshop/explore-workshop/',
+	'/de/explore-workshop': '/de/workshop/explore-workshop/',
+	'/en/explore-workshop': '/en/workshop/explore-workshop/',
+};
 const STATIC_EXTENSION = /\.(?:css|js|mjs|map|png|jpe?g|webp|gif|svg|avif|ico|woff2?|ttf|otf|eot|xml|txt|json|md|pdf|mp4|webm|mp3|wav|ogg|zip)$/i;
 
 export function parseAccept(header) {
@@ -94,11 +104,31 @@ function notAcceptable(message) {
 
 export async function handleRequest(request, env) {
 	const url = new URL(request.url);
+	const redirect = REDIRECTS[url.pathname.replace(/\/$/, '')];
+	if (redirect) {
+		url.pathname = redirect;
+		return Response.redirect(url.toString(), 301);
+	}
 	if (STATIC_EXTENSION.test(url.pathname) || url.pathname.startsWith('/api/')) {
 		return env.ASSETS.fetch(request);
 	}
 
+	const assetResponse = await env.ASSETS.fetch(request);
 	const accept = request.headers.get('Accept');
+	if (assetResponse.status === 404) {
+		if (preferredType(accept) === 'text/markdown') {
+			return new Response(request.method === 'HEAD' ? null : '# 404 Not Found\n\nThis URL does not exist. Start with:\n\n- [Homepage](/de/)\n- [Sitemap](/sitemap.xml)\n- [Agent index](/llms.txt)\n- [Content index](/agent/index.md)\n', {
+				status: 404,
+				headers: { 'Content-Type': 'text/markdown; charset=utf-8', Vary: 'Accept' },
+			});
+		}
+		const response = new Response(assetResponse.body, assetResponse);
+		appendVaryAccept(response.headers);
+		return response;
+	}
+	if (assetResponse.status >= 300 && assetResponse.status < 400) {
+		return assetResponse;
+	}
 	const chosen = preferredType(accept);
 	if (chosen === null && accept) {
 		return notAcceptable('Available representations: text/html, text/markdown');
@@ -121,7 +151,6 @@ export async function handleRequest(request, env) {
 		}
 	}
 
-	const assetResponse = await env.ASSETS.fetch(request);
 	const response = new Response(assetResponse.body, assetResponse);
 	appendVaryAccept(response.headers);
 

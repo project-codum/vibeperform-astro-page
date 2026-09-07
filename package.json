@@ -10,7 +10,9 @@
     "generate:agent": "node scripts/generate-agent-readable.mjs",
     "utm": "node scripts/build-utm.mjs",
     "build": "npm run generate:agent && astro build",
+    "deploy": "wrangler deploy",
     "test": "npm run build && node --test tests/*.test.mjs",
+    "verify:live": "node scripts/verify-agent-readiness-live.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -28,5 +30,8 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.7",
     "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "wrangler": "^4.126.0"
   }
 }

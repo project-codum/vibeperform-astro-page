@@ -2,7 +2,18 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "vibeperform-site",
   "main": "worker/accept-markdown.js",
-  "compatibility_date": "2026-08-26",
+  "compatibility_date": "2026-08-25",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "vibeperform.com/*",
+      "zone_name": "vibeperform.com"
+    },
+    {
+      "pattern": "www.vibeperform.com/*",
+      "zone_name": "vibeperform.com"
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

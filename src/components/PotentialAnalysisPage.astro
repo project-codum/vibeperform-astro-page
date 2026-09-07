@@ -1,0 +1,153 @@
+---
+import { ArrowRight, Check, Clock3, MapPin, Monitor, Search, Sparkles } from 'lucide-static';
+import Button from './Button.astro';
+import Footer from './Footer.astro';
+import NavBar from './NavBar.astro';
+import PageReveals from './PageReveals.astro';
+import type { PotentialAnalysisContent } from '../data/potentialAnalysisContent';
+
+interface Props {
+	content: PotentialAnalysisContent;
+	currentLocale: 'de' | 'en';
+	homeHref: string;
+	alternateLocaleHref: string;
+}
+
+const { content, currentLocale, homeHref, alternateLocaleHref } = Astro.props as Props;
+const { hero, workflow, process, review, faq, finalCta, nav } = content;
+const iconSvg = (icon: string, classes = 'h-5 w-5') => icon.replace('class="lucide', `class="lucide ${classes}`);
+const icons = [Search, MapPin, Sparkles];
+const processIcons = [Monitor, Search, Sparkles, Check];
+const locale = currentLocale;
+---
+
+<div class="potential-analysis-page flex min-h-screen flex-col bg-slate-50 text-slate-950">
+	<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={locale} />
+
+	<main class="flex-1 overflow-hidden">
+		<section class="potential-hero relative isolate overflow-hidden border-b border-purple-100 bg-purple-50">
+			<div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+			<div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+			<div class="container-responsive relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.06fr_0.94fr] lg:gap-20 lg:py-28">
+				<div class="max-w-3xl">
+					<p class="eyebrow text-purple-800">{hero.kicker}</p>
+					<h1 class="mt-5 max-w-[12ch] text-[clamp(3rem,6.8vw,5.8rem)] font-semibold leading-[0.97] tracking-[-0.065em] text-slate-950">
+						{hero.title}
+					</h1>
+					<p class="mt-7 max-w-[58ch] text-lg leading-8 text-slate-700 sm:text-xl sm:leading-9">{hero.intro}</p>
+					<div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+						<Button href={hero.primaryCta.href} analyticsEvent="contact_start" analyticsName="request-potential-analysis" analyticsLocation="potential-analysis-hero">{hero.primaryCta.label}</Button>
+						<a class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-purple-900 underline decoration-purple-300 underline-offset-4 hover:decoration-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600" href={hero.secondaryCta.href}>
+							{hero.secondaryCta.label}<span aria-hidden="true" set:html={iconSvg(ArrowRight, 'h-4 w-4')} />
+						</a>
+					</div>
+					<div class="mt-8 flex flex-wrap gap-3 text-sm font-medium text-slate-700">
+						<span class="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/70 px-4 py-2"><span aria-hidden="true" set:html={iconSvg(Clock3, 'h-4 w-4 text-purple-700')} />{hero.duration}</span>
+						<span class="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/70 px-4 py-2"><span aria-hidden="true" set:html={iconSvg(Monitor, 'h-4 w-4 text-purple-700')} />{currentLocale === 'de' ? 'Online oder vor Ort' : 'Online or on site'}</span>
+					</div>
+				</div>
+
+				<aside class="relative mx-auto w-full max-w-md rounded-[2rem] border border-purple-200 bg-slate-950 p-2 shadow-[0_26px_80px_rgba(15,23,42,0.18)]" aria-label={hero.asideLabel} data-page-reveal>
+					<div class="rounded-[1.5rem] border border-white/10 bg-slate-900 p-7 text-purple-50 sm:p-9">
+						<div class="flex items-center justify-between border-b border-white/15 pb-5"><span class="text-xs font-semibold uppercase tracking-[0.24em] text-purple-200">{hero.asideLabel}</span><span class="h-3 w-3 rounded-full bg-blue-400 shadow-[0_0_18px_rgba(96,165,250,0.5)]"></span></div>
+						<p class="mt-9 text-3xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-4xl">{hero.asideTitle}</p>
+						<p class="mt-5 text-base leading-7 text-purple-100/80 sm:text-lg sm:leading-8">{hero.asideBody}</p>
+						<div class="mt-12 flex items-center gap-3 border-t border-white/15 pt-5 text-sm font-semibold text-blue-300"><span class="h-2 w-2 rounded-full bg-blue-400"></span>{hero.asideFootnote}</div>
+					</div>
+				</aside>
+			</div>
+		</section>
+
+		<section class="section-spacing bg-white" data-page-reveal>
+			<div class="container-responsive">
+				<div class="max-w-3xl">
+					<p class="eyebrow text-purple-700">{workflow.kicker}</p>
+					<h2 class="section-title mt-4">{workflow.title}</h2>
+					<p class="section-intro mt-5">{workflow.intro}</p>
+				</div>
+				<div class="mt-12 grid gap-4 md:grid-cols-3">
+					{workflow.steps.map((step, index) => {
+						const icon = icons[index] ?? Search;
+						return <article class="workflow-card rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-7" data-page-reveal>
+							<div class="flex items-center justify-between"><span class="text-sm font-bold text-purple-700">{step.number}</span><span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-100 text-purple-800" aria-hidden="true" set:html={iconSvg(icon, 'h-5 w-5')} /></div>
+							<h3 class="mt-10 text-xl font-semibold tracking-[-0.025em] text-slate-950">{step.title}</h3>
+							<p class="mt-3 text-sm leading-7 text-slate-600 sm:text-base">{step.body}</p>
+						</article>;
+					})}
+				</div>
+				<div class="mt-10 rounded-3xl bg-purple-50 px-6 py-6 sm:px-8 sm:py-7">
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-purple-800">{workflow.programsLabel}</p>
+					<div class="mt-5 flex flex-wrap gap-2.5">
+						{workflow.programs.map((program) => <span class="rounded-full border border-purple-200 bg-white px-4 py-2 text-sm font-medium text-slate-700">{program}</span>)}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id={process.id} class="section-spacing bg-slate-950 text-purple-50 scroll-mt-20">
+			<div class="container-responsive">
+				<div class="max-w-3xl" data-page-reveal>
+					<p class="eyebrow text-blue-300">{process.kicker}</p>
+					<h2 class="section-title mt-4 text-white">{process.title}</h2>
+				</div>
+				<div class="mt-12 grid gap-x-10 gap-y-0 md:grid-cols-2 lg:grid-cols-4">
+					{process.items.map((item, index) => {
+						const icon = processIcons[index] ?? Check;
+						return <article class="process-item border-t border-purple-400/40 py-7" data-page-reveal>
+							<div class="flex items-center gap-3 text-blue-300"><span class="text-sm font-bold">0{index + 1}</span><span aria-hidden="true" set:html={iconSvg(icon, 'h-4 w-4')} /></div>
+							<h3 class="mt-6 text-xl font-semibold leading-tight text-white">{item.title}</h3>
+							<p class="mt-3 text-sm leading-7 text-purple-100/75">{item.body}</p>
+						</article>;
+					})}
+				</div>
+			</div>
+		</section>
+
+		<section class="section-spacing bg-purple-50">
+			<div class="container-responsive grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
+				<div data-page-reveal>
+					<p class="eyebrow text-purple-700">{review.kicker}</p>
+					<h2 class="section-title mt-4">{review.title}</h2>
+					<p class="section-intro mt-5">{review.intro}</p>
+				</div>
+				<div class="rounded-[2rem] border border-purple-200 bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,0.08)] sm:p-9" data-page-reveal>
+					<ul class="space-y-5">
+						{review.items.map((item) => <li class="flex gap-4 text-base leading-7 text-slate-700"><span class="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-400 text-slate-950" aria-hidden="true" set:html={iconSvg(Check, 'h-4 w-4')} />{item}</li>)}
+					</ul>
+					<div class="mt-8 border-t border-slate-200 pt-7"><p class="text-lg font-semibold text-slate-950">{review.decisionTitle}</p><p class="mt-2 text-sm leading-7 text-slate-600">{review.decisionBody}</p></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section-spacing bg-white">
+			<div class="container-responsive max-w-5xl">
+				<div data-page-reveal><p class="eyebrow text-purple-700">{faq.kicker}</p></div>
+				<div class="mt-8 divide-y divide-slate-200 border-y border-slate-200">
+					{faq.items.map((item) => <details class="group py-6" data-page-reveal><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold tracking-[-0.02em] text-slate-950 marker:hidden [&::-webkit-details-marker]:hidden"><span>{item.question}</span><span class="text-2xl font-normal text-purple-700 transition-transform group-open:rotate-45" aria-hidden="true">+</span></summary><p class="mt-4 max-w-3xl text-base leading-7 text-slate-600">{item.answer}</p></details>)}
+				</div>
+			</div>
+		</section>
+
+		<section class="section-spacing-tight border-t border-purple-100 bg-purple-50">
+			<div class="container-responsive flex flex-col gap-8 md:flex-row md:items-center md:justify-between" data-page-reveal>
+				<div class="max-w-2xl"><h2 class="text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">{finalCta.title}</h2><p class="mt-3 text-base leading-7 text-slate-600 sm:text-lg">{finalCta.body}</p></div>
+				<Button href={finalCta.button.href} analyticsEvent="contact_start" analyticsName="request-potential-analysis" analyticsLocation="potential-analysis-final">{finalCta.button.label}</Button>
+			</div>
+		</section>
+	</main>
+
+	<Footer currentLocale={locale} />
+	<PageReveals />
+</div>
+
+<style>
+	.potential-analysis-page :global(main) { padding-inline: 0; }
+	.eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; line-height: 1.3; text-transform: uppercase; }
+	.section-title { max-width: 18ch; font-size: clamp(2.35rem, 4.5vw, 4rem); font-weight: 600; letter-spacing: -0.055em; line-height: 1.03; }
+	.section-intro { max-width: 60ch; font-size: 1.1rem; line-height: 1.85; color: #475569; }
+	.hero-orb { position: absolute; border-radius: 9999px; filter: blur(2px); pointer-events: none; }
+	.hero-orb-one { top: -10rem; right: 16%; height: 24rem; width: 24rem; background: rgba(168, 85, 247, 0.12); }
+	.hero-orb-two { bottom: -12rem; left: -8rem; height: 28rem; width: 28rem; background: rgba(96, 165, 250, 0.10); }
+	@media (max-width: 640px) { .section-intro { font-size: 1rem; line-height: 1.75; } .hero-orb-one { right: -10rem; } }
+	@media (prefers-reduced-motion: no-preference) { .workflow-card, .process-item { transition: transform 220ms ease, box-shadow 220ms ease; } .workflow-card:hover { transform: translateY(-0.35rem); box-shadow: 0 16px 38px rgba(15,23,42,0.1); } }
+</style>
