@@ -103,14 +103,20 @@ The production routes are declared by zone name in `wrangler.jsonc`; no old zone
 
 `.github/workflows/cloudflare.yml` deploys on pushes to `master` and manual dispatch.
 It requires repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
-Use a scoped deployment token with Workers Scripts Edit and Workers Routes Edit
-for the intended account and zone, plus the read permissions Wrangler needs.
+Use a scoped deployment token with Workers Scripts Edit and Account Settings Read
+for the intended account, plus Workers Routes Edit and Zone Read for `vibeperform.com`.
 Never store a developer's Wrangler OAuth credentials in CI.
+
+Keep Cloudflare's automatic `robots.txt` configuration disabled: the repository's
+`public/robots.txt` is the source of truth. Cloudflare-managed additions otherwise
+change crawler policy and fail the exact-content production check.
 
 `npm run verify:live -- https://www.vibeperform.com` checks every built public file,
 both homepages and potential-analysis pages, the sitemap, negotiated Markdown,
 real HTTP redirects with campaign queries, and HTML/Markdown 404 recovery.
 The same command accepts a local Worker or workers.dev URL for preflight testing.
+Production HTTP requests redirect permanently to HTTPS. `/de` and `/en` also
+redirect permanently to their trailing-slash canonical URLs, preserving queries.
 
 The potential-analysis campaign pages currently retain `noindex, nofollow`, including
 their Markdown siblings via `_headers`, and are excluded from the sitemap and

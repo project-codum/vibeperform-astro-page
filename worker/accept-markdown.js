@@ -104,9 +104,12 @@ function notAcceptable(message) {
 
 export async function handleRequest(request, env) {
 	const url = new URL(request.url);
-	const redirect = REDIRECTS[url.pathname.replace(/\/$/, '')];
-	if (redirect) {
-		url.pathname = redirect;
+	const redirect = REDIRECTS[url.pathname.replace(/\/$/, '')]
+		|| (['/de', '/en'].includes(url.pathname) ? `${url.pathname}/` : null);
+	const needsHttps = url.protocol === 'http:' && ['vibeperform.com', 'www.vibeperform.com'].includes(url.hostname);
+	if (redirect || needsHttps) {
+		if (redirect) url.pathname = redirect;
+		if (needsHttps) url.protocol = 'https:';
 		return Response.redirect(url.toString(), 301);
 	}
 	if (STATIC_EXTENSION.test(url.pathname) || url.pathname.startsWith('/api/')) {
