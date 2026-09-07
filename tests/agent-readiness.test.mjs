@@ -57,6 +57,37 @@ function mockAssets() {
 	};
 }
 
+test('live verifier drains every response body before finishing', async () => {
+	const originalFetch = globalThis.fetch;
+	const originalLog = console.log;
+	const originalArgs = [...process.argv];
+	const pendingBodies = new Set();
+	let summary;
+	try {
+		process.argv[2] = 'https://www.vibeperform.com';
+		console.log = (value) => { summary = JSON.parse(value); };
+		globalThis.fetch = async (url, options) => {
+			const response = await handleRequest(new Request(url, options), { ASSETS: mockAssets() });
+			pendingBodies.add(response);
+			for (const method of ['text', 'arrayBuffer']) {
+				response[method] = async function (...args) {
+					const result = await Response.prototype[method].apply(this, args);
+					pendingBodies.delete(this);
+					return result;
+				};
+			}
+			return response;
+		};
+		await import('../scripts/verify-agent-readiness-live.mjs');
+		assert.equal(pendingBodies.size, 0, 'no downloaded responses remain unread');
+		assert.ok(summary.results.some(result => result.publicFilesChecked > 0));
+	} finally {
+		globalThis.fetch = originalFetch;
+		console.log = originalLog;
+		process.argv.splice(0, process.argv.length, ...originalArgs);
+	}
+});
+
 test('root and German homepage contain substantial no-JavaScript content', async () => {
 	for (const relativePath of ['index.html', 'de/index.html']) {
 		const html = await load(relativePath);
@@ -123,6 +154,27 @@ test('legacy redirects use HTTP 301 and retain campaign queries', async () => {
 			assert.equal(response.headers.get('Location'), `https://www.vibeperform.com${to}?utm_source=test`);
 		}
 	}
+});
+
+test('production HTTPS and locale redirects preserve paths and queries without loops', async () => {
+	for (const hostname of ['vibeperform.com', 'www.vibeperform.com']) {
+		for (const method of ['GET', 'HEAD']) {
+			for (const [from, to] of [['/de', '/de/'], ['/en', '/en/'], ['/robots.txt', '/robots.txt'], ['/de/', '/de/']]) {
+				const response = await handleRequest(new Request(`http://${hostname}${from}?utm_source=test`, { method }), { ASSETS: mockAssets() });
+				assert.equal(response.status, 301);
+				assert.equal(response.headers.get('Location'), `https://${hostname}${to}?utm_source=test`);
+			}
+		}
+		for (const locale of ['de', 'en']) {
+			const response = await handleRequest(new Request(`https://${hostname}/${locale}`), { ASSETS: mockAssets() });
+			assert.equal(response.status, 301);
+			assert.equal(response.headers.get('Location'), `https://${hostname}/${locale}/`);
+			const canonical = await handleRequest(new Request(`https://${hostname}/${locale}/`), { ASSETS: mockAssets() });
+			assert.equal(canonical.status, 200);
+		}
+	}
+	const local = await handleRequest(new Request('http://localhost:8787/de/'), { ASSETS: mockAssets() });
+	assert.equal(local.status, 200, 'local HTTP previews remain supported');
 });
 
 test('missing URLs return Markdown recovery with 404 and HEAD has no body', async () => {

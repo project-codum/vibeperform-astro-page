@@ -104,11 +104,29 @@ for (const [from, to] of Object.entries(REDIRECTS)) {
 	const response = await fetch(new URL(`${from}?utm_source=verification`, baseUrl), { redirect: 'manual' });
 	assert(response.status === 301, `${from} must return HTTP 301`);
 	assert(response.headers.get('location') === new URL(`${to}?utm_source=verification`, baseUrl).href, `${from} redirect lost its destination or query`);
+	await response.arrayBuffer();
+}
+
+for (const locale of ['de', 'en']) {
+	const response = await fetch(new URL(`/${locale}?utm_source=verification`, baseUrl), { redirect: 'manual' });
+	assert(response.status === 301, `/${locale} must permanently redirect to its canonical URL`);
+	assert(response.headers.get('location') === new URL(`/${locale}/?utm_source=verification`, baseUrl).href, 'Locale redirect lost path or query');
+	await response.arrayBuffer();
+}
+
+if (['vibeperform.com', 'www.vibeperform.com'].includes(baseUrl.hostname)) {
+	const insecure = new URL('/de?utm_source=verification', baseUrl);
+	insecure.protocol = 'http:';
+	const response = await fetch(insecure, { redirect: 'manual' });
+	assert(response.status === 301, 'Production HTTP must redirect to HTTPS');
+	assert(response.headers.get('location') === `https://${baseUrl.host}/de/?utm_source=verification`, 'HTTPS redirect lost path or query');
+	await response.arrayBuffer();
 }
 
 for (const pathname of ['/robots.txt', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/favicon.png']) {
 	const response = await fetch(new URL(pathname, baseUrl));
 	assert(response.status === 200, `${pathname} returned ${response.status}`);
+	await response.arrayBuffer();
 	results.push({
 		pathname,
 		status: response.status,
@@ -120,10 +138,11 @@ const sitemap = await (await fetch(new URL('/sitemap.xml', baseUrl))).text();
 const sitemapPaths = [...sitemap.matchAll(/<loc>https:\/\/www\.vibeperform\.com([^<]+)<\/loc>/g)].map((match) => match[1]);
 assert(sitemap === await readFile(new URL('sitemap.xml', dist), 'utf8'), 'Deployed sitemap differs from this build');
 const sitemapChecks = await Promise.all(
-	sitemapPaths.map(async (pathname) => ({
-		pathname,
-		status: (await fetch(new URL(pathname, baseUrl), { headers: { Accept: 'text/html' } })).status,
-	})),
+	sitemapPaths.map(async (pathname) => {
+		const response = await fetch(new URL(pathname, baseUrl), { headers: { Accept: 'text/html' } });
+		await response.arrayBuffer();
+		return { pathname, status: response.status };
+	}),
 );
 const failedSitemapUrls = sitemapChecks.filter(({ status }) => status !== 200);
 assert(failedSitemapUrls.length === 0, `sitemap failures: ${JSON.stringify(failedSitemapUrls)}`);
@@ -143,6 +162,9 @@ for (const entry of publicFiles) {
 	publicFilesChecked += 1;
 	if (/\.(md|txt|xml|json)$/.test(relative)) {
 		assert(await response.text() === await readFile(new URL(relative, dist), 'utf8'), `${pathname} content differs from build`);
+	} else {
+		// Drain downloads so Node can release connections and the verification job can exit.
+		await response.arrayBuffer();
 	}
 	if (relative.endsWith('/index.md') || relative === 'index.md') {
 		const page = `/${relative}`.replace(/index\.md$/, '');
