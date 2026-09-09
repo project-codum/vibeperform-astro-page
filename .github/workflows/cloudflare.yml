@@ -49,4 +49,14 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Verify public agent endpoints
-        run: npm run verify:live -- https://www.vibeperform.com
+        run: |
+          # A new Worker version can take a short time to reach every edge location.
+          for attempt in 1 2 3; do
+            if npm run verify:live -- https://www.vibeperform.com; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep 15
+            fi
+          done
+          exit 1

@@ -22,7 +22,7 @@ Fünf Ansichten: Vorhaben → Betriebsart → Schwerpunkt → optionale Website-
 
 Es gibt keine Weiterleitung in ein E-Mail-Programm, keinen öffentlichen Abruf der gespeicherten Anfragen und keine Übertragung der Formularwerte an Analytics. Bei einem Fehler bleiben die Eingaben innerhalb der geöffneten Seite erhalten. Neuladen oder Sprachwechsel setzt das Formular zurück.
 
-Anfragen liegen zunächst unter **Cloudflare → Workers & Pages → D1 → vibeperform-website-inquiries → website_inquiries**. Das Feld `status` beginnt mit `new`. Die Tabelle ist der Website-Eingang, kein Ersatz für das CRM. Die E-Mail-Benachrichtigung an contact@vibeperform.com ist implementiert; Aktivierung und tatsächlicher Posteingang stehen noch aus (siehe `docs/website-inquiry-email.md`). Eine CRM-Übernahme ist nicht implementiert. Die Antwortkopie verspricht deshalb nur eine persönliche Rückmeldung, keine automatisch versendete Empfangsmail.
+Anfragen liegen zunächst unter **Cloudflare → Workers & Pages → D1 → vibeperform-website-inquiries → website_inquiries**. Das Feld `status` beginnt mit `new`. Die Tabelle ist der Website-Eingang, kein Ersatz für das CRM. Die E-Mail-Benachrichtigung an contact@vibeperform.com ist aktiviert; eine ausdrücklich freigegebene Testanfrage ist im Posteingang angekommen (siehe `docs/website-inquiry-email.md`). Eine CRM-Übernahme ist nicht implementiert. Die Antwortkopie verspricht deshalb nur eine persönliche Rückmeldung, keine automatisch versendete Empfangsmail.
 
 ## Cloudflare und GitHub Actions
 
@@ -103,3 +103,7 @@ Der bisherige Monatsbericht-Abschnitt wurde durch `WebsiteOptimizationLoop.astro
 Alle Panels belegen dieselbe Grid-Zelle, sodass ihre gemeinsame Höhe beim Wechsel erhalten bleibt. Inaktive Panels sind inert und für assistive Technik ausgeblendet. Reduzierte Bewegung wird respektiert. Die vorhandene Animation der aufklappbaren Erläuterungen bleibt erhalten.
 
 Clarity wurde parallel zentral vorbereitet; Konfiguration, verbleibende Aktivierungsschritte und Quellen: `docs/microsoft-clarity.md`.
+
+## Veröffentlichung am 09.09.2026
+
+DE/EN-Landingpage über Cloudflare und GitHub Actions veröffentlicht. Kostenloser Versand über `website@notifications.vibeperform.com` ausschließlich an `contact@vibeperform.com` bestätigt. Google-MX der Hauptdomain unverändert. Heatmap-Hotspot am Projekte-Schriftzug zentriert und Kreislauf-Icon horizontal ausgerichtet; Desktop und Mobilansicht geprüft. 29 Tests bestanden. Aktueller Zustell- und Konfigurationsnachweis: `website-inquiry-email.md`. Die frühere lokale Testdokumentation oben beschreibt den Stand vor Veröffentlichung. Suchmaschinen-Indexierung bleibt auf Entwurfsstatus (`noindex`); Clarity bleibt ohne Projekt-ID deaktiviert.

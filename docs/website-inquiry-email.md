@@ -1,6 +1,6 @@
 # Formularzustellung an contact@vibeperform.com
 
-Stand 09.09.2026: Implementiert und mit simuliertem E-Mail-Dienst geprüft. Kein Produktions-Deployment oder bestätigter Empfang einer Formularmail.
+Stand 09.09.2026: Auf Cloudflare deployt. Kostenloser Versand an die bestätigte Zieladresse durch eine echte, ausdrücklich freigegebene Testanfrage bis in den Posteingang verifiziert.
 
 ## Weg einer Anfrage
 
@@ -21,11 +21,13 @@ Eine unklare Providerantwort oder ein Prozessabbruch nach erfolgreichem Versand 
 - Kostenloses Email Routing ausschließlich für `notifications.vibeperform.com` aktiviert; API bestätigt `enabled: true`, `status: ready`. Routing-ID: `daf6c3bc59f04a0c89c7e9d7fbd17c1a`.
 - Die Google-MX-Einträge der Hauptdomain werden nicht geändert. Versand erfolgt nur an die bestätigte Empfängeradresse. Dafür ist laut Cloudflare kein Workers-Paid-Tarif notwendig.
 - Migration 0002 wurde lokal angewandt. Remote übernimmt die bestehende GitHub-Actions-Pipeline die Migration vor Deployment.
-- Produktions-Deployment und tatsächlicher Eingang einer Testanfrage sind noch zu prüfen.
+- GitHub-Actions-Token `GitHub Actions - vibeperform-site` erhielt nach ausdrücklicher Freigabe zusätzlich D1 Write; übrige Rechte unverändert.
+- Migration 0002 und Worker-Deployment am 09.09.2026 über GitHub Actions erfolgreich. Die erste sofortige Live-Prüfung traf noch eine nicht verfügbare neue EN-Route; die anschließende vollständige Prüfung bestätigte 128 öffentliche Dateien und 24/24 Sitemap-Seiten. Die Pipeline wiederholt die Prüfung künftig höchstens dreimal mit je 15 Sekunden Pause.
+- Echte Testanfrage `0ccf94ad-cd10-4ce4-8191-d0fe28913fa7`, 09.09.2026 12:52 UTC: HTTP 200, Erfolgsansicht, D1 gespeichert, ein Versandversuch, Anbieter-Nachrichten-ID gespeichert, kein Versandfehler. E-Mail an contact@vibeperform.com im angeschlossenen Google-Posteingang angekommen (INBOX). Testdatensatz ist als Test gekennzeichnet und bleibt zur Nachvollziehbarkeit gespeichert.
 
 ## Validierung
 
-29 Tests inklusive DE/EN-Speicherung, festem Empfänger, allen Antworten, Reply-To, Versandfehlern, Wiederholungen und konkurrierenden Zustellversuchen. Wrangler dry-run bestätigt das Send-Email-Binding; kein externer Versand von Test-Formulardaten.
+29 Tests inklusive DE/EN-Speicherung, festem Empfänger, allen Antworten, Reply-To, Versandfehlern, Wiederholungen und konkurrierenden Zustellversuchen. Wrangler dry-run bestätigt das Send-Email-Binding. Separater Live-Test mit ausdrücklich freigegebenen Testdaten bestätigt die tatsächliche Zustellung.
 
 ## Quellen
 
