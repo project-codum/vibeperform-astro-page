@@ -33,6 +33,14 @@ jobs:
 
       - name: Test agent-readable build and edge behavior
         run: npm test
+        env:
+          PUBLIC_CLARITY_PROJECT_ID: ${{ vars.PUBLIC_CLARITY_PROJECT_ID }}
+
+      - name: Apply enquiry database migrations
+        run: npm run db:migrate:remote
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy Worker and static assets
         run: npm run deploy

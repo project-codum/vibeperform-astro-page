@@ -1,3 +1,6 @@
+import { retryInquiryEmails } from './website-inquiry-email.js';
+import { handleWebsiteInquiry } from './website-inquiries.js';
+
 const PRODUCES = ['text/html', 'text/markdown'];
 export const REDIRECTS = {
 	'/about-us': '/en/about-us/',
@@ -112,6 +115,7 @@ export async function handleRequest(request, env) {
 		if (needsHttps) url.protocol = 'https:';
 		return Response.redirect(url.toString(), 301);
 	}
+	if (url.pathname === '/api/website-inquiries') return handleWebsiteInquiry(request, env);
 	if (STATIC_EXTENSION.test(url.pathname) || url.pathname.startsWith('/api/')) {
 		return env.ASSETS.fetch(request);
 	}
@@ -173,4 +177,5 @@ export async function handleRequest(request, env) {
 
 export default {
 	fetch: handleRequest,
+	async scheduled(_event, env) { await retryInquiryEmails(env); },
 };

@@ -26,3 +26,9 @@
 
 /en/ai-potential-analysis/*
   X-Robots-Tag: noindex, nofollow
+
+/de/websites-fuer-handwerksbetriebe/*
+  X-Robots-Tag: noindex, follow
+
+/en/websites-for-trade-businesses/*
+  X-Robots-Tag: noindex, follow

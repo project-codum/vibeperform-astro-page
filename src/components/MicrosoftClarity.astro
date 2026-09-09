@@ -1,0 +1,10 @@
+---
+// Public identifier, supplied by GitHub Actions / .env.local. Empty keeps collection disabled.
+const projectId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID?.trim() || '';
+---
+<meta name="vibeperform-clarity-project" content={projectId} />
+<script>
+ import { installClarity } from '../scripts/clarity-consent.js';
+ const projectId = document.querySelector<HTMLMetaElement>('meta[name="vibeperform-clarity-project"]')?.content;
+ installClarity(window, document, projectId);
+</script>
