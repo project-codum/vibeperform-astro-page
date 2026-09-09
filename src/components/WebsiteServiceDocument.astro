@@ -1,0 +1,71 @@
+---
+import ConsentManagerHead from './ConsentManagerHead.astro';
+import WebsiteServicePage from './WebsiteServicePage.astro';
+import { websiteServiceMeta, websiteServiceRoutes, websiteServiceIndexable } from '../data/websiteServiceContent';
+import { absoluteUrl, jsonLd, organizationSchema } from '../lib/siteMetadata';
+
+interface Props {
+	locale: 'de' | 'en';
+}
+
+const { locale } = Astro.props;
+const meta = websiteServiceMeta[locale];
+const canonical = absoluteUrl(websiteServiceRoutes[locale]);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const language = locale === 'de' ? 'de-DE' : 'en-US';
+const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+const alternateOgLocale = locale === 'de' ? 'en_US' : 'de_DE';
+const logo = absoluteUrl('/vibeperform-logo.png');
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Service',
+	'@id': `${canonical}#service`,
+	name: meta.title,
+	description: meta.description,
+	url: canonical,
+	inLanguage: language,
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonical,
+		url: canonical,
+		name: meta.title,
+		description: meta.description,
+	},
+	image: logo,
+	provider: organizationSchema(),
+	serviceType: locale === 'de' ? 'Website-Aufbau und laufende Betreuung' : 'Website design and ongoing care',
+};
+---
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<ConsentManagerHead locale={locale} />
+		<title>{meta.title}</title>
+		<meta name="description" content={meta.description} />
+		<meta name="robots" content={websiteServiceIndexable ? 'index, follow' : 'noindex, follow'} />
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" hreflang="de" href={absoluteUrl(websiteServiceRoutes.de)} />
+		<link rel="alternate" hreflang="en" href={absoluteUrl(websiteServiceRoutes.en)} />
+		<link rel="alternate" hreflang="x-default" href={absoluteUrl(websiteServiceRoutes.de)} />
+		<link rel="icon" type="image/png" href={`${base}/favicon.png`} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="VibePerform" />
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:locale" content={ogLocale} />
+		<meta property="og:locale:alternate" content={alternateOgLocale} />
+		<meta property="og:image" content={logo} />
+		<meta property="og:image:alt" content="VibePerform logo" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={meta.title} />
+		<meta name="twitter:description" content={meta.description} />
+		<meta name="twitter:image" content={logo} />
+		<script type="application/ld+json" set:html={jsonLd(schema)} />
+	</head>
+	<body>
+		<WebsiteServicePage locale={locale} />
+	</body>
+</html>

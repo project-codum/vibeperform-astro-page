@@ -14,7 +14,10 @@
     "test": "npm run build && node --test tests/*.test.mjs",
     "verify:live": "node scripts/verify-agent-readiness-live.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "db:migrate:local": "wrangler d1 migrations apply INQUIRIES_DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply INQUIRIES_DB --remote",
+    "preview:worker": "wrangler dev --local --port 8787 --host 127.0.0.1:8787 --local-upstream 127.0.0.1:8787"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.3",

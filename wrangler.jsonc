@@ -20,5 +20,34 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
     "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "INQUIRIES_DB",
+      "database_name": "vibeperform-website-inquiries",
+      "database_id": "779eff63-e7cd-45e4-a730-ff3b1c22ed56",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "INQUIRY_RATE_LIMITER",
+      "namespace_id": "209090001",
+      "simple": {
+        "limit": 10,
+        "period": 60
+      }
+    }
+  ],
+  "send_email": [
+    {
+      "name": "INQUIRY_EMAIL",
+      "destination_address": "contact@vibeperform.com"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/5 * * * *"
+    ]
   }
 }

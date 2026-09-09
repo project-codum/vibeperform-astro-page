@@ -1,4 +1,5 @@
 ---
+import WebsiteServiceNav from './WebsiteServiceNav.astro';
 import type { HomeContent } from '../data/homeContent';
 import { Menu } from 'lucide-static';
 
@@ -9,9 +10,10 @@ interface Props {
 	homeHref: string;
 	alternateLocaleHref: string;
 	currentLocale: 'de' | 'en';
+	appearance?: 'default' | 'website';
 }
 
-const { nav, homeHref, alternateLocaleHref, currentLocale } = Astro.props as Props;
+const { nav, homeHref, alternateLocaleHref, currentLocale, appearance = 'default' } = Astro.props as Props;
 const alternateLocale = currentLocale === 'de' ? 'en' : 'de';
 const baseUrl = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const logoUrl = `${baseUrl}/vibeperform-logo.png`;
@@ -25,6 +27,7 @@ const menuIcon = Menu
 	.replace('height="24"', 'height="20"');
 ---
 
+{appearance === 'website' ? <WebsiteServiceNav nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={currentLocale} /> : <Fragment>
 <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95">
 	<nav class="container-responsive flex h-[76px] items-center justify-between gap-4">
 		<a
@@ -127,6 +130,8 @@ const menuIcon = Menu
 		<span class="cursor-orbit__work">{workCursorLabel}</span>
 	</div>
 </div>
+
+</Fragment>}
 
 <style>
 	.nav-logo-lottie {

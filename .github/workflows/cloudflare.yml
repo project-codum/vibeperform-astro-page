@@ -33,6 +33,14 @@ jobs:
 
       - name: Test agent-readable build and edge behavior
         run: npm test
+        env:
+          PUBLIC_CLARITY_PROJECT_ID: ${{ vars.PUBLIC_CLARITY_PROJECT_ID }}
+
+      - name: Apply enquiry database migrations
+        run: npm run db:migrate:remote
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy Worker and static assets
         run: npm run deploy
@@ -41,4 +49,14 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Verify public agent endpoints
-        run: npm run verify:live -- https://www.vibeperform.com
+        run: |
+          # A new Worker version can take a short time to reach every edge location.
+          for attempt in 1 2 3; do
+            if npm run verify:live -- https://www.vibeperform.com; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep 15
+            fi
+          done
+          exit 1

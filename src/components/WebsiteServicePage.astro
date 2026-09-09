@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+import NavBar from './NavBar.astro';
+import WebsiteOptimizationLoop from './WebsiteOptimizationLoop.astro';
+import { websiteCopy, websiteServiceRoutes } from '../data/websiteServiceContent';
+import '../styles/websiteService.css';
+import interior from '../assets/website-service/interior.png';
+import materials from '../assets/website-service/materials.png';
+import devices from '../assets/website-service/devices.png';
+import notes from '../assets/website-service/notes.png';
+import launch from '../assets/website-service/launch.png';
+import joinerySkills from '../assets/website-service/joinery-skills.png';
+import joineryConsultation from '../assets/website-service/joinery-consultation.png';
+// TODO: Add approved real customer projects before enabling the reference section.
+const showReferences = false;
+interface Props { locale: 'de'|'en'; }
+const { locale } = Astro.props;
+const t = websiteCopy(locale);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeHref = `${base}/${locale}/`;
+const alternateHref = `${base}${websiteServiceRoutes[locale === 'de' ? 'en' : 'de']}`;
+const nav = {
+ brand: 'VibePerform', links: [{label:t('Ihre Website'),href:'#vertrauen'},{label:t('So arbeiten wir'),href:'#zusammenarbeit'},{label:t('Weiterdenken'),href:'#betreuung'}],
+ toggleLabel: locale === 'de' ? 'EN' : 'DE', toggleAriaLabel: locale === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln',
+ menuToggleLabel: locale === 'de' ? 'Menü öffnen' : 'Open menu'
+};
+---
+<div data-website-service data-locale={locale} data-inquiry-endpoint="/api/website-inquiries">
+
+<a class="skip" href="#main">{t("Zum Inhalt")}</a>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></symbol><symbol id="photo" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="m3 17 5-5 4 4 4-7 5 7"></path><circle cx="8" cy="8" r="1"></circle></symbol><symbol id="doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"></path></symbol><symbol id="chat" viewBox="0 0 24 24"><path d="M4 4h16v13H9l-5 4zM8 9h8m-8 4h5"></path></symbol></defs></svg>
+<NavBar nav={nav} currentLocale={locale} homeHref={homeHref} alternateLocaleHref={alternateHref} appearance="website" />
+<main id="main">
+<section class="hero wrap" aria-labelledby="hero-title"><div class="hero-copy"><h1 id="hero-title">{t("Eine Website, die zeigt, warum Ihr Betrieb")} <span class="accent">{t("die richtige Wahl")}</span>{locale === "de" ? " " : ""}{t("ist.")}</h1><p>{t("Wir gestalten Ihren Auftritt, erarbeiten Ihre Inhalte und führen Interessenten zur Anfrage.")}<span>{t("Mit monatlicher Analyse und gezielten Verbesserungen.")}</span></p><a class="btn" href="#anfrage">{t("Website-Projekt anfragen")} <svg class="arrow"><use href="#arrow" /></svg></a><small>{t("Für KMU im Handwerk")}</small><a class="sub-link" href="#betreuung">{t("So entwickelt sich Ihre Website")}</a></div><div class="hero-art"><div class="site-window"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="site-nav"><span class="site-brand">{t("Handwerk. Mit Charakter.")}</span><span>{t("Leistungen   ·   Projekte")}</span></div><div class="site-body"><div class="site-copy"><h3>{t("Räume, die")}<br />{t("zu Ihnen passen.")}</h3><p>{t("Individuelle Einbaumöbel und Innenausbau für Ihr Zuhause.")}</p><button class="mini-cta" data-trust="2">{t("So beginnt Ihr Projekt")} <span aria-hidden="true">↗</span></button></div><Image alt={t("KI-generiertes Beispiel eines Innenausbaus mit maßgefertigten Eichenmöbeln")} fetchpriority="high" src={interior} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /></div><div class="site-strip"><span>{t("Einbaumöbel")}</span><span>{t("Innenausbau")}</span><span>{t("Maßanfertigung")}</span></div></div><div class="inquiry-float"><h3>{t("Was haben Sie vor?")}</h3><button class="mini-choice" data-trust="0">{t("Einbaumöbel")} <svg class="arrow"><use href="#arrow" /></svg></button><button class="mini-choice" data-trust="0">{t("Innenausbau")} <svg class="arrow"><use href="#arrow" /></svg></button></div><small class="example-label">{t("Beispielwebsite · KI-Bildmotiv")}</small></div></section>
+
+<section class="trust wrap" id="vertrauen"><h2>{t("Kann ich diesem Betrieb vertrauen?")}</h2><p>{t("Setzt er mein Vorhaben so um, wie ich es mir vorstelle?")}</p><div class="trust-tabs" aria-label={t("Was eine gute Website zeigt")}><button class="trust-tab" aria-pressed="true" data-panel="0"><span class="icon-disc"><svg><use href="#doc" /></svg></span><span><strong>{t("Leistungen verstehen")}</strong><small>{t("Was genau bekomme ich?")}</small></span></button><button class="trust-tab" aria-pressed="false" data-panel="1"><span class="icon-disc"><svg><use href="#photo" /></svg></span><span><strong>{t("Arbeit sehen")}</strong><small>{t("Passt der Stil zu mir?")}</small></span></button><button class="trust-tab" aria-pressed="false" data-panel="2"><span class="icon-disc"><svg><use href="#chat" /></svg></span><span><strong>{t("Nächsten Schritt kennen")}</strong><small>{t("Wie kann ich anfragen?")}</small></span></button></div><div class="trust-demo" aria-live="polite"><div class="trust-images">
+<Image id="trust-img" data-trust-image="0" class="is-active" aria-hidden="false" alt={t("Gestaltungsbeispiel: maßgefertigter Innenausbau")} loading="lazy" src={interior} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 440px) 90vw, 400px" quality={82} />
+<Image data-trust-image="1" aria-hidden="true" alt={t("KI-generierte Illustration: Küchenplanung, Zuschnitt an der Kreissäge und Möbelmontage")} loading="lazy" src={joinerySkills} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 440px) 90vw, 400px" quality={82} />
+<Image data-trust-image="2" aria-hidden="true" alt={t("KI-generierte Illustration: Schreiner und Kundin besprechen einen Küchenentwurf aus der Vogelperspektive")} loading="lazy" src={joineryConsultation} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 440px) 90vw, 400px" quality={82} />
+</div><div><h3 id="trust-title">{t("DAS bieten Sie an.")}</h3><p id="trust-description">{t("Ihre Leistungen klar dargestellt, helfen Besuchern einzuschätzen, ob ihr Vorhaben gut umgesetzt wird.")}</p></div></div></section>
+
+<section class="content wrap" id="inhalte"><div><h2>{t("Sie kennen Ihr Handwerk.")}<br /><span class="accent">{t("Wir gestalten die passende Außenwirkung.")}</span></h2><p>{t("Sie erzählen von Ihrem Betrieb. Wir entwickeln daraus Texte, Bilder und einen Auftritt, der zu Ihnen passt.")}</p><details class="disclosure"><summary>{t("Wie entstehen die Inhalte?")}</summary><p>{t("Im Gespräch erfassen wir Ihre Leistungen, Ihre Arbeitsweise und die Fragen Ihrer Kunden. Daraus erstellen wir professionelle, SEO-optimierte Texte. Wir nutzen passende vorhandene Bilder und entwickeln bei Bedarf neue Materialien. Was gebraucht wird und welchen Umfang das hat, klären wir gemeinsam.")}</p></details>
+</div><figure><Image alt={t("Illustration der Inhaltserarbeitung: Bildauswahl, Eichenmuster und Website-Skizze")} loading="lazy" src={materials} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /><figcaption class="caption">{t("Vom Betriebswissen zum passenden Auftritt. KI-generierte Illustration.")}</figcaption></figure></section>
+
+<section class="process wrap" id="zusammenarbeit"><h2>{t("Auf Ihren Betrieb zugeschnitten.")}</h2><div class="process-grid"><article class="process-item"><Image alt={t("Notizen zu Betrieb, Leistungen und Wünschen")} loading="lazy" src={notes} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /><div class="num">01</div><h3>{t("Kennenlernen")}</h3><p>{t("Wir lernen Ihren Betrieb kennen.")}</p><details><summary>{t("Was wir besprechen")}</summary><p>{t("Wir sprechen über Leistungen, Wunschkunden und den bisherigen Auftritt. Daraus legen wir Seiten, Funktionen und Umfang fest.")}</p></details>
+</article>
+<article class="process-item"><Image alt={t("Website-Skizze und violetter Stift")} loading="lazy" src={materials} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /><div class="num">02</div><h3>{t("Gestalten")}</h3><p>{t("Wir geben Ihrer Arbeit den passenden Auftritt.")}</p><details><summary>{t("Was wir erarbeiten")}</summary><p>{t("Wir schreiben die Texte, wählen Bilder aus oder entwickeln benötigte Materialien und gestalten die Seiten mit dem passenden Anfrageweg.")}</p></details>
+</article>
+<article class="process-item"><Image alt={t("Website-Entwurf auf Laptop und Smartphone")} loading="lazy" src={devices} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /><div class="num">03</div><h3>{t("Gemeinsam anprobieren")}</h3><p>{t("Die Anprobe für Ihre Website.")}</p><details><summary>{t("Was wir gemeinsam prüfen")}</summary><p>{t("Passt die Sprache? Zeigen die Bilder Ihren Betrieb? Funktioniert die Anfrage? Gemeinsam prüfen wir den Entwurf und arbeiten die letzten Anpassungen ein.")}</p></details>
+</article>
+<article class="process-item"><Image style="object-position:50% 50%" alt={t("Beispiel einer abgestimmten Website auf einem Bildschirm")} loading="lazy" src={launch} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /><div class="num">04</div><h3>{t("Online gehen")}</h3><p>{t("Nach Ihrer Freigabe geht es online.")}</p><details><summary>{t("Was vor dem Start passiert")}</summary><p>{t("Wir prüfen die vereinbarten Funktionen einschließlich des Anfrageeingangs und veröffentlichen die abgestimmte Website.")}</p></details>
+</article>
+</div><p class="caption">{t("Die Bildmotive veranschaulichen den Ablauf und sind KI-generiert.")}</p></section>
+
+<WebsiteOptimizationLoop locale={locale} />
+
+{showReferences && <section class="references wrap" id="referenzen"><div class="reference-heading"><h2>{t("Platz für echte Arbeit.")}</h2><p>{t("Hier zeigen wir künftig ausgewählte Projekte. Im Entwurf bleiben diese Flächen als Platzhalter sichtbar.")}</p></div><div class="reference-grid"><div class="reference-placeholder"><svg class="arrow"><use href="#photo" /></svg>{t("Referenzprojekt 01 · Platzhalter")}</div><div class="reference-placeholder"><svg class="arrow"><use href="#photo" /></svg>{t("Referenzprojekt 02 · Platzhalter")}</div></div></section>}
+
+<section class="contact wrap" id="anfrage"><div class="contact-copy"><h2>{t("Mehr Anfragen für die Projekte, die zu Ihnen passen.")}</h2><p>{t("Investieren Sie jetzt 1–2 Minuten und fragen Sie an. Wir melden uns umgehend bei Ihnen.")}</p><div class="person"><img src={`${base}/marlondietrich.webp`} alt={t("Marlon Dietrich, Ihr Ansprechpartner bei VibePerform")} width="96" height="116" loading="lazy" /><div><strong>Marlon Dietrich</strong><p>{t("Ihr Ansprechpartner.")}<br />{t("Vom ersten Gespräch an.")}</p></div></div></div><div class="form-box" id="form-box" data-clarity-mask="true"><div class="form-top"><span>{t("Ihre Website-Anfrage")}</span><span id="step-count">1 / 5</span></div><div class="progress" aria-hidden="true"><span id="progress-bar" style="width:20%"></span></div><form id="inquiry-form" novalidate><div id="question"></div><p id="form-error" class="form-error" role="alert" hidden></p><div class="form-actions"><button class="back" type="button" id="back" hidden>{t("Zurück")}</button><button class="btn" type="submit" id="next">{t("Weiter")} <svg class="arrow"><use href="#arrow" /></svg></button></div></form><noscript><p>{t("JavaScript ist deaktiviert. Schreiben Sie uns direkt per E-Mail.")}</p><a href="mailto:contact@vibeperform.com">contact@vibeperform.com</a></noscript></div></section>
+
+<section class="faq wrap" id="faq"><h2>{t("Häufige Fragen.")}</h2><details><summary>{t("Was bekommen wir zum Start?")}</summary><p>{t("Eine Startseite, eigene Seiten für Ihre wichtigsten Leistungen und einen geführten Anfrageweg. Texte und passende Materialien erarbeiten wir gemeinsam. Den genauen Umfang stimmen wir auf Ihren Betrieb ab.")}</p></details>
+<details><summary>{t("Brauchen wir fertige Texte und Bilder?")}</summary><p>{t("Sie bringen Ihr Fachwissen und vorhandene Unterlagen mit. Wir schreiben die Texte, wählen geeignete Bilder aus und klären mit Ihnen, welche neuen Materialien sinnvoll sind.")}</p></details>
+<details><summary>{t("Kann unsere bestehende Website weitergenutzt werden?")}</summary><p>{t("Wir sehen uns Ihren Auftritt an und besprechen, welche Inhalte und Funktionen weitergenutzt werden können. Daraus ergibt sich, ob eine Überarbeitung oder ein neuer Aufbau sinnvoll ist.")}</p></details>
+<details><summary>{t("Was geschieht nach dem Start?")}</summary><p>{t("Sie erhalten jeden Monat eine verständliche Auswertung. Wir entwickeln Inhalte und Anfrageweg auf Grundlage der verfügbaren Daten und Ihrer Rückmeldungen im vereinbarten Rahmen weiter.")}</p></details>
+<details><summary>{t("Was kostet die Zusammenarbeit?")}</summary><p>{t("Sie erhalten einen konkreten Vorschlag für den Aufbau Ihrer Website und die laufende Betreuung. Darin halten wir Leistungen, Umfang und Kosten fest.")}</p></details>
+<details><summary>{t("Was müssen wir selbst freigeben?")}</summary><p>{t("Zum Start prüfen Sie den Website-Entwurf. Für die laufende Pflege vereinbaren wir einen klaren Rahmen. Neue Leistungsversprechen, Preise und verbindliche Zusagen stimmen wir mit Ihnen ab.")}</p></details>
+</section>
+
+</main>
+<footer class="wrap footer"><a href={homeHref} aria-label={t("VibePerform – zum Seitenanfang")}><img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="145" height="55" /></a><nav class="legal-links" aria-label={locale === "de" ? "Rechtliches" : "Legal"}><a href={`${base}/${locale}/${locale === "de" ? "impressum" : "legal-notice"}/`}>{t("Impressum")}</a><a href={`${base}/${locale}/${locale === "de" ? "datenschutz" : "privacy"}/`}>{t("Datenschutz")}</a></nav><p>{t("Websites für Handwerksbetriebe.")}<br />{t("Gestaltet. Betreut. Weiterentwickelt.")}</p></footer>
+
+
+</div>
+<script>
+import "../scripts/websiteInquiry";
+</script>
