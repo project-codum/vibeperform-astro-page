@@ -2,7 +2,7 @@ export const INQUIRY_RECIPIENT = 'contact@vibeperform.com';
 const labels = {
  project_type: {new:'Neue Website',improve:'Bestehende Website verbessern',unsure:'Noch nicht sicher'},
  business_type: {'property-maintenance':'Hausmeisterservice',joinery:'Schreinerei',carpentry:'Zimmerei',construction:'Bauunternehmen',other:'Anderes Handwerk'},
- priority: {services:'Leistungen verständlich zeigen',portfolio:'Arbeiten / Projekte zeigen',enquiries:'Passende Anfragen',appearance:'Außenwirkung',unsure:'Noch nicht sicher'},
+ priority: {services:'Leistungen verständlich erklären',portfolio:'Eigene Arbeiten zeigen',enquiries:'Passendere Projektanfragen',hiring:'Mitarbeiter gewinnen',appearance:'Außenwirkung professionell aufbauen',unsure:'Noch nicht sicher'},
 };
 export function inquiryEmail(row) {
  return {

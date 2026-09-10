@@ -107,3 +107,21 @@ Clarity wurde parallel zentral vorbereitet; Konfiguration, verbleibende Aktivier
 ## Veröffentlichung am 09.09.2026
 
 DE/EN-Landingpage über Cloudflare und GitHub Actions veröffentlicht. Kostenloser Versand über `website@notifications.vibeperform.com` ausschließlich an `contact@vibeperform.com` bestätigt. Google-MX der Hauptdomain unverändert. Heatmap-Hotspot am Projekte-Schriftzug zentriert und Kreislauf-Icon horizontal ausgerichtet; Desktop und Mobilansicht geprüft. 29 Tests bestanden. Aktueller Zustell- und Konfigurationsnachweis: `website-inquiry-email.md`. Die frühere lokale Testdokumentation oben beschreibt den Stand vor Veröffentlichung. Suchmaschinen-Indexierung bleibt auf Entwurfsstatus (`noindex`); Clarity bleibt ohne Projekt-ID deaktiviert.
+
+
+## Angebotsüberarbeitung am 10. September 2026
+
+DE und EN richten sich jetzt auf passende Projekte, Mitarbeitergewinnung und weniger Website-Arbeit im Betrieb aus. Der Einstieg ist ein kostenloser, unverbindlicher Website-Check mit persönlicher Einschätzung und drei konkreten Verbesserungsmöglichkeiten. Aufbau und laufende Betreuung werden separat angeboten. Keine festen Ergebnis- oder Zeitgarantien, erfundenen Referenzzahlen oder Platzkontingente.
+
+Das Paket verbindet Website und Inhaltserstellung mit regionaler Auffindbarkeit, einem strukturierten Anfrageweg und einer Karriereseite bei Personalbedarf. Der konkrete Umfang steht im individuellen Angebot. Bestehende Bilder und der illustrative Optimierungskreislauf bleiben erhalten. Navigation, Hero und Formular verweisen einheitlich auf den Check. Der neue Schwerpunkt `hiring` wird als eigener Wert gespeichert und in der Benachrichtigung als Mitarbeitergewinnung bezeichnet; die bisherigen Werte bleiben gültig.
+
+GPT-5.3 Codex Spark hat die erste Implementierung erstellt. Nach Erreichen seines Nutzungslimits wurden die restlichen Änderungen mit ausdrücklicher Zustimmung des Nutzers im betreuenden Modell abgeschlossen. Der Suchstatus bleibt `noindex, follow`. Der Nutzer hat die Veröffentlichung dieses überarbeiteten Stands am 10. September ausdrücklich beauftragt; Deployment und öffentliche Prüfung erfolgen über den bestehenden Cloudflare-Workflow.
+
+Validierung: Produktionsbuild und 30 Tests erfolgreich. DE/EN in Chromium bei 360, 390, 768, 900, 1024 und 1440 CSS-Pixeln ohne horizontalen Überlauf. Navigation, Demo, alle Vertrauensansichten, Tastaturbedienung des Optimierungskreislaufs, reduzierte Bewegung und FAQ geprüft. Vollständiger Formularweg mit Pflichtfeldprüfung, Bearbeitung, Bestätigung und Neustart in beiden Sprachen gegen lokalen Worker/D1. Je eine finale Testanfrage mit Schwerpunkt `hiring` gespeichert. Der vorher geprüfte Wiederholungsfall speichert dieselbe Anfrage nur einmal. Keine Produktionsanfragen gesendet.
+
+
+### Browserkommentare vom 10. September
+
+Vier vom Nutzer vorgegebene Formulierungen übernommen: Arbeitsalltag, Paketbeschreibung, Anfrageüberschrift und Einstieg zum Kennenlerngespräch. Englisch sinngemäß synchronisiert. Die vier inhaltlichen Formularfragen werden als „Frage 1 / 4“ bis „Frage 4 / 4“ bezeichnet, danach folgt „Kontakt“; die vorhandenen fünf Ansichten und ihre Datenverarbeitung bleiben erhalten. Die Bestätigung kündigt die persönliche Einschätzung und Abstimmung eines Kennenlerngesprächs an. Build und 30 Tests erfolgreich; Texte, Fortschritt und Zurück-Navigation in DE/EN sowie Desktop/Mobil ohne Überlauf geprüft.
+
+Die abschließenden Browserkorrekturen entfernen den Ansprechpartner-Block mit Portrait in beiden Sprachen und schreiben „Vier“ beziehungsweise „four“ im Kontakteinstieg aus. DE/EN auf Desktop und Mobil geprüft; abschließender Produktionsbuild und 30 Tests erfolgreich.

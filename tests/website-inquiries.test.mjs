@@ -38,6 +38,39 @@ test('both locales store a real enquiry, return a reference, and disable caching
   } } finally { db.close(); }
 });
 
+test('hiring priority is accepted for both locales and visible in stored enquiries and notification', async () => {
+  const { db, env } = await fixture();
+  const sent = [];
+  env.INQUIRY_EMAIL = {
+    async send(message) {
+      sent.push(message);
+      return { messageId: `msg-${sent.length}` };
+    },
+  };
+  try {
+    for (const locale of ['de', 'en']) {
+      const data = payload({
+        locale,
+        priority: 'hiring',
+        businessType: 'other',
+        otherTrade: 'Malerbetrieb',
+        requestId: crypto.randomUUID(),
+      });
+      assert.equal((await handleRequest(request(data), env)).status, 200);
+      const row = db.prepare('SELECT locale, priority, business_type, other_trade FROM website_inquiries WHERE request_id = ?').get(data.requestId);
+      assert.equal(row.locale, locale);
+      assert.equal(row.priority, 'hiring');
+      assert.equal(row.business_type, 'other');
+      assert.equal(row.other_trade, 'Malerbetrieb');
+      const message = sent[sent.length - 1];
+      assert.equal(message.to, 'contact@vibeperform.com');
+      assert.equal(message.replyTo, data.email);
+      assert.equal(message.text.includes('Mitarbeiter gewinnen') || message.text.includes('Attract new team members'), true);
+    }
+    assert.equal(sent.length, 2);
+  } finally { db.close(); }
+});
+
 test('concurrent retries store one enquiry; changed payload cannot reuse its reference', async () => {
   const { db, env } = await fixture(); const data = payload();
   try {
