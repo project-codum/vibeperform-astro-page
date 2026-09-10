@@ -21,7 +21,7 @@ if (root) {
  let pendingId = '', pendingPayload = '';
  const finalStep = c.steps.length - 1;
  const endpoint = root.dataset.inquiryEndpoint ?? '';
- const ids = {project:['new','improve','unsure'],business:['property-maintenance','joinery','carpentry','construction','other'],priority:['services','portfolio','enquiries','appearance','unsure']};
+ const ids = {project:['new','improve','unsure'],business:['property-maintenance','joinery','carpentry','construction','other'],priority:['services','portfolio','enquiries','hiring','appearance','unsure']};
  const values = ['', '', '', ''];
  function focusQuestion() {
   heading()?.focus({preventScroll:true});
@@ -56,7 +56,7 @@ if (root) {
  const valueText = (i:number) => i===1 && values[1]===c.steps[1].options[4] && other ? `${values[1]} · ${other}` : values[i] || c.none;
  function render(focus=false) {
   error.hidden=true; actions.hidden=false;
-  root!.querySelector('#step-count')!.textContent=`${step+1} / ${c.steps.length}`;
+  root!.querySelector('#step-count')!.textContent=step===finalStep?c.contactLabel:`${c.questionLabel} ${step+1} / ${finalStep}`;
   root!.querySelector<HTMLElement>('#progress-bar')!.style.width=`${(step+1)/c.steps.length*100}%`;
   const s=c.steps[step];
   let html=`<h3 id="question-title" tabindex="-1">${escape(s.title)}</h3>`;

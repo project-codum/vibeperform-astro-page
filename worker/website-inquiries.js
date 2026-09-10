@@ -4,7 +4,7 @@ const choices = {
   locale: ['de', 'en'],
   projectType: ['new', 'improve', 'unsure'],
   businessType: ['property-maintenance', 'joinery', 'carpentry', 'construction', 'other'],
-  priority: ['services', 'portfolio', 'enquiries', 'appearance', 'unsure'],
+  priority: ['services', 'portfolio', 'enquiries', 'hiring', 'appearance', 'unsure'],
 };
 function reply(status, data, headers = {}) {
   return Response.json(data, { status, headers: {
