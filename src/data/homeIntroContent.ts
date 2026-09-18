@@ -1,6 +1,6 @@
 import { bookingUrl } from '../lib/siteMetadata';
 
-// The next homepage sections are migrated separately. Keep their legacy copy isolated.
+// Shared navigation and hero copy for the completed agency homepage.
 export const homeIntroContent = {
   de: {
     title: 'Websites & Unternehmensprofile | VibePerform',
@@ -12,10 +12,11 @@ export const homeIntroContent = {
     audience: 'Für Handwerksbetriebe und kleine Unternehmen.',
     primaryLabel: 'Vorhaben besprechen',
     primaryHref: bookingUrl,
-    secondaryLabel: 'Leistungen entdecken',
+    moreLabel: 'Mehr erfahren',
     serviceHref: '/de/websites-fuer-handwerksbetriebe/',
     navLinks: [
-      { label: 'Websites', href: '/de/websites-fuer-handwerksbetriebe/' },
+      { label: 'Leistungen', href: '#leistungen' },
+      { label: 'Unser Ansatz', href: '#zusammenarbeit' },
       { label: 'Über uns', href: '/de/ueber-uns/' },
     ],
     homeLabel: 'VibePerform – Startseite',
@@ -39,10 +40,11 @@ export const homeIntroContent = {
     audience: 'For trade businesses and small companies.',
     primaryLabel: 'Discuss your project',
     primaryHref: bookingUrl,
-    secondaryLabel: 'Explore our services',
+    moreLabel: 'Learn more',
     serviceHref: '/en/websites-for-trade-businesses/',
     navLinks: [
-      { label: 'Websites', href: '/en/websites-for-trade-businesses/' },
+      { label: 'Services', href: '#leistungen' },
+      { label: 'Our approach', href: '#zusammenarbeit' },
       { label: 'About us', href: '/en/about-us/' },
     ],
     homeLabel: 'VibePerform – Home',

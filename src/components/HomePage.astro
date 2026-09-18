@@ -1,562 +1,64 @@
 ---
-import {
-  ArrowRight,
-  Check,
-} from "lucide-static";
-import { Image } from "astro:assets";
-import promiseWorkshopImage from "../assets/home-promise-workshop-ai.png";
-import Button from "./Button.astro";
-import AiImageFrame from "./AiImageFrame.astro";
-import Footer from "./Footer.astro";
-import HomeNavigation from "./HomeNavigation.astro";
-import HomeHero from "./HomeHero.astro";
-import { homeIntroContent } from "../data/homeIntroContent";
-import type { HomeContent } from "../data/homeContent";
+import HomeNavigation from './HomeNavigation.astro';
+import HomeHero from './HomeHero.astro';
+import { homeIntroContent } from '../data/homeIntroContent';
+import { homePageContent } from '../data/homePageContent';
+import { bookingUrl, contactEmail, type Locale } from '../lib/siteMetadata';
+import '../styles/home-page.css';
 
-interface Props {
-  content: HomeContent;
-  currentLocale: string;
-  alternateLocaleHref: string;
-}
-
-const { content, currentLocale, alternateLocaleHref } = Astro.props as Props;
-const { hero } = content;
-const locale = currentLocale === "de" ? "de" : "en";
-const basePath = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "");
-const introCopy = homeIntroContent[locale];
-const assetUrl = (path: string) => `${basePath}${path}`;
-
-const renderIcon = (iconSvg: string, className: string) =>
-  iconSvg
-    .replace('class="lucide', `class="lucide ${className}`)
-    .replace('width="24"', 'width="24"')
-    .replace('height="24"', 'height="24"');
-
-const pageCopy = {
-  de: {
-    heroAlt:
-      "Handwerksmeister und Berater besprechen gemeinsam einen Arbeitsablauf in einer Schreinerei",
-    heroNote: "Beratung und Umsetzung aus einer Hand",
-    heroDisclosure: "Symbolbild, KI-generiert",
-    signals: [
-      {
-        title: "Vor Ort",
-        body: "Wir verstehen den Ablauf, bevor wir Technik empfehlen.",
-      },
-      {
-        title: "Unabhängig",
-        body: "Wir verkaufen keine Software und beraten ohne Herstellerinteresse.",
-      },
-      {
-        title: "Umsetzungsstark",
-        body: "Wir bleiben, bis die Lösung im Arbeitsalltag funktioniert.",
-      },
-    ],
-    promise: {
-      heading: "Kein KI-Theater. Klare Verbesserungen im Betrieb.",
-      body: "Unsere Arbeit beginnt nicht mit einem Tool, sondern dort, wo Zeit, Wissen oder Qualität verloren gehen.",
-      points: [
-        {
-          title: "Abläufe verstehen",
-          body: "Wir sprechen mit den Menschen, die die Arbeit jeden Tag erledigen.",
-        },
-        {
-          title: "Sinnvoll entscheiden",
-          body: "Sie erhalten eine klare Empfehlung: kaufen, anpassen, selbst bauen oder bewusst nichts tun.",
-        },
-        {
-          title: "Sauber umsetzen",
-          body: "Wir entwickeln, testen und verankern die Lösung gemeinsam mit Ihrem Team.",
-        },
-      ],
-      imageAlt:
-        "Drei Mitarbeitende besprechen gemeinsam einen Bauplan in einer Metallwerkstatt",
-      imageDisclosure: "Symbolbild, KI-generiert",
-    },
-    process: {
-      heading: "Von der Werkbank bis zur fertigen Lösung.",
-      intro:
-        "Ein schlanker Weg, der Entscheidungen früh absichert und schnell etwas Testbares schafft.",
-      steps: [
-        {
-          title: "Betrieb ansehen",
-          body: "Wir kommen zu Ihnen, beobachten Abläufe und sprechen über Engpässe, Daten und Verantwortlichkeiten.",
-        },
-        {
-          title: "Nutzen bewerten",
-          body: "Gemeinsam wählen wir die Fälle aus, die fachlich sinnvoll und wirtschaftlich tragfähig sind.",
-        },
-        {
-          title: "Lösung testen",
-          body: "Ein erster Prototyp zeigt früh, ob Technik, Prozess und Akzeptanz zusammenpassen.",
-        },
-        {
-          title: "Im Alltag verankern",
-          body: "Wir begleiten Einführung, Schulung und Weiterentwicklung, damit die Lösung genutzt wird.",
-        },
-      ],
-    },
-    uses: {
-      heading: "Dort entsteht im Handwerk schnell Nutzen.",
-      intro:
-        "Konkrete Entlastung für Büro, Baustelle und Werkstatt. Immer passend zu Ihren bestehenden Abläufen.",
-      items: [
-        {
-          title: "Angebote schneller vorbereiten",
-          body: "Informationen aus E-Mails, Leistungsverzeichnissen und früheren Projekten werden zu einem prüfbaren Entwurf.",
-          image: "/home-offer-document.webp",
-          imageAlt: "Beispielhaftes deutsches Angebotsdokument für eine Küche mit Leistungsbeschreibung, Material, Arbeitszeit und Gesamtbetrag",
-          imageDisclosure: "Beispielbild, KI-generiert",
-        },
-        {
-          title: "Auftragswissen auffindbar machen",
-          body: "Mitarbeitende finden Antworten in Dokumentationen, Handbüchern und Projektdaten, inklusive nachvollziehbarer Quellen.",
-          image: "/workshop1.webp",
-          imageAlt: "Team bespricht Arbeitsnotizen in einem Workshop",
-        },
-        {
-          title: "Büroarbeit verlässlich abnehmen",
-          body: "Belege, Protokolle und Anfragen werden erfasst, geprüft und an die richtige Stelle weitergegeben.",
-          image: "/workshop3.webp",
-          imageAlt: "Ruhiger Besprechungsraum für die gemeinsame Prozessarbeit",
-        },
-      ],
-    },
-    boundaries: {
-      heading: "Was Sie von uns nicht bekommen.",
-      items: [
-        "Tool-Verkauf mit verstecktem Eigeninteresse",
-        "Monatelange Strategiepapiere ohne Test im Betrieb",
-        "Eine technische Lösung, die Ihr Team allein übernehmen muss",
-      ],
-    },
-    team: {
-      heading: "Direkte Zusammenarbeit statt Übergaben.",
-      body: "Sie arbeiten mit den Menschen, die beraten, konzipieren und umsetzen. Persönlich, erreichbar und verantwortlich.",
-      linkLabel: "Vibeperform kennenlernen",
-      linkHref: "/de/ueber-uns/",
-      members: [
-        {
-          name: "Marlon Dietrich",
-          role: "Strategie und Umsetzung",
-          image: "/marlondietrich.webp",
-        },
-        {
-          name: "Isabella Hoesch",
-          role: "Workshops und Veränderung",
-          image: "/isabellahoesch.webp",
-        },
-      ],
-    },
-    final: {
-      heading: "Welcher Ablauf kostet Sie heute zu viel Zeit?",
-      body: "In einem ersten Gespräch klären wir, ob und wo KI in Ihrem Betrieb sinnvoll helfen kann.",
-    },
-  },
-  en: {
-    heroAlt:
-      "Master craftsperson and consultant review a workflow together in a joinery workshop",
-    heroNote: "Consulting and implementation from one team",
-    heroDisclosure: "Illustrative image, AI-generated",
-    signals: [
-      {
-        title: "On site",
-        body: "We understand the workflow before recommending technology.",
-      },
-      {
-        title: "Independent",
-        body: "We do not sell software and have no vendor incentive.",
-      },
-      {
-        title: "Built to work",
-        body: "We stay involved until the solution works in daily operations.",
-      },
-    ],
-    promise: {
-      heading: "No AI theatre. Clear improvements at work.",
-      body: "Our work starts where time, knowledge or quality gets lost, not with a tool.",
-      points: [
-        {
-          title: "Understand the work",
-          body: "We speak with the people who do the job every day.",
-        },
-        {
-          title: "Make a sound decision",
-          body: "You get a clear recommendation: buy, adapt, build or deliberately leave it alone.",
-        },
-        {
-          title: "Implement it properly",
-          body: "We develop, test and embed the solution together with your team.",
-        },
-      ],
-      imageAlt:
-        "Three colleagues review a technical plan together in a metal workshop",
-      imageDisclosure: "Illustrative image, AI-generated",
-    },
-    process: {
-      heading: "From the workshop floor to a working solution.",
-      intro:
-        "A lean path that validates decisions early and creates something testable quickly.",
-      steps: [
-        {
-          title: "See the operation",
-          body: "We visit your site, observe workflows and discuss constraints, data and responsibilities.",
-        },
-        {
-          title: "Assess the value",
-          body: "Together we select cases that make operational and commercial sense.",
-        },
-        {
-          title: "Test the solution",
-          body: "An early prototype shows whether the technology, process and team fit together.",
-        },
-        {
-          title: "Embed it in daily work",
-          body: "We support rollout, training and iteration so the solution is genuinely used.",
-        },
-      ],
-    },
-    uses: {
-      heading: "Where craft businesses see value quickly.",
-      intro:
-        "Practical relief for office, site and workshop, fitted to the way your business already works.",
-      items: [
-        {
-          title: "Prepare quotes faster",
-          body: "Information from emails, specifications and past projects becomes a draft your team can review.",
-          image: "/home-offer-document.webp",
-          imageAlt: "Sample German quote document for a kitchen project with scope, materials, labour and total amount",
-          imageDisclosure: "Sample image, AI-generated",
-        },
-        {
-          title: "Make job knowledge searchable",
-          body: "Staff find answers across documentation, manuals and project data, with traceable sources.",
-          image: "/workshop1.webp",
-          imageAlt: "Team discussing process notes in a workshop",
-        },
-        {
-          title: "Reduce repetitive office work",
-          body: "Documents, reports and enquiries are captured, checked and passed to the right person.",
-          image: "/workshop3.webp",
-          imageAlt: "Calm meeting room used for collaborative process work",
-        },
-      ],
-    },
-    boundaries: {
-      heading: "What you will not get from us.",
-      items: [
-        "Software sales disguised as independent advice",
-        "Months of strategy documents without a real operational test",
-        "A technical solution your team is left to adopt alone",
-      ],
-    },
-    team: {
-      heading: "Direct collaboration, without handovers.",
-      body: "You work with the people who advise, design and implement. Personal, available and accountable.",
-      linkLabel: "Meet Vibeperform",
-      linkHref: "/en/about-us/",
-      members: [
-        {
-          name: "Marlon Dietrich",
-          role: "Strategy and implementation",
-          image: "/marlondietrich.webp",
-        },
-        {
-          name: "Isabella Hoesch",
-          role: "Workshops and change",
-          image: "/isabellahoesch.webp",
-        },
-      ],
-    },
-    final: {
-      heading: "Which workflow is costing you too much time?",
-      body: "In a first conversation, we identify whether and where AI can usefully support your operation.",
-    },
-  },
-} as const;
-
-const t = pageCopy[locale];
-const boundaryEmphasis = locale === "de" ? "nicht" : "not";
-const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split(boundaryEmphasis);
+interface Props { currentLocale: Locale; alternateLocaleHref: string; }
+const { currentLocale: locale, alternateLocaleHref } = Astro.props;
+const t = homePageContent[locale];
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 ---
+<div class="home-shell" id="top">
+  <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
+  <main class="home-main">
+    <HomeHero copy={homeIntroContent[locale]} />
 
-<div class="home-shell flex min-h-[100dvh] flex-col bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-100">
-  <HomeNavigation copy={introCopy} locale={locale} alternateLocaleHref={alternateLocaleHref} />
-
-  <main class="home-main flex-1">
-    <HomeHero copy={introCopy} />
-
-    <section id="home-next" class="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/55" aria-label={locale === "de" ? "Unser Arbeitsversprechen" : "How we work"}>
-      <div class="container-responsive grid gap-0 md:grid-cols-3">
-        {t.signals.map((item) => (
-          <div class="border-b border-slate-200 py-6 last:border-b-0 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0" data-reveal>
-            <p class="font-semibold text-slate-950 dark:text-slate-50">{item.title}</p>
-            <p class="mt-1 max-w-sm text-sm leading-6 text-slate-600 dark:text-slate-400">{item.body}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="section-spacing bg-white dark:bg-slate-950">
-      <div class="container-responsive grid items-start gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
-        <div class="md:sticky md:top-24" data-reveal>
-          <h2 class="max-w-[15ch] text-3xl font-semibold leading-tight tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
-            {t.promise.heading}
-          </h2>
-          <p class="mt-5 max-w-[56ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
-            {t.promise.body}
-          </p>
-          <AiImageFrame
-            label={t.promise.imageDisclosure}
-            class="mt-8"
-            mediaClass="aspect-[16/9] overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900"
-          >
-            <Image
-              src={promiseWorkshopImage}
-              alt={t.promise.imageAlt}
-              class="h-full w-full object-cover"
-              widths={[480, 768, 960, 1200]}
-              sizes="(min-width: 768px) 40vw, calc(100vw - 40px)"
-              format="webp"
-              quality={82}
-              loading="lazy"
-              decoding="async"
-            />
-          </AiImageFrame>
+    <section class="hp-section hp-problems" id="home-next" tabindex="-1" aria-labelledby="problems-title" data-analytics-section="home-problems">
+      <div class="hp-wrap hp-split">
+        <div class="hp-heading">
+          <p class="hp-kicker">{t.problems.kicker}</p>
+          <h2 id="problems-title">{t.problems.title}<br /><em>{t.problems.emphasis}</em></h2>
+          <p class="hp-intro">{t.problems.intro}</p>
         </div>
-
-        <div class="border-t border-slate-200 dark:border-slate-800">
-          {t.promise.points.map((item) => (
-            <article class="grid gap-3 border-b border-slate-200 py-7 sm:grid-cols-[2.5rem_1fr] dark:border-slate-800" data-reveal>
-              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-200" aria-hidden="true" set:html={renderIcon(Check, "h-4 w-4")} />
-              <div>
-                <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50">{item.title}</h3>
-                <p class="mt-2 max-w-[52ch] text-base leading-7 text-slate-600 dark:text-slate-400">{item.body}</p>
-              </div>
-            </article>
-          ))}
+        <div class="hp-editorial-list">
+          {t.problems.items.map(item => <article><span class="hp-label">{item.label}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}
         </div>
       </div>
     </section>
 
-    <section id={locale === "de" ? "so-arbeiten-wir" : "how-we-work"} class="section-spacing bg-[#2a1838] text-purple-50">
-      <div class="container-responsive">
-        <div class="max-w-3xl" data-reveal>
-          <h2 class="text-3xl font-semibold tracking-[-0.035em] text-[#fffafc] sm:text-4xl lg:text-5xl">
-            {t.process.heading}
-          </h2>
-          <p class="mt-4 max-w-[60ch] text-base leading-7 text-[#f0e7f5] sm:text-lg">
-            {t.process.intro}
-          </p>
+    <section class="hp-section hp-services" id="leistungen" aria-labelledby="services-title" data-analytics-section="home-services">
+      <div class="hp-wrap">
+        <div class="hp-section-heading"><div><p class="hp-kicker">{t.services.kicker}</p><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div><p class="hp-intro">{t.services.intro}</p></div>
+        <div class="hp-service-grid">
+          {t.services.items.map(item => <article><span class="hp-number">{item.number}</span><h3>{item.title}</h3><p>{item.body}</p><p class="hp-tags">{item.tags}</p><a class="hp-text-link" href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a></article>)}
         </div>
-        <div class="mt-12 grid gap-x-12 gap-y-0 md:grid-cols-2">
-          {t.process.steps.map((step) => (
-            <article class="border-t border-[#76578a] py-7" data-reveal>
-              <h3 class="text-xl font-semibold text-[#fffafc]">{step.title}</h3>
-              <p class="mt-2 max-w-[52ch] text-sm leading-6 text-[#e7daef] sm:text-base sm:leading-7">{step.body}</p>
-            </article>
-          ))}
-        </div>
+        <aside class="hp-extra"><p>{t.services.extra}</p><a class="hp-text-link" href={href(t.services.extraHref)}>{t.services.extraLink}<span aria-hidden="true">↗</span></a></aside>
       </div>
     </section>
 
-    <section class="section-spacing bg-[#eeebf4] dark:bg-[#18131e]">
-      <div class="container-responsive">
-        <div class="max-w-3xl" data-reveal>
-          <h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
-            {t.uses.heading}
-          </h2>
-          <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
-            {t.uses.intro}
-          </p>
-        </div>
-        <div class="mt-12 grid gap-5 md:grid-cols-2 md:grid-rows-2">
-          {t.uses.items.map((item, index) => (
-            "image" in item ? (
-              <article class:list={["overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900", index === 1 && "md:row-span-2"]} data-reveal>
-                {"imageDisclosure" in item ? (
-                  <AiImageFrame label={item.imageDisclosure}>
-                    <img
-                      src={assetUrl(item.image)}
-                      alt={item.imageAlt}
-                      class:list={["w-full object-cover", index === 1 ? "aspect-[4/3] md:h-[58%]" : "aspect-[16/8] md:h-[52%]"]}
-                      width={index === 1 ? "650" : "1440"}
-                      height={index === 1 ? "433" : "1080"}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </AiImageFrame>
-                ) : (
-                  <img
-                    src={assetUrl(item.image)}
-                    alt={item.imageAlt}
-                    class:list={["w-full object-cover", index === 1 ? "aspect-[4/3] md:h-[58%]" : "aspect-[16/8] md:h-[52%]"]}
-                    width={index === 1 ? "650" : "1440"}
-                    height={index === 1 ? "433" : "1080"}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                )}
-                <div class="p-6 sm:p-7">
-                  <h3 class="text-xl font-semibold text-slate-950 dark:text-slate-50 sm:text-2xl">{item.title}</h3>
-                  <p class="mt-3 max-w-[48ch] text-sm leading-6 text-slate-600 dark:text-slate-400 sm:text-base">{item.body}</p>
-                </div>
-              </article>
-            ) : (
-              <article class="rounded-2xl border border-[#c8b4d8] bg-[#ded2e8] p-7 dark:border-purple-900 dark:bg-purple-950/65 sm:p-9" data-reveal>
-                <h3 class="max-w-[17ch] text-2xl font-semibold tracking-[-0.025em] text-slate-950 dark:text-slate-50 sm:text-3xl">{item.title}</h3>
-                <p class="mt-4 max-w-[48ch] text-base leading-7 text-slate-700 dark:text-slate-300">{item.body}</p>
-              </article>
-            )
-          ))}
-        </div>
+    <section class="hp-section hp-evolution" id="weiterentwicklung" aria-labelledby="evolution-title" data-analytics-section="home-evolution">
+      <div class="hp-wrap hp-split">
+        <div class="hp-heading"><p class="hp-kicker">{t.evolution.kicker}</p><h2 id="evolution-title">{t.evolution.title}<br /><em>{t.evolution.emphasis}</em></h2><p class="hp-intro">{t.evolution.intro}</p><p>{t.evolution.body}</p></div>
+        <div class="hp-cycle"><ol>{t.evolution.steps.map((step,i) => <li><span class="hp-cycle-number" aria-hidden="true">0{i+1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol><p class="hp-cycle-note">{t.evolution.note}</p></div>
       </div>
     </section>
 
-    <section class="section-spacing bg-slate-50 dark:bg-slate-900/55" data-cursor-x-zone>
-      <div class="container-responsive grid gap-10 md:grid-cols-[0.82fr_1.18fr] md:gap-16">
-        <h2 class="max-w-[13ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl" data-reveal>
-          {boundaryHeadingBefore}<span class="text-purple-700 underline decoration-2 decoration-purple-500 underline-offset-[0.16em] dark:text-purple-300 dark:decoration-purple-400">{boundaryEmphasis}</span>{boundaryHeadingAfter}
-        </h2>
-        <ul class="border-t border-slate-300 dark:border-slate-700">
-          {t.boundaries.items.map((item) => (
-            <li class="flex gap-4 border-b border-slate-300 py-5 text-base font-medium leading-7 text-slate-800 dark:border-slate-700 dark:text-slate-200" data-reveal>
-              <span aria-hidden="true" set:html={renderIcon(Check, "mt-1 h-5 w-5 shrink-0 text-purple-700 dark:text-purple-300")} />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <section class="hp-section hp-process" id="zusammenarbeit" aria-labelledby="process-title" data-analytics-section="home-process">
+      <div class="hp-wrap"><p class="hp-kicker">{t.process.kicker}</p><h2 id="process-title">{t.process.title}<br /><em>{t.process.emphasis}</em></h2><ol class="hp-process-grid">{t.process.items.map((item,i) => <li><span class="hp-label">0{i+1}</span><h3>{item.title}</h3><p>{item.body}</p></li>)}</ol></div>
     </section>
 
-    <section class="section-spacing bg-white dark:bg-slate-950">
-      <div class="container-responsive grid items-end gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <div data-reveal>
-          <h2 class="max-w-[13ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
-            {t.team.heading}
-          </h2>
-          <p class="mt-5 max-w-[48ch] text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">{t.team.body}</p>
-          <a class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-purple-800 underline decoration-purple-300 underline-offset-4 hover:text-purple-950 dark:text-purple-200 dark:decoration-purple-700 dark:hover:text-purple-100" href={t.team.linkHref}>
-            {t.team.linkLabel}
-            <span aria-hidden="true" set:html={renderIcon(ArrowRight, "h-4 w-4")} />
-          </a>
-        </div>
-        <div class="grid grid-cols-2 gap-4 sm:gap-6">
-          {t.team.members.map((member) => (
-            <figure data-reveal>
-              <img
-                src={assetUrl(member.image)}
-                alt={member.name}
-                class="aspect-[4/5] w-full rounded-2xl object-cover object-top"
-                width={member.name.startsWith("Marlon") ? "574" : "1280"}
-                height={member.name.startsWith("Marlon") ? "861" : "1920"}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption class="mt-3">
-                <p class="font-semibold text-slate-950 dark:text-slate-50">{member.name}</p>
-                <p class="mt-0.5 text-sm text-slate-600 dark:text-slate-400">{member.role}</p>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
+    <section class="hp-section hp-faq" aria-labelledby="faq-title">
+      <div class="hp-wrap hp-split"><div><p class="hp-kicker">{t.faq.kicker}</p><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div>
     </section>
 
-    <section class="pb-20 pt-4 sm:pb-28" data-analytics-section="home-final-cta">
-      <div class="container-responsive">
-        <a
-          class="group block rounded-2xl border border-purple-200 bg-purple-50 px-6 py-10 transition hover:border-purple-400 hover:shadow-[0_18px_48px_rgba(88,28,135,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 dark:border-purple-900 dark:bg-purple-950/65 dark:hover:border-purple-700 sm:px-10 sm:py-12 lg:px-14"
-          href={hero.primaryHref}
-          aria-label={hero.primaryCta}
-          data-cursor-work-zone
-          data-analytics-event="contact_start"
-          data-analytics-name="book-discovery-call"
-          data-analytics-location="home-final-cta"
-          data-reveal
-        >
-          <h2 class="max-w-[18ch] text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">
-            {t.final.heading}
-          </h2>
-          <p class="mt-4 max-w-[60ch] text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">{t.final.body}</p>
-          <span class="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-purple-700 px-6 py-3 text-center text-sm font-semibold text-white shadow-[0_10px_28px_rgba(88,28,135,0.18)] transition group-hover:bg-purple-800 group-active:scale-[0.98] dark:bg-purple-500 dark:text-slate-950 dark:group-hover:bg-purple-400 sm:w-auto">
-            {hero.primaryCta}
-          </span>
-        </a>
-      </div>
+    <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
+      <div class="hp-wrap"><p class="hp-kicker">{t.contact.kicker}</p><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-contact">{t.contact.booking}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div><p class="hp-contact-note">{t.contact.note}</p></div>
     </section>
   </main>
 
-  <Footer currentLocale={locale} />
+  <footer class="hp-footer"><div class="hp-wrap"><div class="hp-footer-top"><div><a class="hp-footer-brand" href={`${base}/${locale}/`} aria-label={homeIntroContent[locale].homeLabel}><img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="505" height="214" loading="lazy" /></a><p>{t.footer.tagline}</p></div><nav aria-label={locale==='de'?'Footernavigation':'Footer navigation'}><a href="#leistungen">{t.footer.services}</a><a href="#zusammenarbeit">{t.footer.process}</a><a href={href(t.footer.aboutHref)}>{t.footer.about}</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a></nav></div><div class="hp-footer-bottom"><span>© {new Date().getFullYear()} VibePerform. {t.footer.rights}</span><div><a href={href(t.footer.legalHref)}>{t.footer.legal}</a><a href={href(t.footer.privacyHref)}>{t.footer.privacy}</a><a href="#top">{t.footer.top} ↑</a></div></div></div></footer>
 </div>
-
-<script>
-  const setupHomeReveals = () => {
-    const root = document.querySelector("[data-home-hero]")?.closest(".home-shell");
-    if (!(root instanceof HTMLElement) || root.dataset.revealsReady === "true") return;
-
-    root.dataset.revealsReady = "true";
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const items = Array.from(root.querySelectorAll("[data-reveal]"));
-
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      items.forEach((item) => item.classList.add("is-visible"));
-      return;
-    }
-
-    root.classList.add("reveal-ready");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px -8%", threshold: 0.12 },
-    );
-
-    items.forEach((item) => observer.observe(item));
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupHomeReveals, { once: true });
-  } else {
-    setupHomeReveals();
-  }
-
-  document.addEventListener("astro:page-load", setupHomeReveals);
-</script>
-
-<style>
-  .home-shell {
-    position: relative;
-    font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
-  }
-
-  .home-main {
-    padding-inline: 0;
-  }
-
-  .home-shell.reveal-ready [data-reveal] {
-    opacity: 0;
-    transform: translateY(18px);
-    transition:
-      opacity 560ms cubic-bezier(0.16, 1, 0.3, 1),
-      transform 560ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .home-shell.reveal-ready [data-reveal].is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .home-shell [data-reveal] {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-  }
-
-</style>

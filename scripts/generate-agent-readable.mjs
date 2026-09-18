@@ -14,20 +14,18 @@ const contactEmail = 'contact@vibeperform.com';
 
 const jiti = createJiti(import.meta.url);
 
-const [{ homeContent }, { workshopsContent }, { aboutContent }, { exploreWorkshopContent }, { landingHighlightsContent }] =
+const [{ workshopsContent }, { aboutContent }, { exploreWorkshopContent }] =
 	await Promise.all([
-		jiti.import('../src/data/homeContent.ts'),
 		jiti.import('../src/data/workshopsContent.ts'),
 		jiti.import('../src/data/aboutContent.ts'),
 		jiti.import('../src/data/exploreWorkshopContent.ts'),
-		jiti.import('../src/data/landingHighlights.ts'),
 	]);
 
-const deHome = homeContent.de;
+const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
+const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
 const deWorkshops = workshopsContent.de;
 const deAbout = aboutContent.de;
 const deExplore = exploreWorkshopContent.de;
-const deHighlights = landingHighlightsContent.de;
 const { potentialAnalysisContent } = await jiti.import('../src/data/potentialAnalysisContent.ts');
 const potentialPaths = { de: '/de/ki-potenzialanalyse/', en: '/en/ai-potential-analysis/' };
 
@@ -111,38 +109,17 @@ function pageHeader({ title, canonicalPath, description, alternatePath }) {
 }
 
 function renderHomeAgentPage() {
-	const applications = deHighlights.applications.cards
-		.map(
-			(card) =>
-				`### ${card.title}\n\n${card.description}\n\n${card.highlight}\n\n${bulletList(card.examples)}`,
-		)
-		.join('\n\n');
-
-	const useCases = deHome.useCases.cards
-		.map(
-			(card) =>
-				`### ${card.title}\n\nKategorie: ${card.category}\n\n${card.description}\n\n${bulletList(card.highlights)}`,
-		)
-		.join('\n\n');
-
-	return normalizeBlankLines(`${pageHeader({
-		title: 'Vibeperform',
-		canonicalPath: '/de/',
-		description: deHome.hero.subtitle,
-		alternatePath: '/en/',
-	})}${section('Positionierung', `${deHome.hero.kicker}\n\n${deHome.hero.subtitle}`)}
-
-${section('Zentrale Versprechen', bulletList(deHome.hero.callouts.map((item) => `${item.label}: ${item.description}`)))}
-
-${section('Für wen das Angebot gemacht ist', `${deHome.audience.subheading}\n\n${bulletList(deHome.audience.cards.map((card) => card.copy))}`)}
-
-${section(deHome.useCases.heading, `${deHome.useCases.subheading}\n\n${useCases}`)}
-
-${section(deHighlights.applications.heading, `${deHighlights.applications.description}\n\n${applications}`)}
-
-${section(deHighlights.security.heading, `${deHighlights.security.body.join('\n\n')}\n\n${deHighlights.security.highlight}`)}
-
-${section('Kontakt', `E-Mail: ${contactEmail}\n\nErstgespräch buchen: ${calendarUrl}`)}`);
+ const c = homePageContent.de;
+ const intro = homeIntroContent.de;
+ const articles = items => items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n');
+ return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
+${section('Positionierung', `${intro.headline.join(' ')} ${intro.emphasis}\n\n${intro.intro.join(' ')}\n\n${intro.audience}`)}
+${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${articles(c.problems.items)}`)}
+${section('Unsere Leistungen', `${c.services.intro}\n\n${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}\n\n${c.services.extra}`)}
+${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
+${section(c.process.kicker, articles(c.process.items))}
+${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
+${section('Kontakt', `${c.contact.body}\n\nE-Mail: ${contactEmail}\n\nVorhaben besprechen: ${calendarUrl}`)}`);
 }
 
 function renderWorkshopsAgentPage() {
@@ -237,12 +214,12 @@ function renderLlmsTxt(blogPosts) {
 
 	return normalizeBlankLines(`# Vibeperform
 
-Vibeperform ist ein KI-Beratungs- und Umsetzungspartner für kleine und mittlere Unternehmen. Die kanonische agentenlesbare Sprache ist Deutsch. Englische Webseiten bleiben als Alternativen verlinkt.
+VibePerform erstellt und betreut Websites und Unternehmensprofile für Handwerksbetriebe und kleine Unternehmen. SEO, Texte und Grafiken unterstützen die laufende Weiterentwicklung; KI-Beratung ergänzt das Angebot. Die kanonische agentenlesbare Sprache ist Deutsch. Englische Webseiten bleiben als Alternativen verlinkt.
 
 ## Wichtige Agentenressourcen
 
 - [Vollständiger Agenten-Kontext](${absoluteUrl('/llms-full.txt')}) — Ein Markdown-Bundle der wichtigsten deutschen Inhalte.
-- [Startseite](${absoluteUrl('/agent/index.md')}) — Positionierung, Zielgruppen, Use Cases und Kontakt.
+- [Startseite](${absoluteUrl('/agent/index.md')}) — Websites, Unternehmensprofile, Weiterentwicklung und Kontakt.
 - [Workshops](${absoluteUrl('/agent/workshops.md')}) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](${absoluteUrl('/agent/explore-workshop.md')}) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
 - [Über Vibeperform](${absoluteUrl('/agent/about.md')}) — Team, Arbeitsweise und Kontakt.

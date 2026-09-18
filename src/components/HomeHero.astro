@@ -4,7 +4,6 @@ import type { HomeIntroContent } from '../data/homeIntroContent';
 import '../styles/home-hero.css';
 interface Props { copy: HomeIntroContent; }
 const { copy } = Astro.props;
-const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 ---
 <section class="vf-hero" data-home-hero data-analytics-section="home-hero" aria-labelledby="home-title">
   <HomeFluidBackdrop pauseLabel={copy.pauseLabel} resumeLabel={copy.resumeLabel} />
@@ -13,10 +12,10 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
     <h1 id="home-title">{copy.headline[0]}<br />{copy.headline[1]}<br /><em>{copy.emphasis}</em></h1>
     <p class="vf-intro">{copy.intro[0]}<br class="vf-desktop" /> {copy.intro[1]}</p>
     <div class="vf-actions">
-      <a class="vf-primary" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-hero">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
-      <a class="vf-secondary" href={`${base}${copy.serviceHref}`} data-analytics-event="cta_click" data-analytics-name="discover-website-service" data-analytics-location="home-hero">{copy.secondaryLabel}<span aria-hidden="true">↗</span></a>
+      <a class="vf-primary" href="#home-next" data-analytics-event="cta_click" data-analytics-name="learn-more" data-analytics-location="home-hero">{copy.moreLabel}<span aria-hidden="true">↓</span></a>
     </div>
     <p class="vf-audience">{copy.audience}</p>
   </div>
-  <div class="vf-hero-bottom"><a href="#home-next">{copy.nextLabel}<span aria-hidden="true">↓</span></a></div>
+
+  <div class="vf-hero-bottom" aria-hidden="true"></div>
 </section>

@@ -37,7 +37,7 @@ export const organizationSchema = () => ({
 	email: contactEmail,
 	areaServed: ['München', 'Bayern', 'Deutschland', 'Europa'],
 	description:
-		'Vibeperform begleitet mittelständische Unternehmen mit unabhängiger KI-Beratung, Workshops und schlüsselfertiger Umsetzung.',
+		'VibePerform erstellt, betreut und entwickelt Websites und Unternehmensprofile für Handwerksbetriebe und kleine Unternehmen weiter. SEO, Texte und Grafiken unterstützen den digitalen Firmenauftritt. KI-Beratung ergänzt das Angebot.',
 });
 
 export const websiteSchema = (locale: Locale) => ({

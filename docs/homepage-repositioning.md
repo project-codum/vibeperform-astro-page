@@ -1,31 +1,31 @@
-# Homepage repositioning — step 1
+# Homepage repositioning
 
 18 September 2026 · `develop`
 
-## Implemented
+## Complete homepage
 
-- Homepage navigation and hero on `/`, `/de/` and `/en/` use the V2 visual study and Brandbook 2.1.
-- Original `public/vibeperform-logo.png` and `favicon.png` retained. Logo uses the existing dark treatment; no replacement v.-mark.
-- Websites, About and project discussion links point to existing pages or the existing booking URL. Language switching retains the locale preference. The broader services page will be added in a later step.
-- Native Astro/custom-element integration of the V2 metaball shader; no React hydration for the hero. Pause/resume, reduced-motion poster, unavailable-WebGL fallback, visibility suspension and cleanup remain supported.
-- Mobile navigation opens with a button, closes with Escape/outside click/focus leaving, and keeps links accessible without JavaScript.
-- Localized homepage title and description reflect the digital-company-presence positioning.
+The root, German and English homepages now consistently present VibePerform as an agency for websites, business profiles and ongoing improvements.
 
-## Deliberate step boundary
-
-Content below the hero, footer, social preview image, Organization schema and agent-readable positioning remain part of the previous version. They will be revised as the remaining homepage sections are approved. This is a development preview, not a complete relaunch.
+- V2 hero with the original logo and favicon. A single “Mehr erfahren” / “Learn more” action scrolls to the customer problems section. Smooth scrolling respects reduced-motion preferences.
+- All seven old homepage sections removed: old trust claims, AI promise, AI delivery process, use cases, exclusions, team presentation and AI discovery CTA.
+- New sections: customer problems in the V2 editorial layout; four services; the ongoing-development vision; collaboration; four FAQ disclosures; contact; matching footer.
+- Warm backgrounds, lavender accents, serif emphasis, fine dividers and restrained typography continue the V2 design. No homepage pricing.
+- AI consulting appears only as a supplementary service. Existing specialized pages remain available.
+- Navigation points to services and collaboration on the homepage, the existing About page and the existing booking link. The contact section also offers email.
+- Homepage metadata and the shared Organization description reflect the new positioning. The former workshop social image is replaced by the original brand logo, with its actual dimensions. Generated homepage Markdown and the llms introduction are aligned with the new content.
 
 ## Validation
 
-- `npm test`: build of 38 pages and all 30 existing tests passed.
-- Browser: desktop layout and mobile layouts at effective 390 and 320 CSS px; no horizontal overflow in checked narrow layouts. German/English copy, menu opening, Escape closing, language navigation, hero pause and the actual website-service destination checked. No console errors in the final homepage check.
-- Reduced-motion/unavailable-WebGL logic separately exercised with browser API stubs: no WebGL context or animation starts under reduced motion; failed context retains fallback; observers disconnect on destroy. Not a real-device GPU benchmark.
-- Built root/DE/EN HTML: one H1 each; all homepage navigation routes resolve locally.
-- `git diff --check` passed.
+- `npm test`: all 34 tests pass, including four new regression checks for removed content, single discovery CTA, internal routes/anchors and homepage machine-readable content. Build completes successfully.
+- Desktop visual review: hero, customer problems, services, collaboration/FAQ. FAQ opening checked.
+- Mobile visual review at effective 320 CSS px: services and contact/footer; no horizontal page overflow. German/English language switch and discovery anchors work.
+- The discovery action scrolls to `#home-next`; normal-mode computed scroll behavior is smooth. CSS switches it to auto for reduced motion.
+- Animation pause rechecked after fixing an overlapping empty hero area. The V2 shader, fallback and reduced-motion behavior remain intact. Their logic was exercised in step 1; no real-device GPU benchmark performed.
+- Mobile navigation closes after choosing a new homepage anchor. All contact destinations are existing booking/email links; no enquiry was sent during testing.
+- No console errors or warnings in the checked German browser state. `git diff --check` passes.
 
-## References and next step
+## Scope and next work
 
-Source study: `KI-Beratung/outputs/vibeperform-metaball-hero-2026-09-18/versions/v2/`.
-Brandbook: `KI-Beratung/outputs/vibeperform-brandbook-2026-09-18/`.
+This completes the homepage in the agreed new direction. Service detail pages, About and other subpages are separate next steps. The saved `V1-KI-Beratung` branch retains the original website. No production deployment was performed.
 
-Next: customer problems immediately below the hero, followed by services, process and contact. Prices belong on a separate products/services page.
+Design sources: `KI-Beratung/outputs/vibeperform-metaball-hero-2026-09-18/versions/v2/` and `KI-Beratung/outputs/vibeperform-brandbook-2026-09-18/`.

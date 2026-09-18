@@ -1,108 +1,122 @@
 # Vibeperform
 Canonical URL: https://www.vibeperform.com/de/
 English alternate: https://www.vibeperform.com/en/
-Summary: Wir finden sinnvolle Einsatzfelder, bauen passende Lösungen und bringen sie gemeinsam mit Ihrem Team in den Alltag.
+Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.
 
 ## Positionierung
 
-KI-Beratung für Handwerk und Mittelstand
+Ihr Unternehmen entwickelt sich. Ihr Auftritt auch.
 
-Wir finden sinnvolle Einsatzfelder, bauen passende Lösungen und bringen sie gemeinsam mit Ihrem Team in den Alltag.
+Wir gestalten Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.
 
-## Zentrale Versprechen
+Für Handwerksbetriebe und kleine Unternehmen.
+## Damit aus einem ersten Eindruck der nächste Schritt wird.
 
-- Tempo: Wochen statt Monate
-- Fokus: Klare Roadmaps
-- Ergebnis: Messbarer Impact
-- Vertrauen: Compliance inklusive
+Ihr Betrieb leistet gute Arbeit. Online sollte man das genauso erkennen – und leicht den Weg zu Ihnen finden.
 
-## Für wen das Angebot gemacht ist
+### Ihr Betrieb ist weiter. Ihre Website noch nicht.
 
-Unser Angebot richtet sich an mittelständische Unternehmen, die ihre Abläufe mit KI und Automatisierung spürbar verbessern wollen:
+Neue Leistungen, neue Projekte, ein gewachsenes Team. Wir bringen Ihren Auftritt wieder auf den Stand Ihres Unternehmens.
 
-- KMU mit Ambition, aber begrenzten Kapazitäten.
-- Teams in Vertrieb, Kundenservice und Operations sowie IT- und Daten-Teams, die Entlastung im Tagesgeschäft suchen.
-- Geschäftsführungen und Bereichsleitungen, die schnelle, messbare Ergebnisse sehen wollen.
+### Was Sie ausmacht, geht online unter.
 
-## Bewährte Einsatzfelder
+Wir machen Leistungen und Stärken verständlich. Mit einer klaren Struktur, passenden Texten und einem einfachen Weg zur Anfrage.
 
-Schnell nutzbar, klar messbar, aus realen Projekten im Mittelstand.
+### Website und Google erzählen Unterschiedliches.
 
-### Angebots-Assistent
+Wir stimmen Unternehmensprofile und Website aufeinander ab. Damit Leistungen, Kontaktdaten und Öffnungszeiten zusammenpassen.
 
-Kategorie: Vertrieb
+### Der Alltag geht vor. Der Auftritt bleibt liegen.
 
-KI bündelt Mail- und CRM-Infos, erstellt Angebotsentwürfe und Follow-ups inklusive offener Punkte.
+Wir kümmern uns um Inhalte und Weiterentwicklung. Sie haben einen Ansprechpartner, der die nächsten Schritte mit Ihnen abstimmt.
+## Unsere Leistungen
 
-- Angebotsentwurf (PDF/Doc)
-- Follow-up-Mail (vorformuliert)
-- Offene Fragen & To-dos
-- Protokoll der Datenquellen
+Von der neuen Website bis zur laufenden Pflege: Wir verbinden Gestaltung, Inhalte und Auffindbarkeit zu einem stimmigen Firmenauftritt.
 
-### Wissens-Assistenz (RAG)
+### Websites erstellen
 
-Kategorie: Kundenservice
+Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalten, einer passenden Gestaltung und einer guten Darstellung auf jedem Bildschirm.
 
-Antworten mit Quellenzitaten aus Handbuch, Tickets und Confluence. Einheitliche Tonalität, schnell und nachvollziehbar.
+Konzept · Gestaltung · Umsetzung
 
-- Antwortentwurf mit Zitaten
-- Relevante Passagen/Links
-- Qualitätscheck (Policy/Ton)
-- Handover an Ticket-System
+[Websites für Handwerksbetriebe](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/)
 
-### Dokumenten-Extraktion & Prüfungen
+### Websites weiterentwickeln
 
-Kategorie: Operations
+Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren Auftritt und verbessern ihn Schritt für Schritt.
 
-Extrahiert Felder, prüft Regeln und schreibt ins ERP, mit Audit-Trail und Abweichungsreport.
+Pflege · Auswertung · Verbesserung
 
-- Extrahierte Felder (JSON/CSV)
-- Abgleich PO ↔ Rechnung
-- Abweichungsreport
-- ERP-Buchung inkl. Log
+[Betreuung besprechen](https://www.vibeperform.com/de/#kontakt)
 
-## Typische Anwendungsfelder
+### Unternehmensprofile pflegen
 
-Wo wir schnelle Ergebnisse für mittelständische Teams sehen.
+Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet. Damit Interessenten aktuelle Informationen über Ihren Betrieb finden.
 
-### Dokumentenanalyse
+Google-Profil · Informationen · Aktualität
 
-Wir extrahieren relevante Inhalte und machen Dokumente durchsuchbar.
+[Über Ihren Auftritt sprechen](https://www.vibeperform.com/de/#kontakt)
 
-Bis zu −70 % Erfassungsaufwand.
+### SEO, Texte & Grafiken
 
-- Vertragsanalyse: Klauseln, Fristen, Abweichungen zur Standardklausel.
-- Wartungs-/Serviceberichte: Fehlercodes, Maßnahmen, Ersatzteile, nächste Fälligkeit – Historie wird aktualisiert.
-- Versicherungsverträge & Policen: Deckungssummen, Selbstbehalte, Ausschlüsse, Laufzeiten – Erneuerungen erkennen.
+Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimierung, Texten und Grafiken, die zu Ihrem Unternehmen und Ihren Kunden passen.
 
-### Vertriebs-Copilot (Entscheidungshilfe)
+Suchmaschinen · Inhalte · Gestaltung
 
-Wir priorisieren Leads, fassen Interaktionen zusammen und schlagen nächste Schritte vor.
+[Inhalte gemeinsam planen](https://www.vibeperform.com/de/#kontakt)
 
-+10–20 % Conversion, −30 % Admin-Aufwand.
+Ergänzend unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
+## Eine Website, die nie veraltet.
 
-- Lead-Priorisierung: Bewertung aus CRM-Daten, Website-Signalen und E-Mail-Engagement.
-- Kontakt-Zusammenfassungen: Mails/Anrufe/Termine als CRM-Notiz in einer Minute.
-- Folgeaktionen: Vorschläge inklusive Mail-/Anruf-Entwürfen sowie Terminanlage.
+Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.
 
-### Angebots-Assistent
+Wir betrachten verfügbare Nutzungsdaten, Suchanfragen und Keyword-Trends. Daraus leiten wir passende Verbesserungen ab und stimmen mit Ihnen ab, was als Nächstes sinnvoll ist.
 
-Wir erzeugen Angebotsentwürfe aus Vorlagen, Fällen und Produktdaten – inkl. Preisen und Konditionen.
+### Verstehen
 
-Bis zu −50 % Erstellungszeit.
+Was suchen Ihre Kunden? Was hat sich in Ihrem Betrieb verändert?
 
-- Vorbefüllte Positionen: Artikel, Mengen, Preise direkt aus ERP oder Preislisten.
-- AGB & Leistungsbausteine: Automatisch passend zu Kunde und Leistungsumfang.
-- Abweichungsprüfung: Rabatt/Marge, Sonderkonditionen und Freigabe-Workflow.
+### Verbessern
 
-## Datenschutz & Sicherheit
+Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.
 
-Wir arbeiten DSGVO-konform, nutzen sichere Setups wie isolierte Tenants, API-basierte Verarbeitung und Datenminimierung. Private Cloud und On-Prem-Szenarien sind Teil unseres Werkzeugkastens.
+### Dranbleiben
 
-Kein Training auf Ihren proprietären Daten.
+Veränderungen beobachten und die nächsten Schritte abstimmen.
+## So arbeiten wir zusammen
 
+### Ihr Vorhaben verstehen
+
+Wir besprechen Ihren Betrieb, Ihre Kunden und Ihren bisherigen Auftritt. Gemeinsam klären wir, wo Sie starten möchten.
+
+### Den Auftritt gestalten
+
+Wir planen Struktur und Inhalte, gestalten die vereinbarten Bereiche und zeigen Ihnen den Stand zur Abstimmung.
+
+### Gemeinsam weitergehen
+
+Nach Ihrer Freigabe geht der Auftritt online. Im vereinbarten Betreuungsumfang halten wir ihn aktuell und entwickeln ihn weiter.
+## Häufige Fragen
+
+### Können Sie unsere bestehende Website übernehmen?
+
+Wir schauen uns Ihre Website und die technische Grundlage an. Danach besprechen wir, welche Verbesserungen möglich sind und ob eine Überarbeitung oder ein neuer Aufbau sinnvoller ist.
+
+### Müssen Texte und Bilder schon fertig sein?
+
+Nein. Vorhandene Inhalte sind ein guter Anfang. Wir unterstützen bei Texten und Grafiken und klären mit Ihnen, welches Material noch gebraucht wird.
+
+### Gehört das Google-Unternehmensprofil dazu?
+
+Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile und Aufgaben Teil Ihres Projekts sind, vereinbaren wir gemeinsam.
+
+### Wie funktioniert die laufende Betreuung?
+
+Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.
 ## Kontakt
+
+Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wieder zu Ihrem Betrieb passt. Erzählen Sie uns von Ihrem Vorhaben.
 
 E-Mail: contact@vibeperform.com
 
-Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
+Vorhaben besprechen: https://calendar.app.google/utFQgw33PwJTiDk56
