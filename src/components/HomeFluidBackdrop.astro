@@ -1,0 +1,37 @@
+---
+interface Props { pauseLabel: string; resumeLabel: string; }
+const { pauseLabel, resumeLabel } = Astro.props;
+---
+<vf-fluid-background class="vf-fluid">
+  <div class="vf-poster" aria-hidden="true"></div>
+  <canvas aria-hidden="true"></canvas>
+  <button class="vf-motion" type="button" hidden aria-pressed="false" data-pause={pauseLabel} data-resume={resumeLabel}>{pauseLabel}</button>
+</vf-fluid-background>
+<script>
+  class FluidBackground extends HTMLElement {
+    private controller: { toggle(): void; destroy(): void } | null = null;
+    private generation = 0;
+    private toggle = () => this.controller?.toggle();
+    async connectedCallback() {
+      const generation = ++this.generation;
+      const canvas = this.querySelector('canvas')!;
+      const button = this.querySelector('button')!;
+      try {
+        const { mountFluid } = await import('../lib/homeFluid.js');
+        if (!this.isConnected || generation !== this.generation) return;
+        this.controller = mountFluid(canvas, { onState: ({ available, paused }) => {
+          button.hidden = !available;
+          button.setAttribute('aria-pressed', String(paused));
+          button.textContent = paused ? button.dataset.resume! : button.dataset.pause!;
+        }});
+        button.addEventListener('click', this.toggle);
+      } catch { /* The CSS poster remains visible if loading fails. */ }
+    }
+    disconnectedCallback() {
+      this.generation++;
+      this.querySelector('button')?.removeEventListener('click', this.toggle);
+      this.controller?.destroy(); this.controller = null;
+    }
+  }
+  if (!customElements.get('vf-fluid-background')) customElements.define('vf-fluid-background', FluidBackground);
+</script>

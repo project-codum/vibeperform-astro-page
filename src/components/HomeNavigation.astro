@@ -1,0 +1,79 @@
+---
+import type { HomeIntroContent } from '../data/homeIntroContent';
+interface Props { copy: HomeIntroContent; locale: 'de' | 'en'; alternateLocaleHref: string; }
+const { copy, locale, alternateLocaleHref } = Astro.props;
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+---
+<a class="home-skip" href="#home-intro">{copy.skipLabel}</a>
+<header class="home-navigation">
+  <vf-home-navigation>
+    <a class="home-brand" href={`${base}/${locale}/`} aria-label={copy.homeLabel}>
+      <img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="510" height="212" loading="eager" decoding="async" />
+    </a>
+    <button class="home-menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false" data-open-label={copy.menuLabel} data-close-label={copy.closeLabel} hidden>{copy.menuLabel}<span aria-hidden="true">＋</span></button>
+    <nav id="home-menu" aria-label={copy.navLabel}>
+      {copy.navLinks.map(link => <a href={`${base}${link.href}`}>{link.label}</a>)}
+      <a class="home-nav-contact" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
+      <a class="home-language" href={alternateLocaleHref} aria-label={copy.languageAria} data-locale-switch data-target-locale={locale === 'de' ? 'en' : 'de'} data-analytics-location="home-navigation">{copy.languageLabel}</a>
+    </nav>
+  </vf-home-navigation>
+</header>
+<noscript><style>.home-navigation{position:relative;background:#111116}.vf-hero{padding-top:0}</style></noscript>
+<script>
+  class HomeNavigation extends HTMLElement {
+    private cleanup?: () => void;
+    connectedCallback() {
+      if (this.cleanup) return;
+      const toggle = this.querySelector<HTMLButtonElement>('button')!;
+      const menu = this.querySelector<HTMLElement>('nav')!;
+      const mobile = matchMedia('(max-width: 900px)');
+      const events = new AbortController();
+      const setOpen = (open: boolean, restoreFocus = false) => {
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.innerHTML = `${open ? toggle.dataset.closeLabel : toggle.dataset.openLabel}<span aria-hidden="true">${open ? '−' : '＋'}</span>`;
+        menu.hidden = mobile.matches && !open;
+        if (restoreFocus) toggle.focus();
+      };
+      const sync = () => { toggle.hidden = !mobile.matches; setOpen(false); };
+      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'), { signal: events.signal });
+      this.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
+      }, { signal: events.signal });
+      this.addEventListener('click', event => {
+        const link = (event.target as Element).closest<HTMLAnchorElement>('a');
+        if (!link) return;
+        if (link.dataset.targetLocale) {
+          try { localStorage.setItem('vibeperform:locale', link.dataset.targetLocale); } catch { /* Language links still navigate without storage. */ }
+        }
+        setOpen(false);
+      }, { signal: events.signal });
+      document.addEventListener('click', event => { if (!this.contains(event.target as Node)) setOpen(false); }, { signal: events.signal });
+      this.addEventListener('focusout', event => {
+        if (event.relatedTarget && !this.contains(event.relatedTarget as Node)) setOpen(false);
+      }, { signal: events.signal });
+      mobile.addEventListener('change', sync);
+      sync();
+      this.dataset.enhanced = 'true';
+      this.cleanup = () => { events.abort(); mobile.removeEventListener('change', sync); this.cleanup = undefined; };
+    }
+    disconnectedCallback() { this.cleanup?.(); }
+  }
+  if (!customElements.get('vf-home-navigation')) customElements.define('vf-home-navigation', HomeNavigation);
+</script>
+<style>
+  .home-navigation{position:absolute;top:0;left:0;right:0;z-index:20;color:#f7f4fb;font-family:Arial,Helvetica,sans-serif}
+  vf-home-navigation{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;width:min(100%,1440px);margin:auto;padding:22px 4.4%}
+  .home-brand{display:block;width:190px;flex-shrink:0;border-radius:4px;overflow:hidden}
+  .home-brand img{display:block;width:100%;height:auto;transform:scale(1.7);filter:invert(1) hue-rotate(180deg) saturate(1.2)}
+  nav{display:flex;align-items:center;gap:30px;font-size:14px}
+  nav[hidden],button[hidden]{display:none}
+  a{color:inherit;text-decoration:none}nav a{display:inline-flex;align-items:center;gap:15px;min-height:44px}
+  nav a:hover{text-decoration:underline;text-underline-offset:5px}
+  .home-nav-contact{border:1px solid #776387;padding:8px 15px;border-radius:6px}
+  .home-language{border-left:1px solid #62596d;padding-left:22px;font-size:12px;color:#c9c4ce}
+  .home-menu-toggle{min-width:90px;min-height:44px;padding:8px 12px;border:1px solid #776387;border-radius:6px;background:#211a2c;color:#f7f4fb;align-items:center;justify-content:space-between;gap:12px;font:14px Arial,sans-serif;cursor:pointer}
+  a:focus-visible,button:focus-visible{outline:3px solid #dac8ff;outline-offset:5px}
+  .home-skip{position:fixed;top:10px;left:10px;z-index:100;padding:12px 18px;background:#f5f2ed;color:#28232e;transform:translateY(-160%);font:16px Arial,sans-serif}.home-skip:focus{transform:none}
+  @media(max-width:900px){vf-home-navigation{padding:15px 24px;flex-wrap:wrap;gap:8px}.home-brand{width:158px}.home-menu-toggle:not([hidden]){display:flex}nav{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:18px;background:#1d1923;border:1px solid #62596d;border-radius:6px}nav a{padding:8px 12px}.home-language{border-left:0;border-top:1px solid #62596d;margin-top:4px}.home-nav-contact{margin:5px 0}vf-home-navigation[data-enhanced] nav{position:absolute;top:calc(100% - 4px);left:24px;right:24px;width:auto}}
+  @media(prefers-reduced-motion:reduce){a{transition:none}}
+</style>

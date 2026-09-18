@@ -2,14 +2,15 @@
 import {
   ArrowRight,
   Check,
-  ShieldCheck,
 } from "lucide-static";
 import { Image } from "astro:assets";
 import promiseWorkshopImage from "../assets/home-promise-workshop-ai.png";
 import Button from "./Button.astro";
 import AiImageFrame from "./AiImageFrame.astro";
 import Footer from "./Footer.astro";
-import NavBar from "./NavBar.astro";
+import HomeNavigation from "./HomeNavigation.astro";
+import HomeHero from "./HomeHero.astro";
+import { homeIntroContent } from "../data/homeIntroContent";
 import type { HomeContent } from "../data/homeContent";
 
 interface Props {
@@ -19,10 +20,10 @@ interface Props {
 }
 
 const { content, currentLocale, alternateLocaleHref } = Astro.props as Props;
-const { nav, hero } = content;
+const { hero } = content;
 const locale = currentLocale === "de" ? "de" : "en";
 const basePath = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "");
-const homeHref = locale === "de" ? `${basePath}/de/` : `${basePath}/en/`;
+const introCopy = homeIntroContent[locale];
 const assetUrl = (path: string) => `${basePath}${path}`;
 
 const renderIcon = (iconSvg: string, className: string) =>
@@ -280,73 +281,12 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
 ---
 
 <div class="home-shell flex min-h-[100dvh] flex-col bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-100">
-  <NavBar
-    nav={nav}
-    homeHref={homeHref}
-    alternateLocaleHref={alternateLocaleHref}
-    currentLocale={locale}
-  />
+  <HomeNavigation copy={introCopy} locale={locale} alternateLocaleHref={alternateLocaleHref} />
 
   <main class="home-main flex-1">
-    <section class="home-hero" data-home-hero data-analytics-section="home-hero">
-      <div class="container-responsive grid items-center gap-10 py-10 md:min-h-[calc(100dvh-76px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-12 md:py-12 lg:gap-16">
-        <div class="max-w-2xl">
-          <p class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-purple-700 dark:text-purple-300">
-            {hero.kicker}
-          </p>
-          <h1 class="max-w-[20ch] text-[clamp(2.45rem,4vw,3.9rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-slate-950 dark:text-slate-50">
-            {hero.title}
-          </h1>
-          <p class="mt-6 max-w-[58ch] text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">
-            {hero.subtitle}
-          </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" data-home-cta>
-            <Button
-              href={hero.primaryHref}
-              analyticsEvent="contact_start"
-              analyticsName="book-discovery-call"
-              analyticsLocation="home-hero"
-            >{hero.primaryCta}</Button>
-            <a
-              class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-500 hover:bg-slate-100 active:scale-[0.98] dark:border-slate-700 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-900 sm:w-auto"
-              href={hero.secondaryHref}
-              data-analytics-event="cta_click"
-              data-analytics-name="view-how-we-work"
-              data-analytics-location="home-hero"
-            >
-              {hero.secondaryCta}
-              <span aria-hidden="true" set:html={renderIcon(ArrowRight, "h-4 w-4")} />
-            </a>
-          </div>
-        </div>
+    <HomeHero copy={introCopy} />
 
-        <figure class="relative w-full md:justify-self-end">
-          <AiImageFrame
-            label={t.heroDisclosure}
-            mediaClass="aspect-[8/7] overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900"
-          >
-            <img
-              src={assetUrl("/home-hero-craft-1280.webp")}
-              srcset={`${assetUrl("/home-hero-craft-720.webp")} 720w, ${assetUrl("/home-hero-craft-1280.webp")} 1280w`}
-              sizes="(min-width: 768px) 44vw, calc(100vw - 40px)"
-              alt={t.heroAlt}
-              class="h-full w-full object-cover object-[58%_center]"
-              width="1280"
-              height="801"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </AiImageFrame>
-          <figcaption class="mt-3 flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
-            <span aria-hidden="true" set:html={renderIcon(ShieldCheck, "h-4 w-4 text-purple-700 dark:text-purple-300")} />
-            {t.heroNote}
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/55" aria-label={locale === "de" ? "Unser Arbeitsversprechen" : "How we work"}>
+    <section id="home-next" class="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/55" aria-label={locale === "de" ? "Unser Arbeitsversprechen" : "How we work"}>
       <div class="container-responsive grid gap-0 md:grid-cols-3">
         {t.signals.map((item) => (
           <div class="border-b border-slate-200 py-6 last:border-b-0 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0" data-reveal>
@@ -590,6 +530,7 @@ const [boundaryHeadingBefore, boundaryHeadingAfter] = t.boundaries.heading.split
 
 <style>
   .home-shell {
+    position: relative;
     font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
   }
 

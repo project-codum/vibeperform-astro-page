@@ -1,0 +1,61 @@
+import { bookingUrl } from '../lib/siteMetadata';
+
+// The next homepage sections are migrated separately. Keep their legacy copy isolated.
+export const homeIntroContent = {
+  de: {
+    title: 'Websites & Unternehmensprofile | VibePerform',
+    description: 'Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
+    kicker: 'Websites & Unternehmensprofile',
+    headline: ['Ihr Unternehmen', 'entwickelt sich.'],
+    emphasis: 'Ihr Auftritt auch.',
+    intro: ['Wir gestalten Ihren digitalen Firmenauftritt.', 'Und entwickeln ihn mit Ihnen weiter.'],
+    audience: 'Für Handwerksbetriebe und kleine Unternehmen.',
+    primaryLabel: 'Vorhaben besprechen',
+    primaryHref: bookingUrl,
+    secondaryLabel: 'Leistungen entdecken',
+    serviceHref: '/de/websites-fuer-handwerksbetriebe/',
+    navLinks: [
+      { label: 'Websites', href: '/de/websites-fuer-handwerksbetriebe/' },
+      { label: 'Über uns', href: '/de/ueber-uns/' },
+    ],
+    homeLabel: 'VibePerform – Startseite',
+    navLabel: 'Hauptnavigation',
+    menuLabel: 'Menü',
+    closeLabel: 'Schließen',
+    languageLabel: 'EN',
+    languageAria: 'Sprache zu Englisch wechseln',
+    skipLabel: 'Zum Inhalt',
+    pauseLabel: 'Animation pausieren',
+    resumeLabel: 'Animation fortsetzen',
+    nextLabel: 'Weiter entdecken',
+  },
+  en: {
+    title: 'Websites & Business Profiles | VibePerform',
+    description: 'We create and maintain websites and business profiles. With SEO, copy and graphics, we keep developing your online presence.',
+    kicker: 'Websites & business profiles',
+    headline: ['Your business', 'keeps evolving.'],
+    emphasis: 'Your website should too.',
+    intro: ['We design your online presence.', 'And keep developing it with you.'],
+    audience: 'For trade businesses and small companies.',
+    primaryLabel: 'Discuss your project',
+    primaryHref: bookingUrl,
+    secondaryLabel: 'Explore our services',
+    serviceHref: '/en/websites-for-trade-businesses/',
+    navLinks: [
+      { label: 'Websites', href: '/en/websites-for-trade-businesses/' },
+      { label: 'About us', href: '/en/about-us/' },
+    ],
+    homeLabel: 'VibePerform – Home',
+    navLabel: 'Main navigation',
+    menuLabel: 'Menu',
+    closeLabel: 'Close',
+    languageLabel: 'DE',
+    languageAria: 'Switch language to German',
+    skipLabel: 'Skip to content',
+    pauseLabel: 'Pause animation',
+    resumeLabel: 'Resume animation',
+    nextLabel: 'Keep exploring',
+  },
+} as const;
+
+export type HomeIntroContent = (typeof homeIntroContent)['de' | 'en'];
