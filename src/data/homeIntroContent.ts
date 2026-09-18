@@ -7,7 +7,7 @@ export const homeIntroContent = {
     description: 'Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
     kicker: 'Websites & Unternehmensprofile',
     headline: ['Ihr Unternehmen', 'entwickelt sich.'],
-    emphasis: 'Ihr Auftritt auch.',
+    emphasis: 'Ihre Webseite sollte das auch.',
     intro: ['Wir gestalten Ihren digitalen Firmenauftritt.', 'Und entwickeln ihn mit Ihnen weiter.'],
     audience: 'Für Handwerksbetriebe und kleine Unternehmen.',
     primaryLabel: 'Vorhaben besprechen',
