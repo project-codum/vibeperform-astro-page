@@ -1,0 +1,64 @@
+---
+import {Image} from 'astro:assets';
+import interior from '../assets/website-service/interior.png';
+import materials from '../assets/website-service/materials.png';
+import ServiceExample from './ServiceExample.astro';
+import '../styles/service-showcase.css';
+interface Props {kind:'redesign'|'support'|'content'; locale:'de'|'en';}
+const {kind,locale}=Astro.props;
+const de=locale==='de';
+const steps=de?[
+ ['Neue Leistung. Klar erklärt.','Ihr Angebot wächst. Wir ergänzen die passende Leistung und ordnen sie so ein, dass Besucher sie finden und verstehen.','Leistung ergänzt'],
+ ['Neue Bilder. Ein aktueller Eindruck.','Neue Projekte machen Ihre Arbeit greifbar. Abgestimmte Bilder und kurze Beschreibungen halten den Auftritt auf dem Stand Ihres Unternehmens.','Bildwelt ergänzt'],
+ ['Nächster Schritt. Leicht gemacht.','Wir prüfen, ob Besucher den Weg zur Anfrage verstehen, und verbessern Texte und Platzierung nach gemeinsamer Abstimmung.','Kontaktweg geschärft'],
+]:[
+ ['New service. Clearly explained.','Your offering grows. We add the relevant service and organise it so visitors can find and understand it.','Service added'],
+ ['New images. A current impression.','New projects make your work tangible. Agreed images and short descriptions keep your presence aligned with your business.','Images added'],
+ ['Next step. Made simple.','We review whether visitors understand how to enquire, then refine wording and placement together.','Contact path refined'],
+];
+---
+<div class={`vx-showcase vx-${kind}`}>
+ {kind==='redesign'&&<div data-vx-compare>
+   <div class="vx-heading"><div><span class="vx-eyebrow">{de?'Ein Auftritt. Zwei Zustände.':'One website. Two states.'}</span><h3>{de?'Gutes bleibt.':'Keep what works.'} <em>{de?'Klarheit kommt dazu.':'Add clarity.'}</em></h3></div><div class="vx-switch" hidden role="group" aria-label={de?'Website-Beispiel vergleichen':'Compare the website example'}><button type="button" aria-pressed="false" aria-controls="vx-before">{de?'Vorher':'Before'}</button><button type="button" aria-pressed="true" aria-controls="vx-after">{de?'Nachher':'After'}</button></div></div>
+   {[true,false].map(before=><div id={before?'vx-before':'vx-after'} data-vx-panel><p class="vx-state-label">{before?(de?'Vorher':'Before'):(de?'Nachher':'After')}</p><ServiceExample locale={locale} before={before}/><div class="vx-takeaways">{(before?(de?['Allgemeiner Einstieg','Leistungen schwer zu überblicken','Unklarer nächster Schritt']:['Generic introduction','Services hard to scan','Unclear next step']):(de?['Leistung auf den ersten Blick','Ein Angebot mit klarer Struktur','Ein klarer nächster Schritt']:['Service clear at a glance','A clearly structured offering','A clear next step'])).map((text,i)=><p><span>0{i+1}</span>{text}</p>)}</div></div>)}
+   <p class="vx-caption">{de?'Schematisches Gestaltungsbeispiel mit generiertem Bild. Gleicher Betrieb, neu geordneter Auftritt.':'Illustrative design example with a generated image. Same business, reorganised website.'}</p>
+ </div>}
+ {kind==='support'&&<div>
+   <div class="vx-heading"><div><span class="vx-eyebrow">{de?'Veröffentlicht ist der Anfang':'Publishing is the beginning'}</span><h3>{de?'Ihr Betrieb wächst.':'Your business grows.'}<br/><em>{de?'Die Website wächst mit.':'Your website grows with it.'}</em></h3></div><p>{de?'Drei mögliche Verbesserungen – an einem durchgehenden Beispiel.':'Three possible improvements, shown through one continuous example.'}</p></div>
+   <div class="vx-evolution" data-vx-evolution><div class="vx-steps">{steps.map(([title,body,label],i)=><article class="vx-step" data-vx-step><span class="vx-step-number">0{i+1}<span> / 03</span></span><h4>{title}</h4><p>{body}</p><span class="vx-step-result">{label} <span aria-hidden="true">↗</span></span><figure class="vx-inline-preview"><ServiceExample locale={locale} stage={i}/><figcaption>{de?'Gestaltungsbeispiel · Bilder KI-generiert':'Design example · AI-generated images'}</figcaption></figure></article>)}</div><div class="vx-stage" aria-hidden="true"><div class="vx-stage-inner"></div></div></div>
+   <p class="vx-caption">{de?'Die Beispiele zeigen mögliche Änderungen. Maßnahmen und Umfang stimmen wir mit Ihnen ab.':'These examples illustrate possible changes. We agree the work and scope with you.'}</p>
+ </div>}
+ {kind==='content'&&<div>
+   <div class="vx-heading"><div><span class="vx-eyebrow">{de?'Vom Inhalt zum Eindruck':'From information to impression'}</span><h3>{de?'Ihre Arbeit hat Charakter.':'Your work has character.'}<br/><em>{de?'Wir machen ihn sichtbar.':'We make it visible.'}</em></h3></div></div>
+   <div class="vx-editorial">
+     <div class="vx-source"><span class="vx-eyebrow">01 / {de?'Die Grundlage':'The starting point'}</span><p>{de?'Möbel nach Maß. Echtholz. Persönliche Planung.':'Bespoke furniture. Solid wood. Personal planning.'}</p><span class="vx-source-arrow" aria-hidden="true">↘</span><small>{de?'Aus Ihren Fakten entsteht eine verständliche Aussage.':'Your facts become a clear message.'}</small></div>
+     <div class="vx-type"><span class="vx-eyebrow">02 / {de?'Die Sprache':'The language'}</span><p class="vx-editorial-title">{de?'Räume mit':'Spaces with'}<br/><em>{de?'Charakter.':'character.'}</em></p><p>{de?'Wir planen und fertigen Möbel, die zu Ihrem Alltag passen. Aus echtem Holz, mit einem Blick für jedes Detail.':'We design and make furniture that fits your everyday life. In solid wood, with an eye for every detail.'}</p><div class="vx-type-specimen"><span><b>Aa</b>Arial · {de?'klar & lesbar':'clear & legible'}</span><span><b>Aa</b>Georgia · {de?'Akzent':'accent'}</span></div></div>
+     <div class="vx-mood"><Image src={interior} width={1000} format="webp" alt={de?'Generiertes Interior-Beispiel mit warmen Materialien':'Generated interior example with warm materials'} loading="lazy"/><Image class="vx-materials" src={materials} width={400} format="webp" alt={de?'Generierte Collage aus Materialien und Farbmustern':'Generated collage of materials and colour samples'} loading="lazy"/><span>03 / {de?'Die Bildwelt':'The imagery'}</span></div>
+     <div class="vx-palette">{[['#28232E',de?'Tiefe':'Depth'],['#D6BDF2',de?'Akzent':'Accent'],['#F5F2ED',de?'Ruhe':'Calm']].map(([hex,label])=><div style={`--swatch:${hex}`}><i aria-hidden="true"></i><span>{label}<code>{hex}</code></span></div>)}</div>
+   </div>
+   <p class="vx-caption">{de?'Gestaltungsbeispiel · Motive KI-generiert. Texte, Schriften und Bildsprache stimmen wir auf Ihren bestehenden Markenauftritt ab.':'Design example · AI-generated imagery. We align copy, typography and imagery with your existing brand.'}</p>
+ </div>}
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-vx-compare]').forEach(root=>{
+    const controls=root.querySelector<HTMLElement>('.vx-switch')!;
+    const buttons=[...controls.querySelectorAll('button')];
+    const panels=[...root.querySelectorAll<HTMLElement>('[data-vx-panel]')];
+    const select=(index:number)=>{panels.forEach((panel,i)=>{panel.hidden=i!==index;buttons[i].setAttribute('aria-pressed',String(i===index));});};
+    buttons.forEach((button,i)=>button.addEventListener('click',()=>select(i)));
+    select(1);controls.hidden=false;
+  });
+  document.querySelectorAll<HTMLElement>('[data-vx-evolution]').forEach(root=>{
+    const steps=[...root.querySelectorAll<HTMLElement>('[data-vx-step]')];
+    const stage=root.querySelector<HTMLElement>('.vx-stage-inner')!;
+    const panels=steps.map(step=>{const panel=step.querySelector<HTMLElement>('.vx-inline-preview')!.cloneNode(true) as HTMLElement;panel.className='vx-stage-panel';stage.append(panel);return panel;});
+    const media=matchMedia('(min-width: 960px) and (min-height: 720px) and (prefers-reduced-motion: no-preference)');
+    let frame=0;
+    const update=()=>{frame=0;const mid=innerHeight*.5;let active=0;steps.forEach((step,i)=>{if(step.getBoundingClientRect().top<mid)active=i;});panels.forEach((panel,i)=>panel.dataset.active=String(i===active));steps.forEach((step,i)=>step.dataset.active=String(i===active));};
+    const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
+    const sync=()=>{root.classList.toggle('vx-enhanced',media.matches);window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);if(media.matches){window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});update();}};
+    media.addEventListener('change',sync);sync();
+    window.addEventListener('pagehide',()=>{window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);if(frame)cancelAnimationFrame(frame);});
+    window.addEventListener('pageshow',sync);
+  });
+</script>

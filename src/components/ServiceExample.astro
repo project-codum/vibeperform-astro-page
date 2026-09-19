@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import interior from '../assets/website-service/interior.png';
+import materials from '../assets/website-service/materials.png';
+interface Props { locale: 'de'|'en'; stage?: number; before?: boolean; }
+const {locale,stage=0,before=false}=Astro.props;
+const de=locale==='de';
+---
+<div class:list={['vx-site', {'vx-site-before':before}]}>
+  <div class="vx-browser" aria-hidden="true"><i></i><i></i><i></i><span>atelier.example</span></div>
+  <div class="vx-site-nav"><strong>atelier<span> / {de?'Möbel & Räume':'Furniture & spaces'}</span></strong><span>{de?'Leistungen · Projekte':'Services · Projects'}</span></div>
+  <div class="vx-site-body">
+    <div class="vx-site-copy"><small>{de?'Individuell gefertigt':'Made for you'}</small><p class="vx-site-title">{before?(de?'Willkommen auf unserer Webseite':'Welcome to our website'):(de?'Platz für':'Space for')} {!before&&<em>{de?'Ihre Ideen.':'your ideas.'}</em>}</p><p>{before?(de?'Wir bieten Ihnen ein breites Leistungsspektrum rund um Möbel und Innenausbau.':'We offer a wide range of furniture and interior services.'):(de?'Möbel nach Maß. Für Räume, in denen Sie sich zu Hause fühlen.':'Made-to-measure furniture. For spaces that feel like home.')}</p><span class="vx-example-cta">{before?(de?'Mehr':'More'):(de?'Möbel entdecken':'Explore furniture')} <span aria-hidden="true">↗</span></span></div>
+    <Image class="vx-site-image" src={interior} width={780} format="webp" alt={de?'Generiertes Wohnraum-Motiv als Gestaltungsbeispiel':'Generated interior used as a design example'} loading="lazy"/>
+  </div>
+  {!before&&<div class="vx-site-update"><span class="vx-update-label">{de?'Neu im Angebot':'New service'}</span><strong>{de?'Einbauten, die jeden Winkel nutzen.':'Fitted furniture for every corner.'}</strong><span aria-hidden="true">↗</span></div>}
+  {before&&<div class="vx-old-links">{de?'Aktuelles / Willkommen / Sonstiges / Weitere Informationen':'News / Welcome / Other / More information'}</div>}
+  {stage>=1&&<div class="vx-project-strip"><Image src={materials} width={300} format="webp" alt={de?'Generierte Materialcollage':'Generated material collage'} loading="lazy"/><div><small>{de?'Einblick in die Gestaltung':'A closer look at the design'}</small><strong>{de?'Eiche. Licht. Klare Linien.':'Oak. Light. Clean lines.'}</strong></div><span aria-hidden="true">↗</span></div>}
+  {stage>=2&&<div class="vx-contact-strip"><div><small>{de?'Sie haben eine Idee?':'Have an idea?'}</small><strong>{de?'Erzählen Sie uns davon.':'Tell us about it.'}</strong></div><span>{de?'Projekt anfragen':'Discuss a project'} ↗</span></div>}
+</div>

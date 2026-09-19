@@ -17,7 +17,7 @@ for(const locale of ['de','en']) for(const key of serviceKeys){
   const main=html.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
   assert.deepEqual([...main.matchAll(/<section[^>]*\bid="([^"]+)"/g)].map(m=>m[1]),['ausgangslage','umfang','ablauf','weiterdenken','fragen','kontakt']);
   assert.equal((main.match(/<details\b/g)||[]).length,5);
-  assert.ok(main.includes(`sd-visual-${key}`));
+  assert.ok(main.includes(['redesign','support','content'].includes(key)?`vx-showcase vx-${key}`:`sd-visual-${key}`));
   assert.doesNotMatch(main,/lorem ipsum|TODO|TBD|href="#"/i);
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(ids.length,new Set(ids).size,'unique element IDs');
