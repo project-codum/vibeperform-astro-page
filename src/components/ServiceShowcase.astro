@@ -3,6 +3,7 @@ import {Image} from 'astro:assets';
 import interior from '../assets/website-service/interior.png';
 import materials from '../assets/website-service/materials.png';
 import ServiceExample from './ServiceExample.astro';
+import RelaunchExample from './RelaunchExample.astro';
 import '../styles/service-showcase.css';
 interface Props {kind:'redesign'|'support'|'content'; locale:'de'|'en';}
 const {kind,locale}=Astro.props;
@@ -19,9 +20,9 @@ const steps=de?[
 ---
 <div class={`vx-showcase vx-${kind}`}>
  {kind==='redesign'&&<div data-vx-compare>
-   <div class="vx-heading"><div><span class="vx-eyebrow">{de?'Ein Auftritt. Zwei Zustände.':'One website. Two states.'}</span><h3>{de?'Gutes bleibt.':'Keep what works.'} <em>{de?'Klarheit kommt dazu.':'Add clarity.'}</em></h3></div><div class="vx-switch" hidden role="group" aria-label={de?'Website-Beispiel vergleichen':'Compare the website example'}><button type="button" aria-pressed="false" aria-controls="vx-before">{de?'Vorher':'Before'}</button><button type="button" aria-pressed="true" aria-controls="vx-after">{de?'Nachher':'After'}</button></div></div>
-   {[true,false].map(before=><div id={before?'vx-before':'vx-after'} data-vx-panel><p class="vx-state-label">{before?(de?'Vorher':'Before'):(de?'Nachher':'After')}</p><ServiceExample locale={locale} before={before}/><div class="vx-takeaways">{(before?(de?['Allgemeiner Einstieg','Leistungen schwer zu überblicken','Unklarer nächster Schritt']:['Generic introduction','Services hard to scan','Unclear next step']):(de?['Leistung auf den ersten Blick','Ein Angebot mit klarer Struktur','Ein klarer nächster Schritt']:['Service clear at a glance','A clearly structured offering','A clear next step'])).map((text,i)=><p><span>0{i+1}</span>{text}</p>)}</div></div>)}
-   <p class="vx-caption">{de?'Schematisches Gestaltungsbeispiel mit generiertem Bild. Gleicher Betrieb, neu geordneter Auftritt.':'Illustrative design example with a generated image. Same business, reorganised website.'}</p>
+   <div class="vx-heading"><div><span class="vx-eyebrow">{de?'Ein Auftritt. Zwei Zustände.':'One website. Two states.'}</span><h3>{de?'Gleicher Betrieb.':'Same business.'} <em>{de?'Eine neue Website.':'A new website.'}</em></h3></div><div class="vx-switch" hidden role="group" aria-label={de?'Website-Beispiel vergleichen':'Compare the website example'}><button type="button" aria-pressed="true" aria-controls="vx-before">{de?'Vorher':'Before'}</button><button type="button" aria-pressed="false" aria-controls="vx-after">{de?'Nachher':'After'}</button></div></div>
+   {[true,false].map(before=><div id={before?'vx-before':'vx-after'} data-vx-panel><p class="vx-state-label">{before?(de?'Vorher':'Before'):(de?'Nachher':'After')}</p><RelaunchExample locale={locale} before={before}/><div class="vx-takeaways">{(before?(de?['Seitenmenü und verstreute Hinweise','Leistungen im Fließtext versteckt','Kontakt erst über eine weitere Seite']:['Sidebar and scattered information','Services buried in paragraphs','Contact requires another page']):(de?['Klares Angebot mit großem Bild','Drei Leistungen und ein visueller Einblick','Direkte Anfrage am passenden Punkt']:['Clear offering and large image','Three services and a visual example','Direct enquiry at the right point'])).map((text,i)=><p><span>0{i+1}</span>{text}</p>)}</div></div>)}
+   <p class="vx-caption">{de?'Fiktiver Schreinerbetrieb zur Veranschaulichung eines Relaunchs. Keine Kundenreferenz. Bildmotive KI-generiert.':'Fictional joinery business illustrating a website redesign. Not a client reference. AI-generated imagery.'}</p>
  </div>}
  {kind==='support'&&<div>
    <div class="vx-heading"><div><span class="vx-eyebrow">{de?'Veröffentlicht ist der Anfang':'Publishing is the beginning'}</span><h3>{de?'Ihr Betrieb wächst.':'Your business grows.'}<br/><em>{de?'Die Website wächst mit.':'Your website grows with it.'}</em></h3></div><p>{de?'Drei mögliche Verbesserungen – an einem durchgehenden Beispiel.':'Three possible improvements, shown through one continuous example.'}</p></div>
@@ -46,7 +47,7 @@ const steps=de?[
     const panels=[...root.querySelectorAll<HTMLElement>('[data-vx-panel]')];
     const select=(index:number)=>{panels.forEach((panel,i)=>{panel.hidden=i!==index;buttons[i].setAttribute('aria-pressed',String(i===index));});};
     buttons.forEach((button,i)=>button.addEventListener('click',()=>select(i)));
-    select(1);controls.hidden=false;
+    select(0);controls.hidden=false;
   });
   document.querySelectorAll<HTMLElement>('[data-vx-evolution]').forEach(root=>{
     const steps=[...root.querySelectorAll<HTMLElement>('[data-vx-step]')];

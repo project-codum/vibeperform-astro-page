@@ -35,3 +35,14 @@ Prüfen: DE/EN, Desktop und 320px, kein horizontaler Überlauf, Umschaltung per 
 - Server-HTML: beide Vergleichszustände und alle drei Betreuungsbilder ohne anfängliches Verbergen vorhanden. Reduced-Motion-Fallback im Code berücksichtigt; keine separate OS-Emulation im Browser durchgeführt.
 - Keine Browser-Konsolenfehler im Prüf-Tab beobachtet. Generierte Bilder sind als Gestaltungsbeispiele gekennzeichnet.
 - Lokal auf `develop`; nicht veröffentlicht.
+
+
+## Überarbeitung des Relaunch-Vergleichs nach Nutzerfeedback
+Ziel: Ein echter Wechsel von einer alten zur neu aufgebauten Website soll erkennbar sein. Das bisherige Motiv veränderte überwiegend den Einstieg und vermittelte zu wenig strukturellen Unterschied.
+
+- Vorher: fiktiver Schreinerbetrieb in Holzoptik, klassisches Seitenmenü, allgemeine Begrüßung, Fließtext mit kleinem Foto, separate Aktuelles-/Kontaktspalte.
+- Nachher: gleicher Betrieb und gleiche Leistungen; klare Navigation, großzügiger Einstieg, drei getrennte Leistungsangebote, großer visueller Einblick und direkter Anfrageabschnitt. Eigenständige, ruhige Grün-/Naturpalette für den Beispielbetrieb.
+- Erwartete Besucherfrage: „Was verändert sich außer den Farben?“ Beide Zustände erhalten eine ausgeschriebene Abfolge des Seitenaufbaus und drei konkrete Hinweise zu den Änderungen.
+- Der Vergleich beginnt bei „Vorher“. „Nachher“ zeigt die vollständige neue Seite mit kurzem Übergang; reduzierte Bewegung deaktiviert diesen.
+- Eigene Komponente RelaunchExample; das bestätigte Betreuungsbeispiel bleibt eigenständig. Kein konkreter Mitbewerber wurde kopiert oder als Negativbeispiel bezeichnet. Fiktiver Betrieb und generierte Motive werden gekennzeichnet.
+- Prüfung des überarbeiteten Vergleichs: alte Desktopseite, neuer Einstieg und unterer Gestaltungs-/Kontaktabschnitt visuell kontrolliert. Beide Sprachfassungen und beide Zustände bei 320px ohne horizontalen Überlauf; Wechsel per Enter bestätigt. Keine Konsolenfehler im Prüf-Tab. Build und 56 Tests erfolgreich.
