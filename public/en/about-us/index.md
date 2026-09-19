@@ -5,7 +5,7 @@ Summary: Meet Marlon Dietrich, your direct contact for websites and business pro
 
 Marlon Dietrich · Managing Director of VibePerform
 
-Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Taking responsibility for your online presence is a matter for the person at the helm.
+Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.
 
 ## Your business keeps moving. Your website should, too.
 
@@ -19,11 +19,11 @@ That’s why we bring design, content, search engine optimisation and technology
 
 I spent three years developing software for a midsize company. I then worked with several startups, developing AI agents and automated processes and turning digital ideas into usable applications.
 
-Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly, make your services visible and develop your online presence as your company grows – from your website and business profile to copy, graphics and search engine optimisation.
+Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly online so that the right projects and the right people to join your team can find you.
 
 ## Made for people. Understandable to AI.
 
-Customers can also discover businesses through AI-powered search. That’s why I plan clear service descriptions, current information and technically accessible content from the start. This helps people and digital assistants understand what you offer.
+Customers can also discover businesses through AI-powered search. We consider this from the start so that people and digital assistants can better understand what you offer.
 
 That includes clear ways to enquire. Where it suits your project, we can also plan interfaces for digital assistants as a separate part of the work.
 

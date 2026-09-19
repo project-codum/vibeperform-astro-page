@@ -7,7 +7,7 @@ export const aboutContent = {
     hero: {
       kicker: 'Marlon Dietrich · Geschäftsführer von VibePerform',
       title: 'Ihre Website sollte mit Ihrem Unternehmen', emphasis: 'leben.',
-      intro: 'Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Ihren digitalen Firmenauftritt zu verantworten ist Chefsache.',
+      intro: 'Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
       action: 'Erstgespräch vereinbaren', role: 'GF von VibePerform',
       caption: 'Persönlich verantwortlich. Von der ersten Idee an.',
     },
@@ -21,12 +21,12 @@ export const aboutContent = {
       kicker: 'Mein Weg zu VibePerform', title: 'Technik verstehen.', emphasis: 'Für Menschen gestalten.',
       paragraphs: [
         'Drei Jahre lang habe ich für ein mittelständisches Unternehmen Software entwickelt. Anschließend habe ich in verschiedenen Startups KI-Agenten und automatisierte Prozesse entwickelt und digitale Ideen in nutzbare Anwendungen übersetzt.',
-        'Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und den digitalen Firmenauftritt neu zu denken. Mit VibePerform bieten wir genau diesen Service. Wir helfen Ihnen, Ihr Unternehmen online klar zu präsentieren, Ihre Leistungen sichtbar zu machen und Ihren Auftritt mit Ihrem Betrieb weiterzuentwickeln – von der Website über Ihr Unternehmensprofil bis zu Texten, Grafiken und Suchmaschinenoptimierung.',
+        'Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und den digitalen Firmenauftritt neu zu denken. Mit VibePerform bieten wir genau diesen Service. Wir helfen Ihnen, Ihr Unternehmen online klar zu präsentieren, sodass die richtigen Aufträge und die passenden Mitarbeiter zu Ihnen finden.',
       ],
     },
     future: {
       kicker: 'Mit Blick nach vorne', title: 'Für Menschen gemacht.', emphasis: 'Auch für KI verständlich.',
-      body: 'Kunden können Unternehmen auch über KI-gestützte Suche entdecken. Deshalb denke ich klare Leistungen, aktuelle Informationen und technisch zugängliche Inhalte von Anfang an mit. So können Menschen und digitale Assistenten Ihr Angebot besser verstehen.',
+      body: 'Kunden können Unternehmen auch über KI-gestützte Suche entdecken. Das denken wir direkt mit, sodass Menschen und digitale Assistenten Ihr Angebot besser verstehen.',
       extra: 'Dazu gehören verständliche Wege zur Anfrage. Wo es zu Ihrem Vorhaben passt, können wir auch Schnittstellen für digitale Assistenten gesondert planen.',
       center: 'Ihr Unternehmen', website: 'Website', profile: 'Unternehmensprofil',
       foundation: 'Klare Leistungen · aktuelle Informationen', audience: ['Menschen', 'Suchmaschinen', 'KI-Assistenten'],
@@ -44,7 +44,7 @@ export const aboutContent = {
     hero: {
       kicker: 'Marlon Dietrich · Managing Director of VibePerform',
       title: 'Your website should grow with your', emphasis: 'business.',
-      intro: 'Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Taking responsibility for your online presence is a matter for the person at the helm.',
+      intro: 'Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.',
       action: 'Arrange an initial call', role: 'Managing Director of VibePerform',
       caption: 'Personally responsible. From the first idea onwards.',
     },
@@ -58,12 +58,12 @@ export const aboutContent = {
       kicker: 'My path to VibePerform', title: 'Understanding technology.', emphasis: 'Designing for people.',
       paragraphs: [
         'I spent three years developing software for a midsize company. I then worked with several startups, developing AI agents and automated processes and turning digital ideas into usable applications.',
-        'Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly, make your services visible and develop your online presence as your company grows – from your website and business profile to copy, graphics and search engine optimisation.',
+        'Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly online so that the right projects and the right people to join your team can find you.',
       ],
     },
     future: {
       kicker: 'Looking ahead', title: 'Made for people.', emphasis: 'Understandable to AI.',
-      body: 'Customers can also discover businesses through AI-powered search. That’s why I plan clear service descriptions, current information and technically accessible content from the start. This helps people and digital assistants understand what you offer.',
+      body: 'Customers can also discover businesses through AI-powered search. We consider this from the start so that people and digital assistants can better understand what you offer.',
       extra: 'That includes clear ways to enquire. Where it suits your project, we can also plan interfaces for digital assistants as a separate part of the work.',
       center: 'Your business', website: 'Website', profile: 'Business profile',
       foundation: 'Clear services · current information', audience: ['People', 'Search engines', 'AI assistants'],

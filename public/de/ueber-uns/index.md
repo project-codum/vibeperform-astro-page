@@ -5,7 +5,7 @@ Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner f�
 
 Marlon Dietrich · Geschäftsführer von VibePerform
 
-Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Ihren digitalen Firmenauftritt zu verantworten ist Chefsache.
+Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.
 
 ## Ihr Unternehmen steht nicht still. Ihr Auftritt auch nicht.
 
@@ -19,11 +19,11 @@ Deshalb verbinden wir Gestaltung, Inhalte, Suchmaschinenoptimierung und Technik.
 
 Drei Jahre lang habe ich für ein mittelständisches Unternehmen Software entwickelt. Anschließend habe ich in verschiedenen Startups KI-Agenten und automatisierte Prozesse entwickelt und digitale Ideen in nutzbare Anwendungen übersetzt.
 
-Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und den digitalen Firmenauftritt neu zu denken. Mit VibePerform bieten wir genau diesen Service. Wir helfen Ihnen, Ihr Unternehmen online klar zu präsentieren, Ihre Leistungen sichtbar zu machen und Ihren Auftritt mit Ihrem Betrieb weiterzuentwickeln – von der Website über Ihr Unternehmensprofil bis zu Texten, Grafiken und Suchmaschinenoptimierung.
+Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und den digitalen Firmenauftritt neu zu denken. Mit VibePerform bieten wir genau diesen Service. Wir helfen Ihnen, Ihr Unternehmen online klar zu präsentieren, sodass die richtigen Aufträge und die passenden Mitarbeiter zu Ihnen finden.
 
 ## Für Menschen gemacht. Auch für KI verständlich.
 
-Kunden können Unternehmen auch über KI-gestützte Suche entdecken. Deshalb denke ich klare Leistungen, aktuelle Informationen und technisch zugängliche Inhalte von Anfang an mit. So können Menschen und digitale Assistenten Ihr Angebot besser verstehen.
+Kunden können Unternehmen auch über KI-gestützte Suche entdecken. Das denken wir direkt mit, sodass Menschen und digitale Assistenten Ihr Angebot besser verstehen.
 
 Dazu gehören verständliche Wege zur Anfrage. Wo es zu Ihrem Vorhaben passt, können wir auch Schnittstellen für digitale Assistenten gesondert planen.
 
