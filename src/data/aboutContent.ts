@@ -6,7 +6,7 @@ export const aboutContent = {
     metaDescription: 'Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.',
     hero: {
       kicker: 'Marlon Dietrich · Geschäftsführer von VibePerform',
-      title: 'Ihre Website sollte mit Ihrem Unternehmen', emphasis: 'leben.',
+      title: 'Ihre Webseite ist Ihre', emphasis: 'digitale Visitenkarte.',
       intro: 'Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
       action: 'Erstgespräch vereinbaren', role: 'GF von VibePerform',
       caption: 'Persönlich verantwortlich. Von der ersten Idee an.',
@@ -43,7 +43,7 @@ export const aboutContent = {
     metaDescription: 'Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.',
     hero: {
       kicker: 'Marlon Dietrich · Managing Director of VibePerform',
-      title: 'Your website should grow with your', emphasis: 'business.',
+      title: 'Your website is your', emphasis: 'digital business card.',
       intro: 'Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.',
       action: 'Arrange an initial call', role: 'Managing Director of VibePerform',
       caption: 'Personally responsible. From the first idea onwards.',

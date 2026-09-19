@@ -188,3 +188,5 @@ Prüfung der Browserkorrekturen: Build und sieben betroffene Tests bestanden. DE
 - Der zweite Werdegang-Absatz endet nach „… sodass die richtigen Aufträge und die passenden Mitarbeiter zu Ihnen finden.“ Die anschließende Leistungsaufzählung entfällt.
 - KI-Suche: „Das denken wir direkt mit, sodass Menschen und digitale Assistenten Ihr Angebot besser verstehen.“
 - Entsprechende englische Texte und generierte Markdown-Ausgaben aktualisiert.
+
+Weitere Hero-Korrektur auf Nutzerwunsch: „Ihre Webseite ist Ihre digitale Visitenkarte.“ Die Betonung liegt auf „digitale Visitenkarte.“; Englisch: „Your website is your digital business card.“ Die Mission des mitwachsenden Auftritts bleibt im Folgeabschnitt erhalten.
