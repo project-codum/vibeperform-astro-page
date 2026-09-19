@@ -54,7 +54,7 @@ Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren
 
 Pflege · Auswertung · Verbesserung
 
-[Mehr zur Betreuung](https://www.vibeperform.com/de/leistungen/#betreuung)
+[Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ### Unternehmensprofile pflegen
 
@@ -62,7 +62,7 @@ Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet
 
 Google-Profil · Informationen · Aktualität
 
-[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/leistungen/#google-profil)
+[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
 ### SEO, Texte & Grafiken
 
@@ -70,7 +70,7 @@ Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimieru
 
 Suchmaschinen · Inhalte · Gestaltung
 
-[SEO und Inhalte entdecken](https://www.vibeperform.com/de/leistungen/#seo)
+[SEO und Inhalte entdecken](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
 Ergänzend unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
 ## Eine Website, die nie veraltet.
@@ -340,7 +340,7 @@ Ihr Betrieb hat sich verändert. Wir prüfen, was an Ihrer Website noch passt, u
 - Inhalte und Kontaktwege verbessern
 - Überarbeitung oder Neuaufbau planen
 
-[Überarbeitung besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zur Überarbeitung](https://www.vibeperform.com/de/website-ueberarbeiten/)
 
 ## Website betreuen & weiterentwickeln
 
@@ -350,7 +350,7 @@ Neue Leistungen, aktuelle Projekte und Hinweise aus Nutzungsdaten: Wir machen da
 - Such- und Nutzungsdaten einordnen
 - Anpassungen gemeinsam priorisieren
 
-[Betreuung besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Suchmaschinenoptimierung
 
@@ -360,7 +360,7 @@ Wir richten Struktur und Inhalte auf die Fragen Ihrer Kunden aus. Damit Ihr Ange
 - Seiten und Inhalte gezielt optimieren
 - Entwicklung anhand verfügbarer Daten prüfen
 
-[SEO besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zur Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
 ## Google-Unternehmensprofil
 
@@ -370,7 +370,7 @@ Leistungen, Öffnungszeiten, Bilder und Kontaktdaten sollen zusammenpassen. Wir 
 - Unternehmensangaben mit der Website abstimmen
 - Änderungen im vereinbarten Umfang pflegen
 
-[Unternehmensprofil besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
 ## Texte & Grafiken
 
@@ -380,7 +380,7 @@ Wir bringen auf den Punkt, was Ihren Betrieb ausmacht. Mit verständlichen Texte
 - Projekte und Referenzen aufbereiten
 - Bilder bearbeiten und Grafiken gestalten
 
-[Inhalte besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zu Texten und Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
 
 ## Ein guter Start. Ein Auftritt, der mitwächst.
 
@@ -501,7 +501,7 @@ Neue Angebote und Projekte gehören auf Ihre Website. Suchanfragen und verfügba
 
 Mit einer passenden Betreuung halten wir Ihren Auftritt aktuell und entwickeln ihn gemeinsam weiter. Aufgaben und Umfang vereinbaren wir vorab.
 
-[Mehr zur laufenden Betreuung](https://www.vibeperform.com/de/leistungen/#betreuung)
+[Mehr zur laufenden Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Sie führen einen Handwerksbetrieb?
 
@@ -532,6 +532,600 @@ Das hängt vom Umfang und den verfügbaren Inhalten ab. Nach der ersten Abstimmu
 Ja. Wir bieten laufende Betreuung und Weiterentwicklung an. Welche Inhalte, technischen Aufgaben und Optimierungen dazugehören, vereinbaren wir passend zu Ihrem Bedarf.
 
 ## Kontakt
+
+[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+
+contact@vibeperform.com
+
+---
+
+# Website überarbeiten
+Canonical URL: https://www.vibeperform.com/de/website-ueberarbeiten/
+English alternate: https://www.vibeperform.com/en/website-redesign/
+Summary: Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
+
+Ihr Betrieb ist weiter. Ihre Website auch?
+
+Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.
+
+## Es hat sich viel verändert. Zeit, es zu zeigen.
+
+### Die Leistungen sind weiter als die Website.
+
+Neue Angebote, Projekte oder Zielgruppen tauchen auf Ihrer Website kaum auf. Besucher sehen einen Stand, der Ihren Betrieb nicht mehr richtig beschreibt.
+
+### Der nächste Schritt bleibt unklar.
+
+Informationen sind verteilt, wichtige Fragen bleiben offen und der Kontaktweg ist schwer zu finden.
+
+### Auf dem Handy wird es mühsam.
+
+Texte, Bilder oder Navigation funktionieren auf kleinen Bildschirmen nicht so, wie Ihre Kunden es brauchen.
+
+## Das Gute bleibt. Der Rest wird besser.
+
+Aus dem bestehenden Auftritt entwickeln wir einen konkreten Überarbeitungsplan. Der Umfang reicht von gezielten Änderungen bis zu einem abgestimmten Relaunch.
+
+### Bestand verstehen
+
+Wir sehen uns Seiten, Inhalte, Kontaktwege und die technische Grundlage an. Daraus entsteht ein Überblick über das, was bleiben kann und wo Handlungsbedarf besteht.
+
+### Struktur und Inhalte ordnen
+
+Leistungen bekommen einen klaren Platz. Wir aktualisieren vereinbarte Texte und planen fehlende Inhalte aus Sicht Ihrer Kunden.
+
+### Gestaltung und Bedienung verbessern
+
+Schrift, Bilder, Abstände und Navigation werden zu einem stimmigen Auftritt. Desktop und Mobilgeräte werden gemeinsam berücksichtigt.
+
+### Änderungen umsetzen und prüfen
+
+Wir setzen den vereinbarten Umfang um und prüfen Darstellung und Kontaktwege. Werden Adressen verändert, berücksichtigen wir erforderliche Weiterleitungen.
+
+Ob das vorhandene System geeignet ist und welche Inhalte übernommen werden können, klären wir vor der Umsetzung. Ein vollständiger Neuaufbau oder zusätzliche Funktionen werden ausdrücklich vereinbart.
+
+## Zusammenarbeit
+
+### Website gemeinsam ansehen
+
+Sie zeigen uns den aktuellen Auftritt und erklären, was sich im Betrieb verändert hat. Wir prüfen Inhalte und verfügbare Zugänge.
+
+### Überarbeitung festlegen
+
+Wir stimmen Prioritäten, betroffene Seiten und gewünschte Änderungen ab. Sie sehen, was erhalten bleibt und was neu entsteht.
+
+### Umsetzen und abstimmen
+
+Sie prüfen die Vorschau und die fachlichen Angaben. Danach stimmen wir Veröffentlichung und Übergabe ab.
+
+Wir brauchen die bestehende Website, passende Zugänge, aktuelle Unternehmensinformationen und eine Person, die Rückmeldungen bündelt.
+
+## Passende nächste Schritte
+
+[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+
+[Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
+
+## Häufige Fragen
+
+### Muss meine Website komplett neu gebaut werden?
+
+Das entscheiden wir nach einem Blick auf die bestehende Website. Oft lassen sich Inhalte und Teile der Gestaltung weiterverwenden. Bei technischen oder strukturellen Grenzen kann ein Neuaufbau sinnvoll sein.
+
+### Können Sie mit unserem vorhandenen System arbeiten?
+
+Wir prüfen zuerst das eingesetzte System und die verfügbaren Zugänge. Danach können wir sagen, welche Änderungen darin möglich sind und ob eine andere technische Grundlage sinnvoll ist.
+
+### Was passiert mit bestehenden Seiten und Links?
+
+Wir berücksichtigen die vorhandenen Seitenadressen im Überarbeitungsplan. Bei Änderungen planen wir notwendige Weiterleitungen und prüfen wichtige interne Links.
+
+### Was kostet eine Überarbeitung?
+
+Der Aufwand hängt vom Bestand und den gewünschten Änderungen ab. Nach der Bestandsaufnahme erhalten Sie ein Angebot für den konkret vereinbarten Umfang.
+
+### Können Sie die Website danach weiter betreuen?
+
+Ja, eine anschließende Betreuung können wir passend zum System und Ihrem Bedarf vereinbaren. Inhaltliche Änderungen und technische Aufgaben werden dabei konkret festgelegt.
+
+## Kontakt
+
+Zeigen Sie uns Ihre aktuelle Website. Gemeinsam klären wir, was heute noch passt und was sich verändern sollte.
+
+[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+
+contact@vibeperform.com
+
+---
+
+# Website betreuen & weiterentwickeln
+Canonical URL: https://www.vibeperform.com/de/website-betreuung/
+English alternate: https://www.vibeperform.com/en/website-support/
+Summary: Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
+
+Ihr Unternehmen verändert sich. Wir halten den Auftritt aktuell.
+
+Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.
+
+## Im Betrieb geht es weiter. Online bleibt etwas liegen.
+
+### Für die Pflege fehlt die Zeit.
+
+Neue Informationen sind vorhanden, schaffen es aber nicht auf die Website. Aktualisierungen werden immer wieder verschoben.
+
+### Es gibt viele Ideen, aber keine Reihenfolge.
+
+Sie wissen, dass sich etwas verbessern ließe. Was zuerst sinnvoll ist, bleibt zwischen Tagesgeschäft und technischen Fragen offen.
+
+### Es ist unklar, wer sich kümmert.
+
+Inhaltliche Änderungen und technische Aufgaben haben keine feste Zuständigkeit. Sie möchten nachvollziehen können, was erledigt wurde.
+
+## Aktuell halten. Gezielt weiterentwickeln.
+
+Wir legen gemeinsam fest, welche Aufgaben zu Ihrer Betreuung gehören. Fachliche Änderungen im Betrieb und verfügbare Daten helfen, sinnvolle Prioritäten zu setzen.
+
+### Inhalte pflegen
+
+Vereinbarte Änderungen an Leistungen, Kontaktdaten, Bildern und Projekten werden auf der Website umgesetzt.
+
+### Hinweise aus Daten einordnen
+
+Soweit passende Datenquellen verfügbar sind, betrachten wir Suchfragen und Nutzung. Wir halten fest, welche Beobachtungen eine Anpassung nahelegen.
+
+### Verbesserungen umsetzen
+
+Aus den abgestimmten Prioritäten entstehen konkrete Änderungen an Texten, Abschnitten oder Kontaktwegen. Umfang und Reihenfolge bleiben nachvollziehbar.
+
+### Technische Aufgaben abstimmen
+
+Wir klären, welche Prüfungen und Wartungsaufgaben zur eingesetzten Technik passen und übernommen werden sollen. Inhaltliche Pflege und technische Wartung werden getrennt beschrieben.
+
+Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt.
+
+## Zusammenarbeit
+
+### Ausgangspunkt klären
+
+Wir prüfen Website, Zugänge und vorhandene Informationen. Gemeinsam legen wir Zuständigkeiten und den passenden Betreuungsumfang fest.
+
+### Nächste Aufgaben bestimmen
+
+Sie melden Änderungen im Betrieb. Wir ordnen diese mit vorhandenen Beobachtungen ein und stimmen die nächsten Verbesserungen ab.
+
+### Umsetzen und rückmelden
+
+Wir bearbeiten die vereinbarten Aufgaben und dokumentieren den Stand. Spätere Beobachtungen helfen, die nächsten Schritte zu bestimmen.
+
+Sie informieren uns über Änderungen im Unternehmen, ermöglichen die vereinbarten Zugänge und prüfen neue fachliche Aussagen. Wir übernehmen die abgestimmte Arbeit am Auftritt.
+
+## Passende nächste Schritte
+
+[Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
+
+[Google-Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
+
+## Häufige Fragen
+
+### Ist Website-Betreuung dasselbe wie technische Wartung?
+
+Technische Wartung und inhaltliche Weiterentwicklung erfüllen unterschiedliche Aufgaben. Wir beschreiben im Angebot, welche technischen Prüfungen und welche Arbeiten an Inhalten oder Gestaltung enthalten sind.
+
+### Betreuen Sie auch Websites, die jemand anderes erstellt hat?
+
+Wir sehen uns zuerst Technik, Zustand und Zugänge an. Danach klären wir, welche Betreuung wir für die vorhandene Website sinnvoll übernehmen können.
+
+### Wird meine Website automatisch verändert?
+
+Neue fachliche Aussagen und Änderungen stimmen wir im vereinbarten Ablauf mit Ihnen ab. Die Betreuung berücksichtigt Ihre Informationen und Prioritäten.
+
+### Was passiert, wenn nur wenige Nutzungsdaten vorliegen?
+
+Dann arbeiten wir mit konkreten Befunden, Kundenfragen und Änderungen in Ihrem Betrieb. Aus einer kleinen Datenbasis leiten wir keine vermeintlich gesicherten Erfolgssteigerungen ab.
+
+### Was kostet die Betreuung und wie ist sie kündbar?
+
+Preis, Arbeitsumfang, Laufzeit und Kündigungsbedingungen legen wir im konkreten Angebot fest. So ist vor Beginn klar, welche Aufgaben und Bedingungen vereinbart sind.
+
+## Kontakt
+
+Welche Änderungen bleiben bei Ihnen liegen? Erzählen Sie uns von Ihrer Website und dem Bedarf, den wir übernehmen sollen.
+
+[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+
+contact@vibeperform.com
+
+---
+
+# Suchmaschinenoptimierung
+Canonical URL: https://www.vibeperform.com/de/suchmaschinenoptimierung/
+English alternate: https://www.vibeperform.com/en/search-engine-optimisation/
+Summary: SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
+
+Die richtigen Fragen. Die passenden Antworten.
+
+Ihre Kunden suchen nach einer Lösung. Wir richten Struktur und Inhalte Ihrer Website auf die Leistungen aus, die Sie tatsächlich anbieten – und auf die Fragen, die Menschen dazu stellen.
+
+## Ihr Angebot ist da. Findet man die Antwort?
+
+### Wichtige Leistungen haben keinen Platz.
+
+Was Sie anbieten, steht nur beiläufig auf der Website. Für konkrete Anliegen fehlt eine verständliche, passende Seite.
+
+### Die Begriffe passen nicht zu den Kundenfragen.
+
+Interne Bezeichnungen und allgemeine Aussagen erklären wenig. Besucher müssen sich selbst zusammenreimen, ob Ihr Betrieb ihnen helfen kann.
+
+### Optimierung bleibt abstrakt.
+
+Es gibt viele mögliche Maßnahmen. Sie möchten wissen, welche Seiten wir warum bearbeiten und was sich tatsächlich verändert.
+
+## Suchfragen verstehen. Seiten gezielt verbessern.
+
+Wir verbinden Recherche mit konkreter Arbeit an Ihrer Website. Welche Maßnahmen sinnvoll sind, ergibt sich aus Ihrem Angebot, dem vorhandenen Auftritt und der verfügbaren Datenbasis.
+
+### Suchbegriffe und Fragen recherchieren
+
+Wir untersuchen, wie Menschen nach Ihren Leistungen suchen, und ordnen relevante Begriffe den tatsächlichen Angeboten Ihres Betriebs zu.
+
+### Seiten klar ausrichten
+
+Jede wichtige Seite bekommt eine verständliche Aufgabe. Überschriften, Beschreibungen und interne Verlinkungen führen zu passenden Informationen.
+
+### Inhalte und Grundlagen verbessern
+
+Wir prüfen vorhandene Inhalte und ausgewählte technische Grundlagen. Daraus entstehen konkrete Anpassungen oder ein Briefing für benötigte neue Inhalte.
+
+### Entwicklung nachvollziehen
+
+Wir dokumentieren umgesetzte Maßnahmen und betrachten verfügbare Such- und Nutzungsdaten. Beobachtungen und Vermutungen bleiben unterscheidbar.
+
+SEO ist Arbeit an Auffindbarkeit und Verständlichkeit. Bestimmte Platzierungen, Besucherzahlen oder Anfragen können wir nicht zusagen. Umfangreiche neue Inhalte und bezahlte Werbung sind eigene Aufgaben.
+
+## Zusammenarbeit
+
+### Angebot und Ausgangslage klären
+
+Wir besprechen Leistungen, Zielkunden und Region. Bestehende Seiten und verfügbare Daten bilden den Ausgangspunkt.
+
+### Maßnahmen priorisieren
+
+Sie erhalten eine verständliche Reihenfolge der vorgesehenen Arbeiten. Wir stimmen Seiten, Inhalte und Zuständigkeiten ab.
+
+### Verbessern und beobachten
+
+Wir setzen die vereinbarten Maßnahmen um. Anhand verfügbarer Beobachtungen besprechen wir sinnvolle nächste Schritte.
+
+Von Ihnen brauchen wir verlässliche Angaben zu Leistungen, Zielkunden und Einsatzgebiet sowie passende Website- und Analysezugänge, soweit vorhanden.
+
+## Passende nächste Schritte
+
+[Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
+
+[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+
+## Häufige Fragen
+
+### Können Sie Platz eins bei Google garantieren?
+
+Nein. Wir bearbeiten die vereinbarten Inhalte und Grundlagen Ihrer Website. Wie Suchmaschinen Seiten einordnen und wie viele Anfragen daraus entstehen, können wir nicht garantieren.
+
+### Ist SEO bei einer neuen Website schon enthalten?
+
+Die vereinbarte erstmalige SEO-Arbeit gehört zum Website-Projekt. Weitergehende Recherche, zusätzliche Inhalte und laufende Optimierung stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht doppelt angesetzt.
+
+### Brauchen wir dafür ständig neue Blogartikel?
+
+Nicht automatisch. Zuerst betrachten wir Ihre vorhandenen Leistungsseiten und die Fragen Ihrer Kunden. Manchmal ist eine präzisere bestehende Seite sinnvoller als ein zusätzlicher Artikel.
+
+### Wie beurteilen wir Fortschritt?
+
+Wir halten bearbeitete Seiten und Änderungen fest. Wenn geeignete Daten vorliegen, betrachten wir zusätzlich die Entwicklung relevanter Suchfragen und der Nutzung. Den Beobachtungszeitraum stimmen wir passend ab.
+
+### Was kostet Suchmaschinenoptimierung?
+
+Das hängt von Website, Ausgangslage und Umfang der Maßnahmen ab. Wir vereinbaren einen konkreten Auftrag oder einen passenden Umfang für die laufende Betreuung.
+
+## Kontakt
+
+Welche Leistungen sollen Ihre Kunden besser finden und verstehen? Gemeinsam schauen wir auf Ihre Website und den nächsten sinnvollen Schritt.
+
+[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+
+contact@vibeperform.com
+
+---
+
+# Google-Unternehmensprofil
+Canonical URL: https://www.vibeperform.com/de/google-unternehmensprofil/
+English alternate: https://www.vibeperform.com/en/google-business-profile/
+Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.
+
+Vor Ort bekannt. Online klar erkennbar.
+
+Aktuelle Öffnungszeiten, passende Leistungen und ein direkter Weg zu Ihnen. Wir unterstützen Sie bei der Einrichtung, Überarbeitung und vereinbarten Pflege Ihres Google-Unternehmensprofils.
+
+## Der erste Kontakt beginnt oft vor Ihrer Website.
+
+### Die Angaben sind nicht mehr aktuell.
+
+Geänderte Zeiten, neue Leistungen oder veraltete Bilder vermitteln ein unvollständiges Bild Ihres Betriebs.
+
+### Website und Profil erzählen Verschiedenes.
+
+Kontaktangaben und Leistungsbeschreibungen passen nicht zusammen. Interessenten müssen selbst herausfinden, welche Information stimmt.
+
+### Niemand fühlt sich für die Pflege zuständig.
+
+Das Profil besteht, doch Zugriff und laufende Änderungen sind ungeklärt. Sie möchten eine verlässliche Abstimmung.
+
+## Die richtigen Angaben. Ein stimmiger Eindruck.
+
+Wir beginnen mit dem vorhandenen Stand. Ein bestehendes Profil kann häufig gezielt überarbeitet werden; eine Einrichtung betrachten wir passend zur tatsächlichen Situation.
+
+### Profil und Zugriff prüfen
+
+Wir klären, ob bereits ein Profil besteht, welche Zugänge vorhanden sind und welche Schritte für die Bearbeitung noch fehlen.
+
+### Unternehmensangaben abstimmen
+
+Name, Kontaktwege, Zeiten und angebotene Leistungen werden mit Ihren aktuellen Informationen und der Website abgeglichen.
+
+### Bilder und Verweise aufbereiten
+
+Geeignete bereitgestellte Bilder und passende Website-Verweise ergänzen den Auftritt. Wir achten auf verständliche und zusammenpassende Inhalte.
+
+### Pflege organisieren
+
+Für spätere Änderungen legen wir einen klaren Ablauf fest. Vereinbarte Anpassungen und noch offene Schritte werden nachvollziehbar festgehalten.
+
+Einrichtung und laufende Pflege werden nach Bedarf vereinbart. Weitere Standorte, Beiträge und Antworten auf Bewertungen gehören nur im ausdrücklich vereinbarten Umfang dazu. Freischaltung und Platzierung liegen nicht in unserer Hand.
+
+## Zusammenarbeit
+
+### Ausgangslage ansehen
+
+Sie zeigen uns das vorhandene Profil oder beschreiben Ihren Bedarf. Gemeinsam klären wir Zugriff und aktuelle Geschäftsinformationen.
+
+### Inhalte vorbereiten
+
+Wir stimmen Angaben, Leistungen, Bilder und Verlinkungen mit Ihnen ab. Sie bestätigen die fachliche Richtigkeit.
+
+### Bearbeiten und rückmelden
+
+Wir setzen die vereinbarten Änderungen um und halten offene Schritte fest. Bei erforderlichen Bestätigungen ist Ihre Mitwirkung nötig.
+
+Sie ermöglichen berechtigten Zugriff, liefern korrekte Geschäftsdaten und nutzbare Bilder und wirken bei erforderlichen Bestätigungen mit.
+
+## Passende nächste Schritte
+
+[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+
+[Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
+
+## Häufige Fragen
+
+### Brauchen wir ein neues Profil?
+
+Das prüfen wir zuerst. Wenn bereits ein geeignetes Profil vorhanden ist, kann eine Überarbeitung ausreichen. Der konkrete Einstieg richtet sich nach dem Bestand und Ihrem Zugriff.
+
+### Können Sie eine Freischaltung garantieren?
+
+Nein. Wir begleiten die vereinbarten Schritte und halten den Bearbeitungsstand fest. Erforderliche Bestätigungen und Entscheidungen der Plattform können wir nicht ersetzen.
+
+### Kümmern Sie sich auch um Bewertungen und Beiträge?
+
+Wenn dies gewünscht ist, vereinbaren wir Aufgaben und Abstimmung gesondert. Eine laufende Rundumbetreuung von Bewertungen und Beiträgen ist nicht automatisch enthalten.
+
+### Geht das auch für mehrere Standorte?
+
+Wir klären zunächst die tatsächlichen Standorte, vorhandenen Profile und Zuständigkeiten. Der Aufwand und die benötigten Arbeiten werden je Vorhaben abgestimmt.
+
+### Was kosten Einrichtung und Pflege?
+
+Einrichtung, Überarbeitung und laufende Pflege haben unterschiedliche Umfänge. Nach einem Blick auf den vorhandenen Stand erstellen wir ein passendes Angebot.
+
+## Kontakt
+
+Ist Ihr Profil aktuell, vollständig und zugänglich? Gemeinsam klären wir den vorhandenen Stand und die Aufgaben, bei denen Sie Unterstützung möchten.
+
+[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+
+contact@vibeperform.com
+
+---
+
+# Texte & Grafiken
+Canonical URL: https://www.vibeperform.com/de/texte-grafiken/
+English alternate: https://www.vibeperform.com/en/copy-graphics/
+Summary: Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
+
+Ihre Arbeit hat Substanz. Ihr Inhalt zeigt sie.
+
+Sie kennen Ihren Betrieb. Wir bringen seine Leistungen auf den Punkt und gestalten die passenden Inhalte für Ihren digitalen Auftritt – verständlich, stimmig und auf Ihre Kunden ausgerichtet.
+
+## Viel zu erzählen. Noch nicht auf den Punkt.
+
+### Die Texte klingen wie ein Fachgespräch.
+
+Was für Sie selbstverständlich ist, bleibt für Interessenten unklar. Der Nutzen Ihrer Arbeit geht zwischen Fachbegriffen verloren.
+
+### Gute Arbeit bleibt unsichtbar.
+
+Aktuelle Projekte und praktische Beispiele liegen in Ordnern. Auf der Website findet sich davon wenig.
+
+### Die Materialien passen nicht zusammen.
+
+Bilder, Texte und Grafiken stammen aus unterschiedlichen Zeiten. Dem Auftritt fehlt eine erkennbare gemeinsame Linie.
+
+## Inhalte mit Aussage. Gestaltung mit Zusammenhang.
+
+Wir stimmen zuerst ab, welche Inhalte Sie für welchen Einsatz brauchen. Daraus entsteht ein klar begrenzter Auftrag mit passenden Texten, Bildern oder Grafiken.
+
+### Inhalte planen
+
+Wir klären Zielgruppe, Aussage und Verwendungsort. Ihre Informationen werden zu einer verständlichen Struktur für die benötigten Inhalte.
+
+### Texte formulieren
+
+Wir schreiben oder überarbeiten vereinbarte Leistungsbeschreibungen, Seitentexte und Projektvorstellungen – auf Basis Ihrer tatsächlichen Arbeit.
+
+### Bilder und Grafiken gestalten
+
+Vorhandene Bilder werden für den Einsatz aufbereitet. Vereinbarte Grafiken und Bildkombinationen orientieren sich an Ihrer Marke und der jeweiligen Aussage.
+
+### Abstimmen und übergeben
+
+Sie prüfen fachliche Angaben und geben Rückmeldung. Danach bauen wir die Inhalte wie vereinbart ein oder übergeben die passenden Dateien.
+
+Seiten, Formate, Sprachen, Korrekturen und Nutzungsumfang legen wir vorab fest. Fotoshooting, Logoentwicklung und umfangreiche zusätzliche Inhalte sind keine pauschalen Bestandteile.
+
+## Zusammenarbeit
+
+### Informationen sammeln
+
+Sie erklären Leistungen, Kunden und das gewünschte Thema. Wir sichten vorhandene Texte, Bilder und belegbare Beispiele.
+
+### Entwurf entwickeln
+
+Wir bringen Struktur, Sprache und Gestaltung zusammen. Sie erhalten einen Entwurf für den vereinbarten Einsatz.
+
+### Prüfen und fertigstellen
+
+Sie bestätigen Fakten und Nutzungsberechtigungen. Wir arbeiten das abgestimmte Feedback ein und bereiten Einbau oder Übergabe vor.
+
+Sie liefern Fachinformationen, vorhandenes Material und echte Beispiele. Welche Inhalte fehlen und wie wir sie ergänzen, klären wir gemeinsam.
+
+## Passende nächste Schritte
+
+[Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
+
+[Website überarbeiten](https://www.vibeperform.com/de/website-ueberarbeiten/)
+
+## Häufige Fragen
+
+### Müssen wir die Texte selbst vorschreiben?
+
+Nein. Wir brauchen Ihre Fachinformationen und die wichtigsten Aussagen. Daraus können wir Texte entwickeln. Vorhandene Entwürfe und Materialien sind hilfreich, aber kein fertiger Website-Text ist Voraussetzung.
+
+### Können Sie bestehende Texte verbessern?
+
+Ja. Wir prüfen Verständlichkeit, Aufbau und Passung zur Zielgruppe. Danach überarbeiten wir den vereinbarten Inhalt auf Basis Ihrer aktuellen Angaben.
+
+### Verwenden Sie KI-generierte Bilder?
+
+Wenn ein generiertes Motiv für den vereinbarten Zweck geeignet ist, können wir es einsetzen. Echte Projekte und Kundenreferenzen werden dadurch nicht erfunden oder ersetzt. Die passende Bildquelle wird vorab geklärt.
+
+### Sind Texte und Grafiken bei der Website-Erstellung schon enthalten?
+
+Die vereinbarten Inhalte gehören zum Website-Projekt. Zusätzliche Seiten, spätere Projektberichte oder weitere Grafiken stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht nochmals angesetzt.
+
+### Was kostet ein Text- oder Grafikauftrag?
+
+Wir kalkulieren nach benötigten Inhalten, vorhandenen Grundlagen, Formaten und dem vereinbarten Korrekturumfang. Sie erhalten ein konkretes Angebot für die gewünschte Lieferung.
+
+## Kontakt
+
+Welche Leistung, welches Projekt oder welche Idee soll verständlich werden? Zeigen Sie uns Ihr Material und den vorgesehenen Einsatz.
+
+[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+
+contact@vibeperform.com
+
+---
+
+# KI-Beratung
+Canonical URL: https://www.vibeperform.com/de/ki-strategie/
+English alternate: https://www.vibeperform.com/en/ai-strategy/
+Summary: Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.
+
+Weniger Rätsel um KI. Ein klarer nächster Schritt.
+
+Welche wiederkehrende Aufgabe kostet Ihr Büro Zeit? Wir betrachten einen konkreten Arbeitsablauf und prüfen, wo KI sinnvoll vorbereiten kann, welche Informationen sie braucht und was Menschen entscheiden.
+
+## Die Aufgabe ist konkret. Die Möglichkeiten sind unklar.
+
+### Büroarbeit wiederholt sich.
+
+Informationen aus Anfragen, Dokumenten und Notizen werden immer wieder zusammengesucht und neu aufbereitet.
+
+### Werkzeuge gibt es viele.
+
+Sie möchten einschätzen können, welche Unterstützung zu Ihren Aufgaben und vorhandenen Systemen passt.
+
+### Die Verantwortung soll klar bleiben.
+
+Fachliche Aussagen, Preise, Termine und Versand brauchen verlässliche Prüfpunkte. Sie möchten verstehen, wo Grenzen liegen.
+
+## Den Ablauf verstehen. Eine fundierte Richtung finden.
+
+Unser Einstieg ist Ihre tatsächliche Arbeit. Wir ordnen Aufgaben, Informationsquellen und Entscheidungspunkte, bevor wir den Einsatz eines Werkzeugs besprechen.
+
+### Aufgabe und Informationen erfassen
+
+Wir betrachten einen typischen Ablauf und klären, welche Informationen in welchen Programmen oder Dokumenten vorliegen.
+
+### Eignung und Grenzen beurteilen
+
+Welche Schritte lassen sich vorbereiten? Wo fehlen Informationen, und wann muss ein Mensch prüfen oder entscheiden? Wir machen diese Grenzen sichtbar.
+
+### Werkzeugbedarf einordnen
+
+Wenn eine konkrete Auswahl sinnvoll ist, bestimmen wir die Anforderungen und klären den passenden Umfang einer Werkzeugprüfung.
+
+### Nächsten Schritt beschreiben
+
+Wir fassen die Einschätzung nachvollziehbar zusammen und besprechen Voraussetzungen, Prioritäten und eine mögliche weitere Umsetzung.
+
+Beratung liefert eine Entscheidungsgrundlage. Softwarekauf, Einführung und individuelle Automatisierung werden bei Bedarf gesondert vereinbart. Eine bestimmte Zeitersparnis oder pauschale Konformität wird nicht zugesagt.
+
+## Zusammenarbeit
+
+### Einen Ablauf auswählen
+
+Sie bringen eine typische Aufgabe und geeignete Beispiele mit. Wir klären Ziel und vorhandene Arbeitsmittel.
+
+### Möglichkeiten prüfen
+
+Wir ordnen Schritte und Informationsquellen. Geeignete Assistenzaufgaben und notwendige menschliche Prüfpunkte werden festgehalten.
+
+### Gemeinsam entscheiden
+
+Sie erhalten eine nachvollziehbare Einschätzung und einen priorisierten nächsten Schritt. Über Kauf, Einsatz und Umsetzung entscheiden Sie.
+
+Hilfreich sind eine konkrete wiederkehrende Aufgabe, eine Person, die den Ablauf kennt, und geeignete Beispiele ohne unnötige vertrauliche Angaben.
+
+## Passende nächste Schritte
+
+[KI-Potenzialanalyse](https://www.vibeperform.com/de/ki-potenzialanalyse/)
+
+[Alle Leistungen](https://www.vibeperform.com/de/leistungen/)
+
+## Häufige Fragen
+
+### Müssen wir bereits ein KI-Werkzeug nutzen?
+
+Nein. Ausgangspunkt ist Ihre Aufgabe und die vorhandene Arbeitsweise. Ob ein zusätzliches Werkzeug sinnvoll ist, ergibt sich erst aus der Betrachtung.
+
+### Entscheidet KI dann über Preise, Termine oder Kundenkommunikation?
+
+Die Beratung beschreibt, was eine Assistenz vorbereiten könnte und wo Menschen prüfen und entscheiden. Verantwortlichkeiten und Freigaben werden nicht stillschweigend an ein System abgegeben.
+
+### Ist eine fertige Automatisierung enthalten?
+
+Eine Beratung oder Analyse ist noch keine individuell umgesetzte Automatisierung. Eine weitere Umsetzung wird nach konkretem Bedarf separat beschrieben und vereinbart.
+
+### Wie starten wir mit einer einzelnen Aufgabe?
+
+Die bestehende KI-Potenzialanalyse betrachtet einen priorisierten Arbeitsablauf mit einer schriftlichen Bewertung. Im Gespräch klären wir, ob dieser Einstieg zu Ihrem Bedarf passt.
+
+### Was kostet die Beratung?
+
+Wir klären zunächst die Aufgabe und den passenden Analyse- oder Beratungsumfang. Danach erhalten Sie ein konkretes Angebot. Es besteht keine automatische Verpflichtung zu einem Folgeprojekt.
+
+## Kontakt
+
+Welcher Arbeitsablauf soll einfacher werden? Beschreiben Sie uns eine typische Aufgabe und wo Sie dabei heute Zeit verlieren.
 
 [Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
 

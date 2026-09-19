@@ -41,3 +41,7 @@ Vorschau: `http://127.0.0.1:4322/de/leistungen/` und `http://127.0.0.1:4322/de/w
 ## Nächster Schritt
 
 Visuelles Feedback zu Menü und beiden Seiten einarbeiten. Danach „Pakete & Preise“ mit dem tatsächlich vereinbarten Umfang ausarbeiten oder die nächsten Leistungsbereiche vertiefen.
+
+## Ergänzung: vollständige Leistungsseiten
+
+Die übrigen Leistungen und die ergänzende KI-Beratung sind als DE/EN-Detailseiten umgesetzt. Menü und Übersicht führen direkt dorthin. [Seitenverzeichnis und Prüfung](leistungsseiten-umsetzung.md); [Textkonzepte vor der Umsetzung](leistungsseiten-textkonzepte.md).

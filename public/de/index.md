@@ -47,7 +47,7 @@ Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren
 
 Pflege · Auswertung · Verbesserung
 
-[Mehr zur Betreuung](https://www.vibeperform.com/de/leistungen/#betreuung)
+[Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ### Unternehmensprofile pflegen
 
@@ -55,7 +55,7 @@ Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet
 
 Google-Profil · Informationen · Aktualität
 
-[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/leistungen/#google-profil)
+[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
 ### SEO, Texte & Grafiken
 
@@ -63,7 +63,7 @@ Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimieru
 
 Suchmaschinen · Inhalte · Gestaltung
 
-[SEO und Inhalte entdecken](https://www.vibeperform.com/de/leistungen/#seo)
+[SEO und Inhalte entdecken](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
 Ergänzend unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
 ## Eine Website, die nie veraltet.

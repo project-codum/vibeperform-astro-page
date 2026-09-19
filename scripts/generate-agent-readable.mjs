@@ -24,6 +24,7 @@ const [{ workshopsContent }, { aboutContent }, { exploreWorkshopContent }] =
 const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
 const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
 const { websiteStoryContent } = await jiti.import('../src/data/websiteStoryContent.ts');
+const { serviceDetails, detailPaths, serviceKeys } = await jiti.import('../src/data/serviceDetails.ts');
 const { serviceContent, servicePaths } = await jiti.import('../src/data/serviceContent.ts');
 const deWorkshops = workshopsContent.de;
 const deAbout = aboutContent.de;
@@ -228,11 +229,29 @@ function renderServicePage(locale, kind) {
       const group = c[name];
       parts.push(section(`${group.title} ${group.emphasis}`, `${group.intro || ''}\n\n${group.items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n')}`));
     }
-    parts.push(section(`${c.ongoing.title} ${c.ongoing.emphasis}`, `${c.ongoing.intro}\n\n${c.ongoing.body}\n\n[${c.ongoing.link}](${absoluteUrl(servicePaths[locale].overview + '#betreuung')})`));
+    parts.push(section(`${c.ongoing.title} ${c.ongoing.emphasis}`, `${c.ongoing.intro}\n\n${c.ongoing.body}\n\n[${c.ongoing.link}](${absoluteUrl(detailPaths[locale].support)})`));
     parts.push(section(c.trade.title, `${c.trade.body}\n\n[${c.trade.link}](${absoluteUrl(c.trade.href)})`));
     parts.push(section(c.faq.kicker, c.faq.items.map(item => `### ${item.question}\n\n${item.answer}`).join('\n\n')));
   }
   parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
+  return normalizeBlankLines(parts.join('\n\n'));
+}
+
+function renderServiceDetail(locale, key) {
+  const t = serviceDetails[locale][key];
+  const route = detailPaths[locale][key];
+  const parts = [pageHeader({title: t.name, canonicalPath:route, description:t.description, alternatePath:detailPaths[locale === 'de' ? 'en' : 'de'][key]}), `${t.title.join(' ')}\n\n${t.intro}`];
+  const pairs = items => items.map(([title, body]) => `### ${title}\n\n${body}`).join('\n\n');
+  parts.push(section(t.problemTitle.join(' '), pairs(t.problems)));
+  parts.push(section(t.scopeTitle.join(' '), `${t.scopeIntro}\n\n${pairs(t.scope)}\n\n${t.boundary}`));
+  parts.push(section(locale === 'de' ? 'Zusammenarbeit' : 'Working together', `${pairs(t.process)}\n\n${t.contribution}`));
+  const related = key === 'ai' ? [
+    [locale === 'de' ? 'KI-Potenzialanalyse' : 'AI potential analysis', potentialPaths[locale]],
+    [locale === 'de' ? 'Alle Leistungen' : 'All services', servicePaths[locale].overview],
+  ] : t.related.map(k => [serviceDetails[locale][k].name, detailPaths[locale][k]]);
+  parts.push(section(locale === 'de' ? 'Passende nächste Schritte' : 'Related services', related.map(([name, path]) => `[${name}](${absoluteUrl(path)})`).join('\n\n')));
+  parts.push(section(locale === 'de' ? 'Häufige Fragen' : 'Common questions', pairs(t.faq)));
+  parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `${t.contact}\n\n[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
   return normalizeBlankLines(parts.join('\n\n'));
 }
 
@@ -251,6 +270,7 @@ VibePerform erstellt und betreut Websites und Unternehmensprofile für Handwerks
 - [Vollständiger Agenten-Kontext](${absoluteUrl('/llms-full.txt')}) — Ein Markdown-Bundle der wichtigsten deutschen Inhalte.
 - [Startseite](${absoluteUrl('/agent/index.md')}) — Websites, Unternehmensprofile, Weiterentwicklung und Kontakt.
 - [Alle Leistungen](${absoluteUrl('/de/leistungen/index.md')}) — Websites, Betreuung, SEO, Unternehmensprofile, Texte und Grafiken.
+${serviceKeys.map(key => `- [${serviceDetails.de[key].name}](${absoluteUrl(detailPaths.de[key] + 'index.md')}) — ${serviceDetails.de[key].description}`).join('\n')}
 - [Website erstellen lassen](${absoluteUrl('/de/website-erstellen-lassen/index.md')}) — Erstellung, Ablauf und laufende Weiterentwicklung.
 - [Workshops](${absoluteUrl('/agent/workshops.md')}) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](${absoluteUrl('/agent/explore-workshop.md')}) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
@@ -282,6 +302,7 @@ Kanonische Sprache: Deutsch`;
 		intro,
 		...pages.map((page) => page.content),
         ...['overview', 'website'].map(kind => renderServicePage('de', kind)),
+        ...serviceKeys.map(key => renderServiceDetail('de', key)),
 		...blogPosts.map(renderBlogAgentPage),
 	];
 
@@ -303,6 +324,7 @@ Sitemap: ${absoluteUrl('/sitemap.xml')}
 function renderSitemapXml(blogPosts) {
 	const staticUrls = [
         ...Object.values(servicePaths).flatMap(paths => Object.values(paths)),
+        ...Object.values(detailPaths).flatMap(paths => Object.values(paths)),
 		'/de/',
 		'/en/',
 		'/de/workshops/',
@@ -363,6 +385,7 @@ const pages = [
 ];
 const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
 const negotiatedPages = [
+    ...['de','en'].flatMap(locale => serviceKeys.map(key => ({relativePath:`${detailPaths[locale][key].slice(1)}index.md`,content:renderServiceDetail(locale,key)}))),
     ...['de', 'en'].flatMap(locale => ['overview', 'website'].map(kind => ({ relativePath: `${servicePaths[locale][kind].slice(1)}index.md`, content: renderServicePage(locale, kind) }))),
 	...Object.keys(potentialPaths).map(locale => ({ relativePath: `${potentialPaths[locale].slice(1)}index.md`, content: renderPotentialAnalysis(locale) })),
 	{ relativePath: 'index.md', content: pageByPath.get('agent/index.md') },

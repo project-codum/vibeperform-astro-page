@@ -97,7 +97,7 @@ New services and projects belong on your website. Search queries and available u
 
 With the right support, we keep your presence current and develop it with you. We agree tasks and scope in advance.
 
-[Explore ongoing support](https://www.vibeperform.com/en/services/#betreuung)
+[Explore ongoing support](https://www.vibeperform.com/en/website-support/)
 
 ## Do you run a trade business?
 

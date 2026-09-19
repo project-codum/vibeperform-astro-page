@@ -97,7 +97,7 @@ Neue Angebote und Projekte gehören auf Ihre Website. Suchanfragen und verfügba
 
 Mit einer passenden Betreuung halten wir Ihren Auftritt aktuell und entwickeln ihn gemeinsam weiter. Aufgaben und Umfang vereinbaren wir vorab.
 
-[Mehr zur laufenden Betreuung](https://www.vibeperform.com/de/leistungen/#betreuung)
+[Mehr zur laufenden Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Sie führen einen Handwerksbetrieb?
 

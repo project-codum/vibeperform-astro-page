@@ -1,0 +1,34 @@
+---
+import AgencyDocument from './AgencyDocument.astro';
+import AgencyContact from './AgencyContact.astro';
+import ServiceVisual from './ServiceVisual.astro';
+import { serviceDetails, detailPaths, type ServiceKey } from '../data/serviceDetails';
+import type { Locale } from '../lib/siteMetadata';
+import '../styles/service-detail.css';
+interface Props { locale:Locale; service:ServiceKey; }
+const {locale,service}=Astro.props;
+const t=serviceDetails[locale][service];
+const de=locale==='de';
+const other=de?'en':'de';
+const base=(import.meta.env.BASE_URL??'/').replace(/\/$/,'');
+const overview=de?'/de/leistungen/':'/en/services/';
+const related=service==='ai' ? [
+ {name:de?'KI-Potenzialanalyse':'AI potential analysis',body:de?'Einen Arbeitsablauf betrachten und mit einer schriftlichen Bewertung den nächsten Schritt klären.':'Explore one workflow and clarify the next step with a written assessment.',href:de?'/de/ki-potenzialanalyse/':'/en/ai-potential-analysis/'},
+ {name:de?'Ihr digitaler Firmenauftritt':'Your online presence',body:de?'Websites, Unternehmensprofile und Inhalte: Entdecken Sie unseren Schwerpunkt.':'Websites, business profiles and content: discover our main services.',href:overview},
+] : t.related.map(key=>({name:serviceDetails[locale][key].name,body:serviceDetails[locale][key].intro,href:detailPaths[locale][key]}));
+---
+<AgencyDocument locale={locale} title={`${t.name} | VibePerform`} description={t.description} path={detailPaths[locale][service]} alternatePath={detailPaths[other][service]} service>
+  <section class={`sv-hero sd-hero sd-${service}`} aria-labelledby="home-title">
+    <div class="hp-wrap sv-hero-inner" id="home-intro" tabindex="-1">
+      <nav class="sv-breadcrumb" aria-label={de?'Seitenpfad':'Breadcrumb'}><a href={`${base}${overview}`}>{de?'Leistungen':'Services'}</a><span aria-hidden="true">/</span><span>{t.name}</span></nav>
+      <div class="sd-hero-grid"><div class="sd-hero-copy"><p class="sv-kicker">{t.kicker}</p><h1 id="home-title">{t.title[0]}<br/><em>{t.title[1]}</em></h1><p class="sv-lead">{t.intro}</p><div class="sd-hero-actions"><a class="hp-button" href="#umfang">{de?'Leistung entdecken':'Explore the service'}<span aria-hidden="true">↓</span></a><a class="hp-text-link" href="#kontakt">{de?'Vorhaben besprechen':'Discuss your project'}<span aria-hidden="true">↗</span></a></div></div><ServiceVisual kind={service} copy={t.visual} locale={locale}/></div>
+      <nav class="sd-section-nav" aria-label={de?'Auf dieser Seite':'On this page'}><a href="#ausgangslage">{de?'Ihre Situation':'Your situation'}</a><a href="#umfang">{de?'Leistungsumfang':'Scope'}</a><a href="#ablauf">{de?'Zusammenarbeit':'Working together'}</a><a href="#fragen">{de?'Häufige Fragen':'Common questions'}</a></nav>
+    </div>
+  </section>
+  <section class="hp-section sd-problems" id="ausgangslage" aria-labelledby="problems-title"><div class="hp-wrap"><p class="hp-kicker">{de?'Kommt Ihnen das bekannt vor?':'Does this sound familiar?'}</p><h2 id="problems-title">{t.problemTitle[0]}<br/><em>{t.problemTitle[1]}</em></h2><div class="sd-problem-grid">{t.problems.map(([title,body],i)=><article><span class="hp-label">0{i+1}</span><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
+  <section class="hp-section sd-scope" id="umfang" aria-labelledby="scope-title"><div class="hp-wrap"><div class="hp-section-heading"><div><p class="hp-kicker">{de?'Leistung & Ergebnis':'Scope & outcomes'}</p><h2 id="scope-title">{t.scopeTitle[0]}<br/><em>{t.scopeTitle[1]}</em></h2></div><p class="hp-intro">{t.scopeIntro}</p></div><div class="sd-scope-grid">{t.scope.map(([title,body],i)=><article><span class="hp-number">0{i+1}</span><div><h3>{title}</h3><p>{body}</p></div></article>)}</div><div class="sd-boundary"><span>{de?'Passend zu Ihrem Vorhaben':'Tailored to your project'}</span><p>{t.boundary}</p></div></div></section>
+  <section class="hp-section" id="ablauf" aria-labelledby="process-title"><div class="hp-wrap"><p class="hp-kicker">{de?'So arbeiten wir zusammen':'How we work together'}</p><h2 id="process-title">{de?'Ein klarer Ablauf.':'A clear process.'}<br/><em>{de?'Von Anfang an.':'From the start.'}</em></h2><ol class="hp-process-grid">{t.process.map(([title,body],i)=><li><span class="hp-label">0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol><div class="sd-contribution"><h3>{de?'Was wir von Ihnen brauchen':'What we need from you'}</h3><p>{t.contribution}</p></div></div></section>
+  <section class="hp-section sd-related" id="weiterdenken" aria-labelledby="related-title"><div class="hp-wrap"><p class="hp-kicker">{de?'Sinnvoll verbunden':'Connected services'}</p><h2 id="related-title">{de?'Der passende':'The right'} <em>{de?'nächste Schritt.':'next step.'}</em></h2><div class="sd-related-grid">{related.map(item=><a href={`${base}${item.href}`}><h3><span class="sd-related-name">{item.name}</span><span aria-hidden="true">↗</span></h3><p>{item.body}</p></a>)}</div></div></section>
+  <section class="hp-section hp-faq" id="fragen" aria-labelledby="faq-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{de?'Gut zu wissen':'Good to know'}</p><h2 id="faq-title">{de?'Vor Ihrer':'Before your'}<br/><em>{de?'Entscheidung.':'decision.'}</em></h2></div><div>{t.faq.map(([question,answer])=><details><summary>{question}<span aria-hidden="true">＋</span></summary><p>{answer}</p></details>)}</div></div></section>
+  <AgencyContact locale={locale} copy={{kicker:t.name,title:de?'Beginnen wir mit':'Let’s start with',emphasis:de?'Ihrem Vorhaben.':'your project.',body:t.contact}}/>
+</AgencyDocument>

@@ -27,7 +27,7 @@ Ihr Betrieb hat sich verändert. Wir prüfen, was an Ihrer Website noch passt, u
 - Inhalte und Kontaktwege verbessern
 - Überarbeitung oder Neuaufbau planen
 
-[Überarbeitung besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zur Überarbeitung](https://www.vibeperform.com/de/website-ueberarbeiten/)
 
 ## Website betreuen & weiterentwickeln
 
@@ -37,7 +37,7 @@ Neue Leistungen, aktuelle Projekte und Hinweise aus Nutzungsdaten: Wir machen da
 - Such- und Nutzungsdaten einordnen
 - Anpassungen gemeinsam priorisieren
 
-[Betreuung besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Suchmaschinenoptimierung
 
@@ -47,7 +47,7 @@ Wir richten Struktur und Inhalte auf die Fragen Ihrer Kunden aus. Damit Ihr Ange
 - Seiten und Inhalte gezielt optimieren
 - Entwicklung anhand verfügbarer Daten prüfen
 
-[SEO besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zur Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
 ## Google-Unternehmensprofil
 
@@ -57,7 +57,7 @@ Leistungen, Öffnungszeiten, Bilder und Kontaktdaten sollen zusammenpassen. Wir 
 - Unternehmensangaben mit der Website abstimmen
 - Änderungen im vereinbarten Umfang pflegen
 
-[Unternehmensprofil besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
 ## Texte & Grafiken
 
@@ -67,7 +67,7 @@ Wir bringen auf den Punkt, was Ihren Betrieb ausmacht. Mit verständlichen Texte
 - Projekte und Referenzen aufbereiten
 - Bilder bearbeiten und Grafiken gestalten
 
-[Inhalte besprechen](https://www.vibeperform.com/de/leistungen/#kontakt)
+[Mehr zu Texten und Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
 
 ## Ein guter Start. Ein Auftritt, der mitwächst.
 

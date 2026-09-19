@@ -27,7 +27,7 @@ Your business has changed. We review what still works and bring the structure, d
 - Improve content and contact options
 - Plan an update or a rebuild
 
-[Discuss a redesign](https://www.vibeperform.com/en/services/#kontakt)
+[Explore website redesign](https://www.vibeperform.com/en/website-redesign/)
 
 ## Website support & development
 
@@ -37,7 +37,7 @@ New services, recent projects and insights from usage data: we turn them into pr
 - Interpret search and usage data
 - Prioritise improvements together
 
-[Discuss ongoing support](https://www.vibeperform.com/en/services/#kontakt)
+[Explore ongoing support](https://www.vibeperform.com/en/website-support/)
 
 ## Search engine optimisation
 
@@ -47,7 +47,7 @@ We align structure and content with your customers’ questions, making your ser
 - Improve pages and content
 - Review progress using available data
 
-[Discuss SEO](https://www.vibeperform.com/en/services/#kontakt)
+[Explore SEO](https://www.vibeperform.com/en/search-engine-optimisation/)
 
 ## Google Business Profile
 
@@ -57,7 +57,7 @@ Services, opening hours, images and contact details should be consistent. We hel
 - Align business details with your website
 - Maintain information within the agreed scope
 
-[Discuss your business profile](https://www.vibeperform.com/en/services/#kontakt)
+[Explore business profiles](https://www.vibeperform.com/en/google-business-profile/)
 
 ## Copy & graphics
 
@@ -67,7 +67,7 @@ We explain what makes your business different, with clear writing and a visual s
 - Present projects and references
 - Edit images and design graphics
 
-[Discuss your content](https://www.vibeperform.com/en/services/#kontakt)
+[Explore copy and graphics](https://www.vibeperform.com/en/copy-graphics/)
 
 ## A strong beginning. Room to grow.
 

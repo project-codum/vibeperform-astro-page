@@ -7,6 +7,12 @@ VibePerform erstellt und betreut Websites und Unternehmensprofile für Handwerks
 - [Vollständiger Agenten-Kontext](https://www.vibeperform.com/llms-full.txt) — Ein Markdown-Bundle der wichtigsten deutschen Inhalte.
 - [Startseite](https://www.vibeperform.com/agent/index.md) — Websites, Unternehmensprofile, Weiterentwicklung und Kontakt.
 - [Alle Leistungen](https://www.vibeperform.com/de/leistungen/index.md) — Websites, Betreuung, SEO, Unternehmensprofile, Texte und Grafiken.
+- [Website überarbeiten](https://www.vibeperform.com/de/website-ueberarbeiten/index.md) — Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
+- [Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/index.md) — Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
+- [Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/index.md) — SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
+- [Google-Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/index.md) — Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.
+- [Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/index.md) — Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
+- [KI-Beratung](https://www.vibeperform.com/de/ki-strategie/index.md) — Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.
 - [Website erstellen lassen](https://www.vibeperform.com/de/website-erstellen-lassen/index.md) — Erstellung, Ablauf und laufende Weiterentwicklung.
 - [Workshops](https://www.vibeperform.com/agent/workshops.md) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](https://www.vibeperform.com/agent/explore-workshop.md) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.

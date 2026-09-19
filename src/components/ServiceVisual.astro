@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import interior from '../assets/website-service/interior.png';
+import type { ServiceKey, ServiceDetail } from '../data/serviceDetails';
+import type { Locale } from '../lib/siteMetadata';
+interface Props { kind:ServiceKey; copy:ServiceDetail['visual']; locale:Locale; }
+const { kind, copy: v, locale } = Astro.props;
+const de = locale === 'de';
+---
+<figure class={`sd-visual sd-visual-${kind}`}>
+  <div class="sd-visual-top"><span>{v.label}</span><span aria-hidden="true">✳</span></div>
+  {kind === 'redesign' && <div class="sd-comparison"><div class="sd-mini-page sd-before"><span>{v.rows[0]}</span><div class="sd-mini-bar"><i></i><i></i><i></i></div><div class="sd-noise"><b></b><b></b><i></i><i></i><i></i><i></i><div></div></div></div><div class="sd-mini-page sd-after"><span>{v.rows[1]}</span><div class="sd-mini-bar"><i></i><i></i><i></i></div><div class="sd-clear"><small>{de ? 'Ihr Unternehmen' : 'Your business'}</small><p>{v.title}<em>{v.accent}</em></p><div class="sd-image-placeholder" aria-hidden="true">↗</div><b></b></div></div><div class="sd-decision-tags">{v.rows.slice(2).map(row=><span>{row}</span>)}</div></div>}
+  {kind === 'support' && <div class="sd-workboard"><h2>{v.title}<em>{v.accent}</em></h2>{[0,2,4].map((i,n)=><div class="sd-task"><span class={`sd-task-mark mark-${n}`} aria-hidden="true">{n===2?'✓':n===1?'↗':'○'}</span><div><small>{v.rows[i]}</small><p>{v.rows[i+1]}</p></div><span class="sd-task-line" aria-hidden="true"></span></div>)}</div>}
+  {kind === 'seo' && <div class="sd-search-map"><div class="sd-query"><span aria-hidden="true">⌕</span><span>{v.rows[0]}</span></div><div class="sd-connection" aria-hidden="true">↓</div><div class="sd-search-page"><span>{v.rows[1]}</span><h2>{v.rows[2]}</h2><p>{v.rows[3]}</p><div class="sd-answer-lines" aria-hidden="true"><i></i><i></i><i></i></div></div><p class="sd-visual-thesis">{v.title}<em>{v.accent}</em></p></div>}
+  {kind === 'profile' && <div class="sd-profile-demo"><div class="sd-profile-cover" aria-hidden="true"><span>✳</span><i></i><i></i></div><div class="sd-profile-body"><h2>{v.title}</h2><p>{v.accent}</p><div class="sd-profile-fields">{v.rows.slice(0,4).map((row,i)=><div><span class="sd-field-icon" aria-hidden="true">{['≡','◷','↗','⌁'][i]}</span><span>{row}</span><i aria-hidden="true"></i></div>)}</div><span class="sd-profile-match">{v.rows[4]}</span></div></div>}
+  {kind === 'content' && <div class="sd-editorial-demo"><span class="sd-editorial-label">{v.rows[0]}</span><h2>{v.title}<em>{v.accent}</em></h2><Image src={interior} width={800} format="webp" alt={de?'Generiertes Raum-Motiv als Gestaltungsbeispiel':'Generated interior as a design example'} loading="eager"/><div class="sd-editorial-caption"><span>{v.rows[1]}</span><div aria-hidden="true"><i></i><i></i><i></i></div></div><p>{v.rows[2]}</p></div>}
+  {kind === 'ai' && <div class="sd-ai-flow"><h2>{v.title}<em>{v.accent}</em></h2>{[0,2,4].map((i,n)=><div class:list={['sd-flow-step',{'sd-human':n===2}]}><span aria-hidden="true">0{n+1}</span><div><strong>{v.rows[i]}</strong><p>{v.rows[i+1]}</p></div><b aria-hidden="true">{n===2?'✓':'↓'}</b></div>)}</div>}
+  <figcaption>{v.note}</figcaption>
+</figure>

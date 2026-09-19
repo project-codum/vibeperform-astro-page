@@ -17,7 +17,7 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
     <button class="home-menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false" data-open-label={copy.menuLabel} data-close-label={copy.closeLabel} hidden>{copy.menuLabel}<span aria-hidden="true">＋</span></button>
     <nav id="home-menu" aria-label={copy.navLabel}>
       <details class="home-services-menu">
-        <summary class:list={{ 'home-services-active': currentPath.includes(servicePaths[locale].overview) || currentPath.includes(servicePaths[locale].website) }}>{locale === 'de' ? 'Leistungen' : 'Services'}<span aria-hidden="true">⌄</span></summary>
+        <summary class:list={{ 'home-services-active': groups.some(group => group.links.some(link => active(link.href))) || currentPath.includes(servicePaths[locale].website) }}>{locale === 'de' ? 'Leistungen' : 'Services'}<span aria-hidden="true">⌄</span></summary>
         <div class="home-mega-panel">
           <div class="home-mega-top"><span>{locale === 'de' ? 'Ihr digitaler Firmenauftritt' : 'Your online presence'}</span><a href={`${base}${servicePaths[locale].overview}`}>{locale === 'de' ? 'Alle Leistungen' : 'All services'} ↗</a></div>
           <div class="home-mega-columns">{groups.map(group => <div class="home-mega-group"><h2>{group.title}</h2>{group.links.map(link => <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined}><strong>{link.label}</strong><span>{link.description}</span></a>)}</div>)}</div>
