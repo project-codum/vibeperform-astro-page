@@ -49,21 +49,23 @@ Ich erstelle und betreue Websites und Unternehmensprofile und entwickle sie lauf
 
 Das ist die langfristige Ausrichtung. Formulierungen wie „aktualisiert sich automatisch“ oder „veraltet garantiert nie“ sind keine pauschale Leistungszusage.
 
-## 4. Drei Erfahrungsschwerpunkte: gemacht → gelernt → Nutzen
+## 4. Mein Weg zu VibePerform
 
-Quelle ist Marlons ausdrücklich als veraltet bezeichnete [persönliche Website](https://marlonsimondietrich.github.io/), am 19.09.2026 im Browser gelesen. Die folgenden Stationen sind dort dokumentierte Selbstauskünfte. Marlon hat die Rollen und die öffentliche Namensnennung in diesem Gespräch bestätigt. Die alten Zeit- und Erfolgszahlen wurden damit nicht gesondert bestätigt. Der separat verlinkte PDF-Lebenslauf konnte über das Recherchewerkzeug nicht geöffnet werden und ist nicht Grundlage dieser Zusammenstellung.
+Die drei separaten Erfahrungsblöcke entfallen auf ausdrücklichen Wunsch von Marlon. Stattdessen beschreibt ein kurzer persönlicher Text die Verbindung zwischen Mittelstand, Startups und der heutigen Arbeit. Grundlage ist seine aktuelle Einordnung im Gespräch; sie hat Vorrang vor der früheren Aufteilung im Portfolio.
 
-| Schwerpunkt | Dokumentierte Erfahrung | Vorschlag für die Aussage | Bedeutung für Website-Kunden |
-|---|---|---|---|
-| Betriebliche Anforderungen verstehen | CAPTRON Electronic: Softwareentwicklung 2019–2021, Produktmanagement 2021–2022; Arbeit an einer Logistiklösung und Austausch mit Geschäftskunden. | „Ich habe Software für reale Betriebsabläufe entwickelt und Produkte aus Kundensicht mitgestaltet.“ | Leistungen und Kundenfragen zuerst verstehen; technische Entscheidungen am praktischen Nutzen ausrichten. |
-| Digitale Produkte umsetzen | codum, 2024, laut Profil Interim CTO: Entwicklung einer KI-Coaching-Browser-Erweiterung bis zum Einsatz bei Pilotunternehmen. | „Ich habe digitale Produkte von der Idee bis zur nutzbaren Anwendung umgesetzt.“ | Konzeption und technische Umsetzung zusammen denken; ein Vorhaben bis zur funktionierenden Lösung begleiten. |
-| Komplexität vereinfachen | dcarbonize, 2025, laut Profil Interim CTO: Automatisierung vom Kundeneingang bis zur Erstellung eines Sanierungs-QuickChecks. | „Ich habe komplexe Informationen in nachvollziehbare digitale Abläufe übersetzt.“ | Informationen klar strukturieren und wiederkehrende Pflegeaufgaben technisch durchdenken. |
+### Textvorschlag
 
-Die Nutzen-Spalte ist eine redaktionelle Ableitung aus der Erfahrung, keine nachgewiesene Kundenbewertung. Die endgültigen drei Blöcke sollen kurz sein: Aufgabe, eigener Beitrag, ein sichtbarer Beleg, heutiger Kundennutzen.
+Drei Jahre lang habe ich für ein mittelständisches Unternehmen Software entwickelt. Anschließend habe ich in verschiedenen Startups KI-Agenten und automatisierte Prozesse entwickelt und digitale Ideen in nutzbare Anwendungen übersetzt.
+
+Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und Web-Apps zu entwickeln und zu gestalten. Mit VibePerform bringe ich das für Unternehmen zusammen: einen durchdachten digitalen Auftritt, der sich laufend weiterentwickeln lässt.
+
+### Darstellung
+
+Ein kompakter Abschnitt mit zwei kurzen Absätzen, eingebettet in die persönliche Vorstellung. Der Werdegang erklärt, wie Marlon zu seiner heutigen Arbeit gekommen ist. Es werden keine drei Firmenkarten, kein tabellarischer Lebenslauf und keine Arbeitgeber-Logoleiste daraus. Die bestätigten Unternehmensstationen bleiben Recherchehintergrund und müssen auf der Agenturseite nicht einzeln genannt werden.
 
 ### Aktuelle Arbeitsproben und ehrlicher Aufbau
 
-Sie erklären technische und unternehmerische Erfahrung. Für die heutige Website-Leistung ergänzt ein aktuelles Webprojekt den entscheidenden Beleg: sichtbare Website, eigener Beitrag, Ausgangslage und vereinbarte Umsetzung. Marlon hat dazu klargestellt: VibePerform ist im Aufbau; belastbare Website-Kundenreferenzen und freigegebene Kundenrückmeldungen liegen für diese Seite noch nicht vor. Er nennt Holzgesindel, „Hausmeister Leustl“ und eigene Websites als mögliche Projektarbeiten. Schreibweise, Projektlinks, eigener Anteil und Darstellungsrechte sind vor einer konkreten Aufnahme zu prüfen. Diese Kandidaten werden nicht als bereits freigegebene Referenzen behandelt.
+Der persönliche Werdegang erklärt technische und unternehmerische Erfahrung. Für die heutige Website-Leistung ergänzt ein aktuelles Webprojekt den entscheidenden Beleg: sichtbare Website, eigener Beitrag, Ausgangslage und vereinbarte Umsetzung. Marlon hat dazu klargestellt: VibePerform ist im Aufbau; belastbare Website-Kundenreferenzen und freigegebene Kundenrückmeldungen liegen für diese Seite noch nicht vor. Er nennt Holzgesindel, „Hausmeister Leustl“ und eigene Websites als mögliche Projektarbeiten. Schreibweise, Projektlinks, eigener Anteil und Darstellungsrechte sind vor einer konkreten Aufnahme zu prüfen. Diese Kandidaten werden nicht als bereits freigegebene Referenzen behandelt.
 
 ### Bewusst nicht ungeprüft übernommen
 
@@ -72,7 +74,7 @@ Sie erklären technische und unternehmerische Erfahrung. Für die heutige Websit
 - Patentaussage ohne konkreten Nachweis zu Anmeldung, Status und eigenem Beitrag.
 - Logos von Arbeitgebern oder deren Kunden als vermeintliche VibePerform-Kundenreferenzen.
 - Die ältere Angabe „5+ Jahre“ als automatisch fortgeschriebene Jahreszahl.
-- commona als zusätzliche vierte Hauptstation: für die gewünschte Verdichtung vorerst Hintergrundmaterial, bei Bedarf Beleg für eigene Gründung und Kundengespräche.
+- Einzelne Startup-Stationen und Rollen bleiben Hintergrundmaterial; die Seite verdichtet sie zu einem persönlichen Werdegang.
 
 ## 5. Warum die Zusammenarbeit Vertrauen schaffen kann
 
@@ -116,7 +118,7 @@ Für VibePerform übernehmen wir diese Logik: Gesicht → Überzeugung → beleg
 | Reihenfolge | Inhalt und Aufgabe | Konkrete visuelle Anforderung |
 |---|---|---|
 | 1. Marlon + Vision | Person, Verantwortlichkeit und mitwachsender Auftritt sofort erkennbar. | Echtes, ausreichend großes Porträt mit Blickkontakt; kurze Überschrift und ein Kontaktweg. Vision bereits im ersten Bildschirm. |
-| 2. Drei Erfahrungen | An drei Stationen zeigen, was Marlon persönlich getan hat und was Kunden davon haben. | Drei großzügige, gut lesbare Belegblöcke. Jeweils ein echtes Projektmotiv, falls verfügbar; sonst klare Typografie ohne erfundene Projektscreenshots. |
+| 2. Mein Weg zu VibePerform | Die Entwicklung von Softwarearbeit im Mittelstand über Startups, KI-Agenten und Automatisierung zur heutigen Website-/Web-App-Arbeit erklären. | Kurzer persönlicher Text in zwei Absätzen; ruhige Typografie, bei Bedarf neben dem Porträt. Keine drei separaten Stationskarten. |
 | 3. Heutige Arbeit, optional in erster Fassung | Eigene Arbeiten oder Projektwebsites zeigen, sobald Beitrag und Verwendung klar sind. Bis dahin mit dem nächsten Abschnitt fortfahren. | Eine tatsächliche Website-Vorschau, deutlich als eigene Arbeit/Projektwebsite bezeichnet. Kein leerer Referenzbereich und keine Umdeutung zum Kundenauftrag. |
 | 4. Zusammenarbeit | Marlon als Ansprechpartner, projektbezogene Design-/Grafikpartner, abgestimmte Kapazität und Betreuung erläutern. | Einfache Darstellung „Ihr Vorhaben → Marlon → passende Spezialisten“. Keine fiktiven Teamfotos. |
 | 5. Der nächste Entwicklungsschritt | Mitwachsender Auftritt, Kundenfragen und KI-gestützte Auffindbarkeit verständlich verbinden. | Kleine Grafik Website ↔ Unternehmensprofil, erreichbar für Menschen und Suchsysteme. Ruhige Darstellung; kein großes zusätzliches Scrollytelling. |
@@ -138,7 +140,7 @@ Die Seite verwendet Navigation, Farben, Typografie, Kontaktmuster und Abstände 
 ## 10. Noch benötigte Belege und Entscheidungen
 
 Für die endgültige Fassung besonders wichtig:
-1. Erledigt: Rollen CAPTRON, codum und dcarbonize sowie Namensnennung von Marlon bestätigt.
+1. Erledigt: Marlon hat seinen gewünschten Werdegang beschrieben: drei Jahre Softwareentwicklung im Mittelstand, danach Startups/KI-Agenten/Automatisierung, heute Web-App-Entwicklung und Gestaltung mit KI-Agenten. Die zuvor bestätigten Unternehmensnamen werden im neuen Text nicht benötigt.
 2. Noch aufzubauen: Website-Fallstudien. Genannte mögliche Arbeitsproben: Holzgesindel, „Hausmeister Leustl“ und eigene Websites. Nicht als ungeprüfte Kundenreferenz veröffentlichen.
 3. Später ergänzen: ein bis zwei echte Kundenrückmeldungen mit Erlaubnis zur Verwendung; aktuell nicht verfügbar.
 4. Bestehendes Porträt `public/marlondietrich.webp` auf Aktualität/Eignung prüfen; für die spätere Gestaltung authentisches Bildmaterial verwenden.
@@ -147,7 +149,7 @@ Ohne Kundenstimmen ist eine gute erste Fassung möglich: konkrete Projektbelege 
 
 ## Quellen und Status
 
-- Marlons aktueller Auftrag: Quelle für Solo-Modell, Mission, Partnernetzwerk und Ziel der neuen Seite; hat Vorrang vor älterer Teamdarstellung.
+- Marlons aktueller Auftrag und anschließende Korrektur zu Abschnitt 2: Quelle für Solo-Modell, Mission, Partnernetzwerk und persönlichen Werdegang; haben Vorrang vor älteren Team- und Lebenslaufdarstellungen.
 - [Persönliches Portfolio](https://marlonsimondietrich.github.io/): im Browser gelesen; historische Selbstauskunft; Rollen und Namensnennung nachträglich von Marlon bestätigt. Zahlen und Zeitangaben nicht unabhängig geprüft.
 - [SLWORKS](https://slworks.de/): strukturelle und visuelle Referenz, kein Wirksamkeitsnachweis.
 - Offizielle Google-, OpenAI- und Anthropic-Quellen oben: technische Einordnung, keine Erfolgsgarantie.
