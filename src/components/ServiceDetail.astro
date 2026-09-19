@@ -1,5 +1,6 @@
 ---
 import AgencyDocument from './AgencyDocument.astro';
+import ServiceInvestment from './ServiceInvestment.astro';
 import AgencyContact from './AgencyContact.astro';
 import ServiceVisual from './ServiceVisual.astro';
 import ServiceShowcase from './ServiceShowcase.astro';
@@ -31,6 +32,8 @@ const related=service==='ai' ? [
   <section class="hp-section sd-scope" id="umfang" aria-labelledby="scope-title"><div class="hp-wrap"><div class="hp-section-heading"><div><p class="hp-kicker">{de?'Leistung & Ergebnis':'Scope & outcomes'}</p><h2 id="scope-title">{t.scopeTitle[0]}<br/><em>{t.scopeTitle[1]}</em></h2></div><p class="hp-intro">{t.scopeIntro}</p></div>{showcase&&<ServiceShowcase kind={service as 'redesign'|'support'|'content'} locale={locale}/>}<div class="sd-scope-grid">{t.scope.map(([title,body],i)=><article><span class="hp-number">0{i+1}</span><div><h3>{title}</h3><p>{body}</p></div></article>)}</div><div class="sd-boundary"><span>{de?'Passend zu Ihrem Vorhaben':'Tailored to your project'}</span><p>{t.boundary}</p></div></div></section>
   <section class="hp-section" id="ablauf" aria-labelledby="process-title"><div class="hp-wrap"><p class="hp-kicker">{de?'So arbeiten wir zusammen':'How we work together'}</p><h2 id="process-title">{de?'Ein klarer Ablauf.':'A clear process.'}<br/><em>{de?'Von Anfang an.':'From the start.'}</em></h2><ol class="hp-process-grid">{t.process.map(([title,body],i)=><li><span class="hp-label">0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol><div class="sd-contribution"><h3>{de?'Was wir von Ihnen brauchen':'What we need from you'}</h3><p>{t.contribution}</p></div></div></section>
   <section class="hp-section sd-related" id="weiterdenken" aria-labelledby="related-title"><div class="hp-wrap"><p class="hp-kicker">{de?'Sinnvoll verbunden':'Connected services'}</p><h2 id="related-title">{de?'Der passende':'The right'} <em>{de?'nächste Schritt.':'next step.'}</em></h2><div class="sd-related-grid">{related.map(item=><a href={`${base}${item.href}`}><h3><span class="sd-related-name">{item.name}</span><span aria-hidden="true">↗</span></h3><p>{item.body}</p></a>)}</div></div></section>
+  {(service==='redesign'||service==='support')&&<ServiceInvestment locale={locale} kind={service}/>}
   <section class="hp-section hp-faq" id="fragen" aria-labelledby="faq-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{de?'Gut zu wissen':'Good to know'}</p><h2 id="faq-title">{de?'Vor Ihrer':'Before your'}<br/><em>{de?'Entscheidung.':'decision.'}</em></h2></div><div>{t.faq.map(([question,answer])=><details><summary>{question}<span aria-hidden="true">＋</span></summary><p>{answer}</p></details>)}</div></div></section>
+
   <AgencyContact locale={locale} copy={{kicker:t.name,title:de?'Beginnen wir mit':'Let’s start with',emphasis:de?'Ihrem Vorhaben.':'your project.',body:t.contact}}/>
 </AgencyDocument>

@@ -65,6 +65,14 @@ Sie informieren uns über Änderungen im Unternehmen, ermöglichen die vereinbar
 
 [Google-Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
+## Kosten & Umfang
+
+Betreuung & Weiterentwicklung: Nach technischer Einschätzung
+
+Die eingesetzte Technologie, Hosting, Zugänge und der gewünschte Betreuungsumfang bestimmen den Aufwand. Aufgaben, Rhythmus und Kosten vereinbaren wir passend zu Ihrer Website.
+
+Website-Erstellung und laufende Betreuung weisen wir getrennt aus. Zusätzliche Inhalte, Funktionen und externe Betriebskosten klären wir im Angebot.
+
 ## Häufige Fragen
 
 ### Ist Website-Betreuung dasselbe wie technische Wartung?

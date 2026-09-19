@@ -105,6 +105,14 @@ Our dedicated offer for trade businesses addresses common questions about enquir
 
 [Explore websites for trade businesses](https://www.vibeperform.com/en/websites-for-trade-businesses/)
 
+## Cost & scope
+
+Website creation: Quoted to fit the scope
+
+The specific price depends on pages, content and features. Before we begin, you receive a proposal defining the agreed scope.
+
+Website creation and ongoing support are quoted separately. Additional content, features and external running costs are clarified in the proposal.
+
 ## Good to know
 
 ### How much does a new website cost?

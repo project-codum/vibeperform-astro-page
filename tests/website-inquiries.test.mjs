@@ -135,7 +135,7 @@ test('DE/EN landing pages have matching metadata, direct form endpoint and draft
   const routes = { de: 'de/websites-fuer-handwerksbetriebe', en: 'en/websites-for-trade-businesses' };
   for (const [locale, route] of Object.entries(routes)) {
     const html = await readFile(new URL(`../dist/${route}/index.html`, import.meta.url), 'utf8');
-    assert.ok(html.includes(`<html lang="${locale}">`));
+    assert.ok(html.includes(`<html lang="${locale}"`));
     assert.ok(html.includes(`rel="canonical" href="https://www.vibeperform.com/${route}/"`));
     assert.ok(html.includes('data-inquiry-endpoint="/api/website-inquiries"'));
     assert.ok(html.includes('name="robots" content="noindex, follow"'));

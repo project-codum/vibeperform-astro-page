@@ -65,6 +65,14 @@ Wir brauchen die bestehende Website, passende Zugänge, aktuelle Unternehmensinf
 
 [Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
 
+## Kosten & Umfang
+
+Website überarbeiten: Nach technischer Einschätzung
+
+Wir prüfen zuerst das eingesetzte System, Hosting, verfügbare Zugänge und die gewünschten Änderungen. Daraus ergibt sich, was wir übernehmen können und welcher Aufwand nötig ist.
+
+Website-Erstellung und laufende Betreuung weisen wir getrennt aus. Zusätzliche Inhalte, Funktionen und externe Betriebskosten klären wir im Angebot.
+
 ## Häufige Fragen
 
 ### Muss meine Website komplett neu gebaut werden?

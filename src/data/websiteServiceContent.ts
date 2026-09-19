@@ -4,7 +4,7 @@ export const websiteServiceRoutes = { de: '/de/websites-fuer-handwerksbetriebe/'
 // Search indexing remains separately controlled; update headers and discovery together when approved.
 export const websiteServiceIndexable = false;
 export const websiteServiceMeta = {
- de: {title:'Websites für Handwerksbetriebe | VibePerform',description:'Passende Projektanfragen, ein einfacher Bewerbungsweg und weniger Website-Aufwand. Texte, Gestaltung und monatliche Betreuung. Kostenlosen Website-Check anfragen.'},
+ de: {title:'Websites für Handwerksbetriebe | VibePerform',description:'Passende Projektanfragen, ein einfacher Bewerbungsweg und weniger Website-Aufwand. Texte, Gestaltung und passende Betreuung. Kostenlosen Website-Check anfragen.'},
  en: {title:'Websites for trade businesses | VibePerform',description:'Attract suitable project enquiries and make it easier to apply. Website design, copy and ongoing care for trade businesses. Request your free website review.'}
 } as const;
 const englishWebsiteCopy: Record<string,string> = {

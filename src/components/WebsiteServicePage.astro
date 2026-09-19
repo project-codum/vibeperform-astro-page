@@ -1,228 +1,31 @@
 ---
 import { Image } from 'astro:assets';
-import NavBar from './NavBar.astro';
-import WebsiteOptimizationLoop from './WebsiteOptimizationLoop.astro';
-import { websiteCopy, websiteServiceRoutes } from '../data/websiteServiceContent';
-import '../styles/websiteService.css';
+import TradeInquiryForm from './TradeInquiryForm.astro';
+import ServiceInvestment from './ServiceInvestment.astro';
+import { tradePageContent } from '../data/tradePageContent';
 import interior from '../assets/website-service/interior.png';
 import materials from '../assets/website-service/materials.png';
-import devices from '../assets/website-service/devices.png';
-import notes from '../assets/website-service/notes.png';
-import launch from '../assets/website-service/launch.png';
-import joinerySkills from '../assets/website-service/joinery-skills.png';
-import joineryConsultation from '../assets/website-service/joinery-consultation.png';
-
-// TODO: Add approved real customer projects before enabling the reference section.
-const showReferences = false;
-interface Props { locale: 'de'|'en'; }
-const { locale } = Astro.props;
-const t = websiteCopy(locale);
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const homeHref = `${base}/${locale}/`;
-const alternateHref = `${base}${websiteServiceRoutes[locale === 'de' ? 'en' : 'de']}`;
-const nav = {
-  brand: 'VibePerform',
-  links: [
-    { label: t('Das Paket'), href: '#angebot' },
-    { label: t('So arbeiten wir'), href: '#zusammenarbeit' },
-    { label: t('Monatliche Betreuung'), href: '#betreuung' },
-  ],
-  toggleLabel: locale === 'de' ? 'EN' : 'DE',
-  toggleAriaLabel: locale === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln',
-  menuToggleLabel: locale === 'de' ? 'Menü öffnen' : 'Open menu'
-};
+import '../styles/trade-page.css';
+interface Props { locale:'de'|'en'; }
+const {locale}=Astro.props;
+const c=tradePageContent[locale];
+const de=locale==='de';
 ---
-<div data-website-service data-locale={locale} data-inquiry-endpoint="/api/website-inquiries">
-
-<a class="skip" href="#main">{t('Zum Inhalt')}</a>
-<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></symbol><symbol id="photo" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="m3 17 5-5 4 4 4-7 5 7"></path><circle cx="8" cy="8" r="1"></circle></symbol><symbol id="doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"></path></symbol><symbol id="chat" viewBox="0 0 24 24"><path d="M4 4h16v13H9l-5 4zM8 9h8m-8 4h5"></path></symbol></defs></svg>
-<NavBar
-  nav={nav}
-  currentLocale={locale}
-  homeHref={homeHref}
-  alternateLocaleHref={alternateHref}
-  appearance="website"
-  ctaLabel={t('Kostenloser Check')}
-  ctaHref="#anfrage"
-/>
-<main id="main">
-<section class="hero wrap" aria-labelledby="hero-title">
-  <div class="hero-copy">
-    <p class="eyebrow">{t('Für Handwerksbetriebe, die gezielt wachsen wollen')}</p>
-    <h1 id="hero-title">{t('Die richtigen Aufträge.')} <span class="accent">{t('Die passenden Mitarbeiter.')}</span></h1>
-    <p class="hero-promise">{t('Ohne Website-Stress für Sie.')}</p>
-    <p>{t('Eine Website, die Ihre Arbeit zeigt, passende Anfragen vorbereitet und Bewerbern den Einstieg leicht macht. Wir übernehmen Texte, Gestaltung und monatliche Verbesserungen.')}</p>
-    <a class="btn" href="#anfrage">{t('Kostenlosen Website-Check anfragen')} <svg class="arrow"><use href="#arrow" /></svg></a>
-    <small>{t('Unverbindlich · in 1–2 Minuten angefragt · keine Vorbereitung nötig')}</small>
-    <a class="sub-link" href="#angebot">{t('Das ist im Paket')}</a>
-  </div>
-  <div class="hero-art">
-    <div class="site-window">
-      <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="site-nav"><span class="site-brand">{t('Handwerk. Mit Charakter.')}</span><span>{t('Leistungen   ·   Projekte')}</span></div>
-      <div class="site-body">
-        <div class="site-copy"><h3>{t('Räume, die')}<br />{t('zu Ihnen passen.')}</h3>
-          <p>{t('Individuelle Einbaumöbel und Innenausbau für Ihr Zuhause.')}</p>
-          <button class="mini-cta" data-trust="2">{t('So beginnt Ihr Projekt')} <span aria-hidden="true">↗</span></button>
-        </div>
-        <Image alt={t('KI-generiertes Beispiel eines Innenausbaus mit maßgefertigten Eichenmöbeln')} fetchpriority="high" src={interior} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} />
-      </div>
-      <div class="site-strip"><span>{t('Einbaumöbel')}</span><span>{t('Innenausbau')}</span><span>{t('Maßanfertigung')}</span></div>
-    </div>
-    <div class="inquiry-float">
-      <h3>{t('Was haben Sie vor?')}</h3>
-      <button class="mini-choice" type="button" data-trust="0">{t('Einbaumöbel')} <svg class="arrow" aria-hidden="true"><use href="#arrow" /></svg></button>
-      <button class="mini-choice" type="button" data-trust="0">{t('Innenausbau')} <svg class="arrow" aria-hidden="true"><use href="#arrow" /></svg></button>
-    </div>
-    <small class="example-label">{t('Beispielwebsite · KI-Bildmotiv')}</small>
+<div class="tw-page" data-website-service data-locale={locale} data-inquiry-endpoint="/api/website-inquiries">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol></defs></svg>
+<section class="sv-hero tw-hero" aria-labelledby="home-title">
+  <div class="hp-wrap" id="home-intro" tabindex="-1">
+    <nav class="sv-breadcrumb" aria-label={de?'Seitenpfad':'Breadcrumb'}><a href={de?'/de/leistungen/':'/en/services/'}>{de?'Leistungen':'Services'}</a><span aria-hidden="true">/</span><span>{c.kicker}</span></nav>
+    <div class="tw-hero-grid"><div><p class="sv-kicker">{c.kicker}</p><h1 id="home-title">{c.title}<br/><em>{c.emphasis}</em></h1><p class="sv-lead">{c.intro}</p><a class="hp-button" href="#anfrage">{c.cta}<span aria-hidden="true">↗</span></a><p class="tw-hero-note">{c.note}</p></div>
+    <figure class="tw-example"><div class="tw-browser" aria-hidden="true"><i></i><i></i><i></i><span>handwerk.example</span></div><div class="tw-site"><div class="tw-site-nav"><strong>WERK<span> / {de?'Möbel & Räume':'Furniture & spaces'}</span></strong><span>{de?'Leistungen · Projekte':'Services · Projects'}</span></div><div class="tw-site-image"><Image src={interior} alt={de?'Gestaltungsbeispiel mit KI-generiertem Innenausbau':'Design example with an AI-generated interior'} widths={[400,800,1200]} sizes="(max-width:900px) 90vw, 600px" format="webp" loading="eager" fetchpriority="high"/><div><small>{de?'Schreinerei · Innenausbau':'Joinery · Interior fitting'}</small><strong>{de?'Gute Räume.':'Great spaces.'}<br/><em>{de?'Von Hand gemacht.':'Made by hand.'}</em></strong></div></div><div class="tw-site-bottom"><p>{de?'Einbaumöbel. Küchen. Räume mit Charakter.':'Fitted furniture. Kitchens. Spaces with character.'}</p><span>{de?'Ihr Projekt beginnt hier':'Your project starts here'} ↗</span></div></div><figcaption>{c.example}</figcaption></figure></div>
   </div>
 </section>
-
-<section class="outcome-strip-section wrap" aria-labelledby="outcome-heading">
-  <h2 id="outcome-heading" class="sr-only">{t('Passende Ergebnisse für Ihren Betrieb')}</h2>
-  <article class="outcome-strip"><h3>{t('Passende Projekte')}</h3><p>{t('Leistung, Region und Projektumfang früh klären')}</p></article>
-  <article class="outcome-strip"><h3>{t('Einfacher Bewerbungsweg')}</h3><p>{t('So zeigen Sie, wie es bei Ihnen ist zu arbeiten')}</p></article>
-  <article class="outcome-strip"><h3>{t('Weniger Arbeit für Sie')}</h3><p>{t('Wir schreiben, gestalten und verbessern.')}</p></article>
-</section>
-
-<section class="package wrap" id="angebot" aria-labelledby="package-title">
-  <p class="section-kicker">{t("Für Aufträge. Für Ihr Team. Für Ihren Alltag.")}</p>
-  <div class="package-intro">
-    <h2 id="package-title">{t("Ihr Anfrage- und Bewerber-System.")}</h2>
-    <p>{t("Wir kümmern uns, dass die richtigen Kunden und Bewerber zu Ihnen finden.")}</p>
-  </div>
-  <div class="package-foundation">
-    <strong>{t("Die Basis: Ihre Website, komplett von uns umgesetzt.")}</strong>
-    <span>{t("Individuelle Gestaltung · Texte & Bildauswahl · Monatliche Analyse & Verbesserungen")}</span>
-  </div>
-  <ol class="offer-list">
-    <li><span class="offer-number" aria-hidden="true">01</span><h3>{t("In Ihrer Region gefunden werden")}</h3><p>{t("Wir richten Ihre Seiten auf Ihre Leistungen und Ihr Einzugsgebiet aus. Ihr Google-Unternehmensprofil prüfen wir mit Ihnen und bereiten passende Angaben vor.")}</p></li>
-    <li><span class="offer-number" aria-hidden="true">02</span><h3>{t("Vor dem Rückruf schon mehr wissen")}</h3><p>{t("Ein kurzer Anfrageweg fragt nach Vorhaben, Ort und Umfang. So können Sie vor dem ersten Rückruf besser einschätzen, ob das Projekt zu Ihrem Betrieb passt.")}</p></li>
-    <li><span class="offer-number" aria-hidden="true">03</span><h3>{t("Guten Leuten den Einstieg erleichtern")}</h3><p>{t("Wenn Sie einstellen, zeigen wir Team, Arbeitsalltag und echte Vorteile auf einer eigenen Karriereseite. Ein kurzer Bewerbungsweg macht den ersten Kontakt einfach.")}</p></li>
-  </ol>
-  <div class="package-footer"><p class="package-meta">{t("Seiten, Funktionen, Kosten und laufende Betreuung halten wir vor dem Start in Ihrem Angebot fest.")}</p><a class="sub-link" href="#anfrage">{t("Was passt zu meinem Betrieb?")} <span aria-hidden="true">↗</span></a></div>
-</section>
-
-<section class="trust wrap" id="vertrauen">
-  <h2>{t('Kann ich diesem Betrieb vertrauen?')}</h2>
-  <p>{t('Setzt er mein Vorhaben so um, wie ich es mir vorstelle?')}</p>
-  <div class="trust-tabs" aria-label={t('Was eine gute Website zeigt')}>
-    <button class="trust-tab" aria-pressed="true" data-panel="0"><span class="icon-disc"><svg><use href="#doc" /></svg></span><span><strong>{t('Leistungen verstehen')}</strong><small>{t('Was genau bekomme ich?')}</small></span></button>
-    <button class="trust-tab" aria-pressed="false" data-panel="1"><span class="icon-disc"><svg><use href="#photo" /></svg></span><span><strong>{t('Arbeit sehen')}</strong><small>{t('Passt der Stil zu mir?')}</small></span></button>
-    <button class="trust-tab" aria-pressed="false" data-panel="2"><span class="icon-disc"><svg><use href="#chat" /></svg></span><span><strong>{t('Nächsten Schritt kennen')}</strong><small>{t('Wie kann ich anfragen?')}</small></span></button>
-  </div>
-  <div class="trust-demo" aria-live="polite">
-    <div class="trust-images">
-      <Image id="trust-img" data-trust-image="0" class="is-active" aria-hidden="false" alt={t('Gestaltungsbeispiel: maßgefertigter Innenausbau')} loading="lazy" src={interior} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 440px) 90vw, 400px" quality={82} />
-      <Image data-trust-image="1" aria-hidden="true" alt={t('KI-generierte Illustration: Küchenplanung, Zuschnitt an der Kreissäge und Möbelmontage')} loading="lazy" src={joinerySkills} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 440px) 90vw, 400px" quality={82} />
-      <Image data-trust-image="2" aria-hidden="true" alt={t('KI-generierte Illustration: Schreiner und Kundin besprechen einen Küchenentwurf aus der Vogelperspektive')} loading="lazy" src={joineryConsultation} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 440px) 90vw, 400px" quality={82} />
-    </div>
-    <div>
-      <h3 id="trust-title">{t('DAS bieten Sie an.')}</h3>
-      <p id="trust-description">{t('Ihre Leistungen klar dargestellt, helfen Besuchern einzuschätzen, ob ihr Vorhaben gut umgesetzt wird.')}</p>
-    </div>
-  </div>
-</section>
-
-<section class="content wrap" id="inhalte">
-  <div>
-    <p class="section-kicker">{t("Ihre Zeit gehört Ihrem Betrieb.")}</p>
-    <h2>{t("Sie erzählen.")} <span class="accent">{t("Wir machen daraus Ihren Auftritt.")}</span></h2>
-    <p>{t("Keine Texte am Wochenende schreiben. Keine Bilder zusammensuchen, bevor Sie überhaupt anfragen. Wir führen Sie durch die wenigen Dinge, die wir von Ihnen brauchen.")}</p>
-    <dl class="responsibilities">
-      <div><dt>{t("Ihr Teil")}</dt><dd>{t("Von Ihrem Betrieb und Ihren Wunschprojekten erzählen, vorhandene Fotos teilen und den fertigen Entwurf prüfen.")}</dd></div>
-      <div><dt>{t("Unser Teil")}</dt><dd>{t("Texte schreiben, Bilder auswählen, Seiten gestalten, die Technik einrichten und den Auftritt jeden Monat weiterentwickeln.")}</dd></div>
-    </dl>
-    <details class="disclosure"><summary>{t('Wie entstehen die Inhalte?')}</summary><p>{t('Im Gespräch erfassen wir Ihre Leistungen, Ihre Arbeitsweise und die Fragen Ihrer Kunden. Daraus erstellen wir professionelle, SEO-optimierte Texte. Wir nutzen passende vorhandene Bilder und entwickeln bei Bedarf neue Materialien. Was gebraucht wird und welchen Umfang das hat, klären wir gemeinsam.')}</p></details>
-  </div>
-  <figure><Image alt={t('Illustration der Inhaltserarbeitung: Bildauswahl, Eichenmuster und Website-Skizze')} loading="lazy" src={materials} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} /><figcaption class="caption">{t('Vom Betriebswissen zum passenden Auftritt. KI-generierte Illustration.')}</figcaption></figure>
-</section>
-
-<section class="process wrap" id="zusammenarbeit">
-  <h2>{t('In vier Schritten zu Ihrem neuen Auftritt.')}</h2>
-  <p class="process-intro">{t("Wir beginnen mit den Seiten, die Ihrem Betrieb zuerst helfen. Was dafür gebraucht wird und wann der erste Auftritt online gehen kann, vereinbaren wir gemeinsam.")}</p>
-  <div class="process-grid">
-    <article class="process-item">
-      <Image alt={t('Notizen zu Betrieb, Leistungen und Wünschen')} loading="lazy" src={notes} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} />
-      <div class="num">01</div>
-      <h3>{t('Kennenlernen')}</h3>
-      <p>{t('Wir lernen Ihren Betrieb kennen.')}</p>
-      <details><summary>{t('Was wir besprechen')}</summary><p>{t('Wir sprechen über Leistungen, Wunschkunden und den bisherigen Auftritt. Daraus legen wir Seiten, Funktionen und Umfang fest.')}</p></details>
-    </article>
-    <article class="process-item">
-      <Image alt={t('Website-Skizze und violetter Stift')} loading="lazy" src={materials} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} />
-      <div class="num">02</div>
-      <h3>{t('Gestalten')}</h3>
-      <p>{t('Wir geben Ihrer Arbeit den passenden Auftritt.')}</p>
-      <details><summary>{t('Was wir erarbeiten')}</summary><p>{t('Wir schreiben die Texte, wählen Bilder aus oder entwickeln benötigte Materialien und gestalten die Seiten mit dem passenden Anfrageweg.')}</p></details>
-    </article>
-    <article class="process-item">
-      <Image alt={t('Website-Entwurf auf Laptop und Smartphone')} loading="lazy" src={devices} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} />
-      <div class="num">03</div>
-      <h3>{t('Gemeinsam anprobieren')}</h3>
-      <p>{t('Die Anprobe für Ihre Website.')}</p>
-      <details><summary>{t('Was wir gemeinsam prüfen')}</summary><p>{t('Passt die Sprache? Zeigen die Bilder Ihren Betrieb? Funktioniert die Anfrage? Gemeinsam prüfen wir den Entwurf und arbeiten die letzten Anpassungen ein.')}</p></details>
-    </article>
-    <article class="process-item">
-      <Image style="object-position:50% 50%" alt={t('Beispiel einer abgestimmten Website auf einem Bildschirm')} loading="lazy" src={launch} format="webp" widths={[400, 800, 1200]} sizes="(max-width: 800px) 90vw, 650px" quality={82} />
-      <div class="num">04</div>
-      <h3>{t('Online gehen')}</h3>
-      <p>{t('Nach Ihrer Freigabe geht es online.')}</p>
-      <details><summary>{t('Was vor dem Start passiert')}</summary><p>{t('Wir prüfen die vereinbarten Funktionen einschließlich des Anfrageeingangs und veröffentlichen die abgestimmte Website.')}</p></details>
-    </article>
-  </div>
-  <p class="caption">{t('Die Bildmotive veranschaulichen den Ablauf und sind KI-generiert.')}</p>
-</section>
-
-<WebsiteOptimizationLoop locale={locale} />
-{showReferences && <section class="references wrap" id="referenzen"><h2>{t('Platz für echte Arbeit.')}</h2></section>}
-
-<section class="risk wrap" id="klarheit" aria-labelledby="review-title">
-  <div class="review-heading"><div><p class="section-kicker">{t("Ihr kostenloser Website-Check")}</p><h2 id="review-title">{t("Erst Klarheit. Dann entscheiden.")}</h2><p>{t("Sie bekommen eine persönliche Einschätzung mit drei konkreten Verbesserungen für Ihre bestehende oder geplante Website.")}</p></div><div class="review-cost"><strong>{locale === 'de' ? '0 €' : '€0'}</strong><span>{t("Kostenlos. Unverbindlich.")}</span></div></div>
-  <ol class="risk-list">
-    <li><h3>{t("Ein Blick von außen")}</h3><p>{t("Wo wird Ihr Angebot noch nicht klar? Wo könnten Kunden oder Bewerber aussteigen?")}</p></li>
-    <li><h3>{t("Drei konkrete Verbesserungen")}</h3><p>{t("Was Sie an Inhalten, Vertrauen oder dem Weg zur Anfrage verbessern können.")}</p></li>
-    <li><h3>{t("Ein sinnvoller erster Schritt")}</h3><p>{t("Welche Änderung wir zuerst angehen würden und warum. Danach entscheiden Sie, ob Sie mit uns sprechen möchten.")}</p></li>
-  </ol>
-</section>
-
-<section class="contact wrap" id="anfrage">
-  <div class="contact-copy">
-    <h2>{t('Jetzt die richtigen Projekte und gute Mitarbeiter reinholen')}</h2>
-    <p>{t('Vier Fragen und wir haben ein Kennenlerngespräch. Wir schauen uns Ihren Auftritt an und melden uns umgehend persönlich mit einer Einschätzung.')}</p>
-    <p>{t('Keine Vorbereitung nötig. Keine Verpflichtung, ein Website-Projekt zu beauftragen.')}</p>
-  </div>
-  <div class="form-box" id="form-box" data-clarity-mask="true">
-    <div class="form-top"><span>{t('Ihr kostenloser Website-Check')}</span><span id="step-count">{locale === 'de' ? 'Frage 1 / 4' : 'Question 1 / 4'}</span></div>
-    <div class="progress" aria-hidden="true"><span id="progress-bar" style="width:20%"></span></div>
-    <form id="inquiry-form" novalidate>
-      <div id="question"></div>
-      <p id="form-error" class="form-error" role="alert" hidden></p>
-      <div class="form-actions">
-        <button class="back" type="button" id="back" hidden>{t('Zurück')}</button>
-        <button class="btn" type="submit" id="next">{t('Weiter')} <svg class="arrow"><use href="#arrow" /></svg></button>
-      </div>
-    </form>
-    <noscript><p>{t('JavaScript ist deaktiviert. Schreiben Sie uns direkt per E-Mail.')}</p><a href="mailto:contact@vibeperform.com">contact@vibeperform.com</a></noscript>
-  </div>
-</section>
-
-<section class="faq wrap" id="faq"><h2>{t("Noch eine Frage?")}</h2>
-  <details><summary>{t("Ist der Website-Check wirklich kostenlos?")}</summary><p>{t("Ja. Die erste Einschätzung mit drei Verbesserungsmöglichkeiten kostet 0 Euro. Sie gehen damit keine Verpflichtung ein. Ein Gespräch oder ein Website-Projekt ist Ihre Entscheidung.")}</p></details>
-  <details><summary>{t("Was kostet die Website mit Betreuung?")}</summary><p>{t("Sie erhalten ein individuelles Angebot. Aufbau und laufende Betreuung werden getrennt ausgewiesen, mit klaren Leistungen und Kosten. Sie entscheiden vor Beginn, ob das Angebot zu Ihrem Betrieb passt.")}</p></details>
-  <details><summary>{t("Brauchen wir fertige Texte und Bilder?")}</summary><p>{t("Nein. Für den Check reichen Ihre Antworten und, falls vorhanden, Ihre Website-Adresse. Für die Umsetzung erzählen Sie uns von Ihrem Betrieb. Wir schreiben die Texte, wählen vorhandene Bilder aus und klären, was zusätzlich gebraucht wird.")}</p></details>
-  <details><summary>{t("Kann unsere bestehende Website bleiben?")}</summary><p>{t("Wir prüfen, was sich weiterverwenden lässt. Der Check kann auch ergeben, dass gezielte Verbesserungen sinnvoller sind als ein kompletter Neuaufbau.")}</p></details>
-  <details><summary>{t("Wie schnell können wir starten?")}</summary><p>{t("Das hängt von den benötigten Seiten, vorhandenen Inhalten und Ihren Freigaben ab. Wir vereinbaren vor dem Start einen konkreten Ablauf und priorisieren die Seiten, die zuerst gebraucht werden.")}</p></details>
-  <details><summary>{t("Ist eine Karriereseite dabei?")}</summary><p>{t("Wenn Sie Mitarbeiter suchen, planen wir eine Karriereseite mit Einblicken in Ihren Betrieb und einem einfachen Bewerbungsweg ein. Welche Inhalte und Funktionen Sie dafür brauchen, steht in Ihrem Angebot.")}</p></details>
-  <details><summary>{t("Was passiert nach dem Start?")}</summary><p>{t("Wir schauen monatlich auf die verfügbaren Such- und Nutzungsdaten sowie Ihre Rückmeldungen zu Anfragen. Daraus entwickeln wir konkrete Verbesserungen und setzen sie im vereinbarten Rahmen um.")}</p></details>
-  <details><summary>{t("Garantieren Sie Aufträge oder Bewerbungen?")}</summary><p>{t("Eine feste Anzahl können wir nicht zusagen. Nachfrage, Angebot und Ihre Region spielen mit hinein. Wir verbessern die Voraussetzungen: klare Leistungen, überzeugende Einblicke und einen einfachen Weg zum Kontakt.")}</p></details>
-</section>
-
-</main>
-<footer class="wrap footer"><a href={homeHref} aria-label={t('VibePerform – zum Seitenanfang')}><img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="145" height="55" /></a><nav class="legal-links" aria-label={locale === 'de' ? 'Rechtliches' : 'Legal'}><a href={`${base}/${locale}/${locale === 'de' ? 'impressum' : 'legal-notice'}/`}>{t('Impressum')}</a><a href={`${base}/${locale}/${locale === 'de' ? 'datenschutz' : 'privacy'}/`}>{t('Datenschutz')}</a></nav><p>{t('Websites für Handwerksbetriebe.')}<br />{t('Gestaltet. Betreut. Weiterentwickelt.')}</p></footer>
-
-
+<section class="hp-section" aria-labelledby="problems-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{de?'Aus Ihrem Betriebsalltag':'Your day-to-day business'}</p><h2 id="problems-title">{c.problemsTitle}<br/><em>{c.problemsEmphasis}</em></h2></div><div class="hp-editorial-list">{c.problems.map(([title,body])=><article><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
+<section class="hp-section hp-services" id="angebot" aria-labelledby="scope-title"><div class="hp-wrap"><p class="hp-kicker">{c.scopeKicker}</p><div class="hp-section-heading"><h2 id="scope-title">{c.scopeTitle}<br/><em>{c.scopeEmphasis}</em></h2><p class="hp-intro">{c.scopeIntro}</p></div><div class="hp-service-grid">{c.scope.map(([title,body],i)=><article><span class="hp-number">0{i+1}</span><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
+<section class="hp-section" aria-labelledby="own-title"><div class="hp-wrap hp-split tw-content"><figure><Image src={materials} alt={de?'Bildauswahl, Materialmuster und Website-Skizze als Illustration':'Illustration of image selection, material samples and a website sketch'} widths={[400,800]} sizes="(max-width:700px) 90vw, 540px" format="webp" loading="lazy"/><figcaption>{c.imageCaption}</figcaption></figure><div><p class="hp-kicker">{de?'Wenig Aufwand für Sie':'Less work for you'}</p><h2 id="own-title">{c.ownTitle}<br/><em>{c.ownEmphasis}</em></h2><p class="hp-intro">{c.ownBody}</p><div class="tw-contribution"><h3>{c.ownLabel}</h3><p>{c.ownDetail}</p></div></div></div></section>
+<section class="hp-section tw-process" id="zusammenarbeit" aria-labelledby="process-title"><div class="hp-wrap"><p class="hp-kicker">{de?'So arbeiten wir':'How we work'}</p><h2 id="process-title">{c.processTitle}<br/><em>{c.processEmphasis}</em></h2><ol class="hp-process-grid">{c.steps.map(([title,body],i)=><li><span class="hp-number">0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div></section>
+<section class="hp-section hp-evolution" id="betreuung" aria-labelledby="care-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.careKicker}</p><h2 id="care-title">{c.careTitle}<br/><em>{c.careEmphasis}</em></h2></div><div class="tw-care"><p>{c.careBody}</p><p>{c.careNote}</p><a class="hp-text-link" href={c.careHref}>{c.careLink}<span aria-hidden="true">↗</span></a></div></div></section>
+<ServiceInvestment locale={locale} kind="create"/>
+<section class="hp-section hp-faq" id="fragen" aria-labelledby="faq-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{de?'Gut zu wissen':'Good to know'}</p><h2 id="faq-title">{c.faqTitle}<br/><em>{c.faqEmphasis}</em></h2></div><div>{c.faq.map(([q,a])=><details><summary>{q}<span aria-hidden="true">＋</span></summary><p>{a}</p></details>)}</div></div></section>
+<section class="hp-section tw-contact" id="anfrage" aria-labelledby="inquiry-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.contactKicker}</p><h2 id="inquiry-title">{c.contactTitle}<br/><em>{c.contactEmphasis}</em></h2><p class="hp-intro">{c.contactBody}</p><p class="tw-note">{c.contactNote}</p><p class="tw-email">{c.mail}<br/><a class="hp-text-link" href="mailto:contact@vibeperform.com">contact@vibeperform.com ↗</a></p></div><TradeInquiryForm locale={locale}/></div></section>
 </div>
-<script>
-import "../scripts/websiteInquiry";
-</script>

@@ -1,0 +1,20 @@
+---
+import { websiteCopy } from '../data/websiteServiceContent';
+interface Props { locale: 'de'|'en'; }
+const { locale }=Astro.props;
+const t=websiteCopy(locale);
+---
+  <div class="form-box" id="form-box" data-clarity-mask="true">
+    <div class="form-top"><span>{t('Ihr kostenloser Website-Check')}</span><span id="step-count">{locale === 'de' ? 'Frage 1 / 4' : 'Question 1 / 4'}</span></div>
+    <div class="progress" aria-hidden="true"><span id="progress-bar" style="width:20%"></span></div>
+    <form id="inquiry-form" novalidate>
+      <div id="question"></div>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+      <div class="form-actions">
+        <button class="back" type="button" id="back" hidden>{t('Zurück')}</button>
+        <button class="btn" type="submit" id="next">{t('Weiter')} <svg class="arrow"><use href="#arrow" /></svg></button>
+      </div>
+    </form>
+    <noscript><p>{t('JavaScript ist deaktiviert. Schreiben Sie uns direkt per E-Mail.')}</p><a href="mailto:contact@vibeperform.com">contact@vibeperform.com</a></noscript>
+  </div>
+<script>import '../scripts/websiteInquiry';</script>

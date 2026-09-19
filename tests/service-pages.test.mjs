@@ -8,6 +8,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const load = pathname => readFile(path.join(dist, pathname.replace(/^\//, ''), 'index.html'), 'utf8');
 const pages = [
+  { route: '/de/websites-fuer-handwerksbetriebe/', alternate: '/en/websites-for-trade-businesses/', locale: 'de', type: 'Service' },
+  { route: '/en/websites-for-trade-businesses/', alternate: '/de/websites-fuer-handwerksbetriebe/', locale: 'en', type: 'Service' },
   { route: '/de/leistungen/', alternate: '/en/services/', locale: 'de', type: 'CollectionPage' },
   { route: '/en/services/', alternate: '/de/leistungen/', locale: 'en', type: 'CollectionPage' },
   { route: '/de/website-erstellen-lassen/', alternate: '/en/website-design/', locale: 'de', type: 'Service' },
@@ -43,7 +45,8 @@ for (const page of pages) {
     assert.ok(markdown.length > 1000);
     assert.ok(markdown.includes(`https://www.vibeperform.com${page.route}`));
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
-    assert.ok(sitemap.includes(`<loc>https://www.vibeperform.com${page.route}</loc>`));
+    if (!page.route.includes('handwerksbetriebe') && !page.route.includes('trade-businesses')) assert.ok(sitemap.includes(`<loc>https://www.vibeperform.com${page.route}</loc>`));
+    else { assert.match(html, /noindex, follow/); assert.match(html, /data-inquiry-endpoint="\/api\/website-inquiries"/); }
   });
 }
 

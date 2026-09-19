@@ -65,6 +65,14 @@ You tell us about business changes, provide agreed access and review new factual
 
 [Google Business Profile](https://www.vibeperform.com/en/google-business-profile/)
 
+## Cost & scope
+
+Support & development: After a technical review
+
+Technology, hosting, access and the required level of support determine the work involved. We agree tasks, frequency and costs to suit your website.
+
+Website creation and ongoing support are quoted separately. Additional content, features and external running costs are clarified in the proposal.
+
 ## Common questions
 
 ### Is website support the same as technical maintenance?

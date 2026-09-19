@@ -21,6 +21,8 @@ const [{ workshopsContent }, { aboutContent }, { exploreWorkshopContent }] =
 		jiti.import('../src/data/exploreWorkshopContent.ts'),
 	]);
 
+const { tradePageContent } = await jiti.import('../src/data/tradePageContent.ts');
+const { investmentContent } = await jiti.import('../src/data/serviceInvestment.ts');
 const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
 const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
 const { websiteStoryContent } = await jiti.import('../src/data/websiteStoryContent.ts');
@@ -175,6 +177,26 @@ ${section(deExplore.outcomeTitle, `${deExplore.outcomeBody}\n\n${deliverables}`)
 ${section('Kontakt', `${deExplore.finalTitle}\n\n${deExplore.finalBody}\n\nE-Mail: ${contactEmail}\n\nErstgespräch buchen: ${calendarUrl}`)}`);
 }
 
+
+function renderTradePage(locale) {
+ const c=tradePageContent[locale];
+ const route=locale==='de'?'/de/websites-fuer-handwerksbetriebe/':'/en/websites-for-trade-businesses/';
+ const price=investmentContent(locale,'create');
+ const list=items=>items.map(([title,body])=>`### ${title}\n\n${body}`).join('\n\n');
+ return normalizeBlankLines([
+ pageHeader({title:`${c.title} ${c.emphasis}`,canonicalPath:route,description:c.intro}),
+ c.kicker,c.note,
+ section(`${c.problemsTitle} ${c.problemsEmphasis}`,list(c.problems)),
+ section(`${c.scopeTitle} ${c.scopeEmphasis}`,`${c.scopeIntro}\n\n${list(c.scope)}`),
+ section(`${c.ownTitle} ${c.ownEmphasis}`,`${c.ownBody}\n\n${c.ownDetail}`),
+ section(`${c.processTitle} ${c.processEmphasis}`,list(c.steps)),
+ section(`${c.careTitle} ${c.careEmphasis}`,`${c.careBody}\n\n${c.careNote}\n\n[${c.careLink}](${absoluteUrl(c.careHref)})`),
+ section(price.kicker,`${price.label}: ${price.price}\n\n${price.body}\n\n${price.note}`),
+ section(`${c.faqTitle} ${c.faqEmphasis}`,list(c.faq)),
+ section(`${c.contactTitle} ${c.contactEmphasis}`,`${c.contactBody}\n\n[${c.cta}](${absoluteUrl(route)}#anfrage)\n\n${contactEmail}`),
+ ].join('\n\n'));
+}
+
 function renderAboutAgentPage(locale = 'de') {
   const c = aboutContent[locale];
   const canonicalPath = locale === 'de' ? '/de/ueber-uns/' : '/en/about-us/';
@@ -204,6 +226,11 @@ ${post.body}`);
 }
 
 
+function investmentMarkdown(locale, kind) {
+ const c=investmentContent(locale,kind);
+ return section(c.kicker,`${c.label}: ${c.price}\n\n${c.body}\n\n${c.note}`);
+}
+
 function renderServicePage(locale, kind) {
   const c = serviceContent[locale][kind];
   const path = servicePaths[locale][kind];
@@ -225,6 +252,7 @@ function renderServicePage(locale, kind) {
     }
     parts.push(section(`${c.ongoing.title} ${c.ongoing.emphasis}`, `${c.ongoing.intro}\n\n${c.ongoing.body}\n\n[${c.ongoing.link}](${absoluteUrl(detailPaths[locale].support)})`));
     parts.push(section(c.trade.title, `${c.trade.body}\n\n[${c.trade.link}](${absoluteUrl(c.trade.href)})`));
+    parts.push(investmentMarkdown(locale,'create'));
     parts.push(section(c.faq.kicker, c.faq.items.map(item => `### ${item.question}\n\n${item.answer}`).join('\n\n')));
   }
   parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
@@ -244,6 +272,7 @@ function renderServiceDetail(locale, key) {
     [locale === 'de' ? 'Alle Leistungen' : 'All services', servicePaths[locale].overview],
   ] : t.related.map(k => [serviceDetails[locale][k].name, detailPaths[locale][k]]);
   parts.push(section(locale === 'de' ? 'Passende nächste Schritte' : 'Related services', related.map(([name, path]) => `[${name}](${absoluteUrl(path)})`).join('\n\n')));
+  if (key==='redesign'||key==='support') parts.push(investmentMarkdown(locale,key));
   parts.push(section(locale === 'de' ? 'Häufige Fragen' : 'Common questions', pairs(t.faq)));
   parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `${t.contact}\n\n[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
   return normalizeBlankLines(parts.join('\n\n'));
@@ -379,6 +408,8 @@ const pages = [
 ];
 const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
 const negotiatedPages = [
+ {relativePath:'de/websites-fuer-handwerksbetriebe/index.md',content:renderTradePage('de')},
+ {relativePath:'en/websites-for-trade-businesses/index.md',content:renderTradePage('en')},
     ...['de','en'].flatMap(locale => serviceKeys.map(key => ({relativePath:`${detailPaths[locale][key].slice(1)}index.md`,content:renderServiceDetail(locale,key)}))),
     ...['de', 'en'].flatMap(locale => ['overview', 'website'].map(kind => ({ relativePath: `${servicePaths[locale][kind].slice(1)}index.md`, content: renderServicePage(locale, kind) }))),
 	...Object.keys(potentialPaths).map(locale => ({ relativePath: `${potentialPaths[locale].slice(1)}index.md`, content: renderPotentialAnalysis(locale) })),
