@@ -46,3 +46,6 @@ Ziel: Ein echter Wechsel von einer alten zur neu aufgebauten Website soll erkenn
 - Der Vergleich beginnt bei „Vorher“. „Nachher“ zeigt die vollständige neue Seite mit kurzem Übergang; reduzierte Bewegung deaktiviert diesen.
 - Eigene Komponente RelaunchExample; das bestätigte Betreuungsbeispiel bleibt eigenständig. Kein konkreter Mitbewerber wurde kopiert oder als Negativbeispiel bezeichnet. Fiktiver Betrieb und generierte Motive werden gekennzeichnet.
 - Prüfung des überarbeiteten Vergleichs: alte Desktopseite, neuer Einstieg und unterer Gestaltungs-/Kontaktabschnitt visuell kontrolliert. Beide Sprachfassungen und beide Zustände bei 320px ohne horizontalen Überlauf; Wechsel per Enter bestätigt. Keine Konsolenfehler im Prüf-Tab. Build und 56 Tests erfolgreich.
+
+### Holzfarben und Vergleichsbedienung
+Auf Nutzerwunsch wurden die goldenen Flächen des Vorher-Beispiels in Braun-/Holztöne geändert. Der Vorher/Nachher-Schalter sitzt jetzt oben rechts in einer kontrastreichen Leiste direkt am Vorschaurahmen und bleibt innerhalb des Vergleichs beim Scrollen erreichbar. Mobil mindestens 44px hohe Schaltflächen, aktiver Zustand lavendelfarben. Desktop visuell und bei 320px ohne Überlauf sowie per Tastatur geprüft.
