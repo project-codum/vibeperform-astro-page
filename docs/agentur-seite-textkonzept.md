@@ -1,6 +1,18 @@
 # Agenturseite: Marlon Dietrich und VibePerform
 
-Arbeitsstand: 19.09.2026. Auf develop lokal umgesetzt: deutsche und englische Agenturseite nach diesem Konzept. Keine Veröffentlichung.
+Arbeitsstand: Auf develop lokal umgesetzt und nach dem anschließenden Browserfeedback überarbeitet. Keine Veröffentlichung.
+
+## Aktuelle redaktionelle Entscheidung nach Browserfeedback
+
+Die folgenden Korrekturen des Nutzers haben Vorrang vor den ursprünglichen Textvorschlägen weiter unten:
+- Hero-CTA: „Erstgespräch vereinbaren“, weiterhin zum persönlichen Kontaktbereich.
+- Hero stellt Marlon in dritter Person als Geschäftsführer und direkten Ansprechpartner vor; Verantwortung für den Firmenauftritt ist Chefsache. Bildunterschrift: „GF von VibePerform“. Die Rollenbezeichnung wurde ausdrücklich vom Nutzer vorgegeben; die zuvor mitgeteilte Rechtsform wurde damit nicht geändert.
+- „Unsere Überzeugung“: Überschrift, Sprunglink und Mission in Wir-Form.
+- Der gesamte Zusammenarbeitsabschnitt einschließlich Partnerdiagramm und Erwartungen entfällt.
+- Der persönliche Werdegang bleibt in Ich-Form. Der zweite Absatz leitet zur Leistung von VibePerform in Wir-Form über: klare Online-Präsentation, sichtbare Leistungen und ein mitwachsender Firmenauftritt mit Website, Unternehmensprofil, Texten, Grafiken und SEO.
+- Fünf Abschnitte: Einstieg → Überzeugung → Werdegang → KI-Suche → Kontakt. DE/EN und maschinenlesbare Fassungen werden gemeinsam aktualisiert.
+
+Die ursprüngliche Herleitung bleibt nachfolgend als Verlauf erhalten.
 
 ## 1. Ziel und Ausgangslage
 
@@ -167,3 +179,5 @@ Ohne Kundenstimmen ist eine gute erste Fassung möglich: konkrete Projektbelege 
 - Im Browser geprüft: Desktop 1280 px, Smartphone 390/320 px und englische Tabletansicht 768 px; kein horizontaler Überlauf. Porträt, Zusammenarbeit und KI-Grafik visuell geprüft. Mobiles Menü, Sprachwechsel und Kontaktanker funktionieren. Kontaktziele geprüft, kein Termin gebucht und keine Nachricht gesendet.
 - Der gemeinsame Markdown-Generator benennt deutsche Alternativen auf englischen Seiten jetzt korrekt als „German alternate“.
 - Offen für spätere Ergänzungen: freigegebene Projektbeispiele und echte Kundenstimmen. Kein Hindernis für diese persönliche Erstfassung.
+
+Prüfung der Browserkorrekturen: Build und sieben betroffene Tests bestanden. DE-Vorschau zeigt fünf Abschnitte, den neuen Hero-Text und die Wir-Form. Desktop (1527 px) und Smartphone (390 px) ohne horizontalen Überlauf. Die entfernten Inhalte sind auch aus den Markdown-Ausgaben entfernt.

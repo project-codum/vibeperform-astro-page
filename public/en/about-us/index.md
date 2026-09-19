@@ -3,15 +3,15 @@ Canonical URL: https://www.vibeperform.com/en/about-us/
 German alternate: https://www.vibeperform.com/de/ueber-uns/
 Summary: Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.
 
-Marlon Dietrich · Founder of VibePerform
+Marlon Dietrich · Managing Director of VibePerform
 
-I’m Marlon Dietrich. Through VibePerform, I build and maintain websites and business profiles that reflect where your company is today – and evolve with it.
+Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Taking responsibility for your online presence is a matter for the person at the helm.
 
 ## Your business keeps moving. Your website should, too.
 
 A new service, a recent project, new questions from your customers: your business is always evolving. Your online presence should reflect that.
 
-That’s why I bring design, content, search engine optimisation and technology together. I build your presence and offer ongoing development informed by your business, customer questions and available search and usage data.
+That’s why we bring design, content, search engine optimisation and technology together. We build your presence and offer ongoing development informed by your business, customer questions and available search and usage data.
 
 [Keep your website up to date](https://www.vibeperform.com/en/website-support/)
 
@@ -19,31 +19,7 @@ That’s why I bring design, content, search engine optimisation and technology 
 
 I spent three years developing software for a midsize company. I then worked with several startups, developing AI agents and automated processes and turning digital ideas into usable applications.
 
-Today, I combine that experience with AI agents to develop and design websites and web apps. With VibePerform, I bring this together for businesses: a considered online presence that can keep evolving.
-
-## A direct connection. The right expertise.
-
-I run VibePerform as a sole proprietor. You work directly with me: I take responsibility for the concept and technical implementation and coordinate your project.
-
-For design and graphics, I collaborate with specialists to suit each project. Responsibilities stay clear on larger projects, too. We agree the scope, availability and schedule before starting.
-
-## What you can expect when working with me.
-
-### Direct contact
-
-You discuss your project with the person responsible for its implementation.
-
-### Clear decisions
-
-I explain which changes make sense and what they mean for your online presence.
-
-### An agreed plan
-
-We clarify goals, scope, responsibilities and next steps together before implementation.
-
-### Support after launch
-
-If you wish, I can handle the agreed maintenance and ongoing development of your presence.
+Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly, make your services visible and develop your online presence as your company grows – from your website and business profile to copy, graphics and search engine optimisation.
 
 ## Made for people. Understandable to AI.
 

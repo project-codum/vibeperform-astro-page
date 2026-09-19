@@ -25,7 +25,7 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
         <figcaption><strong>Marlon Dietrich</strong><span>{c.hero.role}</span></figcaption>
       </figure>
     </div>
-    <div class="hp-wrap ag-hero-foot"><span>{c.hero.caption}</span><a class="hp-text-link" href="#ueberzeugung">{locale === 'de' ? 'Meine Überzeugung' : 'What I believe'} <span aria-hidden="true">↓</span></a></div>
+    <div class="hp-wrap ag-hero-foot"><span>{c.hero.caption}</span><a class="hp-text-link" href="#ueberzeugung">{c.vision.kicker} <span aria-hidden="true">↓</span></a></div>
   </section>
 
   <section class="hp-section ag-vision" id="ueberzeugung" aria-labelledby="vision-title">
@@ -45,21 +45,6 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
     </div>
   </section>
 
-  <section class="hp-section ag-collaboration" id="zusammenarbeit" aria-labelledby="collaboration-title">
-    <div class="hp-wrap">
-      <div class="hp-split ag-collab-intro">
-        <div><p class="hp-kicker">{c.collaboration.kicker}</p><h2 id="collaboration-title">{c.collaboration.title}<br/><em>{c.collaboration.emphasis}</em></h2><div class="ag-prose"><p>{c.collaboration.intro}</p><p>{c.collaboration.partner}</p></div></div>
-        <div class="ag-network" role="group" aria-label={locale === 'de' ? 'So ist die Zusammenarbeit organisiert' : 'How our collaboration is organised'}>
-          <div class="ag-network-project"><span class="ag-node-symbol" aria-hidden="true">↗</span><strong>{c.collaboration.project}</strong><small>{c.collaboration.projectDetail}</small></div>
-          <span class="ag-connector" aria-hidden="true">↕</span>
-          <div class="ag-network-owner"><Image src={portrait} alt="" width={96} height={96} fit="cover" format="webp" loading="lazy"/><div><small>{c.collaboration.owner}</small><strong>Marlon Dietrich</strong><span>VibePerform</span></div></div>
-          <span class="ag-connector ag-connector-dashed" aria-hidden="true">↕</span>
-          <div class="ag-network-partners"><strong>{c.collaboration.partners}</strong><small>{c.collaboration.partnerDetail}</small></div>
-        </div>
-      </div>
-      <div class="ag-expectations"><h3>{c.collaboration.expectations}</h3><div class="ag-expectation-grid">{c.collaboration.items.map((item,i)=><article><span class="hp-number" aria-hidden="true">0{i+1}</span><h4>{item.title}</h4><p>{item.body}</p></article>)}</div></div>
-    </div>
-  </section>
 
   <section class="hp-section hp-evolution ag-future" aria-labelledby="future-title">
     <div class="hp-wrap hp-split">

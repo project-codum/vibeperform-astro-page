@@ -15,7 +15,7 @@ const canonical = absoluteUrl(path);
 const data = [organizationSchema(), websiteSchema(locale), {
   '@context': 'https://schema.org', '@type': service ? 'Service' : about ? 'AboutPage' : 'CollectionPage',
   '@id': `${canonical}#${service ? 'service' : 'webpage'}`, name: title.split(' | ')[0], description, url: canonical,
-  ...(about ? { mainEntity: { '@type': 'Person', '@id': absoluteUrl('/de/ueber-uns/#marlon'), name: 'Marlon Dietrich', jobTitle: locale === 'de' ? 'Gründer von VibePerform' : 'Founder of VibePerform', url: canonical, ...(image ? { image: absoluteUrl(image) } : {}) } } : {}),
+  ...(about ? { mainEntity: { '@type': 'Person', '@id': absoluteUrl('/de/ueber-uns/#marlon'), name: 'Marlon Dietrich', jobTitle: locale === 'de' ? 'Geschäftsführer von VibePerform' : 'Managing Director of VibePerform', url: canonical, ...(image ? { image: absoluteUrl(image) } : {}) } } : {}),
   ...(service ? { provider: { '@id': absoluteUrl('/#organization') } } : { inLanguage: locale }),
 }, {
   '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [

@@ -5,18 +5,19 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 const dist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../dist');
 const load = route => readFile(path.join(dist, route, 'index.html'), 'utf8');
-for (const [locale, route, alternate, sole] of [
-  ['de', 'de/ueber-uns', 'en/about-us', 'Einzelunternehmer'],
-  ['en', 'en/about-us', 'de/ueber-uns', 'sole proprietor'],
+for (const [locale, route, alternate, role] of [
+  ['de', 'de/ueber-uns', 'en/about-us', 'Geschäftsführer'],
+  ['en', 'en/about-us', 'de/ueber-uns', 'Managing Director'],
 ]) {
   test(`${locale}: agency identity, metadata and machine-readable version agree`, async () => {
     const html = await load(route);
     const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
     const md = await readFile(path.join(dist, route, 'index.md'), 'utf8');
     assert.equal((main.match(/<h1\b/g) || []).length, 1);
+    assert.doesNotMatch(main, /ag-collaboration|ag-expectations/);
     for (const source of [main, md]) {
       assert.ok(source.includes('Marlon Dietrich'));
-      assert.ok(source.includes(sole));
+      assert.ok(source.includes(role));
       assert.doesNotMatch(source, /Isabella|certified RAG|zertifizierter RAG|CAPTRON|dcarbonize/);
     }
     assert.ok(html.includes(`rel="canonical" href="https://www.vibeperform.com/${route}/"`));

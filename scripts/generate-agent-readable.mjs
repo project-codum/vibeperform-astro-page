@@ -184,8 +184,6 @@ function renderAboutAgentPage(locale = 'de') {
     c.hero.kicker, c.hero.intro,
     section(`${c.vision.title} ${c.vision.emphasis}`, `${c.vision.body}\n\n${c.vision.mission}\n\n[${c.vision.link}](${absoluteUrl(c.vision.href)})`),
     section(c.journey.kicker, c.journey.paragraphs.join('\n\n')),
-    section(`${c.collaboration.title} ${c.collaboration.emphasis}`, `${c.collaboration.intro}\n\n${c.collaboration.partner}`),
-    section(c.collaboration.expectations, c.collaboration.items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n')),
     section(`${c.future.title} ${c.future.emphasis}`, `${c.future.body}\n\n${c.future.extra}\n\n[${c.future.link}](${absoluteUrl(c.future.href)})`),
     section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}\n\n${c.contact.note}`),
   ].join('\n\n'));
@@ -270,7 +268,7 @@ ${serviceKeys.map(key => `- [${serviceDetails.de[key].name}](${absoluteUrl(detai
 - [Website erstellen lassen](${absoluteUrl('/de/website-erstellen-lassen/index.md')}) — Erstellung, Ablauf und laufende Weiterentwicklung.
 - [Workshops](${absoluteUrl('/agent/workshops.md')}) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](${absoluteUrl('/agent/explore-workshop.md')}) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
-- [Über Vibeperform](${absoluteUrl('/agent/about.md')}) — Marlon Dietrich, Vision, Arbeitsweise und Kontakt.
+- [Über Vibeperform](${absoluteUrl('/agent/about.md')}) — Marlon Dietrich, Vision, Werdegang und Kontakt.
 
 ## Blog
 
