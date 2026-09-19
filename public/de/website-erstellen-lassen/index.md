@@ -21,33 +21,61 @@ Passende Gestaltung, echte Einblicke und verständliche Texte vermitteln, wie Ih
 
 Interessenten finden den passenden nächsten Schritt – vom Anruf bis zur konkreten Projektanfrage.
 
-## Alles, was Ihren Auftritt zusammenbringt.
+## Ihr Auftritt nimmt Form an.
 
-Wir stimmen die Leistungen auf Ihr Vorhaben ab. Diese Bausteine bilden die Grundlage unserer Website-Projekte.
+Eine gute Website entsteht Schritt für Schritt. Entdecken Sie, wie aus Ihrem Unternehmen ein stimmiger digitaler Auftritt wird.
 
-### Struktur & Seitenplan
+### Markenkern: Zuerst verstehen wir, was Sie ausmacht.
 
-Wir ordnen Leistungen, Zielgruppen und Inhalte zu einer verständlichen Website.
+Ihre Leistungen, Ihre Kunden, Ihr Anspruch: Daraus entwickeln wir den roten Faden für Ihre Website.
 
-### Webdesign
+Das Ergebnis: eine klare Richtung für den gesamten Auftritt.
 
-Farben, Schriften und Layouts passen zu Ihrem Unternehmen und funktionieren auf kleinen und großen Bildschirmen.
+### Sprache: Die richtigen Worte. Ihr eigener Ton.
 
-### Texte & Medien
+Wir übersetzen Ihr Können in verständliche Texte. Besucher erkennen, was Sie anbieten und warum es zu ihrem Vorhaben passt.
 
-Wir formulieren Ihre Inhalte und bereiten vorhandene Bilder sowie vereinbarte Grafiken für die Website auf.
+Klar in der Aussage. Persönlich im Ton.
 
-### Suchmaschinenoptimierung
+### Logo: Ein Absender. Überall erkennbar.
 
-Relevante Suchbegriffe, klare Überschriften und passende Seitenbeschreibungen fließen in den Aufbau ein.
+Ihr vorhandenes Logo bekommt den richtigen Platz – mit passenden Varianten für helle und dunkle Flächen und einem Zeichen für den Browser-Tab.
 
-### Technische Umsetzung
+Eine neue Logoentwicklung stimmen wir bei Bedarf gesondert ab.
 
-Wir setzen die vereinbarten Seiten und Kontaktwege um und prüfen Darstellung sowie Funktion.
+### Farben: Ein Gefühl. Eine ganze Palette.
 
-### Abstimmung & Start
+Wir finden Farben, die zu Ihrem Unternehmen passen. Helle Flächen schaffen Ruhe, Akzente geben Orientierung und Kontraste machen Inhalte lesbar.
 
-Sie sehen Ihre Website vorab in einer Vorschau. Inhalte, Veröffentlichung und Übergabe stimmen wir gemeinsam ab.
+Grundfarben, Abstufungen und feste Rollen für die Anwendung.
+
+### Typografie: Schrift hat Persönlichkeit.
+
+Prägnante Überschriften, gut lesbare Texte und gezielte Akzente: Wir finden die passende Schriftkombination für Ihren Auftritt.
+
+Eine klare Hierarchie – vom ersten Blick bis zum letzten Absatz.
+
+### Bildsprache: Bevor man liest, fühlt man.
+
+Bilder, Materialien und Grafiken machen Ihre Arbeit greifbar. Gemeinsam wählen wir eine Bildwelt, die Ihre Leistungen verständlich zeigt.
+
+Echte Einblicke bevorzugt. Generierte Motive dort, wo sie sinnvoll sind.
+
+### Layout & Struktur: Alles findet seinen Platz.
+
+Wir ordnen Ihre Leistungen zu einem verständlichen Seitenplan. Jede Seite bekommt eine Aufgabe und führt Besucher zum nächsten passenden Schritt.
+
+Struktur, Abstände und Blickführung greifen ineinander.
+
+### Anwendung: Großer Bildschirm. Kleiner Bildschirm.
+
+Das Design passt sich an: Bilder, Texte und Navigation ordnen sich neu. So bleibt Ihre Website auch unterwegs verständlich und bedienbar.
+
+### Suchmaschinenoptimierung: Gefunden werden. Mit den richtigen Worten.
+
+Wir verbinden Ihre Leistungen mit den Suchfragen Ihrer Kunden. Relevante Begriffe, passende Seiten und verständliche Beschreibungen fließen in den Aufbau ein.
+
+Die Grundlage für Suchmaschinenoptimierung und spätere Weiterentwicklung.
 
 ## Von der ersten Idee bis zum fertigen Auftritt.
 

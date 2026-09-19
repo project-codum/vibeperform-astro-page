@@ -23,6 +23,7 @@ const [{ workshopsContent }, { aboutContent }, { exploreWorkshopContent }] =
 
 const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
 const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
+const { websiteStoryContent } = await jiti.import('../src/data/websiteStoryContent.ts');
 const { serviceContent, servicePaths } = await jiti.import('../src/data/serviceContent.ts');
 const deWorkshops = workshopsContent.de;
 const deAbout = aboutContent.de;
@@ -219,6 +220,11 @@ function renderServicePage(locale, kind) {
     parts.push(section(c.additional.title, `${c.additional.body}\n\n[${c.additional.link}](${absoluteUrl(c.additional.href)})`));
   } else {
     for (const name of ['problems', 'scope', 'process']) {
+      if (name === 'scope') {
+        const story = websiteStoryContent[locale];
+        parts.push(section(`${story.title} ${story.emphasis}`, `${story.intro}\n\n${story.chapters.map(item => `### ${item.label}: ${item.title} ${item.em}\n\n${item.body}\n\n${item.id === 'anwendung' ? '' : item.note}`).join('\n\n')}`));
+        continue;
+      }
       const group = c[name];
       parts.push(section(`${group.title} ${group.emphasis}`, `${group.intro || ''}\n\n${group.items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n')}`));
     }

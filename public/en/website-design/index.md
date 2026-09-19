@@ -21,33 +21,61 @@ Thoughtful design, real insights and clear copy communicate how your business wo
 
 Visitors find the right next step, from a phone call to a specific project enquiry.
 
-## Everything that brings your presence together.
+## Your presence takes shape.
 
-We tailor our services to your project. These elements form the basis of our website work.
+A good website takes shape step by step. Discover how your business becomes a coherent digital presence.
 
-### Structure & page plan
+### Brand core: First, we discover what makes you, you.
 
-We organise services, audiences and content into an understandable website.
+Your services, customers and standards give us the direction for your website.
 
-### Web design
+The result: a clear direction for your entire presence.
 
-Colours, typography and layouts reflect your business and work on small and large screens.
+### Language: The right words. Your own voice.
 
-### Copy & media
+We turn your expertise into clear copy. Visitors understand what you offer and how it fits their project.
 
-We write content and prepare existing images and agreed graphics for your website.
+Clear in meaning. Personal in tone.
 
-### Search engine optimisation
+### Logo: One identity. Recognisable everywhere.
 
-Relevant search terms, clear headings and appropriate page descriptions inform the build.
+Your existing logo gets the right setting: on light and dark backgrounds and in the browser tab.
 
-### Development
+A new logo design can be agreed separately if needed.
 
-We build the agreed pages and contact options, then check layout and functionality.
+### Colour: One feeling. An entire palette.
 
-### Review & launch
+We find colours that suit your business. Quiet backgrounds, purposeful accents and legible contrasts work together.
 
-You see a preview before launch. We agree content, publication and handover together.
+Core colours, shades and clear roles for each application.
+
+### Typography: Type has personality.
+
+Distinctive headings, readable text and a considered accent: we find the right type combination for your presence.
+
+A clear hierarchy, from first glance to final paragraph.
+
+### Imagery: Before we read, we feel.
+
+Images, materials and graphics make your work tangible. Together, we choose imagery that explains your services.
+
+Real insights first. Generated imagery where it makes sense.
+
+### Layout & structure: Everything finds its place.
+
+We organise your services into a clear page structure. Every page has a purpose and guides visitors to the next relevant step.
+
+Structure, spacing and visual hierarchy work together.
+
+### Application: Big screen. Small screen.
+
+The design adapts: images, text and navigation rearrange. Your website stays clear and usable on the go.
+
+### Search optimisation: Be found. With the right words.
+
+We connect your services with your customers’ search questions. Relevant terms, focused pages and clear descriptions inform the structure.
+
+A foundation for search optimisation and ongoing development.
 
 ## From the first idea to your new presence.
 

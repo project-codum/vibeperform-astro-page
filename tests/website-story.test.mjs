@@ -3,10 +3,12 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 const load = route => readFile(new URL(`../dist${route}index.html`,import.meta.url),'utf8');
 for (const [locale, route] of [['de','/de/website-erstellen-lassen/'],['en','/en/website-design/']]) {
-  test(`${locale}: story preview preserves the original service page and stays out of the search index`, async () => {
+  test(`${locale}: approved story is the regular service page; comparison URL stays out of the search index`, async () => {
     const [v1,v2,sitemap] = await Promise.all([load(route),load(`${route}v2/`),readFile(new URL('../dist/sitemap.xml',import.meta.url),'utf8')]);
-    assert.match(v1,/class="sv-scope-grid"/);
-    assert.doesNotMatch(v1,/<website-story/);
+    assert.doesNotMatch(v1,/class="sv-scope-grid"/);
+    assert.match(v1,/<website-story/);
+    assert.doesNotMatch(v1,/name="robots" content="noindex, follow"/);
+    assert.doesNotMatch(v1,/class="ws-preview-banner"/);
     assert.match(v2,/name="robots" content="noindex, follow"/);
     assert.ok(v2.includes(`rel="canonical" href="https://www.vibeperform.com${route}"`));
     assert.ok(v2.includes(`href="${route}#umfang"`));
@@ -15,7 +17,10 @@ for (const [locale, route] of [['de','/de/website-erstellen-lassen/'],['en','/en
     assert.equal((v2.match(/<h1\b/g)||[]).length,1);
   });
   test(`${locale}: all nine chapters and illustrations are server rendered in brandbook order`, async () => {
-    const html = await load(`${route}v2/`);
+    const html = await load(route);
+    const markdown = await readFile(new URL(`../dist${route}index.md`,import.meta.url),'utf8');
+    assert.match(markdown, /Typography|Typografie/);
+    assert.match(markdown, /Search optimisation|Suchmaschinenoptimierung/);
     const expected = ['markenkern','sprache','logo','farben','typografie','bildwelt','layout','anwendung','seo'];
     assert.deepEqual([...html.matchAll(/id="story-([^"]+)"/g)].map(m=>m[1]),expected);
     const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);

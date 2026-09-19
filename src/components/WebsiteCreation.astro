@@ -4,14 +4,14 @@ import WebsiteStory from './WebsiteStory.astro';
 import AgencyContact from './AgencyContact.astro';
 import { serviceContent, servicePaths } from '../data/serviceContent';
 import type { Locale } from '../lib/siteMetadata';
-interface Props { locale: Locale; version?: 1 | 2; }
-const { locale, version = 1 } = Astro.props;
+interface Props { locale: Locale; version?: 1 | 2; preview?: boolean; }
+const { locale, version = 2, preview = false } = Astro.props;
 const t = serviceContent[locale].website;
 const paths = servicePaths[locale];
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 ---
-<AgencyDocument locale={locale} title={t.title} description={t.description} path={paths.website} alternatePath={servicePaths[locale === 'de' ? 'en' : 'de'].website} service preview={version === 2}>
-  {version === 2 && <div class="ws-preview-banner"><span>{locale === 'de' ? 'Entwurf V2 · Die Entstehung Ihres Auftritts' : 'V2 study · The making of your presence'}</span><a href={`${base}${paths.website}#umfang`}>{locale === 'de' ? 'Zur Version 1 ↗' : 'View version 1 ↗'}</a></div>}
+<AgencyDocument locale={locale} title={t.title} description={t.description} path={paths.website} alternatePath={servicePaths[locale === 'de' ? 'en' : 'de'].website} service preview={preview}>
+  {preview && <div class="ws-preview-banner"><span>{locale === 'de' ? 'Entwurf V2 · Die Entstehung Ihres Auftritts' : 'V2 study · The making of your presence'}</span><a href={`${base}${paths.website}#umfang`}>{locale === 'de' ? 'Zur Leistungsseite ↗' : 'View service page ↗'}</a></div>}
   <section class="sv-hero sv-website-hero" aria-labelledby="home-title">
     <div class="sv-orb" aria-hidden="true"></div>
     <div class="hp-wrap sv-hero-inner" id="home-intro" tabindex="-1">
