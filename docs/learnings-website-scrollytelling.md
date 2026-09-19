@@ -1,116 +1,151 @@
-# Learnings: Vom Leistungsraster zur visuellen Website-Erzählung
+# Leitfaden für die nächsten VibePerform-Leistungsseiten
 
-Stand: 19.09.2026 · VibePerform · Website erstellen lassen
+Stand: 19.09.2026
 
-## Ergebnis und Einordnung
+## Grundsatz
 
-Der bisherige Leistungsabschnitt wurde als eigene V2 zu einer visuellen Scroll-Erzählung weiterentwickelt. Marlon hat diese Gestaltung anschließend ausdrücklich angenommen: **„V2 ist perfekt. das übernehmen wir.“** V2 wird damit auf `develop` zur regulären deutschen und englischen Leistungsseite. Eine Veröffentlichung ist damit noch nicht erfolgt.
+**Zuerst Ziel und Seitenstruktur in Textform festlegen. Danach mögliche Reaktionen echter Besucher durchdenken und daraus konkrete Anforderungen an Inhalt, Gestaltung und Bedienung ableiten. Erst dann gestalten und umsetzen.**
 
-Diese Reflexion basiert auf dem konkreten Auftrag, den ausgeführten Änderungen und den Browserprüfungen. Die Zustimmung belegt, dass die Gestaltung die gewünschte Richtung trifft. Ob Besucher das Angebot dadurch besser verstehen oder häufiger anfragen, ist bislang nicht gemessen. Die folgenden Wirkungsannahmen sind gestalterische Schlussfolgerungen.
+Die Leistungsseiten bilden eine zusammengehörige Website. Sie verwenden eine einheitliche Grundstruktur, Sprache, Navigation und Markenidentität. Die passende Darstellung einzelner Inhalte ergibt sich aus der jeweiligen Leistung und dem Informationsbedarf ihrer Zielgruppe.
 
-## 1. Die entscheidende Überlegung: Die Leistung sichtbar machen
+Eine einfache, ruhige und gut lesbare Gestaltung ist der Ausgangspunkt. Grafiken, Vergleiche, interaktive Beispiele oder Scrollytelling kommen hinzu, wenn sie das Verständnis erkennbar verbessern. Professionalität entsteht durch Klarheit, Sorgfalt, Konsistenz und passende Belege.
 
-Im bisherigen Raster standen Begriffe wie „Struktur & Seitenplan“, „Webdesign“, „Texte & Medien“ und „Suchmaschinenoptimierung“. Die Texte erklärten den Umfang, überließen Besuchern aber weitgehend die Vorstellung, was daraus entsteht.
+## 1. Vor jedem Entwurf: Ziel und Struktur schriftlich definieren
 
-Die neue Leitfrage lautete: **Was können wir zeigen, damit Menschen die jeweilige Leistung unmittelbar verstehen?**
+Für jede neue Leistungsseite zunächst ein kurzes Textkonzept erstellen. Vorhandene Entscheidungen und Quellen nutzen; offene Punkte nur dort erfragen, wo sie die weitere Arbeit tatsächlich beeinflussen.
 
-Daraus entstanden konkrete Übersetzungen:
+### Textkonzept
 
-| Leistung oder Thema | Sichtbare Darstellung | Beabsichtigte Wirkung |
+- **Leistung:** Was bietet diese Seite konkret an? Wie grenzt sie sich von benachbarten Leistungsseiten ab?
+- **Zielgruppe und Ausgangslage:** Wer kommt auf die Seite, mit welchem Problem und welchem Vorwissen?
+- **Besucherziel:** Welche Frage möchte diese Person beantworten oder welche Aufgabe erledigen?
+- **Seitenziel:** Was soll nach dem Lesen verstanden sein? Welcher nächste Schritt ist sinnvoll?
+- **Kernaussage:** Die zentrale Aussage der Seite in einem verständlichen Satz.
+- **Angebotsgrundlage:** Welche Leistungen, Ergebnisse, Grenzen und Belege sind tatsächlich gesichert?
+- **Erste Seitenstruktur:** Abschnitte in Reihenfolge, jeweils mit Arbeitsüberschrift, Kerninhalt und Aufgabe.
+
+Das Textkonzept ist die Grundlage für den Entwurf. Inhaltliche Fragen werden hier sichtbar, bevor sie durch ein aufwendiges Layout verdeckt werden.
+
+## 2. Einheitliche Grundstruktur für Leistungsseiten
+
+Die folgende Reihenfolge dient als gemeinsames Gerüst. Wiederkehrende Inhalte erhalten wiederkehrende Bezeichnungen und Positionen. Änderungen am Gerüst werden mit dem konkreten Informationsbedarf begründet; unterschiedliche visuelle Module sind innerhalb des Gerüsts möglich.
+
+| Abschnitt | Besucherfrage | Inhaltliche Aufgabe |
 |---|---|---|
-| Markenkern | Überschneidung von Können, Menschen und Haltung | Die Gestaltung beginnt beim Unternehmen. |
-| Sprache | Fachbegriff wird zu einem verständlichen Kundensatz | Der Nutzen guter Texte wird am Beispiel nachvollziehbar. |
-| Logo | Original-Logo auf Hell und Dunkel, dazu Favicon | Ein konsistenter Absender wird greifbar. |
-| Farben | Palette mit HEX-Codes und Abstufungen | Farbwahl erscheint als zusammenhängendes System. |
-| Typografie | Große Schriftproben sowie Überschrift, Akzent und Lesetext | Schriftrollen und Persönlichkeit werden sichtbar. |
-| Bildsprache | Collage aus Material, Raum, Licht und weichen Bildebenen | Die gewünschte Stimmung wird erlebbar. |
-| Layout und Struktur | Seitenbaum und vereinfachter Seitenentwurf | Besucher erkennen, wie Inhalte geordnet werden. |
-| Anwendung | Dieselbe Website als Desktop- und Mobilansicht | Anpassung an Bildschirmgrößen wird demonstriert. |
-| SEO | Beispielhafte Suchvorschläge und ein Suchergebnis | Verbindung zwischen Kundenfragen und Website-Inhalten wird konkret. |
+| 1. Einstieg / Hero | Bin ich hier richtig? | Leistung klar benennen, Nutzen und Zielgruppe verständlich machen, passenden nächsten Schritt anbieten. |
+| 2. Ausgangslage und Kundenprobleme | Verstehen Sie meine Situation? | Konkrete Schwierigkeiten und gewünschte Verbesserungen aus Kundensicht beschreiben. |
+| 3. Leistung und Ergebnis | Was bekomme ich konkret? | Bestandteile, greifbare Ergebnisse, relevante Grenzen und passende Beispiele zeigen. |
+| 4. Zusammenarbeit und Ablauf | Wie läuft das ab, und was muss ich beitragen? | Schritte, Mitwirkung, Abstimmungen und Übergabe verständlich erklären. |
+| 5. Passende Ergänzung oder Weiterentwicklung | Was brauche ich darüber hinaus? | Sinnvolle Anschlussleistung erklären und gezielt verlinken, sofern sie zur Leistung gehört. |
+| 6. Entscheidungsfragen / FAQ | Was muss ich vor einer Anfrage noch wissen? | Relevante Fragen zu Umfang, Voraussetzungen, Aufwand, Kosten und Zusammenarbeit beantworten. |
+| 7. Kontakt / nächster Schritt | Wie geht es jetzt weiter? | Eine eindeutige Handlung anbieten und erklären, was anschließend passiert. |
 
-**Learning:** Bei einer schwer greifbaren Dienstleistung sollte jeder wichtige Abschnitt ein sichtbares Ergebnis oder eine nachvollziehbare Veränderung zeigen.
+Glaubwürdige Belege und Beispiele dort einordnen, wo sie eine konkrete Aussage stützen. Eine eigene Referenzsektion nur verwenden, wenn dafür geeignetes Material vorliegt. Preise gehören bei Bedarf auf die passende Leistungs-/Produktseite und müssen auf einer bestätigten Grundlage beruhen.
 
-## 2. Der kreative Impuls kam aus dem konkreten Nutzerfeedback
+Das Brandbook bestimmt die Markenidentität: Logo, Farben, Schriften, Abstände, Bildsprache und Ton. Seine Kapitelreihenfolge ist kein allgemeines Gerüst für Leistungsseiten.
 
-Marlons Rückmeldung enthielt bereits die wesentliche Gestaltungsrichtung: Brandbook-Struktur, Scrollytelling, Desktop/Mobil, HEX-Codes, Schriftproben, Bildwelt und Suchvorschläge. Diese Vorgaben wurden in eine umsetzbare Erzählung übersetzt.
+## 3. Menschliches Nutzerfeedback vorwegnehmen
 
-Es war deshalb hilfreich, den ausgewählten Seitenabschnitt und die Beispiele genau zu lesen. Eine allgemeine Aufforderung, die Seite „moderner“ zu gestalten, hätte deutlich mehr Interpretation erfordert.
+Nach dem ersten Textkonzept die Seite aus Sicht wahrscheinlicher Besucher durchgehen. Dabei unterschiedliche Situationen berücksichtigen: wenig Zeit, geringe Fachkenntnis, Vergleich mehrerer Anbieter oder Nutzung am Handy.
 
-**Learning:** Konkrete visuelle Rückmeldungen sind ein wertvolles Briefing. Sie sollten als Anforderungen festgehalten und am Ergebnis wiedererkennbar sein.
+**Antizipierte Reaktionen sind Hypothesen.** Sie ersetzen kein tatsächliches Nutzerfeedback. Sie helfen, erkennbare Verständnis- und Bedienprobleme früh zu vermeiden. Spätere Rückmeldungen und verfügbare Nutzungsdaten können diese Annahmen bestätigen oder korrigieren.
 
-## 3. Das Brandbook gab Richtung und Reihenfolge vor
+| Mögliche Reaktion | Konsequenz für den Entwurf |
+|---|---|
+| „Was machen Sie hier eigentlich für mich?“ | Leistung und konkreten Nutzen bereits im Einstieg eindeutig formulieren. |
+| „Ich verstehe diese Fachbegriffe nicht.“ | Alltagssprache verwenden und notwendige Fachbegriffe kurz erklären. |
+| „Was habe ich am Ende in der Hand?“ | Ein tatsächliches Ergebnis benennen; bei Bedarf ein Beispiel oder eine Vorschau zeigen. |
+| „Ist das in der Leistung enthalten?“ | Umfang und Zusatzleistungen sprachlich klar trennen. Bilder dürfen keine zusätzlichen Zusagen suggerieren. |
+| „Wie viel Arbeit bleibt bei mir?“ | Benötigte Inhalte, Ansprechpartner und Abstimmungen im Ablauf erklären. |
+| „Kann ich dieser Aussage vertrauen?“ | Einen passenden Beleg ergänzen oder die Aussage präziser und zurückhaltender formulieren. |
+| „Ich möchte nur kurz Umfang und Kosten finden.“ | Klare Überschriften, gut auffindbare Entscheidungsinformationen und gegebenenfalls direkte Abschnittslinks anbieten. |
+| „Auf dem Handy ist das anstrengend.“ | Lesbare Größen, ausreichende Abstände und vollständig sichtbare Inhalte vorsehen. |
+| „Warum muss ich hier so viel scrollen oder klicken?“ | Inhalt verdichten und die Darstellung vereinfachen; wichtige Informationen direkt zugänglich machen. |
 
-Die vorhandene Gestaltung wurde zunächst geprüft: Original-Logo, Farben, Schriften und tatsächliche Kapitelreihenfolge. Die Website übernimmt daraus:
+Für jede relevante Hypothese festhalten: **erwartete Reaktion → konkrete Anpassung → überprüfbares Kriterium**.
 
-**Markenkern → Sprache → Logo → Farben → Typografie → Bildsprache → Layout → Anwendung.**
+## 4. Konkrete visuelle Anforderungen ableiten
 
-SEO wurde als Website-spezifischer Abschluss ergänzt. Die administrativen Brandbook-Teile „Start“ und „Dateien & Status“ wurden nicht als Angebotskapitel übernommen.
+Erst auf Basis des Textkonzepts und der erwarteten Reaktionen die Darstellung festlegen. Pro Abschnitt beschreiben:
 
-Auch die Stilmittel bleiben durchgehend erkennbar: warme Papierflächen, dunkle Kontrastflächen, Lavendel und Pflaume, Arial mit kursiven Georgia-Akzenten sowie großzügige Abstände.
+- Welche Information soll zuerst ins Auge fallen?
+- Welche Aussage trägt der Text allein ausreichend?
+- Wo hilft ein Bild, Beispiel, Vergleich oder eine Grafik tatsächlich weiter?
+- Welches konkrete Motiv oder welcher Zustand muss sichtbar sein?
+- Welche vorhandenen Markenassets und Belege können verwendet werden?
+- Wie funktioniert die Darstellung auf Desktop und Mobilgeräten?
+- Welche Interaktion ist nötig, und welche Information bleibt ohne sie zugänglich?
+- Woran lässt sich prüfen, dass der Abschnitt verständlich und bedienbar ist?
 
-**Learning:** Ein vorhandenes Brandbook kann gleichzeitig Gestaltungsgrundlage und Erzählstruktur liefern. Seine Inhalte müssen dafür in die Perspektive potenzieller Kunden übersetzt werden.
+**Beispiel:** Aus „Man soll den Leistungsumfang schnell verstehen“ wird: „Drei klar benannte Bestandteile mit jeweils einem konkreten Ergebnis; auf dem Handy untereinander; alle Inhalte ohne Aufklappen sichtbar.“
 
-## 4. Bewegung bekam eine konkrete Aufgabe
+Begriffe wie „modern“, „hochwertig“ oder „professionell“ durch solche konkreten Anforderungen ergänzen.
 
-Auf ausreichend großen Bildschirmen bleibt eine Grafikfläche beim Scrollen stehen. Der passende Text läuft daneben weiter, die Illustration wechselt mit dem Kapitel. Eine kleine Fortschrittsanzeige gibt Orientierung.
+## 5. Die passende Darstellung wählen
 
-Der stärkste funktionale Einsatz von Bewegung liegt im Anwendungskapitel: Die Vorschau wird schmaler und ordnet Text und Bild neu. Hier erklärt die Bewegung die Leistung selbst. Ergänzende Desktop-/Mobil-Schaltflächen machen den Vergleich gezielt bedienbar.
+Innerhalb der gemeinsamen Marke die einfachste geeignete Form wählen. Der Inhalt bestimmt, wie viel visuelle Erklärung und Interaktion sinnvoll ist.
 
-Normales Scrollen und direkte Kapitelanker bleiben erhalten. Kleine oder kurze Bildschirme sowie reduzierte Bewegung erhalten eine bebilderte Schrittfolge. Alle Kapitel werden bereits als HTML ausgegeben; JavaScript ergänzt die angeheftete Bühne und die Bedienung.
+| Informationsbedarf | Mögliche Darstellung |
+|---|---|
+| Eine klare Aussage vermitteln | Prägnante Überschrift, kurzer Text, großzügige Abstände. |
+| Mehrere Bestandteile überblicken | Gut gegliederte Liste, ruhige Spalten oder kompakte Karten. |
+| Unterschiede abwägen | Vergleichstabelle oder direkt gegenübergestellte Beispiele. |
+| Einen Ablauf verstehen | Nummerierte Schritte mit kurzen Ergebnissen und Zuständigkeiten. |
+| Qualität oder Gestaltung beurteilen | Echtes Beispiel, ausreichend große Vorschau oder Bild mit konkreter Erläuterung. |
+| Eine Zustandsänderung nachvollziehen | Vorher/Nachher, bedienbare Umschaltung oder gezielte Animation. |
+| Eine aufeinander aufbauende Entwicklung erleben | Scrollytelling, sofern Reihenfolge und Bewegung die Erklärung verbessern und der Umfang angemessen bleibt. |
 
-**Learning:** Animation ist besonders sinnvoll, wenn sie eine Beziehung, Entwicklung oder Zustandsänderung erklärt. Die Aussage muss auch ohne Animation vollständig bleiben.
+Scrollytelling ist eine Option. Eine statische, reduzierte Gestaltung kann für eine andere Leistung klarer, eleganter und professioneller sein. Auch innerhalb einer Seite dürfen ruhige Textabschnitte und visuelle Beispiele zusammenwirken. Nicht jeder Abschnitt benötigt eine Grafik.
 
-## 5. Vorhandene Materialien beschleunigten die Umsetzung
+## 6. Inhaltliche und gestalterische Leitplanken
 
-Die Original-Markendateien und vorhandene generierte Raum-/Materialmotive wurden wiederverwendet. Die Bilder werden für die Website als WebP ausgeliefert. Neue Bildproduktion war für diese Fassung nicht nötig.
-
-Das erwähnte Google-Suchvorschlagsbild konnte in den untersuchten Projektassets nicht gefunden werden. Dafür entstand zunächst eine HTML/CSS-Grafik mit ausdrücklich beispielhaften Suchbegriffen. Sie zeigt keine live erhobenen Google-Vorschläge und verspricht kein Ranking.
-
-Logoentwicklung wurde durch die Visualisierung nicht automatisch zu einem enthaltenen Leistungsbestandteil. Auch Preise und verbindliche Lieferumfänge wurden nicht neu festgelegt.
-
-**Learning:** Vor neuen Assets zuerst vorhandene Materialien prüfen. Fehlende Quellen transparent durch einen passenden Entwurf ersetzen, wenn dessen Beispielcharakter klar bleibt. Eine schöne Darstellung darf keine zusätzlichen Leistungsversprechen erzeugen.
-
-## 6. Eine eigene Version machte die Entscheidung konkret
-
-V2 entstand zunächst unter einer eigenen URL. Damit blieb die vorherige Darstellung erreichbar und der neue Abschnitt konnte als vollständige Seite beurteilt werden. Die Vergleichsversion war mit `noindex, follow` versehen und wurde nicht in die Sitemap aufgenommen.
-
-Nach der ausdrücklichen Zustimmung wird die neue Darstellung auf die regulären Leistungs-URLs übernommen. Die lesbaren Markdown-Fassungen werden ebenfalls auf die neun Kapitel aktualisiert. Die bestehende `/v2/`-URL bleibt als Vergleichslink erreichbar; die frühere V1 ist im Git-Verlauf erhalten.
-
-**Learning:** Bei größeren gestalterischen Änderungen hilft eine funktionsfähige Vergleichsversion. Nach der Entscheidung müssen Hauptseite, Metadaten, Sprachvarianten und abgeleitete Inhalte wieder konsistent sein.
-
-## 7. Die Browserprüfung führte zu konkreten Verbesserungen
-
-Geprüft wurden 1280 × 720, 760 × 783, 390 × 844 und 320 × 740 Pixel. Wichtig war insbesondere die 760-Pixel-Breite aus Marlons Rückmeldung.
-
-Die Prüfung umfasste Kapitelwechsel, die angeheftete Grafikfläche, Bildladung, tatsächliches Scrollen, Desktop-/Mobil-Umschaltung und Bedienung mit Enter. Dabei wurden zwei reale Darstellungsprobleme entdeckt und korrigiert:
-
-- In der schmalen Suchgrafik wurden Vorschläge abgeschnitten. Abstände und Größen wurden angepasst, sodass alle Vorschläge sichtbar bleiben.
-- Der Seitenplan brauchte in der statischen Mobilansicht mehr Höhe. Die Grafikfläche wurde entsprechend vergrößert.
-
-Die automatische Prüfung umfasste anschließend 43 erfolgreiche Tests, darunter Vorschau-Metadaten, Kapitelreihenfolge, interne Anker, Sprachvarianten und serverseitig ausgegebene Grafiken. Ein eigener Browserlauf mit deaktiviertem JavaScript oder emulierter Bewegungspräferenz erfolgte nicht; diese Fallbacks wurden auf Codeebene berücksichtigt.
-
-**Learning:** Ein erfolgreicher Build bestätigt keine gelungene Darstellung. Visuelle Prüfungen sollten die entscheidenden Zustände und schwierigen Breiten abdecken. Nach gefundenen Fehlern gezielt den betroffenen Zustand erneut prüfen.
+- Original-Logo, bestätigte Markenregeln und gemeinsame Komponenten verwenden.
+- Verständlich, konkret und aus Kundensicht schreiben. Aussagen auf die angebotene Leistung beziehen.
+- Vor neuer Medienproduktion vorhandene geeignete Materialien prüfen.
+- Gestaltungsbeispiele und generierte Motive als solche kenntlich machen, wenn sie sonst als reale Kundenarbeit verstanden werden könnten.
+- Keine Referenzen, Ergebnisse, Rankings, Preise oder enthaltenen Leistungen erfinden.
+- Navigation, Kontaktwege, Begrifflichkeiten und wiederkehrende Bedienelemente konsistent halten.
+- Bewegung sparsam einsetzen; wichtige Inhalte auch ohne Animation zugänglich machen.
+- Größere Gestaltungsänderungen bei Bedarf als Vergleichsversion zeigen. Kleine, klare Änderungen benötigen keinen eigenen Variantenprozess.
 
 ## Wiederverwendbarer Ablauf für die nächsten Seiten
 
-1. **Verständnisziel festlegen:** Was soll ein Besucher nach diesem Abschnitt verstanden haben?
-2. **Quellen prüfen:** Angenommene Stilgrundlage, echte Assets, vorhandene Inhalte und Leistungsgrenzen lesen.
-3. **Themen in sichtbare Ergebnisse übersetzen:** Für jedes Thema eine passende Grafik, Probe oder Zustandsänderung wählen.
-4. **Eine schlüssige Reihenfolge bilden:** Vom Ausgangspunkt über die Gestaltung zur Anwendung führen.
-5. **Bewegung begründen:** Festlegen, welche Aussage durch Scrollen deutlicher wird und wie sie statisch funktioniert.
-6. **Als vollständige Vergleichsversion bauen:** Kurze Texte und Grafik gemeinsam gestalten; Tastatur und kleine Bildschirme mitdenken.
-7. **Gezielt prüfen und nachbessern:** Reale Scrollzustände, Grafiken, Links, Metadaten und Inhaltsgleichheit kontrollieren.
-8. **Nach Entscheidung sauber übernehmen:** Reguläre Route, Sprachvarianten, Markdown und Dokumentation aktualisieren; den vorherigen Stand nachvollziehbar erhalten.
+1. **Ziel schriftlich definieren:** Leistung, Zielgruppe, Ausgangslage, Besucherziel, Seitenziel und Kernaussage festhalten.
+2. **Erste Struktur in Textform aufstellen:** Das gemeinsame Seitengerüst verwenden; für jeden Abschnitt Überschrift, Kerninhalt und Aufgabe beschreiben. Vorhandene Angebotsinformationen und Belege prüfen.
+3. **Mögliches menschliches Nutzerfeedback reflektieren:** Das Textkonzept aus Sicht eilig lesender, fachfremder, vergleichender und mobiler Besucher durchgehen. Unklarheiten, Einwände und mögliche Reibung als Hypothesen festhalten.
+4. **Konkrete Anforderungen antizipieren:** Aus den Hypothesen überprüfbare Anforderungen an Texte, Informationshierarchie, Beispiele, Grafiken, Orientierung und mobile Bedienung ableiten.
+5. **Textkonzept schärfen und Darstellung wählen:** Lücken schließen und anschließend die einfachste geeignete Gestaltung bestimmen. Brandbook und gemeinsame Komponenten beibehalten; zusätzliche Interaktion begründen.
+6. **Umsetzen:** Texte, Layout und Medien zusammenführen. Unterschiedliche Bildschirmgrößen, Tastaturbedienung und gegebenenfalls reduzierte Bewegung berücksichtigen.
+7. **Am Ziel und den Anforderungen prüfen:** Inhaltliches Verständnis, visuelle Gewichtung, reale Bedienzustände, Links, Ladeverhalten und schwierige Bildschirmgrößen kontrollieren. Technische Prüfungen dem Umfang der Änderung anpassen.
+8. **Tatsächliches Feedback einarbeiten:** Beobachtete Reaktionen mit den vorherigen Hypothesen vergleichen. Konkrete Probleme korrigieren und betroffene Zustände erneut prüfen.
+9. **Sauber übernehmen:** Reguläre Seite, Sprachvarianten, Metadaten, interne Verlinkungen und abgeleitete Markdown-Inhalte konsistent halten. Entscheidungen nachvollziehbar dokumentieren.
 
-## Kernaussage
+## Arbeitsvorlage pro Seite
 
-**Das Ergebnis entstand durch eine konkrete visuelle Idee, eine bereits stimmige Markenbasis und die konsequente Übersetzung abstrakter Leistungen in sichtbare Beispiele. Die gezielte Browserprüfung machte daraus eine belastbare, bedienbare Umsetzung.**
+```text
+Leistung / Seite:
+Zielgruppe und Ausgangslage:
+Besucherziel:
+Seitenziel und nächster Schritt:
+Kernaussage:
+Gesicherte Angebotsinformationen und Belege:
 
-## Bezugspunkte
+Textstruktur:
+1. Abschnitt – Arbeitsüberschrift – Kerninhalt – Aufgabe
+2. …
 
-- [Technische und gestalterische Notizen](website-story-v2.md)
-- [Scrollytelling-Komponente](../src/components/WebsiteStory.astro)
-- [Kapiteltexte DE/EN](../src/data/websiteStoryContent.ts)
-- [Gestaltung und responsive Regeln](../src/styles/website-story.css)
-- [Reguläre deutsche Seite, lokale Vorschau](http://127.0.0.1:4322/de/website-erstellen-lassen/#umfang)
-- Umsetzung der Vergleichsversion: Commit `e2f9053`; vorherige Leistungsseite: Commit `8c7dd67`.
+Antizipiertes Nutzerfeedback (Hypothesen):
+- Erwartete Reaktion:
+  Anpassung an Inhalt oder Struktur:
+  Konkrete visuelle / funktionale Anforderung:
+  Prüfkriterium:
+
+Gewählte Darstellung und Begründung:
+Benötigte vorhandene / neue Materialien:
+Verhalten auf kleinen Bildschirmen:
+Offene, für die Umsetzung notwendige Fragen:
+
+Nach der Prüfung:
+- Tatsächlich beobachtetes Feedback:
+- Korrektur und Ergebnis:
+```

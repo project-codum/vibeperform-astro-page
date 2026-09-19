@@ -31,4 +31,4 @@ Browserprüfung: Kapitelwechsel, angeheftete Bühne, 760px-Darstellung sowie Des
 
 ## Learnings
 
-[Überlegungen, Entscheidungen und wiederholbarer Ablauf](learnings-website-scrollytelling.md).
+[Allgemeiner Leitfaden für die nächsten Leistungsseiten](learnings-website-scrollytelling.md).
