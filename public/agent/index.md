@@ -39,7 +39,7 @@ Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalt
 
 Konzept · Gestaltung · Umsetzung
 
-[Websites für Handwerksbetriebe](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/)
+[Website erstellen lassen](https://www.vibeperform.com/de/website-erstellen-lassen/)
 
 ### Websites weiterentwickeln
 
@@ -47,7 +47,7 @@ Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren
 
 Pflege · Auswertung · Verbesserung
 
-[Betreuung besprechen](https://www.vibeperform.com/de/#kontakt)
+[Mehr zur Betreuung](https://www.vibeperform.com/de/leistungen/#betreuung)
 
 ### Unternehmensprofile pflegen
 
@@ -55,7 +55,7 @@ Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet
 
 Google-Profil · Informationen · Aktualität
 
-[Über Ihren Auftritt sprechen](https://www.vibeperform.com/de/#kontakt)
+[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/leistungen/#google-profil)
 
 ### SEO, Texte & Grafiken
 
@@ -63,7 +63,7 @@ Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimieru
 
 Suchmaschinen · Inhalte · Gestaltung
 
-[Inhalte gemeinsam planen](https://www.vibeperform.com/de/#kontakt)
+[SEO und Inhalte entdecken](https://www.vibeperform.com/de/leistungen/#seo)
 
 Ergänzend unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
 ## Eine Website, die nie veraltet.

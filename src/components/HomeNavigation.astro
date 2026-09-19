@@ -1,7 +1,11 @@
 ---
+import { serviceMenu, servicePaths } from '../data/serviceContent';
 import type { HomeIntroContent } from '../data/homeIntroContent';
 interface Props { copy: HomeIntroContent; locale: 'de' | 'en'; alternateLocaleHref: string; }
 const { copy, locale, alternateLocaleHref } = Astro.props;
+const groups = serviceMenu(locale);
+const currentPath = Astro.url.pathname;
+const active = (path: string) => currentPath === `${base}${path}`;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 ---
 <a class="home-skip" href="#home-intro">{copy.skipLabel}</a>
@@ -12,7 +16,15 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
     </a>
     <button class="home-menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false" data-open-label={copy.menuLabel} data-close-label={copy.closeLabel} hidden>{copy.menuLabel}<span aria-hidden="true">＋</span></button>
     <nav id="home-menu" aria-label={copy.navLabel}>
-      {copy.navLinks.map(link => <a href={link.href.startsWith('#') ? link.href : `${base}${link.href}`}>{link.label}</a>)}
+      <details class="home-services-menu">
+        <summary class:list={{ 'home-services-active': currentPath.includes(servicePaths[locale].overview) || currentPath.includes(servicePaths[locale].website) }}>{locale === 'de' ? 'Leistungen' : 'Services'}<span aria-hidden="true">⌄</span></summary>
+        <div class="home-mega-panel">
+          <div class="home-mega-top"><span>{locale === 'de' ? 'Ihr digitaler Firmenauftritt' : 'Your online presence'}</span><a href={`${base}${servicePaths[locale].overview}`}>{locale === 'de' ? 'Alle Leistungen' : 'All services'} ↗</a></div>
+          <div class="home-mega-columns">{groups.map(group => <div class="home-mega-group"><h2>{group.title}</h2>{group.links.map(link => <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined}><strong>{link.label}</strong><span>{link.description}</span></a>)}</div>)}</div>
+        </div>
+      </details>
+      <a href={`${base}/${locale}/${locale === 'de' ? 'ueber-uns' : 'about-us'}/`}>{locale === 'de' ? 'Agentur' : 'Agency'}</a>
+      <a href={`${base}/${locale}/blog/`}>{locale === 'de' ? 'Wissen' : 'Insights'}</a>
       <a class="home-nav-contact" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
       <a class="home-language" href={alternateLocaleHref} aria-label={copy.languageAria} data-locale-switch data-target-locale={locale === 'de' ? 'en' : 'de'} data-analytics-location="home-navigation">{copy.languageLabel}</a>
     </nav>
@@ -26,9 +38,12 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
       if (this.cleanup) return;
       const toggle = this.querySelector<HTMLButtonElement>('button')!;
       const menu = this.querySelector<HTMLElement>('nav')!;
+      const services = this.querySelector<HTMLDetailsElement>('.home-services-menu')!;
+      const servicesToggle = services.querySelector<HTMLElement>('summary')!;
       const mobile = matchMedia('(max-width: 900px)');
       const events = new AbortController();
       const setOpen = (open: boolean, restoreFocus = false) => {
+        if (!open) services.open = false;
         toggle.setAttribute('aria-expanded', String(open));
         toggle.innerHTML = `${open ? toggle.dataset.closeLabel : toggle.dataset.openLabel}<span aria-hidden="true">${open ? '−' : '＋'}</span>`;
         menu.hidden = mobile.matches && !open;
@@ -37,7 +52,9 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
       const sync = () => { toggle.hidden = !mobile.matches; setOpen(false); };
       toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'), { signal: events.signal });
       this.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
+        if (event.key !== 'Escape') return;
+        if (services.open) { services.open = false; servicesToggle.focus(); }
+        else if (toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
       }, { signal: events.signal });
       this.addEventListener('click', event => {
         const link = (event.target as Element).closest<HTMLAnchorElement>('a');
@@ -48,6 +65,9 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
         setOpen(false);
       }, { signal: events.signal });
       document.addEventListener('click', event => { if (!this.contains(event.target as Node)) setOpen(false); }, { signal: events.signal });
+      services.addEventListener('focusout', event => {
+        if (event.relatedTarget && !services.contains(event.relatedTarget as Node)) services.open = false;
+      }, { signal: events.signal });
       this.addEventListener('focusout', event => {
         if (event.relatedTarget && !this.contains(event.relatedTarget as Node)) setOpen(false);
       }, { signal: events.signal });
@@ -72,8 +92,13 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
   .home-nav-contact{border:1px solid #776387;padding:8px 15px;border-radius:6px}
   .home-language{border-left:1px solid #62596d;padding-left:22px;font-size:12px;color:#c9c4ce}
   .home-menu-toggle{min-width:90px;min-height:44px;padding:8px 12px;border:1px solid #776387;border-radius:6px;background:#211a2c;color:#f7f4fb;align-items:center;justify-content:space-between;gap:12px;font:14px Arial,sans-serif;cursor:pointer}
-  a:focus-visible,button:focus-visible{outline:3px solid #dac8ff;outline-offset:5px}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #dac8ff;outline-offset:5px}
   .home-skip{position:fixed;top:10px;left:10px;z-index:100;padding:12px 18px;background:#f5f2ed;color:#28232e;transform:translateY(-160%);font:16px Arial,sans-serif}.home-skip:focus{transform:none}
   @media(max-width:900px){vf-home-navigation{padding:15px 24px;flex-wrap:wrap;gap:8px}.home-brand{width:158px}.home-menu-toggle:not([hidden]){display:flex}nav{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:18px;background:#1d1923;border:1px solid #62596d;border-radius:6px}nav a{padding:8px 12px}.home-language{border-left:0;border-top:1px solid #62596d;margin-top:4px}.home-nav-contact{margin:5px 0}vf-home-navigation[data-enhanced] nav{position:absolute;top:calc(100% - 4px);left:24px;right:24px;width:auto}}
+  .home-services-menu>summary{display:flex;gap:10px;align-items:center;min-height:44px;cursor:pointer;list-style:none}.home-services-menu>summary::-webkit-details-marker{display:none}.home-services-menu>summary>span{transition:transform .2s}.home-services-menu[open]>summary>span{transform:rotate(180deg)}.home-services-menu[open]>summary,.home-services-active{color:#d6bdf2}
+  .home-mega-panel{position:absolute;top:calc(100% - 5px);left:4.4%;right:4.4%;background:#f5f2ed;color:#28232e;border:1px solid #c9b9d3;border-radius:8px;padding:22px 30px 30px;box-shadow:0 24px 60px #0005;max-height:calc(100svh - 145px);overflow-y:auto;overscroll-behavior:contain}
+  .home-mega-top{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #d9d2dc;padding-bottom:14px;margin-bottom:22px}.home-mega-top>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#786289}.home-mega-top a{font-size:13px;color:#60436e}
+  .home-mega-columns{display:grid;grid-template-columns:1fr 1fr .9fr;gap:25px}.home-mega-group h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#786289;font-weight:400;margin:0 0 14px}.home-mega-group a{display:flex;flex-direction:column;align-items:start;gap:5px;padding:12px 10px;margin:0 -10px;border-radius:4px;min-height:65px}.home-mega-group a:hover,.home-mega-group a[aria-current=page]{background:#e7deee;text-decoration:none}.home-mega-group strong{font-size:15px;line-height:1.35;font-weight:400}.home-mega-group a>span{font-size:11px;line-height:1.5;color:#706873}.home-mega-panel a:focus-visible{outline-color:#745188}
+  @media(max-width:900px){vf-home-navigation[data-enhanced] nav{max-height:calc(100svh - 115px);overflow-y:auto;overscroll-behavior:contain}.home-services-menu>summary{padding:8px 12px;justify-content:space-between}.home-mega-panel{position:static;padding:16px 18px;margin:4px 0 12px;max-height:none;overflow:visible}.home-mega-top{flex-direction:column;align-items:start;gap:4px;margin-bottom:20px}.home-mega-columns{grid-template-columns:1fr;gap:24px}.home-mega-group a{padding:10px;min-height:60px}.home-mega-group:not(:first-child){border-top:1px solid #d9d2dc;padding-top:20px}.home-mega-group h2{margin-bottom:8px}}
   @media(prefers-reduced-motion:reduce){a{transition:none}}
 </style>

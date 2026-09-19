@@ -1,0 +1,34 @@
+---
+import AgencyDocument from './AgencyDocument.astro';
+import AgencyContact from './AgencyContact.astro';
+import { serviceContent, servicePaths } from '../data/serviceContent';
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = serviceContent[locale].website;
+const paths = servicePaths[locale];
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+---
+<AgencyDocument locale={locale} title={t.title} description={t.description} path={paths.website} alternatePath={servicePaths[locale === 'de' ? 'en' : 'de'].website} service>
+  <section class="sv-hero sv-website-hero" aria-labelledby="home-title">
+    <div class="sv-orb" aria-hidden="true"></div>
+    <div class="hp-wrap sv-hero-inner" id="home-intro" tabindex="-1">
+      <nav class="sv-breadcrumb" aria-label={locale === 'de' ? 'Seitenpfad' : 'Breadcrumb'}><a href={`${base}${paths.overview}`}>{locale === 'de' ? 'Leistungen' : 'Services'}</a><span aria-hidden="true"> / </span><span>{t.kicker}</span></nav>
+      <div class="sv-website-grid">
+        <div><p class="sv-kicker">{t.kicker}</p><h1 id="home-title">{t.headline}<br /><em>{t.emphasis}</em></h1><p class="sv-lead">{t.intro}</p><div class="sv-hero-actions"><a class="hp-button" href="#kontakt">{t.action}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href="#ablauf">{t.secondary}<span aria-hidden="true">↓</span></a></div></div>
+        <figure class="sv-preview">
+          <div class="sv-browser" aria-hidden="true"><i></i><i></i><i></i><span>{t.mockBrand}</span></div>
+          <div class="sv-mock" aria-hidden="true"><div class="sv-mock-nav"><strong>{t.mockBrand}<b>✳</b></strong><span>{t.mockNav}</span></div><div class="sv-mock-content"><span class="sv-mock-eyebrow">{locale === 'de' ? 'Menschen. Handwerk. Qualität.' : 'People. Craft. Quality.'}</span><p>{t.mockTitle}<br /><em>{t.mockEmphasis}</em></p><span>{t.mockText}</span><div class="sv-mock-button">{t.mockButton} ↗</div><div class="sv-mock-art"><span></span><span></span><span></span></div></div><div class="sv-mock-footer">{t.mockFooter}<span>↗</span></div></div>
+          <figcaption>{t.mockLabel} · {locale === 'de' ? 'So könnte Ihr Auftritt aussehen.' : 'Imagine your business here.'}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="hp-section" aria-labelledby="website-problems-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{t.problems.kicker}</p><h2 id="website-problems-title">{t.problems.title}<br /><em>{t.problems.emphasis}</em></h2><p class="hp-intro">{t.problems.intro}</p></div><div class="hp-editorial-list">{t.problems.items.map((item,i) => <article><span class="hp-label">0{i+1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></div></section>
+  <section class="hp-section hp-services" id="umfang" aria-labelledby="scope-title"><div class="hp-wrap"><div class="hp-section-heading"><div><p class="hp-kicker">{t.scope.kicker}</p><h2 id="scope-title">{t.scope.title}<br /><em>{t.scope.emphasis}</em></h2></div><p class="hp-intro">{t.scope.intro}</p></div><div class="sv-scope-grid">{t.scope.items.map((item,i) => <article><span class="hp-number">0{i+1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></div></section>
+  <section class="hp-section" id="ablauf" aria-labelledby="process-title"><div class="hp-wrap"><p class="hp-kicker">{t.process.kicker}</p><h2 id="process-title">{t.process.title}<br /><em>{t.process.emphasis}</em></h2><ol class="hp-process-grid">{t.process.items.map((item,i) => <li><span class="hp-label">0{i+1}</span><h3>{item.title}</h3><p>{item.body}</p></li>)}</ol></div></section>
+  <section class="hp-section hp-evolution" aria-labelledby="ongoing-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{t.ongoing.kicker}</p><h2 id="ongoing-title">{t.ongoing.title}<br /><em>{t.ongoing.emphasis}</em></h2></div><div><p class="hp-intro sv-no-top">{t.ongoing.intro}</p><p class="sv-body">{t.ongoing.body}</p><a class="hp-text-link sv-spaced" href={`${base}${paths.overview}#betreuung`}>{t.ongoing.link}<span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="hp-section sv-trade" aria-labelledby="trade-title"><div class="hp-wrap hp-split"><h2 id="trade-title">{t.trade.title}</h2><div><p>{t.trade.body}</p><a class="hp-text-link sv-spaced" href={`${base}${t.trade.href}`}>{t.trade.link}<span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="hp-section hp-faq" aria-labelledby="faq-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{t.faq.kicker}</p><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div></section>
+  <AgencyContact locale={locale} copy={t.contact} />
+</AgencyDocument>

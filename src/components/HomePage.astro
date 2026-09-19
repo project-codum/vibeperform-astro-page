@@ -1,6 +1,8 @@
 ---
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
+import AgencyFooter from './AgencyFooter.astro';
+import { servicePaths } from '../data/serviceContent';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { homePageContent } from '../data/homePageContent';
 import { bookingUrl, contactEmail, type Locale } from '../lib/siteMetadata';
@@ -36,6 +38,7 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
         <div class="hp-service-grid">
           {t.services.items.map(item => <article><span class="hp-number">{item.number}</span><h3>{item.title}</h3><p>{item.body}</p><p class="hp-tags">{item.tags}</p><a class="hp-text-link" href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a></article>)}
         </div>
+        <p style="margin:0 0 26px"><a class="hp-text-link" href={href(servicePaths[locale].overview)}>{locale === 'de' ? 'Alle Leistungen ansehen' : 'Explore all services'}<span aria-hidden="true">↗</span></a></p>
         <aside class="hp-extra"><p>{t.services.extra}</p><a class="hp-text-link" href={href(t.services.extraHref)}>{t.services.extraLink}<span aria-hidden="true">↗</span></a></aside>
       </div>
     </section>
@@ -60,5 +63,5 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
     </section>
   </main>
 
-  <footer class="hp-footer"><div class="hp-wrap"><div class="hp-footer-top"><div><a class="hp-footer-brand" href={`${base}/${locale}/`} aria-label={homeIntroContent[locale].homeLabel}><img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="505" height="214" loading="lazy" /></a><p>{t.footer.tagline}</p></div><nav aria-label={locale==='de'?'Footernavigation':'Footer navigation'}><a href="#leistungen">{t.footer.services}</a><a href="#zusammenarbeit">{t.footer.process}</a><a href={href(t.footer.aboutHref)}>{t.footer.about}</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a></nav></div><div class="hp-footer-bottom"><span>© {new Date().getFullYear()} VibePerform. {t.footer.rights}</span><div><a href={href(t.footer.legalHref)}>{t.footer.legal}</a><a href={href(t.footer.privacyHref)}>{t.footer.privacy}</a><a href="#top">{t.footer.top} ↑</a></div></div></div></footer>
+  <AgencyFooter locale={locale} />
 </div>

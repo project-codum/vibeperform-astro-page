@@ -1,0 +1,12 @@
+---
+import { homePageContent } from '../data/homePageContent';
+import { homeIntroContent } from '../data/homeIntroContent';
+import { servicePaths } from '../data/serviceContent';
+import { contactEmail, type Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = homePageContent[locale];
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const href = (path: string) => `${base}${path}`;
+---
+  <footer class="hp-footer"><div class="hp-wrap"><div class="hp-footer-top"><div><a class="hp-footer-brand" href={`${base}/${locale}/`} aria-label={homeIntroContent[locale].homeLabel}><img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="505" height="214" loading="lazy" /></a><p>{t.footer.tagline}</p></div><nav aria-label={locale==='de'?'Footernavigation':'Footer navigation'}><a href={href(servicePaths[locale].overview)}>{t.footer.services}</a><a href={`${base}/${locale}/#zusammenarbeit`}>{t.footer.process}</a><a href={href(t.footer.aboutHref)}>{t.footer.about}</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a></nav></div><div class="hp-footer-bottom"><span>© {new Date().getFullYear()} VibePerform. {t.footer.rights}</span><div><a href={href(t.footer.legalHref)}>{t.footer.legal}</a><a href={href(t.footer.privacyHref)}>{t.footer.privacy}</a><a href="#top">{t.footer.top} ↑</a></div></div></div></footer>

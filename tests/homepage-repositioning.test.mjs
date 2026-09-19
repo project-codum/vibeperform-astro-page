@@ -21,7 +21,8 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     for (const [,href] of html.matchAll(/href="(\/(?:de|en)\/[^"#?]*)"/g)) await access(path.join(dist,href.slice(1),'index.html'));
     assert.match(html,/mailto:contact@vibeperform.com/);
     assert.match(html,/calendar.app.google\/utFQgw33PwJTiDk56/);
-    assert.equal((html.match(/<details\b/g)||[]).length,4);
+    const faq=html.match(/<section class="hp-section hp-faq"[\s\S]*?<\/section>/)?.[0];
+    assert.equal((faq.match(/<details\b/g)||[]).length,4);
   });
 }
 

@@ -1,0 +1,49 @@
+---
+import AgencyDocument from './AgencyDocument.astro';
+import AgencyContact from './AgencyContact.astro';
+import { serviceContent, servicePaths } from '../data/serviceContent';
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = serviceContent[locale].overview;
+const paths = servicePaths[locale];
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
+---
+<AgencyDocument locale={locale} title={t.title} description={t.description} path={paths.overview} alternatePath={servicePaths[locale === 'de' ? 'en' : 'de'].overview}>
+  <section class="sv-hero sv-overview-hero" aria-labelledby="home-title">
+    <div class="sv-orb" aria-hidden="true"></div>
+    <div class="hp-wrap sv-hero-inner" id="home-intro" tabindex="-1">
+      <p class="sv-kicker">{t.kicker}</p>
+      <h1 id="home-title">{t.headline}<br /><em>{t.emphasis}</em></h1>
+      <p class="sv-lead">{t.intro}</p>
+      <a class="hp-button" href="#leistungsbereiche">{t.action}<span aria-hidden="true">↓</span></a>
+      <div class="sv-disciplines">{t.categories.map((label, i) => <span><small>0{i+1}</small>{label}</span>)}</div>
+    </div>
+  </section>
+
+  <section class="hp-section sv-catalog" id="leistungsbereiche" aria-labelledby="catalog-title">
+    <div class="hp-wrap">
+      <div class="hp-section-heading"><h2 id="catalog-title">{t.sectionTitle}<br /><em>{t.sectionEmphasis}</em></h2><p class="hp-intro">{t.sectionIntro}</p></div>
+      <div class="sv-catalog-grid">
+        {t.items.map(item => <article id={item.id}>
+          <span class="hp-label">{item.label}</span>
+          <h3>{item.title}</h3><p>{item.body}</p>
+          <ul>{item.details.map(detail => <li>{detail}</li>)}</ul>
+          <a class="hp-text-link" href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a>
+        </article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-section hp-evolution" aria-labelledby="connected-title">
+    <div class="hp-wrap hp-split">
+      <div><p class="hp-kicker">{t.connected.kicker}</p><h2 id="connected-title">{t.connected.title}<br /><em>{t.connected.emphasis}</em></h2></div>
+      <div><p class="hp-intro sv-no-top">{t.connected.intro}</p><p class="sv-body">{t.connected.body}</p><a class="hp-text-link sv-spaced" href="#kontakt">{t.connected.link}<span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+  <section class="hp-section sv-additional" aria-labelledby="additional-title">
+    <div class="hp-wrap hp-split"><h2 id="additional-title">{t.additional.title}</h2><div><p>{t.additional.body}</p><a class="hp-text-link sv-spaced" href={href(t.additional.href)}>{t.additional.link}<span aria-hidden="true">↗</span></a></div></div>
+  </section>
+  <AgencyContact locale={locale} />
+</AgencyDocument>

@@ -13,12 +13,6 @@ export const homeIntroContent = {
     primaryLabel: 'Vorhaben besprechen',
     primaryHref: bookingUrl,
     moreLabel: 'Mehr erfahren',
-    serviceHref: '/de/websites-fuer-handwerksbetriebe/',
-    navLinks: [
-      { label: 'Leistungen', href: '#leistungen' },
-      { label: 'Unser Ansatz', href: '#zusammenarbeit' },
-      { label: 'Über uns', href: '/de/ueber-uns/' },
-    ],
     homeLabel: 'VibePerform – Startseite',
     navLabel: 'Hauptnavigation',
     menuLabel: 'Menü',
@@ -28,7 +22,6 @@ export const homeIntroContent = {
     skipLabel: 'Zum Inhalt',
     pauseLabel: 'Animation pausieren',
     resumeLabel: 'Animation fortsetzen',
-    nextLabel: 'Weiter entdecken',
   },
   en: {
     title: 'Websites & Business Profiles | VibePerform',
@@ -41,12 +34,6 @@ export const homeIntroContent = {
     primaryLabel: 'Discuss your project',
     primaryHref: bookingUrl,
     moreLabel: 'Learn more',
-    serviceHref: '/en/websites-for-trade-businesses/',
-    navLinks: [
-      { label: 'Services', href: '#leistungen' },
-      { label: 'Our approach', href: '#zusammenarbeit' },
-      { label: 'About us', href: '/en/about-us/' },
-    ],
     homeLabel: 'VibePerform – Home',
     navLabel: 'Main navigation',
     menuLabel: 'Menu',
@@ -56,7 +43,6 @@ export const homeIntroContent = {
     skipLabel: 'Skip to content',
     pauseLabel: 'Pause animation',
     resumeLabel: 'Resume animation',
-    nextLabel: 'Keep exploring',
   },
 } as const;
 

@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import '../styles/home-page.css';
+import '../styles/service-pages.css';
+import ConsentManagerHead from './ConsentManagerHead.astro';
+import HomeNavigation from './HomeNavigation.astro';
+import AgencyFooter from './AgencyFooter.astro';
+import { homeIntroContent } from '../data/homeIntroContent';
+import { absoluteUrl, jsonLd, organizationSchema, websiteSchema, type Locale } from '../lib/siteMetadata';
+
+interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; }
+const { locale, title, description, path, alternatePath, service = false } = Astro.props;
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const canonical = absoluteUrl(path);
+const data = [organizationSchema(), websiteSchema(locale), {
+  '@context': 'https://schema.org', '@type': service ? 'Service' : 'CollectionPage',
+  '@id': `${canonical}#${service ? 'service' : 'webpage'}`, name: title.split(' | ')[0], description, url: canonical,
+  ...(service ? { provider: { '@id': absoluteUrl('/#organization') } } : { inLanguage: locale }),
+}, {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: locale === 'de' ? 'Startseite' : 'Home', item: absoluteUrl(`/${locale}/`) },
+    ...(service ? [{ '@type': 'ListItem', position: 2, name: locale === 'de' ? 'Leistungen' : 'Services', item: absoluteUrl(locale === 'de' ? '/de/leistungen/' : '/en/services/') }] : []),
+    { '@type': 'ListItem', position: service ? 3 : 2, name: title.split(' | ')[0], item: canonical },
+  ],
+}];
+---
+<html lang={locale} class="home-document">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <ConsentManagerHead locale={locale} />
+    <link rel="icon" type="image/png" href={`${base}/favicon.png`} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={locale} href={canonical} />
+    <link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={absoluteUrl(alternatePath)} />
+    <link rel="alternate" hreflang="x-default" href={absoluteUrl(locale === 'de' ? path : alternatePath)} />
+    <link rel="alternate" type="text/markdown" href={absoluteUrl(`${path}index.md`)} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
+    <meta property="og:image" content={absoluteUrl('/vibeperform-logo.png')} />
+    <meta property="og:image:alt" content="VibePerform" />
+    <script type="application/ld+json" set:html={jsonLd(data)} />
+  </head>
+  <body>
+    <div class="home-shell" id="top">
+      <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={`${base}${alternatePath}`} />
+      <main class="home-main"><slot /></main>
+      <AgencyFooter locale={locale} />
+    </div>
+  </body>
+</html>
