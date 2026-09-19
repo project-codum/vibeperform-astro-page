@@ -8,13 +8,14 @@ import AgencyFooter from './AgencyFooter.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { absoluteUrl, jsonLd, organizationSchema, websiteSchema, type Locale } from '../lib/siteMetadata';
 
-interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; preview?: boolean; }
-const { locale, title, description, path, alternatePath, service = false, preview = false } = Astro.props;
+interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; preview?: boolean; about?: boolean; image?: string; }
+const { locale, title, description, path, alternatePath, service = false, preview = false, about = false, image } = Astro.props;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const canonical = absoluteUrl(path);
 const data = [organizationSchema(), websiteSchema(locale), {
-  '@context': 'https://schema.org', '@type': service ? 'Service' : 'CollectionPage',
+  '@context': 'https://schema.org', '@type': service ? 'Service' : about ? 'AboutPage' : 'CollectionPage',
   '@id': `${canonical}#${service ? 'service' : 'webpage'}`, name: title.split(' | ')[0], description, url: canonical,
+  ...(about ? { mainEntity: { '@type': 'Person', '@id': absoluteUrl('/de/ueber-uns/#marlon'), name: 'Marlon Dietrich', jobTitle: locale === 'de' ? 'Gründer von VibePerform' : 'Founder of VibePerform', url: canonical, ...(image ? { image: absoluteUrl(image) } : {}) } } : {}),
   ...(service ? { provider: { '@id': absoluteUrl('/#organization') } } : { inLanguage: locale }),
 }, {
   '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -43,8 +44,8 @@ const data = [organizationSchema(), websiteSchema(locale), {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
-    <meta property="og:image" content={absoluteUrl('/vibeperform-logo.png')} />
-    <meta property="og:image:alt" content="VibePerform" />
+    <meta property="og:image" content={absoluteUrl(image ?? '/vibeperform-logo.png')} />
+    <meta property="og:image:alt" content={about ? 'Marlon Dietrich · VibePerform' : 'VibePerform'} />
     <script type="application/ld+json" set:html={jsonLd(data)} />
   </head>
   <body>

@@ -1,6 +1,6 @@
 # Website support & development
 Canonical URL: https://www.vibeperform.com/en/website-support/
-English alternate: https://www.vibeperform.com/de/website-betreuung/
+German alternate: https://www.vibeperform.com/de/website-betreuung/
 Summary: Keep your business website current with content updates, prioritised improvements and clearly agreed ongoing support.
 
 Your business keeps changing. We keep your presence current.

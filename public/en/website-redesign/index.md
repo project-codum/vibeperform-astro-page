@@ -1,6 +1,6 @@
 # Website redesign
 Canonical URL: https://www.vibeperform.com/en/website-redesign/
-English alternate: https://www.vibeperform.com/de/website-ueberarbeiten/
+German alternate: https://www.vibeperform.com/de/website-ueberarbeiten/
 Summary: Update your existing business website with clearer structure, current content, thoughtful design and straightforward contact options.
 
 Your business has moved on. Has your website?

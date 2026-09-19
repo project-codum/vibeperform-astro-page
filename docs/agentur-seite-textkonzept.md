@@ -1,6 +1,6 @@
 # Agenturseite: Marlon Dietrich und VibePerform
 
-Arbeitsstand: 19.09.2026. Recherche und Textkonzept, noch keine Änderung der veröffentlichten oder lokalen Agenturseite.
+Arbeitsstand: 19.09.2026. Auf develop lokal umgesetzt: deutsche und englische Agenturseite nach diesem Konzept. Keine Veröffentlichung.
 
 ## 1. Ziel und Ausgangslage
 
@@ -143,7 +143,7 @@ Für die endgültige Fassung besonders wichtig:
 1. Erledigt: Marlon hat seinen gewünschten Werdegang beschrieben: drei Jahre Softwareentwicklung im Mittelstand, danach Startups/KI-Agenten/Automatisierung, heute Web-App-Entwicklung und Gestaltung mit KI-Agenten. Die zuvor bestätigten Unternehmensnamen werden im neuen Text nicht benötigt.
 2. Noch aufzubauen: Website-Fallstudien. Genannte mögliche Arbeitsproben: Holzgesindel, „Hausmeister Leustl“ und eigene Websites. Nicht als ungeprüfte Kundenreferenz veröffentlichen.
 3. Später ergänzen: ein bis zwei echte Kundenrückmeldungen mit Erlaubnis zur Verwendung; aktuell nicht verfügbar.
-4. Bestehendes Porträt `public/marlondietrich.webp` auf Aktualität/Eignung prüfen; für die spätere Gestaltung authentisches Bildmaterial verwenden.
+4. Erledigt: Neues, von Marlon freigegebenes Studioporträt eingebunden. KI-bearbeitete Fassung seines bereitgestellten Fotos; Quelle und Bearbeitung sind unter `src/assets/agency/README.md` dokumentiert.
 
 Ohne Kundenstimmen ist eine gute erste Fassung möglich: konkrete Projektbelege und transparente Zusammenarbeit tragen die Seite. Unbestätigte Leistungszahlen oder andere Firmenlogos werden nicht benötigt.
 
@@ -154,3 +154,16 @@ Ohne Kundenstimmen ist eine gute erste Fassung möglich: konkrete Projektbelege 
 - [SLWORKS](https://slworks.de/): strukturelle und visuelle Referenz, kein Wirksamkeitsnachweis.
 - Offizielle Google-, OpenAI- und Anthropic-Quellen oben: technische Einordnung, keine Erfolgsgarantie.
 - Lokale Dateien `src/data/aboutContent.ts` und `docs/learnings-website-scrollytelling.md`: aktueller Änderungsbedarf und vereinbarter Arbeitsablauf.
+
+## Umsetzung und Prüfung
+
+- Routen bleiben `/de/ueber-uns/` und `/en/about-us/`; gemeinsame Navigation und Footer. Agentur ist im Menü als aktuelle Seite markiert.
+- Sechs Abschnitte: persönlicher Einstieg, Überzeugung/Mission, kompakter Werdegang, Zusammenarbeit, KI-Suche, persönlicher Kontakt.
+- Warmes Papier, dunkler Einstieg, lavendelfarbene Akzente und Serifenkursiv führen die bestehende Gestaltung fort. Zwei ruhige Diagramme erklären Verantwortung und Zugänglichkeit. Kein zusätzliches Scrollytelling.
+- Keine unbestätigten Referenzen, Teammitglieder, Arbeitgeberlogos oder Testimonials.
+- Das freigegebene Porträt wird als responsive WebP mit festen Bildmaßen ausgeliefert.
+- AboutPage-/Person-Daten, Sprachalternativen, Kontaktverweise und Markdown-Versionen verwenden dieselben Inhalte.
+- Prüfung: Build erfolgreich; bestehende Tests 56/56 bestanden, anschließend neue DE/EN-Agenturtests und fünf betroffene Leistungsseitenprüfungen 7/7 bestanden. `git diff --check` ohne Befund.
+- Im Browser geprüft: Desktop 1280 px, Smartphone 390/320 px und englische Tabletansicht 768 px; kein horizontaler Überlauf. Porträt, Zusammenarbeit und KI-Grafik visuell geprüft. Mobiles Menü, Sprachwechsel und Kontaktanker funktionieren. Kontaktziele geprüft, kein Termin gebucht und keine Nachricht gesendet.
+- Der gemeinsame Markdown-Generator benennt deutsche Alternativen auf englischen Seiten jetzt korrekt als „German alternate“.
+- Offen für spätere Ergänzungen: freigegebene Projektbeispiele und echte Kundenstimmen. Kein Hindernis für diese persönliche Erstfassung.

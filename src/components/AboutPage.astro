@@ -1,148 +1,84 @@
 ---
-import Button from './Button.astro';
-import Footer from './Footer.astro';
-import NavBar from './NavBar.astro';
-import PageReveals from './PageReveals.astro';
-import { CheckCircle2 } from 'lucide-static';
-import type { AboutContent } from '../data/aboutContent';
-
-interface Props {
-	content: AboutContent;
-	homeHref: string;
-	alternateLocaleHref: string;
-	currentLocale: 'en' | 'de';
-}
-
-const { content, homeHref, alternateLocaleHref, currentLocale } = Astro.props as Props;
-const { nav, hero, approach, team, connect } = content;
-const locale = currentLocale === 'de' ? 'de' : 'en';
-const assetBaseUrl = import.meta.env.BASE_URL ?? '/';
-const checkIcon = CheckCircle2
-	.replace('class="lucide', 'class="lucide h-5 w-5')
-	.replace('width="24"', 'width="20"')
-	.replace('height="24"', 'height="20"');
+import { Image, getImage } from 'astro:assets';
+import AgencyDocument from './AgencyDocument.astro';
+import { aboutContent, aboutPaths, type AboutLocale } from '../data/aboutContent';
+import { bookingUrl, contactEmail } from '../lib/siteMetadata';
+import portrait from '../assets/agency/marlon-studio-portrait-v1.png';
+import '../styles/about-page.css';
+interface Props { locale: AboutLocale; }
+const { locale } = Astro.props;
+const c = aboutContent[locale];
+const alternate = locale === 'de' ? 'en' : 'de';
+const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' });
 ---
+<AgencyDocument locale={locale} title={c.metaTitle} description={c.metaDescription} path={aboutPaths[locale]} alternatePath={aboutPaths[alternate]} about image={shareImage.src}>
+  <section class="ag-hero" aria-labelledby="agency-title" id="home-intro" tabindex="-1">
+    <div class="hp-wrap ag-hero-grid">
+      <div class="ag-hero-copy">
+        <p class="sv-kicker">{c.hero.kicker}</p>
+        <h1 id="agency-title">{c.hero.title} <em>{c.hero.emphasis}</em></h1>
+        <p class="sv-lead">{c.hero.intro}</p>
+        <a class="hp-button" href="#kontakt">{c.hero.action}<span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="ag-portrait">
+        <div class="ag-portrait-frame"><Image src={portrait} alt="Marlon Dietrich" widths={[400,640,900,1122]} sizes="(max-width: 760px) 90vw, 42vw" format="webp" loading="eager" fetchpriority="high" /></div>
+        <figcaption><strong>Marlon Dietrich</strong><span>{c.hero.role}</span></figcaption>
+      </figure>
+    </div>
+    <div class="hp-wrap ag-hero-foot"><span>{c.hero.caption}</span><a class="hp-text-link" href="#ueberzeugung">{locale === 'de' ? 'Meine Überzeugung' : 'What I believe'} <span aria-hidden="true">↓</span></a></div>
+  </section>
 
-<div class="flex min-h-screen flex-col bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-100">
-	<NavBar nav={nav} homeHref={homeHref} alternateLocaleHref={alternateLocaleHref} currentLocale={locale} />
+  <section class="hp-section ag-vision" id="ueberzeugung" aria-labelledby="vision-title">
+    <div class="hp-wrap">
+      <p class="hp-kicker">{c.vision.kicker}</p>
+      <div class="hp-split">
+        <h2 id="vision-title">{c.vision.title}<br/><em>{c.vision.emphasis}</em></h2>
+        <div class="ag-prose"><p class="ag-statement">{c.vision.body}</p><p>{c.vision.mission}</p><a class="hp-text-link" href={c.vision.href}>{c.vision.link}<span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+  </section>
 
-	<main class="about-main flex flex-1 flex-col overflow-hidden">
-		<section class="flex min-h-[calc(100dvh-76px)] items-center py-16 lg:py-20">
-			<div class="container-responsive grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
-				<div class="max-w-3xl lg:col-span-8">
-					<p class="text-xs font-semibold uppercase tracking-[0.28em] text-purple-700 dark:text-purple-300 sm:text-sm">{hero.kicker}</p>
-					<h1 class="mt-5 max-w-[20ch] text-[clamp(2.35rem,4.25vw,3.25rem)] font-semibold leading-[1.03] tracking-[-0.05em] text-slate-950 dark:text-slate-50">
-						{hero.title}
-					</h1>
-					<p class="mt-6 max-w-[55ch] text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{hero.intro}</p>
-					<p class="mt-8 max-w-[52ch] border-l-2 border-purple-600 pl-5 text-base font-semibold leading-7 text-slate-900 dark:border-purple-400 dark:text-slate-100 sm:text-lg">
-						{hero.promise}
-					</p>
-				</div>
+  <section class="hp-section ag-journey" aria-labelledby="journey-title">
+    <div class="hp-wrap hp-split">
+      <div><p class="hp-kicker">{c.journey.kicker}</p><h2 id="journey-title">{c.journey.title}<br/><em>{c.journey.emphasis}</em></h2></div>
+      <div class="ag-prose">{c.journey.paragraphs.map(p => <p>{p}</p>)}<span class="ag-signature">Marlon</span></div>
+    </div>
+  </section>
 
-				<figure class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-[0_24px_70px_rgba(42,24,56,0.14)] dark:border-slate-800 dark:bg-slate-900 lg:col-span-4">
-					<img
-						src="/workshop3-720.webp"
-						alt={locale === 'de' ? 'Workshop-Raum mit Whiteboard und Vibeperform Bildschirm' : 'Workshop room with a whiteboard and Vibeperform screen'}
-						class="aspect-[16/9] w-full object-cover lg:aspect-[3/4]"
-						loading="eager"
-						fetchpriority="high"
-						decoding="sync"
-						width="720"
-						height="540"
-					/>
-				</figure>
-			</div>
-		</section>
+  <section class="hp-section ag-collaboration" id="zusammenarbeit" aria-labelledby="collaboration-title">
+    <div class="hp-wrap">
+      <div class="hp-split ag-collab-intro">
+        <div><p class="hp-kicker">{c.collaboration.kicker}</p><h2 id="collaboration-title">{c.collaboration.title}<br/><em>{c.collaboration.emphasis}</em></h2><div class="ag-prose"><p>{c.collaboration.intro}</p><p>{c.collaboration.partner}</p></div></div>
+        <div class="ag-network" role="group" aria-label={locale === 'de' ? 'So ist die Zusammenarbeit organisiert' : 'How our collaboration is organised'}>
+          <div class="ag-network-project"><span class="ag-node-symbol" aria-hidden="true">↗</span><strong>{c.collaboration.project}</strong><small>{c.collaboration.projectDetail}</small></div>
+          <span class="ag-connector" aria-hidden="true">↕</span>
+          <div class="ag-network-owner"><Image src={portrait} alt="" width={96} height={96} fit="cover" format="webp" loading="lazy"/><div><small>{c.collaboration.owner}</small><strong>Marlon Dietrich</strong><span>VibePerform</span></div></div>
+          <span class="ag-connector ag-connector-dashed" aria-hidden="true">↕</span>
+          <div class="ag-network-partners"><strong>{c.collaboration.partners}</strong><small>{c.collaboration.partnerDetail}</small></div>
+        </div>
+      </div>
+      <div class="ag-expectations"><h3>{c.collaboration.expectations}</h3><div class="ag-expectation-grid">{c.collaboration.items.map((item,i)=><article><span class="hp-number" aria-hidden="true">0{i+1}</span><h4>{item.title}</h4><p>{item.body}</p></article>)}</div></div>
+    </div>
+  </section>
 
-		<section class="section-spacing bg-[#eeebf4] dark:bg-[#18131e]">
-			<div class="container-responsive">
-				<div class="max-w-3xl" data-page-reveal>
-					<p class="text-xs font-semibold uppercase tracking-[0.28em] text-purple-700 dark:text-purple-300 sm:text-sm">{team.kicker}</p>
-					<h2 class="mt-4 text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl lg:text-5xl">{team.title}</h2>
-					<p class="mt-5 max-w-[60ch] text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8">
-						{locale === 'de'
-							? 'Technologie, Produktdenken und Veränderungskompetenz kommen bei uns an einem Tisch zusammen.'
-							: 'Technology, product thinking, and change expertise come together at one table.'}
-					</p>
-				</div>
+  <section class="hp-section hp-evolution ag-future" aria-labelledby="future-title">
+    <div class="hp-wrap hp-split">
+      <div><p class="hp-kicker">{c.future.kicker}</p><h2 id="future-title">{c.future.title}<br/><em>{c.future.emphasis}</em></h2><div class="ag-prose"><p>{c.future.body}</p><p>{c.future.extra}</p></div><a class="hp-text-link" href={c.future.href}>{c.future.link}<span aria-hidden="true">↗</span></a></div>
+      <div class="ag-access" role="group" aria-label={locale === 'de' ? 'Ein verständlicher Auftritt für Menschen und digitale Suche' : 'An understandable presence for people and digital search'}>
+        <div class="ag-access-core"><span class="ag-access-spark" aria-hidden="true">✳</span><strong>{c.future.center}</strong><div class="ag-access-surfaces"><span>{c.future.website}</span><span>{c.future.profile}</span></div><small>{c.future.foundation}</small></div>
+        <div class="ag-access-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="ag-access-audience">{c.future.audience.map((a,i)=><div><span aria-hidden="true">{['◎','⌕','✧'][i]}</span><strong>{a}</strong></div>)}</div>
+      </div>
+    </div>
+  </section>
 
-				<div class="mt-12 grid gap-7 lg:grid-cols-2">
-					{team.members.map((member) => (
-						<article class="overflow-hidden rounded-2xl border border-[#c8b4d8] bg-white dark:border-[#4a3659] dark:bg-[#241b2c]" data-page-reveal>
-							{member.image ? (
-								<img
-									class="aspect-[4/3] w-full object-cover object-top"
-									src={`${assetBaseUrl}${member.image.src}`}
-									alt={member.image.alt}
-									loading="lazy"
-									width="720"
-									height="540"
-								/>
-							) : null}
-							<div class="p-6 sm:p-8">
-								<header>
-									<h3 class="text-2xl font-semibold tracking-[-0.025em] text-slate-950 dark:text-slate-50 sm:text-3xl">{member.name}</h3>
-									<p class="mt-2 text-sm font-medium text-purple-800 dark:text-purple-300">{member.tagline}</p>
-								</header>
-								<div class="mt-6 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-300">
-									{member.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-								</div>
-							</div>
-						</article>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section class="section-spacing bg-[#2a1838] text-purple-50">
-			<div class="container-responsive">
-				<div class="max-w-3xl" data-page-reveal>
-					<h2 class="text-3xl font-semibold tracking-[-0.035em] text-[#fffafc] sm:text-4xl lg:text-5xl">{approach.title}</h2>
-					<p class="mt-5 max-w-[60ch] text-base leading-7 text-[#d9cae6] sm:text-lg sm:leading-8">{approach.intro}</p>
-				</div>
-
-				<div class="mt-12 grid gap-x-10 gap-y-0 md:grid-cols-3">
-					{approach.steps.map((step) => (
-						<article class="border-t border-[#76578a] py-7" data-page-reveal>
-							<span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#4b2e5c] text-purple-100" aria-hidden="true" set:html={checkIcon} />
-							<p class="mt-5 text-base leading-7 text-[#f0e8f5]">{step}</p>
-						</article>
-					))}
-				</div>
-
-				<p class="mt-7 max-w-3xl text-lg font-semibold leading-8 text-[#fffafc]" data-page-reveal>{approach.closing}</p>
-			</div>
-		</section>
-
-		<section class="section-spacing bg-white dark:bg-slate-950">
-			<div class="container-responsive" data-page-reveal>
-				<div class="grid items-center gap-8 rounded-2xl bg-[#eeebf4] p-7 dark:bg-[#18131e] sm:p-10 lg:grid-cols-[1fr_auto] lg:p-12">
-					<div class="max-w-2xl">
-						<h2 class="text-3xl font-semibold tracking-[-0.035em] text-slate-950 dark:text-slate-50 sm:text-4xl">{connect.title}</h2>
-						<p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg">{connect.body}</p>
-					</div>
-					<div class="lg:justify-self-end">
-						<Button
-							href={connect.button.href}
-							target="_blank"
-							rel="noreferrer noopener"
-							analyticsEvent="contact_start"
-							analyticsName="book-discovery-call"
-							analyticsLocation="about-final-cta"
-						>{connect.button.label}</Button>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
-
-	<Footer currentLocale={locale} />
-	<PageReveals />
-</div>
-
-<style>
-	.about-main {
-		padding-inline: 0;
-	}
-</style>
+  <section class="hp-section hp-contact ag-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="contact">
+    <div class="hp-wrap">
+      <Image class="ag-contact-portrait" src={portrait} alt="Marlon Dietrich" width={144} height={144} fit="cover" format="webp" loading="lazy"/>
+      <p class="hp-kicker">{c.contact.kicker}</p><h2 id="contact-title">{c.contact.title}<br/><em>{c.contact.emphasis}</em></h2>
+      <p class="hp-intro">{c.contact.body}</p>
+      <div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="agency-contact">{c.contact.action}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="agency-contact">{contactEmail}<span aria-hidden="true">↗</span></a></div>
+      <p class="hp-contact-note">{c.contact.note}</p>
+    </div>
+  </section>
+</AgencyDocument>

@@ -1,6 +1,6 @@
 # Google Business Profile
 Canonical URL: https://www.vibeperform.com/en/google-business-profile/
-English alternate: https://www.vibeperform.com/de/google-unternehmensprofil/
+German alternate: https://www.vibeperform.com/de/google-unternehmensprofil/
 Summary: Set up, improve and maintain your Google Business Profile. VibePerform aligns business details, images and contact options with your website.
 
 Known locally. Clear online.

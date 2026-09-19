@@ -27,7 +27,6 @@ const { websiteStoryContent } = await jiti.import('../src/data/websiteStoryConte
 const { serviceDetails, detailPaths, serviceKeys } = await jiti.import('../src/data/serviceDetails.ts');
 const { serviceContent, servicePaths } = await jiti.import('../src/data/serviceContent.ts');
 const deWorkshops = workshopsContent.de;
-const deAbout = aboutContent.de;
 const deExplore = exploreWorkshopContent.de;
 const { potentialAnalysisContent } = await jiti.import('../src/data/potentialAnalysisContent.ts');
 const potentialPaths = { de: '/de/ki-potenzialanalyse/', en: '/en/ai-potential-analysis/' };
@@ -104,7 +103,7 @@ function pageHeader({ title, canonicalPath, description, alternatePath }) {
 		`# ${title}`,
 		'',
 		`Canonical URL: ${absoluteUrl(canonicalPath)}`,
-		alternatePath ? `English alternate: ${absoluteUrl(alternatePath)}` : '',
+		alternatePath ? `${canonicalPath.startsWith('/en/') ? 'German' : 'English'} alternate: ${absoluteUrl(alternatePath)}` : '',
 		description ? `Summary: ${stripHtml(description)}` : '',
 	].filter(Boolean);
 
@@ -176,23 +175,20 @@ ${section(deExplore.outcomeTitle, `${deExplore.outcomeBody}\n\n${deliverables}`)
 ${section('Kontakt', `${deExplore.finalTitle}\n\n${deExplore.finalBody}\n\nE-Mail: ${contactEmail}\n\nErstgespräch buchen: ${calendarUrl}`)}`);
 }
 
-function renderAboutAgentPage() {
-	const team = deAbout.team.members
-		.map((member) => `### ${member.name}\n\n${member.tagline}\n\n${member.paragraphs.join('\n\n')}`)
-		.join('\n\n');
-
-	return normalizeBlankLines(`${pageHeader({
-		title: deAbout.hero.title,
-		canonicalPath: '/de/ueber-uns/',
-		description: deAbout.hero.intro,
-		alternatePath: '/en/about-us/',
-	})}${section('Versprechen', `${deAbout.hero.intro}\n\n${deAbout.hero.promise}`)}
-
-${section(deAbout.team.title, team)}
-
-${section(deAbout.approach.title, `${deAbout.approach.intro}\n\n${bulletList(deAbout.approach.steps)}\n\n${deAbout.approach.closing}`)}
-
-${section('Kontakt', `${deAbout.connect.title}\n\n${deAbout.connect.body}\n\n${deAbout.connect.button.label}: ${deAbout.connect.button.href}`)}`);
+function renderAboutAgentPage(locale = 'de') {
+  const c = aboutContent[locale];
+  const canonicalPath = locale === 'de' ? '/de/ueber-uns/' : '/en/about-us/';
+  const alternatePath = locale === 'de' ? '/en/about-us/' : '/de/ueber-uns/';
+  return normalizeBlankLines([
+    pageHeader({ title: `${c.hero.title} ${c.hero.emphasis}`, canonicalPath, description: c.metaDescription, alternatePath }),
+    c.hero.kicker, c.hero.intro,
+    section(`${c.vision.title} ${c.vision.emphasis}`, `${c.vision.body}\n\n${c.vision.mission}\n\n[${c.vision.link}](${absoluteUrl(c.vision.href)})`),
+    section(c.journey.kicker, c.journey.paragraphs.join('\n\n')),
+    section(`${c.collaboration.title} ${c.collaboration.emphasis}`, `${c.collaboration.intro}\n\n${c.collaboration.partner}`),
+    section(c.collaboration.expectations, c.collaboration.items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n')),
+    section(`${c.future.title} ${c.future.emphasis}`, `${c.future.body}\n\n${c.future.extra}\n\n[${c.future.link}](${absoluteUrl(c.future.href)})`),
+    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}\n\n${c.contact.note}`),
+  ].join('\n\n'));
 }
 
 function renderBlogAgentPage(post) {
@@ -274,7 +270,7 @@ ${serviceKeys.map(key => `- [${serviceDetails.de[key].name}](${absoluteUrl(detai
 - [Website erstellen lassen](${absoluteUrl('/de/website-erstellen-lassen/index.md')}) — Erstellung, Ablauf und laufende Weiterentwicklung.
 - [Workshops](${absoluteUrl('/agent/workshops.md')}) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](${absoluteUrl('/agent/explore-workshop.md')}) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
-- [Über Vibeperform](${absoluteUrl('/agent/about.md')}) — Team, Arbeitsweise und Kontakt.
+- [Über Vibeperform](${absoluteUrl('/agent/about.md')}) — Marlon Dietrich, Vision, Arbeitsweise und Kontakt.
 
 ## Blog
 
@@ -393,6 +389,7 @@ const negotiatedPages = [
 	{ relativePath: 'de/workshops/index.md', content: pageByPath.get('agent/workshops.md') },
 	{ relativePath: 'de/workshop/explore-workshop/index.md', content: pageByPath.get('agent/explore-workshop.md') },
 	{ relativePath: 'de/ueber-uns/index.md', content: pageByPath.get('agent/about.md') },
+	{ relativePath: 'en/about-us/index.md', content: renderAboutAgentPage('en') },
 ];
 
 await Promise.all([

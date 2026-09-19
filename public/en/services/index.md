@@ -1,6 +1,6 @@
 # Your online presence. Everything considered.
 Canonical URL: https://www.vibeperform.com/en/services/
-English alternate: https://www.vibeperform.com/de/leistungen/
+German alternate: https://www.vibeperform.com/de/leistungen/
 Summary: Website design, redesign, ongoing support, SEO, Google Business Profiles, copy and graphics. Discover VibePerform’s services.
 
 A website that reflects your business. Content that explains your services. Business profiles that tell the same story. We create your presence and keep developing it with you.
