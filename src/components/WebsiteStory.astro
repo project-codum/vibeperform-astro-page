@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import interior from '../assets/website-service/interior.png';
+import materials from '../assets/website-service/materials.png';
+import { websiteStoryContent } from '../data/websiteStoryContent';
+import '../styles/website-story.css';
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = websiteStoryContent[locale];
+const de = locale === 'de';
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const words = de ? ['Können', 'Menschen', 'Haltung'] : ['Expertise', 'People', 'Values'];
+const pages = de ? ['Startseite', 'Leistungen', 'Über uns', 'Kontakt'] : ['Home', 'Services', 'About', 'Contact'];
+const colours = [['Nacht','#111116'],['Papier','#F5F2ED'],['Lavendel','#D6BDF2'],['Pflaume','#745188']];
+---
+<section class="ws-section" id="umfang" aria-labelledby="scope-title">
+  <div class="hp-wrap">
+    <header class="ws-intro"><p class="hp-kicker">{t.kicker}</p><h2 id="scope-title">{t.title}<br/><em>{t.emphasis}</em></h2><p class="hp-intro">{t.intro}</p><p class="ws-scroll-hint">{t.hint} <span aria-hidden="true">↓</span></p></header>
+    <website-story class="ws-story">
+      <div class="ws-stage" aria-hidden="true"><div class="ws-stage-panels"></div><div class="ws-stage-footer"><span class="ws-current">01 / 09</span><span>{t.example}</span><span aria-hidden="true">↓</span></div><div class="ws-progress"><span></span></div></div>
+      <div class="ws-chapters">
+        {t.chapters.map((chapter, index) => <article class="ws-chapter" id={`story-${chapter.id}`} data-step={index}>
+          <div class="ws-copy"><p class="hp-kicker"><span class="ws-index">0{index + 1}</span> {chapter.label}</p><h3>{chapter.title}<br/><em>{chapter.em}</em></h3><p>{chapter.body}</p><p class={`ws-note ${index === 7 ? 'ws-motion-note' : ''}`}>{chapter.note}</p>{index === 7 && <div class="ws-device-controls" aria-label={de ? 'Bildschirmansicht wählen' : 'Choose screen view'}><button type="button" data-device="desktop" aria-pressed="false">Desktop</button><button type="button" data-device="mobile" aria-pressed="false">{de ? 'Mobil' : 'Mobile'}</button></div>}<a class="ws-next" href={index < 8 ? `#story-${t.chapters[index+1].id}` : '#ablauf'}>{index < 8 ? t.chapters[index+1].label : de ? 'So arbeiten wir zusammen' : 'How we work together'} <span aria-hidden="true">↓</span></a></div>
+          <figure class={`ws-visual ws-visual-${chapter.id}`} aria-label={`${chapter.label}: ${t.example}`}>
+            {index === 0 && <div class="ws-core"><span class="ws-overline">{de ? 'Ihr Unternehmen im Mittelpunkt' : 'Your business at the centre'}</span><div class="ws-orbits">{words.map((word,i) => <div class={`ws-orbit ws-orbit-${i}`}>{word}</div>)}<div class="ws-core-dot">✳</div></div><div class="ws-core-baseline">{de ? 'Was Sie besonders macht, gibt die Richtung vor.' : 'What makes you distinctive sets the direction.'}</div></div>}
+            {index === 1 && <div class="ws-language"><span class="ws-overline">{de ? 'Vom Fachbegriff zur klaren Aussage' : 'From jargon to a clear message'}</span><p class="ws-before">{de ? 'Individuelle Fertigungslösungen' : 'Individual manufacturing solutions'}</p><span class="ws-language-arrow">↘</span><p class="ws-statement">{de ? 'Räume, die' : 'Spaces that'}<br/><em>{de ? 'zu Ihnen passen.' : 'feel like you.'}</em></p><div class="ws-tags"><span>{de ? 'Verständlich' : 'Clear'}</span><span>{de ? 'Persönlich' : 'Personal'}</span><span>{de ? 'Konkret' : 'Specific'}</span></div></div>}
+            {index === 2 && <div class="ws-logo-system"><div class="ws-logo-light"><img src={`${base}/vibeperform-logo.png`} alt="" width="250" height="106"/><span>{de ? 'Auf Hell' : 'On light'}</span></div><div class="ws-logo-dark"><img src={`${base}/vibeperform-logo.png`} width="250" height="106" alt=""/><span>{de ? 'Auf Dunkel' : 'On dark'}</span></div><div class="ws-favicon"><img src={`${base}/favicon.png`} width="40" height="40" alt=""/><span>{de ? 'Ein Zeichen. Bis in den Browser-Tab.' : 'One identity. Even in the browser tab.'}</span></div></div>}
+            {index === 3 && <div class="ws-colour-system"><div class="ws-palette">{colours.map(([name,hex]) => <div class="ws-swatch" style={`--swatch:${hex}`}><span>{name}</span><code>{hex}</code></div>)}</div><div class="ws-shades">{['#F0E8F8','#E5D5F5','#D6BDF2','#B99AD8','#9673B1','#745188'].map(hex=><div style={`background:${hex}`}><span>{hex}</span></div>)}</div><p>{de ? 'Eine Palette. Viele Nuancen.' : 'One palette. Many nuances.'}</p></div>}
+            {index === 4 && <div class="ws-type-system"><div class="ws-type-big">Aa<em>Aa</em></div><div class="ws-type-row"><span>01 / {de ? 'Überschrift' : 'Heading'}</span><b>{de ? 'Klar. Selbstbewusst.' : 'Clear. Confident.'}</b></div><div class="ws-type-row"><span>02 / {de ? 'Akzent' : 'Accent'}</span><em>{de ? 'Mit Persönlichkeit.' : 'With personality.'}</em></div><div class="ws-type-row"><span>03 / {de ? 'Lesetext' : 'Body copy'}</span><p>{de ? 'Gute Texte geben Orientierung. Gute Schrift macht das Lesen leicht.' : 'Good copy guides. Good type makes reading feel effortless.'}</p></div><div class="ws-type-caption">Arial / Georgia · {de ? 'Schriftbeispiel' : 'Type example'}</div></div>}
+            {index === 5 && <div class="ws-moodboard"><Image src={interior} width={900} format="webp" alt="" class="ws-mood-main"/><Image src={materials} width={650} format="webp" alt="" class="ws-mood-detail"/><div class="ws-mood-glass"><span>{de ? 'Material. Licht. Gefühl.' : 'Material. Light. Feeling.'}</span><em>{de ? 'Eine eigene Bildwelt.' : 'A world of your own.'}</em></div><span class="ws-media-caption">{de ? 'KI-generierte Gestaltungsbeispiele' : 'AI-generated design examples'}</span></div>}
+            {index === 6 && <div class="ws-layout-system"><span class="ws-overline">{de ? 'Vom Seitenplan zum Layout' : 'From page structure to layout'}</span><div class="ws-sitemap"><div>{pages[0]}</div><span></span><div class="ws-sitemap-children">{pages.slice(1).map(page=><span>{page}</span>)}</div></div><div class="ws-wireframe"><div class="ws-wire-nav"><b>✳</b><i></i><i></i></div><div class="ws-wire-hero"><div><b></b><b></b><span></span><span></span><i></i></div><div class="ws-wire-picture">↗</div></div><div class="ws-wire-cards"><i></i><i></i><i></i></div></div><span class="ws-layout-caption">{de ? 'Eine klare Struktur führt zur passenden Anfrage.' : 'A clear structure guides the right enquiry.'}</span></div>}
+            {index === 7 && <div class="ws-application"><div class="ws-device-label"><span class="ws-desktop-label">Desktop</span><span>↔</span><span class="ws-mobile-label">Mobile</span></div><div class="ws-device"><div class="ws-device-bar"><i></i><i></i><i></i></div><div class="ws-device-nav"><b>{de ? 'Ihr Unternehmen' : 'Your business'} ✳</b><span>☰</span></div><div class="ws-device-layout"><div class="ws-device-copy"><span>{de ? 'Handwerk mit Haltung' : 'Craft with character'}</span><p>{de ? 'Räume, die' : 'Spaces that'}<em>{de ? 'zu Ihnen passen.' : 'feel like you.'}</em></p><div class="ws-device-cta">{de ? 'Projekt besprechen' : 'Discuss a project'} ↗</div></div><Image src={interior} width={700} format="webp" alt=""/></div><div class="ws-device-bottom">{de ? 'Möbel · Innenausbau · Beratung' : 'Furniture · Interiors · Advice'}</div></div><div class="ws-responsive-note">{de ? 'Dasselbe Design. Neu angeordnet.' : 'The same design. Rearranged.'}</div></div>}
+            {index === 8 && <div class="ws-search"><span class="ws-overline">{de ? 'Wie Ihre Kunden suchen' : 'How your customers search'}</span><div class="ws-search-box"><div class="ws-search-query"><span>⌕</span>{de ? 'schreinerei' : 'joinery'}<i></i></div><div class="ws-suggestions">{(de ? ['schreinerei in der nähe','schreinerei möbel nach maß','schreinerei innenausbau'] : ['joinery near me','bespoke furniture makers','joinery interior fit out']).map(term=><div><span>⌕</span>{term}<span>↖</span></div>)}</div></div><div class="ws-search-result"><span>{de ? 'Ihr Unternehmen · Ihre Website' : 'Your business · Your website'}</span><p>{de ? 'Möbel nach Maß. Für Ihr Zuhause.' : 'Bespoke furniture. For your home.'}</p><div>{de ? 'Individuelle Möbel und Innenausbau. Entdecken Sie unsere Leistungen und besprechen Sie Ihr Vorhaben mit uns.' : 'Bespoke furniture and interiors. Explore our services and discuss your project with us.'}</div></div><span class="ws-search-caption">{de ? 'Schematisches Suchbeispiel · keine Ranking-Prognose' : 'Illustrative search example · not a ranking prediction'}</span></div>}
+            <figcaption class="ws-static-caption">{t.example}</figcaption>
+          </figure>
+        </article>)}
+      </div>
+    </website-story>
+  </div>
+</section>
+<script>
+  class WebsiteStory extends HTMLElement {
+    cleanup?: () => void;
+    connectedCallback() {
+      const chapters = [...this.querySelectorAll<HTMLElement>('.ws-chapter')];
+      const stage = this.querySelector<HTMLElement>('.ws-stage-panels')!;
+      const counter = this.querySelector<HTMLElement>('.ws-current')!;
+      const media = window.matchMedia('(min-width: 701px) and (min-height: 680px) and (prefers-reduced-motion: no-preference)');
+      let frame = 0;
+      let enabled = false;
+      let active = -1;
+      const controls = [...this.querySelectorAll<HTMLButtonElement>('.ws-device-controls button')];
+      const originalDevice = chapters[7].querySelector<HTMLElement>('.ws-visual')!;
+      const panels = chapters.map(chapter => {
+        const panel = chapter.querySelector<HTMLElement>('.ws-visual')!.cloneNode(true) as HTMLElement;
+        panel.classList.add('ws-panel');
+        panel.querySelectorAll('img').forEach(img => img.loading = 'eager');
+        stage.append(panel);
+        return panel;
+      });
+      const applyDevice = (compact: boolean, width: number) => {
+        [panels[7], originalDevice].forEach(panel => {
+          panel.style.setProperty('--device-width', `${width}%`);
+          panel.classList.toggle('is-compact', compact);
+        });
+        controls.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.device === (compact ? 'mobile' : 'desktop'))));
+      };
+      const selectDevice = (event: Event) => {
+        const button = event.currentTarget as HTMLButtonElement;
+        this.dataset.device = button.dataset.device;
+        applyDevice(button.dataset.device === 'mobile', button.dataset.device === 'mobile' ? 52 : 100);
+      };
+      controls.forEach(button => button.addEventListener('click', selectDevice));
+      this.classList.add('is-ready');
+      const update = () => {
+        frame = 0;
+        if (!enabled) return;
+        const line = window.innerHeight * .5;
+        let next = 0;
+        chapters.forEach((chapter, i) => { if (chapter.getBoundingClientRect().top <= line) next = i; });
+        if (next !== active) {
+          active = next;
+          panels.forEach((panel, i) => panel.classList.toggle('is-active', i === next));
+          chapters.forEach((chapter, i) => chapter.classList.toggle('is-active', i === next));
+          counter.textContent = `${String(next + 1).padStart(2,'0')} / 09`;
+          this.style.setProperty('--story-progress', `${(next + 1) / chapters.length * 100}%`);
+        }
+        const bounds = chapters[7].getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, (line - bounds.top) / (bounds.height * .75)));
+        if (!this.dataset.device) applyDevice(progress > .48, 100 - progress * 48);
+      };
+      const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+      const sync = () => {
+        enabled = media.matches;
+        this.classList.toggle('is-enhanced', enabled);
+        if (enabled) schedule();
+        else if (!this.dataset.device) applyDevice(window.innerWidth <= 700, window.innerWidth <= 700 ? 52 : 100);
+      };
+      media.addEventListener('change', sync);
+      window.addEventListener('scroll', schedule, { passive: true });
+      window.addEventListener('resize', schedule);
+      sync();
+      this.cleanup = () => {
+        cancelAnimationFrame(frame);
+        media.removeEventListener('change', sync);
+        window.removeEventListener('scroll', schedule);
+        window.removeEventListener('resize', schedule);
+        controls.forEach(button => button.removeEventListener('click', selectDevice));
+        this.classList.remove('is-ready', 'is-enhanced');
+        stage.replaceChildren();
+      };
+    }
+    disconnectedCallback() { this.cleanup?.(); }
+  }
+  if (!customElements.get('website-story')) customElements.define('website-story', WebsiteStory);
+</script>

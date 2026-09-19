@@ -8,8 +8,8 @@ import AgencyFooter from './AgencyFooter.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { absoluteUrl, jsonLd, organizationSchema, websiteSchema, type Locale } from '../lib/siteMetadata';
 
-interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; }
-const { locale, title, description, path, alternatePath, service = false } = Astro.props;
+interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; preview?: boolean; }
+const { locale, title, description, path, alternatePath, service = false, preview = false } = Astro.props;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const canonical = absoluteUrl(path);
 const data = [organizationSchema(), websiteSchema(locale), {
@@ -32,6 +32,7 @@ const data = [organizationSchema(), websiteSchema(locale), {
     <link rel="icon" type="image/png" href={`${base}/favicon.png`} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {preview && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={locale} href={canonical} />
     <link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={absoluteUrl(alternatePath)} />
@@ -48,7 +49,7 @@ const data = [organizationSchema(), websiteSchema(locale), {
   </head>
   <body>
     <div class="home-shell" id="top">
-      <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={`${base}${alternatePath}`} />
+      <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={`${base}${alternatePath}${preview ? 'v2/' : ''}`} />
       <main class="home-main"><slot /></main>
       <AgencyFooter locale={locale} />
     </div>
