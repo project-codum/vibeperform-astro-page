@@ -13,12 +13,21 @@
 - The DE/EN Handwerksbetriebe inquiry form posts directly to `/api/website-inquiries`; its UI validates inputs, reuses an idempotency key on retry, and reports success only after a matching accepted response.
 - Final `npm test` passed: agent generation, Astro static build, and all 62 tests. Coverage includes validation, same-origin requests, rate limiting, persistence, notification recipient/reply-to, retry, and duplicate-submission behavior.
 - Generated DE/EN Impressum, privacy, and About pages were inspected: they identify the sole proprietor and list the current relevant providers. The build contains no personal tax-number value. GitHub Actions has `PUBLIC_CLARITY_PROJECT_ID` unset, so Clarity remains inactive and is omitted from the privacy disclosure.
-- The live readiness script checks sitemap URLs, static outputs, Markdown negotiation, redirects, indexability, and generated-content parity. Run it against both `https://vibeperform.com` and `https://www.vibeperform.com` after deployment, then run the unique form notification E2E only against the released pages.
+- The live readiness script checks sitemap URLs, static outputs, Markdown negotiation, redirects, indexability, and generated-content parity; it was run against both hostnames after deployment (details below).
 
-## Release state
+## Pre-release baseline
 
-Before deployment, no production form submission, notification, commit, push, or deployment had run. GitHub and Wrangler CLI auth are available. Fresh GitHub refs confirmed `origin/master` and `origin/develop` were both at `0d29b99`; local `develop` was a fast-forward candidate 18 commits ahead of both. Local `master` was 12 commits behind `origin/master` and an ancestor of local `develop`; promote with a normal fast-forward push and no force-push.
+Before the release push, no production form submission, notification, or deployment had run. GitHub and Wrangler CLI auth were available. Fresh GitHub refs confirmed `origin/master` and `origin/develop` were both at `0d29b99`; local `develop` was a fast-forward candidate 18 commits ahead of both. Local `master` was 12 commits behind `origin/master` and an ancestor of local `develop`; it was promoted with a normal fast-forward push.
 
-Read-only production GETs show both apex and www currently return `/de/` directly with 200, so the apex does not yet redirect to www. All four target landing pages currently return 200 with matching `noindex` meta and `X-Robots-Tag` directives. The Worker change and updated workflow live checks address those findings.
+At the pre-release baseline, apex and www both returned `/de/` directly with 200, so apex did not redirect to www. The four target landing pages returned 200 with matching `noindex` meta and `X-Robots-Tag` directives. The Worker and indexability changes below address those findings.
 
-The existing workflow deploys on a `master` push or manual dispatch. It runs `npm test`, applies remote D1 migrations, deploys the Worker and assets, then calls `verify:live` against `www.vibeperform.com`. Check the post-deploy workflow and both hostnames, then run the unique form notification E2E after the new release is live.
+## Published release and verification
+
+- Release commit: `5d46256b1d0dda130f59ab01d665959accdc79a4`.
+- Production workflow: [Deploy to Cloudflare Workers, run 35783317257](https://github.com/project-codum/vibeperform-astro-page/actions/runs/35783317257). It completed successfully: dependency install, build and all 62 tests, D1 migration, Worker/static asset deployment, and CI live verification against `www.vibeperform.com` all passed.
+- Additional apex verification: `npm run verify:live -- https://vibeperform.com` passed, including the apex-to-www redirect, 42/42 sitemap routes, all 161 built public files, and the four newly indexable DE/EN landing pages. The verifier also confirmed static output parity, Markdown negotiation, and redirects.
+- Independent production review sampled 20 DE/EN pages and confirmed reciprocal language links, all eight blog preview images, and current sole-proprietor identity on About and legal pages.
+- Production form E2E: submitted through the German Handwerksbetriebe UI as a clearly labeled release test. The UI returned success reference `bf5d760d-2ec2-416c-a65d-f2b2ff028cb0`; the matching D1 row has `email_sent_at`, a provider message ID, and no delivery error; Gmail search found that exact notification in INBOX. These are separate checks for form acceptance/storage, provider send confirmation, and inbox receipt. The test row and email are intentionally labeled `RELEASE TEST` for identification.
+- `PUBLIC_CLARITY_PROJECT_ID` was unset in GitHub Actions, so Clarity remains inactive; no Clarity activation is claimed.
+
+The workflow deploys on a `master` push or manual dispatch. This report-only update belongs on `develop` and should not be promoted to `master` or trigger another production deployment.
