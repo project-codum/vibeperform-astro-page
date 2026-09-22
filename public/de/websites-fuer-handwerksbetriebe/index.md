@@ -72,15 +72,11 @@ Umfang und Rhythmus richten sich nach Ihrem Bedarf und der eingesetzten Technik.
 
 [Website-Betreuung entdecken](https://www.vibeperform.com/de/website-betreuung/)
 
-## Kosten & Umfang
-
-Website erstellen: Angebot nach Umfang
-
-Der konkrete Preis richtet sich nach Seiten, Inhalten und Funktionen. Vor dem Start erhalten Sie ein Angebot mit dem vereinbarten Umfang.
-
-Website-Erstellung und laufende Betreuung weisen wir getrennt aus. Zusätzliche Inhalte, Funktionen und externe Betriebskosten klären wir im Angebot.
-
 ## Vor Ihrer Entscheidung.
+
+### Was kostet eine Webseite?
+
+Webseiten starten meistens bei 1.800 Euro brutto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
 
 ### Kann unsere bestehende Website bleiben?
 

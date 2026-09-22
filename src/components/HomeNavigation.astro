@@ -24,7 +24,7 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
         </div>
       </details>
       <a aria-current={active(`/${locale}/${locale === 'de' ? 'ueber-uns' : 'about-us'}/`) ? 'page' : undefined} href={`${base}/${locale}/${locale === 'de' ? 'ueber-uns' : 'about-us'}/`}>{locale === 'de' ? 'Agentur' : 'Agency'}</a>
-      <a href={`${base}/${locale}/blog/`}>{locale === 'de' ? 'Wissen' : 'Insights'}</a>
+      <a aria-current={currentPath.startsWith(`${base}/${locale}/blog/`) ? (active(`/${locale}/blog/`) ? 'page' : 'location') : undefined} href={`${base}/${locale}/blog/`}>{locale === 'de' ? 'Wissen' : 'Insights'}</a>
       <a class="home-nav-contact" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
       <a class="home-language" href={alternateLocaleHref} aria-label={copy.languageAria} data-locale-switch data-target-locale={locale === 'de' ? 'en' : 'de'} data-analytics-location="home-navigation">{copy.languageLabel}</a>
     </nav>

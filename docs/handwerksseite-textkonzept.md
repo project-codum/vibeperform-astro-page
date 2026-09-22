@@ -8,15 +8,15 @@ Kernaussage: Wir gestalten einen digitalen Firmenauftritt, der die Qualität des
 2. Kundenprobleme: Leistungen unklar, unpassende Anfragen, Hürden für Bewerber.
 3. Umfang: Struktur, Gestaltung, Inhalte, Auffindbarkeit, Kontakt; optionale Karriereinhalte und Unternehmensprofile.
 4. Zusammenarbeit: kennenlernen, entwerfen, prüfen, veröffentlichen. Klare Mitwirkung und Freigabe.
-5. Weiterentwicklung und Kosten: Erstellung und Betreuung getrennt; Überarbeitung abhängig von System, Hosting und Zugängen.
-6. FAQ: bestehende Website, Texte/Bilder, Betreuung, Ergebnisgrenzen.
+5. Weiterentwicklung: passende Betreuung nach Bedarf und Technik.
+6. FAQ: Preisorientierung, bestehende Website, Texte/Bilder, Ergebnisgrenzen.
 7. Kontakt: vorhandene mehrstufige Anfrage erhalten, E-Mail als Alternative.
 
 ## Erwartetes Nutzerfeedback und Anforderungen
 - „Muss ich alles vorbereiten?“ → eigene Mitwirkung früh und verständlich erklären; keine Textpflicht vor Erstkontakt.
 - „Ist das eine Kundenreferenz?“ → Vorschau ausdrücklich als Gestaltungsbeispiel mit KI-Bildmotiv kennzeichnen.
 - „Was ist enthalten?“ → greifbare Ergebnisse, Karriere/Unternehmensprofil nach vereinbartem Bedarf; keine pauschale monatliche Lieferung.
-- „Was kostet es?“ → Preisindikation am Angebot, keine eigene Preisseite und keine Preise auf der Startseite. Erstellung ab 1.800 Euro laut aktueller Nutzerangabe; Steuerdarstellung noch zu klären. Keine feste Seitenanzahl erfinden.
+- „Was kostet es?“ → Preisorientierung ausschließlich in den FAQ: Webseiten starten meistens bei 1.800 Euro brutto; der Preis hängt von zusätzlichen Seiten ab. Keine feste enthaltene Seitenanzahl erfinden.
 - „Wie geht es nach der Anfrage weiter?“ → persönliche Einschätzung statt angeblich automatisch gebuchtem Gespräch; vorhandenen Formular-Endpunkt erhalten.
 - Mobil → einspaltige Inhalte, gute Lesbarkeit, Auswahlfelder mit klarer Markierung, keine horizontalen Scrollflächen.
 
@@ -32,7 +32,6 @@ Aktueller Nutzerauftrag, bestehende Formularfunktion, freigegebene Website-Gesta
 ## Ergebnis und Prüfung
 - Neue DE/EN-Handwerksseite im gemeinsamen AgencyDocument; Navigation und Footer vereinheitlicht.
 - Anfrageformular als TradeInquiryForm wiederverwendet. Bestehende API, Datenvalidierung und Versandlogik unverändert.
-- Kostenbereiche für Erstellung, Überarbeitung und Betreuung gemeinsam aus serviceInvestment.ts; in den zugehörigen Markdown-Ausgaben berücksichtigt.
-- Preisbetrag 1.800 Euro noch nicht eingeblendet: ausstehende Nutzerantwort zur Steuerdarstellung. Bis dahin „Angebot nach Umfang“. Keine Annahme über Steuerstatus oder enthaltene Seitenanzahl.
+- Nutzerkorrektur vom 19.09.2026: Alle ergänzten Kostenbereiche auf Erstellung, Überarbeitung, Betreuung und Handwerksseite entfernt (DE/EN). Preisorientierung nur in den Erstellungs- und Handwerks-FAQ, einschließlich generierter Markdown-Ausgaben: meistens ab 1.800 Euro brutto, abhängig von zusätzlichen Seiten. Steuerdarstellung damit bestätigt.
 - Build und komplette vorhandene Tests 58/58 bestanden. Danach zusätzliche Link-/Markdown-Prüfung für beide Handwerksseiten: betroffene Suite 7/7 bestanden.
 - Browser: Desktop-Hero, Formular bis Kontaktangabe ohne Versand, deutsche Mobilansicht 390/320 px ohne horizontalen Überlauf; englischer Hero und Formularinitialisierung geprüft. Kein Live-Deployment und kein Versand.

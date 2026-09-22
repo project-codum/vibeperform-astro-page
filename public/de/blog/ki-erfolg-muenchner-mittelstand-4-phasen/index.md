@@ -3,7 +3,7 @@ Canonical URL: https://www.vibeperform.com/de/blog/ki-erfolg-muenchner-mittelsta
 English alternate: https://www.vibeperform.com/en/blog/ai-success-munich-smes-4-phase-guide/
 Summary: Wie Münchner KMUs Künstliche Intelligenz strukturiert von der ersten Idee bis zur echten Wertschöpfung bringen.
 
-Kicker: KI-Adoption
+Thema: KI-Adoption
 Datum: 2026-05-18
 Autor: Marlon Dietrich
 Lesezeit: 6 Min. Lesezeit

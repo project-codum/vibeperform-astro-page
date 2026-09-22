@@ -5,10 +5,10 @@ export const aboutContent = {
     metaTitle: 'Marlon Dietrich & die Agentur | VibePerform',
     metaDescription: 'Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.',
     hero: {
-      kicker: 'Marlon Dietrich · Geschäftsführer von VibePerform',
+      kicker: 'Marlon Dietrich · Inhaber von VibePerform',
       title: 'Ihre Webseite ist Ihre', emphasis: 'digitale Visitenkarte.',
-      intro: 'Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
-      action: 'Erstgespräch vereinbaren', role: 'GF von VibePerform',
+      intro: 'Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
+      action: 'Erstgespräch vereinbaren', role: 'Inhaber von VibePerform',
       caption: 'Persönlich verantwortlich. Von der ersten Idee an.',
     },
     vision: {
@@ -42,10 +42,10 @@ export const aboutContent = {
     metaTitle: 'Marlon Dietrich & the Agency | VibePerform',
     metaDescription: 'Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.',
     hero: {
-      kicker: 'Marlon Dietrich · Managing Director of VibePerform',
+      kicker: 'Marlon Dietrich · Owner of VibePerform',
       title: 'Your website is your', emphasis: 'digital business card.',
-      intro: 'Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.',
-      action: 'Arrange an initial call', role: 'Managing Director of VibePerform',
+      intro: 'Marlon Dietrich is the owner of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.',
+      action: 'Arrange an initial call', role: 'Owner of VibePerform',
       caption: 'Personally responsible. From the first idea onwards.',
     },
     vision: {

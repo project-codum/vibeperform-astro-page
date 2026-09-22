@@ -110,9 +110,11 @@ export async function handleRequest(request, env) {
 	const redirect = REDIRECTS[url.pathname.replace(/\/$/, '')]
 		|| (['/de', '/en'].includes(url.pathname) ? `${url.pathname}/` : null);
 	const needsHttps = url.protocol === 'http:' && ['vibeperform.com', 'www.vibeperform.com'].includes(url.hostname);
-	if (redirect || needsHttps) {
+	const needsCanonicalHost = url.hostname === 'vibeperform.com';
+	if (redirect || needsHttps || needsCanonicalHost) {
 		if (redirect) url.pathname = redirect;
 		if (needsHttps) url.protocol = 'https:';
+		if (needsCanonicalHost) url.hostname = 'www.vibeperform.com';
 		return Response.redirect(url.toString(), 301);
 	}
 	if (url.pathname === '/api/website-inquiries') return handleWebsiteInquiry(request, env);

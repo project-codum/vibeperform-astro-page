@@ -12,7 +12,7 @@ Dieses Briefing sammelt die internen Pruefpunkte zu Impressum und Datenschutzerk
 - Interne Formulierungen wie "im Projekt erkennbar", "nach Projektangabe" und "repository" wurden aus den Datenschutztexten entfernt.
 - Technische interne Kennungen wie Google-Analytics-Mess-ID, Script-URL des Consent-Managers und genaue Chat-iframe-URL bleiben aus der Datenschutzerklaerung heraus, weil sie fuer die Nutzerinformation nicht erforderlich sind.
 
-## Aktueller oeffentlicher Stand
+## Oeffentlicher Stand vom 2. Juli 2026 (historisch)
 
 - Impressum und Legal Notice nennen Codum GmbH als Diensteanbieter und Vertragspartner, die Anschrift Zeller Str. 29, D-82067 Ebenhausen, das Register Amtsgericht Muenchen HRB 272656, die Umsatzsteuer-ID DE351537139, Isabella Hoesch als Geschaeftsfuehrung, die Kontakt-E-Mail und die Google-Calendar-Terminbuchung.
 - Die Datenschutzerklaerung nennt Codum GmbH als Verantwortliche und deckt GitHub Pages, consentmanager, Google Analytics, Google Calendar/Google Workspace, E-Mail-Kontakt, Cloud Run/Chat-iframe und Gemini API ab.
@@ -21,7 +21,7 @@ Dieses Briefing sammelt die internen Pruefpunkte zu Impressum und Datenschutzerk
 
 ## Erledigte Betreiberentscheidungen
 
-Betreiberfreigabe vom 2. Juli 2026: Codum GmbH hat die Umsatzsteuer-ID DE351537139 mitgeteilt und alle weiteren Betreiber-TODOs als erledigt bestaetigt. Die oeffentlichen Legal-Seiten wurden entsprechend finalisiert.
+Betreiberfreigabe vom 2. Juli 2026: Codum GmbH teilte ihre Umsatzsteuer-ID mit und bestaetigte die damaligen Betreiber-TODOs. Diese Freigabe galt fuer Codum GmbH und ist keine Bestaetigung fuer den nunmehrigen Einzelunternehmer.
 
 - [x] ERLEDIGT - Umsatzsteuer-ID oder Wirtschafts-ID pruefen: Umsatzsteuer-ID DE351537139 wurde in Impressum und Legal Notice aufgenommen.
 - [x] ERLEDIGT - Reglementierte oder erlaubnispflichtige Taetigkeit bestaetigen.
@@ -44,3 +44,24 @@ Betreiberfreigabe vom 2. Juli 2026: Codum GmbH hat die Umsatzsteuer-ID DE3515371
 - Google Workspace/Vault Retention: https://support.google.com/vault/answer/2990828
 - Google Workspace Log-Retention: https://knowledge.workspace.google.com/admin/reports/data-retention-and-lag-times
 - GitHub Privacy Statement: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
+
+## Migration zum Einzelunternehmen am 22. September 2026
+
+- Anbieter und Verantwortlicher: Marlon Dietrich, Einzelunternehmer unter dem Geschaeftsauftritt VibePerform, Brecherspitzstrasse 9, 81541 Muenchen; Kontakt: contact@vibeperform.com. Diese Angaben stammen aus der aktuellen Betreiberbestaetigung.
+- Der Betreiber bestaetigte, dass ihm bisher keine eigene Umsatzsteuer-Identifikationsnummer oder Wirtschafts-Identifikationsnummer erteilt wurde. Die fruehere Umsatzsteuer-ID gehoerte zur Codum GmbH und wird daher nicht in die neuen Seiten uebernommen. Die persoenliche Steuernummer ist nicht im Impressum oder in diesem Briefing festgehalten.
+- Die aktuelle Implementierung liefert statische Seiten ueber Cloudflare Workers mit Workers Static Assets aus. Das Anfrageformular sendet Daten an den Worker, der sie in Cloudflare D1 speichert und per Cloudflare Email an contact@vibeperform.com weiterleitet. Die D1-Datenbank hat laut Projektunterlagen den Standort-Hinweis WEUR; das ist keine Zusicherung zur Datenresidenz.
+- Consentmanager wird zentral geladen. Google Analytics wird nach Einwilligung aktiviert. Die Website verlinkt auf eine Google-Calendar-Buchungsseite; sie bindet keinen Chat und keinen Kalender als iframe ein. Microsoft Clarity ist nur vorbereitet und mangels Projekt-ID nicht aktiviert.
+- Anfrageangaben umfassen E-Mail, Vorhaben, Betriebsart, Schwerpunkt, Website, weitere Taetigkeitsangaben und Freitext. Die IP-Adresse wird fuer das Rate-Limit verarbeitet. Die Codebasis hat keine automatische Loeschfrist fuer D1-Anfragen; Anfragen muessen nach Abschluss manuell auf Erforderlichkeit und Loeschung geprueft werden, soweit keine Aufbewahrungspflicht oder erforderlichen Rechtsansprueche entgegenstehen.
+- Die Anbieter-/Vertragslage fuer Cloudflare, Google (Workspace, Analytics und Calendar) und consentmanager sollte dem Einzelunternehmen zugeordnet und im Rahmen der Auftragsverarbeitungspruefung bestaetigt werden. Die Vertraege und Kontoeinstellungen sind in diesem Codeprojekt nicht vollstaendig einsehbar.
+
+### Amtliche und Anbieterquellen fuer den neuen Stand
+
+- DDG § 5 (Name, Anschrift, elektronische Kontaktangaben und USt-/Wirtschafts-ID, sofern vorhanden): https://www.gesetze-im-internet.de/ddg/__5.html
+- MStV § 18 (redaktionelle Verantwortung): https://www.gesetze-bayern.de/Content/Document/MStV
+- DSGVO Art. 13 (Datenschutzhinweise): https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
+- TDDDG § 25 (Speichern und Auslesen auf Endgeraeten): https://www.gesetze-im-internet.de/ttdsg/__25.html
+- Cloudflare D1 Datenstandort: https://developers.cloudflare.com/d1/configuration/data-location/
+- Google Analytics Datenaufbewahrung: https://support.google.com/analytics/answer/7667196
+- Google EU-U.S. Data Privacy Framework: https://policies.google.com/privacy/frameworks
+- Consentmanager Datenschutzhinweise: https://www.consentmanager.net/en/privacy/
+- BayLDA Kontakt (Beschwerden fuer nicht-oeffentliche Stellen in Bayern): https://www.lda.bayern.de/de/kontakt.html

@@ -65,14 +65,6 @@ We need your existing website, appropriate access, current business information 
 
 [Copy & graphics](https://www.vibeperform.com/en/copy-graphics/)
 
-## Cost & scope
-
-Website redesign: After a technical review
-
-We first review the system, hosting, available access and requested changes. This shows what can be reused and how much work is needed.
-
-Website creation and ongoing support are quoted separately. Additional content, features and external running costs are clarified in the proposal.
-
 ## Common questions
 
 ### Does my entire website need rebuilding?

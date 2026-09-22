@@ -21,8 +21,8 @@ const [{ workshopsContent }, { aboutContent }, { exploreWorkshopContent }] =
 		jiti.import('../src/data/exploreWorkshopContent.ts'),
 	]);
 
+const { knowledgeContent } = await jiti.import('../src/data/knowledgeContent.ts');
 const { tradePageContent } = await jiti.import('../src/data/tradePageContent.ts');
-const { investmentContent } = await jiti.import('../src/data/serviceInvestment.ts');
 const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
 const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
 const { websiteStoryContent } = await jiti.import('../src/data/websiteStoryContent.ts');
@@ -80,8 +80,8 @@ function frontmatterAndBody(source) {
 	return { data, body: match[2].trim() };
 }
 
-async function readGermanBlogPosts() {
-	const blogDir = path.join(rootDir, 'src/pages/de/blog');
+async function readBlogPosts(locale = 'de') {
+	const blogDir = path.join(rootDir, `src/pages/${locale}/blog`);
 	const files = (await fs.readdir(blogDir)).filter((file) => file.endsWith('.md')).sort();
 
 	return Promise.all(
@@ -92,7 +92,7 @@ async function readGermanBlogPosts() {
 			return {
 				slug,
 				agentPath: `/agent/blog/${slug}.md`,
-				canonicalPath: `/de/blog/${slug}/`,
+				canonicalPath: `/${locale}/blog/${slug}/`,
 				...data,
 				body,
 			};
@@ -181,7 +181,6 @@ ${section('Kontakt', `${deExplore.finalTitle}\n\n${deExplore.finalBody}\n\nE-Mai
 function renderTradePage(locale) {
  const c=tradePageContent[locale];
  const route=locale==='de'?'/de/websites-fuer-handwerksbetriebe/':'/en/websites-for-trade-businesses/';
- const price=investmentContent(locale,'create');
  const list=items=>items.map(([title,body])=>`### ${title}\n\n${body}`).join('\n\n');
  return normalizeBlankLines([
  pageHeader({title:`${c.title} ${c.emphasis}`,canonicalPath:route,description:c.intro}),
@@ -191,7 +190,6 @@ function renderTradePage(locale) {
  section(`${c.ownTitle} ${c.ownEmphasis}`,`${c.ownBody}\n\n${c.ownDetail}`),
  section(`${c.processTitle} ${c.processEmphasis}`,list(c.steps)),
  section(`${c.careTitle} ${c.careEmphasis}`,`${c.careBody}\n\n${c.careNote}\n\n[${c.careLink}](${absoluteUrl(c.careHref)})`),
- section(price.kicker,`${price.label}: ${price.price}\n\n${price.body}\n\n${price.note}`),
  section(`${c.faqTitle} ${c.faqEmphasis}`,list(c.faq)),
  section(`${c.contactTitle} ${c.contactEmphasis}`,`${c.contactBody}\n\n[${c.cta}](${absoluteUrl(route)}#anfrage)\n\n${contactEmail}`),
  ].join('\n\n'));
@@ -211,25 +209,32 @@ function renderAboutAgentPage(locale = 'de') {
   ].join('\n\n'));
 }
 
+function renderKnowledgeIndex(locale, posts) {
+ const c = knowledgeContent[locale];
+ return normalizeBlankLines([
+  pageHeader({title:c.title, canonicalPath:`/${locale}/blog/`, description:c.intro, alternatePath:`/${locale==='de'?'en':'de'}/blog/`}),
+  `${c.headline} ${c.emphasis}`, c.intro,
+  section(`${c.topicsTitle} ${c.topicsEmphasis}`, c.topics.map(t=>`### ${t.title}\n\n${t.body}\n\n[${t.label}](${absoluteUrl(t.href)})`).join('\n\n')),
+  section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${[...posts].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(p=>`### [${p.title}](${absoluteUrl(p.canonicalPath)})\n\n${p.date} · ${p.readTime}\n\n${p.excerpt}`).join('\n\n')}`),
+  section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${contactEmail}\n\n${calendarUrl}`),
+ ].join('\n\n'));
+}
+
 function renderBlogAgentPage(post) {
 	return normalizeBlankLines(`${pageHeader({
 		title: post.title,
 		canonicalPath: post.canonicalPath,
 		description: post.excerpt,
 		alternatePath: post.alternateLocaleHref,
-	})}Kicker: ${post.kicker}
-Datum: ${post.date}
-${post.lastModified ? `Aktualisiert: ${post.lastModified}\n` : ''}Autor: ${post.author}${post.authorRole ? ` — ${post.authorRole}` : ''}
-Lesezeit: ${post.readTime}
+	})}${post.lang === 'en' ? 'Topic' : 'Thema'}: ${post.kicker}
+${post.lang === 'en' ? 'Published' : 'Datum'}: ${post.date}
+${post.lastModified ? `${post.lang === 'en' ? 'Updated' : 'Aktualisiert'}: ${post.lastModified}\n` : ''}${post.lang === 'en' ? 'Author' : 'Autor'}: ${post.author}${post.authorRole ? ` — ${post.authorRole}` : ''}
+${post.lang === 'en' ? 'Reading time' : 'Lesezeit'}: ${post.readTime}
 
 ${post.body}`);
 }
 
 
-function investmentMarkdown(locale, kind) {
- const c=investmentContent(locale,kind);
- return section(c.kicker,`${c.label}: ${c.price}\n\n${c.body}\n\n${c.note}`);
-}
 
 function renderServicePage(locale, kind) {
   const c = serviceContent[locale][kind];
@@ -252,7 +257,6 @@ function renderServicePage(locale, kind) {
     }
     parts.push(section(`${c.ongoing.title} ${c.ongoing.emphasis}`, `${c.ongoing.intro}\n\n${c.ongoing.body}\n\n[${c.ongoing.link}](${absoluteUrl(detailPaths[locale].support)})`));
     parts.push(section(c.trade.title, `${c.trade.body}\n\n[${c.trade.link}](${absoluteUrl(c.trade.href)})`));
-    parts.push(investmentMarkdown(locale,'create'));
     parts.push(section(c.faq.kicker, c.faq.items.map(item => `### ${item.question}\n\n${item.answer}`).join('\n\n')));
   }
   parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
@@ -272,7 +276,6 @@ function renderServiceDetail(locale, key) {
     [locale === 'de' ? 'Alle Leistungen' : 'All services', servicePaths[locale].overview],
   ] : t.related.map(k => [serviceDetails[locale][k].name, detailPaths[locale][k]]);
   parts.push(section(locale === 'de' ? 'Passende nächste Schritte' : 'Related services', related.map(([name, path]) => `[${name}](${absoluteUrl(path)})`).join('\n\n')));
-  if (key==='redesign'||key==='support') parts.push(investmentMarkdown(locale,key));
   parts.push(section(locale === 'de' ? 'Häufige Fragen' : 'Common questions', pairs(t.faq)));
   parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `${t.contact}\n\n[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
   return normalizeBlankLines(parts.join('\n\n'));
@@ -295,6 +298,8 @@ VibePerform erstellt und betreut Websites und Unternehmensprofile für Handwerks
 - [Alle Leistungen](${absoluteUrl('/de/leistungen/index.md')}) — Websites, Betreuung, SEO, Unternehmensprofile, Texte und Grafiken.
 ${serviceKeys.map(key => `- [${serviceDetails.de[key].name}](${absoluteUrl(detailPaths.de[key] + 'index.md')}) — ${serviceDetails.de[key].description}`).join('\n')}
 - [Website erstellen lassen](${absoluteUrl('/de/website-erstellen-lassen/index.md')}) — Erstellung, Ablauf und laufende Weiterentwicklung.
+- [Websites für Handwerksbetriebe](${absoluteUrl('/de/websites-fuer-handwerksbetriebe/index.md')}) — Website und Kontaktanfragen für Handwerksbetriebe.
+- [KI-Potenzialanalyse](${absoluteUrl(`${potentialPaths.de}index.md`)}) — Strukturierte Analyse passender KI-Anwendungsfälle.
 - [Workshops](${absoluteUrl('/agent/workshops.md')}) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](${absoluteUrl('/agent/explore-workshop.md')}) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
 - [Über Vibeperform](${absoluteUrl('/agent/about.md')}) — Marlon Dietrich, Vision, Werdegang und Kontakt.
@@ -326,6 +331,8 @@ Kanonische Sprache: Deutsch`;
 		...pages.map((page) => page.content),
         ...['overview', 'website'].map(kind => renderServicePage('de', kind)),
         ...serviceKeys.map(key => renderServiceDetail('de', key)),
+		renderTradePage('de'),
+		renderPotentialAnalysis('de'),
 		...blogPosts.map(renderBlogAgentPage),
 	];
 
@@ -356,6 +363,9 @@ function renderSitemapXml(blogPosts) {
 		'/en/workshop/explore-workshop/',
 		'/de/ki-strategie/',
 		'/en/ai-strategy/',
+		...Object.values(potentialPaths),
+		'/de/websites-fuer-handwerksbetriebe/',
+		'/en/websites-for-trade-businesses/',
 		'/de/ueber-uns/',
 		'/en/about-us/',
 		'/de/impressum/',
@@ -399,7 +409,8 @@ async function writeFile(relativePath, content) {
 
 await fs.mkdir(agentBlogDir, { recursive: true });
 
-const blogPosts = await readGermanBlogPosts();
+const blogPosts = await readBlogPosts();
+const englishBlogPosts = await readBlogPosts('en');
 const pages = [
 	{ relativePath: 'agent/index.md', content: renderHomeAgentPage() },
 	{ relativePath: 'agent/workshops.md', content: renderWorkshopsAgentPage() },
@@ -408,6 +419,9 @@ const pages = [
 ];
 const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
 const negotiatedPages = [
+ {relativePath:'de/blog/index.md',content:renderKnowledgeIndex('de',blogPosts)},
+ {relativePath:'en/blog/index.md',content:renderKnowledgeIndex('en',englishBlogPosts)},
+ ...englishBlogPosts.map(post=>({relativePath:`en/blog/${post.slug}/index.md`,content:renderBlogAgentPage(post)})),
  {relativePath:'de/websites-fuer-handwerksbetriebe/index.md',content:renderTradePage('de')},
  {relativePath:'en/websites-for-trade-businesses/index.md',content:renderTradePage('en')},
     ...['de','en'].flatMap(locale => serviceKeys.map(key => ({relativePath:`${detailPaths[locale][key].slice(1)}index.md`,content:renderServiceDetail(locale,key)}))),

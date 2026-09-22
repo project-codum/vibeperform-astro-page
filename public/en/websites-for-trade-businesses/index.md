@@ -72,15 +72,11 @@ Scope and frequency depend on your needs and technology. A Google Business Profi
 
 [Explore website support](https://www.vibeperform.com/en/website-support/)
 
-## Cost & scope
-
-Website creation: Quoted to fit the scope
-
-The specific price depends on pages, content and features. Before we begin, you receive a proposal defining the agreed scope.
-
-Website creation and ongoing support are quoted separately. Additional content, features and external running costs are clarified in the proposal.
-
 ## Before your decision.
+
+### How much does a website cost?
+
+Websites usually start at €1,800 including VAT. The price depends on how many additional pages are needed.
 
 ### Can we keep our existing website?
 

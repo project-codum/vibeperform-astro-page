@@ -3,7 +3,7 @@ Canonical URL: https://www.vibeperform.com/de/blog/ki-agenten-geschaeftsnutzen-r
 English alternate: https://www.vibeperform.com/en/blog/ai-agents-business-roi/
 Summary: Warum KI-Agenten für Münchner KMUs erst dann echten ROI liefern, wenn Datenqualität, Governance und Mitarbeiterakzeptanz zusammenspielen.
 
-Kicker: Agentische KI
+Thema: Agentische KI
 Datum: 2026-05-26
 Autor: Marlon Dietrich
 Lesezeit: 4 Min. Lesezeit

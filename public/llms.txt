@@ -14,6 +14,8 @@ VibePerform erstellt und betreut Websites und Unternehmensprofile für Handwerks
 - [Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/index.md) — Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
 - [KI-Beratung](https://www.vibeperform.com/de/ki-strategie/index.md) — Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.
 - [Website erstellen lassen](https://www.vibeperform.com/de/website-erstellen-lassen/index.md) — Erstellung, Ablauf und laufende Weiterentwicklung.
+- [Websites für Handwerksbetriebe](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/index.md) — Website und Kontaktanfragen für Handwerksbetriebe.
+- [KI-Potenzialanalyse](https://www.vibeperform.com/de/ki-potenzialanalyse/index.md) — Strukturierte Analyse passender KI-Anwendungsfälle.
 - [Workshops](https://www.vibeperform.com/agent/workshops.md) — Workshop-Formate, Ergebnisse und Anschlussfähigkeit.
 - [Strategischer Explore Workshop](https://www.vibeperform.com/agent/explore-workshop.md) — Phase-1-Angebot, Roadmap-Ergebnis und Priorisierung.
 - [Über Vibeperform](https://www.vibeperform.com/agent/about.md) — Marlon Dietrich, Vision, Werdegang und Kontakt.

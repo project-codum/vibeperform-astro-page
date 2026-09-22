@@ -6,8 +6,8 @@ import { fileURLToPath } from 'node:url';
 const dist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../dist');
 const load = route => readFile(path.join(dist, route, 'index.html'), 'utf8');
 for (const [locale, route, alternate, role] of [
-  ['de', 'de/ueber-uns', 'en/about-us', 'Geschäftsführer'],
-  ['en', 'en/about-us', 'de/ueber-uns', 'Managing Director'],
+  ['de', 'de/ueber-uns', 'en/about-us', 'Inhaber von VibePerform'],
+  ['en', 'en/about-us', 'de/ueber-uns', 'Owner of VibePerform'],
 ]) {
   test(`${locale}: agency identity, metadata and machine-readable version agree`, async () => {
     const html = await load(route);

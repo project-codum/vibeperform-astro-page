@@ -81,6 +81,7 @@ export const tradePageContent = {
     "faqTitle": "Vor Ihrer",
     "faqEmphasis": "Entscheidung.",
     "faq": [
+      ["Was kostet eine Webseite?", "Webseiten starten meistens bei 1.800 Euro brutto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen."],
       [
         "Kann unsere bestehende Website bleiben?",
         "Wir prüfen das eingesetzte System, Hosting und verfügbare Zugänge. Anschließend klären wir, welche Inhalte und Funktionen sich weiterverwenden lassen und ob gezielte Änderungen oder ein Neuaufbau sinnvoll sind."
@@ -191,6 +192,7 @@ export const tradePageContent = {
     "faqTitle": "Before your",
     "faqEmphasis": "decision.",
     "faq": [
+      ["How much does a website cost?", "Websites usually start at €1,800 including VAT. The price depends on how many additional pages are needed."],
       [
         "Can we keep our existing website?",
         "We review the system, hosting and available access. We then clarify which content and features can be reused and whether targeted changes or a rebuild make sense."

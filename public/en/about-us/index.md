@@ -3,9 +3,9 @@ Canonical URL: https://www.vibeperform.com/en/about-us/
 German alternate: https://www.vibeperform.com/de/ueber-uns/
 Summary: Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.
 
-Marlon Dietrich · Managing Director of VibePerform
+Marlon Dietrich · Owner of VibePerform
 
-Marlon Dietrich is the Managing Director of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.
+Marlon Dietrich is the owner of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.
 
 ## Your business keeps moving. Your website should, too.
 

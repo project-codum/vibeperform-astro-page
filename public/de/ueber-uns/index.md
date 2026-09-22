@@ -3,9 +3,9 @@ Canonical URL: https://www.vibeperform.com/de/ueber-uns/
 English alternate: https://www.vibeperform.com/en/about-us/
 Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.
 
-Marlon Dietrich · Geschäftsführer von VibePerform
+Marlon Dietrich · Inhaber von VibePerform
 
-Marlon Dietrich ist Geschäftsführer von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.
+Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.
 
 ## Ihr Unternehmen steht nicht still. Ihr Auftritt auch nicht.
 

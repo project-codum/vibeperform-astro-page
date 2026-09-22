@@ -27,7 +27,7 @@ const visibleText = (html) =>
 		.replace(/\s+/g, ' ')
 		.trim();
 
-for (const pathname of ['/', '/de/', '/de/ki-potenzialanalyse/', '/en/ai-potential-analysis/']) {
+for (const pathname of ['/', '/de/', '/de/ki-potenzialanalyse/', '/en/ai-potential-analysis/', '/de/websites-fuer-handwerksbetriebe/', '/en/websites-for-trade-businesses/']) {
 	const { response, body } = await fetchPage(pathname, 'text/html');
 	const text = visibleText(body);
 	assert(response.status === 200, `${pathname} returned ${response.status}`);
@@ -36,6 +36,8 @@ for (const pathname of ['/', '/de/', '/de/ki-potenzialanalyse/', '/en/ai-potenti
 	assert(text.length >= 500, `${pathname} has only ${text.length} visible text characters`);
 	assert(!/http-equiv=["']refresh/i.test(body), `${pathname} contains a meta refresh`);
 	assert(body.includes('application/ld+json'), `${pathname} has no JSON-LD`);
+	assert(!/name=["']robots["'][^>]*content=["']noindex/i.test(body), `${pathname} is unexpectedly noindex`);
+	assert(!/\bnoindex\b/i.test(response.headers.get('x-robots-tag') ?? ''), `${pathname} has an X-Robots-Tag noindex header`);
 	for (const match of body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(match[1]);
 	results.push({
 		pathname,
@@ -87,7 +89,7 @@ results.push({
 
 const missing = await fetchPage('/missing-agent-path-20260826', 'text/html');
 assert(missing.response.status === 404, `Missing path returned ${missing.response.status}`);
-assert(missing.body.includes('/llms.txt') && missing.body.includes('/sitemap.xml'), '404 body has no recovery links');
+assert(missing.body.includes('/de/') && missing.body.includes('/en/') && missing.body.includes('/sitemap.xml'), '404 body has no bilingual recovery links');
 results.push({
 	pathname: '/missing-agent-path-20260826',
 	status: missing.response.status,
@@ -103,14 +105,14 @@ assert(missingMarkdown.body.includes('[Sitemap](/sitemap.xml)'), 'Markdown 404 l
 for (const [from, to] of Object.entries(REDIRECTS)) {
 	const response = await fetch(new URL(`${from}?utm_source=verification`, baseUrl), { redirect: 'manual' });
 	assert(response.status === 301, `${from} must return HTTP 301`);
-	assert(response.headers.get('location') === new URL(`${to}?utm_source=verification`, baseUrl).href, `${from} redirect lost its destination or query`);
+	assert(response.headers.get('location') === `https://www.vibeperform.com${to}?utm_source=verification`, `${from} redirect lost its canonical destination or query`);
 	await response.arrayBuffer();
 }
 
 for (const locale of ['de', 'en']) {
 	const response = await fetch(new URL(`/${locale}?utm_source=verification`, baseUrl), { redirect: 'manual' });
 	assert(response.status === 301, `/${locale} must permanently redirect to its canonical URL`);
-	assert(response.headers.get('location') === new URL(`/${locale}/?utm_source=verification`, baseUrl).href, 'Locale redirect lost path or query');
+	assert(response.headers.get('location') === `https://www.vibeperform.com/${locale}/?utm_source=verification`, 'Locale redirect lost canonical host, path, or query');
 	await response.arrayBuffer();
 }
 
@@ -119,8 +121,15 @@ if (['vibeperform.com', 'www.vibeperform.com'].includes(baseUrl.hostname)) {
 	insecure.protocol = 'http:';
 	const response = await fetch(insecure, { redirect: 'manual' });
 	assert(response.status === 301, 'Production HTTP must redirect to HTTPS');
-	assert(response.headers.get('location') === `https://${baseUrl.host}/de/?utm_source=verification`, 'HTTPS redirect lost path or query');
+	assert(response.headers.get('location') === 'https://www.vibeperform.com/de/?utm_source=verification', 'HTTPS redirect lost canonical host, path, or query');
 	await response.arrayBuffer();
+	const apex = await fetch('https://vibeperform.com/de/?utm_source=verification', { redirect: 'manual' });
+	assert(apex.status === 301, 'Apex hostname must redirect to the canonical www hostname');
+	assert(apex.headers.get('location') === 'https://www.vibeperform.com/de/?utm_source=verification', 'Apex redirect lost canonical hostname, path, or query');
+	await apex.arrayBuffer();
+	const canonicalHost = await fetch('https://www.vibeperform.com/de/?utm_source=verification', { redirect: 'manual' });
+	assert(canonicalHost.status === 200, `Canonical www hostname returned ${canonicalHost.status}`);
+	await canonicalHost.arrayBuffer();
 }
 
 for (const pathname of ['/robots.txt', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/favicon.png']) {
@@ -136,6 +145,9 @@ for (const pathname of ['/robots.txt', '/llms.txt', '/llms-full.txt', '/sitemap.
 
 const sitemap = await (await fetch(new URL('/sitemap.xml', baseUrl))).text();
 const sitemapPaths = [...sitemap.matchAll(/<loc>https:\/\/www\.vibeperform\.com([^<]+)<\/loc>/g)].map((match) => match[1]);
+for (const pathname of ['/de/ki-potenzialanalyse/', '/en/ai-potential-analysis/', '/de/websites-fuer-handwerksbetriebe/', '/en/websites-for-trade-businesses/']) {
+	assert(sitemapPaths.includes(pathname), `${pathname} is missing from the sitemap`);
+}
 assert(sitemap === await readFile(new URL('sitemap.xml', dist), 'utf8'), 'Deployed sitemap differs from this build');
 const sitemapChecks = await Promise.all(
 	sitemapPaths.map(async (pathname) => {

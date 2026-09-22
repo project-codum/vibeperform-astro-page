@@ -1,8 +1,0 @@
----
-import { investmentContent } from '../data/serviceInvestment';
-interface Props {locale:'de'|'en';kind:'create'|'redesign'|'support';}
-const {locale,kind}=Astro.props;
-const c=investmentContent(locale,kind);
----
-<section class="hp-section si-section" id="kosten" aria-labelledby="investment-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.kicker}</p><h2 id="investment-title">{c.title}<br/><em>{c.emphasis}</em></h2></div><div class="si-detail"><p class="hp-label">{c.label}</p><p class="si-price">{c.price}</p><p>{c.body}</p><p class="si-note">{c.note}</p></div></div></section>
-<style>.si-section{border-top:1px solid var(--hp-line)}.si-detail .si-price{font-size:clamp(25px,3vw,38px);line-height:1.2;letter-spacing:-.04em;color:var(--hp-ink);margin:15px 0 24px}.si-detail .si-note{border-top:1px solid var(--hp-line);padding-top:20px;margin-top:24px;font-size:13px}</style>

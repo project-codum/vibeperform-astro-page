@@ -131,14 +131,14 @@ test('malformed and oversized streamed JSON is rejected', async () => {
   } finally { db.close(); }
 });
 
-test('DE/EN landing pages have matching metadata, direct form endpoint and draft indexing', async () => {
+test('DE/EN landing pages have matching metadata, direct form endpoint and public indexing', async () => {
   const routes = { de: 'de/websites-fuer-handwerksbetriebe', en: 'en/websites-for-trade-businesses' };
   for (const [locale, route] of Object.entries(routes)) {
     const html = await readFile(new URL(`../dist/${route}/index.html`, import.meta.url), 'utf8');
     assert.ok(html.includes(`<html lang="${locale}"`));
     assert.ok(html.includes(`rel="canonical" href="https://www.vibeperform.com/${route}/"`));
     assert.ok(html.includes('data-inquiry-endpoint="/api/website-inquiries"'));
-    assert.ok(html.includes('name="robots" content="noindex, follow"'));
+		assert.ok(!html.includes('name="robots" content="noindex'));
     assert.equal((html.match(/<h1\b/g) || []).length, 1);
     for (const alternate of Object.values(routes)) assert.ok(html.includes(`https://www.vibeperform.com/${alternate}/`));
     for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(match[1]);

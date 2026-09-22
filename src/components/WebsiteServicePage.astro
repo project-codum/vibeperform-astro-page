@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import TradeInquiryForm from './TradeInquiryForm.astro';
-import ServiceInvestment from './ServiceInvestment.astro';
 import { tradePageContent } from '../data/tradePageContent';
 import interior from '../assets/website-service/interior.png';
 import materials from '../assets/website-service/materials.png';
@@ -25,7 +24,6 @@ const de=locale==='de';
 <section class="hp-section" aria-labelledby="own-title"><div class="hp-wrap hp-split tw-content"><figure><Image src={materials} alt={de?'Bildauswahl, Materialmuster und Website-Skizze als Illustration':'Illustration of image selection, material samples and a website sketch'} widths={[400,800]} sizes="(max-width:700px) 90vw, 540px" format="webp" loading="lazy"/><figcaption>{c.imageCaption}</figcaption></figure><div><p class="hp-kicker">{de?'Wenig Aufwand für Sie':'Less work for you'}</p><h2 id="own-title">{c.ownTitle}<br/><em>{c.ownEmphasis}</em></h2><p class="hp-intro">{c.ownBody}</p><div class="tw-contribution"><h3>{c.ownLabel}</h3><p>{c.ownDetail}</p></div></div></div></section>
 <section class="hp-section tw-process" id="zusammenarbeit" aria-labelledby="process-title"><div class="hp-wrap"><p class="hp-kicker">{de?'So arbeiten wir':'How we work'}</p><h2 id="process-title">{c.processTitle}<br/><em>{c.processEmphasis}</em></h2><ol class="hp-process-grid">{c.steps.map(([title,body],i)=><li><span class="hp-number">0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div></section>
 <section class="hp-section hp-evolution" id="betreuung" aria-labelledby="care-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.careKicker}</p><h2 id="care-title">{c.careTitle}<br/><em>{c.careEmphasis}</em></h2></div><div class="tw-care"><p>{c.careBody}</p><p>{c.careNote}</p><a class="hp-text-link" href={c.careHref}>{c.careLink}<span aria-hidden="true">↗</span></a></div></div></section>
-<ServiceInvestment locale={locale} kind="create"/>
 <section class="hp-section hp-faq" id="fragen" aria-labelledby="faq-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{de?'Gut zu wissen':'Good to know'}</p><h2 id="faq-title">{c.faqTitle}<br/><em>{c.faqEmphasis}</em></h2></div><div>{c.faq.map(([q,a])=><details><summary>{q}<span aria-hidden="true">＋</span></summary><p>{a}</p></details>)}</div></div></section>
 <section class="hp-section tw-contact" id="anfrage" aria-labelledby="inquiry-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.contactKicker}</p><h2 id="inquiry-title">{c.contactTitle}<br/><em>{c.contactEmphasis}</em></h2><p class="hp-intro">{c.contactBody}</p><p class="tw-note">{c.contactNote}</p><p class="tw-email">{c.mail}<br/><a class="hp-text-link" href="mailto:contact@vibeperform.com">contact@vibeperform.com ↗</a></p></div><TradeInquiryForm locale={locale}/></div></section>
 </div>

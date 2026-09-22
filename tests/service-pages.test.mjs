@@ -45,8 +45,9 @@ for (const page of pages) {
     assert.ok(markdown.length > 1000);
     assert.ok(markdown.includes(`https://www.vibeperform.com${page.route}`));
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
-    if (!page.route.includes('handwerksbetriebe') && !page.route.includes('trade-businesses')) assert.ok(sitemap.includes(`<loc>https://www.vibeperform.com${page.route}</loc>`));
-    else { assert.match(html, /noindex, follow/); assert.match(html, /data-inquiry-endpoint="\/api\/website-inquiries"/); }
+    assert.ok(sitemap.includes(`<loc>https://www.vibeperform.com${page.route}</loc>`));
+    assert.doesNotMatch(html, /name="robots" content="noindex/);
+    if (page.route.includes('handwerksbetriebe') || page.route.includes('trade-businesses')) assert.match(html, /data-inquiry-endpoint="\/api\/website-inquiries"/);
   });
 }
 
@@ -55,6 +56,6 @@ test('website design and trade offer remain distinct pages', async () => {
   const trade = await load('/de/websites-fuer-handwerksbetriebe/');
   assert.match(general, /Gestaltungsbeispiel/);
   assert.match(general, /href="\/de\/websites-fuer-handwerksbetriebe\/"/);
-  assert.match(trade, /noindex, follow/);
+  assert.doesNotMatch(trade, /name="robots" content="noindex/);
   assert.equal((general.match(/<main[\s\S]*<\/main>/)[0].match(/<details\b/g) || []).length, 5);
 });

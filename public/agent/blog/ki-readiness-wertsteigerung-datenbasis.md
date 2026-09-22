@@ -3,7 +3,7 @@ Canonical URL: https://www.vibeperform.com/de/blog/ki-readiness-wertsteigerung-d
 English alternate: https://www.vibeperform.com/en/blog/ai-readiness-company-value-data-foundation/
 Summary: Erfahren Sie, wie Mittelständler CRM, ERP und Finanzdaten verbinden, eine Datenlandkarte erstellen und KI in messbaren Geschäftswert übersetzen.
 
-Kicker: KI-fähige Datenbasis
+Thema: KI-fähige Datenbasis
 Datum: 2026-07-08
 Aktualisiert: 2026-07-13
 Autor: Marlon Dietrich — Software Engineer, KI-Berater und zertifizierter RAG-Engineer

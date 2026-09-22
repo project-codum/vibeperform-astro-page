@@ -112,23 +112,31 @@ test('homepage exposes valid Organization and WebSite JSON-LD', async () => {
 	assert.equal(website.url, 'https://www.vibeperform.com/de/');
 });
 
-test('custom 404 gives agents machine-readable recovery links', async () => {
+test('custom 404 gives bilingual readers real route recovery links', async () => {
 	const html = await load('404.html');
 	assert.match(html, /<meta name="robots" content="noindex, follow">/);
-	for (const target of ['/sitemap.xml', '/llms.txt', '/agent/index.md']) {
+	assert.match(html, /lang="de"/);
+	assert.match(html, /lang="en"/);
+	for (const target of ['/de/', '/de/leistungen/', '/de/workshops/', '/en/', '/en/services/', '/en/workshops/', '/sitemap.xml']) {
 		assert.match(html, new RegExp(`href="${target.replace('.', '\\.')}"`));
 	}
-	assert.match(textContent(html), /404 Not Found/);
+	assert.match(textContent(html), /HTTP 404/);
+	assert.match(textContent(html), /Seite nicht gefunden/);
+	assert.match(textContent(html), /Page not found/);
+	const response = await handleRequest(new Request('https://www.vibeperform.com/missing-page', { headers: { Accept: 'text/html' } }), { ASSETS: mockAssets() });
+	assert.equal(response.status, 404);
+	const rendered = await response.text();
+	assert.match(rendered, /href="\/en\/services\/"/);
 });
 
-test('both potential-analysis pages expose matching HTML, Service data, Markdown and contact actions', async () => {
+test('both potential-analysis pages are indexable and expose matching HTML, Service data, Markdown and contact actions', async () => {
 	for (const pathname of ['de/ki-potenzialanalyse/', 'en/ai-potential-analysis/']) {
 		const html = await load(`${pathname}index.html`);
 		assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
 		assert.ok(textContent(html).length > 500);
 		assert.match(html, /mailto:contact@vibeperform.com/);
-		assert.match(html, /name="robots" content="noindex, nofollow"/);
-		assert.ok(!(await load('sitemap.xml')).includes(pathname));
+		assert.doesNotMatch(html, /name="robots" content="noindex/);
+		assert.ok((await load('sitemap.xml')).includes(`<loc>https://www.vibeperform.com/${pathname}</loc>`));
 		assert.match(html, /application\/ld\+json/);
 		const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 		assert.equal(schema['@type'], 'Service');
@@ -142,8 +150,10 @@ test('both potential-analysis pages expose matching HTML, Service data, Markdown
 		assert.match(markdown, /mailto:contact@vibeperform.com/);
 	}
 	const headers = await load('_headers');
-	assert.match(headers, /\/de\/ki-potenzialanalyse\/\*\s+X-Robots-Tag: noindex, nofollow/);
-	assert.match(headers, /\/en\/ai-potential-analysis\/\*\s+X-Robots-Tag: noindex, nofollow/);
+	assert.doesNotMatch(headers, /\/de\/ki-potenzialanalyse\/\*\s+X-Robots-Tag: noindex/);
+	assert.doesNotMatch(headers, /\/en\/ai-potential-analysis\/\*\s+X-Robots-Tag: noindex/);
+	assert.doesNotMatch(headers, /\/de\/websites-fuer-handwerksbetriebe\/\*\s+X-Robots-Tag: noindex/);
+	assert.doesNotMatch(headers, /\/en\/websites-for-trade-businesses\/\*\s+X-Robots-Tag: noindex/);
 });
 
 test('legacy redirects use HTTP 301 and retain campaign queries', async () => {
@@ -154,6 +164,12 @@ test('legacy redirects use HTTP 301 and retain campaign queries', async () => {
 			assert.equal(response.headers.get('Location'), `https://www.vibeperform.com${to}?utm_source=test`);
 		}
 	}
+	const apex = await handleRequest(new Request('https://vibeperform.com/de/?utm_source=test'), { ASSETS: mockAssets() });
+	assert.equal(apex.status, 301);
+	assert.equal(apex.headers.get('Location'), 'https://www.vibeperform.com/de/?utm_source=test');
+	const insecureApex = await handleRequest(new Request('http://vibeperform.com/de/?utm_source=test'), { ASSETS: mockAssets() });
+	assert.equal(insecureApex.status, 301);
+	assert.equal(insecureApex.headers.get('Location'), 'https://www.vibeperform.com/de/?utm_source=test');
 });
 
 test('production HTTPS and locale redirects preserve paths and queries without loops', async () => {
@@ -162,14 +178,14 @@ test('production HTTPS and locale redirects preserve paths and queries without l
 			for (const [from, to] of [['/de', '/de/'], ['/en', '/en/'], ['/robots.txt', '/robots.txt'], ['/de/', '/de/']]) {
 				const response = await handleRequest(new Request(`http://${hostname}${from}?utm_source=test`, { method }), { ASSETS: mockAssets() });
 				assert.equal(response.status, 301);
-				assert.equal(response.headers.get('Location'), `https://${hostname}${to}?utm_source=test`);
+			assert.equal(response.headers.get('Location'), `https://www.vibeperform.com${to}?utm_source=test`);
 			}
 		}
 		for (const locale of ['de', 'en']) {
 			const response = await handleRequest(new Request(`https://${hostname}/${locale}`), { ASSETS: mockAssets() });
 			assert.equal(response.status, 301);
-			assert.equal(response.headers.get('Location'), `https://${hostname}/${locale}/`);
-			const canonical = await handleRequest(new Request(`https://${hostname}/${locale}/`), { ASSETS: mockAssets() });
+			assert.equal(response.headers.get('Location'), `https://www.vibeperform.com/${locale}/`);
+			const canonical = await handleRequest(new Request(`https://www.vibeperform.com/${locale}/`), { ASSETS: mockAssets() });
 			assert.equal(canonical.status, 200);
 		}
 	}
@@ -233,7 +249,11 @@ test('edge handler returns 404 recovery content and 406 for unsupported represen
 		{ ASSETS: assets },
 	);
 	assert.equal(missing.status, 404);
-	assert.match(await missing.text(), /llms\.txt/);
+	const body = await missing.text();
+	assert.match(body, /HTTP 404/);
+	assert.match(body, /href="\/de\/"/);
+	assert.match(body, /href="\/en\/"/);
+	assert.match(body, /href="\/sitemap\.xml"/);
 
 	const unsupported = await handleRequest(
 		new Request('https://www.vibeperform.com/de/', { headers: { Accept: 'application/pdf' } }),
@@ -274,5 +294,11 @@ test('sitemap URLs and machine-readable discovery files exist in the build', asy
 	assert.match(robots, /Sitemap: https:\/\/www\.vibeperform\.com\/sitemap\.xml/);
 	assert.match(robots, /LLM-Content: https:\/\/www\.vibeperform\.com\/llms\.txt/);
 	assert.match(await load('llms.txt'), /^# Vibeperform\n/);
-	assert.match(await load('llms-full.txt'), /^# Vibeperform vollständiger Agenten-Kontext\n/);
+	const llms = await load('llms.txt');
+	assert.match(llms, /\/de\/websites-fuer-handwerksbetriebe\/index\.md/);
+	assert.match(llms, /\/de\/ki-potenzialanalyse\/index\.md/);
+	const llmsFull = await load('llms-full.txt');
+	assert.match(llmsFull, /^# Vibeperform vollständiger Agenten-Kontext\n/);
+	assert.match(llmsFull, /Canonical URL: https:\/\/www\.vibeperform\.com\/de\/websites-fuer-handwerksbetriebe\//);
+	assert.match(llmsFull, /Canonical URL: https:\/\/www\.vibeperform\.com\/de\/ki-potenzialanalyse\//);
 });
