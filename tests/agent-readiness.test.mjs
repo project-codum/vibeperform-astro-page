@@ -170,12 +170,15 @@ test('legacy redirects use HTTP 301 and retain campaign queries', async () => {
 	const insecureApex = await handleRequest(new Request('http://vibeperform.com/de/?utm_source=test'), { ASSETS: mockAssets() });
 	assert.equal(insecureApex.status, 301);
 	assert.equal(insecureApex.headers.get('Location'), 'https://www.vibeperform.com/de/?utm_source=test');
+	const root = await handleRequest(new Request('https://www.vibeperform.com/?utm_source=test'), { ASSETS: mockAssets() });
+	assert.equal(root.status, 301);
+	assert.equal(root.headers.get('Location'), 'https://www.vibeperform.com/de/?utm_source=test');
 });
 
 test('production HTTPS and locale redirects preserve paths and queries without loops', async () => {
 	for (const hostname of ['vibeperform.com', 'www.vibeperform.com']) {
 		for (const method of ['GET', 'HEAD']) {
-			for (const [from, to] of [['/de', '/de/'], ['/en', '/en/'], ['/robots.txt', '/robots.txt'], ['/de/', '/de/']]) {
+			for (const [from, to] of [['/', '/de/'], ['/de', '/de/'], ['/en', '/en/'], ['/robots.txt', '/robots.txt'], ['/de/', '/de/']]) {
 				const response = await handleRequest(new Request(`http://${hostname}${from}?utm_source=test`, { method }), { ASSETS: mockAssets() });
 				assert.equal(response.status, 301);
 			assert.equal(response.headers.get('Location'), `https://www.vibeperform.com${to}?utm_source=test`);
@@ -293,6 +296,9 @@ test('sitemap URLs and machine-readable discovery files exist in the build', asy
 	const robots = await load('robots.txt');
 	assert.match(robots, /Sitemap: https:\/\/www\.vibeperform\.com\/sitemap\.xml/);
 	assert.match(robots, /LLM-Content: https:\/\/www\.vibeperform\.com\/llms\.txt/);
+	for (const agent of ['OAI-SearchBot', 'Bingbot', 'Claude-SearchBot', 'Claude-User', 'Googlebot', 'Google-Extended']) {
+		assert.match(robots, new RegExp(`User-agent: ${agent}\\nAllow: \\/`));
+	}
 	assert.match(await load('llms.txt'), /^# Vibeperform\n/);
 	const llms = await load('llms.txt');
 	assert.match(llms, /\/de\/websites-fuer-handwerksbetriebe\/index\.md/);

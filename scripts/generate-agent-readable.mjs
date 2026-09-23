@@ -340,7 +340,27 @@ Kanonische Sprache: Deutsch`;
 }
 
 function renderRobotsTxt() {
-	return `User-agent: *
+	return `# Search and answer-engine crawlers may access the public site.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Google-Extended controls Gemini grounding and model use, not Google Search indexing.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: *
 Allow: /
 
 Sitemap: ${absoluteUrl('/sitemap.xml')}

@@ -27,7 +27,7 @@ const visibleText = (html) =>
 		.replace(/\s+/g, ' ')
 		.trim();
 
-for (const pathname of ['/', '/de/', '/de/ki-potenzialanalyse/', '/en/ai-potential-analysis/', '/de/websites-fuer-handwerksbetriebe/', '/en/websites-for-trade-businesses/']) {
+for (const pathname of ['/de/', '/de/ki-potenzialanalyse/', '/en/ai-potential-analysis/', '/de/websites-fuer-handwerksbetriebe/', '/en/websites-for-trade-businesses/']) {
 	const { response, body } = await fetchPage(pathname, 'text/html');
 	const text = visibleText(body);
 	assert(response.status === 200, `${pathname} returned ${response.status}`);
@@ -109,6 +109,11 @@ for (const [from, to] of Object.entries(REDIRECTS)) {
 	await response.arrayBuffer();
 }
 
+const rootRedirect = await fetch(new URL('/?utm_source=verification', baseUrl), { redirect: 'manual' });
+assert(rootRedirect.status === 301, 'The root URL must permanently redirect to the German homepage');
+assert(rootRedirect.headers.get('location') === 'https://www.vibeperform.com/de/?utm_source=verification', 'Root redirect lost its canonical destination or query');
+await rootRedirect.arrayBuffer();
+
 for (const locale of ['de', 'en']) {
 	const response = await fetch(new URL(`/${locale}?utm_source=verification`, baseUrl), { redirect: 'manual' });
 	assert(response.status === 301, `/${locale} must permanently redirect to its canonical URL`);
@@ -168,7 +173,7 @@ for (const entry of publicFiles) {
 	const relative = path.relative(fileURLToPath(dist), path.join(entry.parentPath, entry.name));
 	if (['_headers', '_redirects', '.assetsignore'].includes(relative)) continue;
 	const pathname = `/${relative}`.replace(/index\.html$/, '');
-	if (REDIRECTS[pathname.replace(/\/$/, '')]) continue;
+	if (pathname === '/' || REDIRECTS[pathname.replace(/\/$/, '')]) continue;
 	const response = await fetch(new URL(pathname, baseUrl), { headers: { Accept: 'text/html' } });
 	assert(response.status === 200, `${pathname}: ${response.status}`);
 	publicFilesChecked += 1;
@@ -180,6 +185,7 @@ for (const entry of publicFiles) {
 	}
 	if (relative.endsWith('/index.md') || relative === 'index.md') {
 		const page = `/${relative}`.replace(/index\.md$/, '');
+		if (page === '/') continue;
 		if (page.startsWith('/agent/')) continue;
 		const negotiated = await fetchPage(page, 'text/markdown');
 		assert(negotiated.response.status === 200, `${page} Markdown negotiation failed`);

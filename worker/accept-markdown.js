@@ -107,7 +107,7 @@ function notAcceptable(message) {
 
 export async function handleRequest(request, env) {
 	const url = new URL(request.url);
-	const redirect = REDIRECTS[url.pathname.replace(/\/$/, '')]
+	const redirect = url.pathname === '/' ? '/de/' : REDIRECTS[url.pathname.replace(/\/$/, '')]
 		|| (['/de', '/en'].includes(url.pathname) ? `${url.pathname}/` : null);
 	const needsHttps = url.protocol === 'http:' && ['vibeperform.com', 'www.vibeperform.com'].includes(url.hostname);
 	const needsCanonicalHost = url.hostname === 'vibeperform.com';
