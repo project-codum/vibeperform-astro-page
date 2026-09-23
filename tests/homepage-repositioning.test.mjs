@@ -98,7 +98,7 @@ test('native homepage animation distinguishes the portrait business profile and 
   assert.match(styles,/hp-website-visual--unfold \.hp-illustration--website\{[^}]*animation:hp-website-unfold/);
   assert.match(styles,/hp-website-visual--unfold \.hp-website-orb\{[^}]*animation:hp-website-orb-pulse/);
   assert.match(styles,/hp-website-unfold/);
-  assert.match(styles,/hp-website-orb-pulse 4\.2s/);
+  assert.match(styles,/hp-website-orb-pulse 3\.4s/);
   assert.match(styles,/hp-website-shockwave/);
   assert.match(styles,/hp-website-sparks/);
   assert.match(styles,/clip-path:circle\(160% at 50% 50%\)/);
@@ -106,17 +106,20 @@ test('native homepage animation distinguishes the portrait business profile and 
   assert.match(source,/viewBox="0 0 320 460"/);
   assert.match(source,/hp-rating-star--1/);
   assert.match(source,/hp-rating-star--5/);
-  assert.match(styles,/\.hp-presence-loop--animated \.hp-rating-star--5\{animation:hp-presence-star-five 8s/);
+  assert.match(styles,/\.hp-presence-loop--animated \.hp-rating-star--5\{animation:hp-presence-star-five 6s/);
   assert.match(styles,/@keyframes hp-presence-star-one/);
   assert.match(styles,/@keyframes hp-presence-star-five/);
-  assert.match(styles,/@keyframes hp-presence-star-five\{0%,80%\{opacity:0[^}]*\}82%\{opacity:1[^}]*\}84%,92%\{opacity:1/s);
+  assert.match(styles,/@keyframes hp-presence-star-five\{0%,64%\{opacity:0[^}]*\}66%\{opacity:1[^}]*\}68%,92%\{opacity:1/s);
   assert.match(styles,/\.hp-presence-loop--animated \.hp-rating-star\{opacity:1;transform:none;animation:none\}/);
   assert.doesNotMatch(source,/data-presence-toggle|Animation pausieren|Pause animation/);
   assert.match(styles,/hyphens:manual;overflow-wrap:normal/);
   assert.match(styles,/@media\(max-width:700px\).*?grid-template-columns:1fr/s);
   assert.match(styles,/@media\(prefers-reduced-motion:reduce\)/);
   assert.match(styles,/@keyframes hp-presence-pop-one/);
-  assert.match(styles,/animation:hp-presence-pop-one 8s[^;]*infinite/);
+  assert.match(styles,/animation:hp-presence-pop-one 6s[^;]*infinite/);
+  assert.match(styles,/\.hp-presence-loop--problems \.hp-problem-issues\{animation:hp-presence-issues 8s/);
+  assert.match(styles,/@keyframes hp-presence-pop-one\{0%,8%\{opacity:0/);
+  assert.match(styles,/@keyframes hp-presence-pop-four\{0%,29%\{opacity:0/);
 });
 
 test('homepage problems copy follows the visual on narrow screens and website support hero omits its kicker',async()=>{
