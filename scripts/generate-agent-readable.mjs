@@ -116,9 +116,10 @@ function renderHomeAgentPage() {
  const c = homePageContent.de;
  const intro = homeIntroContent.de;
  const articles = items => items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n');
+ const issues = items => items.map(item => `- ${item.title}`).join('\n');
  return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
 ${section('Positionierung', `${intro.headline.join(' ')} ${intro.emphasis}\n\n${intro.intro.join(' ')}\n\n${intro.audience}`)}
-${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${articles(c.problems.items)}`)}
+${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${issues(c.problems.items)}`)}
 ${section('Unsere Leistungen', `${c.services.intro}\n\n${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}\n\n${c.services.extra}`)}
 ${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
 ${section(c.process.kicker, articles(c.process.items))}
@@ -201,11 +202,11 @@ function renderAboutAgentPage(locale = 'de') {
   const alternatePath = locale === 'de' ? '/en/about-us/' : '/de/ueber-uns/';
   return normalizeBlankLines([
     pageHeader({ title: `${c.hero.title} ${c.hero.emphasis}`, canonicalPath, description: c.metaDescription, alternatePath }),
-    c.hero.kicker, c.hero.intro,
+    c.hero.intro,
     section(`${c.vision.title} ${c.vision.emphasis}`, `${c.vision.body}\n\n${c.vision.mission}\n\n[${c.vision.link}](${absoluteUrl(c.vision.href)})`),
-    section(c.journey.kicker, c.journey.paragraphs.join('\n\n')),
+    section(`${c.journey.title} ${c.journey.emphasis}`, c.journey.paragraphs.join('\n\n')),
     section(`${c.future.title} ${c.future.emphasis}`, `${c.future.body}\n\n${c.future.extra}\n\n[${c.future.link}](${absoluteUrl(c.future.href)})`),
-    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}\n\n${c.contact.note}`),
+    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}`),
   ].join('\n\n'));
 }
 
@@ -214,7 +215,6 @@ function renderKnowledgeIndex(locale, posts) {
  return normalizeBlankLines([
   pageHeader({title:c.title, canonicalPath:`/${locale}/blog/`, description:c.intro, alternatePath:`/${locale==='de'?'en':'de'}/blog/`}),
   `${c.headline} ${c.emphasis}`, c.intro,
-  section(`${c.topicsTitle} ${c.topicsEmphasis}`, c.topics.map(t=>`### ${t.title}\n\n${t.body}\n\n[${t.label}](${absoluteUrl(t.href)})`).join('\n\n')),
   section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${[...posts].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(p=>`### [${p.title}](${absoluteUrl(p.canonicalPath)})\n\n${p.date} · ${p.readTime}\n\n${p.excerpt}`).join('\n\n')}`),
   section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${contactEmail}\n\n${calendarUrl}`),
  ].join('\n\n'));

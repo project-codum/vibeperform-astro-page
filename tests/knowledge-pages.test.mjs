@@ -8,6 +8,8 @@ for (const locale of ['de','en']) {
   assert.equal((index.match(/<h1\b/g)||[]).length,1);
   assert.match(index,/class="home-navigation"/);
   assert.match(index,/class="hp-footer"/);
+  assert.doesNotMatch(index,/class="kn-topics"|WISSEN &amp; EINBLICKE|Knowledge &amp; insights/);
+  assert.doesNotMatch(index,/Vom Lesen ins Gespräch|Wir klären gemeinsam, was Sie brauchen und wie wir Sie unterstützen können\.|From reading to a conversation|Together, we work out what you need and how we can help\./);
   assert.match(index,/class="kn-featured"/);
   assert.match(index,/aria-current="page" href="[^\"]*\/blog\/"/);
   const files = (await readdir(new URL(`../src/pages/${locale}/blog/`,import.meta.url))).filter(f=>f.endsWith('.md'));
@@ -34,5 +36,6 @@ for (const locale of ['de','en']) {
   }
   const md=await readFile(new URL(`../dist/${locale}/blog/index.md`,import.meta.url),'utf8');
   assert.ok(md.includes(`/${locale}/blog/`));
+  assert.doesNotMatch(md,/Eine Website planen|Was beschäftigt Sie gerade\?|Planning a website|What is on your mind\?/);
  });
 }

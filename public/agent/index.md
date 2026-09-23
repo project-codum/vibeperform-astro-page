@@ -9,31 +9,19 @@ Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch.
 
 Wir gestalten Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.
 
-Für Handwerksbetriebe und kleine Unternehmen.
-## Damit aus einem ersten Eindruck der nächste Schritt wird.
+Websites & Unternehmensprofile
+## Damit aus dem ersten Eindruck der erste Schritt wird.
 
-Ihr Betrieb leistet gute Arbeit. Online sollte man das genauso erkennen – und leicht den Weg zu Ihnen finden.
+Wir halten Ihren Online-Auftritt immer aktuell.
 
-### Ihr Betrieb ist weiter. Ihre Website noch nicht.
-
-Neue Leistungen, neue Projekte, ein gewachsenes Team. Wir bringen Ihren Auftritt wieder auf den Stand Ihres Unternehmens.
-
-### Was Sie ausmacht, geht online unter.
-
-Wir machen Leistungen und Stärken verständlich. Mit einer klaren Struktur, passenden Texten und einem einfachen Weg zur Anfrage.
-
-### Website und Google erzählen Unterschiedliches.
-
-Wir stimmen Unternehmensprofile und Website aufeinander ab. Damit Leistungen, Kontaktdaten und Öffnungszeiten zusammenpassen.
-
-### Der Alltag geht vor. Der Auftritt bleibt liegen.
-
-Wir kümmern uns um Inhalte und Weiterentwicklung. Sie haben einen Ansprechpartner, der die nächsten Schritte mit Ihnen abstimmt.
+- Veraltete Website
+- Veraltetes Unternehmensprofil
+- Uneinheitliche Angaben
 ## Unsere Leistungen
 
 Von der neuen Website bis zur laufenden Pflege: Wir verbinden Gestaltung, Inhalte und Auffindbarkeit zu einem stimmigen Firmenauftritt.
 
-### Websites erstellen
+### Neue Website erstellen
 
 Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalten, einer passenden Gestaltung und einer guten Darstellung auf jedem Bildschirm.
 
@@ -83,7 +71,7 @@ Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.
 ### Dranbleiben
 
 Veränderungen beobachten und die nächsten Schritte abstimmen.
-## So arbeiten wir zusammen
+## undefined
 
 ### Ihr Vorhaben verstehen
 

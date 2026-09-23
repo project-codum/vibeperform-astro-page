@@ -1,6 +1,7 @@
 ---
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
+import HomeProblemAnimation from './HomeProblemAnimation.astro';
 import AgencyFooter from './AgencyFooter.astro';
 import { servicePaths } from '../data/serviceContent';
 import { homeIntroContent } from '../data/homeIntroContent';
@@ -18,50 +19,77 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
   <main class="home-main">
     <HomeHero copy={homeIntroContent[locale]} />
+    <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
 
     <section class="hp-section hp-problems" id="home-next" tabindex="-1" aria-labelledby="problems-title" data-analytics-section="home-problems">
-      <div class="hp-wrap hp-split">
+      <div class="hp-wrap hp-problems-layout">
         <div class="hp-heading">
-          <p class="hp-kicker">{t.problems.kicker}</p>
-          <h2 id="problems-title">{t.problems.title}<br /><em>{t.problems.emphasis}</em></h2>
-          <p class="hp-intro">{t.problems.intro}</p>
+          <h2 id="problems-title">{locale === 'de' ? 'Damit aus dem ersten Eindruck' : 'Turn your first impression'}<br /><em>{locale === 'de' ? 'der erste Schritt wird.' : 'into the first step.'}</em></h2>
         </div>
-        <div class="hp-editorial-list">
-          {t.problems.items.map(item => <article><span class="hp-label">{item.label}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}
+        <HomeProblemAnimation locale={locale} />
+        <div class="hp-problems-copy">
+          <p class="hp-intro">{t.problems.intro}</p>
+          <a class="hp-button hp-problems-cta" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-problems">{locale === 'de' ? 'Erstgespräch führen' : 'Have an intro call'}<span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
     <section class="hp-section hp-services" id="leistungen" aria-labelledby="services-title" data-analytics-section="home-services">
       <div class="hp-wrap">
-        <div class="hp-section-heading"><div><p class="hp-kicker">{t.services.kicker}</p><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div><p class="hp-intro">{t.services.intro}</p></div>
+        <div class="hp-section-heading"><div><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div><p class="hp-intro">{t.services.intro}</p></div>
         <div class="hp-service-grid">
-          {t.services.items.map(item => <article><span class="hp-number">{item.number}</span><h3>{item.title}</h3><p>{item.body}</p><p class="hp-tags">{item.tags}</p><a class="hp-text-link" href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a></article>)}
+          {t.services.items.map((item, index) => <article class={'hp-service-card hp-service-card--' + (index + 1)}>
+            {index < 3 && <div class={'hp-service-art hp-service-art--' + (index + 1)}>
+              <HomeProblemAnimation locale={locale} variant={index === 0 ? 'website-static' : index === 1 ? 'website' : 'profile'} />
+            </div>}
+            <div class="hp-service-copy">
+              <h3>{item.title}</h3>
+              <p class="hp-tags">{item.tags}</p>
+              <a class={'hp-text-link' + (index === 0 ? ' hp-service-primary-link' : '')} href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a>
+            </div>
+          </article>)}
         </div>
         <p style="margin:0 0 26px"><a class="hp-text-link" href={href(servicePaths[locale].overview)}>{locale === 'de' ? 'Alle Leistungen ansehen' : 'Explore all services'}<span aria-hidden="true">↗</span></a></p>
         <aside class="hp-extra"><p>{t.services.extra}</p><a class="hp-text-link" href={href(t.services.extraHref)}>{t.services.extraLink}<span aria-hidden="true">↗</span></a></aside>
       </div>
     </section>
 
-    <section class="hp-section hp-evolution" id="weiterentwicklung" aria-labelledby="evolution-title" data-analytics-section="home-evolution">
+    <section class="hp-section hp-evolution" id="weiterentwicklung" aria-labelledby="evolution-title" data-analytics-section="home-evolution" data-scroll-reveal>
       <div class="hp-wrap hp-split">
-        <div class="hp-heading"><p class="hp-kicker">{t.evolution.kicker}</p><h2 id="evolution-title">{t.evolution.title}<br /><em>{t.evolution.emphasis}</em></h2><p class="hp-intro">{t.evolution.intro}</p><p>{t.evolution.body}</p></div>
+        <div class="hp-heading"><h2 id="evolution-title">{t.evolution.title}<br /><em>{t.evolution.emphasis}</em></h2><p class="hp-intro">{t.evolution.intro}</p><p>{t.evolution.body}</p></div>
         <div class="hp-cycle"><ol>{t.evolution.steps.map((step,i) => <li><span class="hp-cycle-number" aria-hidden="true">0{i+1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol><p class="hp-cycle-note">{t.evolution.note}</p></div>
       </div>
     </section>
 
-    <section class="hp-section hp-process" id="zusammenarbeit" aria-labelledby="process-title" data-analytics-section="home-process">
-      <div class="hp-wrap"><p class="hp-kicker">{t.process.kicker}</p><h2 id="process-title">{t.process.title}<br /><em>{t.process.emphasis}</em></h2><ol class="hp-process-grid">{t.process.items.map((item,i) => <li><span class="hp-label">0{i+1}</span><h3>{item.title}</h3><p>{item.body}</p></li>)}</ol></div>
+    <section class="hp-section hp-process" id="zusammenarbeit" aria-labelledby="process-title" data-analytics-section="home-process" data-scroll-reveal>
+      <div class="hp-wrap"><h2 id="process-title"><span class="hp-process-title-line hp-process-title-line--first">{t.process.title}</span><br /><em class="hp-process-title-line hp-process-title-line--second">{t.process.emphasis}</em></h2><ol class="hp-process-grid">{t.process.items.map((item,i) => <li><span class="hp-label">0{i+1}</span><h3>{item.title}</h3><p>{item.body}</p></li>)}</ol></div>
     </section>
 
     <section class="hp-section hp-faq" aria-labelledby="faq-title">
-      <div class="hp-wrap hp-split"><div><p class="hp-kicker">{t.faq.kicker}</p><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div>
+      <div class="hp-wrap hp-split"><div><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div>
     </section>
 
     <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
-      <div class="hp-wrap"><p class="hp-kicker">{t.contact.kicker}</p><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-contact">{t.contact.booking}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div><p class="hp-contact-note">{t.contact.note}</p></div>
+      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-contact">{t.contact.booking}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div><p class="hp-contact-note">{t.contact.note}</p></div>
     </section>
   </main>
 
   <AgencyFooter locale={locale} />
 </div>
+
+<script>
+  const revealSections = document.querySelectorAll<HTMLElement>('[data-scroll-reveal]');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.24, rootMargin: '0px 0px -18% 0px' });
+    revealSections.forEach(section => revealObserver.observe(section));
+  } else {
+    revealSections.forEach(section => section.classList.add('is-revealed'));
+  }
+</script>

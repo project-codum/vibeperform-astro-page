@@ -7,26 +7,6 @@ Good decisions start with understanding.
 
 What makes a good website? How do people find your business? And how does your presence stay current? Explore our services and insights into digital technology.
 
-## What is on your mind?
-
-### Planning a website
-
-Structure, design and content: the elements of a considered online presence.
-
-[Explore website design](https://www.vibeperform.com/en/website-design/)
-
-### Being easier to find
-
-How clear content and sound technical foundations support discoverability.
-
-[Explore search optimisation](https://www.vibeperform.com/en/search-engine-optimisation/)
-
-### Keeping things current
-
-How your website reflects new services, projects and changes in your business.
-
-[Explore website support](https://www.vibeperform.com/en/website-support/)
-
 ## Understanding AI & automation.
 
 Alongside online presence, we work with AI and digital workflows. These articles explore the foundations and their use in business.

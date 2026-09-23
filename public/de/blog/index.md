@@ -7,26 +7,6 @@ Gute Entscheidungen beginnen mit Verständnis.
 
 Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
-## Was beschäftigt Sie gerade?
-
-### Eine Website planen
-
-Struktur, Gestaltung und Inhalte: Was zu einem durchdachten Internetauftritt gehört.
-
-[Zur Website-Erstellung](https://www.vibeperform.com/de/website-erstellen-lassen/)
-
-### Besser gefunden werden
-
-Wie klare Inhalte und eine gute technische Grundlage die Auffindbarkeit unterstützen.
-
-[Zur Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
-
-### Aktuell bleiben
-
-Wie Ihre Website neue Leistungen, Projekte und Veränderungen im Betrieb aufnimmt.
-
-[Zur Website-Betreuung](https://www.vibeperform.com/de/website-betreuung/)
-
 ## KI & Automatisierung verstehen.
 
 Ergänzend zum digitalen Firmenauftritt beschäftigen wir uns mit KI und digitalen Arbeitsabläufen. Diese Beiträge geben Einblicke in die Grundlagen und den Einsatz im Unternehmen.

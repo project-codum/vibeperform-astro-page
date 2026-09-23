@@ -1,20 +1,20 @@
 ---
 import { homePageContent } from '../data/homePageContent';
 import { bookingUrl, contactEmail, type Locale } from '../lib/siteMetadata';
-interface Props { locale: Locale; copy?: { kicker: string; title: string; emphasis: string; body: string }; }
-const { locale, copy } = Astro.props;
+interface Props { locale: Locale; copy?: { kicker?: string; title: string; emphasis: string; body: string }; showKicker?: boolean; showNote?: boolean; }
+const { locale, copy, showKicker = true, showNote = true } = Astro.props;
 const t = homePageContent[locale].contact;
 const c = copy ?? t;
 ---
 <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="contact">
   <div class="hp-wrap">
-    <p class="hp-kicker">{c.kicker}</p>
+    {showKicker && c.kicker && <p class="hp-kicker">{c.kicker}</p>}
     <h2 id="contact-title">{c.title}<br /><em>{c.emphasis}</em></h2>
     <p class="hp-intro">{c.body}</p>
     <div class="hp-contact-actions">
       <a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="service-contact">{t.booking}<span aria-hidden="true">↗</span></a>
       <a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="service-contact">{t.email}<span aria-hidden="true">↗</span></a>
     </div>
-    <p class="hp-contact-note">{t.note}</p>
+    {showNote && <p class="hp-contact-note">{t.note}</p>}
   </div>
 </section>

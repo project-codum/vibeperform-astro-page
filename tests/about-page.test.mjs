@@ -17,7 +17,7 @@ for (const [locale, route, alternate, role] of [
     assert.doesNotMatch(main, /ag-collaboration|ag-expectations/);
     for (const source of [main, md]) {
       assert.ok(source.includes('Marlon Dietrich'));
-      assert.ok(source.includes(role));
+      assert.ok(source.toLowerCase().includes(role.toLowerCase()));
       assert.doesNotMatch(source, /Isabella|certified RAG|zertifizierter RAG|CAPTRON|dcarbonize/);
     }
     assert.ok(html.includes(`rel="canonical" href="https://www.vibeperform.com/${route}/"`));
@@ -42,5 +42,25 @@ for (const [locale, route, alternate, role] of [
     }
     assert.ok(main.includes('mailto:contact@vibeperform.com'));
     assert.ok(main.includes('https://calendar.app.google/utFQgw33PwJTiDk56'));
+    assert.equal((main.match(/data-about-slide-in/g) || []).length, 2);
+    assert.ok(main.includes(locale === 'de' ? 'Und für KI verständlich.' : 'And understandable to AI.'));
+    const removedCopy = locale === 'de'
+      ? ['Marlon Dietrich · Inhaber von VibePerform', 'Persönlich verantwortlich. Von der ersten Idee an.', 'Mein Weg zu VibePerform', 'Mit Blick nach vorne', 'Sie sprechen direkt mit mir. Ich freue mich auf Ihr Vorhaben.', 'Lernen wir uns kennen']
+      : ['Marlon Dietrich · Owner of VibePerform', 'Personally responsible. From the first idea onwards.', 'My path to VibePerform', 'Looking ahead', 'You’ll speak directly with me. I look forward to hearing about your project.', 'Let’s meet'];
+    for (const phrase of removedCopy) {
+      assert.ok(!main.includes(phrase), `visible page still includes removed copy: ${phrase}`);
+      assert.ok(!md.includes(phrase), `machine-readable page still includes removed copy: ${phrase}`);
+    }
   });
 }
+
+test('about-page emphasis lines reveal from the right on scroll and respect reduced motion', async () => {
+  const component = await readFile(new URL('../src/components/AboutPage.astro', import.meta.url), 'utf8');
+  const styles = await readFile(new URL('../src/styles/about-page.css', import.meta.url), 'utf8');
+  assert.equal((component.match(/<em data-about-slide-in>/g) || []).length, 2);
+  assert.match(component, /rootMargin: '0px 0px -18% 0px', threshold: 0\.2/);
+  assert.match(component, /prefers-reduced-motion: reduce/);
+  assert.match(styles, /@media\(prefers-reduced-motion:no-preference\)/);
+  assert.match(styles, /translateX\(54px\)/);
+  assert.match(styles, /@keyframes ag-slide-in-from-right/);
+});

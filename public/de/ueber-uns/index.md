@@ -3,8 +3,6 @@ Canonical URL: https://www.vibeperform.com/de/ueber-uns/
 English alternate: https://www.vibeperform.com/en/about-us/
 Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.
 
-Marlon Dietrich · Inhaber von VibePerform
-
 Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.
 
 ## Ihr Unternehmen steht nicht still. Ihr Auftritt auch nicht.
@@ -15,13 +13,13 @@ Deshalb verbinden wir Gestaltung, Inhalte, Suchmaschinenoptimierung und Technik.
 
 [So bleibt Ihre Website aktuell](https://www.vibeperform.com/de/website-betreuung/)
 
-## Mein Weg zu VibePerform
+## Technik verstehen. Für Menschen gestalten.
 
 Drei Jahre lang habe ich für ein mittelständisches Unternehmen Software entwickelt. Anschließend habe ich in verschiedenen Startups KI-Agenten und automatisierte Prozesse entwickelt und digitale Ideen in nutzbare Anwendungen übersetzt.
 
 Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und den digitalen Firmenauftritt neu zu denken. Mit VibePerform bieten wir genau diesen Service. Wir helfen Ihnen, Ihr Unternehmen online klar zu präsentieren, sodass die richtigen Aufträge und die passenden Mitarbeiter zu Ihnen finden.
 
-## Für Menschen gemacht. Auch für KI verständlich.
+## Für Menschen gemacht. Und für KI verständlich.
 
 Kunden können Unternehmen auch über KI-gestützte Suche entdecken. Das denken wir direkt mit, sodass Menschen und digitale Assistenten Ihr Angebot besser verstehen.
 
@@ -36,5 +34,3 @@ Erzählen Sie mir von Ihrem Unternehmen und dem, was Sie verändern möchten. Im
 [Gespräch mit Marlon vereinbaren](https://calendar.app.google/utFQgw33PwJTiDk56)
 
 contact@vibeperform.com
-
-Sie sprechen direkt mit mir. Ich freue mich auf Ihr Vorhaben.

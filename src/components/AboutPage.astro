@@ -15,7 +15,6 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
   <section class="ag-hero" aria-labelledby="agency-title" id="home-intro" tabindex="-1">
     <div class="hp-wrap ag-hero-grid">
       <div class="ag-hero-copy">
-        <p class="sv-kicker">{c.hero.kicker}</p>
         <h1 id="agency-title">{c.hero.title} <em>{c.hero.emphasis}</em></h1>
         <p class="sv-lead">{c.hero.intro}</p>
         <a class="hp-button" href="#kontakt">{c.hero.action}<span aria-hidden="true">↗</span></a>
@@ -25,14 +24,13 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
         <figcaption><strong>Marlon Dietrich</strong><span>{c.hero.role}</span></figcaption>
       </figure>
     </div>
-    <div class="hp-wrap ag-hero-foot"><span>{c.hero.caption}</span><a class="hp-text-link" href="#ueberzeugung">{c.vision.kicker} <span aria-hidden="true">↓</span></a></div>
+    <div class="hp-wrap ag-hero-foot"><a class="hp-text-link" href="#ueberzeugung">{c.vision.kicker} <span aria-hidden="true">↓</span></a></div>
   </section>
 
   <section class="hp-section ag-vision" id="ueberzeugung" aria-labelledby="vision-title">
     <div class="hp-wrap">
-      <p class="hp-kicker">{c.vision.kicker}</p>
       <div class="hp-split">
-        <h2 id="vision-title">{c.vision.title}<br/><em>{c.vision.emphasis}</em></h2>
+        <h2 id="vision-title">{c.vision.title}<br/><em data-about-slide-in>{c.vision.emphasis}</em></h2>
         <div class="ag-prose"><p class="ag-statement">{c.vision.body}</p><p>{c.vision.mission}</p><a class="hp-text-link" href={c.vision.href}>{c.vision.link}<span aria-hidden="true">↗</span></a></div>
       </div>
     </div>
@@ -40,7 +38,7 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
 
   <section class="hp-section ag-journey" aria-labelledby="journey-title">
     <div class="hp-wrap hp-split">
-      <div><p class="hp-kicker">{c.journey.kicker}</p><h2 id="journey-title">{c.journey.title}<br/><em>{c.journey.emphasis}</em></h2></div>
+      <div><h2 id="journey-title">{c.journey.title}<br/><em data-about-slide-in>{c.journey.emphasis}</em></h2></div>
       <div class="ag-prose">{c.journey.paragraphs.map(p => <p>{p}</p>)}<span class="ag-signature">Marlon</span></div>
     </div>
   </section>
@@ -48,7 +46,7 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
 
   <section class="hp-section hp-evolution ag-future" aria-labelledby="future-title">
     <div class="hp-wrap hp-split">
-      <div><p class="hp-kicker">{c.future.kicker}</p><h2 id="future-title">{c.future.title}<br/><em>{c.future.emphasis}</em></h2><div class="ag-prose"><p>{c.future.body}</p><p>{c.future.extra}</p></div><a class="hp-text-link" href={c.future.href}>{c.future.link}<span aria-hidden="true">↗</span></a></div>
+      <div><h2 id="future-title">{c.future.title}<br/><em>{c.future.emphasis}</em></h2><div class="ag-prose"><p>{c.future.body}</p><p>{c.future.extra}</p></div><a class="hp-text-link" href={c.future.href}>{c.future.link}<span aria-hidden="true">↗</span></a></div>
       <div class="ag-access" role="group" aria-label={locale === 'de' ? 'Ein verständlicher Auftritt für Menschen und digitale Suche' : 'An understandable presence for people and digital search'}>
         <div class="ag-access-core"><span class="ag-access-spark" aria-hidden="true">✳</span><strong>{c.future.center}</strong><div class="ag-access-surfaces"><span>{c.future.website}</span><span>{c.future.profile}</span></div><small>{c.future.foundation}</small></div>
         <div class="ag-access-lines" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -60,10 +58,24 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
   <section class="hp-section hp-contact ag-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="contact">
     <div class="hp-wrap">
       <Image class="ag-contact-portrait" src={portrait} alt="Marlon Dietrich" width={144} height={144} fit="cover" format="webp" loading="lazy"/>
-      <p class="hp-kicker">{c.contact.kicker}</p><h2 id="contact-title">{c.contact.title}<br/><em>{c.contact.emphasis}</em></h2>
+      <h2 id="contact-title">{c.contact.title}<br/><em>{c.contact.emphasis}</em></h2>
       <p class="hp-intro">{c.contact.body}</p>
       <div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="agency-contact">{c.contact.action}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="agency-contact">{contactEmail}<span aria-hidden="true">↗</span></a></div>
-      <p class="hp-contact-note">{c.contact.note}</p>
     </div>
   </section>
 </AgencyDocument>
+
+<script>
+  const aboutSlideIns = Array.from(document.querySelectorAll<HTMLElement>('[data-about-slide-in]'));
+  if (aboutSlideIns.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('has-about-scroll-reveals');
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
+        entry.target.dataset.aboutVisible = 'true';
+        currentObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -18% 0px', threshold: 0.2 });
+    aboutSlideIns.forEach(element => observer.observe(element));
+  }
+</script>
