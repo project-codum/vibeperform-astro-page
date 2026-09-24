@@ -1,6 +1,6 @@
 /* Editorial continuation of the approved V2 study. */
 html.home-document{scroll-behavior:smooth;scroll-padding-top:24px;background:#111116}
-.home-shell{position:relative;--hp-paper:#f5f2ed;--hp-ink:#28232e;--hp-muted:#706873;--hp-line:#d9d2dc;--hp-plum:#745188;--hp-lavender:#d6bdf2;background:var(--hp-paper);color:var(--hp-ink);font-family:Arial,Helvetica,sans-serif}
+.home-shell{position:relative;overflow-x:clip;--hp-paper:#f5f2ed;--hp-ink:#28232e;--hp-muted:#706873;--hp-line:#d9d2dc;--hp-plum:#745188;--hp-lavender:#d6bdf2;background:var(--hp-paper);color:var(--hp-ink);font-family:Arial,Helvetica,sans-serif}
 .home-shell *{box-sizing:border-box}.home-main{padding:0}.hp-wrap{width:min(1160px,90%);margin:0 auto}
 .hp-section{padding:110px 0;scroll-margin-top:24px}.hp-section p{font-size:16px;line-height:1.7;color:var(--hp-muted);margin:0;max-width:60ch}
 .hp-section .hp-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#786289;margin:0 0 26px;line-height:1.5}

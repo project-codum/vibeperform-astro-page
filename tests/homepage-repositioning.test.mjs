@@ -66,6 +66,11 @@ test('homepage machine-readable content reflects websites and profiles',async()=
   assert.match(data.find(x=>x['@type']==='Organization').description,/Websites und Unternehmensprofile/);
 });
 
+test('homepage contains animated content within its mobile viewport',async()=>{
+  const styles=await readFile(path.join(root,'src/styles/home-page.css'),'utf8');
+  assert.match(styles,/\.home-shell\{[^}]*overflow-x:clip/);
+});
+
 test('scroll reveals animate in sequence and leave reduced-motion users unaffected',async()=>{
   const styles=await readFile(path.join(root,'src/styles/home-page.css'),'utf8');
   const source=await readFile(path.join(root,'src/components/HomePage.astro'),'utf8');
