@@ -1,7 +1,7 @@
 # Der strategische Explore Workshop
 Canonical URL: https://www.vibeperform.com/de/workshop/explore-workshop/
 English alternate: https://www.vibeperform.com/en/workshop/explore-workshop/
-Summary: Isolierte KI-Experimente ohne strategisches Fundament bieten keinen nachhaltigen Mehrwert. Dieser fokussierte Workshop identifiziert die Hebel in Ihrer Organisation, an denen KI-Lösungen die höchste strategische Wirkung entfalten können.
+Summary: Einzelne KI-Experimente beantworten noch nicht, ob ein Einsatz zum Betrieb passt. Dieser Workshop betrachtet Ziele, Daten und Abläufe gemeinsam und hilft dabei, mögliche Ansatzpunkte und Voraussetzungen einzuordnen.
 
 ## Klarheit entsteht, wenn Strategie, Daten und Prozesse gemeinsam betrachtet werden.
 
@@ -9,15 +9,17 @@ Wir verzichten auf technischen Jargon und arbeiten direkt mit Abteilungsleitern 
 
 ## Kennzahlen und Ergebnisrahmen
 
-5: Stufen zur Bewertung von digitaler Reife, Datenlage und organisatorischer Umsetzbarkeit.
-18-35%: historische Produktivitätsgewinne bei gut priorisierten KI-Anwendungsfällen.
-1: Roadmap mit ROI-Prognosen, Voraussetzungen und klarer Reihenfolge für Phase 2.
+5: Arbeitsfelder: Ziele, digitale Reife, Daten, Prozesse und nächste Schritte.
+Prozessbezogen: Arbeitsgrundlage mit priorisierten Use Cases und offenen Voraussetzungen.
+Konkret: Annahmen und Voraussetzungen werden für den betrachteten Prozess festgehalten.
 
 ## Was Sie erleben
 
-Im Workshop bringen wir Führung, Fachbereiche und Prozessverantwortliche an einen Tisch. Unter Verwendung eines fünfstufigen Frameworks der Plattform Lernende Systeme bewerten wir Ihre aktuelle digitale Reife und machen sichtbar, wo KI heute realistisch ansetzen kann.
+Im Workshop bringen wir Führung, Fachbereiche und Prozessverantwortliche an einen Tisch. Entlang von fünf Arbeitsfeldern – Ziele, digitale Reife, Daten, Prozesse und nächste Schritte – entsteht ein gemeinsames Bild davon, wo KI realistisch ansetzen könnte.
 
-Tief verwurzelte Datensilos, manuelle Übergaben und wiederkehrende Abstimmungsarbeit werden nicht abstrakt diskutiert, sondern als konkrete Arbeitsabläufe abgebildet.
+Datensilos, manuelle Übergaben und wiederkehrende Abstimmungen betrachten wir anhand konkreter Arbeitsabläufe. Empfehlungen bleiben an Voraussetzungen und offene Fragen gebunden; die wirtschaftliche Wirkung hängt vom Prozess und seiner Umsetzung ab.
+
+[Hintergrund: Veränderungsmanagement bei der Einführung von KI (Plattform Lernende Systeme)](https://www.acatech.de/publikation/einfuehrung-von-ki-systemen-in-unternehmen-gestaltungsansaetze-fuer-das-change-management/)
 
 ## Ein gemeinsames Lagebild statt einzelner KI-Experimente.
 
@@ -31,7 +33,7 @@ Umsetzungsbild: Welche Use Cases sind technisch, wirtschaftlich und organisatori
 
 ## Wie wir priorisieren
 
-Wir führen KI nicht um der Sache selbst willen ein. Mit einer Impact-Effort-Matrix identifizieren wir Use Cases, die schnell verständlich, wirtschaftlich relevant und technisch anschlussfähig sind.
+Wir führen KI nicht um der Sache selbst willen ein. Mit einer Impact-Effort-Matrix ordnen wir mögliche Use Cases nach erwarteter Wirkung, Aufwand und Voraussetzungen ein.
 
 Beispielhafte Use Cases:
 - Vorausschauende Wartungsplanung
@@ -40,17 +42,17 @@ Beispielhafte Use Cases:
 
 ## Ihr Ergebnis
 
-Sie erhalten eine fundierte KI-Roadmap mit konkreten ROI-Prognosen und technischen Voraussetzungen. Damit schaffen wir den strategischen Rahmen, um in der nächsten Phase theoretische Potenziale in eine erste technische Lösung zu überführen.
+Sie erhalten eine gemeinsame Arbeitsgrundlage mit priorisierten Use Cases, Voraussetzungen, offenen Fragen und möglichen nächsten Prüfschritten. Wirtschaftliche Wirkung wird erst für einen konkreten Prozess anhand nachvollziehbarer Annahmen bewertet; ein bestimmter ROI oder eine technische Umsetzung ist kein pauschales Ergebnisversprechen.
 
-Priorisierte KI-Roadmap: Eine klare Reihenfolge der wichtigsten Use Cases nach Wirkung, Aufwand und Abhängigkeiten.
-ROI-Prognosen: Konkrete Annahmen zu Produktivitätsgewinnen, Einsparpotenzial und erwartbarer Wirkung.
+Priorisierte Use Cases: Eine Einordnung möglicher Anwendungsfälle nach Wirkung, Aufwand und Abhängigkeiten.
+Wirkungsannahmen: Zu prüfende Annahmen und geeignete Messgrößen für einen ausgewählten Prozess.
 Technische Voraussetzungen: Ein belastbarer Blick auf Daten, Systeme, Integrationen und organisatorische Vorbereitung.
 
 ## Kontakt
 
-Bereit für eine KI-Roadmap, die Ihr Team wirklich nutzen kann?
+Bereit, nächste Schritte für KI in Ihrer Organisation zu klären?
 
-Der Strategic Discovery Sprint schafft die gemeinsame Entscheidungsgrundlage für Phase 2: fokussiert, wirtschaftlich priorisiert und anschlussfähig an Ihre reale Organisation.
+Der Strategic Discovery Sprint schafft eine gemeinsame Grundlage für nächste Entscheidungen: mit Blick auf den konkreten Ablauf, offene Voraussetzungen und mögliche Prüfschritte.
 
 E-Mail: contact@vibeperform.com
 

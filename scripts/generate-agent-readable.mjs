@@ -167,7 +167,7 @@ function renderExploreAgentPage() {
 
 ${section('Kennzahlen und Ergebnisrahmen', proofItems)}
 
-${section(deExplore.experienceTitle, deExplore.experienceBody.join('\n\n'))}
+${section(deExplore.experienceTitle, [...deExplore.experienceBody, ...deExplore.experienceSources.map(source => `[${source.label}](${source.href})`)].join('\n\n'))}
 
 ${section(deExplore.frameworkTitle, `${deExplore.frameworkBody}\n\n${framework}`)}
 
@@ -212,10 +212,14 @@ function renderAboutAgentPage(locale = 'de') {
 
 function renderKnowledgeIndex(locale, posts) {
  const c = knowledgeContent[locale];
+ const websitePosts = posts.filter(post => post.category === 'website').sort((a,b)=>Number(a.guideOrder || 99)-Number(b.guideOrder || 99) || new Date(b.date)-new Date(a.date));
+ const supplementalPosts = posts.filter(post => post.category !== 'website').sort((a,b)=>new Date(b.date)-new Date(a.date));
+ const renderPosts = list => list.map(p=>`### [${p.title}](${absoluteUrl(p.canonicalPath)})\n\n${p.date} · ${p.readTime}\n\n${p.excerpt}`).join('\n\n');
  return normalizeBlankLines([
   pageHeader({title:c.title, canonicalPath:`/${locale}/blog/`, description:c.intro, alternatePath:`/${locale==='de'?'en':'de'}/blog/`}),
   `${c.headline} ${c.emphasis}`, c.intro,
-  section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${[...posts].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(p=>`### [${p.title}](${absoluteUrl(p.canonicalPath)})\n\n${p.date} · ${p.readTime}\n\n${p.excerpt}`).join('\n\n')}`),
+  section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${renderPosts(websitePosts)}`),
+  section(`${c.supplementaryTitle} ${c.supplementaryEmphasis}`, `${c.supplementaryIntro}\n\n${renderPosts(supplementalPosts)}`),
   section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${contactEmail}\n\n${calendarUrl}`),
  ].join('\n\n'));
 }

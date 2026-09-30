@@ -6,6 +6,10 @@ date: "2026-05-22"
 author: "Marlon Dietrich"
 readTime: "4 Min. Lesezeit"
 coverImage: "/blog/ai-reasoning-advantage.png"
+coverImageWidth: 1024
+coverImageHeight: 1024
+coverImageAvifSrcset: "/blog/ai-reasoning-advantage-480.avif 480w, /blog/ai-reasoning-advantage-800.avif 800w, /blog/ai-reasoning-advantage-1024.avif 1024w"
+coverImageWebpSrcset: "/blog/ai-reasoning-advantage-480.webp 480w, /blog/ai-reasoning-advantage-800.webp 800w, /blog/ai-reasoning-advantage-1024.webp 1024w"
 coverImageDisclosure: "KI-generierte Illustration"
 excerpt: "Wie der Münchner Mittelstand und Tech-Startups Reasoning-Fähigkeiten von KI nutzen können, um echte Wettbewerbsvorteile zu erzielen."
 lang: "de"

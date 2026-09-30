@@ -9,9 +9,9 @@ export const exploreWorkshopContent = {
 		outcomeId: 'ergebnis',
 		phaseLabel: 'Phase 1',
 		title: 'Der strategische Explore Workshop',
-		subtitle: 'Von der Analyse zur Vision. Von der Überforderung zu absoluter Klarheit.',
+		subtitle: 'Von der Analyse zu passenden nächsten Schritten.',
 		intro:
-			'Isolierte KI-Experimente ohne strategisches Fundament bieten keinen nachhaltigen Mehrwert. Dieser fokussierte Workshop identifiziert die Hebel in Ihrer Organisation, an denen KI-Lösungen die höchste strategische Wirkung entfalten können.',
+			'Einzelne KI-Experimente beantworten noch nicht, ob ein Einsatz zum Betrieb passt. Dieser Workshop betrachtet Ziele, Daten und Abläufe gemeinsam und hilft dabei, mögliche Ansatzpunkte und Voraussetzungen einzuordnen.',
 		primaryCta: 'Workshop anfragen',
 		secondaryCta: 'Ergebnis ansehen',
 		heroAlt: 'Workshop-Situation mit Führungskräften, Prozesskarten und KI-Workflow-Skizzen',
@@ -21,21 +21,27 @@ export const exploreWorkshopContent = {
 		proofItems: [
 			{
 				stat: '5',
-				copy: 'Stufen zur Bewertung von digitaler Reife, Datenlage und organisatorischer Umsetzbarkeit.',
+				copy: 'Arbeitsfelder: Ziele, digitale Reife, Daten, Prozesse und nächste Schritte.',
 			},
 			{
-				stat: '18-35%',
-				copy: 'historische Produktivitätsgewinne bei gut priorisierten KI-Anwendungsfällen.',
+				stat: 'Prozessbezogen',
+				copy: 'Arbeitsgrundlage mit priorisierten Use Cases und offenen Voraussetzungen.',
 			},
 			{
-				stat: '1',
-				copy: 'Roadmap mit ROI-Prognosen, Voraussetzungen und klarer Reihenfolge für Phase 2.',
+				stat: 'Konkret',
+				copy: 'Annahmen und Voraussetzungen werden für den betrachteten Prozess festgehalten.',
 			},
 		],
 		experienceTitle: 'Was Sie erleben',
 		experienceBody: [
-			'Im Workshop bringen wir Führung, Fachbereiche und Prozessverantwortliche an einen Tisch. Unter Verwendung eines fünfstufigen Frameworks der Plattform Lernende Systeme bewerten wir Ihre aktuelle digitale Reife und machen sichtbar, wo KI heute realistisch ansetzen kann.',
-			'Tief verwurzelte Datensilos, manuelle Übergaben und wiederkehrende Abstimmungsarbeit werden nicht abstrakt diskutiert, sondern als konkrete Arbeitsabläufe abgebildet.',
+			'Im Workshop bringen wir Führung, Fachbereiche und Prozessverantwortliche an einen Tisch. Entlang von fünf Arbeitsfeldern – Ziele, digitale Reife, Daten, Prozesse und nächste Schritte – entsteht ein gemeinsames Bild davon, wo KI realistisch ansetzen könnte.',
+			'Datensilos, manuelle Übergaben und wiederkehrende Abstimmungen betrachten wir anhand konkreter Arbeitsabläufe. Empfehlungen bleiben an Voraussetzungen und offene Fragen gebunden; die wirtschaftliche Wirkung hängt vom Prozess und seiner Umsetzung ab.',
+		],
+		experienceSources: [
+			{
+				label: 'Hintergrund: Veränderungsmanagement bei der Einführung von KI (Plattform Lernende Systeme)',
+				href: 'https://www.acatech.de/publikation/einfuehrung-von-ki-systemen-in-unternehmen-gestaltungsansaetze-fuer-das-change-management/',
+			},
 		],
 		experienceAlt: 'Moderierter Strategic Discovery Sprint mit Prozessverantwortlichen',
 		frameworkTitle: 'Ein gemeinsames Lagebild statt einzelner KI-Experimente.',
@@ -65,7 +71,7 @@ export const exploreWorkshopContent = {
 		],
 		priorityTitle: 'Wie wir priorisieren',
 		priorityBody:
-			'Wir führen KI nicht um der Sache selbst willen ein. Mit einer Impact-Effort-Matrix identifizieren wir Use Cases, die schnell verständlich, wirtschaftlich relevant und technisch anschlussfähig sind.',
+			'Wir führen KI nicht um der Sache selbst willen ein. Mit einer Impact-Effort-Matrix ordnen wir mögliche Use Cases nach erwarteter Wirkung, Aufwand und Voraussetzungen ein.',
 		useCasesLabel: 'Beispielhafte Use Cases',
 		useCases: [
 			'Vorausschauende Wartungsplanung',
@@ -75,24 +81,24 @@ export const exploreWorkshopContent = {
 		roadmapAlt: 'Workshop-Tisch mit Impact-Effort-Matrix, Roadmap und Datenarchitektur-Skizzen',
 		outcomeTitle: 'Ihr Ergebnis',
 		outcomeBody:
-			'Sie erhalten eine fundierte KI-Roadmap mit konkreten ROI-Prognosen und technischen Voraussetzungen. Damit schaffen wir den strategischen Rahmen, um in der nächsten Phase theoretische Potenziale in eine erste technische Lösung zu überführen.',
+			'Sie erhalten eine gemeinsame Arbeitsgrundlage mit priorisierten Use Cases, Voraussetzungen, offenen Fragen und möglichen nächsten Prüfschritten. Wirtschaftliche Wirkung wird erst für einen konkreten Prozess anhand nachvollziehbarer Annahmen bewertet; ein bestimmter ROI oder eine technische Umsetzung ist kein pauschales Ergebnisversprechen.',
 		deliverables: [
 			{
-				title: 'Priorisierte KI-Roadmap',
-				copy: 'Eine klare Reihenfolge der wichtigsten Use Cases nach Wirkung, Aufwand und Abhängigkeiten.',
+				title: 'Priorisierte Use Cases',
+				copy: 'Eine Einordnung möglicher Anwendungsfälle nach Wirkung, Aufwand und Abhängigkeiten.',
 			},
 			{
-				title: 'ROI-Prognosen',
-				copy: 'Konkrete Annahmen zu Produktivitätsgewinnen, Einsparpotenzial und erwartbarer Wirkung.',
+				title: 'Wirkungsannahmen',
+				copy: 'Zu prüfende Annahmen und geeignete Messgrößen für einen ausgewählten Prozess.',
 			},
 			{
 				title: 'Technische Voraussetzungen',
 				copy: 'Ein belastbarer Blick auf Daten, Systeme, Integrationen und organisatorische Vorbereitung.',
 			},
 		],
-		finalTitle: 'Bereit für eine KI-Roadmap, die Ihr Team wirklich nutzen kann?',
+		finalTitle: 'Bereit, nächste Schritte für KI in Ihrer Organisation zu klären?',
 		finalBody:
-			'Der Strategic Discovery Sprint schafft die gemeinsame Entscheidungsgrundlage für Phase 2: fokussiert, wirtschaftlich priorisiert und anschlussfähig an Ihre reale Organisation.',
+			'Der Strategic Discovery Sprint schafft eine gemeinsame Grundlage für nächste Entscheidungen: mit Blick auf den konkreten Ablauf, offene Voraussetzungen und mögliche Prüfschritte.',
 		finalCta: 'Intro Call buchen',
 	},
 	en: {
@@ -105,7 +111,7 @@ export const exploreWorkshopContent = {
 		title: 'The Strategic Explore Workshop',
 		subtitle: 'From analysis to vision. From overload to absolute clarity.',
 		intro:
-			'Isolated AI experiments without a strategic foundation rarely create sustainable value. This focused workshop identifies the leverage points in your organization where AI solutions can create the highest strategic impact.',
+			'Individual AI experiments do not answer whether an approach fits your organization. This workshop considers goals, data, and workflows together to help assess possible starting points and prerequisites.',
 		primaryCta: 'Request workshop',
 		secondaryCta: 'View outcome',
 		heroAlt: 'Workshop setting with leaders, process cards, and AI workflow sketches',
@@ -115,21 +121,27 @@ export const exploreWorkshopContent = {
 		proofItems: [
 			{
 				stat: '5',
-				copy: 'stages for assessing digital maturity, data readiness, and organizational feasibility.',
+				copy: 'working areas: goals, digital maturity, data, processes, and next steps.',
 			},
 			{
-				stat: '18-35%',
-				copy: 'historic productivity gains from well-prioritized AI use cases.',
+				stat: 'Process-led',
+				copy: 'Working basis with prioritized use cases and open prerequisites.',
 			},
 			{
-				stat: '1',
-				copy: 'roadmap with ROI forecasts, prerequisites, and a clear sequence for phase 2.',
+				stat: 'Concrete',
+				copy: 'Assumptions and prerequisites are recorded for the process being reviewed.',
 			},
 		],
 		experienceTitle: 'What you experience',
 		experienceBody: [
-			'In the workshop, we bring leadership, business teams, and process owners to the same table. Using a five-stage framework from Plattform Lernende Systeme, we assess your current digital maturity and make visible where AI can realistically start today.',
-			'Deep-rooted data silos, manual handovers, and recurring coordination work are not discussed in the abstract. We map them as concrete workflows.',
+			'In the workshop, we bring leadership, business teams, and process owners to the same table. Across five working areas – goals, digital maturity, data, processes, and next steps – we build a shared view of where AI might be a realistic fit.',
+			'We examine data silos, manual handovers, and recurring coordination through concrete workflows. Recommendations stay tied to prerequisites and open questions; business impact depends on the process and its implementation.',
+		],
+		experienceSources: [
+			{
+				label: 'Background: Change management when introducing AI (Plattform Lernende Systeme)',
+				href: 'https://www.acatech.de/publikation/einfuehrung-von-ki-systemen-in-unternehmen-gestaltungsansaetze-fuer-das-change-management/',
+			},
 		],
 		experienceAlt: 'Moderated Strategic Discovery Sprint with process owners',
 		frameworkTitle: 'A shared operating picture instead of isolated AI experiments.',
@@ -159,7 +171,7 @@ export const exploreWorkshopContent = {
 		],
 		priorityTitle: 'How we prioritize',
 		priorityBody:
-			'We do not introduce AI for its own sake. Using an impact-effort matrix, we identify use cases that are easy to understand, economically relevant, and technically feasible.',
+			'We do not introduce AI for its own sake. Using an impact-effort matrix, we assess possible use cases by expected impact, effort, and prerequisites.',
 		useCasesLabel: 'Example use cases',
 		useCases: [
 			'Predictive maintenance planning',
@@ -169,24 +181,24 @@ export const exploreWorkshopContent = {
 		roadmapAlt: 'Workshop table with impact-effort matrix, roadmap, and data architecture sketches',
 		outcomeTitle: 'Your outcome',
 		outcomeBody:
-			'You receive a grounded AI roadmap with concrete ROI forecasts and technical prerequisites. This creates the strategic frame for turning theoretical potential into a first technical solution in the next phase.',
+			'You receive a shared working basis with prioritized use cases, prerequisites, open questions, and possible next checks. Business impact is assessed for a specific process using transparent assumptions; a particular ROI or technical implementation is not a blanket deliverable promise.',
 		deliverables: [
 			{
-				title: 'Prioritized AI roadmap',
-				copy: 'A clear sequence of the most important use cases by impact, effort, and dependencies.',
+				title: 'Prioritized use cases',
+				copy: 'An assessment of possible use cases by impact, effort, and dependencies.',
 			},
 			{
-				title: 'ROI forecasts',
-				copy: 'Concrete assumptions for productivity gains, savings potential, and expected impact.',
+				title: 'Impact assumptions',
+				copy: 'Assumptions to validate and suitable measures for a selected process.',
 			},
 			{
 				title: 'Technical prerequisites',
 				copy: 'A reliable view of data, systems, integrations, and organizational preparation.',
 			},
 		],
-		finalTitle: 'Ready for an AI roadmap your team can actually use?',
+		finalTitle: 'Ready to clarify the next steps for AI in your organization?',
 		finalBody:
-			'The Strategic Discovery Sprint creates the shared decision basis for phase 2: focused, economically prioritized, and connected to your real organization.',
+			'The Strategic Discovery Sprint creates a shared basis for the next decisions, grounded in the workflow, open prerequisites, and possible checks.',
 		finalCta: 'Book intro call',
 	},
 } satisfies Record<Locale, Record<string, unknown>>;

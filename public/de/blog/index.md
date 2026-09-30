@@ -7,9 +7,31 @@ Gute Entscheidungen beginnen mit Verständnis.
 
 Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
-## KI & Automatisierung verstehen.
+## Website & Firmenprofil klar planen.
 
-Ergänzend zum digitalen Firmenauftritt beschäftigen wir uns mit KI und digitalen Arbeitsabläufen. Diese Beiträge geben Einblicke in die Grundlagen und den Einsatz im Unternehmen.
+Welche Inhalte braucht Ihr Betrieb? Was gehört zur Betreuung? Und wie passen Website und Google-Unternehmensprofil zusammen? Diese Leitfäden helfen bei den nächsten Entscheidungen.
+
+### [Welche Inhalte braucht eine Handwerker-Website?](https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/)
+
+2026-09-30 · 4 Min. Lesezeit
+
+Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten.
+
+### [Was gehört zur laufenden Website-Betreuung?](https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/)
+
+2026-09-30 · 3 Min. Lesezeit
+
+Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Website-Betreuung fest.
+
+### [Google-Unternehmensprofil und Website: Welche Angaben müssen zusammenpassen?](https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/)
+
+2026-09-30 · 3 Min. Lesezeit
+
+Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website.
+
+## KI & Automatisierung einordnen.
+
+Ergänzend zum Firmenauftritt: Grundlagen zu KI, Daten und digitalen Arbeitsabläufen mit konkreten Grenzen und menschlichen Prüfschritten.
 
 ### [KI Readiness: Wie eine KI-fähige Datenbasis Unternehmenswert schafft](https://www.vibeperform.com/de/blog/ki-readiness-wertsteigerung-datenbasis/)
 
