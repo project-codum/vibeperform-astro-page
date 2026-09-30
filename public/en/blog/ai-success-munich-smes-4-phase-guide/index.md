@@ -5,43 +5,44 @@ Summary: How Munich SMEs can move from their first AI idea to real business valu
 
 Topic: AI Adoption
 Published: 2026-05-18
+Updated: 2026-09-30
 Author: Marlon Dietrich
 Reading time: 6 min read
 
-For Munich SMEs, artificial intelligence (AI) is no longer just a hype topic. It has become a decisive factor for future competitiveness. But how do you make the leap from an initial idea to genuine value creation? Based on proven practical experience, this guide maps the journey in four phases.
+Adopting artificial intelligence (AI) raises practical questions: which workflow is suitable, what data may a system use, and who reviews the result? This guide groups possible next steps into four phases. It is a working structure, not a universal maturity model or a promise of success.
 
 ### Phase 1: Preparation - Build the Foundation
 
-Every successful AI journey starts with a clear **why**. Before introducing tools, you need to define whether you want to scale operations, preserve institutional knowledge, or increase your attractiveness for top talent.
+A useful starting point is a clear **why**. Before introducing tools, decide which business goal the work should support.
 
-* **C-level buy-in:** Without visible support from leadership, 95% of AI initiatives fail during implementation. AI is a strategic transformation, not a pure IT project.
-* **The steering group:** Establish fixed roles - from the C-level sponsor and AI owner through to the IT team responsible for security and integration, such as single sign-on.
-* **AI champions:** Identify motivated employees in the business departments. These early adopters act as internal experts and show their colleagues, in practical terms, how AI can make everyday work easier.
+* **Goal and baseline:** Describe the workflow you want to improve and record how it works today. Choose an outcome that can be meaningfully reviewed later.
+* **Ownership:** Decide who owns the process, which data and systems may be involved, and who approves potential changes.
+* **Involve affected employees:** Talk early with the people who do the work. [Plattform Lernende Systeme recommends considering change management and employee involvement when introducing AI](https://www.acatech.de/publikation/einfuehrung-von-ki-systemen-in-unternehmen-gestaltungsansaetze-fuer-das-change-management/).
 
 ### Phase 2: Pilot Rollout - Experiment Instead of Chasing Perfection
 
 The pilot phase is about gaining initial experience without getting lost in use cases that are too complex.
 
-* **Start small:** Look for quick wins - repetitive tasks that can be automated quickly.
-* **Feedback culture:** Open channels, for example in Slack or Teams, where champions can share successes and questions. Celebrate curiosity, not only perfect outcomes.
-* **Workspace preparation:** Give your AI initiative its own identity and name to build acceptance. Create a library of proven assistants and prompt templates so new users can experience success immediately.
+* **Choose a bounded workflow:** Start with a manageable, recurring process and clear limits. Begin with support such as sorting or drafting before automating actions.
+* **Define review:** Decide who checks results, how errors are reported, and when a case goes to a person.
+* **Record what happens:** Gather employee feedback and document exceptions, corrections, and the review effort required.
 
 ### Phase 3: Broad Rollout - Bring the Team Along
 
-AI adoption is 20% technology and 80% people. In this phase, change management moves to the center.
+When a pilot works well, expansion needs aligned workflows, suitable training, and clear ownership.
 
-* **Train the trainer:** Enable your champions to carry knowledge organically into their teams. Colleagues learn best from people they trust and who understand their daily workflows.
-* **Take concerns seriously:** Communicate clearly that AI augments employees' expertise rather than replacing it.
-* **Interactive events:** Formats such as AI weeks, hackathons, or regular office hours reduce barriers and build enthusiasm.
+* **Train for the workflow:** Explain which tasks the system supports, where its limits are, and how employees can correct or escalate errors.
+* **Clarify roles together:** Discuss with the team what changes and which professional decisions remain with people.
+* **Expand gradually:** Involve more people or cases only after result quality, review effort, and pilot exceptions are understood.
 
-### Phase 4: Long-Term Success - Make AI Part of the Company's DNA
+### Phase 4: Review and Adjust
 
-To realize true ROI, AI must move from being an occasional helper to becoming part of the company culture.
+After launch, review the use regularly against the specific workflow.
 
-* **AI literacy as a core competency:** Just as email and Excel once became everyday skills, AI competence will increasingly become a fixed part of job profiles and employee development conversations.
-* **Measurability:** Use key performance indicators (KPIs) to steer progress. Track not only the number of users, but also the depth of integration - for example, the number of workflows and assistants being used.
-* **From assistance to automation:** The next step is moving from simple task support to automating entire processes. In this model, AI acts as the worker and the human acts as the supervisor.
+* **Watch quality and effort:** Review suitable measures alongside errors, rework, and human review time. More usage alone does not demonstrate business value.
+* **Keep changes traceable:** Document meaningful changes to the workflow, data, system, and approvals.
+* **Expand automation carefully:** Each additional action needs appropriate permissions, a clear stop or handover path, and an accountable person. The [NIST AI Risk Management Framework](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) describes risk management as ongoing work across Govern, Map, Measure, and Manage.
 
 ### The Takeaway for Munich Companies
 
-The key is to start simply, involve IT strategically from the beginning, and put people at the center of the transformation. That is how AI becomes a driver of innovation in the heart of Bavaria.
+Start with a real workflow, involve the people affected, and make review and responsibility clear. Whether to expand depends on the results and risks in your specific use. For an economic assessment, see our [guide to AI agents and ROI](/en/blog/ai-agents-business-roi/). VibePerform primarily supports businesses with [websites, company profiles, SEO, content, and graphics](/en/); AI work complements that offering.

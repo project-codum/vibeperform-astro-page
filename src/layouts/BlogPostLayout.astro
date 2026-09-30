@@ -8,6 +8,7 @@ import '../styles/service-pages.css';
 import '../styles/knowledge.css';
 import AgencyFooter from '../components/AgencyFooter.astro';
 import AiImageFrame from '../components/AiImageFrame.astro';
+import ResponsiveBlogImage from '../components/ResponsiveBlogImage.astro';
 import { absoluteUrl, blogPostingSchema, jsonLd } from '../lib/siteMetadata';
 
 const { frontmatter } = Astro.props;
@@ -131,7 +132,7 @@ const profileHref = authorHref ?? (author === 'Marlon Dietrich' ? `/${locale}/${
     <p class="sv-kicker">{kicker}</p><h1>{title}</h1><p class="sv-lead">{excerpt}</p>
     <div class="kn-byline"><div class="kn-author-mark" aria-hidden="true">{author.split(' ').map((n: string)=>n[0]).join('')}</div><div><p>{profileHref ? <a href={profileHref}>{author}</a> : author}</p>{authorRole && <p class="kn-author-role">{authorRole}</p>}<div class="kn-meta"><time datetime={date}>{formattedDate}</time><span>{readTime}</span>{lastModified !== date && <span>{locale==='de'?'Aktualisiert':'Updated'} <time datetime={lastModified}>{formattedLastModified}</time></span>}</div></div></div>
   </div></header>
-  {coverImage && <div class="hp-wrap kn-post-cover"><AiImageFrame label={coverImageDisclosure ?? (locale==='de'?'KI-generierte Illustration':'AI-generated illustration')}><picture>{coverImageFallback && coverImage.endsWith('.avif') && <source srcset={coverImage} type="image/avif"/>}<img src={coverImageFallback ?? coverImage} alt={coverImageAlt ?? title} width={coverImageWidth ?? 1600} height={coverImageHeight ?? 800} loading="eager" decoding="async"/></picture></AiImageFrame></div>}
+  {coverImage && <div class="hp-wrap kn-post-cover"><AiImageFrame label={coverImageDisclosure ?? (locale==='de'?'KI-generierte Illustration':'AI-generated illustration')}><ResponsiveBlogImage image={frontmatter} sizes="(max-width: 700px) calc(100vw - 52px), (max-width: 1288px) 90vw, 1160px" priority /></AiImageFrame></div>}
   <div class="hp-wrap kn-reading-grid">
     {tocHeadings.length > 0 && <aside class="kn-toc"><details open><summary>{locale==='de'?'In diesem Beitrag':'In this article'}<span aria-hidden="true">↕</span></summary><nav aria-label={locale==='de'?'Inhaltsverzeichnis':'Table of contents'}><ol>{tocHeadings.map(h=><li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details></aside>}
     <div class="kn-reading-main"><div class="blog-content"><slot/></div><section class="kn-article-cta" aria-labelledby="article-cta-title"><p class="hp-kicker">{locale==='de'?'Ihr nächster Schritt':'Your next step'}</p><h2 id="article-cta-title">{ctaTitle}</h2><p>{ctaBody}</p><a class="hp-button" href={ctaHref} data-analytics-event={ctaIsExternal?'contact_start':'cta_click'} data-analytics-name="blog-article-cta" data-analytics-location="blog-article">{ctaButtonText}<span aria-hidden="true">↗</span></a></section><a class="hp-text-link kn-back-bottom" href={backHref}><span aria-hidden="true">←</span>{backText}</a></div>

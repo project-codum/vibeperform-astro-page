@@ -5,37 +5,28 @@ Summary: Warum KI-Agenten für Münchner KMUs erst dann echten ROI liefern, wenn
 
 Thema: Agentische KI
 Datum: 2026-05-26
+Aktualisiert: 2026-09-30
 Autor: Marlon Dietrich
 Lesezeit: 4 Min. Lesezeit
 
-München ist als Innovationsstandort weltweit bekannt. Doch während Großkonzerne bereits massiv in **agentische KI** investieren, fragen sich viele Münchner KMUs: Lohnt sich das für uns? Und wie stellen wir sicher, dass die Investition am Ende mehr einbringt, als sie kostet?
+Ein KI-Agent kann innerhalb eines festgelegten Ablaufs Informationen auswerten, Arbeitsschritte vorbereiten und Werkzeuge nutzen. Ob sich das rechnet, hängt vom konkreten Prozess ab: von Fallzahlen, Datenqualität, Ausnahmen, Prüfaufwand und den laufenden Kosten. Eine allgemeine Erfolgsquote sagt wenig darüber aus, ob ein Einsatz in Ihrem Betrieb sinnvoll ist.
 
-Der aktuelle Leitfaden „Realizing ROI“ von IBM zeigt eine ernüchternde Realität: Nur **25 % der KI-Initiativen** liefern bisher den erwarteten Return on Investment (ROI). Damit Ihr Unternehmen zu den Gewinnern gehört, müssen Sie über das bloße Experimentieren hinausgehen.
+### Erst den Prozess verstehen
 
-### Warum viele KI-Projekte scheitern (und wie Sie es besser machen)
+Wählen Sie einen wiederkehrenden Ablauf mit einem klaren Anfang und Ende. Halten Sie fest, wie der Prozess heute funktioniert: Welche Informationen kommen an, wer prüft sie, wie oft treten Ausnahmen auf und wie lange dauern die einzelnen Schritte? Diese Ausgangslage macht einen späteren Vergleich aussagekräftiger.
 
-Viele Unternehmen machen den Fehler, sich auf die Automatisierung einzelner, isolierter Aufgaben zu konzentrieren. Das Ergebnis ist ein „fragmentiertes Agentenumfeld“, das oft mehr Komplexität schafft als es löst.
+Ein mögliches Beispiel ist die Bearbeitung eingehender Kundenanfragen. Ein Agent könnte eine Anfrage nach Thema sortieren, fehlende Angaben markieren und einen Antwortentwurf vorbereiten. Ein Mitarbeiter prüft Kundendaten, Preis, Verfügbarkeit und Ton, bevor eine Antwort versendet oder ein Termin zugesagt wird. Das Beispiel beschreibt einen möglichen Ablauf, kein zugesagtes Ergebnis.
 
-Für den Münchner Mittelstand liegt der Schlüssel zum Erfolg in der **Transformation ganzer Workflows**. Es geht nicht darum, nur eine E-Mail schneller zu schreiben, sondern den gesamten Prozess - vom ersten Kundenkontakt bis zum Abschluss - neu zu denken.
+### Risiken und Verantwortung mitplanen
 
-### Drei Säulen für Ihren KI-Erfolg
+Vor einem Pilotprojekt sollten Zuständigkeiten, zulässige Daten, Zugriffsrechte, Eskalationswege und menschliche Prüfschritte feststehen. Das [NIST AI Risk Management Framework](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) ordnet Risikomanagement in die fortlaufenden Aufgaben Govern, Map, Measure und Manage ein. Für generative KI beschreibt das [NIST-Profil](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) unter anderem, dass je nach Einsatz zusätzliche menschliche Prüfung, Dokumentation und Aufsicht nötig sein können.
 
-Laut dem Bericht sollten KMUs drei wesentliche Bereiche priorisieren, um den ROI zu maximieren:
+### ROI für den konkreten Anwendungsfall prüfen
 
-1. **Datenqualität statt Datensilos:** Agentische KI ist nur so gut wie die Daten, auf die sie zugreift. Ohne gut strukturierte Geschäftsdaten fehlt den KI-Agenten der Kontext, um fundierte Entscheidungen zu treffen. Bevor Sie starten, sollten Sie Ihre Dateninfrastruktur prüfen.
-2. **Governance als Sicherheitsnetz:** 56 % der CEOs zögern bei KI-Investitionen, weil die Governance-Standards unklar sind. Ohne klare Richtlinien riskieren Sie „Chaos“ und unvorhersehbares Verhalten der Systeme. Ein ausgereifter Rahmen für Risiko und Sicherheit ist das Fundament für Skalierbarkeit.
-3. **Mitarbeiter zu Botschaftern machen:** KI-Projekte scheitern oft am Widerstand der eigenen Belegschaft - Studien zeigen sogar, dass bis zu 31 % der Mitarbeiter KI-Strategien aktiv sabotieren könnten. In München, wo Fachkräfte wertvoll sind, müssen Mitarbeiter die KI als Unterstützung sehen, die ihnen den Rücken für strategische Aufgaben freihält.
+Vergleichen Sie den Pilot mit der dokumentierten Ausgangslage. Berücksichtigen Sie Einrichtungs- und Betriebskosten, menschliche Prüfzeit, Fehler und Nacharbeit sowie die Qualität des Ergebnisses. Messen Sie nur Kennzahlen, die zum Ablauf passen, etwa Bearbeitungszeit pro Fall oder den Anteil korrekt vorbereiteter Vorgänge. Ein vermiedener Arbeitsschritt ist erst dann ein wirtschaftlicher Nutzen, wenn er im Prozess tatsächlich Zeit oder Kosten freisetzt.
 
-### Messbare Ergebnisse: Was ist möglich?
+### Sinnvoll klein anfangen
 
-Die Zahlen aus der Praxis sind vielversprechend. Unternehmen, die agentische KI erfolgreich einsetzen, berichten von:
+Beginnen Sie mit einem begrenzten, überprüfbaren Einsatz. Lassen Sie die KI zunächst vorbereiten und halten Sie Freigaben für externe Nachrichten, Preise, Zusagen oder sensible Änderungen beim Menschen. Behalten Sie einen manuellen Weg für unklare Fälle. Erweitern Sie den Einsatz erst, wenn Qualität, Aufwand und Risiken im eigenen Ablauf ausreichend geprüft sind.
 
-* **83 % Steigerung** der allgemeinen Prozesseffizienz.
-* Einer massiven **Entlastung der Teams**: Ein Beispiel zeigt eine Reduzierung der Support-Tickets um **75 %** durch interne HR-Agenten.
-* Höherer **Mitarbeiterzufriedenheit**, da monotone, zeitfressende Aufgaben wegfallen.
-
-### Fazit für Münchner Unternehmer
-
-Agentische KI entwickelt sich mit Lichtgeschwindigkeit vom Konzept zum echten Wettbewerbsvorteil. Für Münchner KMUs bedeutet das: Warten Sie nicht zu lange, aber überstürzen Sie nichts ohne Plan. Definieren Sie klare Ziele (KPIs), bauen Sie eine solide Datenbasis auf und nehmen Sie Ihr Team mit auf die Reise.
-
-**Sind Sie bereit für den nächsten Schritt?** Es ist an der Zeit, KI nicht mehr als Experiment, sondern als festen Bestandteil Ihrer Unternehmensstrategie zu betrachten.
+Für die organisatorische Einführung beschreibt unser [Vier-Phasen-Guide für KI im Mittelstand](/de/blog/ki-erfolg-muenchner-mittelstand-4-phasen/) eine praktische Arbeitsstruktur. Sie möchten zunächst Ihre Unternehmenswebsite oder Ihr Profil verbessern? [VibePerform unterstützt bei Website, Unternehmensprofil, SEO, Inhalten und Grafiken](/de/).

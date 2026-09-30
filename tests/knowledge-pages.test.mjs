@@ -10,7 +10,11 @@ for (const locale of ['de','en']) {
   assert.match(index,/class="hp-footer"/);
   assert.doesNotMatch(index,/class="kn-topics"|WISSEN &amp; EINBLICKE|Knowledge &amp; insights/);
   assert.doesNotMatch(index,/Vom Lesen ins Gespräch|Wir klären gemeinsam, was Sie brauchen und wie wir Sie unterstützen können\.|From reading to a conversation|Together, we work out what you need and how we can help\./);
-  assert.match(index,/class="kn-featured"/);
+  assert.match(index,/class="kn-featured(?: kn-featured--text)?"/);
+  assert.match(index,/id="ai-perspectives"/);
+  const guideIndex = index.indexOf(locale === 'de' ? 'Welche Inhalte braucht eine Handwerker-Website?' : 'What content does a trade business website need?');
+  assert.ok(guideIndex > 0 && guideIndex < index.indexOf('id="ai-perspectives"'), 'Website guide leads supplemental AI content');
+  assert.doesNotMatch(index, /<img[^>]+src="(?:undefined|null|)"/);
   assert.match(index,/aria-current="page" href="[^\"]*\/blog\/"/);
   const files = (await readdir(new URL(`../src/pages/${locale}/blog/`,import.meta.url))).filter(f=>f.endsWith('.md'));
   for (const file of files) {

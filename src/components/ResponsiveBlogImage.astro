@@ -1,0 +1,22 @@
+---
+interface CoverImage {
+  coverImage?: string;
+  coverImageFallback?: string;
+  coverImageAvifSrcset?: string;
+  coverImageWebpSrcset?: string;
+  coverImageAlt?: string;
+  coverImageWidth?: number;
+  coverImageHeight?: number;
+  title: string;
+}
+interface Props { image: CoverImage; sizes: string; priority?: boolean; }
+const { image, sizes, priority = false } = Astro.props;
+const avifSrcset = image.coverImageAvifSrcset ?? (image.coverImage?.endsWith('.avif') ? image.coverImage : undefined);
+---
+{image.coverImage && <picture>
+  {avifSrcset && <source type="image/avif" srcset={avifSrcset} sizes={sizes} />}
+  {image.coverImageWebpSrcset && <source type="image/webp" srcset={image.coverImageWebpSrcset} sizes={sizes} />}
+  <img src={image.coverImageFallback ?? image.coverImage} alt={image.coverImageAlt ?? image.title}
+    width={image.coverImageWidth ?? 1600} height={image.coverImageHeight ?? 900}
+    loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />
+</picture>}
