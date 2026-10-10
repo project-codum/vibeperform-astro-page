@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 2040" role="img" aria-labelledby="title desc">
+  <title id="title">12 Vorbereitungsaufgaben für eine neue Webseite – mobile Ansicht</title>
+  <desc id="desc">Vier Phasen mit je drei Aufgaben: Ziel und Rahmen, Recherche und Inhalte, Texte und Marke sowie Start vorbereiten. Danach wird die Website gebaut.</desc>
+  <defs><style>text{font-family:Inter,Arial,sans-serif;fill:#1C1726}.eyebrow{font-size:13px;font-weight:700;letter-spacing:1px;fill:#8038EE}.headline{font-size:27px;font-weight:750}.sub{font-size:15px;fill:#655F69}.phase{font-size:22px;font-weight:750}.item{font-size:18px;font-weight:550}.num{font-size:13px;font-weight:800;fill:#fff}.foot{font-size:14px;fill:#655F69}.build{font-size:20px;font-weight:750;fill:#fff}</style></defs>
+  <rect width="440" height="2340" rx="24" fill="#EDE8E3"/>
+  <text x="22" y="42" class="eyebrow">VORBEREITUNG EINER FIRMENWEBSEITE</text>
+  <text x="22" y="82" class="headline">12 Aufgaben, vier Phasen</text>
+  <text x="22" y="108" class="sub">Eine Checkliste – passend zum Projektumfang.</text>
+  <g transform="translate(18 140)">
+    <g><rect width="404" height="390" rx="18" fill="#fff"/><rect width="8" height="390" rx="4" fill="#FF9A7E"/><circle cx="34" cy="38" r="16" fill="#FF9A7E"/><text x="34" y="43" text-anchor="middle" class="num">1</text><text x="62" y="46" class="phase">Ziel &amp; Rahmen</text>
+      <circle cx="35" cy="112" r="13" fill="#1C1726"/><text x="35" y="117" text-anchor="middle" class="num">01</text><text x="59" y="118" class="item">Ziel und Zielgruppe</text>
+      <circle cx="35" cy="190" r="13" fill="#1C1726"/><text x="35" y="195" text-anchor="middle" class="num">02</text><text x="59" y="186" class="item"><tspan x="59">Umfang, Budget und</tspan><tspan x="59" dy="23">Verantwortung</tspan></text>
+      <circle cx="35" cy="278" r="13" fill="#1C1726"/><text x="35" y="283" text-anchor="middle" class="num">03</text><text x="59" y="284" class="item">Angebot und Markt</text></g>
+    <g transform="translate(0 410)"><rect width="404" height="390" rx="18" fill="#fff"/><rect width="8" height="390" rx="4" fill="#8038EE"/><circle cx="34" cy="38" r="16" fill="#8038EE"/><text x="34" y="43" text-anchor="middle" class="num">2</text><text x="62" y="46" class="phase">Recherche &amp; Inhalte</text>
+      <circle cx="35" cy="112" r="13" fill="#1C1726"/><text x="35" y="117" text-anchor="middle" class="num">04</text><text x="59" y="118" class="item">Suchintention und Wettbewerb</text>
+      <circle cx="35" cy="190" r="13" fill="#1C1726"/><text x="35" y="195" text-anchor="middle" class="num">05</text><text x="59" y="196" class="item">Seitenplan und Anfrageweg</text>
+      <circle cx="35" cy="278" r="13" fill="#1C1726"/><text x="35" y="283" text-anchor="middle" class="num">06</text><text x="59" y="284" class="item">Wissen und Vertrauensbelege</text></g>
+    <g transform="translate(0 820)"><rect width="404" height="390" rx="18" fill="#fff"/><rect width="8" height="390" rx="4" fill="#FF9A7E"/><circle cx="34" cy="38" r="16" fill="#FF9A7E"/><text x="34" y="43" text-anchor="middle" class="num">3</text><text x="62" y="46" class="phase">Texte &amp; Marke</text>
+      <circle cx="35" cy="112" r="13" fill="#1C1726"/><text x="35" y="117" text-anchor="middle" class="num">07</text><text x="59" y="118" class="item">Texte</text>
+      <circle cx="35" cy="190" r="13" fill="#1C1726"/><text x="35" y="195" text-anchor="middle" class="num">08</text><text x="59" y="196" class="item">Bilder, Videos und Nutzungsrechte</text>
+      <circle cx="35" cy="278" r="13" fill="#1C1726"/><text x="35" y="283" text-anchor="middle" class="num">09</text><text x="59" y="284" class="item">Brandbook und Gestaltung</text></g>
+    <g transform="translate(0 1230)"><rect width="404" height="390" rx="18" fill="#fff"/><rect width="8" height="390" rx="4" fill="#8038EE"/><circle cx="34" cy="38" r="16" fill="#8038EE"/><text x="34" y="43" text-anchor="middle" class="num">4</text><text x="62" y="46" class="phase">Start vorbereiten</text>
+      <circle cx="35" cy="112" r="13" fill="#1C1726"/><text x="35" y="117" text-anchor="middle" class="num">10</text><text x="59" y="118" class="item">Technik, Zugänge und Daten</text>
+      <circle cx="35" cy="190" r="13" fill="#1C1726"/><text x="35" y="195" text-anchor="middle" class="num">11</text><text x="59" y="196" class="item">Bestehende Inhalte und URLs*</text>
+      <circle cx="35" cy="278" r="13" fill="#1C1726"/><text x="35" y="283" text-anchor="middle" class="num">12</text><text x="59" y="284" class="item">Messung, Freigabe und Betreuung</text></g>
+  </g>
+  <text x="22" y="1800" class="foot">* Nur beim Relaunch: Inhalte sichern, URL-Änderungen</text><text x="22" y="1822" class="foot">zuordnen und Weiterleitungen planen. Aufgaben lassen</text><text x="22" y="1844" class="foot">sich je nach Aufwand zusammenfassen.</text>
+  <path d="M38 1905h55" stroke="#CFC7C0" stroke-width="2"/><circle cx="112" cy="1905" r="21" fill="#8038EE"/><path d="M102 1905h19m-7-7 7 7-7 7" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="146" y="1879" width="270" height="52" rx="14" fill="#1C1726"/><text x="281" y="1913" text-anchor="middle" class="build">Website bauen</text>
+  <text x="22" y="1980" class="foot">VibePerform · Vorbereitung einer Firmenwebseite</text>
+</svg>
