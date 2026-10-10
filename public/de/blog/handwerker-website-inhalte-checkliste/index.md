@@ -10,6 +10,8 @@ Lesezeit: 4 Min. Lesezeit
 
 Eine Handwerker-Website sollte Kunden helfen, eine konkrete Entscheidung vorzubereiten: Passt dieser Betrieb zu meinem Vorhaben, arbeitet er in meiner Gegend und wie frage ich an? Beginnen Sie deshalb mit den Fragen, die Ihr Team am Telefon immer wieder beantwortet. Aus diesen Antworten entsteht ein brauchbarer Seitenplan.
 
+Wenn Sie eine [Webseite erstellen](/de/website-erstellen-lassen/) lassen möchten, hilft Ihnen diese Checkliste, Leistungen, Bilder und Kontaktangaben vor dem Aufbau zusammenzustellen.
+
 Diese Checkliste ist eine Planungshilfe. Welche Seiten Sie tatsächlich benötigen, hängt von Ihren Leistungen und Kunden ab. Eine kleine, gut erklärte Website kann hilfreicher sein als viele Seiten mit nahezu gleichen Texten.
 
 ## 1. Leistungen so erklären, dass Kunden sich wiederfinden

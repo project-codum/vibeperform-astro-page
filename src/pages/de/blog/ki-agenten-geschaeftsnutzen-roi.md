@@ -25,6 +25,8 @@ Wählen Sie einen wiederkehrenden Ablauf mit einem klaren Anfang und Ende. Halte
 
 Ein mögliches Beispiel ist die Bearbeitung eingehender Kundenanfragen. Ein Agent könnte eine Anfrage nach Thema sortieren, fehlende Angaben markieren und einen Antwortentwurf vorbereiten. Ein Mitarbeiter prüft Kundendaten, Preis, Verfügbarkeit und Ton, bevor eine Antwort versendet oder ein Termin zugesagt wird. Das Beispiel beschreibt einen möglichen Ablauf, kein zugesagtes Ergebnis.
 
+Ein klarer Anfrageweg auf Ihrer Website kann dafür die nötigen Angaben liefern: etwa das gewünschte Vorhaben, den Ort und vorhandene Unterlagen. Wenn Sie eine [Webseite erstellen](/de/website-erstellen-lassen/) lassen, lohnt es sich, diese Fragen schon beim Aufbau des Kontaktformulars zu planen. Das erleichtert die erste Einordnung – ob durch einen Mitarbeiter oder einen unterstützenden KI-Agenten.
+
 ### Risiken und Verantwortung mitplanen
 
 Vor einem Pilotprojekt sollten Zuständigkeiten, zulässige Daten, Zugriffsrechte, Eskalationswege und menschliche Prüfschritte feststehen. Das [NIST AI Risk Management Framework](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) ordnet Risikomanagement in die fortlaufenden Aufgaben Govern, Map, Measure und Manage ein. Für generative KI beschreibt das [NIST-Profil](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) unter anderem, dass je nach Einsatz zusätzliche menschliche Prüfung, Dokumentation und Aufsicht nötig sein können.

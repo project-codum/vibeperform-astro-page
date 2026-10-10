@@ -10,6 +10,7 @@ export interface ServiceDetail {
  name:string; description:string; title:Pair; intro:string; kicker:string;
  problemTitle:Pair; problems:Pair[]; scopeTitle:Pair; scopeIntro:string; scope:Pair[]; boundary:string;
  process:Pair[]; contribution:string; related:ServiceKey[]; faq:Pair[]; contact:string;
+ boundaryLink?: { before:string; label:string; href:string; after:string; };
  visual:{ label:string; title:string; accent:string; rows:string[]; note:string; };
 }
 export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
@@ -172,6 +173,12 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
         ]
       ],
       "boundary": "Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt.",
+      "boundaryLink": {
+        "before": "Wenn Sie erst eine ",
+        "label": "Webseite erstellen",
+        "href": "/de/website-erstellen-lassen/",
+        "after": " lassen möchten, stimmen wir den Aufbau und die anschließende Betreuung von Anfang an aufeinander ab."
+      },
       "process": [
         [
           "Ausgangspunkt klären",
