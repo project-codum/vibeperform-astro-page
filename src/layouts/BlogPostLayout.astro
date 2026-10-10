@@ -67,9 +67,10 @@ const ctaButtonText = customCtaButtonText ?? defaultCtaButtonText;
 const ctaHref = customCtaHref ?? 'https://calendar.app.google/utFQgw33PwJTiDk56';
 const ctaIsExternal = /^https?:\/\//.test(ctaHref);
 const normalizedPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const normalizedAlternatePath = alternateLocaleHref.replace(/\/+$/, '') || '/';
 const canonicalUrl = absoluteUrl(normalizedPath);
-const alternateUrl = absoluteUrl(normalizedAlternatePath);
+const normalizedAlternatePath = alternateLocaleHref?.replace(/\/+$/, '') || undefined;
+const alternateUrl = normalizedAlternatePath ? absoluteUrl(normalizedAlternatePath) : undefined;
+const languageSwitchHref = alternateLocaleHref ?? (locale === 'de' ? '/en/blog/' : '/de/blog/');
 const socialImagePath = coverImageFallback ?? coverImage;
 const socialImageUrl = socialImagePath ? absoluteUrl(socialImagePath) : undefined;
 const structuredData = blogPostingSchema({
@@ -102,15 +103,15 @@ const profileHref = authorHref ?? (author === 'Marlon Dietrich' ? `/${locale}/${
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="alternate" type="text/markdown" href={`${canonicalUrl}index.md`} />
 		<link rel="alternate" hreflang={locale} href={canonicalUrl} />
-		<link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={alternateUrl} />
-		<link rel="alternate" hreflang="x-default" href={locale === 'de' ? canonicalUrl : alternateUrl} />
+		{alternateUrl ? <link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={alternateUrl} /> : null}
+		<link rel="alternate" hreflang="x-default" href={locale === 'de' || !alternateUrl ? canonicalUrl : alternateUrl} />
 		<meta property="og:type" content="article" />
 		<meta property="og:site_name" content="Vibeperform" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={excerpt} />
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
-		<meta property="og:locale:alternate" content={locale === 'de' ? 'en_US' : 'de_DE'} />
+		{alternateUrl ? <meta property="og:locale:alternate" content={locale === 'de' ? 'en_US' : 'de_DE'} /> : null}
 		{socialImageUrl ? <meta property="og:image" content={socialImageUrl} /> : null}
 		{coverImageAlt ? <meta property="og:image:alt" content={coverImageAlt} /> : null}
 		<meta property="article:published_time" content={date} />
@@ -124,7 +125,7 @@ const profileHref = authorHref ?? (author === 'Marlon Dietrich' ? `/${locale}/${
 		<script type="application/ld+json" set:html={jsonLd(structuredData)} />
 	</head>
 <body><div class="home-shell" id="top">
-<HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref}/>
+<HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={languageSwitchHref}/>
 <main class="home-main">
 <article class="kn-post">
   <header class="sv-hero kn-post-hero" id="home-intro"><div class="hp-wrap">
