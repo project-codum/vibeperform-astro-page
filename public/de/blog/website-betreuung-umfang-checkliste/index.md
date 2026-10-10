@@ -33,6 +33,8 @@ Der Begriff „Website-Betreuung“ allein sagt wenig über den Umfang aus. Inha
 | Wie bleibt Arbeit nachvollziehbar? | Kurze Übersicht über erledigte Änderungen und offene Punkte |
 | Was passiert bei einer Übergabe? | Zugänge, Unterlagen und vereinbarte Übergabe der Website |
 
+Wenn Sie eine neue [Webseite erstellen](/de/website-erstellen-lassen/) lassen, legen Sie diese Zuständigkeiten am besten schon vor dem Start fest. So ist von Anfang an klar, wer spätere Änderungen übernimmt.
+
 Erforderliche Zugänge sollten für die Aufgabe passend berechtigt sein. Website, Domain und Analysezugänge dürfen bei einer Übergabe nicht nur einer einzelnen externen Person bekannt sein. Klären Sie die tatsächliche Kontoinhaberschaft, bevor Arbeit beginnt.
 
 ## 3. Änderungen nach Bedarf einplanen

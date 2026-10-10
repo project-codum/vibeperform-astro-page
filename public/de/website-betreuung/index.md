@@ -41,7 +41,7 @@ Aus den abgestimmten Prioritäten entstehen konkrete Änderungen an Texten, Absc
 
 Wir klären, welche Prüfungen und Wartungsaufgaben zur eingesetzten Technik passen und übernommen werden sollen. Inhaltliche Pflege und technische Wartung werden getrennt beschrieben.
 
-Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt.
+Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt. Wenn Sie erst eine [Webseite erstellen](https://www.vibeperform.com/de/website-erstellen-lassen/) lassen möchten, stimmen wir den Aufbau und die anschließende Betreuung von Anfang an aufeinander ab.
 
 ## Zusammenarbeit
 

@@ -657,7 +657,7 @@ Aus den abgestimmten Prioritäten entstehen konkrete Änderungen an Texten, Absc
 
 Wir klären, welche Prüfungen und Wartungsaufgaben zur eingesetzten Technik passen und übernommen werden sollen. Inhaltliche Pflege und technische Wartung werden getrennt beschrieben.
 
-Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt.
+Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt. Wenn Sie erst eine [Webseite erstellen](https://www.vibeperform.com/de/website-erstellen-lassen/) lassen möchten, stimmen wir den Aufbau und die anschließende Betreuung von Anfang an aufeinander ab.
 
 ## Zusammenarbeit
 
@@ -1159,6 +1159,8 @@ Informationen über Ihren Betrieb, vorhandene nutzbare Bilder und gebündeltes F
 
 ## Von der ersten Idee bis zum Start.
 
+Wenn Sie für Ihren Betrieb eine [Webseite erstellen](https://www.vibeperform.com/de/website-erstellen-lassen/) lassen möchten, finden Sie hier den Ablauf – vom ersten Gespräch bis zur Freigabe.
+
 ### Kennenlernen
 
 Wir besprechen Ihren Betrieb, Ziele und vorhandene Website. Danach stehen Seiten, Funktionen und Aufwand im Angebot.
@@ -1381,6 +1383,8 @@ Lesezeit: 4 Min. Lesezeit
 
 Eine Handwerker-Website sollte Kunden helfen, eine konkrete Entscheidung vorzubereiten: Passt dieser Betrieb zu meinem Vorhaben, arbeitet er in meiner Gegend und wie frage ich an? Beginnen Sie deshalb mit den Fragen, die Ihr Team am Telefon immer wieder beantwortet. Aus diesen Antworten entsteht ein brauchbarer Seitenplan.
 
+Wenn Sie eine [Webseite erstellen](/de/website-erstellen-lassen/) lassen möchten, hilft Ihnen diese Checkliste, Leistungen, Bilder und Kontaktangaben vor dem Aufbau zusammenzustellen.
+
 Diese Checkliste ist eine Planungshilfe. Welche Seiten Sie tatsächlich benötigen, hängt von Ihren Leistungen und Kunden ab. Eine kleine, gut erklärte Website kann hilfreicher sein als viele Seiten mit nahezu gleichen Texten.
 
 ## 1. Leistungen so erklären, dass Kunden sich wiederfinden
@@ -1462,6 +1466,8 @@ Der Begriff „Website-Betreuung“ allein sagt wenig über den Umfang aus. Inha
 | Wie werden Probleme gemeldet? | Kontaktweg und tatsächlich vereinbarte Reaktionszeiten |
 | Wie bleibt Arbeit nachvollziehbar? | Kurze Übersicht über erledigte Änderungen und offene Punkte |
 | Was passiert bei einer Übergabe? | Zugänge, Unterlagen und vereinbarte Übergabe der Website |
+
+Wenn Sie eine neue [Webseite erstellen](/de/website-erstellen-lassen/) lassen, legen Sie diese Zuständigkeiten am besten schon vor dem Start fest. So ist von Anfang an klar, wer spätere Änderungen übernimmt.
 
 Erforderliche Zugänge sollten für die Aufgabe passend berechtigt sein. Website, Domain und Analysezugänge dürfen bei einer Übergabe nicht nur einer einzelnen externen Person bekannt sein. Klären Sie die tatsächliche Kontoinhaberschaft, bevor Arbeit beginnt.
 
@@ -1657,6 +1663,8 @@ Ein KI-Agent kann innerhalb eines festgelegten Ablaufs Informationen auswerten, 
 Wählen Sie einen wiederkehrenden Ablauf mit einem klaren Anfang und Ende. Halten Sie fest, wie der Prozess heute funktioniert: Welche Informationen kommen an, wer prüft sie, wie oft treten Ausnahmen auf und wie lange dauern die einzelnen Schritte? Diese Ausgangslage macht einen späteren Vergleich aussagekräftiger.
 
 Ein mögliches Beispiel ist die Bearbeitung eingehender Kundenanfragen. Ein Agent könnte eine Anfrage nach Thema sortieren, fehlende Angaben markieren und einen Antwortentwurf vorbereiten. Ein Mitarbeiter prüft Kundendaten, Preis, Verfügbarkeit und Ton, bevor eine Antwort versendet oder ein Termin zugesagt wird. Das Beispiel beschreibt einen möglichen Ablauf, kein zugesagtes Ergebnis.
+
+Ein klarer Anfrageweg auf Ihrer Website kann dafür die nötigen Angaben liefern: etwa das gewünschte Vorhaben, den Ort und vorhandene Unterlagen. Wenn Sie eine [Webseite erstellen](/de/website-erstellen-lassen/) lassen, lohnt es sich, diese Fragen schon beim Aufbau des Kontaktformulars zu planen. Das erleichtert die erste Einordnung – ob durch einen Mitarbeiter oder einen unterstützenden KI-Agenten.
 
 ### Risiken und Verantwortung mitplanen
 

@@ -189,7 +189,7 @@ function renderTradePage(locale) {
  section(`${c.problemsTitle} ${c.problemsEmphasis}`,list(c.problems)),
  section(`${c.scopeTitle} ${c.scopeEmphasis}`,`${c.scopeIntro}\n\n${list(c.scope)}`),
  section(`${c.ownTitle} ${c.ownEmphasis}`,`${c.ownBody}\n\n${c.ownDetail}`),
- section(`${c.processTitle} ${c.processEmphasis}`,list(c.steps)),
+ section(`${c.processTitle} ${c.processEmphasis}`,`${c.processNote ? `${c.processNote.before}[${c.processNote.label}](${absoluteUrl(c.processNote.href)})${c.processNote.after}\n\n` : ''}${list(c.steps)}`),
  section(`${c.careTitle} ${c.careEmphasis}`,`${c.careBody}\n\n${c.careNote}\n\n[${c.careLink}](${absoluteUrl(c.careHref)})`),
  section(`${c.faqTitle} ${c.faqEmphasis}`,list(c.faq)),
  section(`${c.contactTitle} ${c.contactEmphasis}`,`${c.contactBody}\n\n[${c.cta}](${absoluteUrl(route)}#anfrage)\n\n${contactEmail}`),
@@ -273,7 +273,7 @@ function renderServiceDetail(locale, key) {
   const parts = [pageHeader({title: t.name, canonicalPath:route, description:t.description, alternatePath:detailPaths[locale === 'de' ? 'en' : 'de'][key]}), `${t.title.join(' ')}\n\n${t.intro}`];
   const pairs = items => items.map(([title, body]) => `### ${title}\n\n${body}`).join('\n\n');
   parts.push(section(t.problemTitle.join(' '), pairs(t.problems)));
-  parts.push(section(t.scopeTitle.join(' '), `${t.scopeIntro}\n\n${pairs(t.scope)}\n\n${t.boundary}`));
+  parts.push(section(t.scopeTitle.join(' '), `${t.scopeIntro}\n\n${pairs(t.scope)}\n\n${t.boundary}${t.boundaryLink ? ` ${t.boundaryLink.before}[${t.boundaryLink.label}](${absoluteUrl(t.boundaryLink.href)})${t.boundaryLink.after}` : ''}`));
   parts.push(section(locale === 'de' ? 'Zusammenarbeit' : 'Working together', `${pairs(t.process)}\n\n${t.contribution}`));
   const related = key === 'ai' ? [
     [locale === 'de' ? 'KI-Potenzialanalyse' : 'AI potential analysis', potentialPaths[locale]],

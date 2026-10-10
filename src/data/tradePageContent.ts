@@ -51,6 +51,12 @@ export const tradePageContent = {
     "ownLabel": "Ihr Beitrag",
     "ownDetail": "Informationen über Ihren Betrieb, vorhandene nutzbare Bilder und gebündeltes Feedback. Sie prüfen die fachlichen Angaben und geben den Entwurf frei.",
     "imageCaption": "Von Ihrem Betriebswissen zum Website-Entwurf · KI-generierte Illustration",
+    "processNote": {
+      "before": "Wenn Sie für Ihren Betrieb eine ",
+      "label": "Webseite erstellen",
+      "href": "/de/website-erstellen-lassen/",
+      "after": " lassen möchten, finden Sie hier den Ablauf – vom ersten Gespräch bis zur Freigabe."
+    },
     "processTitle": "Von der ersten Idee",
     "processEmphasis": "bis zum Start.",
     "steps": [
