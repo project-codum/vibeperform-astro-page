@@ -1,6 +1,6 @@
 ---
 interface Props {
-	label: string;
+	label: string | false;
 	class?: string;
 	mediaClass?: string;
 	placement?: 'auto' | 'overlay' | 'below';
@@ -18,7 +18,7 @@ const {
 	<div class:list={['ai-image-frame__media', mediaClass]}>
 		<slot />
 	</div>
-	<span class="ai-image-frame__badge" role="note">{label}</span>
+	{label && <span class="ai-image-frame__badge" role="note">{label}</span>}
 </div>
 
 <style>

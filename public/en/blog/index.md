@@ -7,15 +7,17 @@ Good decisions start with understanding.
 
 What makes a good website? How do people find your business? And how does your presence stay current? Explore our services and insights into digital technology.
 
-## Website & business profile plan with clarity.
+## Latest article
 
-What content does your business need? What belongs in ongoing support? How do your website and Google Business Profile fit together? These guides help you prepare the next decision.
-
-### [What content does a trade business website need?](https://www.vibeperform.com/en/blog/trade-business-website-content-checklist/)
+### [Google Business Profile and website: which details should agree?](https://www.vibeperform.com/en/blog/google-business-profile-website-consistency/)
 
 2026-09-30 · 4 min read
 
-Services, real work examples, service area and contact details: a practical checklist for preparing the content of your trade business website.
+A checklist for business name, contact details, hours and services, with responsibilities and important differences between your profile and website.
+
+## Website & business profile plan with clarity.
+
+What content does your business need? What belongs in ongoing support? How do your website and Google Business Profile fit together? These guides help you prepare the next decision.
 
 ### [What belongs in ongoing website support?](https://www.vibeperform.com/en/blog/ongoing-website-support-scope-checklist/)
 
@@ -23,11 +25,11 @@ Services, real work examples, service area and contact details: a practical chec
 
 Update content, check contact routes and plan improvements: a checklist for agreeing the tasks, responsibilities and approvals in website support.
 
-### [Google Business Profile and website: which details should agree?](https://www.vibeperform.com/en/blog/google-business-profile-website-consistency/)
+### [What content does a trade business website need?](https://www.vibeperform.com/en/blog/trade-business-website-content-checklist/)
 
 2026-09-30 · 4 min read
 
-A checklist for business name, contact details, hours and services, with responsibilities and important differences between your profile and website.
+Services, real work examples, service area and contact details: a practical checklist for preparing the content of your trade business website.
 
 ## AI & automation in context.
 
