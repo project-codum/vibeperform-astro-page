@@ -21,7 +21,7 @@ const [{ workshopsContent }, { aboutContent }, { exploreWorkshopContent }] =
 		jiti.import('../src/data/exploreWorkshopContent.ts'),
 	]);
 
-const { knowledgeContent } = await jiti.import('../src/data/knowledgeContent.ts');
+const { knowledgeContent, groupKnowledgePosts } = await jiti.import('../src/data/knowledgeContent.ts');
 const { tradePageContent } = await jiti.import('../src/data/tradePageContent.ts');
 const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
 const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
@@ -212,12 +212,12 @@ function renderAboutAgentPage(locale = 'de') {
 
 function renderKnowledgeIndex(locale, posts) {
  const c = knowledgeContent[locale];
- const websitePosts = posts.filter(post => post.category === 'website').sort((a,b)=>Number(a.guideOrder || 99)-Number(b.guideOrder || 99) || new Date(b.date)-new Date(a.date));
- const supplementalPosts = posts.filter(post => post.category !== 'website').sort((a,b)=>new Date(b.date)-new Date(a.date));
+ const { featured, website: websitePosts, supplemental: supplementalPosts } = groupKnowledgePosts(posts, post => post);
  const renderPosts = list => list.map(p=>`### [${p.title}](${absoluteUrl(p.canonicalPath)})\n\n${p.date} · ${p.readTime}\n\n${p.excerpt}`).join('\n\n');
  return normalizeBlankLines([
   pageHeader({title:c.title, canonicalPath:`/${locale}/blog/`, description:c.intro, alternatePath:`/${locale==='de'?'en':'de'}/blog/`}),
   `${c.headline} ${c.emphasis}`, c.intro,
+  ...(featured ? [section(c.latest, renderPosts([featured]))] : []),
   section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${renderPosts(websitePosts)}`),
   section(`${c.supplementaryTitle} ${c.supplementaryEmphasis}`, `${c.supplementaryIntro}\n\n${renderPosts(supplementalPosts)}`),
   section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${contactEmail}\n\n${calendarUrl}`),

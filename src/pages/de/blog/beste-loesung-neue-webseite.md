@@ -14,7 +14,7 @@ coverImage: "/blog/beste-loesung-neue-webseite/hero-vorbereitung-webseite.webp"
 coverImageAlt: "Auf einem Schreibtisch liegen Website-Skizzen, Bildauswahl und Arbeitsmaterial; ein Laptop zeigt eine Beispielwebsite."
 coverImageWidth: 1672
 coverImageHeight: 941
-coverImageDisclosure: "KI-generiertes redaktionelles Motiv"
+coverImageDisclosure: false
 ctaTitle: "Welche Lösung passt zu Ihrem Vorhaben?"
 ctaBody: "Beschreiben Sie uns Ihr Vorhaben. Gemeinsam klären wir Seiten, Funktionen und Umfang – und welche technische Lösung dazu passt."
 ctaButtonText: "Neue Website besprechen"
@@ -23,7 +23,7 @@ ctaHref: "/de/website-erstellen-lassen/#kontakt"
 
 Die beste Lösung für eine neue Webseite hängt von Ihrem Ziel, Ihrem Budget, Ihren Vorkenntnissen und der späteren Pflege ab. Sie können die Webseite mit einer Baukastenlösung oder einem KI-Website-Generator selbst erstellen oder die Arbeit einer Agentur übergeben. **Wenn Ihre Website Kunden überzeugen und Anfragen ermöglichen soll, entscheidet vor allem die Vorbereitung:** Wer soll die Webseite besuchen? Welche Fragen muss sie beantworten? Wie kommt der Besucher zum nächsten Schritt? Ein Profi kann diese Arbeit strukturieren und Ihnen viel Einarbeitung abnehmen.
 
-*Redaktionelles KI-Motiv: Eine gute Website beginnt mit dem Definieren klarer Ziele, dem Kuratieren passender Inhalte und einem durchdachten Seitenplan.*
+*Eine gute Website beginnt mit dem Definieren klarer Ziele, dem Kuratieren passender Inhalte und einem durchdachten Seitenplan.*
 
 Viele Vergleiche beginnen bei Baukastenlösungen wie [Wix](https://de.wix.com/) und [WordPress](https://de.wordpress.org/) oder KI-Website-Generatoren wie [Base44](https://base44.com/) und [Lovable](https://lovable.dev/). Eine Software nimmt Ihnen bestimmte technische Aufgaben ab. Sie kennt deshalb noch nicht Ihre Kunden, Ihre Leistungen oder die Gründe, aus denen jemand gerade Ihren Betrieb beauftragen sollte. Genau hier beginnt professionelle Websitearbeit bei VibePerform. Was soll die Website für den Betrieb leisten – und wer kümmert sich darum?
 
