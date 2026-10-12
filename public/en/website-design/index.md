@@ -109,7 +109,7 @@ Our dedicated offer for trade businesses addresses common questions about enquir
 
 ### How much does a new website cost?
 
-Websites usually start at €1,800 including VAT. The price depends on how many additional pages are needed.
+Websites usually start at €1,799 including VAT. The price depends on how many additional pages are needed.
 
 ### Can you redesign our existing website?
 
