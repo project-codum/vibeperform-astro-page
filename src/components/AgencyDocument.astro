@@ -8,10 +8,12 @@ import AgencyFooter from './AgencyFooter.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { absoluteUrl, jsonLd, organizationSchema, websiteSchema, type Locale } from '../lib/siteMetadata';
 
-interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; preview?: boolean; noindex?: boolean; about?: boolean; image?: string; }
-const { locale, title, description, path, alternatePath, service = false, preview = false, noindex = false, about = false, image } = Astro.props;
+interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; preview?: boolean; noindex?: boolean; about?: boolean; image?: string; imageWidth?: number; imageHeight?: number; imageAlt?: string; }
+const { locale, title, description, path, alternatePath, service = false, preview = false, noindex = false, about = false, image, imageWidth, imageHeight, imageAlt } = Astro.props;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const canonical = absoluteUrl(path);
+const socialImage = absoluteUrl(image ?? '/vibeperform-logo.png');
+const socialImageAlt = imageAlt ?? (about ? 'Marlon Dietrich · VibePerform' : 'VibePerform');
 const data = [organizationSchema(), websiteSchema(locale), {
   '@context': 'https://schema.org', '@type': service ? 'Service' : about ? 'AboutPage' : 'CollectionPage',
   '@id': `${canonical}#${service ? 'service' : 'webpage'}`, name: title.split(' | ')[0], description, url: canonical,
@@ -44,8 +46,20 @@ const data = [organizationSchema(), websiteSchema(locale), {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
-    <meta property="og:image" content={absoluteUrl(image ?? '/vibeperform-logo.png')} />
-    <meta property="og:image:alt" content={about ? 'Marlon Dietrich · VibePerform' : 'VibePerform'} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    {about && <>
+      <meta property="og:locale:alternate" content={locale === 'de' ? 'en_US' : 'de_DE'} />
+      <meta property="og:image:secure_url" content={socialImage} />
+      <meta property="og:image:type" content="image/webp" />
+      {imageWidth && <meta property="og:image:width" content={imageWidth} />}
+      {imageHeight && <meta property="og:image:height" content={imageHeight} />}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={socialImage} />
+      <meta name="twitter:image:alt" content={socialImageAlt} />
+    </>}
     <script type="application/ld+json" set:html={jsonLd(data)} />
   </head>
   <body>
