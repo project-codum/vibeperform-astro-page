@@ -4,14 +4,16 @@ import AgencyDocument from './AgencyDocument.astro';
 import { aboutContent, aboutPaths, type AboutLocale } from '../data/aboutContent';
 import { bookingUrl, contactEmail } from '../lib/siteMetadata';
 import portrait from '../assets/agency/marlon-studio-portrait-v1.png';
+import heroPortrait from '../assets/agency/marlon-studio-portrait-outside-frame-v1.png';
 import '../styles/about-page.css';
 interface Props { locale: AboutLocale; }
 const { locale } = Astro.props;
 const c = aboutContent[locale];
 const alternate = locale === 'de' ? 'en' : 'de';
-const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' });
+const shareImage = await getImage({ src: heroPortrait, width: 900, format: 'webp' });
+const shareImageAlt = locale === 'de' ? 'Marlon Dietrich, Inhaber von VibePerform' : 'Marlon Dietrich, owner of VibePerform';
 ---
-<AgencyDocument locale={locale} title={c.metaTitle} description={c.metaDescription} path={aboutPaths[locale]} alternatePath={aboutPaths[alternate]} about image={shareImage.src}>
+<AgencyDocument locale={locale} title={c.metaTitle} description={c.metaDescription} path={aboutPaths[locale]} alternatePath={aboutPaths[alternate]} about image={shareImage.src} imageWidth={Number(shareImage.attributes.width)} imageHeight={Number(shareImage.attributes.height)} imageAlt={shareImageAlt}>
   <section class="ag-hero" aria-labelledby="agency-title" id="home-intro" tabindex="-1">
     <div class="hp-wrap ag-hero-grid">
       <div class="ag-hero-copy">
@@ -20,7 +22,7 @@ const shareImage = await getImage({ src: portrait, width: 900, format: 'webp' })
         <a class="hp-button" href="#kontakt">{c.hero.action}<span aria-hidden="true">↗</span></a>
       </div>
       <figure class="ag-portrait">
-        <div class="ag-portrait-frame"><Image src={portrait} alt="Marlon Dietrich" widths={[400,640,900,1122]} sizes="(max-width: 760px) 90vw, 42vw" format="webp" loading="eager" fetchpriority="high" /></div>
+        <div class="ag-portrait-frame"><Image src={heroPortrait} alt="Marlon Dietrich" widths={[400,640,900,1122]} sizes="(max-width: 760px) 90vw, 42vw" format="webp" loading="eager" fetchpriority="high" /></div>
         <figcaption><strong>Marlon Dietrich</strong><span>{c.hero.role}</span></figcaption>
       </figure>
     </div>
