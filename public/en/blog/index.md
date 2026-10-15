@@ -1,9 +1,9 @@
-# Insights for your online presence | VibePerform
+# Website guides: Web design, SEO & support.
 Canonical URL: https://www.vibeperform.com/en/blog/
 German alternate: https://www.vibeperform.com/de/blog/
 Summary: What makes a good website? How do people find your business? And how does your presence stay current? Explore our services and insights into digital technology.
 
-Good decisions start with understanding.
+Website guides: Web design, SEO & support.
 
 What makes a good website? How do people find your business? And how does your presence stay current? Explore our services and insights into digital technology.
 

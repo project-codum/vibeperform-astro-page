@@ -1,4 +1,4 @@
-# Your website is your digital business card.
+# About VibePerform: the modern web agency.
 Canonical URL: https://www.vibeperform.com/en/about-us/
 German alternate: https://www.vibeperform.com/de/ueber-uns/
 Summary: Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.

@@ -1,4 +1,4 @@
-# Which office work do you really need to do yourself?
+# AI potential analysis for your business
 
 Canonical URL: https://www.vibeperform.com/en/ai-potential-analysis/
 

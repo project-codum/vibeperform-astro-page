@@ -8,7 +8,7 @@ export const exploreWorkshopContent = {
 		backToWorkshops: 'Zurück zu den Workshops',
 		outcomeId: 'ergebnis',
 		phaseLabel: 'Phase 1',
-		title: 'Der strategische Explore Workshop',
+		title: 'Explore Workshop für Ihre KI-Strategie',
 		subtitle: 'Von der Analyse zu passenden nächsten Schritten.',
 		intro:
 			'Einzelne KI-Experimente beantworten noch nicht, ob ein Einsatz zum Betrieb passt. Dieser Workshop betrachtet Ziele, Daten und Abläufe gemeinsam und hilft dabei, mögliche Ansatzpunkte und Voraussetzungen einzuordnen.',
@@ -108,7 +108,7 @@ export const exploreWorkshopContent = {
 		backToWorkshops: 'Back to workshops',
 		outcomeId: 'outcome',
 		phaseLabel: 'Phase 1',
-		title: 'The Strategic Explore Workshop',
+		title: 'Explore Workshop for Your AI Strategy',
 		subtitle: 'From analysis to vision. From overload to absolute clarity.',
 		intro:
 			'Individual AI experiments do not answer whether an approach fits your organization. This workshop considers goals, data, and workflows together to help assess possible starting points and prerequisites.',

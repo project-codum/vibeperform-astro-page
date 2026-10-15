@@ -1,4 +1,4 @@
-# Ihre Arbeit überzeugt. Ihr Auftritt sollte das auch.
+# Websites für Handwerksbetriebe. Ein Auftritt, der überzeugt.
 Canonical URL: https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/
 Summary: Wir erstellen Websites, die zeigen, was Ihr Betrieb kann. Mit klaren Leistungen, Einblicken in Ihre Arbeit und einfachen Wegen für Projektanfragen und Bewerbungen.
 

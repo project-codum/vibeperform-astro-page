@@ -1,9 +1,9 @@
-# Google Business Profile
+# Google Business Profile. Known locally. Clear online.
 Canonical URL: https://www.vibeperform.com/en/google-business-profile/
 German alternate: https://www.vibeperform.com/de/google-unternehmensprofil/
 Summary: Set up, improve and maintain your Google Business Profile. VibePerform aligns business details, images and contact options with your website.
 
-Known locally. Clear online.
+Google Business Profile. Known locally. Clear online.
 
 Current opening hours, relevant services and a direct way to reach you. We help set up, improve and maintain your Google Business Profile within the agreed scope.
 

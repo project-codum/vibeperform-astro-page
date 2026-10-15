@@ -1,9 +1,9 @@
-# AI consulting
+# AI consulting & strategy. A clear next step.
 Canonical URL: https://www.vibeperform.com/en/ai-strategy/
 German alternate: https://www.vibeperform.com/de/ki-strategie/
 Summary: Additional AI consulting for small businesses: understand a workflow, assess useful assistance and identify a sensible next step.
 
-Less uncertainty about AI. A clear next step.
+AI consulting & strategy. A clear next step.
 
 Which recurring office task takes up your time? We examine a specific workflow, identify where AI could help prepare work and clarify the information and human decisions it requires.
 

@@ -12,7 +12,7 @@ export const potentialAnalysisContent = {
 		hero: {
 			kicker: 'KI-Potenzialanalyse · eine Stunde',
 			duration: '60 Minuten',
-			title: 'Welche Büroarbeit müssen Sie wirklich selbst machen?',
+			title: 'KI-Potenzialanalyse für Ihren Betrieb',
 			intro:
 				'Wir nehmen einen echten Ablauf aus Ihrem Betrieb und schauen gemeinsam, was eine Assistenz mit Ihrer Einweisung vorbereiten kann. Online oder nach Absprache vor Ort.',
 			primaryCta: { label: 'Analyse anfragen', href: contactHref },
@@ -81,7 +81,7 @@ export const potentialAnalysisContent = {
 			hero: {
 			kicker: 'AI potential analysis · one hour',
 			duration: '60 minutes',
-			title: 'Which office work do you really need to do yourself?',
+			title: 'AI potential analysis for your business',
 			intro:
 				'We take a real workflow from your business and identify what an assistant could prepare with your briefing. Online or on site by arrangement.',
 			primaryCta: { label: 'Request an analysis', href: contactHrefEn },

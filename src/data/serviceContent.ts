@@ -11,7 +11,7 @@ export const serviceContent = {
     overview: {
       title: 'Leistungen für Ihren digitalen Firmenauftritt | VibePerform',
       description: 'Website-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.',
-      kicker: 'Unsere Leistungen', headline: 'Ihr digitaler Auftritt.', emphasis: 'Als Ganzes gedacht.',
+      kicker: 'Unsere Leistungen', headline: 'Webdesign, SEO & Inhalte.', emphasis: 'Unsere Leistungen für Sie.',
       intro: 'Eine Website, die Ihren Betrieb zeigt. Inhalte, die Ihre Leistungen erklären. Unternehmensprofile, die dazu passen. Wir gestalten Ihren Auftritt und entwickeln ihn mit Ihnen weiter.',
       action: 'Leistungen entdecken', sectionTitle: 'Was Ihr Auftritt braucht.', sectionEmphasis: 'Und wie wir helfen.',
       sectionIntro: 'Starten Sie dort, wo Ihr Unternehmen gerade steht. Unsere Leistungen lassen sich einzeln beauftragen und sinnvoll miteinander verbinden.',
@@ -30,7 +30,7 @@ export const serviceContent = {
     website: {
       title: 'Website erstellen lassen für Ihr Unternehmen | VibePerform',
       description: 'Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.',
-      kicker: 'Website erstellen lassen', headline: 'Gute Arbeit verdient', emphasis: 'einen guten Auftritt.',
+      kicker: 'Website erstellen lassen', headline: 'Website erstellen lassen.', emphasis: 'Ein Auftritt für Ihr Unternehmen.',
       intro: 'Zeigen Sie online, was Ihr Unternehmen ausmacht. Wir planen, gestalten und entwickeln Ihre Website – mit verständlichen Inhalten und einem klaren Weg zur Anfrage.',
       action: 'Website besprechen', secondary: 'So entsteht Ihre Website',
       mockLabel: 'Gestaltungsbeispiel', mockBrand: 'Ihr Unternehmen', mockNav: 'Leistungen · Über uns · Kontakt', mockTitle: 'Mit Können.', mockEmphasis: 'Mit Leidenschaft.', mockText: 'Wir zeigen, was Ihren Betrieb besonders macht.', mockButton: 'Unsere Arbeit entdecken', mockFooter: 'Klar gestaltet. Einfach zu erreichen.',
@@ -68,7 +68,7 @@ export const serviceContent = {
     overview: {
       title: 'Services for your online presence | VibePerform',
       description: 'Website design, redesign, ongoing support, SEO, Google Business Profiles, copy and graphics. Discover VibePerform’s services.',
-      kicker: 'Our services', headline: 'Your online presence.', emphasis: 'Everything considered.',
+      kicker: 'Our services', headline: 'Web design, SEO & content.', emphasis: 'Our services for your business.',
       intro: 'A website that reflects your business. Content that explains your services. Business profiles that tell the same story. We create your presence and keep developing it with you.',
       action: 'Explore our services', sectionTitle: 'What your presence needs.', sectionEmphasis: 'How we can help.',
       sectionIntro: 'Start where your business is today. Our services can be commissioned individually and combined to meet your needs.', categories: ['Websites', 'Visibility', 'Content'],
@@ -86,7 +86,7 @@ export const serviceContent = {
     website: {
       title: 'Website design & development for your business | VibePerform',
       description: 'A business website that explains your services clearly. VibePerform brings together web design, copy, SEO and ongoing support.',
-      kicker: 'Website design & development', headline: 'Good work deserves', emphasis: 'a great presence.',
+      kicker: 'Website design & development', headline: 'Website design & development.', emphasis: 'A presence for your business.',
       intro: 'Show what makes your business different. We plan, design and develop your website with clear content and a simple route to an enquiry.',
       action: 'Discuss your website', secondary: 'How we build your website',
       mockLabel: 'Design example', mockBrand: 'Your business', mockNav: 'Services · About · Contact', mockTitle: 'With skill.', mockEmphasis: 'With passion.', mockText: 'Show what makes your business special.', mockButton: 'Discover our work', mockFooter: 'Clear design. Easy to reach.',

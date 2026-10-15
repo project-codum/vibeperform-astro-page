@@ -7,7 +7,7 @@ export const workshopsContent = {
 
 		hero: {
 			kicker: 'Workshops',
-			title: 'Our Workshops at a Glance',
+			title: 'Our AI Workshops at a Glance',
 			intro: 'Together we identify AI opportunities inside your processes, then build tangible solutions to prove the impact.',
 			// sub: 'No generic slide decks. We work on your process, with your team, toward a solution you could ship.',
 		},
@@ -157,7 +157,7 @@ export const workshopsContent = {
 
 			hero: {
 				kicker: 'Workshops',
-				title: 'Unsere Workshops im Überblick',
+				title: 'Unsere KI-Workshops im Überblick',
 				intro: 'In unseren Workshops identifizieren wir gemeinsam KI-Potenziale für eure Prozesse. Darauf aufbauend entwickeln oder installieren wir greifbare Lösungen für euch.',
 			// sub: 'Keine Folienschlacht. Wir arbeiten direkt an euren Abläufen, mit eurem Team, auf ein konkretes Ergebnis hin.',
 		},

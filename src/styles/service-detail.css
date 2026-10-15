@@ -7,3 +7,6 @@
 @media(prefers-reduced-motion:reduce){.sd-hero *{scroll-behavior:auto}}
 
 .sd-related-grid>a{min-width:0}.sd-related-grid h3 .sd-related-name{min-width:0;overflow-wrap:anywhere;hyphens:auto;color:inherit}.sd-related-grid h3>span[aria-hidden]{flex-shrink:0}
+
+/* Keep the full SEO term on one line where the two-column hero has room. */
+@media(min-width:1100px){.sd-seo h1{font-size:clamp(36px,3.333vw,48px);max-width:none;hyphens:manual}}

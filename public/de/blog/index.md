@@ -1,9 +1,9 @@
-# Wissen für Ihren digitalen Firmenauftritt | VibePerform
+# Website-Ratgeber: Webdesign, SEO & Betreuung.
 Canonical URL: https://www.vibeperform.com/de/blog/
 English alternate: https://www.vibeperform.com/en/blog/
 Summary: Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
-Gute Entscheidungen beginnen mit Verständnis.
+Website-Ratgeber: Webdesign, SEO & Betreuung.
 
 Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 

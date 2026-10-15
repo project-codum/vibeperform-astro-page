@@ -11,7 +11,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     const html=await readFile(path.join(dist,route),'utf8');
     assert.equal((html.match(/<h1\b/g)||[]).length,1);
     assert.doesNotMatch(html,/class="vf-kicker"|Für Handwerksbetriebe und kleine Unternehmen\.|For trade businesses and small companies\./);
-    assert.match(html,language==='de'?/class="vf-audience">Websites &amp; Unternehmensprofile<\/p>/:/class="vf-audience">Websites &amp; business profiles<\/p>/);
+    assert.doesNotMatch(html,/class="vf-audience"/);
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
     const actions=html.match(/<div class="vf-actions">([\s\S]*?)<\/div>/)?.[1];
     assert.ok(actions);
@@ -127,7 +127,7 @@ test('native homepage animation distinguishes the portrait business profile and 
   assert.match(styles,/@keyframes hp-presence-pop-four\{0%,29%\{opacity:0/);
 });
 
-test('homepage problems copy follows the visual on narrow screens and website support hero omits its kicker',async()=>{
+test('homepage problems copy follows the visual on narrow screens and service heroes avoid repetitive kickers',async()=>{
   const homepage=await readFile(path.join(dist,'de/index.html'),'utf8');
   const section=homepage.match(/<section[^>]*id="home-next"[\s\S]*?<\/section>/)?.[0];
   assert.ok(section);
@@ -145,5 +145,8 @@ test('homepage problems copy follows the visual on narrow screens and website su
     assert.doesNotMatch(hero,/class="sv-kicker"/);
   }
   const redesign=await readFile(path.join(dist,'de/website-ueberarbeiten/index.html'),'utf8');
-  assert.match(redesign,/class="sv-kicker"/);
+  assert.doesNotMatch(redesign.match(/<div class="sd-hero-grid">([\s\S]*?)<\/div>/)?.[1],/class="sv-kicker"/);
+  const seo=await readFile(path.join(dist,'de/suchmaschinenoptimierung/index.html'),'utf8');
+  assert.match(seo,/<p class="sv-kicker">Die richtigen Fragen\. Die passenden Antworten\.<\/p>/);
+  assert.doesNotMatch(seo,/<p class="sv-kicker">Suchmaschinenoptimierung/);
 });

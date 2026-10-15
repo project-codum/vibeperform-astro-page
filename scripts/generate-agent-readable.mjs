@@ -118,7 +118,7 @@ function renderHomeAgentPage() {
  const articles = items => items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n');
  const issues = items => items.map(item => `- ${item.title}`).join('\n');
  return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
-${section('Positionierung', `${intro.headline.join(' ')} ${intro.emphasis}\n\n${intro.intro.join(' ')}\n\n${intro.audience}`)}
+${section('Positionierung', `${intro.headline}\n\n${intro.intro.join(' ')}`)}
 ${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${issues(c.problems.items)}`)}
 ${section('Unsere Leistungen', `${c.services.intro}\n\n${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}\n\n${c.services.extra}`)}
 ${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
@@ -215,7 +215,7 @@ function renderKnowledgeIndex(locale, posts) {
  const { featured, website: websitePosts, supplemental: supplementalPosts } = groupKnowledgePosts(posts, post => post);
  const renderPosts = list => list.map(p=>`### [${p.title}](${absoluteUrl(p.canonicalPath)})\n\n${p.date} · ${p.readTime}\n\n${p.excerpt}`).join('\n\n');
  return normalizeBlankLines([
-  pageHeader({title:c.title, canonicalPath:`/${locale}/blog/`, description:c.intro, alternatePath:`/${locale==='de'?'en':'de'}/blog/`}),
+  pageHeader({title:`${c.headline} ${c.emphasis}`, canonicalPath:`/${locale}/blog/`, description:c.intro, alternatePath:`/${locale==='de'?'en':'de'}/blog/`}),
   `${c.headline} ${c.emphasis}`, c.intro,
   ...(featured ? [section(c.latest, renderPosts([featured]))] : []),
   section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${renderPosts(websitePosts)}`),
@@ -270,7 +270,7 @@ function renderServicePage(locale, kind) {
 function renderServiceDetail(locale, key) {
   const t = serviceDetails[locale][key];
   const route = detailPaths[locale][key];
-  const parts = [pageHeader({title: t.name, canonicalPath:route, description:t.description, alternatePath:detailPaths[locale === 'de' ? 'en' : 'de'][key]}), `${t.title.join(' ')}\n\n${t.intro}`];
+  const parts = [pageHeader({title: t.title.join(' '), canonicalPath:route, description:t.description, alternatePath:detailPaths[locale === 'de' ? 'en' : 'de'][key]}), `${t.title.join(' ')}\n\n${t.intro}`];
   const pairs = items => items.map(([title, body]) => `### ${title}\n\n${body}`).join('\n\n');
   parts.push(section(t.problemTitle.join(' '), pairs(t.problems)));
   parts.push(section(t.scopeTitle.join(' '), `${t.scopeIntro}\n\n${pairs(t.scope)}\n\n${t.boundary}${t.boundaryLink ? ` ${t.boundaryLink.before}[${t.boundaryLink.label}](${absoluteUrl(t.boundaryLink.href)})${t.boundaryLink.after}` : ''}`));
