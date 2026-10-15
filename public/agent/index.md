@@ -8,8 +8,6 @@ Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, T
 Webseiten und Unternehmensprofile
 
 Wir pflegen Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.
-
-Websites & Unternehmensprofile
 ## Damit aus dem ersten Eindruck der erste Schritt wird.
 
 Wir halten Ihren Online-Auftritt immer aktuell.

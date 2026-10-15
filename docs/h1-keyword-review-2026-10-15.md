@@ -117,3 +117,5 @@ Der Einleitungstext lautet jetzt:
 - EN: „We take care of your online presence. And keep developing it with you.“
 
 Der lange deutsche Fachbegriff darf auf kleinen Bildschirmen natürlich umbrechen. Build und alle 84 Tests bestanden. Die DE-/EN-Startseite und die deutsche Root-Kopie wurden bei 320, 390 und 1440 Pixeln geprüft: neun Kombinationen ohne Textbeschnitt oder Überlauf. Noch nicht veröffentlicht.
+
+Die wiederholende kleine Themenzeile unter dem Einleitungstext der Startseite wurde auf Deutsch und Englisch entfernt, einschließlich zugehöriger Daten, CSS und Markdown-Wiederholung.
