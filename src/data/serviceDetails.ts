@@ -239,7 +239,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     "seo": {
       "name": "Suchmaschinenoptimierung",
       "description": "SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.",
-      "kicker": "Suchmaschinenoptimierung · SEO",
+      "kicker": "Die richtigen Fragen. Die passenden Antworten.",
       "title": [
         "SEO –",
         "Suchmaschinenoptimierung"
@@ -882,7 +882,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     "seo": {
       "name": "Search engine optimisation",
       "description": "SEO for business websites: research customer questions, organise relevant pages and improve content and technical foundations.",
-      "kicker": "Search engine optimisation · SEO",
+      "kicker": "The right questions. The relevant answers.",
       "title": [
         "SEO –",
         "Search engine optimisation"

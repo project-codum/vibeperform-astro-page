@@ -98,3 +98,11 @@ Die H1 macht den Inhalt eindeutiger. Sie allein garantiert weder Indexierung noc
 ## Nachweise
 
 Im übergeordneten Paketordner: `h1-before.json`, `h1-after.json`, `browser-h1-check.json`, `test-after.log` und die PNG-Screenshots. Lokale Vorschau: http://127.0.0.1:4337/de/suchmaschinenoptimierung/ .
+
+## Korrektur: Dopplungen oberhalb der H1
+
+Auf der deutschen SEO-Seite steht über der H1 jetzt „Die richtigen Fragen. Die passenden Antworten.“; auf Englisch entsprechend „The right questions. The relevant answers.“. Der Text passt auf Desktop in eine Zeile und bei 320 Pixeln in zwei Zeilen.
+
+Wiederholende Themenzeilen oberhalb der H1 wurden auf den übrigen Leistungsdetailseiten, der Website-Erstellung einschließlich V2, der Leistungsübersicht, den Handwerksseiten, der Potenzialanalyse und der Workshopübersicht entfernt. Die bisherigen H1 bleiben vollständig bestehen. Vorhandene Breadcrumbs bleiben zur Orientierung erhalten.
+
+Verifikation dieser Korrektur: Build erfolgreich; 84 vorhandene Tests bestanden. Alle 22 betroffenen DE-/EN-Routen bei 320 und 1440 Pixeln auf Dopplungen und horizontalen Überlauf geprüft (44 Kombinationen, keine Befunde). Die SEO-Seite wurde in beiden Breiten visuell geprüft. H1, Canonicals, robots und Weiterleitungen entsprechen unverändert dem zuvor geprüften Stand. Noch nicht veröffentlicht.

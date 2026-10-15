@@ -127,7 +127,7 @@ test('native homepage animation distinguishes the portrait business profile and 
   assert.match(styles,/@keyframes hp-presence-pop-four\{0%,29%\{opacity:0/);
 });
 
-test('homepage problems copy follows the visual on narrow screens and website support hero omits its kicker',async()=>{
+test('homepage problems copy follows the visual on narrow screens and service heroes avoid repetitive kickers',async()=>{
   const homepage=await readFile(path.join(dist,'de/index.html'),'utf8');
   const section=homepage.match(/<section[^>]*id="home-next"[\s\S]*?<\/section>/)?.[0];
   assert.ok(section);
@@ -145,5 +145,8 @@ test('homepage problems copy follows the visual on narrow screens and website su
     assert.doesNotMatch(hero,/class="sv-kicker"/);
   }
   const redesign=await readFile(path.join(dist,'de/website-ueberarbeiten/index.html'),'utf8');
-  assert.match(redesign,/class="sv-kicker"/);
+  assert.doesNotMatch(redesign.match(/<div class="sd-hero-grid">([\s\S]*?)<\/div>/)?.[1],/class="sv-kicker"/);
+  const seo=await readFile(path.join(dist,'de/suchmaschinenoptimierung/index.html'),'utf8');
+  assert.match(seo,/<p class="sv-kicker">Die richtigen Fragen\. Die passenden Antworten\.<\/p>/);
+  assert.doesNotMatch(seo,/<p class="sv-kicker">Suchmaschinenoptimierung/);
 });
