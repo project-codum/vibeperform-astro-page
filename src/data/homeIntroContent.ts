@@ -5,8 +5,7 @@ export const homeIntroContent = {
   de: {
     title: 'Websites & Unternehmensprofile | VibePerform',
     description: 'Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
-    headline: ['Webseiten und Unternehmensprofile', 'für Ihr Unternehmen.'],
-    emphasis: 'Ein immer aktueller Auftritt.',
+    headline: 'Webseiten und Unternehmensprofile',
     intro: ['Wir pflegen Ihren digitalen Firmenauftritt.', 'Und entwickeln ihn mit Ihnen weiter.'],
     audience: 'Websites & Unternehmensprofile',
     primaryLabel: 'Vorhaben besprechen',
@@ -25,8 +24,7 @@ export const homeIntroContent = {
   en: {
     title: 'Websites & Business Profiles | VibePerform',
     description: 'We create and maintain websites and business profiles. With SEO, copy and graphics, we keep developing your online presence.',
-    headline: ['Websites and Business Profiles', 'for your business.'],
-    emphasis: 'A digital presence always up-to-date.',
+    headline: 'Websites and Business Profiles',
     intro: ['We take care of your online presence.', 'And keep developing it with you.'],
     audience: 'Websites & business profiles',
     primaryLabel: 'Discuss your project',

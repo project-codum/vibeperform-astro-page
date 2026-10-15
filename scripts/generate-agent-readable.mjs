@@ -118,7 +118,7 @@ function renderHomeAgentPage() {
  const articles = items => items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n');
  const issues = items => items.map(item => `- ${item.title}`).join('\n');
  return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
-${section('Positionierung', `${intro.headline.join(' ')} ${intro.emphasis}\n\n${intro.intro.join(' ')}\n\n${intro.audience}`)}
+${section('Positionierung', `${intro.headline}\n\n${intro.intro.join(' ')}\n\n${intro.audience}`)}
 ${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${issues(c.problems.items)}`)}
 ${section('Unsere Leistungen', `${c.services.intro}\n\n${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}\n\n${c.services.extra}`)}
 ${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
