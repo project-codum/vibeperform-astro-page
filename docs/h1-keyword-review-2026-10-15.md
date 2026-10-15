@@ -17,7 +17,7 @@ Die Hauptüberschriften nennen jetzt das jeweilige Seitenthema und die dafür re
 |---|---|---|
 | `/de/blog/` | Gute Entscheidungen beginnen mit Verständnis. | Website-Ratgeber: Webdesign, SEO & Betreuung. |
 | `/de/google-unternehmensprofil/` | Vor Ort bekannt. Online klar erkennbar. | Google-Unternehmensprofil. Vor Ort und online erkennbar. |
-| `/de/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webseiten für Ihr Unternehmen. Ein immer aktueller Auftritt. |
+| `/de/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webseiten und Unternehmensprofile für Ihr Unternehmen. Ein immer aktueller Auftritt. |
 | `/de/ki-potenzialanalyse/` | Welche Büroarbeit müssen Sie wirklich selbst machen? | KI-Potenzialanalyse für Ihren Betrieb |
 | `/de/ki-strategie/` | Weniger Rätsel um KI. Ein klarer nächster Schritt. | KI-Beratung & KI-Strategie. Ein klarer nächster Schritt. |
 | `/de/leistungen/` | Ihr digitaler Auftritt. Als Ganzes gedacht. | Webdesign, SEO & Inhalte. Unsere Leistungen für Sie. |
@@ -37,7 +37,7 @@ Die Hauptüberschriften nennen jetzt das jeweilige Seitenthema und die dafür re
 | `/en/blog/` | Good decisions start with understanding. | Website guides: Web design, SEO & support. |
 | `/en/copy-graphics/` | Your work has substance. Your content shows it. | Copy & graphics. For your online presence. |
 | `/en/google-business-profile/` | Known locally. Clear online. | Google Business Profile. Known locally. Clear online. |
-| `/en/` | Your business keeps evolving. Your website should too. | Websites for your business. A digital presence always up-to-date.     |
+| `/en/` | Your business keeps evolving. Your website should too. | Websites and Business Profiles for your business. A digital presence always up-to-date.     |
 | `/en/search-engine-optimisation/` | The right questions. The relevant answers. | SEO – Search engine optimisation |
 | `/en/services/` | Your online presence. Everything considered. | Web design, SEO & content. Our services for your business. |
 | `/en/website-design/` | Good work deserves a great presence. | Website design & development. A presence for your business. |
@@ -47,7 +47,7 @@ Die Hauptüberschriften nennen jetzt das jeweilige Seitenthema und die dafür re
 | `/en/websites-for-trade-businesses/` | Your work speaks for itself. Your website should, too. | Websites for trade businesses. A presence that reflects your craft. |
 | `/en/workshop/explore-workshop/` | The Strategic Explore Workshop | Explore Workshop for Your AI Strategy |
 | `/en/workshops/` | Our Workshops at a Glance | Our AI Workshops at a Glance |
-| `/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webseiten für Ihr Unternehmen. Ein immer aktueller Auftritt. |
+| `/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webseiten und Unternehmensprofile für Ihr Unternehmen. Ein immer aktueller Auftritt. |
 
 ## Technische Anpassungen
 
@@ -106,3 +106,14 @@ Auf der deutschen SEO-Seite steht über der H1 jetzt „Die richtigen Fragen. Di
 Wiederholende Themenzeilen oberhalb der H1 wurden auf den übrigen Leistungsdetailseiten, der Website-Erstellung einschließlich V2, der Leistungsübersicht, den Handwerksseiten, der Potenzialanalyse und der Workshopübersicht entfernt. Die bisherigen H1 bleiben vollständig bestehen. Vorhandene Breadcrumbs bleiben zur Orientierung erhalten.
 
 Verifikation dieser Korrektur: Build erfolgreich; 84 vorhandene Tests bestanden. Alle 22 betroffenen DE-/EN-Routen bei 320 und 1440 Pixeln auf Dopplungen und horizontalen Überlauf geprüft (44 Kombinationen, keine Befunde). Die SEO-Seite wurde in beiden Breiten visuell geprüft. H1, Canonicals, robots und Weiterleitungen entsprechen unverändert dem zuvor geprüften Stand. Noch nicht veröffentlicht.
+
+## Startseite: Webseiten und Unternehmensprofile
+
+Die erste H1-Zeile lautet nun „Webseiten und Unternehmensprofile“ beziehungsweise „Websites and Business Profiles“. Die anschließenden H1-Zeilen bleiben wie abgestimmt bestehen.
+
+Der Einleitungstext lautet jetzt:
+
+- DE: „Wir pflegen Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.“
+- EN: „We take care of your online presence. And keep developing it with you.“
+
+Der lange deutsche Fachbegriff darf auf kleinen Bildschirmen natürlich umbrechen. Build und alle 84 Tests bestanden. Die DE-/EN-Startseite und die deutsche Root-Kopie wurden bei 320, 390 und 1440 Pixeln geprüft: neun Kombinationen ohne Textbeschnitt oder Überlauf. Noch nicht veröffentlicht.
