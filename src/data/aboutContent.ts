@@ -5,7 +5,7 @@ export const aboutContent = {
     metaTitle: 'Marlon Dietrich & die Agentur | VibePerform',
     metaDescription: 'Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.',
     hero: {
-      title: 'Über VibePerform:', emphasis: 'Ihre Webseitenagentur.',
+      title: 'Über VibePerform:', emphasis: 'Die moderne Webseitenagentur.',
       intro: 'Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
       action: 'Erstgespräch vereinbaren', role: 'Inhaber von VibePerform',
     },
@@ -40,7 +40,7 @@ export const aboutContent = {
     metaTitle: 'Marlon Dietrich & the Agency | VibePerform',
     metaDescription: 'Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.',
     hero: {
-      title: 'About VibePerform:', emphasis: 'your web design agency.',
+      title: 'About VibePerform:', emphasis: 'the modern web agency.',
       intro: 'Marlon Dietrich is the owner of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.',
       action: 'Arrange an initial call', role: 'Owner of VibePerform',
     },

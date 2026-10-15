@@ -17,13 +17,13 @@ Die Hauptüberschriften nennen jetzt das jeweilige Seitenthema und die dafür re
 |---|---|---|
 | `/de/blog/` | Gute Entscheidungen beginnen mit Verständnis. | Website-Ratgeber: Webdesign, SEO & Betreuung. |
 | `/de/google-unternehmensprofil/` | Vor Ort bekannt. Online klar erkennbar. | Google-Unternehmensprofil. Vor Ort und online erkennbar. |
-| `/de/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webdesign & Websites für Ihr Unternehmen. Ein Auftritt, der mitwächst. |
+| `/de/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webseiten für Ihr Unternehmen. Ein immer aktueller Auftritt. |
 | `/de/ki-potenzialanalyse/` | Welche Büroarbeit müssen Sie wirklich selbst machen? | KI-Potenzialanalyse für Ihren Betrieb |
 | `/de/ki-strategie/` | Weniger Rätsel um KI. Ein klarer nächster Schritt. | KI-Beratung & KI-Strategie. Ein klarer nächster Schritt. |
 | `/de/leistungen/` | Ihr digitaler Auftritt. Als Ganzes gedacht. | Webdesign, SEO & Inhalte. Unsere Leistungen für Sie. |
 | `/de/suchmaschinenoptimierung/` | Die richtigen Fragen. Die passenden Antworten. | SEO – Suchmaschinenoptimierung |
 | `/de/texte-grafiken/` | Ihre Arbeit hat Substanz. Ihr Inhalt zeigt sie. | Texte & Grafiken. Für Ihren digitalen Auftritt. |
-| `/de/ueber-uns/` | Ihre Webseite ist Ihre digitale Visitenkarte. | Über VibePerform: Ihre Webseitenagentur. |
+| `/de/ueber-uns/` | Ihre Webseite ist Ihre digitale Visitenkarte. | Über VibePerform: Die moderne Webseitenagentur. |
 | `/de/website-betreuung/` | Ihr Unternehmen verändert sich. Wir halten den Auftritt aktuell. | Website-Betreuung. Wir halten Ihren Auftritt aktuell. |
 | `/de/website-erstellen-lassen/` | Gute Arbeit verdient einen guten Auftritt. | Website erstellen lassen. Ein Auftritt für Ihr Unternehmen. |
 | `/de/website-erstellen-lassen/v2/` | Gute Arbeit verdient einen guten Auftritt. | Website erstellen lassen. Ein Auftritt für Ihr Unternehmen. |
@@ -31,13 +31,13 @@ Die Hauptüberschriften nennen jetzt das jeweilige Seitenthema und die dafür re
 | `/de/websites-fuer-handwerksbetriebe/` | Ihre Arbeit überzeugt. Ihr Auftritt sollte das auch. | Websites für Handwerksbetriebe. Ein Auftritt, der überzeugt. |
 | `/de/workshop/explore-workshop/` | Der strategische Explore Workshop | Explore Workshop für Ihre KI-Strategie |
 | `/de/workshops/` | Unsere Workshops im Überblick | Unsere KI-Workshops im Überblick |
-| `/en/about-us/` | Your website is your digital business card. | About VibePerform: your web design agency. |
+| `/en/about-us/` | Your website is your digital business card. | About VibePerform: the modern web agency. |
 | `/en/ai-potential-analysis/` | Which office work do you really need to do yourself? | AI potential analysis for your business |
 | `/en/ai-strategy/` | Less uncertainty about AI. A clear next step. | AI consulting & strategy. A clear next step. |
 | `/en/blog/` | Good decisions start with understanding. | Website guides: Web design, SEO & support. |
 | `/en/copy-graphics/` | Your work has substance. Your content shows it. | Copy & graphics. For your online presence. |
 | `/en/google-business-profile/` | Known locally. Clear online. | Google Business Profile. Known locally. Clear online. |
-| `/en/` | Your business keeps evolving. Your website should too. | Web design & websites for your business. A presence that grows with you. |
+| `/en/` | Your business keeps evolving. Your website should too. | Websites for your business. A digital presence always up-to-date.     |
 | `/en/search-engine-optimisation/` | The right questions. The relevant answers. | SEO – Search engine optimisation |
 | `/en/services/` | Your online presence. Everything considered. | Web design, SEO & content. Our services for your business. |
 | `/en/website-design/` | Good work deserves a great presence. | Website design & development. A presence for your business. |
@@ -47,7 +47,7 @@ Die Hauptüberschriften nennen jetzt das jeweilige Seitenthema und die dafür re
 | `/en/websites-for-trade-businesses/` | Your work speaks for itself. Your website should, too. | Websites for trade businesses. A presence that reflects your craft. |
 | `/en/workshop/explore-workshop/` | The Strategic Explore Workshop | Explore Workshop for Your AI Strategy |
 | `/en/workshops/` | Our Workshops at a Glance | Our AI Workshops at a Glance |
-| `/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webdesign & Websites für Ihr Unternehmen. Ein Auftritt, der mitwächst. |
+| `/` | Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch. | Webseiten für Ihr Unternehmen. Ein immer aktueller Auftritt. |
 
 ## Technische Anpassungen
 

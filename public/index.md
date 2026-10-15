@@ -5,7 +5,7 @@ Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, T
 
 ## Positionierung
 
-Webdesign & Websites für Ihr Unternehmen. Ein Auftritt, der mitwächst.
+Webseiten für Ihr Unternehmen. Ein immer aktueller Auftritt.
 
 Wir gestalten Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.
 

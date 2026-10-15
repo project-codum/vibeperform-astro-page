@@ -1,4 +1,4 @@
-# Über VibePerform: Ihre Webseitenagentur.
+# Über VibePerform: Die moderne Webseitenagentur.
 Canonical URL: https://www.vibeperform.com/de/ueber-uns/
 English alternate: https://www.vibeperform.com/en/about-us/
 Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.
