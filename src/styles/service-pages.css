@@ -2,7 +2,7 @@
 .sv-hero{position:relative;isolation:isolate;overflow:hidden;background:#111116;color:#f7f4fb;padding:185px 0 80px}
 .sv-hero-inner{position:relative;z-index:1}
 .sv-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#c4b0db;margin:0 0 28px}
-.sv-hero h1{font-size:clamp(48px,6.4vw,84px);line-height:1.05;letter-spacing:-.06em;font-weight:400;margin:0;text-wrap:balance}
+.sv-hero h1{overflow-wrap:anywhere;hyphens:auto;font-size:clamp(48px,6.4vw,84px);line-height:1.05;letter-spacing:-.06em;font-weight:400;margin:0;text-wrap:balance}
 .sv-hero em{font-family:Georgia,'Times New Roman',serif;color:#d9c4ee;font-weight:400}
 .sv-lead{font-size:18px;line-height:1.7;max-width:54ch;color:#c9c4ce;margin:28px 0 32px}
 .sv-orb{position:absolute;z-index:0;right:-130px;top:60px;width:560px;height:560px;border-radius:45% 55% 61% 39%;transform:rotate(-25deg);background:radial-gradient(circle at 34% 27%,#a682c6 0,#5f447d 14%,#302039 48%,#18131e 70%);opacity:.65;box-shadow:inset -12px -18px 45px #9275a544}

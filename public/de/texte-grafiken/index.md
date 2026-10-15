@@ -1,9 +1,9 @@
-# Texte & Grafiken
+# Texte & Grafiken. Für Ihren digitalen Auftritt.
 Canonical URL: https://www.vibeperform.com/de/texte-grafiken/
 English alternate: https://www.vibeperform.com/en/copy-graphics/
 Summary: Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
 
-Ihre Arbeit hat Substanz. Ihr Inhalt zeigt sie.
+Texte & Grafiken. Für Ihren digitalen Auftritt.
 
 Sie kennen Ihren Betrieb. Wir bringen seine Leistungen auf den Punkt und gestalten die passenden Inhalte für Ihren digitalen Auftritt – verständlich, stimmig und auf Ihre Kunden ausgerichtet.
 

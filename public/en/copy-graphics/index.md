@@ -1,9 +1,9 @@
-# Copy & graphics
+# Copy & graphics. For your online presence.
 Canonical URL: https://www.vibeperform.com/en/copy-graphics/
 German alternate: https://www.vibeperform.com/de/texte-grafiken/
 Summary: Clear website copy, project descriptions and relevant graphics for your online presence. VibePerform prepares content around your business.
 
-Your work has substance. Your content shows it.
+Copy & graphics. For your online presence.
 
 You know your business. We explain its services clearly and create suitable content for your online presence, with a consistent style and your customers in mind.
 

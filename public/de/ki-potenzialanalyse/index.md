@@ -1,4 +1,4 @@
-# Welche Büroarbeit müssen Sie wirklich selbst machen?
+# KI-Potenzialanalyse für Ihren Betrieb
 
 Canonical URL: https://www.vibeperform.com/de/ki-potenzialanalyse/
 

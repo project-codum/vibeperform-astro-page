@@ -12,7 +12,7 @@ export function groupKnowledgePosts<T>(posts: T[], metadata: (post: T) => Pick<K
 export const knowledgeContent = {
   de: {
     title: 'Wissen für Ihren digitalen Firmenauftritt | VibePerform',
-    headline: 'Gute Entscheidungen', emphasis: 'beginnen mit Verständnis.',
+    headline: 'Website-Ratgeber:', emphasis: 'Webdesign, SEO & Betreuung.',
     intro: 'Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.',
     browse: 'Zu den Beiträgen',
     articlesKicker: 'Praktische Leitfäden', articlesTitle: 'Website & Firmenprofil', articlesEmphasis: 'klar planen.',
@@ -23,7 +23,7 @@ export const knowledgeContent = {
   },
   en: {
     title: 'Insights for your online presence | VibePerform',
-    headline: 'Good decisions', emphasis: 'start with understanding.',
+    headline: 'Website guides:', emphasis: 'Web design, SEO & support.',
     intro: 'What makes a good website? How do people find your business? And how does your presence stay current? Explore our services and insights into digital technology.',
     browse: 'Explore the articles',
     articlesKicker: 'Practical guides', articlesTitle: 'Website & business profile', articlesEmphasis: 'plan with clarity.',

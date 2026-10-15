@@ -1,4 +1,4 @@
-# Der strategische Explore Workshop
+# Explore Workshop für Ihre KI-Strategie
 Canonical URL: https://www.vibeperform.com/de/workshop/explore-workshop/
 English alternate: https://www.vibeperform.com/en/workshop/explore-workshop/
 Summary: Einzelne KI-Experimente beantworten noch nicht, ob ein Einsatz zum Betrieb passt. Dieser Workshop betrachtet Ziele, Daten und Abläufe gemeinsam und hilft dabei, mögliche Ansatzpunkte und Voraussetzungen einzuordnen.

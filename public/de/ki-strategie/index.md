@@ -1,9 +1,9 @@
-# KI-Beratung
+# KI-Beratung & KI-Strategie. Ein klarer nächster Schritt.
 Canonical URL: https://www.vibeperform.com/de/ki-strategie/
 English alternate: https://www.vibeperform.com/en/ai-strategy/
 Summary: Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.
 
-Weniger Rätsel um KI. Ein klarer nächster Schritt.
+KI-Beratung & KI-Strategie. Ein klarer nächster Schritt.
 
 Welche wiederkehrende Aufgabe kostet Ihr Büro Zeit? Wir betrachten einen konkreten Arbeitsablauf und prüfen, wo KI sinnvoll vorbereiten kann, welche Informationen sie braucht und was Menschen entscheiden.
 

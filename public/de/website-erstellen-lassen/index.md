@@ -1,4 +1,4 @@
-# Gute Arbeit verdient einen guten Auftritt.
+# Website erstellen lassen. Ein Auftritt für Ihr Unternehmen.
 Canonical URL: https://www.vibeperform.com/de/website-erstellen-lassen/
 English alternate: https://www.vibeperform.com/en/website-design/
 Summary: Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.

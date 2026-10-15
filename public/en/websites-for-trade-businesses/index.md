@@ -1,4 +1,4 @@
-# Your work speaks for itself. Your website should, too.
+# Websites for trade businesses. A presence that reflects your craft.
 Canonical URL: https://www.vibeperform.com/en/websites-for-trade-businesses/
 Summary: We create websites that show what your business can do. With clear services, a look at your work and simple ways to enquire about a project or apply for a job.
 

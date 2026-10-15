@@ -1,8 +1,8 @@
 export const tradePageContent = {
   "de": {
     "kicker": "Websites für Handwerksbetriebe",
-    "title": "Ihre Arbeit überzeugt.",
-    "emphasis": "Ihr Auftritt sollte das auch.",
+    "title": "Websites für Handwerksbetriebe.",
+    "emphasis": "Ein Auftritt, der überzeugt.",
     "intro": "Wir erstellen Websites, die zeigen, was Ihr Betrieb kann. Mit klaren Leistungen, Einblicken in Ihre Arbeit und einfachen Wegen für Projektanfragen und Bewerbungen.",
     "cta": "Website-Check anfragen",
     "note": "Kostenlos und unverbindlich. Auch ohne bestehende Website.",
@@ -118,8 +118,8 @@ export const tradePageContent = {
   },
   "en": {
     "kicker": "Websites for trade businesses",
-    "title": "Your work speaks for itself.",
-    "emphasis": "Your website should, too.",
+    "title": "Websites for trade businesses.",
+    "emphasis": "A presence that reflects your craft.",
     "intro": "We create websites that show what your business can do. With clear services, a look at your work and simple ways to enquire about a project or apply for a job.",
     "cta": "Request a website review",
     "note": "Free and without obligation. Even if you do not have a website yet.",

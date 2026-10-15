@@ -1,9 +1,9 @@
-# Search engine optimisation
+# SEO – Search engine optimisation
 Canonical URL: https://www.vibeperform.com/en/search-engine-optimisation/
 German alternate: https://www.vibeperform.com/de/suchmaschinenoptimierung/
 Summary: SEO for business websites: research customer questions, organise relevant pages and improve content and technical foundations.
 
-The right questions. The relevant answers.
+SEO – Search engine optimisation
 
 Your customers are looking for a solution. We align your website’s structure and content with the services you actually provide and the questions people ask about them.
 

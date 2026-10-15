@@ -1,9 +1,9 @@
-# Suchmaschinenoptimierung
+# SEO – Suchmaschinenoptimierung
 Canonical URL: https://www.vibeperform.com/de/suchmaschinenoptimierung/
 English alternate: https://www.vibeperform.com/en/search-engine-optimisation/
 Summary: SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
 
-Die richtigen Fragen. Die passenden Antworten.
+SEO – Suchmaschinenoptimierung
 
 Ihre Kunden suchen nach einer Lösung. Wir richten Struktur und Inhalte Ihrer Website auf die Leistungen aus, die Sie tatsächlich anbieten – und auf die Fragen, die Menschen dazu stellen.
 

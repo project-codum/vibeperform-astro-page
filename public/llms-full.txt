@@ -12,7 +12,7 @@ Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, T
 
 ## Positionierung
 
-Ihr Unternehmen entwickelt sich. Ihre Webseite sollte das auch.
+Webdesign & Websites für Ihr Unternehmen. Ein Auftritt, der mitwächst.
 
 Wir gestalten Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.
 
@@ -118,7 +118,7 @@ Vorhaben besprechen: https://calendar.app.google/utFQgw33PwJTiDk56
 
 ---
 
-# Unsere Workshops im Überblick
+# Unsere KI-Workshops im Überblick
 Canonical URL: https://www.vibeperform.com/de/workshops/
 English alternate: https://www.vibeperform.com/en/workshops/
 Summary: In unseren Workshops identifizieren wir gemeinsam KI-Potenziale für eure Prozesse. Darauf aufbauend entwickeln oder installieren wir greifbare Lösungen für euch.
@@ -186,7 +186,7 @@ Gespräch buchen: mailto:contact@vibeperform.com
 
 ---
 
-# Der strategische Explore Workshop
+# Explore Workshop für Ihre KI-Strategie
 Canonical URL: https://www.vibeperform.com/de/workshop/explore-workshop/
 English alternate: https://www.vibeperform.com/en/workshop/explore-workshop/
 Summary: Einzelne KI-Experimente beantworten noch nicht, ob ein Einsatz zum Betrieb passt. Dieser Workshop betrachtet Ziele, Daten und Abläufe gemeinsam und hilft dabei, mögliche Ansatzpunkte und Voraussetzungen einzuordnen.
@@ -248,7 +248,7 @@ Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
 
 ---
 
-# Ihre Webseite ist Ihre digitale Visitenkarte.
+# Über VibePerform: Ihre Webseitenagentur.
 Canonical URL: https://www.vibeperform.com/de/ueber-uns/
 English alternate: https://www.vibeperform.com/en/about-us/
 Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.
@@ -287,7 +287,7 @@ contact@vibeperform.com
 
 ---
 
-# Ihr digitaler Auftritt. Als Ganzes gedacht.
+# Webdesign, SEO & Inhalte. Unsere Leistungen für Sie.
 Canonical URL: https://www.vibeperform.com/de/leistungen/
 English alternate: https://www.vibeperform.com/en/services/
 Summary: Website-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.
@@ -378,7 +378,7 @@ contact@vibeperform.com
 
 ---
 
-# Gute Arbeit verdient einen guten Auftritt.
+# Website erstellen lassen. Ein Auftritt für Ihr Unternehmen.
 Canonical URL: https://www.vibeperform.com/de/website-erstellen-lassen/
 English alternate: https://www.vibeperform.com/en/website-design/
 Summary: Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.
@@ -515,12 +515,12 @@ contact@vibeperform.com
 
 ---
 
-# Website überarbeiten
+# Website überarbeiten. Passend zu Ihrem Betrieb.
 Canonical URL: https://www.vibeperform.com/de/website-ueberarbeiten/
 English alternate: https://www.vibeperform.com/en/website-redesign/
 Summary: Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
 
-Ihr Betrieb ist weiter. Ihre Website auch?
+Website überarbeiten. Passend zu Ihrem Betrieb.
 
 Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.
 
@@ -614,12 +614,12 @@ contact@vibeperform.com
 
 ---
 
-# Website betreuen & weiterentwickeln
+# Website-Betreuung. Wir halten Ihren Auftritt aktuell.
 Canonical URL: https://www.vibeperform.com/de/website-betreuung/
 English alternate: https://www.vibeperform.com/en/website-support/
 Summary: Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
 
-Ihr Unternehmen verändert sich. Wir halten den Auftritt aktuell.
+Website-Betreuung. Wir halten Ihren Auftritt aktuell.
 
 Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.
 
@@ -713,12 +713,12 @@ contact@vibeperform.com
 
 ---
 
-# Suchmaschinenoptimierung
+# SEO – Suchmaschinenoptimierung
 Canonical URL: https://www.vibeperform.com/de/suchmaschinenoptimierung/
 English alternate: https://www.vibeperform.com/en/search-engine-optimisation/
 Summary: SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
 
-Die richtigen Fragen. Die passenden Antworten.
+SEO – Suchmaschinenoptimierung
 
 Ihre Kunden suchen nach einer Lösung. Wir richten Struktur und Inhalte Ihrer Website auf die Leistungen aus, die Sie tatsächlich anbieten – und auf die Fragen, die Menschen dazu stellen.
 
@@ -812,12 +812,12 @@ contact@vibeperform.com
 
 ---
 
-# Google-Unternehmensprofil
+# Google-Unternehmensprofil. Vor Ort und online erkennbar.
 Canonical URL: https://www.vibeperform.com/de/google-unternehmensprofil/
 English alternate: https://www.vibeperform.com/en/google-business-profile/
 Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.
 
-Vor Ort bekannt. Online klar erkennbar.
+Google-Unternehmensprofil. Vor Ort und online erkennbar.
 
 Aktuelle Öffnungszeiten, passende Leistungen und ein direkter Weg zu Ihnen. Wir unterstützen Sie bei der Einrichtung, Überarbeitung und vereinbarten Pflege Ihres Google-Unternehmensprofils.
 
@@ -911,12 +911,12 @@ contact@vibeperform.com
 
 ---
 
-# Texte & Grafiken
+# Texte & Grafiken. Für Ihren digitalen Auftritt.
 Canonical URL: https://www.vibeperform.com/de/texte-grafiken/
 English alternate: https://www.vibeperform.com/en/copy-graphics/
 Summary: Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
 
-Ihre Arbeit hat Substanz. Ihr Inhalt zeigt sie.
+Texte & Grafiken. Für Ihren digitalen Auftritt.
 
 Sie kennen Ihren Betrieb. Wir bringen seine Leistungen auf den Punkt und gestalten die passenden Inhalte für Ihren digitalen Auftritt – verständlich, stimmig und auf Ihre Kunden ausgerichtet.
 
@@ -1010,12 +1010,12 @@ contact@vibeperform.com
 
 ---
 
-# KI-Beratung
+# KI-Beratung & KI-Strategie. Ein klarer nächster Schritt.
 Canonical URL: https://www.vibeperform.com/de/ki-strategie/
 English alternate: https://www.vibeperform.com/en/ai-strategy/
 Summary: Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.
 
-Weniger Rätsel um KI. Ein klarer nächster Schritt.
+KI-Beratung & KI-Strategie. Ein klarer nächster Schritt.
 
 Welche wiederkehrende Aufgabe kostet Ihr Büro Zeit? Wir betrachten einen konkreten Arbeitsablauf und prüfen, wo KI sinnvoll vorbereiten kann, welche Informationen sie braucht und was Menschen entscheiden.
 
@@ -1109,7 +1109,7 @@ contact@vibeperform.com
 
 ---
 
-# Ihre Arbeit überzeugt. Ihr Auftritt sollte das auch.
+# Websites für Handwerksbetriebe. Ein Auftritt, der überzeugt.
 Canonical URL: https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/
 Summary: Wir erstellen Websites, die zeigen, was Ihr Betrieb kann. Mit klaren Leistungen, Einblicken in Ihre Arbeit und einfachen Wegen für Projektanfragen und Bewerbungen.
 
@@ -1221,7 +1221,7 @@ contact@vibeperform.com
 
 ---
 
-# Welche Büroarbeit müssen Sie wirklich selbst machen?
+# KI-Potenzialanalyse für Ihren Betrieb
 
 Canonical URL: https://www.vibeperform.com/de/ki-potenzialanalyse/
 

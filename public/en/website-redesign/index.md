@@ -1,9 +1,9 @@
-# Website redesign
+# Website redesign. Built around your business.
 Canonical URL: https://www.vibeperform.com/en/website-redesign/
 German alternate: https://www.vibeperform.com/de/website-ueberarbeiten/
 Summary: Update your existing business website with clearer structure, current content, thoughtful design and straightforward contact options.
 
-Your business has moved on. Has your website?
+Website redesign. Built around your business.
 
 Your website should reflect where your business is today. We review your existing presence, retain what works and improve what no longer serves your services and customers.
 

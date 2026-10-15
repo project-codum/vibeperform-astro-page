@@ -1,4 +1,4 @@
-# Good work deserves a great presence.
+# Website design & development. A presence for your business.
 Canonical URL: https://www.vibeperform.com/en/website-design/
 German alternate: https://www.vibeperform.com/de/website-erstellen-lassen/
 Summary: A business website that explains your services clearly. VibePerform brings together web design, copy, SEO and ongoing support.

@@ -20,8 +20,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.",
       "kicker": "Website-Überarbeitung & Relaunch",
       "title": [
-        "Ihr Betrieb ist weiter.",
-        "Ihre Website auch?"
+        "Website überarbeiten.",
+        "Passend zu Ihrem Betrieb."
       ],
       "intro": "Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.",
       "problemTitle": [
@@ -127,8 +127,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.",
       "kicker": "Website-Betreuung & Weiterentwicklung",
       "title": [
-        "Ihr Unternehmen verändert sich.",
-        "Wir halten den Auftritt aktuell."
+        "Website-Betreuung.",
+        "Wir halten Ihren Auftritt aktuell."
       ],
       "intro": "Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.",
       "problemTitle": [
@@ -241,8 +241,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.",
       "kicker": "Suchmaschinenoptimierung · SEO",
       "title": [
-        "Die richtigen Fragen.",
-        "Die passenden Antworten."
+        "SEO –",
+        "Suchmaschinenoptimierung"
       ],
       "intro": "Ihre Kunden suchen nach einer Lösung. Wir richten Struktur und Inhalte Ihrer Website auf die Leistungen aus, die Sie tatsächlich anbieten – und auf die Fragen, die Menschen dazu stellen.",
       "problemTitle": [
@@ -347,8 +347,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.",
       "kicker": "Google-Unternehmensprofil",
       "title": [
-        "Vor Ort bekannt.",
-        "Online klar erkennbar."
+        "Google-Unternehmensprofil.",
+        "Vor Ort und online erkennbar."
       ],
       "intro": "Aktuelle Öffnungszeiten, passende Leistungen und ein direkter Weg zu Ihnen. Wir unterstützen Sie bei der Einrichtung, Überarbeitung und vereinbarten Pflege Ihres Google-Unternehmensprofils.",
       "problemTitle": [
@@ -454,8 +454,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.",
       "kicker": "Texte, Bilder & Grafiken",
       "title": [
-        "Ihre Arbeit hat Substanz.",
-        "Ihr Inhalt zeigt sie."
+        "Texte & Grafiken.",
+        "Für Ihren digitalen Auftritt."
       ],
       "intro": "Sie kennen Ihren Betrieb. Wir bringen seine Leistungen auf den Punkt und gestalten die passenden Inhalte für Ihren digitalen Auftritt – verständlich, stimmig und auf Ihre Kunden ausgerichtet.",
       "problemTitle": [
@@ -559,7 +559,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.",
       "kicker": "Ergänzende Leistung · KI-Beratung",
       "title": [
-        "Weniger Rätsel um KI.",
+        "KI-Beratung & KI-Strategie.",
         "Ein klarer nächster Schritt."
       ],
       "intro": "Welche wiederkehrende Aufgabe kostet Ihr Büro Zeit? Wir betrachten einen konkreten Arbeitsablauf und prüfen, wo KI sinnvoll vorbereiten kann, welche Informationen sie braucht und was Menschen entscheiden.",
@@ -669,8 +669,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Update your existing business website with clearer structure, current content, thoughtful design and straightforward contact options.",
       "kicker": "Website updates & redesign",
       "title": [
-        "Your business has moved on.",
-        "Has your website?"
+        "Website redesign.",
+        "Built around your business."
       ],
       "intro": "Your website should reflect where your business is today. We review your existing presence, retain what works and improve what no longer serves your services and customers.",
       "problemTitle": [
@@ -776,7 +776,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Keep your business website current with content updates, prioritised improvements and clearly agreed ongoing support.",
       "kicker": "Website support & development",
       "title": [
-        "Your business keeps changing.",
+        "Website support & maintenance.",
         "We keep your presence current."
       ],
       "intro": "A new service, a completed project, a clearer answer to a customer question: we take care of agreed updates and develop your website with you, step by step.",
@@ -884,8 +884,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "SEO for business websites: research customer questions, organise relevant pages and improve content and technical foundations.",
       "kicker": "Search engine optimisation · SEO",
       "title": [
-        "The right questions.",
-        "The relevant answers."
+        "SEO –",
+        "Search engine optimisation"
       ],
       "intro": "Your customers are looking for a solution. We align your website’s structure and content with the services you actually provide and the questions people ask about them.",
       "problemTitle": [
@@ -990,8 +990,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Set up, improve and maintain your Google Business Profile. VibePerform aligns business details, images and contact options with your website.",
       "kicker": "Google Business Profile",
       "title": [
-        "Known locally.",
-        "Clear online."
+        "Google Business Profile.",
+        "Known locally. Clear online."
       ],
       "intro": "Current opening hours, relevant services and a direct way to reach you. We help set up, improve and maintain your Google Business Profile within the agreed scope.",
       "problemTitle": [
@@ -1097,8 +1097,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Clear website copy, project descriptions and relevant graphics for your online presence. VibePerform prepares content around your business.",
       "kicker": "Copy, images & graphics",
       "title": [
-        "Your work has substance.",
-        "Your content shows it."
+        "Copy & graphics.",
+        "For your online presence."
       ],
       "intro": "You know your business. We explain its services clearly and create suitable content for your online presence, with a consistent style and your customers in mind.",
       "problemTitle": [
@@ -1202,7 +1202,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Additional AI consulting for small businesses: understand a workflow, assess useful assistance and identify a sensible next step.",
       "kicker": "Additional service · AI consulting",
       "title": [
-        "Less uncertainty about AI.",
+        "AI consulting & strategy.",
         "A clear next step."
       ],
       "intro": "Which recurring office task takes up your time? We examine a specific workflow, identify where AI could help prepare work and clarify the information and human decisions it requires.",

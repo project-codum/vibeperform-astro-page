@@ -1,9 +1,9 @@
-# Website überarbeiten
+# Website überarbeiten. Passend zu Ihrem Betrieb.
 Canonical URL: https://www.vibeperform.com/de/website-ueberarbeiten/
 English alternate: https://www.vibeperform.com/en/website-redesign/
 Summary: Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
 
-Ihr Betrieb ist weiter. Ihre Website auch?
+Website überarbeiten. Passend zu Ihrem Betrieb.
 
 Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.
 
