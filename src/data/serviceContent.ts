@@ -30,10 +30,10 @@ export const serviceContent = {
     website: {
       title: 'Website erstellen lassen für Ihr Unternehmen | VibePerform',
       description: 'Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.',
-      kicker: 'Website erstellen lassen', headline: 'Website erstellen lassen.', emphasis: 'Ein Auftritt für Ihr Unternehmen.',
-      intro: 'Zeigen Sie online, was Ihr Unternehmen ausmacht. Wir planen, gestalten und entwickeln Ihre Website – mit verständlichen Inhalten und einem klaren Weg zur Anfrage.',
-      action: 'Website besprechen', secondary: 'So entsteht Ihre Website',
-      mockLabel: 'Gestaltungsbeispiel', mockBrand: 'Ihr Unternehmen', mockNav: 'Leistungen · Über uns · Kontakt', mockTitle: 'Mit Können.', mockEmphasis: 'Mit Leidenschaft.', mockText: 'Wir zeigen, was Ihren Betrieb besonders macht.', mockButton: 'Unsere Arbeit entdecken', mockFooter: 'Klar gestaltet. Einfach zu erreichen.',
+      kicker: 'Website erstellen lassen', headline: 'Website erstellen lassen.', emphasis: 'Damit Ihr Angebot klar wird.',
+      intro: 'Für Betriebe, die eine neue Website brauchen oder deren Auftritt nicht mehr zum Angebot passt. Wir planen, texten, gestalten und entwickeln – mit einem klaren Weg zur Anfrage.',
+      action: 'Erstgespräch buchen', secondary: 'So entsteht Ihre Website',
+      mockLabel: 'Gestaltungsbeispiel', mockBrand: 'Ihr Unternehmen', mockNav: 'Leistungen · Über uns · Kontakt', mockTitle: 'Küchen', mockEmphasis: 'nach Maß.', mockText: 'Für Altbauwohnungen mit wenig Platz.', mockButton: 'Fotos und Maße schicken', mockFooter: 'Wir besprechen Ihre Küche.',
       problems: { kicker: 'Mehr als eine erste Visitenkarte', title: 'Besucher haben Fragen.', emphasis: 'Ihre Website gibt Antworten.', intro: 'Passt dieser Betrieb zu meinem Vorhaben? Was bietet er an? Wie erreiche ich ihn? Ihre neue Website hilft dabei, diese Fragen zu beantworten.', items: [
         { title: 'Leistungen auf den Punkt bringen', body: 'Eine klare Seitenstruktur zeigt, was Sie anbieten und für wen Ihre Arbeit passt.' },
         { title: 'Qualität sichtbar machen', body: 'Passende Gestaltung, echte Einblicke und verständliche Texte vermitteln, wie Ihr Unternehmen arbeitet.' },
@@ -86,10 +86,10 @@ export const serviceContent = {
     website: {
       title: 'Website design & development for your business | VibePerform',
       description: 'A business website that explains your services clearly. VibePerform brings together web design, copy, SEO and ongoing support.',
-      kicker: 'Website design & development', headline: 'Website design & development.', emphasis: 'A presence for your business.',
-      intro: 'Show what makes your business different. We plan, design and develop your website with clear content and a simple route to an enquiry.',
-      action: 'Discuss your website', secondary: 'How we build your website',
-      mockLabel: 'Design example', mockBrand: 'Your business', mockNav: 'Services · About · Contact', mockTitle: 'With skill.', mockEmphasis: 'With passion.', mockText: 'Show what makes your business special.', mockButton: 'Discover our work', mockFooter: 'Clear design. Easy to reach.',
+      kicker: 'Website design & development', headline: 'Website design & development.', emphasis: 'Make your offer clear.',
+      intro: 'For businesses that need a new website or whose existing site no longer reflects their services. We plan, write, design and build, with a clear route to an enquiry.',
+      action: 'Book an intro call', secondary: 'How we build your website',
+      mockLabel: 'Design example', mockBrand: 'Your business', mockNav: 'Services · About · Contact', mockTitle: 'Kitchens', mockEmphasis: 'made to measure.', mockText: 'For period flats with limited space.', mockButton: 'Send photos and dimensions', mockFooter: 'We discuss your kitchen.',
       problems: { kicker: 'More than a first impression', title: 'Visitors have questions.', emphasis: 'Your website answers them.', intro: 'Is this the right business for my project? What does it offer? How can I get in touch? Your new website helps answer these questions.', items: [
         { title: 'Explain your services', body: 'A clear page structure shows what you offer and who your work is for.' },
         { title: 'Make quality visible', body: 'Thoughtful design, real insights and clear copy communicate how your business works.' },

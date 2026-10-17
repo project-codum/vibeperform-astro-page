@@ -29,7 +29,8 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
         <HomeProblemAnimation locale={locale} />
         <div class="hp-problems-copy">
           <p class="hp-intro">{t.problems.intro}</p>
-          <a class="hp-button hp-problems-cta" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-problems">{locale === 'de' ? 'Erstgespräch führen' : 'Have an intro call'}<span aria-hidden="true">↗</span></a>
+          <a class="hp-button hp-problems-cta" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-problems">{t.contact.booking}<span aria-hidden="true">↗</span></a>
+          <p class="hp-contact-note">{t.contact.note}</p>
         </div>
       </div>
     </section>

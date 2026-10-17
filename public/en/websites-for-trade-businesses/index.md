@@ -1,10 +1,10 @@
-# Websites for trade businesses. A presence that reflects your craft.
+# Websites for trade businesses. Help customers see what you offer.
 Canonical URL: https://www.vibeperform.com/en/websites-for-trade-businesses/
-Summary: We create websites that show what your business can do. With clear services, a look at your work and simple ways to enquire about a project or apply for a job.
+Summary: We show your services, projects and service area, with a simple way to enquire. If you are hiring, we add a suitable application journey.
 
 Websites for trade businesses
 
-Free and without obligation. Even if you do not have a website yet.
+Four short questions and your email address. You receive a personal assessment of your existing or planned website. No appointment is booked automatically.
 
 ## Good work needs to be visible online.
 
@@ -102,6 +102,6 @@ We cannot promise a fixed number. We create the foundations: clear services, cre
 
 Answer four short questions about your business and leave your email address. We will get back to you personally with an assessment of your existing or planned presence.
 
-[Request a website review](https://www.vibeperform.com/en/websites-for-trade-businesses/#anfrage)
+[Request a free website review](https://www.vibeperform.com/en/websites-for-trade-businesses/#anfrage)
 
 contact@vibeperform.com

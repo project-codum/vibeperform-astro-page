@@ -5,9 +5,9 @@ Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, T
 
 ## Positionierung
 
-Webseiten und Unternehmensprofile
+Websites erstellen. Google-Profile pflegen.
 
-Wir pflegen Ihren digitalen Firmenauftritt. Und entwickeln ihn mit Ihnen weiter.
+Für Betriebe, die ihre Leistungen online verständlich zeigen und ihren Auftritt nicht selbst betreuen möchten.
 ## Damit aus dem ersten Eindruck der erste Schritt wird.
 
 Wir halten Ihren Online-Auftritt immer aktuell.
@@ -105,4 +105,6 @@ Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wiede
 
 E-Mail: contact@vibeperform.com
 
-Vorhaben besprechen: https://calendar.app.google/utFQgw33PwJTiDk56
+Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
+
+45 Minuten per Google Meet mit Marlon. Wir besprechen Ihren Betrieb, Ihre Ziele und den passenden nächsten Schritt.

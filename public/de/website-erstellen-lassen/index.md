@@ -1,9 +1,9 @@
-# Website erstellen lassen. Ein Auftritt für Ihr Unternehmen.
+# Website erstellen lassen. Damit Ihr Angebot klar wird.
 Canonical URL: https://www.vibeperform.com/de/website-erstellen-lassen/
 English alternate: https://www.vibeperform.com/en/website-design/
 Summary: Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.
 
-Zeigen Sie online, was Ihr Unternehmen ausmacht. Wir planen, gestalten und entwickeln Ihre Website – mit verständlichen Inhalten und einem klaren Weg zur Anfrage.
+Für Betriebe, die eine neue Website brauchen oder deren Auftritt nicht mehr zum Angebot passt. Wir planen, texten, gestalten und entwickeln – mit einem klaren Weg zur Anfrage.
 
 ## Besucher haben Fragen. Ihre Website gibt Antworten.
 
@@ -20,6 +20,20 @@ Passende Gestaltung, echte Einblicke und verständliche Texte vermitteln, wie Ih
 ### Kontakt einfach machen
 
 Interessenten finden den passenden nächsten Schritt – vom Anruf bis zur konkreten Projektanfrage.
+
+## Von der ersten Idee bis zum fertigen Auftritt.
+
+### Verstehen & planen
+
+Wir besprechen Ihren Betrieb, Ihre Kunden und Ihre Ziele. Daraus entsteht der Plan für Seiten, Inhalte und Umfang.
+
+### Gestalten & abstimmen
+
+Wir entwickeln Texte und Gestaltung. Sie sehen den Entwurf, geben Feedback und prüfen die Angaben zu Ihrem Betrieb.
+
+### Umsetzen & starten
+
+Wir bauen die Website, prüfen die vereinbarten Funktionen und bereiten den Start nach Ihrer Freigabe vor.
 
 ## Ihr Auftritt nimmt Form an.
 
@@ -76,20 +90,6 @@ Das Design passt sich an: Bilder, Texte und Navigation ordnen sich neu. So bleib
 Wir verbinden Ihre Leistungen mit den Suchfragen Ihrer Kunden. Relevante Begriffe, passende Seiten und verständliche Beschreibungen fließen in den Aufbau ein.
 
 Die Grundlage für Suchmaschinenoptimierung und spätere Weiterentwicklung.
-
-## Von der ersten Idee bis zum fertigen Auftritt.
-
-### Verstehen & planen
-
-Wir besprechen Ihren Betrieb, Ihre Kunden und Ihre Ziele. Daraus entsteht der Plan für Seiten, Inhalte und Umfang.
-
-### Gestalten & abstimmen
-
-Wir entwickeln Texte und Gestaltung. Sie sehen den Entwurf, geben Feedback und prüfen die Angaben zu Ihrem Betrieb.
-
-### Umsetzen & starten
-
-Wir bauen die Website, prüfen die vereinbarten Funktionen und bereiten den Start nach Ihrer Freigabe vor.
 
 ## Ihr Unternehmen entwickelt sich. Ihre Website sollte das auch.
 
