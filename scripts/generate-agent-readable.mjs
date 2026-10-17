@@ -118,13 +118,13 @@ function renderHomeAgentPage() {
  const articles = items => items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n');
  const issues = items => items.map(item => `- ${item.title}`).join('\n');
  return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
-${section('Positionierung', `${intro.headline}\n\n${intro.intro.join(' ')}`)}
+${section('Positionierung', `${intro.headline} ${intro.emphasis}\n\n${intro.intro.join(' ')}`)}
 ${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${issues(c.problems.items)}`)}
 ${section('Unsere Leistungen', `${c.services.intro}\n\n${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}\n\n${c.services.extra}`)}
 ${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
 ${section(c.process.kicker, articles(c.process.items))}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\nE-Mail: ${contactEmail}\n\nVorhaben besprechen: ${calendarUrl}`)}`);
+${section('Kontakt', `${c.contact.body}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}\n\n${c.contact.note}`)}`);
 }
 
 function renderWorkshopsAgentPage() {
@@ -250,7 +250,7 @@ function renderServicePage(locale, kind) {
     parts.push(section(`${c.connected.title} ${c.connected.emphasis}`, `${c.connected.intro}\n\n${c.connected.body}`));
     parts.push(section(c.additional.title, `${c.additional.body}\n\n[${c.additional.link}](${absoluteUrl(c.additional.href)})`));
   } else {
-    for (const name of ['problems', 'scope', 'process']) {
+    for (const name of ['problems', 'process', 'scope']) {
       if (name === 'scope') {
         const story = websiteStoryContent[locale];
         parts.push(section(`${story.title} ${story.emphasis}`, `${story.intro}\n\n${story.chapters.map(item => `### ${item.label}: ${item.title} ${item.em}\n\n${item.body}\n\n${item.id === 'anwendung' ? '' : item.note}`).join('\n\n')}`));

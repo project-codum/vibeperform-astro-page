@@ -8,10 +8,11 @@ const { copy } = Astro.props;
 <section class="vf-hero" data-home-hero data-analytics-section="home-hero" aria-labelledby="home-title">
   <HomeFluidBackdrop pauseLabel={copy.pauseLabel} resumeLabel={copy.resumeLabel} />
   <div class="vf-copy" id="home-intro" tabindex="-1">
-    <h1 id="home-title">{copy.headline}</h1>
+    <h1 id="home-title">{copy.headline}<br /><em>{copy.emphasis}</em></h1>
     <p class="vf-intro">{copy.intro[0]}<br class="vf-desktop" /> {copy.intro[1]}</p>
     <div class="vf-actions">
-      <a class="vf-primary" href="#home-next" data-analytics-event="cta_click" data-analytics-name="learn-more" data-analytics-location="home-hero">{copy.moreLabel}<span aria-hidden="true">↓</span></a>
+      <a class="vf-primary" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-hero">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
+      <a class="vf-secondary" href="#leistungen">{copy.moreLabel}<span aria-hidden="true">↓</span></a>
     </div>
   </div>
 

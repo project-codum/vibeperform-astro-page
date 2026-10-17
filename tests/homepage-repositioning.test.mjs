@@ -7,7 +7,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist');
 
 for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/index.html','en']]) {
-  test(`${route}: complete agency homepage, one discovery action and valid link targets`,async()=>{
+  test(`${route}: complete agency homepage, direct booking, service discovery and valid link targets`,async()=>{
     const html=await readFile(path.join(dist,route),'utf8');
     assert.equal((html.match(/<h1\b/g)||[]).length,1);
     assert.doesNotMatch(html,/class="vf-kicker"|Für Handwerksbetriebe und kleine Unternehmen\.|For trade businesses and small companies\./);
@@ -15,9 +15,10 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
     const actions=html.match(/<div class="vf-actions">([\s\S]*?)<\/div>/)?.[1];
     assert.ok(actions);
-    assert.equal((actions.match(/<a\b/g)||[]).length,1);
-    assert.match(actions,/href="#home-next"/);
-    assert.match(actions,language==='de'?/Mehr erfahren/:/Learn more/);
+    assert.match(actions,/href="https:\/\/calendar.app.google\/utFQgw33PwJTiDk56"/);
+    assert.equal((actions.match(/<a\b/g)||[]).length,2);
+    assert.match(actions,/href="#leistungen"/);
+    assert.match(actions,language==='de'?/Leistungen ansehen/:/Explore services/);
     for (const id of ['home-next','leistungen','weiterentwicklung','zusammenarbeit','kontakt']) assert(html.includes(`id="${id}"`));
     for (const [,id] of html.matchAll(/href="#([^" ]+)"/g)) assert(html.includes(`id="${id}"`),`Anchor ${id} exists`);
     for (const [,href] of html.matchAll(/href="(\/(?:de|en)\/[^"#?]*)"/g)) await access(path.join(dist,href.slice(1),'index.html'));
@@ -25,7 +26,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.match(html,/calendar.app.google\/utFQgw33PwJTiDk56/);
     assert.doesNotMatch(html,/UNSERE LEISTUNGEN|UNSERE VISION|SO ARBEITEN WIR ZUSAMMEN|VOR DEM ERSTEN GESPRÄCH|DER NÄCHSTE SCHRITT|OUR SERVICES|OUR VISION|WORKING TOGETHER|BEFORE WE TALK|THE NEXT STEP/);
     assert.match(html,language==='de'?/Damit aus dem ersten Eindruck/:/Turn your first impression/);
-    assert.match(html,language==='de'?/Erstgespräch führen/:/Have an intro call/);
+    assert.match(html,language==='de'?/Erstgespräch buchen/:/Book an intro call/);
     assert.match(html,/class="hp-presence-loop(?: |\")/);
     assert.match(html,language==='de'?/Unternehmensprofil/:/Business profile/);
     assert.match(html,language==='de'?/Veraltete Website/:/Outdated website/);
@@ -89,8 +90,8 @@ test('scroll reveals animate in sequence and leave reduced-motion users unaffect
 test('contact booking CTA uses the requested text and a reduced-motion-safe pulse',async()=>{
   const content=await readFile(path.join(root,'src/data/homePageContent.ts'),'utf8');
   const styles=await readFile(path.join(root,'src/styles/home-page.css'),'utf8');
-  assert.match(content,/booking: 'Unverbindlich kennenlernen'/);
-  assert.match(content,/booking: 'Book a no-obligation intro'/);
+  assert.match(content,/booking: 'Erstgespräch buchen'/);
+  assert.match(content,/booking: 'Book an intro call'/);
   assert.match(styles,/@media\(prefers-reduced-motion:no-preference\)\{[\s\S]*?\.hp-contact-actions>\.hp-button\{animation:hp-contact-pulse 3s ease-in-out infinite\}/);
   assert.match(styles,/@keyframes hp-contact-pulse\{[^}]*\}/);
 });
@@ -133,7 +134,7 @@ test('homepage problems copy follows the visual on narrow screens and service he
   assert.ok(section);
   assert.ok(section.indexOf('id="problems-title"')<section.indexOf('hp-presence-loop'));
   assert.ok(section.indexOf('hp-presence-loop')<section.indexOf('Wir halten Ihren Online-Auftritt immer aktuell.'));
-  assert.ok(section.indexOf('Wir halten Ihren Online-Auftritt immer aktuell.')<section.indexOf('Erstgespräch führen'));
+  assert.ok(section.indexOf('Wir halten Ihren Online-Auftritt immer aktuell.')<section.indexOf('Erstgespräch buchen'));
   const animationStyles=await readFile(path.join(root,'src/styles/home-problem-animation.css'),'utf8');
   assert.match(animationStyles,/grid-template-areas:"heading visual" "copy visual"/);
   assert.match(animationStyles,/@media\(max-width:900px\)\{[^}]*grid-template-areas:"heading" "visual" "copy"/);

@@ -21,3 +21,11 @@
 .vf-motion{position:absolute;right:4.4%;bottom:24px;min-height:44px;pointer-events:auto;z-index:3;border:1px solid #776387;background:#17131ed9;color:#d8cce1;border-radius:6px;font:11px Arial,Helvetica,sans-serif;padding:10px 14px;cursor:pointer}.vf-motion:hover{background:#392546}.vf-motion[hidden]{display:none}
 @media(max-width:700px){.vf-hero{min-height:max(760px,100svh);padding-top:100px}.vf-copy{padding:52px 22px 100px}.vf-copy h1{overflow-wrap:anywhere;hyphens:auto;hyphenate-limit-chars:6;font-size:clamp(38px,8.7vw,61px);letter-spacing:-.065em}.vf-kicker{font-size:10px;letter-spacing:.12em;margin-bottom:26px}.vf-intro{font-size:15px;max-width:300px;margin:27px auto 0}.vf-desktop{display:none}.vf-actions{flex-direction:column;gap:14px;margin-top:28px;font-size:13px}.vf-primary{padding:16px 21px}.vf-hero-bottom{padding:0 22px 20px;font-size:10px}.vf-motion{right:22px;bottom:20px;font-size:10px;padding:10px}.vf-fluid canvas{opacity:.72}}
 @media(prefers-reduced-motion:reduce){.vf-hero a{transition:none}.vf-primary:hover{transform:none}.vf-fluid canvas{display:none}.vf-poster{opacity:1!important}}
+
+/* Keep the complete offer and booking expectation together in the first view. */
+.vf-hero{min-height:max(720px,100svh);padding-top:120px}
+.vf-copy{padding:45px 24px 55px;max-width:1120px}
+.vf-copy h1{font-size:clamp(40px,5.4vw,76px);letter-spacing:-.055em;line-height:1.08}
+.vf-intro{max-width:650px;margin:24px auto 0}
+.vf-hero-bottom{min-height:60px}
+@media(max-width:700px){.vf-hero{padding-top:110px;min-height:max(740px,100svh)}.vf-copy{padding:35px 22px 48px}.vf-copy h1{font-size:clamp(33px,8.4vw,54px);line-height:1.12}.vf-intro{max-width:360px;margin-top:22px}.vf-actions{margin-top:24px;gap:8px}.vf-hero-bottom{min-height:55px}}

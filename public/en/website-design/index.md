@@ -1,9 +1,9 @@
-# Website design & development. A presence for your business.
+# Website design & development. Make your offer clear.
 Canonical URL: https://www.vibeperform.com/en/website-design/
 German alternate: https://www.vibeperform.com/de/website-erstellen-lassen/
 Summary: A business website that explains your services clearly. VibePerform brings together web design, copy, SEO and ongoing support.
 
-Show what makes your business different. We plan, design and develop your website with clear content and a simple route to an enquiry.
+For businesses that need a new website or whose existing site no longer reflects their services. We plan, write, design and build, with a clear route to an enquiry.
 
 ## Visitors have questions. Your website answers them.
 
@@ -20,6 +20,20 @@ Thoughtful design, real insights and clear copy communicate how your business wo
 ### Make contact easy
 
 Visitors find the right next step, from a phone call to a specific project enquiry.
+
+## From the first idea to your new presence.
+
+### Understand & plan
+
+We discuss your business, customers and goals, then plan the pages, content and scope.
+
+### Design & review
+
+We develop the copy and design. You review the draft, share feedback and check the facts about your business.
+
+### Build & launch
+
+We build your website, check the agreed functions and prepare to launch after your approval.
 
 ## Your presence takes shape.
 
@@ -76,20 +90,6 @@ The design adapts: images, text and navigation rearrange. Your website stays cle
 We connect your services with your customers’ search questions. Relevant terms, focused pages and clear descriptions inform the structure.
 
 A foundation for search optimisation and ongoing development.
-
-## From the first idea to your new presence.
-
-### Understand & plan
-
-We discuss your business, customers and goals, then plan the pages, content and scope.
-
-### Design & review
-
-We develop the copy and design. You review the draft, share feedback and check the facts about your business.
-
-### Build & launch
-
-We build your website, check the agreed functions and prepare to launch after your approval.
 
 ## Your business keeps evolving. Your website should too.
 

@@ -1,10 +1,10 @@
-# Websites für Handwerksbetriebe. Ein Auftritt, der überzeugt.
+# Websites für Handwerksbetriebe. Damit Kunden sehen, was Sie anbieten.
 Canonical URL: https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/
-Summary: Wir erstellen Websites, die zeigen, was Ihr Betrieb kann. Mit klaren Leistungen, Einblicken in Ihre Arbeit und einfachen Wegen für Projektanfragen und Bewerbungen.
+Summary: Wir zeigen Ihre Leistungen, Projekte und Ihr Einzugsgebiet – mit einem einfachen Weg zur Projektanfrage. Wenn Sie einstellen, ergänzen wir einen passenden Bewerbungsweg.
 
 Websites für Handwerksbetriebe
 
-Kostenlos und unverbindlich. Auch ohne bestehende Website.
+Vier kurze Fragen und Ihre E-Mail-Adresse. Sie erhalten eine persönliche Einschätzung zu Ihrer bestehenden oder geplanten Website. Kein Termin wird automatisch gebucht.
 
 ## Gute Arbeit allein ist online noch nicht sichtbar.
 
@@ -104,6 +104,6 @@ Eine feste Anzahl können wir nicht zusagen. Wir schaffen die Grundlagen: klare 
 
 Beantworten Sie vier kurze Fragen zu Ihrem Betrieb und hinterlassen Sie Ihre E-Mail-Adresse. Wir melden uns persönlich mit einer Einschätzung zu Ihrem bestehenden oder geplanten Auftritt.
 
-[Website-Check anfragen](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/#anfrage)
+[Kostenlosen Website-Check anfragen](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/#anfrage)
 
 contact@vibeperform.com

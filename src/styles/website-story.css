@@ -24,3 +24,14 @@
 
 /* Keep all search suggestions and the complete page plan visible in compact figures. */
 .ws-search-box{flex-shrink:0;margin:18px 0 22px}.ws-search-query{padding:12px 17px}.ws-suggestions>div{padding:7px 17px}.ws-search-caption{margin-top:22px}.ws-chapter>.ws-visual-layout{height:560px}
+
+/* The example itself answers offer, audience and next step. */
+.ws-language .ws-before{margin-top:20px}
+.ws-language .ws-language-arrow{font-size:34px;margin:8px 0}
+.ws-language .ws-example-detail{font-size:clamp(12px,3cqw,16px);line-height:1.5;margin:12px 0 0;max-width:34ch;color:#e5d5f5}
+.ws-language .ws-tags{margin-top:20px}
+.ws-device-audience{font-size:9px;line-height:1.4;margin:0 0 12px}
+.ws-device-copy>p{margin:10px 0}
+.ws-application .ws-device-layout>img{height:160px}
+.is-compact .ws-device-layout>img{height:80px}
+@media(max-width:700px){.ws-visual-sprache{height:500px}.ws-visual-anwendung{height:510px}.ws-application .ws-device-layout>img{height:80px}.ws-language{padding:25px}}
