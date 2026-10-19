@@ -2,11 +2,24 @@
 import {Image} from 'astro:assets';
 import interior from '../assets/website-service/interior.png';
 import materials from '../assets/website-service/materials.png';
+import sideboard from '../assets/website-service/bespoke-sideboard-v1.png';
+import wardrobe from '../assets/website-service/fitted-wardrobe-v1.png';
+import joineryCloseup from '../assets/website-service/interior-joinery-closeup-v1.png';
 import '../styles/relaunch-example.css';
 interface Props {locale:'de'|'en'; before:boolean;}
 const {locale,before}=Astro.props;
 const de=locale==='de';
 const services=de?['Möbel nach Maß','Einbauschränke','Innenausbau']:['Bespoke furniture','Fitted wardrobes','Interior joinery'];
+const serviceImages=[sideboard,wardrobe,joineryCloseup];
+const serviceAlts=de?[
+  'Generiertes Beispielmotiv: Eichen-Sideboard mit feiner Holzmaserung',
+  'Generiertes Beispielmotiv: raumhoher Einbauschrank mit beleuchteter Nische',
+  'Generiertes Beispielmotiv: Detail einer Eichen-Einbaute mit präzisem Regalanschluss'
+]:[
+  'Generated example: oak sideboard with natural wood grain',
+  'Generated example: floor-to-ceiling fitted wardrobe with a lit niche',
+  'Generated example: close-up of oak joinery with a precise shelf connection'
+];
 ---
 <div class:list={['rx-browser',before?'rx-old':'rx-new']}>
  <div class="rx-chrome" aria-hidden="true"><i></i><i></i><i></i><span>schreinerei-beispiel.example</span></div>
@@ -22,7 +35,7 @@ const services=de?['Möbel nach Maß','Einbauschränke','Innenausbau']:['Bespoke
  </div>:<div class="rx-new-canvas">
    <div class="rx-new-nav"><strong><span aria-hidden="true">s.</span>{de?'schreinerei beispiel':'example joinery'}</strong><div>{de?'Möbel · Einbauten · Projekte':'Furniture · Fitted pieces · Projects'}</div><span class="rx-nav-cta">{de?'Projekt besprechen':'Discuss a project'} ↗</span></div>
    <div class="rx-new-hero"><div><small>{de?'Möbel nach Maß & Innenausbau':'Bespoke furniture & interior joinery'}</small><h4>{de?'Ihr Raum.':'Your space.'}<br/><em>{de?'Ihr Lieblingsstück.':'Your favourite piece.'}</em></h4><p>{de?'Wir planen und fertigen Möbel, die genau zu Ihnen passen. Von der ersten Idee bis zum letzten Schliff.':'We design and make furniture that fits you perfectly. From the first idea to the finishing touch.'}</p><span class="rx-solid-cta">{de?'Ihre Idee besprechen':'Discuss your idea'} ↗</span></div><Image src={interior} width={900} format="webp" alt={de?'Großes generiertes Wohnraum-Motiv auf der neuen Beispielseite':'Large generated interior image on the new example site'} loading="lazy"/></div>
-   <div class="rx-new-services"><div class="rx-section-caption"><span>01 / {de?'Was wir für Sie bauen':'What we build for you'}</span><strong>{de?'Für jeden Raum die passende Lösung.':'The right solution for every room.'}</strong></div><div class="rx-service-grid">{services.map((s,i)=><div><span class={`rx-furniture rx-furniture-${i}`} aria-hidden="true"><i></i><i></i><i></i></span><strong>{s}</strong><p>{(de?['Einzelstücke, die Ihren Alltag schöner machen.','Stauraum, der den vorhandenen Platz nutzt.','Durchdachte Räume, stimmig bis ins Detail.']:['Individual pieces for everyday living.','Storage that makes use of your space.','Thoughtful spaces, down to the last detail.'])[i]}</p><span class="rx-service-link">{de?'Entdecken':'Explore'} ↗</span></div>)}</div></div>
+   <div class="rx-new-services"><div class="rx-section-caption"><span>01 / {de?'Was wir für Sie bauen':'What we build for you'}</span><strong>{de?'Für jeden Raum die passende Lösung.':'The right solution for every room.'}</strong></div><div class="rx-service-grid">{services.map((s,i)=><div><div class="rx-service-image"><Image src={serviceImages[i]} width={720} widths={[320,480,720]} sizes="(max-width: 600px) 85vw, 30vw" format="webp" quality={80} alt={serviceAlts[i]} loading="lazy"/></div><strong>{s}</strong><p>{(de?['Einzelstücke, die Ihren Alltag schöner machen.','Stauraum, der den vorhandenen Platz nutzt.','Durchdachte Räume, stimmig bis ins Detail.']:['Individual pieces for everyday living.','Storage that makes use of your space.','Thoughtful spaces, down to the last detail.'])[i]}</p><span class="rx-service-link">{de?'Entdecken':'Explore'} ↗</span></div>)}</div></div>
    <div class="rx-new-project"><Image src={materials} width={600} format="webp" alt={de?'Generierte Materialstudie als illustratives Projektmotiv':'Generated material study as an illustrative project image'} loading="lazy"/><div><span>02 / {de?'Einblick in die Gestaltung':'A closer look at the design'}</span><h4>{de?'Echtes Holz.':'Solid wood.'}<br/><em>{de?'Ein gutes Gefühl.':'A lasting feeling.'}</em></h4><p>{de?'Material, Oberfläche und Form gehören zusammen. Entdecken Sie, wie daraus ein stimmiger Raum entstehen kann.':'Material, finish and form belong together. See how they can create a coherent space.'}</p><span class="rx-service-link">{de?'Gestaltung ansehen':'Explore the design'} ↗</span></div></div>
    <div class="rx-new-contact"><div><small>03 / {de?'Ihr nächster Schritt':'Your next step'}</small><strong>{de?'Was möchten Sie aus Ihrem Raum machen?':'What would you like your space to become?'}</strong></div><span class="rx-solid-cta">{de?'Projekt besprechen':'Discuss a project'} ↗</span></div>
  </div>}
