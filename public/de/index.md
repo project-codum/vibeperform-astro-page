@@ -106,5 +106,3 @@ Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wiede
 E-Mail: contact@vibeperform.com
 
 Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
-
-45 Minuten per Google Meet mit Marlon. Wir besprechen Ihren Betrieb, Ihre Ziele und den passenden nächsten Schritt.

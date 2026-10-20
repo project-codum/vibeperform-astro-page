@@ -25,7 +25,6 @@ export const homePageContent = {
       title: 'Eine Website,', emphasis: 'die nie veraltet.',
       intro: 'Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.',
       body: 'Wir betrachten verfügbare Nutzungsdaten, Suchanfragen und Keyword-Trends. Daraus leiten wir passende Verbesserungen ab und stimmen mit Ihnen ab, was als Nächstes sinnvoll ist.',
-      note: 'So bleibt Weiterentwicklung ein fester Teil Ihres Auftritts.',
       steps: [
         { title: 'Verstehen', body: 'Was suchen Ihre Kunden? Was hat sich in Ihrem Betrieb verändert?' },
         { title: 'Verbessern', body: 'Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.' },
@@ -49,7 +48,7 @@ export const homePageContent = {
         { question: 'Wie funktioniert die laufende Betreuung?', answer: 'Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.' },
       ],
     },
-    contact: { title: 'Was soll Ihr Auftritt', emphasis: 'für Sie leisten?', body: 'Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wieder zu Ihrem Betrieb passt. Erzählen Sie uns von Ihrem Vorhaben.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben', note: '45 Minuten per Google Meet mit Marlon. Wir besprechen Ihren Betrieb, Ihre Ziele und den passenden nächsten Schritt.' },
+    contact: { title: 'Was soll Ihr Auftritt', emphasis: 'für Sie leisten?', body: 'Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wieder zu Ihrem Betrieb passt. Erzählen Sie uns von Ihrem Vorhaben.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben' },
     footer: { tagline: 'Websites und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', process: 'Zusammenarbeit', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
   },
   en: {
@@ -77,7 +76,6 @@ export const homePageContent = {
       title: 'A website that', emphasis: 'never falls behind.',
       intro: 'Your business changes. So do your customers’ questions. We see a website as something that can keep getting better.',
       body: 'We consider available usage data, search queries and keyword trends. We use these insights to suggest improvements and agree with you on what makes sense next.',
-      note: 'Ongoing development becomes part of your online presence.',
       steps: [
         { title: 'Understand', body: 'What are customers looking for? What has changed in your business?' },
         { title: 'Improve', body: 'Develop content, design and contact options with a clear purpose.' },
@@ -101,7 +99,7 @@ export const homePageContent = {
         { question: 'How does ongoing support work?', answer: 'We agree which content and areas we will maintain. New services, projects, usage data and search trends can all inform further improvements. We agree the scope with you.' },
       ],
     },
-    contact: { title: 'What should your website', emphasis: 'do for your business?', body: 'A new website, an up-to-date business profile or an online presence that reflects your business again. Tell us about your project.', booking: 'Book an intro call', email: 'Prefer to send an email?', note: '45 minutes on Google Meet with Marlon. We discuss your business, your goals and the right next step.' },
+    contact: { title: 'What should your website', emphasis: 'do for your business?', body: 'A new website, an up-to-date business profile or an online presence that reflects your business again. Tell us about your project.', booking: 'Book an intro call', email: 'Prefer to send an email?' },
     footer: { tagline: 'Websites and business profiles. Created, maintained and continuously developed.', services: 'Services', process: 'Working together', about: 'About us', aboutHref: '/en/about-us/', legal: 'Legal notice', legalHref: '/en/legal-notice/', privacy: 'Privacy', privacyHref: '/en/privacy/', top: 'Back to top', rights: 'All rights reserved.' },
   },
 } as const;
