@@ -20,14 +20,14 @@ test('every built page uses current logo artwork, with no old Lottie replacement
     const html = await readFile(file, 'utf8');
     assert.doesNotMatch(html, /(?:src|srcset|data-logo-lottie)=["'][^"']*vibeperform-logo(?:\.png|-alive\.json)/, file);
     for (const [,src] of html.matchAll(/<img[^>]+src="([^"]*vibeperform-logo[^"]*)"/g)) {
-      assert.match(src, /vibeperform-logo-a-20261019-(?:hell|dunkel)\.svg$/, file);
+      assert.match(src, /vibeperform-logo-a-20261020-(?:hell|dunkel)\.svg$/, file);
       branded++;
     }
   }
   assert.ok(branded >= 60, 'shared headers and footers are present');
 });
 test('background variants have identical Logo A geometry and native colors', async () => {
-  const variants = await Promise.all(['hell','dunkel','lila'].map(v => readFile(new URL(`../public/vibeperform-logo-a-20261019-${v}.svg`,import.meta.url),'utf8')));
+  const variants = await Promise.all(['hell','dunkel','lila'].map(v => readFile(new URL(`../public/vibeperform-logo-a-20261020-${v}.svg`,import.meta.url),'utf8')));
   const geometry = svg => [...svg.matchAll(/\sd="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(geometry(variants[0]).length, 3);
   for (const svg of variants) {
