@@ -12,7 +12,7 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 <header class="home-navigation">
   <vf-home-navigation>
     <a class="home-brand" href={`${base}/${locale}/`} aria-label={copy.homeLabel}>
-      <img src={`${base}/vibeperform-logo.png`} alt="VibePerform" width="505" height="214" loading="eager" decoding="async" />
+      <img src={`${base}/vibeperform-logo-a-20261019-dunkel.svg`} alt="VibePerform" width="224" height="132" loading="eager" decoding="async" />
     </a>
     <button class="home-menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false" data-open-label={copy.menuLabel} data-close-label={copy.closeLabel} hidden>{copy.menuLabel}<span aria-hidden="true">＋</span></button>
     <nav id="home-menu" aria-label={copy.navLabel}>
@@ -83,8 +83,8 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 <style>
   .home-navigation{position:absolute;top:0;left:0;right:0;z-index:20;color:#f7f4fb;font-family:Arial,Helvetica,sans-serif}
   vf-home-navigation{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;width:min(100%,1440px);margin:auto;padding:22px 4.4%}
-  .home-brand{display:block;width:190px;flex-shrink:0;border-radius:4px;overflow:hidden}
-  .home-brand img{display:block;width:100%;height:auto;transform:scale(1.7);filter:invert(1) hue-rotate(180deg) saturate(1.2)}
+  .home-brand{display:block;width:138px;flex-shrink:0;border-radius:4px}
+  .home-brand img{display:block;width:100%;height:auto}
   nav{display:flex;align-items:center;gap:30px;font-size:14px}
   nav[hidden],button[hidden]{display:none}
   a{color:inherit;text-decoration:none}nav a{display:inline-flex;align-items:center;gap:15px;min-height:44px}
@@ -94,7 +94,7 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
   .home-menu-toggle{min-width:90px;min-height:44px;padding:8px 12px;border:1px solid #776387;border-radius:6px;background:#211a2c;color:#f7f4fb;align-items:center;justify-content:space-between;gap:12px;font:14px Arial,sans-serif;cursor:pointer}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #dac8ff;outline-offset:5px}
   .home-skip{position:fixed;top:10px;left:10px;z-index:100;padding:12px 18px;background:#f5f2ed;color:#28232e;transform:translateY(-160%);font:16px Arial,sans-serif}.home-skip:focus{transform:none}
-  @media(max-width:900px){vf-home-navigation{padding:15px 24px;flex-wrap:wrap;gap:8px}.home-brand{width:158px}.home-menu-toggle:not([hidden]){display:flex}nav{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:18px;background:#1d1923;border:1px solid #62596d;border-radius:6px}nav a{padding:8px 12px}.home-language{border-left:0;border-top:1px solid #62596d;margin-top:4px}.home-nav-contact{margin:5px 0}vf-home-navigation[data-enhanced] nav{position:absolute;top:calc(100% - 4px);left:24px;right:24px;width:auto}}
+  @media(max-width:900px){vf-home-navigation{padding:15px 24px;flex-wrap:wrap;gap:8px}.home-brand{width:112px}.home-menu-toggle:not([hidden]){display:flex}nav{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:18px;background:#1d1923;border:1px solid #62596d;border-radius:6px}nav a{padding:8px 12px}.home-language{border-left:0;border-top:1px solid #62596d;margin-top:4px}.home-nav-contact{margin:5px 0}vf-home-navigation[data-enhanced] nav{position:absolute;top:calc(100% - 4px);left:24px;right:24px;width:auto}}
   .home-services-menu>summary{display:flex;gap:10px;align-items:center;min-height:44px;cursor:pointer;list-style:none}.home-services-menu>summary::-webkit-details-marker{display:none}.home-services-menu>summary>span{transition:transform .2s}.home-services-menu[open]>summary>span{transform:rotate(180deg)}.home-services-menu[open]>summary,.home-services-active{color:#d6bdf2}
   .home-mega-panel{position:absolute;top:calc(100% - 5px);left:4.4%;right:4.4%;background:#f5f2ed;color:#28232e;border:1px solid #c9b9d3;border-radius:8px;padding:22px 30px 30px;box-shadow:0 24px 60px #0005;max-height:calc(100svh - 145px);overflow-y:auto;overscroll-behavior:contain}
   .home-mega-top{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #d9d2dc;padding-bottom:14px;margin-bottom:22px}.home-mega-top>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#786289}.home-mega-top a{font-size:13px;color:#60436e}

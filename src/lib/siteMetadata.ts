@@ -33,7 +33,7 @@ export const organizationSchema = () => ({
 	'@id': absoluteUrl('/#organization'),
 	name: brandName,
 	url: absoluteUrl('/de/'),
-	logo: absoluteUrl('/vibeperform-logo.png'),
+	logo: absoluteUrl('/vibeperform-logo-a-20261019.png'),
 	email: contactEmail,
 	areaServed: ['München', 'Bayern', 'Deutschland', 'Europa'],
 	description:
@@ -181,7 +181,7 @@ export const blogPostingSchema = ({
 		url: absoluteUrl('/de/'),
 		logo: {
 			'@type': 'ImageObject',
-			url: absoluteUrl('/vibeperform-logo.png'),
+			url: absoluteUrl('/vibeperform-logo-a-20261019.png'),
 		},
 	},
 	inLanguage: locale === 'de' ? 'de-DE' : 'en-US',

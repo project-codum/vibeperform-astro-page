@@ -12,7 +12,7 @@ interface Props { locale: Locale; title: string; description: string; path: stri
 const { locale, title, description, path, alternatePath, service = false, preview = false, noindex = false, about = false, image, imageWidth, imageHeight, imageAlt } = Astro.props;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const canonical = absoluteUrl(path);
-const socialImage = absoluteUrl(image ?? '/vibeperform-logo.png');
+const socialImage = absoluteUrl(image ?? '/vibeperform-logo-a-20261019.png');
 const socialImageAlt = imageAlt ?? (about ? 'Marlon Dietrich · VibePerform' : 'VibePerform');
 const data = [organizationSchema(), websiteSchema(locale), {
   '@context': 'https://schema.org', '@type': service ? 'Service' : about ? 'AboutPage' : 'CollectionPage',
