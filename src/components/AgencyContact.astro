@@ -1,8 +1,8 @@
 ---
 import { homePageContent } from '../data/homePageContent';
 import { bookingUrl, contactEmail, type Locale } from '../lib/siteMetadata';
-interface Props { locale: Locale; copy?: { kicker?: string; title: string; emphasis: string; body: string }; showKicker?: boolean; showNote?: boolean; }
-const { locale, copy, showKicker = true, showNote = true } = Astro.props;
+interface Props { locale: Locale; copy?: { kicker?: string; title: string; emphasis: string; body: string }; showKicker?: boolean; }
+const { locale, copy, showKicker = true } = Astro.props;
 const t = homePageContent[locale].contact;
 const c = copy ?? t;
 ---
@@ -15,6 +15,5 @@ const c = copy ?? t;
       <a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="service-contact">{t.booking}<span aria-hidden="true">↗</span></a>
       <a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="service-contact">{t.email}<span aria-hidden="true">↗</span></a>
     </div>
-    {showNote && <p class="hp-contact-note">{t.note}</p>}
   </div>
 </section>

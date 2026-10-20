@@ -124,7 +124,7 @@ ${section('Unsere Leistungen', `${c.services.intro}\n\n${c.services.items.map(it
 ${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
 ${section(c.process.kicker, articles(c.process.items))}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}\n\n${c.contact.note}`)}`);
+${section('Kontakt', `${c.contact.body}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
 }
 
 function renderWorkshopsAgentPage() {

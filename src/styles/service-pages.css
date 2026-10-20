@@ -20,10 +20,10 @@
 .sv-catalog-grid article{min-width:0}.sv-catalog-grid h3{max-width:100%;overflow-wrap:anywhere;hyphens:auto}.sv-catalog-grid .hp-text-link{max-width:100%;overflow-wrap:anywhere}
 
 /* Make the entry and the short working process useful before the design story. */
-.sv-website-hero .sv-booking-note,.sv-process-next .sv-booking-note{font-size:12px;line-height:1.65;max-width:46ch;color:#c4b0db;margin-top:18px}
+
 .sv-website-hero h1{font-size:clamp(38px,3.8vw,56px);line-height:1.08}
 .sv-website-hero .sv-lead{margin-top:24px}
 .sv-process-next{border-top:1px solid var(--hp-line);margin-top:40px;padding-top:30px;max-width:650px}
 .sv-process-next>p:first-child{font-size:16px;margin-bottom:24px;line-height:1.7}
-.sv-process-next .sv-booking-note{color:#706873}
+
 @media(max-width:700px){.sv-website-hero h1{font-size:clamp(35px,9vw,52px)}}

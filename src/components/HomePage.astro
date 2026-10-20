@@ -30,7 +30,6 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
         <div class="hp-problems-copy">
           <p class="hp-intro">{t.problems.intro}</p>
           <a class="hp-button hp-problems-cta" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-problems">{t.contact.booking}<span aria-hidden="true">↗</span></a>
-          <p class="hp-contact-note">{t.contact.note}</p>
         </div>
       </div>
     </section>
@@ -58,7 +57,7 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
     <section class="hp-section hp-evolution" id="weiterentwicklung" aria-labelledby="evolution-title" data-analytics-section="home-evolution" data-scroll-reveal>
       <div class="hp-wrap hp-split">
         <div class="hp-heading"><h2 id="evolution-title">{t.evolution.title}<br /><em>{t.evolution.emphasis}</em></h2><p class="hp-intro">{t.evolution.intro}</p><p>{t.evolution.body}</p></div>
-        <div class="hp-cycle"><ol>{t.evolution.steps.map((step,i) => <li><span class="hp-cycle-number" aria-hidden="true">0{i+1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol><p class="hp-cycle-note">{t.evolution.note}</p></div>
+        <div class="hp-cycle"><ol>{t.evolution.steps.map((step,i) => <li><span class="hp-cycle-number" aria-hidden="true">0{i+1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol></div>
       </div>
     </section>
 
@@ -71,7 +70,7 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
     </section>
 
     <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
-      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-contact">{t.contact.booking}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div><p class="hp-contact-note">{t.contact.note}</p></div>
+      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><div class="hp-contact-actions"><a class="hp-button" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-contact">{t.contact.booking}<span aria-hidden="true">↗</span></a><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 
