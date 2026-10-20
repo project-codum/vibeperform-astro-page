@@ -18,8 +18,6 @@ interface Props {
 const { nav, homeHref, alternateLocaleHref, currentLocale, appearance = 'default', ctaLabel, ctaHref } = Astro.props as Props;
 const alternateLocale = currentLocale === 'de' ? 'en' : 'de';
 const baseUrl = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
-const logoUrl = `${baseUrl}/vibeperform-logo.png`;
-const logoAnimationUrl = `${baseUrl}/vibeperform-logo-alive.json`;
 const workCursorLabel = currentLocale === 'de' ? 'Mit uns arbeiten' : 'Work with us';
 const toggleId = `nav-toggle-${Math.random().toString(36).slice(2, 9)}`;
 const menuId = `nav-menu-${Math.random().toString(36).slice(2, 9)}`;
@@ -37,23 +35,10 @@ const menuIcon = Menu
 			href={homeHref}
 			aria-label={nav.brand}
 		>
-			<span
-				class="nav-logo-lottie"
-				data-logo-lottie={logoAnimationUrl}
-				aria-hidden="true"
-			>
-				<img
-					src={logoUrl}
-					alt=""
-					class="nav-logo-lottie__fallback"
-					height="214"
-					width="505"
-					loading="eager"
-					decoding="async"
-					data-logo-fallback
-				/>
-				<span class="nav-logo-lottie__stage" data-logo-lottie-stage></span>
-			</span>
+			<picture class="nav-brand-artwork">
+				<source media="(prefers-color-scheme: dark)" srcset={`${baseUrl}/vibeperform-logo-a-20261019-dunkel.svg`} />
+				<img src={`${baseUrl}/vibeperform-logo-a-20261019-hell.svg`} width="224" height="132" alt="" loading="eager" decoding="async" />
+			</picture>
 		</a>
 
 		<div class="hidden items-center gap-7 md:flex">
@@ -136,52 +121,8 @@ const menuIcon = Menu
 </Fragment>}
 
 <style>
-	.nav-logo-lottie {
-		display: block;
-		position: relative;
-		width: 10.5rem;
-		height: 3.5rem;
-		overflow: hidden;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.nav-logo-lottie {
-			filter: invert(1) hue-rotate(180deg) saturate(1.2);
-		}
-	}
-
-	@media (min-width: 768px) {
-		.nav-logo-lottie {
-			width: 12rem;
-			height: 4rem;
-		}
-	}
-
-	.nav-logo-lottie__stage,
-	.nav-logo-lottie__fallback {
-		display: block;
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		transform: scale(1.7);
-		transform-origin: center;
-	}
-
-	.nav-logo-lottie__stage :global(svg),
-	.nav-logo-lottie__stage :global(canvas) {
-		display: block;
-		width: 100% !important;
-		height: 100% !important;
-	}
-
-	.nav-logo-lottie__fallback {
-		object-fit: contain;
-	}
-
-	.nav-logo-lottie[data-logo-status='ready'] .nav-logo-lottie__fallback {
-		display: none;
-	}
+	.nav-brand-artwork { display: block; width: 96px; flex-shrink: 0; }
+	.nav-brand-artwork img { display: block; width: 100%; height: auto; }
 
 	.cursor-orbit {
 		position: fixed;
@@ -414,102 +355,7 @@ const menuIcon = Menu
 	}
 </style>
 
-<script>
-	const activeLogoAnimations = new Map();
-	let lottieImportPromise;
 
-	const destroyLogoAnimations = () => {
-		activeLogoAnimations.forEach((animation, container) => {
-			animation.destroy();
-			container.removeAttribute('data-logo-status');
-			container.removeAttribute('data-logo-initialized');
-		});
-		activeLogoAnimations.clear();
-	};
-
-	const loadLottie = () => {
-		lottieImportPromise ??= import('lottie-web/build/player/lottie_light').then(
-			(module) => module.default
-		);
-
-		return lottieImportPromise;
-	};
-
-	const setupLogoAnimations = async () => {
-		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		const hasDesktopViewport = window.matchMedia('(min-width: 768px)').matches;
-
-		if (reduceMotion || !hasDesktopViewport) {
-			return;
-		}
-
-		const lottie = await loadLottie();
-
-		document.querySelectorAll('[data-logo-lottie]').forEach((container) => {
-			if (!(container instanceof HTMLElement) || container.dataset.logoInitialized === 'true') {
-				return;
-			}
-
-			const animationPath = container.dataset.logoLottie;
-			const stage = container.querySelector('[data-logo-lottie-stage]');
-			if (!animationPath || !(stage instanceof HTMLElement)) {
-				return;
-			}
-
-			container.dataset.logoInitialized = 'true';
-
-			const animation = lottie.loadAnimation({
-				container: stage,
-				renderer: 'svg',
-				loop: !reduceMotion,
-				autoplay: !reduceMotion,
-				path: animationPath,
-				rendererSettings: {
-					preserveAspectRatio: 'xMidYMid meet',
-					progressiveLoad: true,
-				},
-			});
-
-			activeLogoAnimations.set(container, animation);
-
-			animation.addEventListener('DOMLoaded', () => {
-				container.dataset.logoStatus = 'ready';
-
-				if (reduceMotion) {
-					animation.goToAndStop(60, true);
-				}
-			});
-
-			animation.addEventListener('data_failed', () => {
-				animation.destroy();
-				activeLogoAnimations.delete(container);
-				container.dataset.logoStatus = 'fallback';
-			});
-		});
-	};
-
-	const scheduleLogoAnimations = () => {
-		const start = () => {
-			void setupLogoAnimations();
-		};
-
-		if ('requestIdleCallback' in window) {
-			window.requestIdleCallback(start, { timeout: 1800 });
-			return;
-		}
-
-		window.setTimeout(start, 900);
-	};
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', scheduleLogoAnimations, { once: true });
-	} else {
-		scheduleLogoAnimations();
-	}
-
-	document.addEventListener('astro:page-load', scheduleLogoAnimations);
-	document.addEventListener('astro:before-swap', destroyLogoAnimations);
-</script>
 
 <script>
 	let destroyCursorOrbit;
