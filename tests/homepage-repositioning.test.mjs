@@ -19,7 +19,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.equal((actions.match(/<a\b/g)||[]).length,2);
     assert.match(actions,/href="#leistungen"/);
     assert.match(actions,language==='de'?/Leistungen ansehen/:/Explore services/);
-    for (const id of ['home-next','leistungen','weiterentwicklung','zusammenarbeit','kontakt']) assert(html.includes(`id="${id}"`));
+    for (const id of ['home-next','leistungen','weiterentwicklung','kontakt']) assert(html.includes(`id="${id}"`));
     for (const [,id] of html.matchAll(/href="#([^" ]+)"/g)) assert(html.includes(`id="${id}"`),`Anchor ${id} exists`);
     for (const [,href] of html.matchAll(/href="(\/(?:de|en)\/[^"#?]*)"/g)) await access(path.join(dist,href.slice(1),'index.html'));
     assert.match(html,/mailto:contact@vibeperform.com/);
@@ -33,8 +33,9 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.doesNotMatch(html,/class="hp-presence-toggle"|data-presence-toggle/);
     assert.match(html,language==='de'?/Wir halten Ihren Online-Auftritt immer aktuell\./:/We keep your online presence up to date\./);
     assert.match(html,/data-scroll-reveal/);
-    assert.match(html,/hp-process-title-line--first/);
-    assert.match(html,/hp-process-title-line--second/);
+    assert.doesNotMatch(html,/id="zusammenarbeit"|hp-process-title-line|href="[^" ]*#zusammenarbeit"/);
+    assert.match(html,language==='de'?/die immer aktuell bleibt\./:/stays up to date\./);
+    assert.match(html,language==='de'?/Daten erfassen/:/Collect data/);
     assert.match(html,/has-scroll-reveals/);
     assert.doesNotMatch(html,/Ihr Betrieb leistet gute Arbeit\. Online sollte man das genauso erkennen|Your business does good work/);
     assert.doesNotMatch(html,/<video\b/i);
@@ -58,7 +59,7 @@ test('homepage machine-readable content reflects websites and profiles',async()=
   const markdown=await readFile(path.join(dist,'de/index.md'),'utf8');
   assert.match(markdown,/Immer eine aktuelle Webseite/);
   assert.match(markdown,/- Veraltete Website[\s\S]*- Veraltetes Unternehmensprofil[\s\S]*- Uneinheitliche Angaben/);
-  assert.doesNotMatch(markdown,/Keine Zeit für Pflege|Der erste Eindruck zählt/);
+  assert.doesNotMatch(markdown,/Keine Zeit für Pflege|Der erste Eindruck zählt|Ein klarer Weg\. Ein fester Ansprechpartner/);
   assert.match(markdown,/Erstellung neuer Webseiten/);
   assert.match(markdown,/Einrichtung des Unternehmensprofils/);
   assert.doesNotMatch(markdown,/Proposal Assistant|Angebotsassistent|Compliance inklusive|\bundefined\b/);

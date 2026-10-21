@@ -17,25 +17,14 @@ export const homePageContent = {
         { number: '03', title: 'Laufende Optimierung', body: 'Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren Auftritt und verbessern ihn Schritt für Schritt.', tags: 'Pflege · Auswertung · Verbesserung', link: 'Mehr zur Betreuung', href: '/de/website-betreuung/' },
         { number: '04', title: 'SEO, Texte & Grafiken', body: 'Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimierung, Texten und Grafiken, die zu Ihrem Unternehmen und Ihren Kunden passen.', tags: 'SEO · GEO · Local SEO · Content · Technical SEO', link: 'Mehr erfahren', href: '/de/suchmaschinenoptimierung/' },
       ],
-      extra: 'Auf Anfrage unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.',
-      extraLink: 'Zur KI-Beratung', extraHref: '/de/ki-strategie/',
     },
     evolution: {
-      title: 'Eine Website,', emphasis: 'die nie veraltet.',
+      title: 'Eine Website,', emphasis: 'die immer aktuell bleibt.',
       intro: 'Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.',
-      body: 'Wir betrachten verfügbare Nutzungsdaten, Suchanfragen und Keyword-Trends. Daraus leiten wir passende Verbesserungen ab und stimmen mit Ihnen ab, was als Nächstes sinnvoll ist.',
       steps: [
         { title: 'Verstehen', body: 'Was suchen Ihre Kunden? Was hat sich in Ihrem Betrieb verändert?' },
         { title: 'Verbessern', body: 'Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.' },
-        { title: 'Dranbleiben', body: 'Veränderungen beobachten und die nächsten Schritte abstimmen.' },
-      ],
-    },
-    process: {
-      title: 'Ein klarer Weg.', emphasis: 'Ein fester Ansprechpartner.',
-      items: [
-        { title: 'Ihr Vorhaben verstehen', body: 'Wir besprechen Ihren Betrieb, Ihre Kunden und Ihren bisherigen Auftritt. Gemeinsam klären wir, wo Sie starten möchten.' },
-        { title: 'Den Auftritt gestalten', body: 'Wir planen Struktur und Inhalte, gestalten die vereinbarten Bereiche und zeigen Ihnen den Stand zur Abstimmung.' },
-        { title: 'Gemeinsam weitergehen', body: 'Nach Ihrer Freigabe geht der Auftritt online. Im vereinbarten Betreuungsumfang halten wir ihn aktuell und entwickeln ihn weiter.' },
+        { title: 'Daten erfassen', body: 'Verfügbare Nutzungsdaten und Suchanfragen als Grundlage für weitere Verbesserungen erfassen.' },
       ],
     },
     faq: {
@@ -48,7 +37,7 @@ export const homePageContent = {
       ],
     },
     contact: { title: 'Was soll Ihr Auftritt', emphasis: 'für Sie leisten?', body: 'Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wieder zu Ihrem Betrieb passt. Erzählen Sie uns von Ihrem Vorhaben.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben' },
-    footer: { tagline: 'Websites und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', process: 'Zusammenarbeit', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
+    footer: { tagline: 'Websites und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', support: 'Betreuung', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
   },
   en: {
     problems: {
@@ -68,24 +57,14 @@ export const homePageContent = {
         { number: '03', title: 'Ongoing optimisation', body: 'Add services, share projects and update content. We look after your website and improve it step by step.', tags: 'Maintenance · Analysis · Improvement', link: 'Explore ongoing support', href: '/en/website-support/' },
         { number: '04', title: 'SEO, copy & graphics', body: 'Content that explains what you offer. We work on search engine optimisation, copy and graphics that fit your business and your customers.', tags: 'SEO · GEO · Local SEO · Content · Technical SEO', link: 'Learn more', href: '/en/search-engine-optimisation/' },
       ],
-      extra: 'On request, we support businesses with AI consulting and practical applications for everyday business operations.', extraLink: 'Explore AI consulting', extraHref: '/en/ai-strategy/',
     },
     evolution: {
-      title: 'A website that', emphasis: 'never falls behind.',
+      title: 'A website that', emphasis: 'stays up to date.',
       intro: 'Your business changes. So do your customers’ questions. We see a website as something that can keep getting better.',
-      body: 'We consider available usage data, search queries and keyword trends. We use these insights to suggest improvements and agree with you on what makes sense next.',
       steps: [
         { title: 'Understand', body: 'What are customers looking for? What has changed in your business?' },
         { title: 'Improve', body: 'Develop content, design and contact options with a clear purpose.' },
-        { title: 'Keep going', body: 'Observe changes and agree the next steps together.' },
-      ],
-    },
-    process: {
-      title: 'A clear path.', emphasis: 'A dedicated contact.',
-      items: [
-        { title: 'Understand your project', body: 'We discuss your business, your customers and your current online presence. Together, we decide where to start.' },
-        { title: 'Design your presence', body: 'We plan the structure and content, design the agreed sections and share progress with you for feedback.' },
-        { title: 'Keep moving forward', body: 'Your website goes live after your approval. Within the agreed support scope, we keep it current and continue to develop it.' },
+        { title: 'Collect data', body: 'Gather available usage data and search queries to guide further improvements.' },
       ],
     },
     faq: {
@@ -98,6 +77,6 @@ export const homePageContent = {
       ],
     },
     contact: { title: 'What should your website', emphasis: 'do for your business?', body: 'A new website, an up-to-date business profile or an online presence that reflects your business again. Tell us about your project.', booking: 'Book an intro call', email: 'Prefer to send an email?' },
-    footer: { tagline: 'Websites and business profiles. Created, maintained and continuously developed.', services: 'Services', process: 'Working together', about: 'About us', aboutHref: '/en/about-us/', legal: 'Legal notice', legalHref: '/en/legal-notice/', privacy: 'Privacy', privacyHref: '/en/privacy/', top: 'Back to top', rights: 'All rights reserved.' },
+    footer: { tagline: 'Websites and business profiles. Created, maintained and continuously developed.', services: 'Services', support: 'Ongoing support', about: 'About us', aboutHref: '/en/about-us/', legal: 'Legal notice', legalHref: '/en/legal-notice/', privacy: 'Privacy', privacyHref: '/en/privacy/', top: 'Back to top', rights: 'All rights reserved.' },
   },
 } as const;

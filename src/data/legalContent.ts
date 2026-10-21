@@ -73,7 +73,7 @@ export const legalContent = {
 			title: 'Datenschutzerklärung',
 			intro: [
 				'Diese Datenschutzerklärung erklärt, wie personenbezogene Daten auf der Website von VibePerform verarbeitet werden.',
-				'Sie umfasst den Websitebetrieb, das Anfrageformular, consentmanager, Google Analytics und die verlinkte Terminbuchung.',
+				'Sie umfasst den Websitebetrieb, das Anfrageformular, consentmanager, Google Analytics und die Terminbuchung über Google Calendar.',
 			],
 			noticeTitle: '',
 			noticeItems: [],
@@ -115,7 +115,7 @@ export const legalContent = {
 				{
 					title: '5. Terminbuchung über Google Calendar',
 					paragraphs: [
-						'Die Website verlinkt auf eine Google-Calendar-Buchungsseite; der Kalender ist nicht in die Website eingebettet. Erst wenn Sie den Link öffnen, verarbeitet Google Ihre Zugriffsdaten und die von Ihnen eingegebenen Buchungsdaten.',
+						'Sie können den Google-Kalender im Kontaktbereich über „Termin finden“ laden oder die Buchungsseite über einen externen Link öffnen. Der eingebettete Kalender stellt erst nach Ihrem Klick eine Verbindung zu Google her. Ab diesem Zeitpunkt verarbeitet Google Ihre Zugriffsdaten und die von Ihnen eingegebenen Buchungsdaten. Über „Kalender schließen“ können Sie die Einbettung wieder entfernen.',
 						'Wenn Sie einen Termin buchen, verarbeiten wir die Angaben, die für Vorbereitung, Durchführung und Nachbereitung des Gesprächs erforderlich sind. Dazu können Name, E-Mail-Adresse, Terminzeit, Organisation, Anliegen und sonstige freiwillige Angaben gehören.',
 						'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn die Buchung zur Anbahnung oder Durchführung einer Zusammenarbeit erfolgt; ergänzend Art. 6 Abs. 1 lit. f DSGVO für effiziente Terminplanung und Kommunikation.',
 						'Google-Calendar-Termine bleiben standardmäßig im Google-Workspace-/Google-Konto gespeichert, bis sie durch uns, durch einen Administrator oder nach den dort eingerichteten Lösch- und Aufbewahrungsregeln gelöscht werden. Wenn Google Vault oder eigene Aufbewahrungsregeln verwendet werden, gelten diese Regeln vorrangig.',
@@ -230,7 +230,7 @@ export const legalContent = {
 			title: 'Privacy Policy',
 			intro: [
 				'This Privacy Policy explains how personal data is processed on the VibePerform website.',
-				'It covers website operation, the inquiry form, consentmanager, Google Analytics and the linked appointment booking service.',
+				'It covers website operation, the inquiry form, consentmanager, Google Analytics and the appointment booking through Google Calendar service.',
 			],
 			noticeTitle: '',
 			noticeItems: [],
@@ -272,7 +272,7 @@ export const legalContent = {
 				{
 					title: '5. Appointment booking via Google Calendar',
 					paragraphs: [
-						'The website links to a Google Calendar booking page; the calendar is not embedded in the website. Google processes your access data and the booking details you enter only if you open the link.',
+						'You can load Google Calendar in the contact section by selecting “Find a time” or open the booking page through an external link. The embedded calendar connects to Google only after you click. Google then processes your access data and the booking details you enter. Select “Close calendar” to remove the embedded calendar again.',
 						'If you book an appointment, we process the information required to prepare, conduct and follow up on the meeting. This may include name, email address, appointment time, organisation, request details and other voluntary information.',
 						'The legal basis is Art. 6(1)(b) GDPR where the booking relates to pre-contractual steps or collaboration; additionally Art. 6(1)(f) GDPR for efficient scheduling and communication.',
 						'Google Calendar appointments remain stored in the Google Workspace/Google account by default until we, an administrator or the applicable deletion and retention settings delete them. If Google Vault or custom retention rules are used, those rules take precedence.',

@@ -53,15 +53,15 @@ test('reduced-motion preference swaps views without an orbital animation',t=>{
 test('mobile choices keep a single selected view without desktop motion',t=>{
   const f=fixture(t,{mobile:true});f.choices[0].click();assert.equal(f.root.dataset.front,'before');assert.equal(f.choices[0].getAttribute('aria-pressed'),'true');assert.equal(f.choices[1].getAttribute('aria-pressed'),'false');assert.equal(f.animations.length,0);
 });
-test('contact channel actions stay local and closing returns focus to the opener',t=>{
+test('contact window closes and returns focus to the opener',t=>{
   const f=fixture(t);f.openers[0].click();assert.equal(f.dialog.open,true);assert(f.classes.has('hcs-dialog-open'));
-  f.channels[1].click();assert.equal(f.note.textContent,'Email demo only');f.close.click();assert.equal(f.dialog.open,false);assert.equal(f.doc.focused,f.openers[0]);assert(!f.classes.has('hcs-dialog-open'));
+  f.close.click();assert.equal(f.dialog.open,false);assert.equal(f.doc.focused,f.openers[0]);assert(!f.classes.has('hcs-dialog-open'));
 });
 test('built DE and EN contact dialogs contain only the confirmed VibePerform details',()=>{
   for(const locale of ['de','en']){
     const html=readFileSync(new URL(`../dist/${locale}/index.html`,import.meta.url),'utf8');
     const dialog=html.match(/<dialog[^>]*data-hcs-dialog[\s\S]*?<\/dialog>/)?.[0];assert(dialog);
-    assert.match(dialog,/\+49 160 94712200/);assert.match(dialog,/contact@vibeperform\.com/);assert.doesNotMatch(dialog,/hms-loistl|5288693|7128814/);
+    assert.match(dialog,/\+49 160 94712200/);assert.match(dialog,/contact@vibeperform\.com/);assert.match(dialog,/href="tel:\+4916094712200"/);assert.match(dialog,/href="mailto:contact@vibeperform\.com"/);assert.doesNotMatch(dialog,/hms-loistl|5288693|7128814/);
     assert(html.indexOf('data-home-hero')<html.indexOf('id="projekt-hms-loistl"'));
     assert(html.indexOf('id="projekt-hms-loistl"')<html.indexOf('id="home-next"'));
   }

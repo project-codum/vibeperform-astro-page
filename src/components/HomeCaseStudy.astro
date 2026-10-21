@@ -18,8 +18,6 @@ const t = de ? {
   currentBefore: 'Jetzt groß: der vorherige Auftritt.', currentAfter: 'Jetzt groß: der neue Auftritt.',
   contact: 'Kontaktieren', contactLabel: 'VibePerform kontaktieren',
   dialogTitle: 'Sprechen wir über Ihre Website.', close: 'Kontaktfenster schließen', call: 'Anrufen', mail: 'E-Mail schreiben',
-  phoneNote: 'Im Live-Auftritt würde sich jetzt die Telefon-App mit der VibePerform-Nummer öffnen.',
-  mailNote: 'Im Live-Auftritt würde sich jetzt eine E-Mail an VibePerform öffnen.',
 } : {
   title: 'Good work.', emphasis: 'Finally visible.',
   visit: 'Visit the website', before: 'Before', after: 'After', newTag: 'New',
@@ -29,8 +27,6 @@ const t = de ? {
   currentBefore: 'Large view: the previous website.', currentAfter: 'Large view: the new website.',
   contact: 'Get in touch', contactLabel: 'Contact VibePerform',
   dialogTitle: 'Let’s talk about your website.', close: 'Close contact window', call: 'Call us', mail: 'Send an email',
-  phoneNote: 'On the live website, this would open your phone app with the VibePerform number.',
-  mailNote: 'On the live website, this would open an email addressed to VibePerform.',
 };
 ---
 <section class="hcs" id="projekt-hms-loistl" aria-labelledby="hcs-title" data-case-study data-front="after">
@@ -69,10 +65,9 @@ const t = de ? {
     <img class="hcs-dialog-logo" src={`${base}/vibeperform-logo-a-20261020-hell.svg`} width="224" height="132" alt="VibePerform" />
     <h2 id="hcs-contact-title">{t.dialogTitle}</h2>
     <div class="hcs-contact-options">
-      <button type="button" data-hcs-channel data-note={t.phoneNote}><span class="hcs-option-icon" aria-hidden="true"><Fragment set:html={phoneIcon} /></span><span><strong>{t.call}</strong><small>{contactPhone}</small></span></button>
-      <button type="button" data-hcs-channel data-note={t.mailNote}><span class="hcs-option-icon" aria-hidden="true"><Fragment set:html={mailIcon} /></span><span><strong>{t.mail}</strong><small>{contactEmail}</small></span></button>
+      <a href={`tel:${contactPhone.replace(/\s/g, '')}`} data-hcs-channel><span class="hcs-option-icon" aria-hidden="true"><Fragment set:html={phoneIcon} /></span><span><strong>{t.call}</strong><small>{contactPhone}</small></span></a>
+      <a href={`mailto:${contactEmail}`} data-hcs-channel><span class="hcs-option-icon" aria-hidden="true"><Fragment set:html={mailIcon} /></span><span><strong>{t.mail}</strong><small>{contactEmail}</small></span></a>
     </div>
-    <p class="hcs-live" aria-live="polite" data-hcs-contact-note data-default=""></p>
   </dialog>
 </section>
 <script>

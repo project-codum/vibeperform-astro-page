@@ -81,13 +81,10 @@ export function mountCaseStudy(root: HTMLElement) {
 
   const dialog = root.querySelector<HTMLDialogElement>('[data-hcs-dialog]')!;
   const openers = [...root.querySelectorAll<HTMLButtonElement>('[data-hcs-contact]')];
-  const note = root.querySelector<HTMLElement>('[data-hcs-contact-note]')!;
   const closeButton = dialog.querySelector<HTMLButtonElement>('.hcs-close')!;
-  const channels = [...dialog.querySelectorAll<HTMLButtonElement>('[data-hcs-channel]')];
   let opener: HTMLButtonElement | null = null;
   const open = (event: Event) => {
     opener = event.currentTarget as HTMLButtonElement;
-    note.textContent = note.dataset.default!;
     dialog.showModal();
     document.documentElement.classList.add('hcs-dialog-open');
   };
@@ -101,12 +98,10 @@ export function mountCaseStudy(root: HTMLElement) {
     const rect = dialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close();
   };
-  const channel = (event: Event) => { note.textContent = (event.currentTarget as HTMLElement).dataset.note!; };
   openers.forEach(button => button.addEventListener('click', open));
   closeButton.addEventListener('click', close);
   dialog.addEventListener('close', closed);
   dialog.addEventListener('click', outside);
-  channels.forEach(button => button.addEventListener('click', channel));
   return {
     destroy() {
       disposed = true; pending = 0; finish(); resize.disconnect();
@@ -118,7 +113,6 @@ export function mountCaseStudy(root: HTMLElement) {
       closeButton.removeEventListener('click', close);
       dialog.removeEventListener('close', closed);
       dialog.removeEventListener('click', outside);
-      channels.forEach(button => button.removeEventListener('click', channel));
       if (dialog.open) dialog.close();
       document.documentElement.classList.remove('hcs-dialog-open');
     },
