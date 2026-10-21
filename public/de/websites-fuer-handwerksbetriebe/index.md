@@ -1,4 +1,4 @@
-# Websites für Handwerksbetriebe. Damit Kunden sehen, was Sie anbieten.
+# Webseiten für Handwerksbetriebe. Damit Kunden sehen, was Sie anbieten.
 Canonical URL: https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/
 Summary: Wir zeigen Ihre Leistungen, Projekte und Ihr Einzugsgebiet – mit einem einfachen Weg zur Projektanfrage. Wenn Sie einstellen, ergänzen wir einen passenden Bewerbungsweg.
 

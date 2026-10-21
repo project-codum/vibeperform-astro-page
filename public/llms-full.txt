@@ -12,10 +12,10 @@ Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, T
 
 ## Positionierung
 
-Websites erstellen. Google-Profile pflegen.
+Webseiten erstellen. Google-Profile pflegen.
 
-Für Betriebe, die ihre Leistungen online verständlich zeigen und ihren Auftritt nicht selbst betreuen möchten.
-## Damit aus dem ersten Eindruck der erste Schritt wird.
+Das machen wir für Betriebe, die einen professionellen Online-Auftritt wollen. Ganz ohne eigenen Zeitaufwand.
+## Immer eine aktuelle Webseite.
 
 Wir halten Ihren Online-Auftritt immer aktuell.
 
@@ -55,13 +55,9 @@ Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimieru
 SEO · GEO · Local SEO · Content · Technical SEO
 
 [Mehr erfahren](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
-
-Auf Anfrage unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
-## Eine Website, die nie veraltet.
+## Eine Website, die immer aktuell bleibt.
 
 Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.
-
-Wir betrachten verfügbare Nutzungsdaten, Suchanfragen und Keyword-Trends. Daraus leiten wir passende Verbesserungen ab und stimmen mit Ihnen ab, was als Nächstes sinnvoll ist.
 
 ### Verstehen
 
@@ -71,22 +67,9 @@ Was suchen Ihre Kunden? Was hat sich in Ihrem Betrieb verändert?
 
 Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.
 
-### Dranbleiben
+### Daten erfassen
 
-Veränderungen beobachten und die nächsten Schritte abstimmen.
-## Ein klarer Weg. Ein fester Ansprechpartner.
-
-### Ihr Vorhaben verstehen
-
-Wir besprechen Ihren Betrieb, Ihre Kunden und Ihren bisherigen Auftritt. Gemeinsam klären wir, wo Sie starten möchten.
-
-### Den Auftritt gestalten
-
-Wir planen Struktur und Inhalte, gestalten die vereinbarten Bereiche und zeigen Ihnen den Stand zur Abstimmung.
-
-### Gemeinsam weitergehen
-
-Nach Ihrer Freigabe geht der Auftritt online. Im vereinbarten Betreuungsumfang halten wir ihn aktuell und entwickeln ihn weiter.
+Verfügbare Nutzungsdaten und Suchanfragen als Grundlage für weitere Verbesserungen erfassen.
 ## Häufige Fragen
 
 ### Können Sie unsere bestehende Website übernehmen?
@@ -374,7 +357,7 @@ contact@vibeperform.com
 
 ---
 
-# Website erstellen lassen. Damit Ihr Angebot klar wird.
+# Webseite erstellen lassen. Damit Ihr Angebot klar wird.
 Canonical URL: https://www.vibeperform.com/de/website-erstellen-lassen/
 English alternate: https://www.vibeperform.com/en/website-design/
 Summary: Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.
@@ -511,12 +494,12 @@ contact@vibeperform.com
 
 ---
 
-# Website überarbeiten. Passend zu Ihrem Betrieb.
+# Webseite überarbeiten. Passend zu Ihrem Betrieb.
 Canonical URL: https://www.vibeperform.com/de/website-ueberarbeiten/
 English alternate: https://www.vibeperform.com/en/website-redesign/
 Summary: Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
 
-Website überarbeiten. Passend zu Ihrem Betrieb.
+Webseite überarbeiten. Passend zu Ihrem Betrieb.
 
 Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.
 
@@ -610,12 +593,12 @@ contact@vibeperform.com
 
 ---
 
-# Website-Betreuung. Wir halten Ihren Auftritt aktuell.
+# Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
 Canonical URL: https://www.vibeperform.com/de/website-betreuung/
 English alternate: https://www.vibeperform.com/en/website-support/
 Summary: Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
 
-Website-Betreuung. Wir halten Ihren Auftritt aktuell.
+Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
 
 Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.
 
@@ -1105,7 +1088,7 @@ contact@vibeperform.com
 
 ---
 
-# Websites für Handwerksbetriebe. Damit Kunden sehen, was Sie anbieten.
+# Webseiten für Handwerksbetriebe. Damit Kunden sehen, was Sie anbieten.
 Canonical URL: https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/
 Summary: Wir zeigen Ihre Leistungen, Projekte und Ihr Einzugsgebiet – mit einem einfachen Weg zur Projektanfrage. Wenn Sie einstellen, ergänzen wir einen passenden Bewerbungsweg.
 
@@ -1382,7 +1365,7 @@ Mit diesen Antworten lässt sich der nächste Schritt konkret planen. **Beschrei
 
 ---
 
-# Google-Unternehmensprofil und Website: Welche Angaben müssen zusammenpassen?
+# Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?
 Canonical URL: https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/
 English alternate: https://www.vibeperform.com/en/blog/google-business-profile-website-consistency/
 Summary: Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website.
@@ -1440,7 +1423,7 @@ Für die Website-Seite des Ablaufs lesen Sie [Was gehört zur laufenden Website-
 
 ---
 
-# Welche Inhalte braucht eine Handwerker-Website?
+# Welche Inhalte braucht eine Handwerker-Webseite?
 Canonical URL: https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/
 English alternate: https://www.vibeperform.com/en/blog/trade-business-website-content-checklist/
 Summary: Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten.
@@ -1501,7 +1484,7 @@ Bevor die Website veröffentlicht wird, bestätigt der Betrieb Fakten, Leistungs
 
 ---
 
-# Was gehört zur laufenden Website-Betreuung?
+# Was gehört zur laufenden Webseiten-Betreuung?
 Canonical URL: https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/
 English alternate: https://www.vibeperform.com/en/blog/ongoing-website-support-scope-checklist/
 Summary: Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Website-Betreuung fest.

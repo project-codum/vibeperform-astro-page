@@ -120,9 +120,8 @@ function renderHomeAgentPage() {
  return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
 ${section('Positionierung', `${intro.headline} ${intro.emphasis}\n\n${intro.intro.join(' ')}`)}
 ${section(`${c.problems.title} ${c.problems.emphasis}`, `${c.problems.intro}\n\n${issues(c.problems.items)}`)}
-${section(`${c.services.title} ${c.services.emphasis}`, `${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}\n\n${c.services.extra}`)}
-${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${c.evolution.body}\n\n${articles(c.evolution.steps)}`)}
-${section(`${c.process.title} ${c.process.emphasis}`, articles(c.process.items))}
+${section(`${c.services.title} ${c.services.emphasis}`, `${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n${item.tags}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}`)}
+${section(`${c.evolution.title} ${c.evolution.emphasis}`, `${c.evolution.intro}\n\n${articles(c.evolution.steps)}`)}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
 ${section('Kontakt', `${c.contact.body}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
 }

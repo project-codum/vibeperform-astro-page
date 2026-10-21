@@ -5,10 +5,10 @@ Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, T
 
 ## Positionierung
 
-Websites erstellen. Google-Profile pflegen.
+Webseiten erstellen. Google-Profile pflegen.
 
-Für Betriebe, die ihre Leistungen online verständlich zeigen und ihren Auftritt nicht selbst betreuen möchten.
-## Damit aus dem ersten Eindruck der erste Schritt wird.
+Das machen wir für Betriebe, die einen professionellen Online-Auftritt wollen. Ganz ohne eigenen Zeitaufwand.
+## Immer eine aktuelle Webseite.
 
 Wir halten Ihren Online-Auftritt immer aktuell.
 
@@ -48,13 +48,9 @@ Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimieru
 SEO · GEO · Local SEO · Content · Technical SEO
 
 [Mehr erfahren](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
-
-Auf Anfrage unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
-## Eine Website, die nie veraltet.
+## Eine Website, die immer aktuell bleibt.
 
 Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.
-
-Wir betrachten verfügbare Nutzungsdaten, Suchanfragen und Keyword-Trends. Daraus leiten wir passende Verbesserungen ab und stimmen mit Ihnen ab, was als Nächstes sinnvoll ist.
 
 ### Verstehen
 
@@ -64,22 +60,9 @@ Was suchen Ihre Kunden? Was hat sich in Ihrem Betrieb verändert?
 
 Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.
 
-### Dranbleiben
+### Daten erfassen
 
-Veränderungen beobachten und die nächsten Schritte abstimmen.
-## Ein klarer Weg. Ein fester Ansprechpartner.
-
-### Ihr Vorhaben verstehen
-
-Wir besprechen Ihren Betrieb, Ihre Kunden und Ihren bisherigen Auftritt. Gemeinsam klären wir, wo Sie starten möchten.
-
-### Den Auftritt gestalten
-
-Wir planen Struktur und Inhalte, gestalten die vereinbarten Bereiche und zeigen Ihnen den Stand zur Abstimmung.
-
-### Gemeinsam weitergehen
-
-Nach Ihrer Freigabe geht der Auftritt online. Im vereinbarten Betreuungsumfang halten wir ihn aktuell und entwickeln ihn weiter.
+Verfügbare Nutzungsdaten und Suchanfragen als Grundlage für weitere Verbesserungen erfassen.
 ## Häufige Fragen
 
 ### Können Sie unsere bestehende Website übernehmen?

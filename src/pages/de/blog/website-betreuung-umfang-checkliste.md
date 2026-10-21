@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
-title: "Was gehört zur laufenden Website-Betreuung?"
+title: "Was gehört zur laufenden Webseiten-Betreuung?"
 seoTitle: "Website-Betreuung: Umfang und Checkliste | VibePerform"
 kicker: "Website aktuell halten"
 category: "website"

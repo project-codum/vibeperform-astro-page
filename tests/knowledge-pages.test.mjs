@@ -12,7 +12,7 @@ for (const locale of ['de','en']) {
   assert.doesNotMatch(index,/Vom Lesen ins Gespräch|Wir klären gemeinsam, was Sie brauchen und wie wir Sie unterstützen können\.|From reading to a conversation|Together, we work out what you need and how we can help\./);
   assert.match(index,/class="kn-featured(?: kn-featured--text)?"/);
   assert.match(index,/id="ai-perspectives"/);
-  const guideIndex = index.indexOf(locale === 'de' ? 'Welche Inhalte braucht eine Handwerker-Website?' : 'What content does a trade business website need?');
+  const guideIndex = index.indexOf(locale === 'de' ? 'Welche Inhalte braucht eine Handwerker-Webseite?' : 'What content does a trade business website need?');
   assert.ok(guideIndex > 0 && guideIndex < index.indexOf('id="ai-perspectives"'), 'Website guide leads supplemental AI content');
   assert.doesNotMatch(index, /<img[^>]+src="(?:undefined|null|)"/);
   assert.match(index,/aria-current="page" href="[^\"]*\/blog\/"/);

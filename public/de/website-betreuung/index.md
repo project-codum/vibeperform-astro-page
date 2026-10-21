@@ -1,9 +1,9 @@
-# Website-Betreuung. Wir halten Ihren Auftritt aktuell.
+# Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
 Canonical URL: https://www.vibeperform.com/de/website-betreuung/
 English alternate: https://www.vibeperform.com/en/website-support/
 Summary: Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
 
-Website-Betreuung. Wir halten Ihren Auftritt aktuell.
+Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
 
 Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.
 

@@ -1,7 +1,11 @@
 export const siteUrl = 'https://www.vibeperform.com';
 export const brandName = 'Vibeperform';
 export const contactEmail = 'contact@vibeperform.com';
+export const contactPhone = '+49 160 94712200';
 export const bookingUrl = 'https://calendar.app.google/utFQgw33PwJTiDk56';
+
+// Public appointment schedule resolved from bookingUrl; gv enables Google's inline view.
+export const bookingEmbedUrl = 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3Ooupp-9KEJs2rDymjez-UMbnPNw3SIDxBRR2MXf3Z86ravuiePnQQry0Enl-UE3VxhorJ4nTN?gv=true';
 
 export type Locale = 'de' | 'en';
 

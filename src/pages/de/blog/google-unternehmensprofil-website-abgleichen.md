@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
-title: "Google-Unternehmensprofil und Website: Welche Angaben müssen zusammenpassen?"
+title: "Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?"
 seoTitle: "Google-Unternehmensprofil und Website abstimmen | VibePerform"
 kicker: "Firmenauftritt abstimmen"
 category: "website"

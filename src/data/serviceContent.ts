@@ -30,7 +30,7 @@ export const serviceContent = {
     website: {
       title: 'Website erstellen lassen für Ihr Unternehmen | VibePerform',
       description: 'Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.',
-      kicker: 'Website erstellen lassen', headline: 'Website erstellen lassen.', emphasis: 'Damit Ihr Angebot klar wird.',
+      kicker: 'Website erstellen lassen', headline: 'Webseite erstellen lassen.', emphasis: 'Damit Ihr Angebot klar wird.',
       intro: 'Für Betriebe, die eine neue Website brauchen oder deren Auftritt nicht mehr zum Angebot passt. Wir planen, texten, gestalten und entwickeln – mit einem klaren Weg zur Anfrage.',
       action: 'Erstgespräch buchen', secondary: 'So entsteht Ihre Website',
       mockLabel: 'Gestaltungsbeispiel', mockBrand: 'Ihr Unternehmen', mockNav: 'Leistungen · Über uns · Kontakt', mockTitle: 'Küchen', mockEmphasis: 'nach Maß.', mockText: 'Für Altbauwohnungen mit wenig Platz.', mockButton: 'Fotos und Maße schicken', mockFooter: 'Wir besprechen Ihre Küche.',
