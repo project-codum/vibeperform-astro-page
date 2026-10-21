@@ -1,4 +1,4 @@
-# Was gehört zur laufenden Website-Betreuung?
+# Was gehört zur laufenden Webseiten-Betreuung?
 Canonical URL: https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/
 English alternate: https://www.vibeperform.com/en/blog/ongoing-website-support-scope-checklist/
 Summary: Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Website-Betreuung fest.

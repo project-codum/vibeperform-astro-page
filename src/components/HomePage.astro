@@ -1,6 +1,7 @@
 ---
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
+import HomeCaseStudy from './HomeCaseStudy.astro';
 import HomeProblemAnimation from './HomeProblemAnimation.astro';
 import HomeSeoBanner from './HomeSeoBanner.astro';
 import AgencyFooter from './AgencyFooter.astro';
@@ -20,12 +21,13 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
   <main class="home-main">
     <HomeHero copy={homeIntroContent[locale]} />
+    <HomeCaseStudy locale={locale} />
     <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
 
     <section class="hp-section hp-problems" id="home-next" tabindex="-1" aria-labelledby="problems-title" data-analytics-section="home-problems">
       <div class="hp-wrap hp-problems-layout">
         <div class="hp-heading">
-          <h2 id="problems-title">{locale === 'de' ? 'Damit aus dem ersten Eindruck' : 'Turn your first impression'}<br /><em>{locale === 'de' ? 'der erste Schritt wird.' : 'into the first step.'}</em></h2>
+          <h2 id="problems-title">{locale === 'de' ? 'Immer eine' : 'Always an'}<br /><em>{locale === 'de' ? 'aktuelle Webseite.' : 'up-to-date website.'}</em></h2>
         </div>
         <HomeProblemAnimation locale={locale} />
         <div class="hp-problems-copy">

@@ -1,7 +1,7 @@
 export const tradePageContent = {
   "de": {
     "kicker": "Websites für Handwerksbetriebe",
-    "title": "Websites für Handwerksbetriebe.",
+    "title": "Webseiten für Handwerksbetriebe.",
     "emphasis": "Damit Kunden sehen, was Sie anbieten.",
     "intro": "Wir zeigen Ihre Leistungen, Projekte und Ihr Einzugsgebiet – mit einem einfachen Weg zur Projektanfrage. Wenn Sie einstellen, ergänzen wir einen passenden Bewerbungsweg.",
     "cta": "Kostenlosen Website-Check anfragen",

@@ -5,9 +5,9 @@ export const homeIntroContent = {
   de: {
     title: 'Websites & Unternehmensprofile | VibePerform',
     description: 'Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
-    headline: 'Websites erstellen.',
+    headline: 'Webseiten erstellen.',
     emphasis: 'Google-Profile pflegen.',
-    intro: ['Für Betriebe, die ihre Leistungen online verständlich zeigen', 'und ihren Auftritt nicht selbst betreuen möchten.'],
+    intro: ['Das machen wir für Betriebe, die ihre Leistungen online verständlich zeigen', 'und ihren Auftritt nicht selbst betreuen möchten.'],
     primaryLabel: 'Erstgespräch buchen',
     primaryHref: bookingUrl,
     moreLabel: 'Leistungen ansehen',

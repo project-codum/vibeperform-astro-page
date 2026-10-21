@@ -1,7 +1,7 @@
 export const homePageContent = {
   de: {
     problems: {
-      title: 'Damit aus dem ersten Eindruck', emphasis: 'der erste Schritt wird.',
+      title: 'Immer eine', emphasis: 'aktuelle Webseite.',
       intro: 'Wir halten Ihren Online-Auftritt immer aktuell.',
       items: [
         { label: '01', title: 'Veraltete Website', body: '' },
@@ -52,7 +52,7 @@ export const homePageContent = {
   },
   en: {
     problems: {
-      title: 'Turn your first impression', emphasis: 'into the first step.',
+      title: 'Always an', emphasis: 'up-to-date website.',
       intro: 'We keep your online presence up to date.',
       items: [
         { label: '01', title: 'Outdated website', body: '' },

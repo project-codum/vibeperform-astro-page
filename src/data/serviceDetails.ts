@@ -20,7 +20,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.",
       "kicker": "Website-Überarbeitung & Relaunch",
       "title": [
-        "Website überarbeiten.",
+        "Webseite überarbeiten.",
         "Passend zu Ihrem Betrieb."
       ],
       "intro": "Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.",
@@ -127,7 +127,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.",
       "kicker": "Website-Betreuung & Weiterentwicklung",
       "title": [
-        "Website-Betreuung.",
+        "Webseiten-Betreuung.",
         "Wir halten Ihren Auftritt aktuell."
       ],
       "intro": "Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.",

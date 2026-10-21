@@ -25,7 +25,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.match(html,/mailto:contact@vibeperform.com/);
     assert.match(html,/calendar.app.google\/utFQgw33PwJTiDk56/);
     assert.doesNotMatch(html,/UNSERE LEISTUNGEN|UNSERE VISION|SO ARBEITEN WIR ZUSAMMEN|VOR DEM ERSTEN GESPRÄCH|DER NÄCHSTE SCHRITT|OUR SERVICES|OUR VISION|WORKING TOGETHER|BEFORE WE TALK|THE NEXT STEP/);
-    assert.match(html,language==='de'?/Damit aus dem ersten Eindruck/:/Turn your first impression/);
+    assert.match(html,language==='de'?/Immer eine/:/Always an/);
     assert.match(html,language==='de'?/Erstgespräch buchen/:/Book an intro call/);
     assert.match(html,/class="hp-presence-loop(?: |\")/);
     assert.match(html,language==='de'?/Unternehmensprofil/:/Business profile/);
@@ -56,7 +56,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
 
 test('homepage machine-readable content reflects websites and profiles',async()=>{
   const markdown=await readFile(path.join(dist,'de/index.md'),'utf8');
-  assert.match(markdown,/Damit aus dem ersten Eindruck der erste Schritt wird/);
+  assert.match(markdown,/Immer eine aktuelle Webseite/);
   assert.match(markdown,/- Veraltete Website[\s\S]*- Veraltetes Unternehmensprofil[\s\S]*- Uneinheitliche Angaben/);
   assert.doesNotMatch(markdown,/Keine Zeit für Pflege|Der erste Eindruck zählt/);
   assert.match(markdown,/Erstellung neuer Webseiten/);

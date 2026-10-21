@@ -1,0 +1,81 @@
+---
+import { contactEmail, contactPhone, type Locale } from '../lib/siteMetadata';
+import '../styles/home-case-study.css';
+import phoneIcon from 'lucide-static/icons/phone.svg?raw';
+import mailIcon from 'lucide-static/icons/mail.svg?raw';
+import closeIcon from 'lucide-static/icons/x.svg?raw';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const de = locale === 'de';
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const image = (name: string) => `${base}/case-studies/loistl/${name}.webp`;
+const t = de ? {
+  title: 'Gute Arbeit.', emphasis: 'Endlich sichtbar.',
+  visit: 'Die Webseite besuchen', before: 'Vorher', after: 'Nachher', newTag: 'Neu',
+  enlargeBefore: 'Vorher groß anzeigen', enlargeAfter: 'Nachher groß anzeigen',
+  switch: 'Vorher / Nachher wechseln',
+  beforeAlt: 'Originalaufnahme der früheren HMS-Loistl-Startseite', afterAlt: 'Neue HMS-Loistl-Website mit klarem Leistungsversprechen und hellem Hauseingang',
+  currentBefore: 'Jetzt groß: der vorherige Auftritt.', currentAfter: 'Jetzt groß: der neue Auftritt.',
+  contact: 'Kontaktieren', contactLabel: 'VibePerform kontaktieren',
+  dialogTitle: 'Sprechen wir über Ihre Website.', close: 'Kontaktfenster schließen', call: 'Anrufen', mail: 'E-Mail schreiben',
+  phoneNote: 'Im Live-Auftritt würde sich jetzt die Telefon-App mit der VibePerform-Nummer öffnen.',
+  mailNote: 'Im Live-Auftritt würde sich jetzt eine E-Mail an VibePerform öffnen.',
+} : {
+  title: 'Good work.', emphasis: 'Finally visible.',
+  visit: 'Visit the website', before: 'Before', after: 'After', newTag: 'New',
+  enlargeBefore: 'Show the previous website large', enlargeAfter: 'Show the new website large',
+  switch: 'Swap before / after',
+  beforeAlt: 'Original screenshot of the previous HMS Loistl homepage', afterAlt: 'New HMS Loistl website with a clear service message and a bright entrance',
+  currentBefore: 'Large view: the previous website.', currentAfter: 'Large view: the new website.',
+  contact: 'Get in touch', contactLabel: 'Contact VibePerform',
+  dialogTitle: 'Let’s talk about your website.', close: 'Close contact window', call: 'Call us', mail: 'Send an email',
+  phoneNote: 'On the live website, this would open your phone app with the VibePerform number.',
+  mailNote: 'On the live website, this would open an email addressed to VibePerform.',
+};
+---
+<section class="hcs" id="projekt-hms-loistl" aria-labelledby="hcs-title" data-case-study data-front="after">
+  <div class="hcs-wrap">
+    <div class="hcs-intro">
+      <div><h2 id="hcs-title">{t.title}<br /><em>{t.emphasis}</em></h2></div>
+      <div class="hcs-intro-copy"><a class="hcs-visit" href="https://www.hms-loistl.de/" target="_blank" rel="noopener noreferrer">{t.visit}<span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="hcs-mobile-controls" role="group" aria-label={de ? 'Website-Stand auswählen' : 'Choose website version'}>
+      <button type="button" data-hcs-go="before" aria-pressed="false">{t.before}</button><button type="button" data-hcs-go="after" aria-pressed="true">{t.after}</button>
+    </div>
+    <div class="hcs-stage" data-hcs-stage>
+      <figure class="hcs-card hcs-card--before" data-hcs-card="before">
+        <figcaption><span>{t.before}</span></figcaption>
+        <div class="hcs-browser"><div class="hcs-chrome" aria-hidden="true"><span>● ● ●</span><span>hms-loistl.de</span></div>
+          <button type="button" class="hcs-swap" data-hcs-switch aria-label={t.enlargeBefore} data-before-label={t.enlargeBefore} data-after-label={t.enlargeAfter}>
+            <div class="hcs-old-image"><img src={image('before-small')} srcset={`${image('before-small')} 1000w, ${image('before-desktop')} 1800w`} sizes="(max-width:700px) 90vw, 860px" width="1800" height="6522" loading="lazy" alt={t.beforeAlt} /></div>
+          </button>
+        </div>
+      </figure>
+      <figure class="hcs-card hcs-card--after" data-hcs-card="after">
+        <figcaption><span>{t.after}</span><svg class="hcs-new-tag" xmlns="http://www.w3.org/2000/svg" viewBox="88 32 84 68.5" role="img" aria-label={de ? 'Neu von VibePerform' : 'New by VibePerform'}><path fill="#ad46ff" d="M128 32C128 57 118 68 88 68C118 68 128 79 128 100.5C128 79 140 68 172 68C140 68 128 57 128 32Z" /><text x="128" y="69" text-anchor="middle" dominant-baseline="middle">{t.newTag}</text></svg></figcaption>
+        <div class="hcs-browser"><div class="hcs-chrome" aria-hidden="true"><span>● ● ●</span><span>hms-loistl.de</span><span>↗</span></div>
+          <button type="button" class="hcs-swap" data-hcs-switch aria-label={t.enlargeBefore} data-before-label={t.enlargeBefore} data-after-label={t.enlargeAfter}>
+            <picture class="hcs-new-image"><source media="(max-width:700px)" srcset={image('after-mobile')} /><img src={image('after-desktop')} width="1440" height="1000" loading="lazy" alt={t.afterAlt} /></picture>
+          </button>
+          <button class="hcs-image-contact" type="button" data-hcs-contact aria-label={t.contactLabel}>{t.contact}<span aria-hidden="true">↗</span></button>
+        </div>
+      </figure>
+    </div>
+    <div class="hcs-controls"><button class="hcs-turn" type="button" data-hcs-switch aria-label={t.switch}><span aria-hidden="true">⇄</span>{t.switch}</button></div>
+    <p class="hcs-live" aria-live="polite" data-hcs-status data-before={t.currentBefore} data-after={t.currentAfter}>{t.currentAfter}</p>
+  </div>
+  <dialog class="hcs-dialog" aria-labelledby="hcs-contact-title" data-hcs-dialog>
+    <button class="hcs-close" type="button" aria-label={t.close} autofocus><span aria-hidden="true"><Fragment set:html={closeIcon} /></span></button>
+    <img class="hcs-dialog-logo" src={`${base}/vibeperform-logo-a-20261020-hell.svg`} width="224" height="132" alt="VibePerform" />
+    <h2 id="hcs-contact-title">{t.dialogTitle}</h2>
+    <div class="hcs-contact-options">
+      <button type="button" data-hcs-channel data-note={t.phoneNote}><span class="hcs-option-icon" aria-hidden="true"><Fragment set:html={phoneIcon} /></span><span><strong>{t.call}</strong><small>{contactPhone}</small></span></button>
+      <button type="button" data-hcs-channel data-note={t.mailNote}><span class="hcs-option-icon" aria-hidden="true"><Fragment set:html={mailIcon} /></span><span><strong>{t.mail}</strong><small>{contactEmail}</small></span></button>
+    </div>
+    <p class="hcs-live" aria-live="polite" data-hcs-contact-note data-default=""></p>
+  </dialog>
+</section>
+<script>
+  import { mountCaseStudy } from '../scripts/caseStudy';
+  document.querySelectorAll<HTMLElement>('[data-case-study]').forEach(root => mountCaseStudy(root));
+</script>

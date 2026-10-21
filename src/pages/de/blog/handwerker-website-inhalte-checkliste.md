@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
-title: "Welche Inhalte braucht eine Handwerker-Website?"
+title: "Welche Inhalte braucht eine Handwerker-Webseite?"
 seoTitle: "Handwerker-Website: Inhalte und Checkliste | VibePerform"
 kicker: "Website planen"
 category: "website"

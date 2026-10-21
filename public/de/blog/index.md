@@ -1,9 +1,9 @@
-# Website-Ratgeber: Webdesign, SEO & Betreuung.
+# Webseiten-Ratgeber: Webdesign, SEO & Betreuung.
 Canonical URL: https://www.vibeperform.com/de/blog/
 English alternate: https://www.vibeperform.com/en/blog/
 Summary: Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
-Website-Ratgeber: Webdesign, SEO & Betreuung.
+Webseiten-Ratgeber: Webdesign, SEO & Betreuung.
 
 Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
@@ -19,19 +19,19 @@ Baukasten, KI-Website-Generator oder Agentur? Vergleichen Sie die Wege zur neuen
 
 Welche Inhalte braucht Ihr Betrieb? Was gehört zur Betreuung? Und wie passen Website und Google-Unternehmensprofil zusammen? Diese Leitfäden helfen bei den nächsten Entscheidungen.
 
-### [Google-Unternehmensprofil und Website: Welche Angaben müssen zusammenpassen?](https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/)
+### [Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?](https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/)
 
 2026-09-30 · 3 Min. Lesezeit
 
 Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website.
 
-### [Welche Inhalte braucht eine Handwerker-Website?](https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/)
+### [Welche Inhalte braucht eine Handwerker-Webseite?](https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/)
 
 2026-09-30 · 4 Min. Lesezeit
 
 Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten.
 
-### [Was gehört zur laufenden Website-Betreuung?](https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/)
+### [Was gehört zur laufenden Webseiten-Betreuung?](https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/)
 
 2026-09-30 · 3 Min. Lesezeit
 
