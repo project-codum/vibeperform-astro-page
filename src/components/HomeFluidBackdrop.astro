@@ -11,14 +11,35 @@ const { pauseLabel, resumeLabel } = Astro.props;
   class FluidBackground extends HTMLElement {
     private controller: { toggle(): void; destroy(): void } | null = null;
     private generation = 0;
+    private firstFrame = 0;
+    private secondFrame = 0;
+    private idle: number | null = null;
+    private motion = matchMedia('(prefers-reduced-motion: reduce)');
     private toggle = () => this.controller?.toggle();
-    async connectedCallback() {
+    private schedule = () => {
+      if (this.controller || !this.isConnected || this.motion.matches) return;
       const generation = ++this.generation;
+      // Let the real page paint before importing and compiling decoration.
+      this.firstFrame = requestAnimationFrame(() => {
+        this.secondFrame = requestAnimationFrame(() => {
+          const start = () => {
+            if (this.isConnected && generation === this.generation && !this.motion.matches) void this.mount(generation);
+          };
+          if ('requestIdleCallback' in window) this.idle = window.requestIdleCallback(start, { timeout: 1200 });
+          else start();
+        });
+      });
+    };
+    connectedCallback() {
+      this.motion.addEventListener('change', this.schedule);
+      this.schedule();
+    }
+    private async mount(generation: number) {
       const canvas = this.querySelector('canvas')!;
       const button = this.querySelector('button')!;
       try {
         const { mountFluid } = await import('../lib/homeFluid.js');
-        if (!this.isConnected || generation !== this.generation) return;
+        if (!this.isConnected || generation !== this.generation || this.motion.matches) return;
         this.controller = mountFluid(canvas, { onState: ({ available, paused }) => {
           button.hidden = !available;
           button.setAttribute('aria-pressed', String(paused));
@@ -29,6 +50,10 @@ const { pauseLabel, resumeLabel } = Astro.props;
     }
     disconnectedCallback() {
       this.generation++;
+      cancelAnimationFrame(this.firstFrame);
+      cancelAnimationFrame(this.secondFrame);
+      if (this.idle !== null) window.cancelIdleCallback(this.idle);
+      this.motion.removeEventListener('change', this.schedule);
       this.querySelector('button')?.removeEventListener('click', this.toggle);
       this.controller?.destroy(); this.controller = null;
     }

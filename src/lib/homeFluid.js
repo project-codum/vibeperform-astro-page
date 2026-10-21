@@ -7,24 +7,20 @@ const fragment = `precision highp float;
 uniform vec2 resolution;
 uniform vec2 pointer;
 uniform float cursorPresence;
-uniform float time;
-uniform float influence;
+uniform vec3 centres[5];
 float join(float a,float b,float k){
   float h=clamp(.5+.5*(b-a)/k,0.,1.);
   return mix(b,a,h)-k*h*(1.-h);
 }
 float field(vec3 p){
   float a=resolution.x/resolution.y;
-  float t=time*.22;
-  vec3 shift=vec3(pointer*.045*influence,0.);
-  vec3 left=vec3(-a*.89,.84,0.)+shift;
-  vec3 right=vec3(a*.89,-.84,.06)-shift;
-  float d=length(p-left)-.57;
-  d=join(d,length(p-left-vec3(.40+sin(t)*.16,-.46+cos(t)*.13,.06))-.26,.30);
-  d=join(d,length(p-right)-.64,.30);
-  d=join(d,length(p-right-vec3(-.50+sin(t*.8)*.16,.46+cos(t*.7)*.13,0.))-.30,.32);
-  vec3 satellite=vec3(a*.59+sin(t*.8)*.10,.48+cos(t)*.12,.10);
-  d=join(d,length(p-satellite)-.13,.18);
+  // These centres are identical to the original trajectories, calculated once
+  // per frame on the CPU instead of in every ray step and normal sample.
+  float d=length(p-centres[0])-.57;
+  d=join(d,length(p-centres[1])-.26,.30);
+  d=join(d,length(p-centres[2])-.64,.30);
+  d=join(d,length(p-centres[3])-.30,.32);
+  d=join(d,length(p-centres[4])-.13,.18);
   // The pointer lives in the same aspect-correct world as the other spheres.
   // Smooth union creates a real neck between surfaces, rather than an overlap.
   if(cursorPresence>.001){
@@ -69,71 +65,103 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const coarse = matchMedia('(pointer: coarse)');
   let gl, program, buffer, shaders = [], raf = 0;
+  let ready = false, preparing = false, epoch = 0;
   let disposed = false, lost = false, paused = false, visible = false;
   let elapsed = 0, lastFrame = 0, lastTick = 0;
   let px = 0, py = 0, tx = 0, ty = 0;
   let cursorPresence = 0, cursorTarget = 0;
   let pointerInside = false;
   let uniforms;
+  const centres = new Float32Array(15);
 
   const state = () => {
-    const canAnimate = Boolean(gl && program && !lost && !motion.matches);
-    host.dataset.fluid = gl && program && !lost ? 'ready' : 'fallback';
+    const canAnimate = Boolean(gl && ready && !lost && !motion.matches);
+    host.dataset.fluid = gl && ready && !lost ? 'ready' : 'fallback';
     host.dataset.motion = motion.matches ? 'reduced' : paused ? 'paused' : 'running';
     onState({ available: canAnimate, paused });
   };
   const stop = () => { cancelAnimationFrame(raf); raf = 0; lastFrame = lastTick = 0; };
   function release() {
+    epoch++; ready = preparing = false;
     if (!gl) return;
     if (buffer) gl.deleteBuffer(buffer);
     if (program) gl.deleteProgram(program);
     shaders.forEach(shader => gl.deleteShader(shader));
     buffer = program = null; shaders = [];
   }
-  function setup() {
+  async function setup() {
+    const attempt = ++epoch;
+    preparing = true;
     gl = canvas.getContext('webgl', { alpha: true, antialias: false, powerPreference: 'low-power' });
     if (!gl) throw new Error('WebGL unavailable');
     function compile(type, source) {
       const shader = gl.createShader(type); shaders.push(shader);
       gl.shaderSource(shader, source); gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error('Shader compilation failed');
       return shader;
     }
     program = gl.createProgram();
     gl.attachShader(program, compile(gl.VERTEX_SHADER, vertex));
     gl.attachShader(program, compile(gl.FRAGMENT_SHADER, fragment));
     gl.linkProgram(program);
+    // Querying shader/link status immediately forces the browser to wait for
+    // the GPU compiler. Poll its non-blocking completion flag when available.
+    const parallel = gl.getExtension('KHR_parallel_shader_compile');
+    if (parallel) {
+      while (!gl.getProgramParameter(program, parallel.COMPLETION_STATUS_KHR)) {
+        await new Promise(resolve => setTimeout(resolve, 16));
+        if (disposed || lost || attempt !== epoch) return;
+      }
+    }
+    if (disposed || lost || attempt !== epoch) return;
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error('Shader link failed');
     gl.useProgram(program);
     buffer = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,3,-1,-1,3]), gl.STATIC_DRAW);
     const position = gl.getAttribLocation(program, 'position');
     gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    uniforms = Object.fromEntries(['resolution','pointer','cursorPresence','time','influence'].map(key => [key,gl.getUniformLocation(program,key)]));
-    resize(); state();
+    uniforms = Object.fromEntries(['resolution','pointer','cursorPresence'].map(key => [key,gl.getUniformLocation(program,key)]));
+    uniforms.centres = gl.getUniformLocation(program, 'centres[0]');
+    ready = true; preparing = false;
+    if (!resize()) draw();
+    sync();
   }
   function draw() {
-    if (!gl || !program || lost || disposed || motion.matches) return;
+    if (!gl || !ready || lost || disposed || motion.matches || document.hidden) return;
     gl.viewport(0,0,canvas.width,canvas.height);
     gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
     gl.uniform2f(uniforms.pointer, px, py);
     gl.uniform1f(uniforms.cursorPresence, coarse.matches ? 0 : cursorPresence);
-    gl.uniform1f(uniforms.time, elapsed);
-    gl.uniform1f(uniforms.influence, coarse.matches ? 0 : 1);
+    const a = canvas.width / canvas.height, t = elapsed * .22;
+    const sx = coarse.matches ? 0 : px * .045, sy = coarse.matches ? 0 : py * .045;
+    const lx = -a * .89 + sx, ly = .84 + sy;
+    const rx = a * .89 - sx, ry = -.84 - sy;
+    centres.set([
+      lx, ly, 0,
+      lx + .40 + Math.sin(t) * .16, ly - .46 + Math.cos(t) * .13, .06,
+      rx, ry, .06,
+      rx - .50 + Math.sin(t * .8) * .16, ry + .46 + Math.cos(t * .7) * .13, .06,
+      a * .59 + Math.sin(t * .8) * .10, .48 + Math.cos(t) * .12, .10,
+    ]);
+    gl.uniform3fv(uniforms.centres, centres);
     gl.drawArrays(gl.TRIANGLES,0,3);
   }
   function resize() {
     const bounds = host.getBoundingClientRect();
-    // Cap total fragments as well as DPR. This is a budget, not a device benchmark.
-    const pixelBudget = coarse.matches ? 420000 : 1000000;
-    const ratio = Math.min(devicePixelRatio || 1, 1.25, Math.sqrt(pixelBudget/Math.max(1,bounds.width*bounds.height)));
-    canvas.width = Math.max(1,Math.round(bounds.width*ratio));
-    canvas.height = Math.max(1,Math.round(bounds.height*ratio));
+    // Keep curved silhouettes sharp on large/Retina displays, while bounding
+    // the fragment workload. Scheduling and shader optimisations remain active.
+    const pixelBudget = coarse.matches ? 1000000 : 4000000;
+    const ratio = Math.min(devicePixelRatio || 1, 1.5, Math.sqrt(pixelBudget/Math.max(1,bounds.width*bounds.height)));
+    const width = Math.max(1,Math.round(bounds.width*ratio));
+    const height = Math.max(1,Math.round(bounds.height*ratio));
+    if (canvas.width === width && canvas.height === height) return false;
+    canvas.width = width;
+    canvas.height = height;
     draw();
+    return true;
   }
   function frame(now) {
     raf = 0;
-    if (disposed || lost || paused || motion.matches || document.hidden || !visible || !program) return;
+    if (disposed || lost || paused || motion.matches || document.hidden || !visible || !ready) return;
     if (now-lastFrame >= 1000/30-1) {
       if (lastTick) elapsed += Math.min((now-lastTick)/1000,.1);
       lastTick = lastFrame = now;
@@ -145,12 +173,16 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
   }
   function sync() {
     stop();
-    if (!disposed && !lost && !paused && !motion.matches && !document.hidden && visible && program) raf = requestAnimationFrame(frame);
+    if (!disposed && !lost && !paused && !motion.matches && !document.hidden && visible && ready) raf = requestAnimationFrame(frame);
     state();
   }
   function preference() {
-    if (!motion.matches && !program && !lost) {
-      try { setup(); } catch { release(); }
+    if (!motion.matches && !ready && !preparing && !lost) {
+      const attempt = epoch + 1;
+      setup().catch(() => {
+        if (attempt !== epoch) return;
+        release(); state();
+      });
     }
     sync();
   }
@@ -172,7 +204,7 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
     leave(); cursorPresence=0;
   };
   const visibility = () => { if (document.hidden) clearCursor(); sync(); };
-  const contextLost = event => { event.preventDefault(); lost=true; stop(); state(); };
+  const contextLost = event => { event.preventDefault(); lost=true; epoch++; ready=preparing=false; stop(); state(); };
   const contextRestored = () => { lost=false; release(); preference(); };
   const sizeObserver = new ResizeObserver(resize);
   const visibilityObserver = new IntersectionObserver(entries => {

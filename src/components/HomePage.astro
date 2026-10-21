@@ -78,6 +78,21 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 </div>
 
 <script>
+  // Repeated SVG and button effects only run while their section is visible.
+  const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button');
+  if ('IntersectionObserver' in window) {
+    const active = new Set<Element>();
+    const update = () => looping.forEach(node => node.classList.toggle('is-animation-visible', !document.hidden && active.has(node)));
+    const animationObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) active.add(entry.target);
+        else active.delete(entry.target);
+      }
+      update();
+    }, { rootMargin: '80px' });
+    looping.forEach(node => animationObserver.observe(node));
+    document.addEventListener('visibilitychange', update);
+  } else looping.forEach(node => node.classList.add('is-animation-visible'));
   const revealSections = document.querySelectorAll<HTMLElement>('[data-scroll-reveal]');
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
