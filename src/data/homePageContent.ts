@@ -10,15 +10,14 @@ export const homePageContent = {
       ],
     },
     services: {
-      title: 'Ein Auftritt.', emphasis: 'Alles verbunden.',
-      intro: 'Von der neuen Website bis zur laufenden Pflege: Wir verbinden Gestaltung, Inhalte und Auffindbarkeit zu einem stimmigen Firmenauftritt.',
+      title: 'Ihr digitaler Firmenauftritt.', emphasis: 'Alles aus einer Hand.',
       items: [
-        { number: '01', title: 'Neue Website erstellen', body: 'Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalten, einer passenden Gestaltung und einer guten Darstellung auf jedem Bildschirm.', tags: 'Konzept · Gestaltung · Umsetzung', link: 'Website erstellen lassen', href: '/de/website-erstellen-lassen/' },
-        { number: '02', title: 'Websites weiterentwickeln', body: 'Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren Auftritt und verbessern ihn Schritt für Schritt.', tags: 'Pflege · Auswertung · Verbesserung', link: 'Mehr zur Betreuung', href: '/de/website-betreuung/' },
-        { number: '03', title: 'Unternehmensprofile pflegen', body: 'Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet. Damit Interessenten aktuelle Informationen über Ihren Betrieb finden.', tags: 'Google-Profil · Informationen · Aktualität', link: 'Mehr zum Unternehmensprofil', href: '/de/google-unternehmensprofil/' },
-        { number: '04', title: 'SEO, Texte & Grafiken', body: 'Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimierung, Texten und Grafiken, die zu Ihrem Unternehmen und Ihren Kunden passen.', tags: 'Suchmaschinen · Inhalte · Gestaltung', link: 'SEO und Inhalte entdecken', href: '/de/suchmaschinenoptimierung/' },
+        { number: '01', title: 'Erstellung neuer Webseiten', body: 'Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalten, einer passenden Gestaltung und einer guten Darstellung auf jedem Bildschirm.', tags: 'Konzept · Gestaltung · Umsetzung', link: 'Website erstellen lassen', href: '/de/website-erstellen-lassen/' },
+        { number: '02', title: 'Einrichtung des Unternehmensprofils', body: 'Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet. Damit Interessenten aktuelle Informationen über Ihren Betrieb finden.', tags: 'Google-Profil · Einrichtung · Informationen', link: 'Mehr zum Unternehmensprofil', href: '/de/google-unternehmensprofil/' },
+        { number: '03', title: 'Laufende Optimierung', body: 'Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren Auftritt und verbessern ihn Schritt für Schritt.', tags: 'Pflege · Auswertung · Verbesserung', link: 'Mehr zur Betreuung', href: '/de/website-betreuung/' },
+        { number: '04', title: 'SEO, Texte & Grafiken', body: 'Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimierung, Texten und Grafiken, die zu Ihrem Unternehmen und Ihren Kunden passen.', tags: 'SEO · GEO · Local SEO · Content · Technical SEO', link: 'Mehr erfahren', href: '/de/suchmaschinenoptimierung/' },
       ],
-      extra: 'Ergänzend unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.',
+      extra: 'Auf Anfrage unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.',
       extraLink: 'Zur KI-Beratung', extraHref: '/de/ki-strategie/',
     },
     evolution: {
@@ -62,15 +61,14 @@ export const homePageContent = {
       ],
     },
     services: {
-      title: 'One presence.', emphasis: 'Everything connected.',
-      intro: 'From a new website to ongoing maintenance: we bring design, content and search visibility together in a consistent online presence.',
+      title: 'Your digital business presence.', emphasis: 'Everything in one place.',
       items: [
         { number: '01', title: 'Create a new website', body: 'A new website or a fresh start for your existing one. With clear content, thoughtful design and a layout that works across screen sizes.', tags: 'Planning · Design · Development', link: 'Explore website design', href: '/en/website-design/' },
-        { number: '02', title: 'Keep your website evolving', body: 'Add services, share projects and update content. We look after your website and improve it step by step.', tags: 'Maintenance · Analysis · Improvement', link: 'Explore ongoing support', href: '/en/website-support/' },
-        { number: '03', title: 'Maintain business profiles', body: 'A complete Google Business Profile and consistent information online. So potential customers can find current details about your business.', tags: 'Google profile · Information · Updates', link: 'Explore business profiles', href: '/en/google-business-profile/' },
-        { number: '04', title: 'SEO, copy & graphics', body: 'Content that explains what you offer. We work on search engine optimisation, copy and graphics that fit your business and your customers.', tags: 'Search · Content · Design', link: 'Explore SEO and content', href: '/en/search-engine-optimisation/' },
+        { number: '02', title: 'Set up your business profile', body: 'A complete Google Business Profile and consistent information online. So potential customers can find current details about your business.', tags: 'Google profile · Setup · Information', link: 'Explore business profiles', href: '/en/google-business-profile/' },
+        { number: '03', title: 'Ongoing optimisation', body: 'Add services, share projects and update content. We look after your website and improve it step by step.', tags: 'Maintenance · Analysis · Improvement', link: 'Explore ongoing support', href: '/en/website-support/' },
+        { number: '04', title: 'SEO, copy & graphics', body: 'Content that explains what you offer. We work on search engine optimisation, copy and graphics that fit your business and your customers.', tags: 'SEO · GEO · Local SEO · Content · Technical SEO', link: 'Learn more', href: '/en/search-engine-optimisation/' },
       ],
-      extra: 'We also offer AI consulting and practical applications for everyday business operations.', extraLink: 'Explore AI consulting', extraHref: '/en/ai-strategy/',
+      extra: 'On request, we support businesses with AI consulting and practical applications for everyday business operations.', extraLink: 'Explore AI consulting', extraHref: '/en/ai-strategy/',
     },
     evolution: {
       title: 'A website that', emphasis: 'never falls behind.',
