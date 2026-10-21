@@ -2,6 +2,7 @@
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
 import HomeProblemAnimation from './HomeProblemAnimation.astro';
+import HomeSeoBanner from './HomeSeoBanner.astro';
 import AgencyFooter from './AgencyFooter.astro';
 import { servicePaths } from '../data/serviceContent';
 import { homeIntroContent } from '../data/homeIntroContent';
@@ -36,17 +37,19 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 
     <section class="hp-section hp-services" id="leistungen" aria-labelledby="services-title" data-analytics-section="home-services">
       <div class="hp-wrap">
-        <div class="hp-section-heading"><div><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div><p class="hp-intro">{t.services.intro}</p></div>
+        <div class="hp-section-heading"><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div>
         <div class="hp-service-grid">
           {t.services.items.map((item, index) => <article class={'hp-service-card hp-service-card--' + (index + 1)}>
+            {index === 3 ? <HomeSeoBanner locale={locale} title={item.title} href={href(item.href)} link={item.link} /> : <>
             {index < 3 && <div class={'hp-service-art hp-service-art--' + (index + 1)}>
-              <HomeProblemAnimation locale={locale} variant={index === 0 ? 'website-static' : index === 1 ? 'website' : 'profile'} />
+              <HomeProblemAnimation locale={locale} variant={index === 0 ? 'website-static' : index === 1 ? 'profile' : 'website'} />
             </div>}
             <div class="hp-service-copy">
               <h3>{item.title}</h3>
               <p class="hp-tags">{item.tags}</p>
               <a class={'hp-text-link' + (index === 0 ? ' hp-service-primary-link' : '')} href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a>
             </div>
+            </>}
           </article>)}
         </div>
         <p style="margin:0 0 26px"><a class="hp-text-link" href={href(servicePaths[locale].overview)}>{locale === 'de' ? 'Alle Leistungen ansehen' : 'Explore all services'}<span aria-hidden="true">↗</span></a></p>

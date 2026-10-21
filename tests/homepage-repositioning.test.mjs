@@ -46,9 +46,9 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.match(services,/hp-presence-loop--website hp-presence-loop--animated/);
     assert.match(services,/hp-presence-loop--profile hp-presence-loop--animated/);
     assert.doesNotMatch(services,/Eine neue Website oder ein frischer Start|A new website or a fresh start/);
-    assert.match(services,language==='de'?/Neue Website erstellen/:/Create a new website/);
+    assert.match(services,language==='de'?/Erstellung neuer Webseiten/:/Create a new website/);
     assert.match(services,/hp-service-primary-link/);
-    assert.match(services,language==='de'?/Unternehmensprofile pflegen/:/Maintain business profiles/);
+    assert.match(services,language==='de'?/Einrichtung des Unternehmensprofils/:/Set up your business profile/);
     const faq=html.match(/<section class="hp-section hp-faq"[\s\S]*?<\/section>/)?.[0];
     assert.equal((faq.match(/<details\b/g)||[]).length,4);
   });
@@ -59,9 +59,9 @@ test('homepage machine-readable content reflects websites and profiles',async()=
   assert.match(markdown,/Damit aus dem ersten Eindruck der erste Schritt wird/);
   assert.match(markdown,/- Veraltete Website[\s\S]*- Veraltetes Unternehmensprofil[\s\S]*- Uneinheitliche Angaben/);
   assert.doesNotMatch(markdown,/Keine Zeit für Pflege|Der erste Eindruck zählt/);
-  assert.match(markdown,/Neue Website erstellen/);
-  assert.match(markdown,/Unternehmensprofile pflegen/);
-  assert.doesNotMatch(markdown,/Proposal Assistant|Angebotsassistent|Compliance inklusive/);
+  assert.match(markdown,/Erstellung neuer Webseiten/);
+  assert.match(markdown,/Einrichtung des Unternehmensprofils/);
+  assert.doesNotMatch(markdown,/Proposal Assistant|Angebotsassistent|Compliance inklusive|\bundefined\b/);
   const html=await readFile(path.join(dist,'de/index.html'),'utf8');
   const data=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.match(data.find(x=>x['@type']==='Organization').description,/Websites und Unternehmensprofile/);

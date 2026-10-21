@@ -15,11 +15,9 @@ Wir halten Ihren Online-Auftritt immer aktuell.
 - Veraltete Website
 - Veraltetes Unternehmensprofil
 - Uneinheitliche Angaben
-## Unsere Leistungen
+## Ihr digitaler Firmenauftritt. Alles aus einer Hand.
 
-Von der neuen Website bis zur laufenden Pflege: Wir verbinden Gestaltung, Inhalte und Auffindbarkeit zu einem stimmigen Firmenauftritt.
-
-### Neue Website erstellen
+### Erstellung neuer Webseiten
 
 Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalten, einer passenden Gestaltung und einer guten Darstellung auf jedem Bildschirm.
 
@@ -27,7 +25,15 @@ Konzept · Gestaltung · Umsetzung
 
 [Website erstellen lassen](https://www.vibeperform.com/de/website-erstellen-lassen/)
 
-### Websites weiterentwickeln
+### Einrichtung des Unternehmensprofils
+
+Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet. Damit Interessenten aktuelle Informationen über Ihren Betrieb finden.
+
+Google-Profil · Einrichtung · Informationen
+
+[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
+
+### Laufende Optimierung
 
 Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren Auftritt und verbessern ihn Schritt für Schritt.
 
@@ -35,23 +41,15 @@ Pflege · Auswertung · Verbesserung
 
 [Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
-### Unternehmensprofile pflegen
-
-Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet. Damit Interessenten aktuelle Informationen über Ihren Betrieb finden.
-
-Google-Profil · Informationen · Aktualität
-
-[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
-
 ### SEO, Texte & Grafiken
 
 Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimierung, Texten und Grafiken, die zu Ihrem Unternehmen und Ihren Kunden passen.
 
-Suchmaschinen · Inhalte · Gestaltung
+SEO · GEO · Local SEO · Content · Technical SEO
 
-[SEO und Inhalte entdecken](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
+[Mehr erfahren](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
-Ergänzend unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
+Auf Anfrage unterstützen wir Unternehmen mit KI-Beratung und passenden Anwendungen für den Arbeitsalltag.
 ## Eine Website, die nie veraltet.
 
 Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.
@@ -69,7 +67,7 @@ Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.
 ### Dranbleiben
 
 Veränderungen beobachten und die nächsten Schritte abstimmen.
-## undefined
+## Ein klarer Weg. Ein fester Ansprechpartner.
 
 ### Ihr Vorhaben verstehen
 

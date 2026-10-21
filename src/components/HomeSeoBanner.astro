@@ -1,0 +1,33 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; title: string; href: string; link: string; }
+const { locale, title, href, link } = Astro.props;
+const terms = [
+  ['SEO', 'Search Engine Optimization'],
+  ['GEO', 'Generative Engine Optimization'],
+  ['Local SEO', locale === 'de' ? 'Lokale Sichtbarkeit' : 'Local visibility'],
+  ['Content', locale === 'de' ? 'Texte & Inhalte' : 'Copy & content'],
+  ['Technical SEO', locale === 'de' ? 'Struktur & Performance' : 'Structure & performance'],
+];
+---
+<div class="hp-seo-banner" data-seo-banner data-presence-animation>
+  <div class="hp-seo-heading">
+    <h3>{title}</h3>
+    <div class="hp-seo-actions">
+      <a class="hp-text-link" href={href}>{link}<span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="hp-seo-window" id={`seo-keywords-${locale}`}>
+    <div class="hp-seo-track">
+      {[0, 1].map(copy => <div class="hp-seo-group" role={copy === 0 ? 'list' : undefined} aria-label={copy === 0 ? (locale === 'de' ? 'Themen für Ihre Sichtbarkeit' : 'Search visibility topics') : undefined} aria-hidden={copy === 1 ? 'true' : undefined}>
+        {terms.map(([label, description]) => <span class="hp-seo-term" role={copy === 0 ? 'listitem' : undefined}><strong>{label}</strong><span class="hp-seo-dash" aria-hidden="true">—</span><span>{description}</span><span class="hp-seo-star" aria-hidden="true">✦</span></span>)}
+      </div>)}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-seo-banner]').forEach(banner => {
+    banner.classList.add('is-seo-enhanced');
+  });
+</script>
