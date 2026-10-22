@@ -1,6 +1,6 @@
 # Was ist die beste Lösung für eine neue Webseite?
 Canonical URL: https://www.vibeperform.com/de/blog/beste-loesung-neue-webseite/
-Summary: Baukasten, KI-Website-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Websitebau stehen.
+Summary: Baukasten, KI-Webseiten-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Webseitenbau stehen.
 
 Thema: Neue Website planen
 Datum: 2026-10-11

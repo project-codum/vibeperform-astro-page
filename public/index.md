@@ -1,7 +1,7 @@
 # Vibeperform
 Canonical URL: https://www.vibeperform.com/de/
 English alternate: https://www.vibeperform.com/en/
-Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.
+Summary: Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.
 
 ## Positionierung
 

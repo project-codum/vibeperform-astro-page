@@ -3,8 +3,8 @@ import { bookingUrl } from '../lib/siteMetadata';
 // Shared navigation and hero copy for the completed agency homepage.
 export const homeIntroContent = {
   de: {
-    title: 'Websites & Unternehmensprofile | VibePerform',
-    description: 'Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
+    title: 'Webseiten & Unternehmensprofile | VibePerform',
+    description: 'Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
     headline: 'Webseiten erstellen.',
     emphasis: 'Google-Profile pflegen.',
     intro: ['Das machen wir für Betriebe, die einen professionellen Online-Auftritt wollen.', 'Ganz ohne eigenen Zeitaufwand.'],

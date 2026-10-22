@@ -1,7 +1,7 @@
 # Webdesign, SEO & Inhalte. Unsere Leistungen für Sie.
 Canonical URL: https://www.vibeperform.com/de/leistungen/
 English alternate: https://www.vibeperform.com/en/services/
-Summary: Website-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.
+Summary: Webseiten-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.
 
 Eine Website, die Ihren Betrieb zeigt. Inhalte, die Ihre Leistungen erklären. Unternehmensprofile, die dazu passen. Wir gestalten Ihren Auftritt und entwickeln ihn mit Ihnen weiter.
 

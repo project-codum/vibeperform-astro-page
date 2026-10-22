@@ -16,8 +16,8 @@ export interface ServiceDetail {
 export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
   "de": {
     "redesign": {
-      "name": "Website überarbeiten",
-      "description": "Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.",
+      "name": "Webseite überarbeiten",
+      "description": "Ihre bestehende Webseite gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.",
       "kicker": "Website-Überarbeitung & Relaunch",
       "title": [
         "Webseite überarbeiten.",
@@ -123,8 +123,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       }
     },
     "support": {
-      "name": "Website betreuen & weiterentwickeln",
-      "description": "Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.",
+      "name": "Webseite betreuen & weiterentwickeln",
+      "description": "Webseiten-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.",
       "kicker": "Website-Betreuung & Weiterentwicklung",
       "title": [
         "Webseiten-Betreuung.",
@@ -238,7 +238,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     },
     "seo": {
       "name": "Suchmaschinenoptimierung",
-      "description": "SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.",
+      "description": "SEO für Unternehmenswebseiten: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.",
       "kicker": "Die richtigen Fragen. Die passenden Antworten.",
       "title": [
         "SEO –",
@@ -344,7 +344,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     },
     "profile": {
       "name": "Google-Unternehmensprofil",
-      "description": "Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.",
+      "description": "Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Webseite ab.",
       "kicker": "Google-Unternehmensprofil",
       "title": [
         "Google-Unternehmensprofil.",
@@ -451,7 +451,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     },
     "content": {
       "name": "Texte & Grafiken",
-      "description": "Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.",
+      "description": "Verständliche Webseiten-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.",
       "kicker": "Texte, Bilder & Grafiken",
       "title": [
         "Texte & Grafiken.",

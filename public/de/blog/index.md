@@ -1,11 +1,11 @@
 # Webseiten-Ratgeber: Webdesign, SEO & Betreuung.
 Canonical URL: https://www.vibeperform.com/de/blog/
 English alternate: https://www.vibeperform.com/en/blog/
-Summary: Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
+Summary: Was braucht eine gute Webseite? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
 Webseiten-Ratgeber: Webdesign, SEO & Betreuung.
 
-Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
+Was braucht eine gute Webseite? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.
 
 ## Neuester Beitrag
 
@@ -13,7 +13,7 @@ Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt
 
 2026-10-11 · 5 Min. Lesezeit
 
-Baukasten, KI-Website-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Websitebau stehen.
+Baukasten, KI-Webseiten-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Webseitenbau stehen.
 
 ## Website & Firmenprofil klar planen.
 
@@ -23,19 +23,19 @@ Welche Inhalte braucht Ihr Betrieb? Was gehört zur Betreuung? Und wie passen We
 
 2026-09-30 · 3 Min. Lesezeit
 
-Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website.
+Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Webseite.
 
 ### [Welche Inhalte braucht eine Handwerker-Webseite?](https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/)
 
 2026-09-30 · 4 Min. Lesezeit
 
-Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten.
+Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Webseite vorbereiten.
 
 ### [Was gehört zur laufenden Webseiten-Betreuung?](https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/)
 
 2026-09-30 · 3 Min. Lesezeit
 
-Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Website-Betreuung fest.
+Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Webseiten-Betreuung fest.
 
 ## KI & Automatisierung einordnen.
 

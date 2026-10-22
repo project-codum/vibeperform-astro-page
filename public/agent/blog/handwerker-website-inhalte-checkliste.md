@@ -1,7 +1,7 @@
 # Welche Inhalte braucht eine Handwerker-Webseite?
 Canonical URL: https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/
 English alternate: https://www.vibeperform.com/en/blog/trade-business-website-content-checklist/
-Summary: Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten.
+Summary: Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Webseite vorbereiten.
 
 Thema: Website planen
 Datum: 2026-09-30

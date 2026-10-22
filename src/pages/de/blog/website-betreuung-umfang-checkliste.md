@@ -1,14 +1,14 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
 title: "Was gehört zur laufenden Webseiten-Betreuung?"
-seoTitle: "Website-Betreuung: Umfang und Checkliste | VibePerform"
+seoTitle: "Webseiten-Betreuung: Umfang und Checkliste | VibePerform"
 kicker: "Website aktuell halten"
 category: "website"
 guideOrder: 2
 date: "2026-09-30"
 author: "Marlon Dietrich"
 readTime: "3 Min. Lesezeit"
-excerpt: "Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Website-Betreuung fest."
+excerpt: "Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Webseiten-Betreuung fest."
 lang: "de"
 alternateLocaleHref: "/en/blog/ongoing-website-support-scope-checklist/"
 ctaTitle: "Welche Betreuung passt zu Ihrer Website?"
