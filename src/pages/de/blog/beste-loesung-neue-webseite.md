@@ -8,10 +8,10 @@ guideOrder: 4
 date: "2026-10-11"
 author: "Marlon Dietrich"
 readTime: "5 Min. Lesezeit"
-excerpt: "Baukasten, KI-Website-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Websitebau stehen."
+excerpt: "Baukasten, KI-Webseiten-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Webseitenbau stehen."
 lang: "de"
 coverImage: "/blog/beste-loesung-neue-webseite/hero-vorbereitung-webseite.webp"
-coverImageAlt: "Auf einem Schreibtisch liegen Website-Skizzen, Bildauswahl und Arbeitsmaterial; ein Laptop zeigt eine Beispielwebsite."
+coverImageAlt: "Auf einem Schreibtisch liegen Webseiten-Skizzen, Bildauswahl und Arbeitsmaterial; ein Laptop zeigt eine Beispielwebseite."
 coverImageWidth: 1672
 coverImageHeight: 941
 coverImageDisclosure: false

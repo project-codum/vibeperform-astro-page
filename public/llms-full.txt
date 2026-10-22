@@ -8,7 +8,7 @@ Kanonische Sprache: Deutsch
 # Vibeperform
 Canonical URL: https://www.vibeperform.com/de/
 English alternate: https://www.vibeperform.com/en/
-Summary: Wir erstellen und betreuen Websites und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.
+Summary: Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.
 
 ## Positionierung
 
@@ -230,7 +230,7 @@ Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
 # Über VibePerform: Die moderne Webseitenagentur.
 Canonical URL: https://www.vibeperform.com/de/ueber-uns/
 English alternate: https://www.vibeperform.com/en/about-us/
-Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.
+Summary: Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Webseiten und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.
 
 Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.
 
@@ -269,7 +269,7 @@ contact@vibeperform.com
 # Webdesign, SEO & Inhalte. Unsere Leistungen für Sie.
 Canonical URL: https://www.vibeperform.com/de/leistungen/
 English alternate: https://www.vibeperform.com/en/services/
-Summary: Website-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.
+Summary: Webseiten-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.
 
 Eine Website, die Ihren Betrieb zeigt. Inhalte, die Ihre Leistungen erklären. Unternehmensprofile, die dazu passen. Wir gestalten Ihren Auftritt und entwickeln ihn mit Ihnen weiter.
 
@@ -360,7 +360,7 @@ contact@vibeperform.com
 # Webseite erstellen lassen. Damit Ihr Angebot klar wird.
 Canonical URL: https://www.vibeperform.com/de/website-erstellen-lassen/
 English alternate: https://www.vibeperform.com/en/website-design/
-Summary: Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.
+Summary: Lassen Sie eine Unternehmenswebseite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.
 
 Für Betriebe, die eine neue Website brauchen oder deren Auftritt nicht mehr zum Angebot passt. Wir planen, texten, gestalten und entwickeln – mit einem klaren Weg zur Anfrage.
 
@@ -497,7 +497,7 @@ contact@vibeperform.com
 # Webseite überarbeiten. Passend zu Ihrem Betrieb.
 Canonical URL: https://www.vibeperform.com/de/website-ueberarbeiten/
 English alternate: https://www.vibeperform.com/en/website-redesign/
-Summary: Ihre bestehende Website gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
+Summary: Ihre bestehende Webseite gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
 
 Webseite überarbeiten. Passend zu Ihrem Betrieb.
 
@@ -557,7 +557,7 @@ Wir brauchen die bestehende Website, passende Zugänge, aktuelle Unternehmensinf
 
 ## Passende nächste Schritte
 
-[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+[Webseite betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
 
 [Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
 
@@ -596,7 +596,7 @@ contact@vibeperform.com
 # Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
 Canonical URL: https://www.vibeperform.com/de/website-betreuung/
 English alternate: https://www.vibeperform.com/en/website-support/
-Summary: Website-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
+Summary: Webseiten-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
 
 Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
 
@@ -695,7 +695,7 @@ contact@vibeperform.com
 # SEO – Suchmaschinenoptimierung
 Canonical URL: https://www.vibeperform.com/de/suchmaschinenoptimierung/
 English alternate: https://www.vibeperform.com/en/search-engine-optimisation/
-Summary: SEO für Unternehmenswebsites: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
+Summary: SEO für Unternehmenswebseiten: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
 
 SEO – Suchmaschinenoptimierung
 
@@ -757,7 +757,7 @@ Von Ihnen brauchen wir verlässliche Angaben zu Leistungen, Zielkunden und Einsa
 
 [Texte & Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
 
-[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+[Webseite betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Häufige Fragen
 
@@ -794,7 +794,7 @@ contact@vibeperform.com
 # Google-Unternehmensprofil. Vor Ort und online erkennbar.
 Canonical URL: https://www.vibeperform.com/de/google-unternehmensprofil/
 English alternate: https://www.vibeperform.com/en/google-business-profile/
-Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.
+Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Webseite ab.
 
 Google-Unternehmensprofil. Vor Ort und online erkennbar.
 
@@ -854,7 +854,7 @@ Sie ermöglichen berechtigten Zugriff, liefern korrekte Geschäftsdaten und nutz
 
 ## Passende nächste Schritte
 
-[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+[Webseite betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
 
 [Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
@@ -893,7 +893,7 @@ contact@vibeperform.com
 # Texte & Grafiken. Für Ihren digitalen Auftritt.
 Canonical URL: https://www.vibeperform.com/de/texte-grafiken/
 English alternate: https://www.vibeperform.com/en/copy-graphics/
-Summary: Verständliche Website-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
+Summary: Verständliche Webseiten-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.
 
 Texte & Grafiken. Für Ihren digitalen Auftritt.
 
@@ -955,7 +955,7 @@ Sie liefern Fachinformationen, vorhandenes Material und echte Beispiele. Welche 
 
 [Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
-[Website überarbeiten](https://www.vibeperform.com/de/website-ueberarbeiten/)
+[Webseite überarbeiten](https://www.vibeperform.com/de/website-ueberarbeiten/)
 
 ## Häufige Fragen
 
@@ -1294,7 +1294,7 @@ Schreiben Sie uns kurz, welche Büroarbeit Sie anschauen möchten. Wir melden un
 
 # Was ist die beste Lösung für eine neue Webseite?
 Canonical URL: https://www.vibeperform.com/de/blog/beste-loesung-neue-webseite/
-Summary: Baukasten, KI-Website-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Websitebau stehen.
+Summary: Baukasten, KI-Webseiten-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Webseitenbau stehen.
 
 Thema: Neue Website planen
 Datum: 2026-10-11
@@ -1368,7 +1368,7 @@ Mit diesen Antworten lässt sich der nächste Schritt konkret planen. **Beschrei
 # Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?
 Canonical URL: https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/
 English alternate: https://www.vibeperform.com/en/blog/google-business-profile-website-consistency/
-Summary: Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website.
+Summary: Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Webseite.
 
 Thema: Firmenauftritt abstimmen
 Datum: 2026-09-30
@@ -1426,7 +1426,7 @@ Für die Website-Seite des Ablaufs lesen Sie [Was gehört zur laufenden Website-
 # Welche Inhalte braucht eine Handwerker-Webseite?
 Canonical URL: https://www.vibeperform.com/de/blog/handwerker-website-inhalte-checkliste/
 English alternate: https://www.vibeperform.com/en/blog/trade-business-website-content-checklist/
-Summary: Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten.
+Summary: Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Webseite vorbereiten.
 
 Thema: Website planen
 Datum: 2026-09-30
@@ -1487,7 +1487,7 @@ Bevor die Website veröffentlicht wird, bestätigt der Betrieb Fakten, Leistungs
 # Was gehört zur laufenden Webseiten-Betreuung?
 Canonical URL: https://www.vibeperform.com/de/blog/website-betreuung-umfang-checkliste/
 English alternate: https://www.vibeperform.com/en/blog/ongoing-website-support-scope-checklist/
-Summary: Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Website-Betreuung fest.
+Summary: Inhalte pflegen, Kontaktwege prüfen und Verbesserungen planen: So legen Sie Aufgaben, Zuständigkeiten und Freigaben für Ihre Webseiten-Betreuung fest.
 
 Thema: Website aktuell halten
 Datum: 2026-09-30

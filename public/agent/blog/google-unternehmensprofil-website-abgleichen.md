@@ -1,7 +1,7 @@
 # Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?
 Canonical URL: https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/
 English alternate: https://www.vibeperform.com/en/blog/google-business-profile-website-consistency/
-Summary: Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website.
+Summary: Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Webseite.
 
 Thema: Firmenauftritt abstimmen
 Datum: 2026-09-30

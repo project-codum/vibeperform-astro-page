@@ -1,7 +1,7 @@
 # Google-Unternehmensprofil. Vor Ort und online erkennbar.
 Canonical URL: https://www.vibeperform.com/de/google-unternehmensprofil/
 English alternate: https://www.vibeperform.com/en/google-business-profile/
-Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Website ab.
+Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Webseite ab.
 
 Google-Unternehmensprofil. Vor Ort und online erkennbar.
 
@@ -61,7 +61,7 @@ Sie ermöglichen berechtigten Zugriff, liefern korrekte Geschäftsdaten und nutz
 
 ## Passende nächste Schritte
 
-[Website betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
+[Webseite betreuen & weiterentwickeln](https://www.vibeperform.com/de/website-betreuung/)
 
 [Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 

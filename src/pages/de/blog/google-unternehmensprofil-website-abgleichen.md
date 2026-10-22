@@ -1,14 +1,14 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
 title: "Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?"
-seoTitle: "Google-Unternehmensprofil und Website abstimmen | VibePerform"
+seoTitle: "Google-Unternehmensprofil und Webseite abstimmen | VibePerform"
 kicker: "Firmenauftritt abstimmen"
 category: "website"
 guideOrder: 3
 date: "2026-09-30"
 author: "Marlon Dietrich"
 readTime: "3 Min. Lesezeit"
-excerpt: "Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Website."
+excerpt: "Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Webseite."
 lang: "de"
 alternateLocaleHref: "/en/blog/google-business-profile-website-consistency/"
 ctaTitle: "Passen Ihr Profil und Ihre Website zusammen?"

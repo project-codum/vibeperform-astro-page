@@ -1,14 +1,14 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
 title: "Welche Inhalte braucht eine Handwerker-Webseite?"
-seoTitle: "Handwerker-Website: Inhalte und Checkliste | VibePerform"
+seoTitle: "Handwerker-Webseite: Inhalte und Checkliste | VibePerform"
 kicker: "Website planen"
 category: "website"
 guideOrder: 1
 date: "2026-09-30"
 author: "Marlon Dietrich"
 readTime: "4 Min. Lesezeit"
-excerpt: "Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Website vorbereiten."
+excerpt: "Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Webseite vorbereiten."
 lang: "de"
 alternateLocaleHref: "/en/blog/trade-business-website-content-checklist/"
 ctaTitle: "Welche Inhalte fehlen Ihrem Auftritt?"

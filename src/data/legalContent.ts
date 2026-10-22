@@ -68,7 +68,7 @@ export const legalContent = {
 			nav: homeContent.de.nav,
 			metaTitle: 'Datenschutzerklärung - Vibeperform',
 			metaDescription:
-				'Datenschutzerklärung von VibePerform für Website, Anfrageformular, Terminbuchung und Analyse-Dienste.',
+				'Datenschutzerklärung von VibePerform für Webseite, Anfrageformular, Terminbuchung und Analyse-Dienste.',
 			kicker: 'Datenschutz',
 			title: 'Datenschutzerklärung',
 			intro: [

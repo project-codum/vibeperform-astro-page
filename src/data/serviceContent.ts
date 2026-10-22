@@ -10,7 +10,7 @@ export const serviceContent = {
   de: {
     overview: {
       title: 'Leistungen für Ihren digitalen Firmenauftritt | VibePerform',
-      description: 'Website-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.',
+      description: 'Webseiten-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.',
       kicker: 'Unsere Leistungen', headline: 'Webdesign, SEO & Inhalte.', emphasis: 'Unsere Leistungen für Sie.',
       intro: 'Eine Website, die Ihren Betrieb zeigt. Inhalte, die Ihre Leistungen erklären. Unternehmensprofile, die dazu passen. Wir gestalten Ihren Auftritt und entwickeln ihn mit Ihnen weiter.',
       action: 'Leistungen entdecken', sectionTitle: 'Was Ihr Auftritt braucht.', sectionEmphasis: 'Und wie wir helfen.',
@@ -28,8 +28,8 @@ export const serviceContent = {
       additional: { title: 'KI-Beratung für den Arbeitsalltag', body: 'Ergänzend zum Firmenauftritt unterstützen wir Sie dabei, passende KI-Anwendungen für konkrete Aufgaben im Betrieb zu finden.', link: 'Zur KI-Beratung', href: '/de/ki-strategie/' },
     },
     website: {
-      title: 'Website erstellen lassen für Ihr Unternehmen | VibePerform',
-      description: 'Lassen Sie eine Unternehmenswebsite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.',
+      title: 'Webseite erstellen lassen für Ihr Unternehmen | VibePerform',
+      description: 'Lassen Sie eine Unternehmenswebseite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.',
       kicker: 'Website erstellen lassen', headline: 'Webseite erstellen lassen.', emphasis: 'Damit Ihr Angebot klar wird.',
       intro: 'Für Betriebe, die eine neue Website brauchen oder deren Auftritt nicht mehr zum Angebot passt. Wir planen, texten, gestalten und entwickeln – mit einem klaren Weg zur Anfrage.',
       action: 'Erstgespräch buchen', secondary: 'So entsteht Ihre Website',

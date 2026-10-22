@@ -13,7 +13,7 @@ export const knowledgeContent = {
   de: {
     title: 'Wissen für Ihren digitalen Firmenauftritt | VibePerform',
     headline: 'Webseiten-Ratgeber:', emphasis: 'Webdesign, SEO & Betreuung.',
-    intro: 'Was braucht eine gute Website? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.',
+    intro: 'Was braucht eine gute Webseite? Wie wird Ihr Unternehmen gefunden? Und wie bleibt Ihr Auftritt aktuell? Hier finden Sie Orientierung zu unseren Leistungen und Einblicke in digitale Technologien.',
     browse: 'Zu den Beiträgen',
     articlesKicker: 'Praktische Leitfäden', articlesTitle: 'Website & Firmenprofil', articlesEmphasis: 'klar planen.',
     articlesIntro: 'Welche Inhalte braucht Ihr Betrieb? Was gehört zur Betreuung? Und wie passen Website und Google-Unternehmensprofil zusammen? Diese Leitfäden helfen bei den nächsten Entscheidungen.',

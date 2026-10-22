@@ -3,7 +3,7 @@ export const aboutPaths = { de: '/de/ueber-uns/', en: '/en/about-us/' } as const
 export const aboutContent = {
   de: {
     metaTitle: 'Marlon Dietrich & die Agentur | VibePerform',
-    metaDescription: 'Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Websites und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.',
+    metaDescription: 'Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Webseiten und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.',
     hero: {
       title: 'Über VibePerform:', emphasis: 'Die moderne Webseitenagentur.',
       intro: 'Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
