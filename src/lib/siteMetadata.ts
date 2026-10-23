@@ -139,17 +139,19 @@ export const blogPostingSchema = ({
 	author,
 	authorRole,
 	authorUrl,
+	authorType = 'Person',
 	locale,
 }: {
 	title: string;
 	description: string;
 	pathname: string;
 	image?: string;
-	datePublished: string;
+	datePublished?: string;
 	dateModified?: string;
 	author: string;
 	authorRole?: string;
 	authorUrl?: string;
+	authorType?: 'Person' | 'Organization';
 	locale: Locale;
 }) => ({
 	'@context': 'https://schema.org',
@@ -173,7 +175,7 @@ export const blogPostingSchema = ({
 	datePublished,
 	dateModified: dateModified ?? datePublished,
 	author: {
-		'@type': 'Person',
+		'@type': authorType,
 		name: author,
 		...(authorRole ? { jobTitle: authorRole } : {}),
 		...(authorUrl ? { url: authorUrl } : {}),

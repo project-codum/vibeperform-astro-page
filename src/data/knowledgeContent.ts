@@ -1,4 +1,4 @@
-export interface KnowledgePostFrontmatter { title: string; kicker: string; date: string; readTime: string; excerpt: string; category?: 'website' | 'ai'; guideOrder?: number; coverImage?: string; coverImageAvifSrcset?: string; coverImageWebpSrcset?: string; coverImageFallback?: string; coverImageAlt?: string; coverImageDisclosure?: string | false; coverImageWidth?: number; coverImageHeight?: number; }
+export interface KnowledgePostFrontmatter { title: string; draft?: boolean; kicker: string; date: string; readTime: string; excerpt: string; category?: 'website' | 'ai'; guideOrder?: number; coverImage?: string; coverImageAvifSrcset?: string; coverImageWebpSrcset?: string; coverImageFallback?: string; coverImageAlt?: string; coverImageDisclosure?: string | false; coverImageWidth?: number; coverImageHeight?: number; }
 
 export function groupKnowledgePosts<T>(posts: T[], metadata: (post: T) => Pick<KnowledgePostFrontmatter, 'date' | 'category'>) {
   const [featured, ...remaining] = [...posts].sort((a, b) => Date.parse(metadata(b).date) - Date.parse(metadata(a).date));

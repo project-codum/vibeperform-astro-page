@@ -18,6 +18,8 @@ for (const locale of ['de','en']) {
   assert.match(index,/aria-current="page" href="[^\"]*\/blog\/"/);
   const files = (await readdir(new URL(`../src/pages/${locale}/blog/`,import.meta.url))).filter(f=>f.endsWith('.md'));
   for (const file of files) {
+   const source = await readFile(new URL(`../src/pages/${locale}/blog/${file}`,import.meta.url),'utf8');
+   if (/^draft:\s*true$/m.test(source)) continue;
    const route=`${locale}/blog/${file.replace(/\.md$/,'')}`;
    assert.ok(index.includes(`href="/${route}"`) || index.includes(`href="/${route}/"`),`${file} is discoverable`);
    const html=await load(route);

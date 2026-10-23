@@ -11,3 +11,6 @@
 .kn-featured.kn-featured--text{grid-template-columns:minmax(0,1fr);padding:42px 0}.kn-featured--text .kn-featured-copy{max-width:760px}.kn-featured--text .kn-featured-copy h3{max-width:30ch}.kn-featured--text .kn-featured-copy>p:not(.hp-kicker){max-width:65ch}.kn-article-list article.kn-article--text{grid-template-columns:minmax(0,1fr) auto}.kn-article--text h3{max-width:40ch}.kn-article--text p{max-width:70ch}.kn-supplementary{margin-top:65px;padding-top:50px;border-top:1px solid #ccc1d1}.kn-supplementary>.hp-section-heading{margin-bottom:34px}
 @media(max-width:900px){.kn-article-list article.kn-article--text>.hp-text-link{grid-column:auto}}
 @media(max-width:700px){.kn-article-list article.kn-article--text{grid-template-columns:minmax(0,1fr)}.kn-article-list article.kn-article--text>.hp-text-link{grid-column:1}.kn-supplementary{margin-top:40px;padding-top:35px}}
+
+/* Draft-only review treatment; published articles retain their presentation. */
+.kn-draft{display:inline-block;border:1px solid #9886aa;padding:8px 12px;color:#e3d5ed;font-size:13px;margin:0 0 24px}.kn-post--draft .kn-reading-main{max-width:65ch}
