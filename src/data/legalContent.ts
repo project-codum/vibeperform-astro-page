@@ -113,6 +113,12 @@ export const legalContent = {
 					],
 				},
 				{
+					title: '4a. Umami Analytics',
+					paragraphs: [
+						'Umami Cloud (Umami Software, Inc.) verwenden wir zusätzlich zur Auswertung von Seitenaufrufen. Dabei werden Seitenadresse, verweisende Webseite sowie Browser-, Geräte- und ungefähre Standortinformationen verarbeitet. Das Skript wird erst nach vollständiger Zustimmung im Consent-Tool geladen; bei Widerruf werden weitere Übermittlungen unterbunden. URL-Suchparameter und Sprungmarken werden von unserer Einbindung ausgeschlossen. Formulareingaben und Antworten aus unserem Fragebogen werden nicht an Umami übermittelt. Informationen zur Verarbeitung durch den Anbieter finden Sie unter <a href="https://umami.is/privacy" target="_blank" rel="noreferrer noopener">Umami-Datenschutzhinweise</a>. Die Auswertung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO; diese können Sie über das Consent-Tool widerrufen.',
+					],
+				},
+				{
 					title: '5. Terminbuchung über Google Calendar',
 					paragraphs: [
 						'Sie können den Google-Kalender im Kontaktbereich über „Termin finden“ laden oder die Buchungsseite über einen externen Link öffnen. Der eingebettete Kalender stellt erst nach Ihrem Klick eine Verbindung zu Google her. Ab diesem Zeitpunkt verarbeitet Google Ihre Zugriffsdaten und die von Ihnen eingegebenen Buchungsdaten. Über „Kalender schließen“ können Sie die Einbettung wieder entfernen.',
@@ -268,6 +274,12 @@ export const legalContent = {
 						'Google Analytics is loaded only after you consent in the consent tool. The legal bases are Art. 6(1)(a) GDPR and Section 25(1) TDDDG. You can withdraw your consent at any time through the consent settings, with effect for the future.',
 						'Event-level data is retained for the period configured in the Google Analytics property. Aggregated reports may remain available after that period.',
 						'The recipient is Google Ireland Limited. Processing by Google companies in third countries, including the United States, cannot be ruled out. Google refers to appropriate safeguards and its certification under the EU-U.S. Data Privacy Framework for such transfers. More information: <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noreferrer noopener">Google Privacy Policy</a>.',
+					],
+				},
+				{
+					title: '4a. Umami Analytics',
+					paragraphs: [
+						'We additionally use Umami Cloud (Umami Software, Inc.) to analyse page views, including the page address, referring website, browser, device and approximate location information. The script loads only after full approval in the consent tool; withdrawal blocks further transmissions. Our integration excludes URL query parameters and fragments. Form entries and questionnaire answers are not transmitted to Umami. See the <a href="https://umami.is/privacy" target="_blank" rel="noreferrer noopener">Umami privacy notice</a> for information about processing by the provider. Processing is based on your consent under Art. 6(1)(a) GDPR, which you can withdraw through the consent tool.',
 					],
 				},
 				{
