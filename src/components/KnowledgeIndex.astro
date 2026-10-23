@@ -9,7 +9,7 @@ interface Post { url?: string; frontmatter: KnowledgePostFrontmatter; }
 interface Props { locale: 'de'|'en'; posts: Post[]; }
 const { locale, posts } = Astro.props;
 const c = knowledgeContent[locale];
-const { featured, website, supplemental } = groupKnowledgePosts(posts, post => post.frontmatter);
+const { featured, website, supplemental } = groupKnowledgePosts(posts.filter(post => !post.frontmatter.draft), post => post.frontmatter);
 const groups = [{ id: 'website-guides', posts: website, supplemental: false }, { id: 'ai-perspectives', posts: supplemental, supplemental: true }];
 const dateLabel = (date:string) => new Date(date).toLocaleDateString(locale === 'de' ? 'de-DE' : 'en-GB', {day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
 ---

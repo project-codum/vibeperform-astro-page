@@ -25,10 +25,10 @@ test('the newest source article leads HTML and Markdown in both languages', asyn
     const files = (await readdir(directory)).filter(file => file.endsWith('.md')).sort();
     const posts = await Promise.all(files.map(async file => {
       const source = await readFile(new URL(file, directory), 'utf8');
-      return { slug: file.slice(0, -3), date: source.match(/^date: ["']?(\d{4}-\d{2}-\d{2})/m)?.[1] };
+      return { draft: /^draft:\s*true$/m.test(source), slug: file.slice(0, -3), date: source.match(/^date: ["']?(\d{4}-\d{2}-\d{2})/m)?.[1] };
     }));
     assert.ok(posts.every(post => post.date), 'every article has a publication date');
-    const newest = posts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))[0];
+    const newest = posts.filter(post => !post.draft).sort((a, b) => Date.parse(b.date) - Date.parse(a.date))[0];
     const route = `/${locale}/blog/${newest.slug}/`;
     const html = await readFile(new URL(`../dist/${locale}/blog/index.html`, import.meta.url), 'utf8');
     const featured = html.match(/<article class="kn-featured[^>]*>([\s\S]*?)<\/article>/)?.[1];

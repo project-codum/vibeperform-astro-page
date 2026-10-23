@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.vibeperform.com',
+	cacheDir: './.cache/astro',
 	trailingSlash: 'always',
 	// Remove base when using custom domain
 	integrations: [react()],
@@ -19,6 +20,7 @@ export default defineConfig({
 		},
 	},
 	vite: {
+		cacheDir: '.cache/vite',
 		plugins: [tailwindcss()],
 	},
 });

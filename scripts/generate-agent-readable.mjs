@@ -432,7 +432,7 @@ async function writeFile(relativePath, content) {
 
 await fs.mkdir(agentBlogDir, { recursive: true });
 
-const blogPosts = await readBlogPosts();
+const blogPosts = (await readBlogPosts()).filter(post => post.draft !== 'true');
 const englishBlogPosts = await readBlogPosts('en');
 const pages = [
 	{ relativePath: 'agent/index.md', content: renderHomeAgentPage() },

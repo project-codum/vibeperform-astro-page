@@ -22,6 +22,7 @@ VibePerform erstellt und betreut Websites und Unternehmensprofile für Handwerks
 
 ## Blog
 
+- [PHP2Shell: Was die PHP-Sicherheitslücke für Ihre Webseite bedeutet](https://www.vibeperform.com/agent/blog/php2shell-sicherheitsluecke-webseite.md) — PHP2Shell verständlich erklärt: Was hinter der PHP-Sicherheitslücke steckt, welche Rolle KI spielt und was das für Ihre Webseite bedeutet.
 - [Was ist die beste Lösung für eine neue Webseite?](https://www.vibeperform.com/agent/blog/beste-loesung-neue-webseite.md) — Baukasten, KI-Webseiten-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Webseitenbau stehen.
 - [Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?](https://www.vibeperform.com/agent/blog/google-unternehmensprofil-website-abgleichen.md) — Eine Checkliste für Name, Kontakt, Öffnungszeiten und Leistungen – mit Zuständigkeiten und wichtigen Unterschieden zwischen Unternehmensprofil und Webseite.
 - [Welche Inhalte braucht eine Handwerker-Webseite?](https://www.vibeperform.com/agent/blog/handwerker-website-inhalte-checkliste.md) — Leistungen, echte Arbeitsbeispiele, Einzugsgebiet und Kontakt: Eine praktische Checkliste, mit der Sie die Inhalte Ihrer Handwerker-Webseite vorbereiten.

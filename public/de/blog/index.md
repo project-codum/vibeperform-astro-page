@@ -9,15 +9,21 @@ Was braucht eine gute Webseite? Wie wird Ihr Unternehmen gefunden? Und wie bleib
 
 ## Neuester Beitrag
 
+### [PHP2Shell: Was die PHP-Sicherheitslücke für Ihre Webseite bedeutet](https://www.vibeperform.com/de/blog/php2shell-sicherheitsluecke-webseite/)
+
+2026-10-23 · 4 Min. Lesezeit
+
+PHP2Shell verständlich erklärt: Was hinter der PHP-Sicherheitslücke steckt, welche Rolle KI spielt und was das für Ihre Webseite bedeutet.
+
+## Website & Firmenprofil klar planen.
+
+Welche Inhalte braucht Ihr Betrieb? Was gehört zur Betreuung? Und wie passen Website und Google-Unternehmensprofil zusammen? Diese Leitfäden helfen bei den nächsten Entscheidungen.
+
 ### [Was ist die beste Lösung für eine neue Webseite?](https://www.vibeperform.com/de/blog/beste-loesung-neue-webseite/)
 
 2026-10-11 · 5 Min. Lesezeit
 
 Baukasten, KI-Webseiten-Generator oder Agentur? Vergleichen Sie die Wege zur neuen Webseite und die zwölf Aufgaben, die vor dem Webseitenbau stehen.
-
-## Website & Firmenprofil klar planen.
-
-Welche Inhalte braucht Ihr Betrieb? Was gehört zur Betreuung? Und wie passen Website und Google-Unternehmensprofil zusammen? Diese Leitfäden helfen bei den nächsten Entscheidungen.
 
 ### [Google-Unternehmensprofil und Webseite: Welche Angaben müssen zusammenpassen?](https://www.vibeperform.com/de/blog/google-unternehmensprofil-website-abgleichen/)
 
