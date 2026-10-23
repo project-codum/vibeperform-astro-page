@@ -73,7 +73,7 @@ export const legalContent = {
 			title: 'Datenschutzerklärung',
 			intro: [
 				'Diese Datenschutzerklärung erklärt, wie personenbezogene Daten auf der Website von VibePerform verarbeitet werden.',
-				'Sie umfasst den Websitebetrieb, das Anfrageformular, consentmanager, Google Analytics und die Terminbuchung über Google Calendar.',
+				'Sie umfasst den Websitebetrieb, das Anfrageformular, Umami Analytics und die Terminbuchung über Google Calendar.',
 			],
 			noticeTitle: '',
 			noticeItems: [],
@@ -97,19 +97,19 @@ export const legalContent = {
 				{
 					title: '3. Consent-Management',
 					paragraphs: [
-						'Wir verwenden consentmanager, um Ihre Auswahl zu Cookies und einwilligungsabhängigen Diensten abzufragen, zu speichern und umzusetzen. Dabei können Auswahl, Zeitpunkt, eine technische Kennung und Geräteinformationen verarbeitet werden.',
-						'Rechtsgrundlage für die Einwilligungsverwaltung ist Art. 6 Abs. 1 lit. c DSGVO, soweit der Nachweis erteilter oder verweigerter Einwilligungen erforderlich ist, und Art. 6 Abs. 1 lit. f DSGVO für die technische Verwaltung. Das Speichern oder Auslesen von Informationen auf Ihrem Endgerät richtet sich zusätzlich nach § 25 TDDDG.',
-						'Anbieter ist consentmanager AB in Schweden; vertrieben und vermarktet wird das Produkt auch durch consentmanager GmbH in Deutschland. Der Anbieter beschreibt die Verarbeitung für seine CMP-Kunden als Auftragsverarbeitung. Die Speicherdauer richtet sich nach den eingerichteten Einwilligungs- und Kontoeinstellungen. Weitere Informationen: <a href="https://www.consentmanager.net/en/privacy/" target="_blank" rel="noreferrer noopener">Datenschutzhinweise von consentmanager</a>.',
+						'Das Consent-Tool ist derzeit deaktiviert. Es werden darüber aktuell keine Einwilligungsentscheidungen erfasst.',
 					],
 				},
 				{
 					title: '4. Google Analytics',
 					paragraphs: [
-						'Diese Website verwendet Google Analytics. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.',
-						'Wir verwenden Google Analytics, um die Nutzung der Website auszuwerten. Dazu können Seitenaufrufe, technische Geräte- und Browserinformationen sowie Interaktionen mit Links und Formularen verarbeitet werden. Die erfassten Interaktionen enthalten Bezeichnungen und Positionen von Schaltflächen, jedoch keine eingegebenen Formularinhalte.',
-						'Google Analytics wird erst geladen, wenn Sie im Consent-Tool zugestimmt haben. Rechtsgrundlagen sind Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Sie können Ihre Einwilligung jederzeit über die Einstellungen des Consent-Tools mit Wirkung für die Zukunft widerrufen.',
-						'Empfänger ist Google Ireland Limited. Eine Verarbeitung durch Google-Unternehmen in Drittländern, insbesondere den USA, kann nicht ausgeschlossen werden. Google verweist für Übermittlungen auf geeignete Garantien und seine Zertifizierung unter dem EU-U.S. Data Privacy Framework. Weitere Informationen: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noreferrer noopener">Google-Datenschutzerklärung</a>.',
-						'Die Dauer der ereignisbezogenen Speicherung richtet sich nach der Einstellung der eingesetzten Google-Analytics-Property. Aggregierte Berichte können davon unabhängig länger verfügbar sein.',
+						'Google Analytics ist derzeit deaktiviert; das Google-Analytics-Skript wird nicht geladen.',
+					],
+				},
+				{
+					title: '4a. Umami Analytics',
+					paragraphs: [
+						'Umami Cloud (Umami Software, Inc.) verwenden wir zur Auswertung von Seitenaufrufen. Dabei werden Seitenadresse, verweisende Webseite sowie Browser-, Geräte- und ungefähre Standortinformationen verarbeitet. Umami wird beim Seitenaufruf geladen und verwendet für die Standardstatistik keine Tracking-Cookies. URL-Suchparameter und Sprungmarken werden von unserer Einbindung ausgeschlossen. Formulareingaben und Antworten aus unserem Fragebogen werden nicht an Umami übermittelt. Informationen zur Verarbeitung durch den Anbieter finden Sie unter <a href="https://umami.is/privacy" target="_blank" rel="noreferrer noopener">Umami-Datenschutzhinweise</a>. Die Auswertung dient unserem berechtigten Interesse, die Nutzung und Verständlichkeit der Webseite zu verbessern (Art. 6 Abs. 1 lit. f DSGVO).',
 					],
 				},
 				{
@@ -231,7 +231,7 @@ export const legalContent = {
 			title: 'Privacy Policy',
 			intro: [
 				'This Privacy Policy explains how personal data is processed on the VibePerform website.',
-				'It covers website operation, the inquiry form, consentmanager, Google Analytics and the appointment booking through Google Calendar service.',
+				'It covers website operation, the inquiry form, Umami Analytics and the appointment booking through Google Calendar service.',
 			],
 			noticeTitle: '',
 			noticeItems: [],
@@ -255,19 +255,19 @@ export const legalContent = {
 				{
 					title: '3. Consent management',
 					paragraphs: [
-						'We use consentmanager to ask for, record and implement your choices about cookies and services that require consent. Data may include your choice, the time of the choice, a technical identifier and device information.',
-						'The legal basis for consent management is Art. 6(1)(c) GDPR insofar as evidence of consent or refusal is required, and Art. 6(1)(f) GDPR for technical administration. Storing or accessing information on your device is also subject to Section 25 TDDDG.',
-						'The provider is consentmanager AB in Sweden; the product is also distributed and marketed by consentmanager GmbH in Germany. The provider describes its processing for CMP customers as processing on their behalf. Retention follows the configured consent and account settings. More information: <a href="https://www.consentmanager.net/en/privacy/" target="_blank" rel="noreferrer noopener">consentmanager privacy information</a>.',
+						'The consent tool is currently disabled and does not collect consent decisions.',
 					],
 				},
 				{
 					title: '4. Google Analytics',
 					paragraphs: [
-						'This website uses Google Analytics. The provider is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.',
-						'We use Google Analytics to understand how the website is used. Data may include page views, technical device and browser information, and interactions with links and forms. Tracked interactions include button labels and locations, but not form contents.',
-						'Google Analytics is loaded only after you consent in the consent tool. The legal bases are Art. 6(1)(a) GDPR and Section 25(1) TDDDG. You can withdraw your consent at any time through the consent settings, with effect for the future.',
-						'Event-level data is retained for the period configured in the Google Analytics property. Aggregated reports may remain available after that period.',
-						'The recipient is Google Ireland Limited. Processing by Google companies in third countries, including the United States, cannot be ruled out. Google refers to appropriate safeguards and its certification under the EU-U.S. Data Privacy Framework for such transfers. More information: <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noreferrer noopener">Google Privacy Policy</a>.',
+						'Google Analytics is currently disabled; its script is not loaded.',
+					],
+				},
+				{
+					title: '4a. Umami Analytics',
+					paragraphs: [
+						'We use Umami Cloud (Umami Software, Inc.) to analyse page views, including the page address, referring website, browser, device and approximate location information. Umami loads on page visits and does not use tracking cookies for its standard statistics. Our integration excludes URL query parameters and fragments. Form entries and questionnaire answers are not transmitted to Umami. See the <a href="https://umami.is/privacy" target="_blank" rel="noreferrer noopener">Umami privacy notice</a> for information about processing by the provider. Processing serves our legitimate interest in understanding and improving website use (Art. 6(1)(f) GDPR).',
 					],
 				},
 				{

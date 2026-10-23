@@ -1,0 +1,11 @@
+<script is:inline>
+  window.__vibeperformUmamiBeforeSend = (_type, payload) => {
+    if (!payload.referrer) return payload;
+    try {
+      const url = new URL(payload.referrer);
+      url.search = ''; url.hash = '';
+      return { ...payload, referrer: url.href };
+    } catch { return { ...payload, referrer: '' }; }
+  };
+</script>
+<script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="f4d32a51-9990-49dc-8daf-388a72a62b74" data-domains="vibeperform.com,www.vibeperform.com" data-exclude-search="true" data-exclude-hash="true" data-before-send="__vibeperformUmamiBeforeSend"></script>
