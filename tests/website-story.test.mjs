@@ -32,7 +32,7 @@ for (const [locale, route] of [['de','/de/website-erstellen-lassen/'],['en','/en
     assert.match(html,/data-device="desktop"/);
     assert.match(html,/data-device="mobile"/);
     assert.match(html,/vibeperform-logo-a-20261020-hell\.svg/);
-    assert.match(html,/favicon\.png/);
+    assert.match(html,/favicon-spark-20261012\.png/);
     assert.match(html,/_astro\/interior[^" ]+\.webp/);
     assert.match(html,/aria-hidden="true"><div class="ws-stage-panels"/);
   });
