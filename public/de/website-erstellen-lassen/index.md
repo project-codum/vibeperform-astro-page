@@ -109,7 +109,7 @@ Für Handwerksbetriebe haben wir das Website-Angebot auf typische Fragen zu Auft
 
 ### Was kostet eine neue Website?
 
-Webseiten starten meistens bei 1.800 Euro brutto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
+Webseiten starten meistens bei 1.799 Euro brutto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
 
 ### Können Sie unsere bestehende Website überarbeiten?
 
