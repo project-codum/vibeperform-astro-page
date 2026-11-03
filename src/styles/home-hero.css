@@ -3,7 +3,7 @@
 .vf-hero a{color:inherit;text-decoration:none}.vf-hero a:focus-visible,.vf-hero button:focus-visible{outline:3px solid #dac8ff;outline-offset:6px}
 .vf-fluid{position:absolute;inset:0;z-index:0;isolation:isolate;pointer-events:none;display:block}
 .vf-fluid canvas,.vf-poster{position:absolute;inset:0;width:100%;height:100%;display:block}
-.vf-fluid canvas{opacity:.88}.vf-poster{background:radial-gradient(circle at 1% 7%,#665080 0,#21192c 16%,transparent 16.2%),radial-gradient(circle at 97% 97%,#5e447a 0,#201828 21%,transparent 21.2%),radial-gradient(circle at 84% 26%,#4d3964 0,#292034 5%,transparent 5.2%)}
+.vf-fluid canvas{opacity:.88}.vf-poster{background:radial-gradient(circle at 1% 7%,#665080 0,#21192c 16%,transparent 16.2%),radial-gradient(circle at 97% 97%,#5e447a 0,#201828 21%,transparent 21.2%)}
 .vf-fluid[data-fluid=ready]:not([data-motion=reduced]) .vf-poster{opacity:0}
 .vf-fluid::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#111116c9 0%,#11111655 42%,transparent 75%);pointer-events:none}
 .vf-fluid[data-motion=reduced] canvas{display:none}
@@ -29,3 +29,12 @@
 .vf-intro{max-width:650px;margin:24px auto 0}
 .vf-hero-bottom{min-height:60px}
 @media(max-width:700px){.vf-hero{padding-top:110px;min-height:max(740px,100svh)}.vf-copy{padding:35px 22px 48px}.vf-copy h1{font-size:clamp(33px,8.4vw,54px);line-height:1.12}.vf-intro{max-width:360px;margin-top:22px}.vf-actions{margin-top:24px;gap:8px}.vf-hero-bottom{min-height:55px}}
+
+/* The existing studio portrait replaces the upper-right decorative bubble. */
+.vf-portrait-bubble{position:absolute;right:8%;top:145px;width:clamp(120px,13vw,180px);aspect-ratio:1;border-radius:50%;overflow:hidden;z-index:2;border:2px solid #c7a4e970;box-shadow:0 0 30px #a77bd526}
+.vf-portrait-bubble img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.vf-copy{max-width:1160px;padding-top:145px}
+.vf-copy h1{font-size:clamp(40px,5.1vw,74px)}
+.vf-kicker{font-size:13px;letter-spacing:.025em;text-transform:none}
+.vf-intro{max-width:760px;text-wrap:pretty}
+@media(max-width:700px){.vf-portrait-bubble{width:100px;right:28px;top:100px}.vf-copy{padding-top:140px}.vf-copy h1{font-size:clamp(30px,7.8vw,54px);hyphens:none;overflow-wrap:normal}.vf-kicker{font-size:12px}.vf-intro{max-width:460px}.vf-actions .vf-primary{gap:14px;max-width:100%;text-align:left}}

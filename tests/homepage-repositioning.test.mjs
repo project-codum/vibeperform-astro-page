@@ -10,7 +10,8 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
   test(`${route}: complete agency homepage, direct booking, service discovery and valid link targets`,async()=>{
     const html=await readFile(path.join(dist,route),'utf8');
     assert.equal((html.match(/<h1\b/g)||[]).length,1);
-    assert.doesNotMatch(html,/class="vf-kicker"|Für Handwerksbetriebe und kleine Unternehmen\.|For trade businesses and small companies\./);
+    assert.match(html,language==='de'?/Wir kümmern uns darum\./:/We take care of it\./);
+    assert.match(html,/class="vf-portrait-bubble"/);
     assert.doesNotMatch(html,/class="vf-audience"/);
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
     const actions=html.match(/<div class="vf-actions">([\s\S]*?)<\/div>/)?.[1];

@@ -5,9 +5,11 @@ Summary: Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, 
 
 ## Positionierung
 
-Webseiten erstellen. Google-Profile pflegen.
+Dein Unternehmen verdient einen starken Online-Auftritt. Wir kümmern uns darum.
 
-Das machen wir für Betriebe, die einen professionellen Online-Auftritt wollen. Ganz ohne eigenen Zeitaufwand.
+Wir lernen deinen Betrieb kennen und zeigen, was ihn ausmacht. Von der Beratung über Website und Inhalte bis zur laufenden Pflege – persönlich und mit einem festen Ansprechpartner.
+
+Für kleine Unternehmen, die etwas vorhaben.
 ## Immer eine aktuelle Webseite.
 
 Wir halten Ihren Online-Auftritt immer aktuell.

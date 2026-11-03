@@ -7,7 +7,7 @@ const fragment = `precision highp float;
 uniform vec2 resolution;
 uniform vec2 pointer;
 uniform float cursorPresence;
-uniform vec3 centres[5];
+uniform vec3 centres[4];
 float join(float a,float b,float k){
   float h=clamp(.5+.5*(b-a)/k,0.,1.);
   return mix(b,a,h)-k*h*(1.-h);
@@ -20,7 +20,7 @@ float field(vec3 p){
   d=join(d,length(p-centres[1])-.26,.30);
   d=join(d,length(p-centres[2])-.64,.30);
   d=join(d,length(p-centres[3])-.30,.32);
-  d=join(d,length(p-centres[4])-.13,.18);
+  // The upper-right satellite is the portrait in HomeFluidBackdrop.
   // The pointer lives in the same aspect-correct world as the other spheres.
   // Smooth union creates a real neck between surfaces, rather than an overlap.
   if(cursorPresence>.001){
@@ -72,7 +72,7 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
   let cursorPresence = 0, cursorTarget = 0;
   let pointerInside = false;
   let uniforms;
-  const centres = new Float32Array(15);
+  const centres = new Float32Array(12);
 
   const state = () => {
     const canAnimate = Boolean(gl && ready && !lost && !motion.matches);
@@ -140,7 +140,6 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
       lx + .40 + Math.sin(t) * .16, ly - .46 + Math.cos(t) * .13, .06,
       rx, ry, .06,
       rx - .50 + Math.sin(t * .8) * .16, ry + .46 + Math.cos(t * .7) * .13, .06,
-      a * .59 + Math.sin(t * .8) * .10, .48 + Math.cos(t) * .12, .10,
     ]);
     gl.uniform3fv(uniforms.centres, centres);
     gl.drawArrays(gl.TRIANGLES,0,3);
