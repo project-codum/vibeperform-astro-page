@@ -3,18 +3,23 @@ import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
 import HomeCaseStudy from './HomeCaseStudy.astro';
 import HomeProblemAnimation from './HomeProblemAnimation.astro';
+import WebsiteBuildAnimation from './WebsiteBuildAnimation.astro';
+import WebsiteCareAnimation from './WebsiteCareAnimation.astro';
 import HomeSeoBanner from './HomeSeoBanner.astro';
 import AgencyFooter from './AgencyFooter.astro';
 import BookingCalendar from './BookingCalendar.astro';
 import { servicePaths } from '../data/serviceContent';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { homePageContent } from '../data/homePageContent';
-import { bookingUrl, contactEmail, type Locale } from '../lib/siteMetadata';
+import { homeStoryContent } from '../data/homeStoryContent';
+import CollaborationVisual from './CollaborationVisual.astro';
+import { contactEmail, type Locale } from '../lib/siteMetadata';
 import '../styles/home-page.css';
 
 interface Props { currentLocale: Locale; alternateLocaleHref: string; }
 const { currentLocale: locale, alternateLocaleHref } = Astro.props;
 const t = homePageContent[locale];
+const story = homeStoryContent[locale];
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 ---
@@ -25,16 +30,10 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
     <HomeCaseStudy locale={locale} />
     <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
 
-    <section class="hp-section hp-problems" id="home-next" tabindex="-1" aria-labelledby="problems-title" data-analytics-section="home-problems">
-      <div class="hp-wrap hp-problems-layout">
-        <div class="hp-heading">
-          <h2 id="problems-title">{locale === 'de' ? 'Immer eine' : 'Always an'}<br /><em>{locale === 'de' ? 'aktuelle Webseite.' : 'up-to-date website.'}</em></h2>
-        </div>
-        <HomeProblemAnimation locale={locale} />
-        <div class="hp-problems-copy">
-          <p class="hp-intro">{t.problems.intro}</p>
-          <a class="hp-button hp-problems-cta" href={bookingUrl} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-problems">{t.contact.booking}<span aria-hidden="true">↗</span></a>
-        </div>
+    <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
+      <div class="hp-wrap hp-split">
+        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><p class="hp-intro">{story.collaboration.intro}</p><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
+        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
       </div>
     </section>
 
@@ -43,13 +42,14 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
         <div class="hp-section-heading"><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div>
         <div class="hp-service-grid">
           {t.services.items.map((item, index) => <article class={'hp-service-card hp-service-card--' + (index + 1)}>
-            {index === 3 ? <HomeSeoBanner locale={locale} title={item.title} href={href(item.href)} link={item.link} /> : <>
+            {index === 0 && <span class="hp-service-badge" data-presence-animation><span class="hp-service-badge-shape"><strong>90%</strong><span>{locale === 'de' ? 'starten hier' : 'start here'}</span></span></span>}
+            {index === 3 ? <HomeSeoBanner title={item.title} body={item.body} href={href(item.href)} link={item.link} /> : <>
             {index < 3 && <div class={'hp-service-art hp-service-art--' + (index + 1)}>
-              <HomeProblemAnimation locale={locale} variant={index === 0 ? 'website-static' : index === 1 ? 'profile' : 'website'} />
+              {index === 0 ? <WebsiteBuildAnimation locale={locale} /> : index === 1 ? <HomeProblemAnimation locale={locale} variant='profile' /> : <WebsiteCareAnimation locale={locale} />}
             </div>}
             <div class="hp-service-copy">
               <h3>{item.title}</h3>
-              <p class="hp-tags">{item.tags}</p>
+              <p class="hp-service-description">{item.body}</p>
               <a class={'hp-text-link' + (index === 0 ? ' hp-service-primary-link' : '')} href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a>
             </div>
             </>}
@@ -59,10 +59,16 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
       </div>
     </section>
 
-    <section class="hp-section hp-evolution" id="weiterentwicklung" aria-labelledby="evolution-title" data-analytics-section="home-evolution" data-scroll-reveal>
-      <div class="hp-wrap hp-split">
-        <div class="hp-heading"><h2 id="evolution-title">{t.evolution.title}<br /><em>{t.evolution.emphasis}</em></h2><p class="hp-intro">{t.evolution.intro}</p></div>
-        <div class="hp-cycle"><ol>{t.evolution.steps.map((step,i) => <li><span class="hp-cycle-number" aria-hidden="true">0{i+1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol></div>
+    <section class="hp-section hp-purpose" id="leitgedanke" aria-labelledby="purpose-title" data-analytics-section="home-purpose">
+      <div class="hp-wrap">
+        <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
+          {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
+            const Tag = index === 2 ? 'em' : 'span';
+            return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
+          })}
+        </h2>
+        <p class="hp-purpose-mission">{t.purpose.mission}</p>
+        <div class="hp-purpose-vision"><p class="hp-purpose-label">{t.purpose.visionLabel}</p><p class="hp-purpose-vision-text">{t.purpose.vision}</p></div>
       </div>
     </section>
 
@@ -71,7 +77,7 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
     </section>
 
     <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
-      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><BookingCalendar locale={locale} /><div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
+      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><BookingCalendar locale={locale} autoOpen /><div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 
@@ -79,6 +85,7 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 </div>
 
 <script>
+  import '../scripts/purposeCaption';
   // Repeated SVG and button effects only run while their section is visible.
   const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button');
   if ('IntersectionObserver' in window) {
@@ -94,18 +101,4 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
     looping.forEach(node => animationObserver.observe(node));
     document.addEventListener('visibilitychange', update);
   } else looping.forEach(node => node.classList.add('is-animation-visible'));
-  const revealSections = document.querySelectorAll<HTMLElement>('[data-scroll-reveal]');
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }
-      }
-    }, { threshold: 0.24, rootMargin: '0px 0px -18% 0px' });
-    revealSections.forEach(section => revealObserver.observe(section));
-  } else {
-    revealSections.forEach(section => section.classList.add('is-revealed'));
-  }
 </script>

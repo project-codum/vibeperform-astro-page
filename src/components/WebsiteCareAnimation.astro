@@ -1,0 +1,102 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const steps = locale === 'de' ? ['Aktualisieren', 'Ergänzen', 'Verbessern'] : ['Update', 'Add', 'Improve'];
+---
+<div class="website-care" data-presence-animation aria-hidden="true">
+  <svg viewBox="0 0 520 350" fill="none" focusable="false">
+    <!-- The existing website stays visible throughout the entire cycle. -->
+    <rect x="3" y="3" width="514" height="344" rx="15" fill="#fffdf9" stroke="#d9cde2" stroke-width="2"/>
+    <path d="M4 36h512" stroke="#e7deec"/>
+    <g fill="#c8b6d5"><circle cx="22" cy="20" r="4"/><circle cx="37" cy="20" r="4"/><circle cx="52" cy="20" r="4"/></g>
+    <rect x="184" y="14" width="152" height="12" rx="6" fill="#f1ebf5"/>
+    <rect x="29" y="59" width="19" height="19" rx="6" fill="#745188"/>
+    <rect x="56" y="63" width="60" height="9" rx="4.5" fill="#745188"/>
+    <path d="M332 68h32m17 0h32m17 0h32" stroke="#baacc3" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="484" cy="68" r="9" fill="#e6d7f0"/>
+
+    <path d="M30 113h61" stroke="#a184b5" stroke-width="5" stroke-linecap="round"/>
+    <path d="M32 134h178m-178 20h136" stroke="#584064" stroke-width="12" stroke-linecap="round"/>
+    <path d="M30 178h208m-208 10h151" stroke="#c4b8cc" stroke-width="4" stroke-linecap="round"/>
+    <rect x="27" y="202" width="106" height="19" rx="9.5" fill="#e6d7f0"/>
+    <path d="M40 211h47" stroke="#9670af" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="286" y="103" width="209" height="116" rx="6" fill="#e6d6f2"/>
+    <circle cx="451" cy="131" r="15" fill="#f4b395"/>
+    <path d="M286 181l57-47 62 61 38-28 52 28v18a6 6 0 0 1-6 6H292a6 6 0 0 1-6-6z" fill="#b592cd"/>
+    <path d="M286 202l54-30 65 47H292a6 6 0 0 1-6-6z" fill="#86609f"/>
+    {[25,188,351].map(x => <g>
+      <rect x={x} y="240" width="144" height="80" rx="6" fill="#f4eef7"/>
+      <circle cx={x+20} cy="260" r="8" fill="#d8c2e8"/>
+      <path d={`M${x+16} 282h91m-91 12h109m-109 10h76`} stroke="#b6a4c3" stroke-width="4" stroke-linecap="round"/>
+    </g>)}
+
+    <!-- Refresh the copy within the existing layout. -->
+    <g class="care-update care-change">
+      <rect x="22" y="123" width="240" height="72" rx="7" fill="#fffdf9"/>
+      <path d="M32 134h204m-204 20h162" stroke="#745188" stroke-width="12" stroke-linecap="round"/>
+      <path d="M30 178h186m-186 10h208" stroke="#a184b5" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g class="care-edit-mark care-cue" stroke="#9670af" stroke-width="1.5">
+      <rect x="20" y="121" width="245" height="76" rx="9"/>
+      <circle cx="255" cy="121" r="13" fill="#fffdf9"/>
+      <path d="m250 126 2-6 6-6 4 4-6 6-6 2zm2-6 4 4" stroke-linejoin="round"/>
+    </g>
+    <!-- Replace an older card with a new project and its image. -->
+    <g class="care-project care-change">
+      <rect x="351" y="240" width="144" height="80" rx="6" fill="#e6d6f2"/>
+      <circle cx="468" cy="255" r="8" fill="#f4b395"/>
+      <path d="m352 276 37-25 40 30 25-13 40 19v27a5 5 0 0 1-5 5H357a5 5 0 0 1-5-5z" fill="#b592cd"/>
+      <path d="M365 296h79m-79 11h54" stroke="#fffdf9" stroke-width="4" stroke-linecap="round"/>
+      <rect x="359" y="246" width="40" height="16" rx="8" fill="#fffdf9"/>
+      <text x="379" y="257" fill="#745188" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">{locale === 'de' ? 'Neu' : 'New'}</text>
+    </g>
+    <g class="care-add-mark care-cue" stroke="#9670af" stroke-width="1.5">
+      <rect x="346" y="235" width="154" height="90" rx="10"/>
+      <circle cx="491" cy="240" r="13" fill="#fffdf9"/>
+      <path d="M485 240h12m-6-6v12" stroke-linecap="round"/>
+    </g>
+    <!-- Make the next step easier to recognise. -->
+    <g class="care-contact care-change">
+      <rect x="24" y="199" width="146" height="26" rx="13" fill="#745188"/>
+      <path d="M38 212h72m22 0h15m-5-5 5 5-5 5" stroke="#fffdf9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <rect class="care-focus care-cue" x="19" y="194" width="156" height="36" rx="18" stroke="#9670af" stroke-width="1.5"/>
+  </svg>
+  <div class="care-steps">{steps.map((step,index)=><div class={'care-step care-step--'+index}><span>{step}</span><i></i></div>)}</div>
+</div>
+<style>
+.website-care{width:100%;min-width:0}
+.website-care svg{display:block;width:100%;height:auto;overflow:visible}
+.care-change{opacity:1;transform:none}.care-cue{opacity:0}
+.care-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.care-step{font:11px/1.4 Arial,Helvetica,sans-serif;color:#745188;text-align:left}
+.care-step i{display:block;position:relative;height:3px;margin-top:8px;background:#e3d7eb;border-radius:3px;overflow:hidden}
+.care-step i:after{content:'';display:block;position:absolute;inset:0;background:#9670af;transform-origin:left;border-radius:3px}
+@media(min-width:701px) and (max-width:1000px){
+  .care-steps{grid-template-columns:1fr;gap:6px}
+  .care-step{display:grid;grid-template-columns:78px 1fr;gap:8px;align-items:center}
+  .care-step i{margin-top:0}
+}
+@media(prefers-reduced-motion:no-preference){
+  .care-change,.care-cue,.care-step i:after{animation-duration:12s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-fill-mode:both}
+  .care-update{animation-name:care-copy}
+  .care-project{animation-name:care-new-project}
+  .care-contact{animation-name:care-clear-contact}
+  .care-edit-mark{animation-name:care-edit}
+  .care-add-mark{animation-name:care-add}
+  .care-focus{animation-name:care-contact-focus}
+  .care-step--0 i:after{animation-name:care-progress-one}
+  .care-step--1 i:after{animation-name:care-progress-two}
+  .care-step--2 i:after{animation-name:care-progress-three}
+  @keyframes care-copy{0%,12%,100%{opacity:0}23%,93%{opacity:1}}
+  @keyframes care-new-project{0%,35%,100%{opacity:0;transform:translateY(5px)}46%,93%{opacity:1;transform:translateY(0)}}
+  @keyframes care-clear-contact{0%,60%,100%{opacity:0}70%,93%{opacity:1}}
+  @keyframes care-edit{0%,6%,32%,100%{opacity:0}12%,24%{opacity:1}}
+  @keyframes care-add{0%,29%,55%,100%{opacity:0}35%,47%{opacity:1}}
+  @keyframes care-contact-focus{0%,54%,80%,100%{opacity:0}60%,72%{opacity:1}}
+  @keyframes care-progress-one{0%,6%,100%{transform:scaleX(0);opacity:1}25%,93%{transform:scaleX(1);opacity:1}99%{transform:scaleX(1);opacity:0}}
+  @keyframes care-progress-two{0%,29%,100%{transform:scaleX(0);opacity:1}48%,93%{transform:scaleX(1);opacity:1}99%{transform:scaleX(1);opacity:0}}
+  @keyframes care-progress-three{0%,54%,100%{transform:scaleX(0);opacity:1}72%,93%{transform:scaleX(1);opacity:1}99%{transform:scaleX(1);opacity:0}}
+}
+</style>

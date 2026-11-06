@@ -1,10 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/agency/marlon-studio-portrait-v1.png';
 interface Props { pauseLabel: string; resumeLabel: string; }
 const { pauseLabel, resumeLabel } = Astro.props;
 ---
 <vf-fluid-background class="vf-fluid">
   <div class="vf-poster" aria-hidden="true"></div>
   <canvas aria-hidden="true"></canvas>
+  <div class="vf-portrait-bubble">
+    <Image src={portrait} alt="Marlon Dietrich" width={512} format="webp" loading="eager" />
+  </div>
   <button class="vf-motion" type="button" hidden aria-pressed="false" data-pause={pauseLabel} data-resume={resumeLabel}>{pauseLabel}</button>
 </vf-fluid-background>
 <script>
@@ -40,7 +45,7 @@ const { pauseLabel, resumeLabel } = Astro.props;
       try {
         const { mountFluid } = await import('../lib/homeFluid.js');
         if (!this.isConnected || generation !== this.generation || this.motion.matches) return;
-        this.controller = mountFluid(canvas, { onState: ({ available, paused }) => {
+        this.controller = mountFluid(canvas, { portraitImage: this.querySelector<HTMLImageElement>('.vf-portrait-bubble img'), onState: ({ available, paused }) => {
           button.hidden = !available;
           button.setAttribute('aria-pressed', String(paused));
           button.textContent = paused ? button.dataset.resume! : button.dataset.pause!;

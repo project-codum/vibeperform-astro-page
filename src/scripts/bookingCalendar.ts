@@ -18,7 +18,7 @@ export function mountBookingCalendar(root: HTMLElement) {
     status.hidden = true;
   };
   const stopOpening = () => { opening?.cancel(); opening = undefined; };
-  const open = () => {
+  const open = (moveFocus = true) => {
     if (root.dataset.phase !== 'closed') return;
     root.dataset.phase = 'loading';
     placeholder.hidden = true;
@@ -27,14 +27,14 @@ export function mountBookingCalendar(root: HTMLElement) {
     panel.setAttribute('aria-busy', 'true');
     load.setAttribute('aria-expanded', 'true');
     frame.src = frame.dataset.src!;
-    if (!reduced.matches && typeof panel.animate === 'function') {
+    if (moveFocus && !reduced.matches && typeof panel.animate === 'function') {
       stopOpening();
       opening = panel.animate([
         { opacity: .3, clipPath: 'inset(0 0 98% 0 round 16px)', transform: 'translateY(14px) scale(.985)' },
         { opacity: 1, clipPath: 'inset(0 0 0 0 round 16px)', transform: 'translateY(0) scale(1)' },
       ], { duration: 760, easing: 'cubic-bezier(.22,.7,.2,1)' });
     }
-    frame.focus({ preventScroll: true });
+    if (moveFocus) frame.focus({ preventScroll: true });
   };
   const close = () => {
     stopOpening();
@@ -48,7 +48,9 @@ export function mountBookingCalendar(root: HTMLElement) {
   };
   reduced.addEventListener('change', stopOpening);
   frame.addEventListener('load', loaded);
-  load.addEventListener('click', open);
+  const openOnClick = () => open();
+  load.addEventListener('click', openOnClick);
   hide.addEventListener('click', close);
-  return { destroy() { close(); reduced.removeEventListener('change', stopOpening); frame.removeEventListener('load', loaded); load.removeEventListener('click', open); hide.removeEventListener('click', close); } };
+  if (root.dataset.autoOpen === 'true') open(false);
+  return { destroy() { close(); reduced.removeEventListener('change', stopOpening); frame.removeEventListener('load', loaded); load.removeEventListener('click', openOnClick); hide.removeEventListener('click', close); } };
 }

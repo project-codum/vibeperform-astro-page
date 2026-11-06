@@ -5,73 +5,78 @@ Summary: Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, 
 
 ## Positionierung
 
-Webseiten erstellen. Google-Profile pflegen.
+Ihr Online-Auftritt. In professionellen Händen.
 
-Das machen wir für Betriebe, die einen professionellen Online-Auftritt wollen. Ganz ohne eigenen Zeitaufwand.
-## Immer eine aktuelle Webseite.
+Wir lernen Ihren Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuung. Damit Sie sich auf Ihre Arbeit konzentrieren können.
+## HMS Loistl: Gute Arbeit. Endlich sichtbar.
 
-Wir halten Ihren Online-Auftritt immer aktuell.
+HMS Loistl möchte große Mehrfamilienhäuser betreuen. Darauf haben wir Bildauswahl und Inhalte des Auftritts ausgerichtet.
 
-- Veraltete Website
-- Veraltetes Unternehmensprofil
-- Uneinheitliche Angaben
-## Ihr digitaler Firmenauftritt. Alles aus einer Hand.
+### Präziser erster Eindruck
 
-### Erstellung neuer Webseiten
+**Vorher**: Stockfotos von Gebäuden außerhalb der Zielgruppe.
 
-Eine neue Website oder ein frischer Start für die bestehende. Mit klaren Inhalten, einer passenden Gestaltung und einer guten Darstellung auf jedem Bildschirm.
+**Nachher**: Ein gepflegter Hauseingang – dort wird Hausbetreuung für Bewohner unmittelbar sichtbar.
 
-Konzept · Gestaltung · Umsetzung
+### Den Kunden abholen
 
-[Website erstellen lassen](https://www.vibeperform.com/de/website-erstellen-lassen/)
+Eigene Seiten erklären jede Leistung und alle Servicegebiete. Interessenten finden die passende Betreuung und sehen, wo HMS Loistl tätig ist.
+## Sie kennen Ihren Betrieb. Wir machen Ihre Arbeit sichtbar.
 
-### Einrichtung des Unternehmensprofils
+Sie müssen nicht allein entscheiden, welche Bilder und Inhalte Ihren Betrieb gut zeigen. Wir schlagen passende Themen und Motive vor und machen daraus Ihren Online-Auftritt.
 
-Ein vollständiges Google-Unternehmensprofil und konsistente Angaben im Internet. Damit Interessenten aktuelle Informationen über Ihren Betrieb finden.
+### Wir machen Vorschläge
 
-Google-Profil · Einrichtung · Informationen
+Gemeinsam klären wir, welche Leistungen und Kunden wichtig sind. Daraus leiten wir ab, welche Inhalte und Bilder Ihren Betrieb verständlich machen.
 
-[Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
+### Sie liefern
 
-### Laufende Optimierung
+Sie liefern fachliche Angaben und Bilder aus Ihrem Alltag. Bei HMS Loistl waren das zum Beispiel Vorher-Nachher-Aufnahmen, deren Motive wir zuvor gemeinsam besprochen haben.
 
-Leistungen ergänzen, Projekte zeigen, Inhalte aktualisieren. Wir betreuen Ihren Auftritt und verbessern ihn Schritt für Schritt.
+### Wir setzen um
 
-Pflege · Auswertung · Verbesserung
+Wir übernehmen Texte, Gestaltung und Umsetzung. Sie prüfen die Inhalte und geben den Auftritt frei. Danach halten wir ihn im vereinbarten Umfang aktuell – etwa mit neuen Projekten und Beiträgen im Unternehmensprofil.
+## Ihr Online-Auftritt. Wir kümmern uns darum.
 
-[Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
+### Ihre neue Webseite
 
-### SEO, Texte & Grafiken
+Zeigt, was Sie anbieten, für wen Sie arbeiten und wie Kunden Sie erreichen.
 
-Inhalte, die erklären, was Sie anbieten. Wir arbeiten an Suchmaschinenoptimierung, Texten und Grafiken, die zu Ihrem Unternehmen und Ihren Kunden passen.
+[Neue Webseite](https://www.vibeperform.com/de/website-erstellen-lassen/)
 
-SEO · GEO · Local SEO · Content · Technical SEO
+### Ihr Google-Unternehmensprofil
 
-[Mehr erfahren](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
-## Eine Website, die immer aktuell bleibt.
+Gibt Interessenten aktuelle Informationen und Einblicke in Ihre Arbeit.
 
-Ihr Unternehmen verändert sich. Die Fragen Ihrer Kunden auch. Deshalb verstehen wir eine Website als etwas, das laufend besser werden kann.
+[Unternehmensprofil verbessern](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
-### Verstehen
+### Die laufende Betreuung
 
-Was suchen Ihre Kunden? Was hat sich in Ihrem Betrieb verändert?
+Neue Leistungen, Bilder und Projekte kommen online. Ihr Auftritt entwickelt sich mit Ihrem Betrieb.
 
-### Verbessern
+[Online-Auftritt betreuen](https://www.vibeperform.com/de/website-betreuung/)
 
-Inhalte, Gestaltung und Kontaktwege gezielt weiterentwickeln.
+### Damit Kunden Sie finden und verstehen.
 
-### Daten erfassen
+Wir richten Ihre Inhalte auf die Fragen Ihrer Kunden aus, erklären Ihr Angebot verständlich und verbessern die Auffindbarkeit Ihrer Webseite in Suchmaschinen.
 
-Verfügbare Nutzungsdaten und Suchanfragen als Grundlage für weitere Verbesserungen erfassen.
+[SEO optimieren](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
+## Wir glauben, Spitzenmarketing darf keine Frage der Unternehmensgröße sein.
+
+Wir machen einen Online-Auftritt auf dem Qualitätsniveau großer Marken für kleine Unternehmen bezahlbar. Dafür verbinden wir erstklassiges Design, das die Qualität Ihres Betriebs sichtbar macht, präzise Texte, die Ihren Kunden Orientierung geben, und den professionellen Einsatz von KI, um Arbeitsschritte zu beschleunigen.
+
+### Unsere Vision
+
+Kleine Unternehmen haben ein starkes Marketingteam an ihrer Seite – unabhängig von ihrer Größe.
 ## Häufige Fragen
 
-### Können Sie unsere bestehende Website übernehmen?
+### Können Sie unsere bestehende Webseite übernehmen?
 
-Wir schauen uns Ihre Website und die technische Grundlage an. Danach besprechen wir, welche Verbesserungen möglich sind und ob eine Überarbeitung oder ein neuer Aufbau sinnvoller ist.
+Wir schauen uns Ihre Webseite und die technische Grundlage an. Danach besprechen wir, welche Verbesserungen möglich sind und ob eine Überarbeitung oder ein neuer Aufbau sinnvoller ist.
 
 ### Müssen Texte und Bilder schon fertig sein?
 
-Nein. Vorhandene Inhalte sind ein guter Anfang. Wir unterstützen bei Texten und Grafiken und klären mit Ihnen, welches Material noch gebraucht wird.
+Nein. Wir schlagen Ihnen vor, welche Arbeiten und Motive Ihren Betrieb verständlich zeigen. Sie liefern Einblicke und vorhandene Bilder; wir kümmern uns um Auswahl, Aufbereitung und die passenden Texte.
 
 ### Gehört das Google-Unternehmensprofil dazu?
 
@@ -82,7 +87,7 @@ Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile un
 Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.
 ## Kontakt
 
-Eine neue Website, ein aktuelles Unternehmensprofil oder ein Auftritt, der wieder zu Ihrem Betrieb passt. Erzählen Sie uns von Ihrem Vorhaben.
+Im Erstgespräch gehen wir gemeinsam durch Ihren aktuellen Online-Auftritt. Welche Kunden möchten Sie erreichen? Welche Leistungen sollen im Mittelpunkt stehen? Und was möchten Sie von Ihrem Betrieb zeigen? Daraus entwickeln wir die Richtung für Ihre Positionierung und dafür, wie Ihr Auftritt passende Anfragen unterstützen kann. Das Vorgehen richtet sich nach Ihrem Unternehmen und dem, was Sie nach außen zeigen möchten.
 
 E-Mail: contact@vibeperform.com
 
