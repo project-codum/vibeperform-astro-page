@@ -9,7 +9,7 @@ const { copy } = Astro.props;
   <HomeFluidBackdrop pauseLabel={copy.pauseLabel} resumeLabel={copy.resumeLabel} />
   <div class="vf-copy" id="home-intro" tabindex="-1">
     {copy.audience && <p class="vf-kicker">{copy.audience}</p>}
-    <h1 id="home-title" class:list={{'vf-title-aligned': copy.headline.includes('\n')}}>{copy.headline.split('\n').map((line, index) => <>{index > 0 && <br />}<span class="vf-title-line">{line}</span></>)}<br /><em>{copy.emphasis}</em></h1>
+    <h1 id="home-title" class:list={{'vf-title-aligned': copy.headline.includes('\n'), 'vf-title-matched': !copy.headline.includes('\n')}}>{copy.headline.split('\n').map((line, index) => <>{index > 0 && <br />}<span class="vf-title-line">{line}</span></>)}<br /><em>{copy.emphasis}</em></h1>
     <div class="vf-actions">
       <a class="vf-primary" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-hero">{copy.heroPrimaryLabel}<span aria-hidden="true">↗</span></a>
       <a class="vf-secondary" href="#projekt-hms-loistl">{copy.moreLabel}<span aria-hidden="true">↓</span></a>
