@@ -24,7 +24,7 @@ for (const [locale, route] of [['de','/de/website-erstellen-lassen/'],['en','/en
     assert.match(html,/case-studies\/loistl\/after-mobile\.webp/);
     assert.equal((html.match(/class="wc-responsibility"/g)||[]).length,3);
     assert.match(html,/1[.,]799/);
-    assert.match(html,locale==='de'?/netto/:/excluding VAT/);
+    assert.match(html,locale==='de'?/zzgl\. gesetzlicher Umsatzsteuer/:/plus VAT at the applicable rate/);
     assert.doesNotMatch(html,/1[.,]800|brutto|including VAT/);
     for (const text of locale==='de' ? ['Sie geben frei.', 'Ihr Beitrag', 'Ohne bestehende Webseite'] : ['You approve it.', 'Your part', 'If you do not']) {
       assert.ok(html.includes(text)); assert.ok(markdown.includes(text));

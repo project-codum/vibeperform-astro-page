@@ -85,7 +85,7 @@ export const tradePageContent = {
     "faq": [
       [
         "Was kostet eine Webseite?",
-        "Webseiten starten meistens bei 1.799 Euro netto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen."
+        "Webseiten starten meistens bei 1.799 € zzgl. gesetzlicher Umsatzsteuer. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen."
       ],
       [
         "Kann unsere bestehende Webseite bleiben?",
@@ -195,7 +195,7 @@ export const tradePageContent = {
     "faq": [
       [
         "How much does a website cost?",
-        "Websites usually start at €1,799 excluding VAT. The price depends on how many additional pages are needed."
+        "Websites usually start at €1,799 plus VAT at the applicable rate. The price depends on how many additional pages are needed."
       ],
       [
         "Can we keep our existing website?",

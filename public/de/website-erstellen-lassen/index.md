@@ -45,7 +45,7 @@ Vor dem Start stimmen wir Domain, Hosting und die nötigen Zugänge ab. Veröffe
 
 ## Vor dem Start wissen Sie, womit Sie planen können.
 
-ab 1.799 € — netto · Webseiten starten meistens hier. Der konkrete Preis hängt unter anderem von zusätzlichen Seiten ab.
+Ab 1.799 € — zzgl. gesetzlicher Umsatzsteuer · Webseiten starten meistens hier. Der konkrete Preis hängt unter anderem von zusätzlichen Seiten ab.
 
 Im Gespräch klären wir, welche Seiten, Inhalte und Funktionen Sie brauchen. Daraus ergeben sich das Angebot und der Zeitplan. Ein fester Termin wird auf Basis Ihres Projekts abgestimmt.
 
@@ -53,7 +53,7 @@ Im Gespräch klären wir, welche Seiten, Inhalte und Funktionen Sie brauchen. Da
 
 ### Was kostet eine neue Website?
 
-Webseiten starten meistens bei 1.799 Euro netto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
+Webseiten starten meistens bei 1.799 € zzgl. gesetzlicher Umsatzsteuer. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
 
 ### Können Sie unsere bestehende Website überarbeiten?
 
