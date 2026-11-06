@@ -1,0 +1,17 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const de = locale === 'de';
+---
+<div class="search-visual" role="img" aria-label={de ? 'Schematische Suchansicht: Kundenfragen führen zu passenden Leistungen und verständlichen Antworten' : 'Illustrative search view: customer questions lead to relevant services and clear answers'}>
+  <div class="search-query" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span>{de ? 'Wonach suchen Ihre Kunden?' : 'What are your customers looking for?'}</span></div>
+  <div class="search-path" aria-hidden="true"></div>
+  <div class="search-results" aria-hidden="true">
+    <div class="search-result"><div class="result-source"><span class="result-icon">↗</span><span>{de ? 'Ihr Unternehmen' : 'Your business'}</span></div><strong>{de ? 'Die passende Leistung.' : 'The right service.'}</strong><div class="result-lines"><i></i><i></i></div></div>
+    <div class="search-result"><div class="result-source"><span class="result-icon result-icon--answer">?</span><span>{de ? 'Ihre Antworten' : 'Your answers'}</span></div><strong>{de ? 'Genau das wollte ich wissen.' : 'Just what I needed to know.'}</strong><div class="result-lines"><i></i><i></i></div></div>
+  </div>
+</div>
+<style>
+.search-visual{width:100%;color:#57415f}.search-query{display:flex;align-items:center;gap:15px;padding:22px 24px;border:1px solid #c4afd1;border-radius:999px;background:#fffdf9;font-size:clamp(14px,1.5vw,19px);line-height:1.4}.search-query svg{width:24px;height:24px;flex-shrink:0;color:#745188}.search-path{height:28px;border-left:1px solid #af91c3;margin-left:36px}.search-results{display:grid;gap:16px}.search-result{padding:24px 28px;background:#fffdf9;border-left:3px solid #b399c4}.result-source{display:flex;align-items:center;gap:10px;font-size:12px;margin-bottom:14px}.result-icon{display:grid;place-items:center;width:25px;height:25px;background:#e7d7f1;border-radius:50%;font-size:16px}.result-icon--answer{background:#ffd5bf}.search-result strong{font-size:clamp(18px,2vw,25px);font-weight:500;letter-spacing:-.025em;line-height:1.2}.result-lines{display:grid;gap:7px;margin-top:16px}.result-lines i{height:5px;background:#e0d6e5;border-radius:5px}.result-lines i:last-child{width:74%}@media(max-width:700px){.search-query{padding:18px}.search-result{padding:22px}.search-result strong{font-size:21px}}
+</style>

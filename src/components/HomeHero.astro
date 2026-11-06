@@ -15,6 +15,7 @@ const { copy } = Astro.props;
       <a class="vf-secondary" href="#projekt-hms-loistl">{copy.moreLabel}<span aria-hidden="true">↓</span></a>
     </div>
     <p class="vf-intro">{copy.intro.map((paragraph, index) => <>{index > 0 && <><br class="vf-desktop" /> </>}{paragraph}</>)}</p>
+    <a class="vf-person" href={copy.personHref}>{copy.personLabel}</a>
   </div>
 
   <div class="vf-hero-bottom" aria-hidden="true"></div>

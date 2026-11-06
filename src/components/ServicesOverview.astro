@@ -1,48 +1,27 @@
 ---
+import { overviewSituations } from '../data/overviewSituations';
 import AgencyDocument from './AgencyDocument.astro';
 import AgencyContact from './AgencyContact.astro';
+import WebsiteBuildAnimation from './WebsiteBuildAnimation.astro';
+import WebsiteCareAnimation from './WebsiteCareAnimation.astro';
 import { serviceContent, servicePaths } from '../data/serviceContent';
 import type { Locale } from '../lib/siteMetadata';
+import '../styles/service-narrative.css';
 interface Props { locale: Locale; }
-const { locale } = Astro.props;
-const t = serviceContent[locale].overview;
-const paths = servicePaths[locale];
-const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
-const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
+const { locale }=Astro.props;
+const de=locale==='de';
+const t=serviceContent[locale].overview;
+const base=(import.meta.env.BASE_URL??'/').replace(/\/$/,'');
+const situations=overviewSituations[locale];
 ---
-<AgencyDocument locale={locale} title={t.title} description={t.description} path={paths.overview} alternatePath={servicePaths[locale === 'de' ? 'en' : 'de'].overview}>
-  <section class="sv-hero sv-overview-hero" aria-labelledby="home-title">
-    <div class="sv-orb" aria-hidden="true"></div>
-    <div class="hp-wrap sv-hero-inner" id="home-intro" tabindex="-1">
-      <h1 id="home-title">{t.headline}<br /><em>{t.emphasis}</em></h1>
-      <p class="sv-lead">{t.intro}</p>
-      <a class="hp-button" href="#leistungsbereiche">{t.action}<span aria-hidden="true">↓</span></a>
-      <div class="sv-disciplines">{t.categories.map((label, i) => <span><small>0{i+1}</small>{label}</span>)}</div>
-    </div>
-  </section>
-
-  <section class="hp-section sv-catalog" id="leistungsbereiche" aria-labelledby="catalog-title">
-    <div class="hp-wrap">
-      <div class="hp-section-heading"><h2 id="catalog-title">{t.sectionTitle}<br /><em>{t.sectionEmphasis}</em></h2><p class="hp-intro">{t.sectionIntro}</p></div>
-      <div class="sv-catalog-grid">
-        {t.items.map(item => <article id={item.id}>
-          <span class="hp-label">{item.label}</span>
-          <h3>{item.title}</h3><p>{item.body}</p>
-          <ul>{item.details.map(detail => <li>{detail}</li>)}</ul>
-          <a class="hp-text-link" href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a>
-        </article>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="hp-section hp-evolution" aria-labelledby="connected-title">
-    <div class="hp-wrap hp-split">
-      <div><p class="hp-kicker">{t.connected.kicker}</p><h2 id="connected-title">{t.connected.title}<br /><em>{t.connected.emphasis}</em></h2></div>
-      <div><p class="hp-intro sv-no-top">{t.connected.intro}</p><p class="sv-body">{t.connected.body}</p><a class="hp-text-link sv-spaced" href="#kontakt">{t.connected.link}<span aria-hidden="true">↗</span></a></div>
-    </div>
-  </section>
-  <section class="hp-section sv-additional" aria-labelledby="additional-title">
-    <div class="hp-wrap hp-split"><h2 id="additional-title">{t.additional.title}</h2><div><p>{t.additional.body}</p><a class="hp-text-link sv-spaced" href={href(t.additional.href)}>{t.additional.link}<span aria-hidden="true">↗</span></a></div></div>
-  </section>
-  <AgencyContact locale={locale} />
+<AgencyDocument locale={locale} title={t.title} description={t.description} path={servicePaths[locale].overview} alternatePath={servicePaths[de?'en':'de'].overview}>
+ <section class="sv-hero sn-hero so-hero" aria-labelledby="home-title"><div class="hp-wrap" id="home-intro" tabindex="-1"><p class="sv-kicker">{de?'Leistungen für Ihren Online-Auftritt':'Services for your online presence'}</p><h1 id="home-title">{de?'Wo steht Ihr Auftritt?':'Where is your business online?'}<br/><em>{de?'Hier geht es weiter.':'Find your next step.'}</em></h1><div class="sn-hero-bottom"><p class="sv-lead">{de?'Sie möchten neu starten, Ihren bestehenden Auftritt verbessern oder die laufende Arbeit abgeben? Finden Sie den passenden Einstieg für Ihren Betrieb.':'Would you like to start fresh, improve an existing website or hand over its upkeep? Find the right starting point for your business.'}</p><a class="hp-button" href="#leistungsbereiche">{de?'Passenden Einstieg finden':'Find your starting point'}<span aria-hidden="true">↓</span></a></div></div></section>
+ <section class="hp-section so-guide" id="leistungsbereiche" aria-label={de?'Drei Ausgangssituationen':'Three starting points'}><div class="hp-wrap">{situations.map((item,i)=><article id={t.items[i].id} class="so-route"><div class="so-route-art" aria-hidden="true">{i===0?<WebsiteBuildAnimation locale={locale}/>:i===1?<div class="so-redesign"><img src={`${base}/case-studies/loistl/before-small.webp`} alt="" width="1000" height="3623" loading="lazy"/><img src={`${base}/case-studies/loistl/after-desktop.webp`} alt="" width="1440" height="1000" loading="lazy"/></div>:<WebsiteCareAnimation locale={locale}/>}</div><div><span class="hp-label">0{i+1}</span><h2>{item.title}</h2><p>{item.body}</p><a class="hp-text-link" href={`${base}${t.items[i].href}`}>{item.link}<span aria-hidden="true">↗</span></a></div></article>)}</div></section>
+ <section class="hp-section so-specialties" aria-labelledby="specialties-title"><div class="hp-wrap"><h2 id="specialties-title">{de?'Ein bestimmtes Thema?':'One particular area?'}<br/><em>{de?'Hier werden wir konkret.':'Let’s be specific.'}</em></h2><div class="so-specialty-list">{t.items.slice(3).map(item=><article id={item.id}><h3>{item.title}</h3><p>{item.body}</p><a class="hp-text-link" href={`${base}${item.href}`}>{item.link}<span aria-hidden="true">↗</span></a></article>)}</div></div></section>
+ <aside class="sn-related hp-wrap so-additional" aria-label={de?'Ergänzendes Angebot':'Additional service'}><span>{de?'Ergänzend für Ihren Arbeitsalltag:':'Additional support for your day-to-day work:'}</span><a href={`${base}${t.additional.href}`}>{t.additional.link} ↗</a><a href={`${base}${serviceContent[locale].website.trade.href}`}>{de?'Für Handwerksbetriebe':'For trade businesses'} ↗</a></aside>
+ <AgencyContact locale={locale} copy={{title:de?'Noch unsicher,':'Not sure',emphasis:de?'wo Sie anfangen sollen?':'where to begin?',body:de?'Im Kennenlerngespräch schauen wir gemeinsam auf Ihren Online-Auftritt. Sie bekommen einen kostenlosen Statuscheck mit Benotung und Feedback. Wenn Sie neu starten, besprechen wir Ihr Angebot und die Aufgaben Ihrer künftigen Webseite.':'In an introductory call, we look at your online presence together. You receive a free assessment with a rating and feedback. If you are starting fresh, we discuss your offer and what your future website needs to do.'}} showKicker={false}/>
 </AgencyDocument>
+<style>
+.so-hero .hp-button{justify-self:start}.so-guide{padding:0}.so-route{display:grid;grid-template-columns:1fr 1.2fr;gap:10%;align-items:center;padding:75px 0;border-bottom:1px solid var(--hp-line)}.so-route:last-child{border-bottom:0}.so-route h2{font-size:clamp(30px,3.4vw,46px);line-height:1.12;max-width:19ch;margin:16px 0 22px}.so-route p{max-width:48ch;margin:0 0 25px}.so-route-art{min-width:0;padding:15px;background:#eee5f3;border-radius:12px;overflow:hidden}.so-redesign{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:210px;align-items:center}.so-redesign img{width:100%;height:180px;object-fit:cover;object-position:top;border-radius:7px}.so-specialties{background:#eee8e5}.so-specialty-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5%;margin-top:45px}.so-specialty-list article{border-top:1px solid #d0c5d7;padding-top:20px;display:flex;flex-direction:column;align-items:start}.so-specialty-list h3{font-size:23px;overflow-wrap:anywhere}.so-specialty-list p{font-size:15px;flex:1}.so-specialty-list a{font-size:12px;padding:13px 17px;margin-top:15px}.so-additional{padding-top:35px;padding-bottom:35px}
+@media(max-width:760px){.so-route{grid-template-columns:1fr;gap:28px;padding:45px 0}.so-route>div:last-child{grid-row:1}.so-route h2{font-size:32px}.so-route-art{max-width:440px;width:100%;margin:auto}.so-specialty-list{grid-template-columns:1fr;gap:28px}.so-specialty-list h3{font-size:26px}.so-specialty-list p{margin:0}.so-specialty-list a{margin-top:22px}.so-redesign{height:180px}.so-redesign img{height:160px}}
+</style>

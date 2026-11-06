@@ -1,45 +1,45 @@
-# SEO – Search engine optimisation
+# Your customers have questions. Your website has answers.
 Canonical URL: https://www.vibeperform.com/en/search-engine-optimisation/
 German alternate: https://www.vibeperform.com/de/suchmaschinenoptimierung/
 Summary: SEO for business websites: research customer questions, organise relevant pages and improve content and technical foundations.
 
-SEO – Search engine optimisation
+Your customers have questions. Your website has answers.
 
-Your customers are looking for a solution. We align your website’s structure and content with the services you actually provide and the questions people ask about them.
+We shape your pages around the questions customers actually ask, with relevant content, clear structure and a technical foundation that search engines can understand.
 
-## Your service is there. Can people find the answer?
+## A specific question. A relevant page.
 
-### Important services lack a clear place.
+Page concept using HMS Loistl as an example
 
-What you offer is mentioned only in passing. Specific needs have no clear, relevant page.
+Someone looking for property care in Solln needs information about services and location. Those questions deserve a dedicated place on the website.
 
-### Your terms do not match customer questions.
+### Understand the search
 
-Internal descriptions and vague statements explain little. Visitors have to work out whether you can help.
+Which service is needed, and in which area?
 
-### Optimisation feels abstract.
+### Develop the answer
 
-There are many possible actions. You want to know which pages we are working on, why, and what actually changes.
+Explain the service, process and area clearly.
+
+### Make contact easy
+
+Offer a relevant next step on that page.
 
 ## Understand the questions. Improve the right pages.
 
 We connect research with specific work on your website. Your services, current presence and available data determine the relevant actions.
 
-### Research search terms and questions
+### Pages for relevant questions
 
-We explore how people search for your services and connect relevant terms with what your business actually offers.
+We connect services, customer needs and, where relevant, locations in a clear page plan.
 
-### Give pages a clear purpose
+### Content with a useful answer
 
-Each important page gets a clear role. Headings, descriptions and internal links guide visitors to useful information.
+Headings, copy and links help visitors understand the offer and find the service they need.
 
-### Improve content and foundations
+### A clear technical foundation
 
-We review existing content and selected technical foundations. The result is a set of changes or a brief for the new content needed.
-
-### Review developments
-
-We document completed actions and review available search and usage data, keeping observations distinct from assumptions.
+We review page descriptions, internal links and search-engine accessibility, among other factors. Issues are prioritised by their significance.
 
 SEO addresses visibility and clarity. We cannot promise specific rankings, visitor numbers or enquiries. Substantial new content and paid advertising are separate tasks.
 
@@ -57,7 +57,7 @@ We propose a clear order of work and agree pages, content and responsibilities.
 
 We implement the agreed actions. Available observations inform the discussion about sensible next steps.
 
-We need reliable information about services, customers and your service area, plus suitable website and analytics access where available.
+You know the questions your customers ask. We combine that knowledge with search research to develop useful pages and practical improvements.
 
 ## Related services
 
@@ -89,7 +89,7 @@ It depends on your website, starting point and scope. We agree a specific projec
 
 ## Contact
 
-Which services should your customers find and understand more easily? Let’s look at your website and the next useful step.
+We look at your website and the questions your ideal customers ask. The free introductory assessment includes a rating and feedback on your online presence. We then discuss the scope of any deeper SEO analysis and implementation.
 
 [Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
 

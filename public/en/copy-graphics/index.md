@@ -1,45 +1,45 @@
-# Copy & graphics. For your online presence.
+# Your work is the starting point. We turn it into content.
 Canonical URL: https://www.vibeperform.com/en/copy-graphics/
 German alternate: https://www.vibeperform.com/de/texte-grafiken/
 Summary: Clear website copy, project descriptions and relevant graphics for your online presence. VibePerform prepares content around your business.
 
-Copy & graphics. For your online presence.
+Your work is the starting point. We turn it into content.
 
-You know your business. We explain its services clearly and create suitable content for your online presence, with a consistent style and your customers in mind.
+Photos, notes or a short message: we bring out what you want to say. With copy and images that help customers understand your offer.
 
-## Plenty to say. Time to make it clear.
+## The photo shows the work. The copy explains it.
 
-### The copy sounds like an industry conversation.
+Editorial work & design · HMS Loistl
 
-What seems obvious to you may be unfamiliar to potential customers. The value of your work gets lost in jargon.
+These images show the same lawn before and after leaf removal. A specific headline and clear labels turn them into an understandable example of the work.
 
-### Good work stays unseen.
+### Message
 
-Current projects and useful examples sit in folders. Very little reaches the website.
+What do the photos actually show?
 
-### The materials do not fit together.
+### Selection
 
-Images, copy and graphics come from different periods. The presence lacks a recognisable shared style.
+The same area, the same viewpoint and a visible difference.
+
+### Design
+
+The headline and paired images guide the reader together.
 
 ## Content with meaning. Design that connects it.
 
 We first agree what content you need and where it will be used. This creates a defined project for the relevant copy, images or graphics.
 
-### Plan the content
+### Explain services clearly
 
-We clarify audience, message and intended use. Your information becomes a clear structure for the content needed.
+What do you offer, who is it for and how does it work? We turn those answers into readable content.
 
-### Write the copy
+### Make projects understandable
 
-We write or improve agreed service descriptions, page copy and project presentations based on your actual work.
+We organise information and photos into an insight into your work. Specific statements replace generic promotional language.
 
 ### Prepare images and graphics
 
-Existing images are prepared for their intended use. Agreed graphics and image combinations follow your brand and the message.
-
-### Review and hand over
-
-You check facts and provide feedback. We then add the content as agreed or supply suitable files.
+Crops, captions and design suit the content and its intended use on your website or business profile.
 
 Pages, formats, languages, revisions and usage are agreed in advance. Photography, logo design and substantial additional content are not standard inclusions.
 
@@ -57,7 +57,7 @@ We bring structure, language and design together in a draft for the agreed use.
 
 You confirm facts and usage rights. We incorporate agreed feedback and prepare implementation or handover.
 
-You provide subject knowledge, existing materials and real examples. Together, we identify what is missing and how to complete it.
+You share your expertise and existing material. We handle editorial work and design. You check the facts and decide what gets published.
 
 ## Related services
 
@@ -89,7 +89,7 @@ We price the required content, available source material, formats and agreed rev
 
 ## Contact
 
-Which service, project or idea needs explaining? Show us your material and where you want to use it.
+Bring a topic, a project or existing material. Together, we clarify what your customers need to understand and what content would help them.
 
 [Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
 

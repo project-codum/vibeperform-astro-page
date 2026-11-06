@@ -1,42 +1,40 @@
-# KI-Potenzialanalyse für Ihren Betrieb
-
+# Ein Ablauf. Eine Stunde. Eine klare Einschätzung.
 Canonical URL: https://www.vibeperform.com/de/ki-potenzialanalyse/
+Summary: Wir nehmen einen echten Ablauf aus Ihrem Betrieb und schauen gemeinsam, was eine Assistenz mit Ihrer Einweisung vorbereiten kann. Online oder nach Absprache vor Ort.
 
-In einer Stunde prüfen wir an einem echten Anfrage- oder Angebotsprozess, welche Büroarbeit eine Assistenz vorbereiten kann und wann sie Sie fragen muss.
+## Eine kurze Auswertung, mit der Sie weiterarbeiten können.
 
-KI-Potenzialanalyse · eine Stunde
+Die Empfehlung bezieht sich auf Ihre Abläufe und auf Programme, die zu Ihrer aktuellen Arbeitsweise passen.
 
-Wir nehmen einen echten Ablauf aus Ihrem Betrieb und schauen gemeinsam, was eine Assistenz mit Ihrer Einweisung vorbereiten kann. Online oder nach Absprache vor Ort.
+- Konkrete Möglichkeiten für vorbereitende Büroarbeit
+- Voraussetzungen bei Daten, Zugriffen und Einweisung
+- Ein sinnvoller nächster Schritt für Ihren Betrieb
 
-Eine gute Assistenz braucht keinen Meister, sondern arbeitet meisterlich zu.
+Sie entscheiden, was fachlich machbar ist, welcher Umfang passt und wie es weitergeht.
 
-Sie muss wissen, welche Aufgaben sie übernehmen kann – und wann sie Sie fragen muss.
+## Beispiel einer Auswertung
 
-KI bereitet vor. Sie entscheiden.
+Eine Kundenanfrage vorbereiten.
 
-## Wir starten mit einer typischen Anfrage oder einem Angebot.
+So kann eine kurze Einschätzung aufgebaut sein. Die tatsächliche Empfehlung entsteht aus Ihrem Ablauf.
 
-Sie zeigen uns, wie ein Vorgang heute durch Ihren Betrieb läuft. Daran werden sinnvolle Vorarbeiten sichtbar.
+### Ausgangslage
 
-### Vorgang zeigen
+Eine Anfrage kommt per E-Mail. Angaben zum Vorhaben und Bilder liegen an verschiedenen Stellen.
 
-Eine echte Kundenanfrage, ein Nachfassen oder ein Angebotsentwurf.
+### Mögliche Vorarbeit
 
-### Daten finden
+Informationen zusammenstellen, fehlende Angaben benennen und eine Antwort vorbereiten.
 
-Wo liegen Mails, Maße, Fotos, Preise und bisherige Antworten?
+### Voraussetzungen
 
-### Aufgaben abgeben
+Zugriff auf die benötigten Informationen, klare Arbeitsanweisungen und Regeln für Rückfragen.
 
-Was kann eine Assistenz mit Einweisung zusammenstellen, prüfen oder entwerfen?
+### Ihre Entscheidung
 
-Wir schauen auf Ihre vorhandenen Programme
+Machbarkeit, Preis, Termin und Versand bleiben beim Betrieb.
 
-- E-Mail
-- Microsoft 365 / Google Workspace
-- Kunden- oder Auftragsverwaltung
-- Branchensoftware
-- Dateien & Tabellen
+Nächster Prüfschritt: An einem typischen Vorgang klären, ob alle nötigen Angaben verfügbar sind.
 
 ## Sie zeigen uns Ihre Arbeit. Wir schauen, was Sie abgeben können.
 
@@ -56,18 +54,6 @@ Wir trennen vorbereitende Schritte von Entscheidungen, die bei Ihnen bleiben mü
 
 Nach der Stunde erhalten Sie eine kurze schriftliche Auswertung mit Chancen, Voraussetzungen und einer Empfehlung.
 
-## Eine kurze Auswertung, mit der Sie weiterarbeiten können.
-
-Die Empfehlung bezieht sich auf Ihre Abläufe und auf Programme, die zu Ihrer aktuellen Arbeitsweise passen.
-
-- Konkrete Möglichkeiten für vorbereitende Büroarbeit
-- Voraussetzungen bei Daten, Zugriffen und Einweisung
-- Ein sinnvoller nächster Schritt für Ihren Betrieb
-
-Die Entscheidung bleibt bei Ihnen.
-
-Sie entscheiden, was fachlich machbar ist, welcher Umfang passt und wie es weitergeht.
-
 ## Fragen zur Analyse
 
 ### Müssen wir neue Software kaufen?
@@ -82,8 +68,12 @@ Nein. Ein konkretes Beispiel reicht. Wir arbeiten heraus, welche Vorbereitung si
 
 Ja, online oder nach Absprache vor Ort. Die passende Form klären wir bei Ihrer Anfrage.
 
-## Bringen Sie einen echten Vorgang mit.
+## Lassen Sie uns einen echten Vorgang ansehen.
 
 Schreiben Sie uns kurz, welche Büroarbeit Sie anschauen möchten. Wir melden uns mit den nächsten Fragen.
 
+Die 60-minütige Potenzialanalyse ist eine eigenständig beauftragte Leistung mit schriftlicher Auswertung. Preis und Konditionen klären wir vor der Beauftragung. Das Kennenlerngespräch dient zunächst dazu, Ihren Bedarf zu verstehen.
+
 [Analyse anfragen](mailto:contact@vibeperform.com?subject=Anfrage%20KI-Potenzialanalyse)
+
+[Zuerst kennenlernen](https://calendar.app.google/utFQgw33PwJTiDk56)

@@ -1,32 +1,32 @@
 export const tradePageContent = {
   "de": {
-    "kicker": "Websites für Handwerksbetriebe",
+    "kicker": "Webseiten für Handwerksbetriebe",
     "title": "Webseiten für Handwerksbetriebe.",
     "emphasis": "Damit Kunden sehen, was Sie anbieten.",
-    "intro": "Wir zeigen Ihre Leistungen, Projekte und Ihr Einzugsgebiet – mit einem einfachen Weg zur Projektanfrage. Wenn Sie einstellen, ergänzen wir einen passenden Bewerbungsweg.",
-    "cta": "Kostenlosen Website-Check anfragen",
-    "note": "Vier kurze Fragen und Ihre E-Mail-Adresse. Sie erhalten eine persönliche Einschätzung zu Ihrer bestehenden oder geplanten Website. Kein Termin wird automatisch gebucht.",
+    "intro": "Ihre Leistungen, Ihre Wunschaufträge und Ihr Einsatzgebiet gehören auf den ersten Blick zusammen. Wir bauen eine Webseite, auf der Interessenten erkennen, ob Ihr Betrieb zu ihrem Vorhaben passt.",
+    "cta": "Kostenlosen Webseiten-Check anfragen",
+    "note": "Vier kurze Fragen und Ihre E-Mail-Adresse. Sie erhalten eine persönliche Einschätzung zu Ihrer bestehenden oder geplanten Webseite. Kein Termin wird automatisch gebucht.",
     "example": "Gestaltungsbeispiel · KI-generiertes Bildmotiv",
-    "problemsTitle": "Gute Arbeit allein ist online",
-    "problemsEmphasis": "noch nicht sichtbar.",
+    "problemsTitle": "Die richtigen Informationen.",
+    "problemsEmphasis": "Für die passenden Vorhaben.",
     "problems": [
       [
-        "Besucher erkennen nicht, was Sie anbieten.",
-        "Wir ordnen Ihre Leistungen und Ihr Einzugsgebiet so, dass Interessenten schnell einschätzen können, ob Sie der richtige Betrieb für ihr Vorhaben sind."
+        "Welche Aufträge möchten Sie?",
+        "Wir zeigen die Leistungen und Projektarten, für die Ihr Betrieb stehen soll. Echte Arbeitsbeispiele machen den Unterschied zwischen einer allgemeinen Behauptung und einer konkreten Vorstellung."
       ],
       [
-        "Anfragen passen selten zu Ihrem Betrieb.",
-        "Klare Leistungsbeschreibungen und gezielte Fragen zu Vorhaben, Ort und Umfang helfen, passende Projekte früh zu erkennen."
+        "Wo sind Sie im Einsatz?",
+        "Ihr Einsatzgebiet wird dort sichtbar, wo Kunden nach einer Leistung suchen. Interessenten können früh erkennen, ob der Projektort passt."
       ],
       [
-        "Gute Leute finden keinen einfachen Einstieg.",
-        "Wenn Sie einstellen, zeigen wir Ihren Arbeitsalltag und offene Stellen mit einem verständlichen Weg zur Bewerbung."
+        "Was brauchen Sie für die erste Einschätzung?",
+        "Projektart, Ort und vorhandene Fotos geben Ihnen einen besseren Einstieg ins Gespräch. Wir stimmen die Anfragefragen auf Ihren Betrieb ab."
       ]
     ],
     "scopeKicker": "Was wir für Sie umsetzen",
     "scopeTitle": "Ihr Betrieb.",
     "scopeEmphasis": "Klar auf den Punkt.",
-    "scopeIntro": "Wir planen Ihre Website passend zu Ihren Leistungen und den Menschen, die Sie erreichen möchten. Seiten und Funktionen vereinbaren wir vor dem Start.",
+    "scopeIntro": "Wir planen Ihre Webseite passend zu Ihren Leistungen und den Menschen, die Sie erreichen möchten. Seiten und Funktionen vereinbaren wir vor dem Start.",
     "scope": [
       [
         "Struktur & Gestaltung",
@@ -50,7 +50,7 @@ export const tradePageContent = {
     "ownBody": "Sie erzählen uns von Ihrem Betrieb, Ihren Wunschprojekten und Ihrem Arbeitsalltag. Wir übersetzen das in Struktur, Texte und Gestaltung.",
     "ownLabel": "Ihr Beitrag",
     "ownDetail": "Informationen über Ihren Betrieb, vorhandene nutzbare Bilder und gebündeltes Feedback. Sie prüfen die fachlichen Angaben und geben den Entwurf frei.",
-    "imageCaption": "Von Ihrem Betriebswissen zum Website-Entwurf · KI-generierte Illustration",
+    "imageCaption": "Von Ihrem Betriebswissen zum Webseiten-Entwurf · KI-generierte Illustration",
     "processNote": {
       "before": "Wenn Sie für Ihren Betrieb eine ",
       "label": "Webseite erstellen",
@@ -61,35 +61,34 @@ export const tradePageContent = {
     "processEmphasis": "bis zum Start.",
     "steps": [
       [
-        "Kennenlernen",
-        "Wir besprechen Ihren Betrieb, Ziele und vorhandene Website. Danach stehen Seiten, Funktionen und Aufwand im Angebot."
+        "Sie zeigen uns Ihren Betrieb.",
+        "Leistungen, Wunschaufträge, Einsatzgebiet und vorhandene Bilder geben die Richtung vor."
       ],
       [
-        "Gestalten",
-        "Wir entwickeln die Texte und den Entwurf. Sie sehen früh, wie Ihr neuer Auftritt aussehen kann."
+        "Wir entwickeln Ihren Auftritt.",
+        "Wir übernehmen Struktur, Texte und Gestaltung. Sie prüfen die fachlichen Angaben in der Vorschau."
       ],
       [
-        "Gemeinsam prüfen",
-        "Sie prüfen Inhalte und Gestaltung. Wir testen die vereinbarten Kontaktwege und die Darstellung auf kleinen und großen Bildschirmen."
-      ],
-      [
-        "Veröffentlichen",
-        "Nach Ihrer Freigabe setzen wir den vereinbarten Start und die Übergabe um. Die weitere Betreuung stimmen wir separat ab."
+        "Sie geben frei. Wir veröffentlichen.",
+        "Wir prüfen Darstellung und vereinbarte Kontaktwege. Nach Ihrer Freigabe folgt der Start."
       ]
     ],
     "careKicker": "Nach dem Start",
     "careTitle": "Ihr Betrieb wächst weiter.",
-    "careEmphasis": "Ihre Website auch.",
-    "careBody": "Neue Projekte, Leistungen und Stellen gehören auf Ihre Website. Mit einer passenden Betreuung halten wir Ihren Auftritt aktuell und wählen anhand Ihrer Rückmeldungen und verfügbarer Such- und Nutzungsdaten die nächsten Verbesserungen aus.",
+    "careEmphasis": "Ihre Webseite auch.",
+    "careBody": "Neue Projekte, Leistungen und Stellen gehören auf Ihre Webseite. Mit einer passenden Betreuung halten wir Ihren Auftritt aktuell und wählen anhand Ihrer Rückmeldungen und verfügbarer Such- und Nutzungsdaten die nächsten Verbesserungen aus.",
     "careNote": "Umfang und Rhythmus richten sich nach Ihrem Bedarf und der eingesetzten Technik. Ein Google-Unternehmensprofil können wir als ergänzende Leistung einbeziehen.",
-    "careLink": "Website-Betreuung entdecken",
+    "careLink": "Webseiten-Betreuung entdecken",
     "careHref": "/de/website-betreuung/",
     "faqTitle": "Vor Ihrer",
     "faqEmphasis": "Entscheidung.",
     "faq": [
-      ["Was kostet eine Webseite?", "Webseiten starten meistens bei 1.800 Euro brutto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen."],
       [
-        "Kann unsere bestehende Website bleiben?",
+        "Was kostet eine Webseite?",
+        "Webseiten starten meistens bei 1.799 Euro netto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen."
+      ],
+      [
+        "Kann unsere bestehende Webseite bleiben?",
         "Wir prüfen das eingesetzte System, Hosting und verfügbare Zugänge. Anschließend klären wir, welche Inhalte und Funktionen sich weiterverwenden lassen und ob gezielte Änderungen oder ein Neuaufbau sinnvoll sind."
       ],
       [
@@ -102,42 +101,42 @@ export const tradePageContent = {
       ],
       [
         "Was passiert nach meiner Anfrage?",
-        "Wir sehen uns Ihre Angaben und, falls vorhanden, Ihre Website an. Sie erhalten eine persönliche Einschätzung mit drei konkreten Verbesserungsmöglichkeiten. Der Check ist kostenlos und verpflichtet Sie zu keinem Website-Projekt."
+        "Wir sehen uns Ihre Angaben und, falls vorhanden, Ihre Webseite an. Sie erhalten eine persönliche Einschätzung mit drei konkreten Verbesserungsmöglichkeiten. Der Check ist kostenlos und verpflichtet Sie zu keinem Webseiten-Projekt."
       ],
       [
         "Garantieren Sie Aufträge oder Bewerbungen?",
         "Eine feste Anzahl können wir nicht zusagen. Wir schaffen die Grundlagen: klare Leistungen, glaubwürdige Einblicke in Ihren Betrieb und einen einfachen Kontaktweg. Angebot, Nachfrage und Region beeinflussen das Ergebnis."
       ]
     ],
-    "contactKicker": "Ihr kostenloser Website-Check",
-    "contactTitle": "Was soll Ihre Website",
+    "contactKicker": "Ihr kostenloser Webseiten-Check",
+    "contactTitle": "Was soll Ihre Webseite",
     "contactEmphasis": "leichter machen?",
-    "contactBody": "Beantworten Sie vier kurze Fragen zu Ihrem Betrieb und hinterlassen Sie Ihre E-Mail-Adresse. Wir melden uns persönlich mit einer Einschätzung zu Ihrem bestehenden oder geplanten Auftritt.",
-    "contactNote": "Keine Vorbereitung nötig. Kein Termin wird automatisch gebucht.",
+    "contactBody": "Beantworten Sie vier kurze Fragen zu Ihrem Betrieb und Ihrem Vorhaben. Sie erhalten unseren kostenlosen schriftlichen Check mit drei konkreten Verbesserungsmöglichkeiten per E-Mail.",
+    "contactNote": "Der schriftliche Check ist eine Alternative zum Kennenlerngespräch. Es wird kein Termin automatisch gebucht.",
     "mail": "Lieber direkt schreiben?"
   },
   "en": {
     "kicker": "Websites for trade businesses",
     "title": "Websites for trade businesses.",
     "emphasis": "Help customers see what you offer.",
-    "intro": "We show your services, projects and service area, with a simple way to enquire. If you are hiring, we add a suitable application journey.",
+    "intro": "Your services, preferred projects and working area should make sense at a glance. We build a website that helps people decide whether your business is right for their project.",
     "cta": "Request a free website review",
     "note": "Four short questions and your email address. You receive a personal assessment of your existing or planned website. No appointment is booked automatically.",
     "example": "Design example · AI-generated image",
-    "problemsTitle": "Good work needs to be",
-    "problemsEmphasis": "visible online.",
+    "problemsTitle": "The right information.",
+    "problemsEmphasis": "For the right projects.",
     "problems": [
       [
-        "Visitors cannot tell what you offer.",
-        "We organise your services and service area so people can quickly see whether your business is the right fit for their project."
+        "Which projects do you want?",
+        "We show the services and types of work you want your business to be known for. Real examples turn a broad claim into something people can picture."
       ],
       [
-        "Enquiries rarely fit your business.",
-        "Clear service descriptions and questions about the project, location and scope help identify suitable work early."
+        "Where do you work?",
+        "Your working area is visible where people look for a service. They can see early on whether the project location is a fit."
       ],
       [
-        "Good people struggle to find a way in.",
-        "If you are hiring, we show your working day and open roles with a clear way to apply."
+        "What do you need for an initial assessment?",
+        "The project type, location and existing photos give you a useful starting point. We tailor enquiry questions to your business."
       ]
     ],
     "scopeKicker": "What we deliver",
@@ -172,20 +171,16 @@ export const tradePageContent = {
     "processEmphasis": "to launch.",
     "steps": [
       [
-        "Getting to know you",
-        "We discuss your business, goals and existing website. The proposal then defines pages, features and the work involved."
+        "You show us your business.",
+        "Services, preferred projects, working area and existing photos set the direction."
       ],
       [
-        "Designing",
-        "We develop the copy and design. You see early how your new presence could look."
+        "We develop your presence.",
+        "We handle structure, copy and design. You check the facts in the preview."
       ],
       [
-        "Reviewing together",
-        "You review the content and design. We test the agreed contact journeys and the layout on small and large screens."
-      ],
-      [
-        "Going live",
-        "Once you approve, we handle the agreed launch and handover. Ongoing care is agreed separately."
+        "You approve. We publish.",
+        "We check the layout and agreed contact options. Launch follows your approval."
       ]
     ],
     "careKicker": "After launch",
@@ -198,7 +193,10 @@ export const tradePageContent = {
     "faqTitle": "Before your",
     "faqEmphasis": "decision.",
     "faq": [
-      ["How much does a website cost?", "Websites usually start at €1,800 including VAT. The price depends on how many additional pages are needed."],
+      [
+        "How much does a website cost?",
+        "Websites usually start at €1,799 excluding VAT. The price depends on how many additional pages are needed."
+      ],
       [
         "Can we keep our existing website?",
         "We review the system, hosting and available access. We then clarify which content and features can be reused and whether targeted changes or a rebuild make sense."
@@ -223,8 +221,14 @@ export const tradePageContent = {
     "contactKicker": "Your free website review",
     "contactTitle": "What should your website",
     "contactEmphasis": "make easier?",
-    "contactBody": "Answer four short questions about your business and leave your email address. We will get back to you personally with an assessment of your existing or planned presence.",
-    "contactNote": "No preparation needed. No appointment is booked automatically.",
-    "mail": "Prefer to email us directly?"
+    "contactBody": "Answer four short questions about your business and plans. You receive a free written review with three specific opportunities for improvement by email.",
+    "contactNote": "The written review is an alternative to an introductory call. No appointment is booked automatically.",
+    "mail": "Prefer to email us directly?",
+    "processNote": {
+      "before": "For more detail on how we ",
+      "label": "build your website",
+      "href": "/en/website-design/",
+      "after": ", see the dedicated service page."
+    }
   }
 } as const;

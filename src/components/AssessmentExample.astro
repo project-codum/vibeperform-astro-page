@@ -1,0 +1,11 @@
+---
+import { supplementalContent } from '../data/supplementalContent';
+interface Props { locale:'de'|'en'; }
+const { locale }=Astro.props;
+const c=supplementalContent[locale].report;
+---
+<figure class="assessment-example"><figcaption>{c.label}</figcaption><h3>{c.title}</h3><p>{c.intro}</p><dl>{c.rows.map(([title,body],i)=><div><dt><span aria-hidden="true">0{i+1}</span>{title}</dt><dd>{body}</dd></div>)}</dl><p class="assessment-next">{c.next}</p></figure>
+<style>
+.assessment-example{margin:0;background:#fffdf9;border:1px solid #d6c6e0;border-radius:10px;padding:34px;box-shadow:12px 15px 0 #e7ddee;color:#28232e}.assessment-example figcaption{font-size:11px;color:#745188;letter-spacing:.04em}.assessment-example h3{font-size:30px!important;font-weight:400;line-height:1.15;letter-spacing:-.035em;margin:20px 0!important;text-wrap:initial}.assessment-example>p{font-size:13px;line-height:1.7;color:#706479}.assessment-example dl{margin:25px 0}.assessment-example dl>div{border-top:1px solid #dfd3e6;padding:18px 0;display:grid;grid-template-columns:135px 1fr;gap:20px}.assessment-example dt{font-size:13px;font-weight:600;color:#745188;line-height:1.5}.assessment-example dt span{display:block;font-size:10px;font-weight:400;margin-bottom:6px}.assessment-example dd{font-size:13px;line-height:1.65;margin:0;color:#655b6e}.assessment-example .assessment-next{margin:0;border-left:3px solid #ab8abc;padding:12px 0 12px 16px;color:#54405f}
+@media(max-width:600px){.assessment-example{padding:25px;margin-right:10px}.assessment-example h3{font-size:27px!important}.assessment-example dl>div{grid-template-columns:1fr;gap:8px}.assessment-example dt span{display:inline;margin-right:10px}.assessment-example dd{font-size:13px}}
+</style>

@@ -1,45 +1,45 @@
-# Google Business Profile. Known locally. Clear online.
+# Found on Google. Understood as a business.
 Canonical URL: https://www.vibeperform.com/en/google-business-profile/
 German alternate: https://www.vibeperform.com/de/google-unternehmensprofil/
 Summary: Set up, improve and maintain your Google Business Profile. VibePerform aligns business details, images and contact options with your website.
 
-Google Business Profile. Known locally. Clear online.
+Found on Google. Understood as a business.
 
-Current opening hours, relevant services and a direct way to reach you. We help set up, improve and maintain your Google Business Profile within the agreed scope.
+Your Google Business Profile shows people what you offer and how to reach you. We take care of useful information, suitable photos and updates about your work.
 
-## The first contact often starts before your website.
+## From a search to a first conversation.
 
-### The information is outdated.
+Illustrative profile view · HMS Loistl example
 
-Changed hours, new services or old images give an incomplete picture of your business.
+A business profile is often the first point of contact. Its information, photos and contact options should give people a coherent picture of your business.
 
-### Website and profile tell different stories.
+### Current information
 
-Contact details and service descriptions do not match. Potential customers must work out which information is correct.
+What do you offer, where do you work and how can people reach you?
 
-### Nobody owns the upkeep.
+### Real insights
 
-The profile exists, but access and ongoing updates are unclear. You want a reliable process.
+Photos and updates show what your business actually does.
+
+### Contact
+
+People can call or visit your website to learn more.
 
 ## The right information. A consistent impression.
 
 We start with what already exists. An existing profile may only need targeted updates; setup work depends on the actual situation.
 
-### Review the profile and access
+### Consistent business information
 
-We establish whether a profile already exists, who has access and what steps are still needed before editing.
+Your name, contact details, services and opening hours reflect your business and match your website.
 
-### Align business details
+### Photos and updates from your work
 
-Name, contact options, hours and services are checked against current business information and your website.
+We prepare existing material so people can see the work your business does.
 
-### Prepare images and links
+### A clear way to reach you
 
-Suitable supplied images and relevant website links complete the presence. Content stays clear and consistent.
-
-### Organise ongoing updates
-
-We agree a clear process for later changes and keep track of completed work and outstanding steps.
+We check and maintain your phone number, website link and other relevant contact information.
 
 Setup and ongoing maintenance are agreed according to need. Additional locations, posts and review responses are included only where explicitly agreed. Activation and rankings are outside our control.
 
@@ -57,7 +57,7 @@ We agree details, services, images and links with you. You confirm factual accur
 
 We implement the agreed changes and record outstanding steps. Required confirmations may need your involvement.
 
-You provide authorised access, accurate business details and usable images, and participate in required confirmations.
+You confirm the business information and provide appropriate access. We help with the necessary steps, including any verification requested by Google.
 
 ## Related services
 
@@ -89,7 +89,7 @@ Setup, improvements and ongoing maintenance have different scopes. After reviewi
 
 ## Contact
 
-Is your profile current, complete and accessible? Let’s establish the starting point and where you would like support.
+We review your profile together: is the information accurate, do the images show your work and can people easily contact you? This helps us identify whether you need setup, improvements or ongoing care.
 
 [Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
 

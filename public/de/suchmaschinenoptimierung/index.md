@@ -1,45 +1,45 @@
-# SEO – Suchmaschinenoptimierung
+# Ihre Kunden suchen. Ihre Webseite gibt Antworten.
 Canonical URL: https://www.vibeperform.com/de/suchmaschinenoptimierung/
 English alternate: https://www.vibeperform.com/en/search-engine-optimisation/
 Summary: SEO für Unternehmenswebseiten: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.
 
-SEO – Suchmaschinenoptimierung
+Ihre Kunden suchen. Ihre Webseite gibt Antworten.
 
-Ihre Kunden suchen nach einer Lösung. Wir richten Struktur und Inhalte Ihrer Website auf die Leistungen aus, die Sie tatsächlich anbieten – und auf die Fragen, die Menschen dazu stellen.
+Wir richten Ihre Seiten auf konkrete Kundenfragen aus. Mit passenden Inhalten, einer klaren Struktur und einer technischen Grundlage, die Suchmaschinen verstehen können.
 
-## Ihr Angebot ist da. Findet man die Antwort?
+## Eine konkrete Frage. Eine passende Seite.
 
-### Wichtige Leistungen haben keinen Platz.
+Seitenkonzept am Beispiel HMS Loistl
 
-Was Sie anbieten, steht nur beiläufig auf der Website. Für konkrete Anliegen fehlt eine verständliche, passende Seite.
+Wer Betreuung für ein Gebäude in Solln sucht, braucht Informationen über Leistungen und Einsatzgebiet. Diese Fragen bekommen einen eigenen Platz auf der Webseite.
 
-### Die Begriffe passen nicht zu den Kundenfragen.
+### Suchfrage verstehen
 
-Interne Bezeichnungen und allgemeine Aussagen erklären wenig. Besucher müssen sich selbst zusammenreimen, ob Ihr Betrieb ihnen helfen kann.
+Welche Leistung wird in welchem Gebiet gebraucht?
 
-### Optimierung bleibt abstrakt.
+### Antwort ausarbeiten
 
-Es gibt viele mögliche Maßnahmen. Sie möchten wissen, welche Seiten wir warum bearbeiten und was sich tatsächlich verändert.
+Leistung, Ablauf und Einsatzort verständlich erklären.
+
+### Kontakt ermöglichen
+
+Den nächsten Schritt direkt auf der passenden Seite anbieten.
 
 ## Suchfragen verstehen. Seiten gezielt verbessern.
 
-Wir verbinden Recherche mit konkreter Arbeit an Ihrer Website. Welche Maßnahmen sinnvoll sind, ergibt sich aus Ihrem Angebot, dem vorhandenen Auftritt und der verfügbaren Datenbasis.
+Wir verbinden Recherche mit konkreter Arbeit an Ihrer Webseite. Welche Maßnahmen sinnvoll sind, ergibt sich aus Ihrem Angebot, dem vorhandenen Auftritt und der verfügbaren Datenbasis.
 
-### Suchbegriffe und Fragen recherchieren
+### Seiten für relevante Fragen
 
-Wir untersuchen, wie Menschen nach Ihren Leistungen suchen, und ordnen relevante Begriffe den tatsächlichen Angeboten Ihres Betriebs zu.
+Wir verbinden Leistungen, Kundenbedarf und gegebenenfalls Einsatzorte zu einem nachvollziehbaren Seitenplan.
 
-### Seiten klar ausrichten
+### Inhalte mit einer klaren Antwort
 
-Jede wichtige Seite bekommt eine verständliche Aufgabe. Überschriften, Beschreibungen und interne Verlinkungen führen zu passenden Informationen.
+Überschriften, Texte und Verweise helfen Besuchern, das Angebot zu verstehen und die passende Leistung zu finden.
 
-### Inhalte und Grundlagen verbessern
+### Eine verständliche technische Grundlage
 
-Wir prüfen vorhandene Inhalte und ausgewählte technische Grundlagen. Daraus entstehen konkrete Anpassungen oder ein Briefing für benötigte neue Inhalte.
-
-### Entwicklung nachvollziehen
-
-Wir dokumentieren umgesetzte Maßnahmen und betrachten verfügbare Such- und Nutzungsdaten. Beobachtungen und Vermutungen bleiben unterscheidbar.
+Wir prüfen unter anderem Seitenbeschreibungen, interne Verlinkung und Zugänglichkeit für Suchmaschinen. Auffälligkeiten werden nach Bedeutung priorisiert.
 
 SEO ist Arbeit an Auffindbarkeit und Verständlichkeit. Bestimmte Platzierungen, Besucherzahlen oder Anfragen können wir nicht zusagen. Umfangreiche neue Inhalte und bezahlte Werbung sind eigene Aufgaben.
 
@@ -57,7 +57,7 @@ Sie erhalten eine verständliche Reihenfolge der vorgesehenen Arbeiten. Wir stim
 
 Wir setzen die vereinbarten Maßnahmen um. Anhand verfügbarer Beobachtungen besprechen wir sinnvolle nächste Schritte.
 
-Von Ihnen brauchen wir verlässliche Angaben zu Leistungen, Zielkunden und Einsatzgebiet sowie passende Website- und Analysezugänge, soweit vorhanden.
+Sie kennen die Fragen Ihrer Kunden. Wir verbinden dieses Wissen mit der Suchrecherche und entwickeln daraus konkrete Seiten und Verbesserungen.
 
 ## Passende nächste Schritte
 
@@ -69,11 +69,11 @@ Von Ihnen brauchen wir verlässliche Angaben zu Leistungen, Zielkunden und Einsa
 
 ### Können Sie Platz eins bei Google garantieren?
 
-Nein. Wir bearbeiten die vereinbarten Inhalte und Grundlagen Ihrer Website. Wie Suchmaschinen Seiten einordnen und wie viele Anfragen daraus entstehen, können wir nicht garantieren.
+Nein. Wir bearbeiten die vereinbarten Inhalte und Grundlagen Ihrer Webseite. Wie Suchmaschinen Seiten einordnen und wie viele Anfragen daraus entstehen, können wir nicht garantieren.
 
-### Ist SEO bei einer neuen Website schon enthalten?
+### Ist SEO bei einer neuen Webseite schon enthalten?
 
-Die vereinbarte erstmalige SEO-Arbeit gehört zum Website-Projekt. Weitergehende Recherche, zusätzliche Inhalte und laufende Optimierung stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht doppelt angesetzt.
+Die vereinbarte erstmalige SEO-Arbeit gehört zum Webseiten-Projekt. Weitergehende Recherche, zusätzliche Inhalte und laufende Optimierung stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht doppelt angesetzt.
 
 ### Brauchen wir dafür ständig neue Blogartikel?
 
@@ -85,11 +85,11 @@ Wir halten bearbeitete Seiten und Änderungen fest. Wenn geeignete Daten vorlieg
 
 ### Was kostet Suchmaschinenoptimierung?
 
-Das hängt von Website, Ausgangslage und Umfang der Maßnahmen ab. Wir vereinbaren einen konkreten Auftrag oder einen passenden Umfang für die laufende Betreuung.
+Das hängt von Webseite, Ausgangslage und Umfang der Maßnahmen ab. Wir vereinbaren einen konkreten Auftrag oder einen passenden Umfang für die laufende Betreuung.
 
 ## Kontakt
 
-Welche Leistungen sollen Ihre Kunden besser finden und verstehen? Gemeinsam schauen wir auf Ihre Website und den nächsten sinnvollen Schritt.
+Wir betrachten Ihre Webseite und die Fragen Ihrer Wunschkunden. Im kostenlosen Statuscheck erhalten Sie Benotung und Feedback zu Ihrem Auftritt. Für eine vertiefte SEO-Analyse und Umsetzung besprechen wir anschließend den passenden Umfang.
 
 [Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
 

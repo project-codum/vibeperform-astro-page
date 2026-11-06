@@ -1,74 +1,52 @@
 # Websites for trade businesses. Help customers see what you offer.
 Canonical URL: https://www.vibeperform.com/en/websites-for-trade-businesses/
-Summary: We show your services, projects and service area, with a simple way to enquire. If you are hiring, we add a suitable application journey.
+Summary: Your services, preferred projects and working area should make sense at a glance. We build a website that helps people decide whether your business is right for their project.
 
 Websites for trade businesses
 
 Four short questions and your email address. You receive a personal assessment of your existing or planned website. No appointment is booked automatically.
 
-## Good work needs to be visible online.
+## The right information. For the right projects.
 
-### Visitors cannot tell what you offer.
+### Which projects do you want?
 
-We organise your services and service area so people can quickly see whether your business is the right fit for their project.
+We show the services and types of work you want your business to be known for. Real examples turn a broad claim into something people can picture.
 
-### Enquiries rarely fit your business.
+### Where do you work?
 
-Clear service descriptions and questions about the project, location and scope help identify suitable work early.
+Your working area is visible where people look for a service. They can see early on whether the project location is a fit.
 
-### Good people struggle to find a way in.
+### What do you need for an initial assessment?
 
-If you are hiring, we show your working day and open roles with a clear way to apply.
+The project type, location and existing photos give you a useful starting point. We tailor enquiry questions to your business.
 
-## Your business. Clearly presented.
+## A few details. A better starting point.
 
-We plan your website around your services and the people you want to reach. We agree pages and features before starting.
+Project: What needs to be done?
 
-### Structure & design
+Location: Where is the work planned?
 
-A clear page plan and a website that works well on phones and larger screens.
+Context: Which photos or measurements are available?
 
-### Copy & image selection
-
-Copy based on your knowledge, suitable existing photos and agreed graphics that make your services and approach tangible.
-
-### Being found
-
-Pages for your services and area, clear headings and technically accessible content.
-
-### Enquiries & applications
-
-A clear contact journey. Where needed, we add project questions, careers content or a simple application process.
-
-## You know your trade. We make it visible.
-
-Tell us about your business, ideal projects and working day. We turn that into structure, copy and design.
-
-Information about your business, existing images you may use and consolidated feedback. You check the facts and approve the design.
+The website gathers context. Your business makes the professional assessment.
 
 ## From the first idea to launch.
 
-### Getting to know you
+For more detail on how we [build your website](https://www.vibeperform.com/en/website-design/), see the dedicated service page.
 
-We discuss your business, goals and existing website. The proposal then defines pages, features and the work involved.
+### You show us your business.
 
-### Designing
+Services, preferred projects, working area and existing photos set the direction.
 
-We develop the copy and design. You see early how your new presence could look.
+### We develop your presence.
 
-### Reviewing together
+We handle structure, copy and design. You check the facts in the preview.
 
-You review the content and design. We test the agreed contact journeys and the layout on small and large screens.
+### You approve. We publish.
 
-### Going live
-
-Once you approve, we handle the agreed launch and handover. Ongoing care is agreed separately.
+We check the layout and agreed contact options. Launch follows your approval.
 
 ## Your business keeps growing. So can your website.
-
-New projects, services and vacancies belong on your website. With appropriate support, we keep your presence current and identify the next improvements using your feedback and available search and usage data.
-
-Scope and frequency depend on your needs and technology. A Google Business Profile can be included as an additional service.
 
 [Explore website support](https://www.vibeperform.com/en/website-support/)
 
@@ -76,7 +54,7 @@ Scope and frequency depend on your needs and technology. A Google Business Profi
 
 ### How much does a website cost?
 
-Websites usually start at €1,800 including VAT. The price depends on how many additional pages are needed.
+Websites usually start at €1,799 excluding VAT. The price depends on how many additional pages are needed.
 
 ### Can we keep our existing website?
 
@@ -100,7 +78,7 @@ We cannot promise a fixed number. We create the foundations: clear services, cre
 
 ## What should your website make easier?
 
-Answer four short questions about your business and leave your email address. We will get back to you personally with an assessment of your existing or planned presence.
+Answer four short questions about your business and plans. You receive a free written review with three specific opportunities for improvement by email.
 
 [Request a free website review](https://www.vibeperform.com/en/websites-for-trade-businesses/#anfrage)
 

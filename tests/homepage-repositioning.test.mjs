@@ -30,7 +30,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.match(html,language==='de'?/Termin finden/:/Find a time/);
     assert.match(html,/class="hp-presence-loop(?: |\")/);
     assert.match(html,language==='de'?/Unternehmensprofil/:/Business profile/);
-    assert.match(html,language==='de'?/Stockfotos von Gebäuden außerhalb der Zielgruppe\./:/Stock photos of buildings outside the target market\./);
+    assert.doesNotMatch(html,/Stockfotos von Gebäuden außerhalb der Zielgruppe|Stock photos of buildings outside the target market/);
     assert.doesNotMatch(html,/class="hp-presence-toggle"|data-presence-toggle/);
     assert.match(html,language==='de'?/Wir machen Ihre Arbeit sichtbar\./:/We make your work visible\./);
     assert.doesNotMatch(html,/data-scroll-reveal|hp-cycle/);
@@ -42,7 +42,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.doesNotMatch(html,/<video\b/i);
     const services=html.match(/<section class="hp-section hp-services"[\s\S]*?<\/section>/)?.[0];
     assert.ok(services);
-    assert.equal((services.match(/class="hp-service-card hp-service-card--\d"/g)||[]).length,4);
+    assert.equal((services.match(/<article\b/g)||[]).length,4);
     assert.doesNotMatch(services,/class="hp-number"|class="hp-number"/);
     assert.match(services,/class="website-build"/);
     assert.match(services,/class="website-care"/);
@@ -50,7 +50,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.doesNotMatch(services,/Eine neue Website oder ein frischer Start|A new website or a fresh start/);
     assert.match(services,language==='de'?/Ihre neue Webseite/:/Your new website/);
     assert.match(services,/hp-service-primary-link/);
-    assert.equal((services.match(/class="hp-service-description"/g)||[]).length,3);
+    assert.equal((services.match(/class="hp-service-description"/g)||[]).length,4);
     assert.match(services,language==='de'?/Damit Kunden Sie finden und verstehen\./:/Help customers find and understand your business\./);
     assert.doesNotMatch(services,/hp-seo-track|hp-seo-term|Technical SEO|Generative Engine/);
     assert.match(services,language==='de'?/Ihr Google-Unternehmensprofil/:/Your Google Business Profile/);
@@ -62,7 +62,8 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
 test('homepage machine-readable content reflects websites and profiles',async()=>{
   const markdown=await readFile(path.join(dist,'de/index.md'),'utf8');
   assert.match(markdown,/Sie kennen Ihren Betrieb\. Wir machen Ihre Arbeit sichtbar\./);
-  assert.match(markdown,/HMS Loistl[\s\S]*Mehrfamilienhäuser[\s\S]*Servicegebiete/);
+  assert.match(markdown,/HMS Loistl[\s\S]*Vorher-Nachher-Vergleich/);
+  assert.doesNotMatch(markdown,/Mehrfamilienhäuser|Stockfotos/);
   assert.doesNotMatch(markdown,/Keine Zeit für Pflege|Der erste Eindruck zählt|Ein klarer Weg\. Ein fester Ansprechpartner/);
   assert.match(markdown,/Ihre neue Webseite/);
   assert.match(markdown,/Ihr Google-Unternehmensprofil/);
@@ -139,40 +140,41 @@ test('homepage collaboration links to the conversation and service heroes avoid 
 
   for (const route of ['de/website-betreuung/index.html','en/website-support/index.html']) {
     const html=await readFile(path.join(dist,route),'utf8');
-    const hero=html.match(/<div class="sd-hero-grid">([\s\S]*?)<\/div>/)?.[1];
+    const hero=html.match(/<section class="sv-hero sn-hero[^"]*"[\s\S]*?<\/section>/)?.[0];
     assert.ok(hero);
     assert.doesNotMatch(hero,/class="sv-kicker"/);
   }
   const redesign=await readFile(path.join(dist,'de/website-ueberarbeiten/index.html'),'utf8');
-  assert.doesNotMatch(redesign.match(/<div class="sd-hero-grid">([\s\S]*?)<\/div>/)?.[1],/class="sv-kicker"/);
+  assert.doesNotMatch(redesign.match(/<section class="sv-hero sn-hero[^"]*"[\s\S]*?<\/section>/)?.[0],/class="sv-kicker"/);
   const seo=await readFile(path.join(dist,'de/suchmaschinenoptimierung/index.html'),'utf8');
-  assert.match(seo,/<p class="sv-kicker">Die richtigen Fragen\. Die passenden Antworten\.<\/p>/);
+  assert.match(seo,/Ihre Kunden suchen\./);
   assert.doesNotMatch(seo,/<p class="sv-kicker">Suchmaschinenoptimierung/);
 });
 
 
-test('both homepages share the visual case study and workflow with localised copy', async () => {
+test('both homepages show input and published work without repeating the removed project story', async () => {
   for (const locale of ['de', 'en']) {
     const html = await readFile(path.join(dist, locale, 'index.html'), 'utf8');
-    const story = html.match(/<div class="hcs-story">[\s\S]*?<p class="hcs-live"/)?.[0];
     const workflow = html.match(/<section[^>]*id="home-next"[\s\S]*?<\/section>/)?.[0];
-    assert.ok(story);
     assert.ok(workflow);
-    assert.equal((story.match(/<article>/g) || []).length, 2);
+    assert.doesNotMatch(html, /class="hcs-story"|page-tree|Präziser erster Eindruck|A clearer first impression/);
+    assert.match(html, /data-case-study/);
     assert.equal((workflow.match(/<article>/g) || []).length, 3);
-    assert.doesNotMatch(story, /hcs-story-step|Beliebiges Stockmotiv|Fokus: Hauseingang|Pullach/);
-    assert.match(story, /Solln/);
     assert.match(workflow, /href="#kontakt"/);
-    assert.ok(story.includes(locale === 'de' ? 'Den Kunden abholen' : 'Help customers find what they need'));
-    assert.doesNotMatch(story, /work-evidence|rasen-vorher|rasen-nachher/);
-    for (const label of locale === 'de' ? ['Wir machen Vorschläge', 'Sie liefern', 'Wir setzen um'] : ['We make suggestions', 'You supply', 'We create']) {
-      assert.ok(workflow.includes(label));
-    }
-    if (locale === 'en') {
-      assert.match(story, /Before[\s\S]*After/);
-      assert.match(workflow, /Discuss your online presence/);
-      assert.doesNotMatch(story + workflow, /Vorher|Nachher|Leistungen|Servicegebiete|Kundenfoto|Geliefertes|Umgesetzte/);
-    }
+    assert.match(workflow, new RegExp(`input-email-${locale}`));
+    const steps = workflow.match(/<article>[\s\S]*?<\/article>/g);
+    assert.match(steps[1], /input-email/);
+    assert.doesNotMatch(steps[1], /published-pair/);
+    assert.match(steps[2], /published-pair[\s\S]*rasen-vorher[\s\S]*rasen-nachher/);
+    for (const label of locale === 'de' ? ['Wir machen Vorschläge', 'Sie geben Input', 'Wir setzen um'] : ['We make suggestions', 'You share your input', 'We create']) assert.ok(workflow.includes(label));
+    assert.match(workflow, locale === 'de' ? /Sie entscheiden, ob die neuen Inhalte online kommen/ : /You decide whether the new content goes online/);
+    if (locale === 'en') assert.doesNotMatch(workflow, /Vorher|Nachher|Sie geben Input/);
+    assert.ok(html.indexOf('id="home-next"') < html.indexOf('id="leitgedanke"'));
+    assert.ok(html.indexOf('id="leitgedanke"') < html.indexOf('id="leistungen"'));
+    const services = html.match(/<section[^>]*id="leistungen"[\s\S]*?<\/section>/)[0];
+    assert.equal((services.match(/hp-service-row--reverse/g)||[]).length, 2);
+    assert.doesNotMatch(services, /hp-service-card|hp-service-grid|hp-seo-banner/);
+    assert.match(services, /search-visual/);
     const hero = html.match(/<div[^>]*id="home-intro"[\s\S]*?<\/section>/)?.[0];
     assert.ok(hero.indexOf('vf-actions') < hero.indexOf('vf-intro'));
   }

@@ -1,25 +1,29 @@
-# KI-Beratung & KI-Strategie. Ein klarer nächster Schritt.
+# KI im Arbeitsalltag. Mit einer konkreten Aufgabe anfangen.
 Canonical URL: https://www.vibeperform.com/de/ki-strategie/
 English alternate: https://www.vibeperform.com/en/ai-strategy/
 Summary: Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.
 
-KI-Beratung & KI-Strategie. Ein klarer nächster Schritt.
+KI im Arbeitsalltag. Mit einer konkreten Aufgabe anfangen.
 
 Welche wiederkehrende Aufgabe kostet Ihr Büro Zeit? Wir betrachten einen konkreten Arbeitsablauf und prüfen, wo KI sinnvoll vorbereiten kann, welche Informationen sie braucht und was Menschen entscheiden.
 
-## Die Aufgabe ist konkret. Die Möglichkeiten sind unklar.
+## Eine Aufgabe verstehen. Einen sinnvollen Einsatz finden.
 
-### Büroarbeit wiederholt sich.
+Ergänzende Beratung für Ihren Arbeitsalltag
 
-Informationen aus Anfragen, Dokumenten und Notizen werden immer wieder zusammengesucht und neu aufbereitet.
+Wir betrachten einen konkreten Vorgang, seine Informationen und die menschlichen Entscheidungen. Daraus entsteht eine Einschätzung, wo KI unterstützen kann.
 
-### Werkzeuge gibt es viele.
+### Eingabe
 
-Sie möchten einschätzen können, welche Unterstützung zu Ihren Aufgaben und vorhandenen Systemen passt.
+Welche Informationen stehen zur Verfügung?
 
-### Die Verantwortung soll klar bleiben.
+### Ergebnis
 
-Fachliche Aussagen, Preise, Termine und Versand brauchen verlässliche Prüfpunkte. Sie möchten verstehen, wo Grenzen liegen.
+Was soll vorbereitet werden?
+
+### Entscheidung
+
+Was muss ein Mensch prüfen und freigeben?
 
 ## Den Ablauf verstehen. Eine fundierte Richtung finden.
 

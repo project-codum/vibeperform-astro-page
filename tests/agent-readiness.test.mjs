@@ -138,7 +138,8 @@ test('both potential-analysis pages are indexable and expose matching HTML, Serv
 		assert.doesNotMatch(html, /name="robots" content="noindex/);
 		assert.ok((await load('sitemap.xml')).includes(`<loc>https://www.vibeperform.com/${pathname}</loc>`));
 		assert.match(html, /application\/ld\+json/);
-		const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+		const schemas = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+		const schema = (Array.isArray(schemas) ? schemas : [schemas]).find(item => item['@type'] === 'Service');
 		assert.equal(schema['@type'], 'Service');
 		assert.equal(schema.url, `https://www.vibeperform.com/${pathname}`);
 		const response = await handleRequest(new Request(`https://www.vibeperform.com/${pathname}`, { headers: { Accept: 'text/markdown' } }), { ASSETS: mockAssets() });

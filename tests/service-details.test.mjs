@@ -15,9 +15,12 @@ for(const locale of ['de','en']) for(const key of serviceKeys){
   assert.ok(html.includes(`rel="canonical" href="${canonical}"`));
   assert.ok(html.includes(`href="${detailPaths[other][key]}"`));
   const main=html.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
-  assert.deepEqual([...main.matchAll(/<section[^>]*\bid="([^"]+)"/g)].map(m=>m[1]),['ausgangslage','umfang','ablauf','weiterdenken','fragen','kontakt']);
+  assert.deepEqual([...main.matchAll(/<section[^>]*\bid="([^"]+)"/g)].map(m=>m[1]),['beispiel','umfang','ablauf','fragen','kontakt']);
   assert.equal((main.match(/<details\b/g)||[]).length,5);
-  assert.ok(main.includes(['redesign','support','content'].includes(key)?`vx-showcase vx-${key}`:`sd-visual-${key}`));
+  assert.ok(main.includes(`sn-evidence sn-${key}`));
+  assert.ok(main.indexOf('id="beispiel"') < main.indexOf('id="umfang"'));
+  assert.match(main, /<aside[^>]*id="weiterdenken"/);
+  assert.doesNotMatch(main, /id="ausgangslage"|Leistung entdecken|Explore the service/);
   assert.doesNotMatch(main,/lorem ipsum|TODO|TBD|href="#"/i);
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(ids.length,new Set(ids).size,'unique element IDs');

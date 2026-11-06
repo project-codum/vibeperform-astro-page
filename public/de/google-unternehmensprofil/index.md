@@ -1,45 +1,45 @@
-# Google-Unternehmensprofil. Vor Ort und online erkennbar.
+# Bei Google gefunden. Als Betrieb verstanden.
 Canonical URL: https://www.vibeperform.com/de/google-unternehmensprofil/
 English alternate: https://www.vibeperform.com/en/google-business-profile/
 Summary: Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Webseite ab.
 
-Google-Unternehmensprofil. Vor Ort und online erkennbar.
+Bei Google gefunden. Als Betrieb verstanden.
 
-Aktuelle Öffnungszeiten, passende Leistungen und ein direkter Weg zu Ihnen. Wir unterstützen Sie bei der Einrichtung, Überarbeitung und vereinbarten Pflege Ihres Google-Unternehmensprofils.
+Ihr Google-Unternehmensprofil zeigt Interessenten, was Sie anbieten und wie sie Sie erreichen. Wir kümmern uns um passende Angaben, Bilder und Einblicke in Ihre Arbeit.
 
-## Der erste Kontakt beginnt oft vor Ihrer Website.
+## Von der Suche zum ersten Kontakt.
 
-### Die Angaben sind nicht mehr aktuell.
+Schematische Profilansicht · Beispiel HMS Loistl
 
-Geänderte Zeiten, neue Leistungen oder veraltete Bilder vermitteln ein unvollständiges Bild Ihres Betriebs.
+Ein Unternehmensprofil ist oft der erste Berührungspunkt. Deshalb sollen Angaben, Bilder und Kontaktmöglichkeiten zusammen ein klares Bild Ihres Betriebs ergeben.
 
-### Website und Profil erzählen Verschiedenes.
+### Aktuelle Angaben
 
-Kontaktangaben und Leistungsbeschreibungen passen nicht zusammen. Interessenten müssen selbst herausfinden, welche Information stimmt.
+Was bieten Sie an? Wo sind Sie tätig? Wie kann man Sie erreichen?
 
-### Niemand fühlt sich für die Pflege zuständig.
+### Einblicke
 
-Das Profil besteht, doch Zugriff und laufende Änderungen sind ungeklärt. Sie möchten eine verlässliche Abstimmung.
+Bilder und Beiträge zeigen, was Ihr Betrieb tatsächlich macht.
+
+### Kontakt
+
+Interessenten können anrufen oder auf Ihrer Webseite weiterlesen.
 
 ## Die richtigen Angaben. Ein stimmiger Eindruck.
 
 Wir beginnen mit dem vorhandenen Stand. Ein bestehendes Profil kann häufig gezielt überarbeitet werden; eine Einrichtung betrachten wir passend zur tatsächlichen Situation.
 
-### Profil und Zugriff prüfen
+### Ein stimmiges Profil
 
-Wir klären, ob bereits ein Profil besteht, welche Zugänge vorhanden sind und welche Schritte für die Bearbeitung noch fehlen.
+Name, Kontaktdaten, Leistungen und Öffnungszeiten passen zum Betrieb und zu Ihrer Webseite.
 
-### Unternehmensangaben abstimmen
+### Bilder und Beiträge aus Ihrem Alltag
 
-Name, Kontaktwege, Zeiten und angebotene Leistungen werden mit Ihren aktuellen Informationen und der Website abgeglichen.
+Vorhandenes Material wird passend aufbereitet. Interessenten sehen, welche Arbeit Sie leisten.
 
-### Bilder und Verweise aufbereiten
+### Ein klarer Weg zu Ihnen
 
-Geeignete bereitgestellte Bilder und passende Website-Verweise ergänzen den Auftritt. Wir achten auf verständliche und zusammenpassende Inhalte.
-
-### Pflege organisieren
-
-Für spätere Änderungen legen wir einen klaren Ablauf fest. Vereinbarte Anpassungen und noch offene Schritte werden nachvollziehbar festgehalten.
+Telefonnummer, Webseitenverweis und weitere passende Kontaktangaben werden geprüft und gepflegt.
 
 Einrichtung und laufende Pflege werden nach Bedarf vereinbart. Weitere Standorte, Beiträge und Antworten auf Bewertungen gehören nur im ausdrücklich vereinbarten Umfang dazu. Freischaltung und Platzierung liegen nicht in unserer Hand.
 
@@ -57,7 +57,7 @@ Wir stimmen Angaben, Leistungen, Bilder und Verlinkungen mit Ihnen ab. Sie best�
 
 Wir setzen die vereinbarten Änderungen um und halten offene Schritte fest. Bei erforderlichen Bestätigungen ist Ihre Mitwirkung nötig.
 
-Sie ermöglichen berechtigten Zugriff, liefern korrekte Geschäftsdaten und nutzbare Bilder und wirken bei erforderlichen Bestätigungen mit.
+Sie bestätigen die Angaben zu Ihrem Betrieb und ermöglichen den passenden Zugriff. Wir unterstützen Sie bei den nötigen Schritten, auch wenn Google eine Bestätigung verlangt.
 
 ## Passende nächste Schritte
 
@@ -89,7 +89,7 @@ Einrichtung, Überarbeitung und laufende Pflege haben unterschiedliche Umfänge.
 
 ## Kontakt
 
-Ist Ihr Profil aktuell, vollständig und zugänglich? Gemeinsam klären wir den vorhandenen Stand und die Aufgaben, bei denen Sie Unterstützung möchten.
+Wir sehen uns Ihr Unternehmensprofil gemeinsam an: Stimmen die Angaben, zeigen die Bilder Ihre Arbeit und finden Interessenten den Kontakt? Daraus ergibt sich, ob Einrichtung, Überarbeitung oder laufende Pflege sinnvoll ist.
 
 [Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
 

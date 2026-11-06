@@ -1,59 +1,57 @@
-# Explore Workshop für Ihre KI-Strategie
+# Explore Workshop. Von Ideen zu einer Richtung.
 Canonical URL: https://www.vibeperform.com/de/workshop/explore-workshop/
-English alternate: https://www.vibeperform.com/en/workshop/explore-workshop/
-Summary: Einzelne KI-Experimente beantworten noch nicht, ob ein Einsatz zum Betrieb passt. Dieser Workshop betrachtet Ziele, Daten und Abläufe gemeinsam und hilft dabei, mögliche Ansatzpunkte und Voraussetzungen einzuordnen.
+Summary: Sie haben erste KI-Ideen, aber noch keine gemeinsame Priorität? Wir betrachten Ziele, Abläufe und Daten zusammen und halten fest, welche Ansätze einen nächsten Prüfschritt verdienen.
 
-## Klarheit entsteht, wenn Strategie, Daten und Prozesse gemeinsam betrachtet werden.
+## Am Ende steht eine gemeinsame Arbeitsgrundlage.
 
-Wir verzichten auf technischen Jargon und arbeiten direkt mit Abteilungsleitern und Prozessverantwortlichen. So entsteht ein belastbares Bild Ihrer digitalen Reife, Ihrer Datensilos und jener manuellen Abläufe, die heute Zeit, Fokus und Skalierbarkeit kosten.
+Sie können mögliche Anwendungen einordnen: Welche Aufgabe soll erleichtert werden? Was wird dafür gebraucht? Wer entscheidet, ob der nächste Schritt sinnvoll ist?
 
-## Kennzahlen und Ergebnisrahmen
+## Beispiel einer Auswertung
 
-5: Arbeitsfelder: Ziele, digitale Reife, Daten, Prozesse und nächste Schritte.
-Prozessbezogen: Arbeitsgrundlage mit priorisierten Use Cases und offenen Voraussetzungen.
-Konkret: Annahmen und Voraussetzungen werden für den betrachteten Prozess festgehalten.
+Eine Kundenanfrage vorbereiten.
 
-## Was Sie erleben
+So kann eine kurze Einschätzung aufgebaut sein. Die tatsächliche Empfehlung entsteht aus Ihrem Ablauf.
 
-Im Workshop bringen wir Führung, Fachbereiche und Prozessverantwortliche an einen Tisch. Entlang von fünf Arbeitsfeldern – Ziele, digitale Reife, Daten, Prozesse und nächste Schritte – entsteht ein gemeinsames Bild davon, wo KI realistisch ansetzen könnte.
+### Ausgangslage
 
-Datensilos, manuelle Übergaben und wiederkehrende Abstimmungen betrachten wir anhand konkreter Arbeitsabläufe. Empfehlungen bleiben an Voraussetzungen und offene Fragen gebunden; die wirtschaftliche Wirkung hängt vom Prozess und seiner Umsetzung ab.
+Eine Anfrage kommt per E-Mail. Angaben zum Vorhaben und Bilder liegen an verschiedenen Stellen.
 
-[Hintergrund: Veränderungsmanagement bei der Einführung von KI (Plattform Lernende Systeme)](https://www.acatech.de/publikation/einfuehrung-von-ki-systemen-in-unternehmen-gestaltungsansaetze-fuer-das-change-management/)
+### Mögliche Vorarbeit
 
-## Ein gemeinsames Lagebild statt einzelner KI-Experimente.
+Informationen zusammenstellen, fehlende Angaben benennen und eine Antwort vorbereiten.
 
-Die Analyse verbindet strategische Ziele, Prozessrealität, Datenzugang und technische Voraussetzungen. Dadurch entsteht ein Entscheidungsrahmen, der tragfähig genug für die nächste Umsetzungsphase ist.
+### Voraussetzungen
 
-Strategische Ziele: Welche Geschäftsprioritäten sollen KI-Initiativen wirklich unterstützen?
-Digitale Reife: Welche Systeme, Routinen und Kompetenzen sind bereits belastbar vorhanden?
-Datenlage: Wo liegen Silos, Medienbrüche und Qualitätslücken, die Umsetzung bremsen?
-Prozesshebel: Welche manuellen Workflows haben ausreichend Wiederholung und Wirkung?
-Umsetzungsbild: Welche Use Cases sind technisch, wirtschaftlich und organisatorisch prioritär?
+Zugriff auf die benötigten Informationen, klare Arbeitsanweisungen und Regeln für Rückfragen.
 
-## Wie wir priorisieren
+### Ihre Entscheidung
 
-Wir führen KI nicht um der Sache selbst willen ein. Mit einer Impact-Effort-Matrix ordnen wir mögliche Use Cases nach erwarteter Wirkung, Aufwand und Voraussetzungen ein.
+Machbarkeit, Preis, Termin und Versand bleiben beim Betrieb.
 
-Beispielhafte Use Cases:
-- Vorausschauende Wartungsplanung
-- Automatisierte Dokumentenverarbeitung
-- Analyse und Routing von Kundenanfragen
+Nächster Prüfschritt: An einem typischen Vorgang klären, ob alle nötigen Angaben verfügbar sind.
 
-## Ihr Ergebnis
+## Ziele
 
-Sie erhalten eine gemeinsame Arbeitsgrundlage mit priorisierten Use Cases, Voraussetzungen, offenen Fragen und möglichen nächsten Prüfschritten. Wirtschaftliche Wirkung wird erst für einen konkreten Prozess anhand nachvollziehbarer Annahmen bewertet; ein bestimmter ROI oder eine technische Umsetzung ist kein pauschales Ergebnisversprechen.
+Welche konkrete Arbeit soll leichter werden?
 
-Priorisierte Use Cases: Eine Einordnung möglicher Anwendungsfälle nach Wirkung, Aufwand und Abhängigkeiten.
-Wirkungsannahmen: Zu prüfende Annahmen und geeignete Messgrößen für einen ausgewählten Prozess.
-Technische Voraussetzungen: Ein belastbarer Blick auf Daten, Systeme, Integrationen und organisatorische Vorbereitung.
+## Arbeitsweise
 
-## Kontakt
+Wie läuft der Vorgang heute durch Ihr Team?
 
-Bereit, nächste Schritte für KI in Ihrer Organisation zu klären?
+## Informationen
 
-Der Strategic Discovery Sprint schafft eine gemeinsame Grundlage für nächste Entscheidungen: mit Blick auf den konkreten Ablauf, offene Voraussetzungen und mögliche Prüfschritte.
+Welche Daten und Programme werden gebraucht?
 
-E-Mail: contact@vibeperform.com
+## Verantwortung
 
-Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
+Wer prüft und entscheidet an welcher Stelle?
+
+## Nächster Schritt
+
+Welche Annahme sollte zuerst überprüft werden?
+
+## Bringen Sie Ihre Ideen. Wir ordnen sie gemeinsam.
+
+Im Kennenlerngespräch klären wir Anlass, beteiligte Rollen und den passenden Workshopumfang. Die Auswertung bildet eine Entscheidungsgrundlage; eine Umsetzung wird anschließend gesondert vereinbart.
+
+https://calendar.app.google/utFQgw33PwJTiDk56

@@ -1,45 +1,45 @@
-# Website support & maintenance. We keep your presence current.
+# Your business moves forward. Your website keeps up.
 Canonical URL: https://www.vibeperform.com/en/website-support/
 German alternate: https://www.vibeperform.com/de/website-betreuung/
 Summary: Keep your business website current with content updates, prioritised improvements and clearly agreed ongoing support.
 
-Website support & maintenance. We keep your presence current.
+Your business moves forward. Your website keeps up.
 
-A new service, a completed project, a clearer answer to a customer question: we take care of agreed updates and develop your website with you, step by step.
+New services, projects and photos: hand over the work of keeping your website current. We prepare your information, make updates and suggest improvements.
 
-## Business moves forward. Online updates get left behind.
+## Two photos become a new project story.
 
-### There is little time for upkeep.
+An example of ongoing content work
 
-New information is available but never reaches the website. Updates keep getting postponed.
+HMS Loistl provides photos from day-to-day work. We turn them into a clear project section. The website gains new content from work that is already happening.
 
-### There are ideas, but no priorities.
+### Input
 
-You know the website could improve. What to tackle first gets lost between daily work and technical questions.
+A message and two files.
 
-### Responsibility is unclear.
+### Draft & approval
 
-Content changes and technical tasks have no clear owner. You want to understand what has actually been done.
+We prepare it. You decide.
+
+### Update
+
+The new content becomes part of your website.
 
 ## Keep it current. Develop it with purpose.
 
 Together, we define the tasks included in your support. Changes in your business and available data help us set sensible priorities.
 
-### Maintain content
+### Current information
 
-Agreed updates to services, contact details, images and projects are implemented on your website.
+New offers, updated contact details and important notices find their place on your website.
 
-### Interpret available data
+### Fresh insights into your work
 
-Where suitable data sources exist, we review searches and usage. We record observations that may suggest an improvement.
+Photos and information become project stories, image comparisons or additional service content.
 
-### Implement improvements
+### Practical improvements
 
-Agreed priorities become specific changes to copy, sections or contact options. Scope and sequence remain clear.
-
-### Agree technical tasks
-
-We identify the checks and maintenance suited to your technology. Content work and technical maintenance are described separately.
+We clarify copy, add missing answers and simplify contact options. Priorities follow the needs of your business.
 
 Support covers an agreed amount of work. Substantial new pages, extra features, response times and technical operations are defined separately.
 
@@ -57,7 +57,7 @@ You tell us about business changes. We combine these with observations and agree
 
 We complete agreed tasks and document progress. Later observations help determine the next steps.
 
-You tell us about business changes, provide agreed access and review new factual statements. We take care of the agreed work on your presence.
+A message, voice note or a few photos give us a starting point. We clarify any questions, prepare a draft and ask for your approval.
 
 ## Related services
 
@@ -89,7 +89,7 @@ Price, scope, term and cancellation conditions are defined in the proposal. You 
 
 ## Contact
 
-Which updates keep getting postponed? Tell us about your website and the work you would like us to take care of.
+We look at your website and discuss what gets left behind during a busy working week. You receive a free assessment with a rating and feedback. We can then identify the ongoing tasks you would like to hand over.
 
 [Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
 

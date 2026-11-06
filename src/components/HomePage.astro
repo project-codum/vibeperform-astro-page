@@ -2,13 +2,9 @@
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
 import HomeCaseStudy from './HomeCaseStudy.astro';
-import HomeProblemAnimation from './HomeProblemAnimation.astro';
-import WebsiteBuildAnimation from './WebsiteBuildAnimation.astro';
-import WebsiteCareAnimation from './WebsiteCareAnimation.astro';
-import HomeSeoBanner from './HomeSeoBanner.astro';
 import AgencyFooter from './AgencyFooter.astro';
 import BookingCalendar from './BookingCalendar.astro';
-import { servicePaths } from '../data/serviceContent';
+import HomeServices from './HomeServices.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { homePageContent } from '../data/homePageContent';
 import { homeStoryContent } from '../data/homeStoryContent';
@@ -20,8 +16,6 @@ interface Props { currentLocale: Locale; alternateLocaleHref: string; }
 const { currentLocale: locale, alternateLocaleHref } = Astro.props;
 const t = homePageContent[locale];
 const story = homeStoryContent[locale];
-const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
-const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 ---
 <div class="home-shell" id="top">
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
@@ -32,30 +26,8 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
 
     <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
       <div class="hp-wrap hp-split">
-        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><p class="hp-intro">{story.collaboration.intro}</p><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
+        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
         <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
-      </div>
-    </section>
-
-    <section class="hp-section hp-services" id="leistungen" aria-labelledby="services-title" data-analytics-section="home-services">
-      <div class="hp-wrap">
-        <div class="hp-section-heading"><h2 id="services-title">{t.services.title}<br /><em>{t.services.emphasis}</em></h2></div>
-        <div class="hp-service-grid">
-          {t.services.items.map((item, index) => <article class={'hp-service-card hp-service-card--' + (index + 1)}>
-            {index === 0 && <span class="hp-service-badge" data-presence-animation><span class="hp-service-badge-shape"><strong>90%</strong><span>{locale === 'de' ? 'starten hier' : 'start here'}</span></span></span>}
-            {index === 3 ? <HomeSeoBanner title={item.title} body={item.body} href={href(item.href)} link={item.link} /> : <>
-            {index < 3 && <div class={'hp-service-art hp-service-art--' + (index + 1)}>
-              {index === 0 ? <WebsiteBuildAnimation locale={locale} /> : index === 1 ? <HomeProblemAnimation locale={locale} variant='profile' /> : <WebsiteCareAnimation locale={locale} />}
-            </div>}
-            <div class="hp-service-copy">
-              <h3>{item.title}</h3>
-              <p class="hp-service-description">{item.body}</p>
-              <a class={'hp-text-link' + (index === 0 ? ' hp-service-primary-link' : '')} href={href(item.href)}>{item.link}<span aria-hidden="true">↗</span></a>
-            </div>
-            </>}
-          </article>)}
-        </div>
-        <p style="margin:0 0 26px"><a class="hp-text-link" href={href(servicePaths[locale].overview)}>{locale === 'de' ? 'Alle Leistungen ansehen' : 'Explore all services'}<span aria-hidden="true">↗</span></a></p>
       </div>
     </section>
 
@@ -72,12 +44,14 @@ const href = (path: string) => path.startsWith('#') ? path : `${base}${path}`;
       </div>
     </section>
 
+    <HomeServices locale={locale} />
+
     <section class="hp-section hp-faq" aria-labelledby="faq-title">
       <div class="hp-wrap hp-split"><div><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div>
     </section>
 
     <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
-      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><BookingCalendar locale={locale} autoOpen /><div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
+      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><p class="hp-contact-detail">{t.contact.detail}</p><BookingCalendar locale={locale} autoOpen /><div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 

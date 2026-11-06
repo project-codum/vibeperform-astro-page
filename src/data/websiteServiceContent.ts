@@ -4,8 +4,8 @@ export const websiteServiceRoutes = { de: '/de/websites-fuer-handwerksbetriebe/'
 // Search indexing remains separately controlled; update headers and discovery together when approved.
 export const websiteServiceIndexable = true;
 export const websiteServiceMeta = {
- de: {title:'Webseiten für Handwerksbetriebe | VibePerform',description:'Passende Projektanfragen, ein einfacher Bewerbungsweg und weniger Webseiten-Aufwand. Texte, Gestaltung und passende Betreuung. Kostenlosen Webseiten-Check anfragen.'},
- en: {title:'Websites for trade businesses | VibePerform',description:'Attract suitable project enquiries and make it easier to apply. Website design, copy and ongoing care for trade businesses. Request your free website review.'}
+ de: {title:'Webseiten für Handwerksbetriebe | VibePerform',description:'Webseiten für Ihre Wunschaufträge und Ihr Einsatzgebiet. Mit klaren Leistungen, echten Arbeitsbeispielen und passenden Kontaktwegen. Kostenlosen Webseiten-Check anfragen.'},
+ en: {title:'Websites for trade businesses | VibePerform',description:'Websites for the projects you want and the areas you serve. Clear services, real work examples and useful enquiry details. Request your free website review.'}
 } as const;
 const englishWebsiteCopy: Record<string,string> = {
   "Das Paket": "The package",
@@ -148,7 +148,7 @@ const englishWebsiteCopy: Record<string,string> = {
 };
 export function websiteCopy(locale: 'de'|'en') {
  return (source:string):string => {
-  if(locale==='de')return source;
+  if(locale==='de')return source.replaceAll('Website', 'Webseite').replaceAll('Webseite-', 'Webseiten-');
   if(!(source in englishWebsiteCopy)) throw new Error(`Missing website service translation: ${source}`);
   return englishWebsiteCopy[source];
  };

@@ -1,42 +1,40 @@
-# AI potential analysis for your business
-
+# One workflow. One hour. A clear assessment.
 Canonical URL: https://www.vibeperform.com/en/ai-potential-analysis/
+Summary: We take a real workflow from your business and identify what an assistant could prepare with your briefing. Online or on site by arrangement.
 
-In one hour, we use a real inquiry or quote process to identify which office work an assistant can prepare and when it should ask you.
+## A short evaluation you can act on.
 
-AI potential analysis · one hour
+The recommendation is grounded in your workflows and programs that fit your current way of working.
 
-We take a real workflow from your business and identify what an assistant could prepare with your briefing. Online or on site by arrangement.
+- Concrete opportunities for preparatory office work
+- Prerequisites around data, access, and briefing
+- A sensible next step for your business
 
-A good assistant does not need a master in your craft.
+You decide what is feasible, what scope fits, and what happens next.
 
-It needs to know which tasks it can take on – and when to ask you.
+## Illustrative assessment
 
-AI prepares. You decide.
+Preparing a customer enquiry.
 
-## We start with a typical inquiry or quote.
+An example of how a short assessment can be structured. The actual recommendation comes from your workflow.
 
-You show us how one case moves through your business today. That makes the useful preparation visible.
+### Starting point
 
-### Show the case
+An enquiry arrives by email. Project details and photos are stored in different places.
 
-A customer inquiry, a follow-up, or a quote draft.
+### Possible preparation
 
-### Find the data
+Gather information, identify missing details and prepare a reply.
 
-Where do emails, measurements, photos, prices, and past answers live?
+### Requirements
 
-### Hand off tasks
+Access to the necessary information, clear instructions and rules for asking questions.
 
-What could an assistant compile, check, or draft with a briefing?
+### Your decision
 
-We look at your existing programs
+Feasibility, price, dates and sending remain with the business.
 
-- Email
-- Microsoft 365 / Google Workspace
-- Customer or job management
-- Trade software
-- Files & spreadsheets
+Next step to investigate: use a typical case to check whether all necessary information is available.
 
 ## You show us your work. We look at what you can hand off.
 
@@ -56,18 +54,6 @@ We separate preparation from decisions that must stay with you.
 
 After the hour, you receive a short written evaluation with opportunities, prerequisites, and a recommendation.
 
-## A short evaluation you can act on.
-
-The recommendation is grounded in your workflows and programs that fit your current way of working.
-
-- Concrete opportunities for preparatory office work
-- Prerequisites around data, access, and briefing
-- A sensible next step for your business
-
-The decision stays with you.
-
-You decide what is feasible, what scope fits, and what happens next.
-
 ## Questions about the analysis
 
 ### Do we need to buy new software?
@@ -82,8 +68,12 @@ No. One concrete example is enough. We identify useful preparation and the quest
 
 Yes, online or on site by arrangement. We clarify the right format when you inquire.
 
-## Bring one real case.
+## Let’s examine a real task.
 
 Tell us briefly which office work you want to look at. We will reply with the next questions.
 
+The 60-minute potential analysis is a separately commissioned service with a written assessment. Price and terms are clarified before commissioning. An introductory call first helps us understand your needs.
+
 [Request an analysis](mailto:contact@vibeperform.com?subject=AI%20potential%20analysis%20inquiry)
+
+[Start with an introductory call](https://calendar.app.google/utFQgw33PwJTiDk56)

@@ -8,34 +8,31 @@ Summary: Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, 
 Ihr Online-Auftritt. In professionellen Händen.
 
 Wir lernen Ihren Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuung. Damit Sie sich auf Ihre Arbeit konzentrieren können.
+
+[Ihr Ansprechpartner: Marlon Dietrich](https://www.vibeperform.com/de/ueber-uns/)
 ## HMS Loistl: Gute Arbeit. Endlich sichtbar.
 
-HMS Loistl möchte große Mehrfamilienhäuser betreuen. Darauf haben wir Bildauswahl und Inhalte des Auftritts ausgerichtet.
-
-### Präziser erster Eindruck
-
-**Vorher**: Stockfotos von Gebäuden außerhalb der Zielgruppe.
-
-**Nachher**: Ein gepflegter Hauseingang – dort wird Hausbetreuung für Bewohner unmittelbar sichtbar.
-
-### Den Kunden abholen
-
-Eigene Seiten erklären jede Leistung und alle Servicegebiete. Interessenten finden die passende Betreuung und sehen, wo HMS Loistl tätig ist.
+[Webseite besuchen](https://www.hms-loistl.de/) – Vorher-Nachher-Vergleich des Webseitenauftritts.
 ## Sie kennen Ihren Betrieb. Wir machen Ihre Arbeit sichtbar.
-
-Sie müssen nicht allein entscheiden, welche Bilder und Inhalte Ihren Betrieb gut zeigen. Wir schlagen passende Themen und Motive vor und machen daraus Ihren Online-Auftritt.
 
 ### Wir machen Vorschläge
 
-Gemeinsam klären wir, welche Leistungen und Kunden wichtig sind. Daraus leiten wir ab, welche Inhalte und Bilder Ihren Betrieb verständlich machen.
+Ein Beispiel: „Wie wäre ein Vorher-Nachher-Vergleich? Ein Foto, bevor die Arbeit passiert ist. Ein Foto aus dem gleichen Winkel, wenn die Arbeit gemacht wurde.“
 
-### Sie liefern
+### Sie geben Input
 
-Sie liefern fachliche Angaben und Bilder aus Ihrem Alltag. Bei HMS Loistl waren das zum Beispiel Vorher-Nachher-Aufnahmen, deren Motive wir zuvor gemeinsam besprochen haben.
+Ganz egal ob WhatsApp-Nachricht, Sprachnachricht oder E-Mail mit Anhang: Wir verarbeiten, was Sie uns schicken.
 
 ### Wir setzen um
 
-Wir übernehmen Texte, Gestaltung und Umsetzung. Sie prüfen die Inhalte und geben den Auftritt frei. Danach halten wir ihn im vereinbarten Umfang aktuell – etwa mit neuen Projekten und Beiträgen im Unternehmensprofil.
+Wir übernehmen die redaktionelle und gestalterische Arbeit. Sie entscheiden, ob die neuen Inhalte online kommen.
+## Wir glauben, Spitzenmarketing darf keine Frage der Unternehmensgröße sein.
+
+Wir machen einen Online-Auftritt auf dem Qualitätsniveau großer Marken für kleine Unternehmen bezahlbar. Dafür verbinden wir erstklassiges Design, das die Qualität Ihres Betriebs sichtbar macht, präzise Texte, die Ihren Kunden Orientierung geben, und den professionellen Einsatz von KI, um Arbeitsschritte zu beschleunigen.
+
+### Unsere Vision
+
+Kleine Unternehmen haben ein starkes Marketingteam an ihrer Seite – unabhängig von ihrer Größe.
 ## Ihr Online-Auftritt. Wir kümmern uns darum.
 
 ### Ihre neue Webseite
@@ -61,13 +58,6 @@ Neue Leistungen, Bilder und Projekte kommen online. Ihr Auftritt entwickelt sich
 Wir richten Ihre Inhalte auf die Fragen Ihrer Kunden aus, erklären Ihr Angebot verständlich und verbessern die Auffindbarkeit Ihrer Webseite in Suchmaschinen.
 
 [SEO optimieren](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
-## Wir glauben, Spitzenmarketing darf keine Frage der Unternehmensgröße sein.
-
-Wir machen einen Online-Auftritt auf dem Qualitätsniveau großer Marken für kleine Unternehmen bezahlbar. Dafür verbinden wir erstklassiges Design, das die Qualität Ihres Betriebs sichtbar macht, präzise Texte, die Ihren Kunden Orientierung geben, und den professionellen Einsatz von KI, um Arbeitsschritte zu beschleunigen.
-
-### Unsere Vision
-
-Kleine Unternehmen haben ein starkes Marketingteam an ihrer Seite – unabhängig von ihrer Größe.
 ## Häufige Fragen
 
 ### Können Sie unsere bestehende Webseite übernehmen?
@@ -87,7 +77,9 @@ Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile un
 Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.
 ## Kontakt
 
-Im Erstgespräch gehen wir gemeinsam durch Ihren aktuellen Online-Auftritt. Welche Kunden möchten Sie erreichen? Welche Leistungen sollen im Mittelpunkt stehen? Und was möchten Sie von Ihrem Betrieb zeigen? Daraus entwickeln wir die Richtung für Ihre Positionierung und dafür, wie Ihr Auftritt passende Anfragen unterstützen kann. Das Vorgehen richtet sich nach Ihrem Unternehmen und dem, was Sie nach außen zeigen möchten.
+Im Gespräch bekommen Sie von uns kostenlos einen Statuscheck Ihres Online-Auftritts mit Benotung und Feedback.
+
+Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir Ihren geplanten Auftritt.
 
 E-Mail: contact@vibeperform.com
 
