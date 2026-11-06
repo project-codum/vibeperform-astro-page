@@ -54,7 +54,7 @@ Wir prüfen Darstellung und vereinbarte Kontaktwege. Nach Ihrer Freigabe folgt d
 
 ### Was kostet eine Webseite?
 
-Webseiten starten meistens bei 1.799 Euro netto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
+Webseiten starten meistens bei 1.799 € zzgl. gesetzlicher Umsatzsteuer. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
 
 ### Kann unsere bestehende Webseite bleiben?
 

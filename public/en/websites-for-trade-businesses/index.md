@@ -54,7 +54,7 @@ We check the layout and agreed contact options. Launch follows your approval.
 
 ### How much does a website cost?
 
-Websites usually start at €1,799 excluding VAT. The price depends on how many additional pages are needed.
+Websites usually start at €1,799 plus VAT at the applicable rate. The price depends on how many additional pages are needed.
 
 ### Can we keep our existing website?
 
