@@ -2,7 +2,7 @@
 import type { Locale } from '../lib/siteMetadata';
 import '../styles/home-problem-animation.css';
 
-interface Props { locale: Locale; variant?: 'problems' | 'website-static' | 'website' | 'profile'; }
+interface Props { locale: Locale; variant?: 'problems' | 'website' | 'profile'; }
 const { locale, variant = 'problems' } = Astro.props as Props;
 const de = locale === 'de';
 const isProblems = variant === 'problems';
@@ -12,10 +12,10 @@ const showWebsite = variant !== 'profile';
 const showProfile = variant === 'problems' || variant === 'profile';
 const copy = de
   ? {
-      description: 'Website und Unternehmensprofil werden regelmäßig aktualisiert.',
-      website: 'Website',
+      description: 'Webseite und Unternehmensprofil werden regelmäßig aktualisiert.',
+      website: 'Webseite',
       profile: 'Unternehmensprofil',
-      issues: ['Veraltete Website', 'Veraltetes Unternehmensprofil', 'Uneinheitliche Angaben'],
+      issues: ['Veraltete Webseite', 'Veraltetes Unternehmensprofil', 'Uneinheitliche Angaben'],
       growth: 'Regelmäßig aktualisieren. Mit dem Unternehmen weiterwachsen.',
     }
   : {
@@ -31,8 +31,7 @@ const copy = de
   <div class="hp-presence-panels">
     {showWebsite && <div class="hp-presence-card hp-presence-card--service-art">
       <h3>{copy.website}</h3>
-      <div class:list={['hp-website-visual', variant === 'website-static' && 'hp-website-visual--unfold']}>
-        {variant === 'website-static' && <span class="hp-website-orb" aria-hidden="true"></span>}
+      <div class="hp-website-visual">
         <svg class="hp-illustration hp-illustration--website" viewBox="0 0 520 360" aria-hidden="true" focusable="false">
         <rect x="2" y="2" width="516" height="356" rx="14" fill="#f3f1f4" stroke="#ded9e2" stroke-width="2" />
         <circle cx="24" cy="23" r="5" fill="#c8c3cc" /><circle cx="42" cy="23" r="5" fill="#d7d2da" /><circle cx="60" cy="23" r="5" fill="#ded9e2" />
@@ -78,46 +77,46 @@ const copy = de
     {showProfile && <div class="hp-presence-card hp-presence-card--profile hp-presence-card--service-art">
       <h3>{de ? <>Unternehmens<wbr />profil</> : copy.profile}</h3>
       <svg class="hp-illustration hp-illustration--profile" viewBox="0 0 320 460" aria-hidden="true" focusable="false">
-        <rect x="2" y="2" width="316" height="456" rx="27" fill="#fff" stroke="#ded9e2" stroke-width="2" />
-        <rect x="15" y="15" width="290" height="430" rx="19" fill="#f3f1f4" />
-        <rect x="123" y="22" width="74" height="6" rx="3" fill="#d7d3dc" />
-        <circle cx="35" cy="48" r="3" fill="#aaa4b0" /><path d="M48 48h22m-22 7h16" stroke="#c7c2cb" stroke-width="3" stroke-linecap="round" />
-        <rect x="25" y="68" width="270" height="92" rx="12" fill="#e5e2e8" />
-        <circle cx="70" cy="139" r="29" fill="#c5c0cb" stroke="#fff" stroke-width="5" />
-        <circle cx="70" cy="132" r="9" fill="#f3f1f4" /><path d="M52 153c3-12 11-17 18-17s15 5 18 17" fill="#f3f1f4" />
-        <rect x="109" y="122" width="152" height="10" rx="5" fill="#aaa4b0" />
-        <rect x="109" y="140" width="112" height="7" rx="3.5" fill="#cec9d2" />
-        <rect x="25" y="178" width="126" height="35" rx="17" fill="#e5e2e8" />
-        <g fill="#ded9e2" aria-hidden="true">
+        <rect x="2" y="2" width="316" height="456" rx="27" fill="#fffdf9" stroke="#d9cde2" stroke-width="2" />
+        <rect x="15" y="15" width="290" height="430" rx="19" fill="#f4eef7" />
+        <rect x="123" y="22" width="74" height="6" rx="3" fill="#c8b6d5" />
+        <circle cx="35" cy="48" r="3" fill="#967fa6" /><path d="M48 48h22m-22 7h16" stroke="#b6a4c3" stroke-width="3" stroke-linecap="round" />
+        <rect x="25" y="68" width="270" height="92" rx="12" fill="#e8e0ed" />
+        <circle cx="70" cy="139" r="29" fill="#c8b6d5" stroke="#fffdf9" stroke-width="5" />
+        <circle cx="70" cy="132" r="9" fill="#f4eef7" /><path d="M52 153c3-12 11-17 18-17s15 5 18 17" fill="#f4eef7" />
+        <rect x="109" y="122" width="152" height="10" rx="5" fill="#967fa6" />
+        <rect x="109" y="140" width="112" height="7" rx="3.5" fill="#c4b8cc" />
+        <rect x="25" y="178" width="126" height="35" rx="17" fill="#e8e0ed" />
+        <g fill="#d9cde2" aria-hidden="true">
           <path d="M183 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
           <path d="M207 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
           <path d="M231 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
           <path d="M255 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
           <path d="M279 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
         </g>
-        <rect x="25" y="229" width="270" height="54" rx="10" fill="#e5e2e8" />
-        <circle cx="47" cy="256" r="9" fill="#c5c0cb" /><path d="M44 256h6m-3-3v6" stroke="#f3f1f4" stroke-width="1.5" />
-        <rect x="66" y="249" width="182" height="8" rx="4" fill="#aaa4b0" /><rect x="66" y="264" width="130" height="6" rx="3" fill="#cec9d2" />
-        <rect x="25" y="296" width="270" height="54" rx="10" fill="#e5e2e8" />
-        <circle cx="47" cy="323" r="9" fill="#c5c0cb" /><path d="M43 323h8" stroke="#f3f1f4" stroke-width="2" />
-        <rect x="66" y="316" width="194" height="8" rx="4" fill="#aaa4b0" /><rect x="66" y="331" width="145" height="6" rx="3" fill="#cec9d2" />
-        <rect x="25" y="363" width="270" height="58" rx="10" fill="#e5e2e8" />
-        <circle cx="47" cy="392" r="9" fill="#c5c0cb" /><path d="M44 392h6m-3-3v6" stroke="#f3f1f4" stroke-width="1.5" />
-        <rect x="66" y="384" width="176" height="8" rx="4" fill="#aaa4b0" /><rect x="66" y="399" width="112" height="6" rx="3" fill="#cec9d2" />
+        <rect x="25" y="229" width="270" height="54" rx="10" fill="#e8e0ed" />
+        <circle cx="47" cy="256" r="9" fill="#c8b6d5" /><path d="M44 256h6m-3-3v6" stroke="#f4eef7" stroke-width="1.5" />
+        <rect x="66" y="249" width="182" height="8" rx="4" fill="#967fa6" /><rect x="66" y="264" width="130" height="6" rx="3" fill="#c4b8cc" />
+        <rect x="25" y="296" width="270" height="54" rx="10" fill="#e8e0ed" />
+        <circle cx="47" cy="323" r="9" fill="#c8b6d5" /><path d="M43 323h8" stroke="#f4eef7" stroke-width="2" />
+        <rect x="66" y="316" width="194" height="8" rx="4" fill="#967fa6" /><rect x="66" y="331" width="145" height="6" rx="3" fill="#c4b8cc" />
+        <rect x="25" y="363" width="270" height="58" rx="10" fill="#e8e0ed" />
+        <circle cx="47" cy="392" r="9" fill="#c8b6d5" /><path d="M44 392h6m-3-3v6" stroke="#f4eef7" stroke-width="1.5" />
+        <rect x="66" y="384" width="176" height="8" rx="4" fill="#967fa6" /><rect x="66" y="399" width="112" height="6" rx="3" fill="#c4b8cc" />
 
         <g class="hp-presence-change hp-change-four">
-          <rect x="25" y="68" width="270" height="92" rx="12" fill="#eee3ff" />
-          <circle cx="70" cy="139" r="29" fill="#772be5" stroke="#fff" stroke-width="5" />
-          <circle cx="70" cy="132" r="9" fill="#fff" /><path d="M52 153c3-12 11-17 18-17s15 5 18 17" fill="#fff" />
-          <rect x="109" y="122" width="152" height="10" rx="5" fill="#8950c4" />
-          <rect x="109" y="140" width="112" height="7" rx="3.5" fill="#b68bda" />
+          <rect x="25" y="68" width="270" height="92" rx="12" fill="#e6d6f2" />
+          <circle cx="70" cy="139" r="29" fill="#745188" stroke="#fffdf9" stroke-width="5" />
+          <circle cx="70" cy="132" r="9" fill="#fffdf9" /><path d="M52 153c3-12 11-17 18-17s15 5 18 17" fill="#fffdf9" />
+          <rect x="109" y="122" width="152" height="10" rx="5" fill="#745188" />
+          <rect x="109" y="140" width="112" height="7" rx="3.5" fill="#b592cd" />
         </g>
         <g class="hp-presence-change hp-change-five">
-          <rect x="25" y="178" width="126" height="35" rx="17" fill="#eee3ff" stroke="#b58ae6" stroke-width="2" />
-          <circle cx="46" cy="195" r="6" fill="#772be5" /><path d="M43 195h6m-3-3v6" stroke="#fff" stroke-width="1.5" />
-          <rect x="59" y="192" width="72" height="6" rx="3" fill="#8950c4" />
+          <rect x="25" y="178" width="126" height="35" rx="17" fill="#e6d6f2" stroke="#b592cd" stroke-width="2" />
+          <circle cx="46" cy="195" r="6" fill="#745188" /><path d="M43 195h6m-3-3v6" stroke="#fffdf9" stroke-width="1.5" />
+          <rect x="59" y="192" width="72" height="6" rx="3" fill="#745188" />
         </g>
-        <g fill="#ffb347" stroke="#f08a59" stroke-width=".7" aria-label={de ? 'Fünf Sterne erscheinen nacheinander' : 'Five stars appear one by one'}>
+        <g fill="#f4b395" stroke="#c08c73" stroke-width=".7" aria-label={de ? 'Fünf Sterne erscheinen nacheinander' : 'Five stars appear one by one'}>
           <path class="hp-rating-star hp-rating-star--1" d="M183 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
           <path class="hp-rating-star hp-rating-star--2" d="M207 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
           <path class="hp-rating-star hp-rating-star--3" d="M231 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
@@ -125,14 +124,14 @@ const copy = de
           <path class="hp-rating-star hp-rating-star--5" d="M279 185l3.1 6.3 7 .9-5.1 4.9 1.2 7-6.2-3.4-6.2 3.4 1.2-7-5.1-4.9 7-.9z" />
         </g>
         <g class="hp-presence-change hp-change-six">
-          <rect x="25" y="229" width="270" height="54" rx="10" fill="#fff0eb" stroke="#ff9a7e" stroke-width="2" />
-          <circle cx="47" cy="256" r="9" fill="#f07c68" /><path d="M43 256l3 3 5-6" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          <rect x="66" y="249" width="182" height="8" rx="4" fill="#a75b58" /><rect x="66" y="264" width="130" height="6" rx="3" fill="#e1aaa0" />
+          <rect x="25" y="229" width="270" height="54" rx="10" fill="#f6e8df" stroke="#f4b395" stroke-width="2" />
+          <circle cx="47" cy="256" r="9" fill="#b98067" /><path d="M43 256l3 3 5-6" fill="none" stroke="#fffdf9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <rect x="66" y="249" width="182" height="8" rx="4" fill="#8d6258" /><rect x="66" y="264" width="130" height="6" rx="3" fill="#d5b2a2" />
         </g>
         <g class="hp-presence-change hp-change-seven">
-          <rect x="25" y="363" width="270" height="58" rx="10" fill="#f6e5ff" stroke="#b58ae6" stroke-width="2" />
-          <circle cx="47" cy="392" r="9" fill="#772be5" /><path d="M43 392h8m-4-4v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
-          <rect x="66" y="384" width="176" height="8" rx="4" fill="#8950c4" /><rect x="66" y="399" width="112" height="6" rx="3" fill="#b68bda" />
+          <rect x="25" y="363" width="270" height="58" rx="10" fill="#ece0f3" stroke="#b592cd" stroke-width="2" />
+          <circle cx="47" cy="392" r="9" fill="#745188" /><path d="M43 392h8m-4-4v8" stroke="#fffdf9" stroke-width="1.5" stroke-linecap="round" />
+          <rect x="66" y="384" width="176" height="8" rx="4" fill="#745188" /><rect x="66" y="399" width="112" height="6" rx="3" fill="#b592cd" />
         </g>
       </svg>
     </div>}

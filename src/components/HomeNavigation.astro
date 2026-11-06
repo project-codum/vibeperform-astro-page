@@ -3,7 +3,7 @@ import { serviceMenu, servicePaths } from '../data/serviceContent';
 import type { HomeIntroContent } from '../data/homeIntroContent';
 interface Props { copy: HomeIntroContent; locale: 'de' | 'en'; alternateLocaleHref: string; }
 const { copy, locale, alternateLocaleHref } = Astro.props;
-const groups = serviceMenu(locale);
+const groups = serviceMenu(locale).map(group => locale === 'de' ? { ...group, title: group.title.replaceAll('Websites', 'Webseiten'), links: group.links.map(link => ({ ...link, label: link.label.replaceAll('Websites', 'Webseiten').replaceAll('Website', 'Webseite'), description: link.description.replaceAll('Websites', 'Webseiten').replaceAll('Website', 'Webseite') })) } : group);
 const currentPath = Astro.url.pathname;
 const active = (path: string) => currentPath === `${base}${path}`;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
@@ -89,9 +89,9 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
   nav[hidden],button[hidden]{display:none}
   a{color:inherit;text-decoration:none}nav a{display:inline-flex;align-items:center;gap:15px;min-height:44px}
   nav a:hover{text-decoration:underline;text-underline-offset:5px}
-  .home-nav-contact{border:1px solid #776387;padding:8px 15px;border-radius:6px}
+  .home-nav-contact{border:1px solid #776387;padding:8px 15px;border-radius:var(--radius-pill,9999px)}
   .home-language{border-left:1px solid #62596d;padding-left:22px;font-size:12px;color:#c9c4ce}
-  .home-menu-toggle{min-width:90px;min-height:44px;padding:8px 12px;border:1px solid #776387;border-radius:6px;background:#211a2c;color:#f7f4fb;align-items:center;justify-content:space-between;gap:12px;font:14px Arial,sans-serif;cursor:pointer}
+  .home-menu-toggle{min-width:90px;min-height:44px;padding:8px 12px;border:1px solid #776387;border-radius:var(--radius-pill,9999px);background:#211a2c;color:#f7f4fb;align-items:center;justify-content:space-between;gap:12px;font:14px Arial,sans-serif;cursor:pointer}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #dac8ff;outline-offset:5px}
   .home-skip{position:fixed;top:10px;left:10px;z-index:100;padding:12px 18px;background:#f5f2ed;color:#28232e;transform:translateY(-160%);font:16px Arial,sans-serif}.home-skip:focus{transform:none}
   @media(max-width:900px){vf-home-navigation{padding:15px 24px;flex-wrap:wrap;gap:8px}.home-brand{width:112px}.home-menu-toggle:not([hidden]){display:flex}nav{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:18px;background:#1d1923;border:1px solid #62596d;border-radius:6px}nav a{padding:8px 12px}.home-language{border-left:0;border-top:1px solid #62596d;margin-top:4px}.home-nav-contact{margin:5px 0}vf-home-navigation[data-enhanced] nav{position:absolute;top:calc(100% - 4px);left:24px;right:24px;width:auto}}

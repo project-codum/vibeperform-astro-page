@@ -1,0 +1,90 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const steps = locale === 'de' ? ['Struktur', 'Inhalte', 'Gestaltung'] : ['Structure', 'Content', 'Design'];
+---
+<div class="website-build" data-presence-animation aria-hidden="true">
+  <svg viewBox="0 0 520 350" fill="none" focusable="false">
+    <rect x="3" y="3" width="514" height="344" rx="15" fill="#fffdf9" stroke="#d9cde2" stroke-width="2"/>
+    <path d="M4 36h512" stroke="#e7deec"/>
+    <g fill="#c8b6d5"><circle cx="22" cy="20" r="4"/><circle cx="37" cy="20" r="4"/><circle cx="52" cy="20" r="4"/></g>
+    <rect x="184" y="14" width="152" height="12" rx="6" fill="#f1ebf5"/>
+
+    <!-- First establish the page hierarchy, before filling it with content. -->
+    <g class="build-guides" stroke="#c8b6d5" stroke-width="1.5" stroke-dasharray="5 5">
+      <rect x="25" y="54" width="470" height="28" rx="5"/>
+      <rect x="25" y="103" width="239" height="116" rx="6"/>
+      <rect x="286" y="103" width="209" height="116" rx="6"/>
+      <rect x="25" y="240" width="144" height="80" rx="6"/>
+      <rect x="188" y="240" width="144" height="80" rx="6"/>
+      <rect x="351" y="240" width="144" height="80" rx="6"/>
+    </g>
+    <g class="build-nav build-layer">
+      <rect x="25" y="54" width="470" height="28" rx="5" fill="#fffdf9"/>
+      <rect x="29" y="59" width="19" height="19" rx="6" fill="#745188"/>
+      <rect x="56" y="63" width="60" height="9" rx="4.5" fill="#745188"/>
+      <path d="M332 68h32m17 0h32m17 0h32" stroke="#baacc3" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="484" cy="68" r="9" fill="#e6d7f0"/>
+    </g>
+    <g class="build-copy build-layer">
+      <rect x="25" y="103" width="239" height="116" rx="6" fill="#fffdf9"/>
+      <path d="M30 113h61" stroke="#a184b5" stroke-width="5" stroke-linecap="round"/>
+      <path d="M32 134h204m-204 20h162" stroke="#584064" stroke-width="12" stroke-linecap="round"/>
+      <path d="M30 178h208m-208 10h181" stroke="#c4b8cc" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g class="build-cards build-layer">
+      {[25, 188, 351].map(x => <g>
+        <rect x={x} y="240" width="144" height="80" rx="6" fill="#f4eef7"/>
+        <circle cx={x + 20} cy="260" r="8" fill="#d8c2e8"/>
+        <path d={`M${x + 16} 282h91m-91 12h109m-109 10h76`} stroke="#b6a4c3" stroke-width="4" stroke-linecap="round"/>
+      </g>)}
+    </g>
+    <g class="build-image build-layer">
+      <rect x="286" y="103" width="209" height="116" rx="6" fill="#e6d6f2"/>
+      <circle cx="451" cy="131" r="15" fill="#f4b395"/>
+      <path d="M286 181l57-47 62 61 38-28 52 28v18a6 6 0 0 1-6 6H292a6 6 0 0 1-6-6z" fill="#b592cd"/>
+      <path d="M286 202l54-30 65 47H292a6 6 0 0 1-6-6z" fill="#86609f"/>
+    </g>
+    <g class="build-finish build-layer">
+      <rect x="27" y="202" width="106" height="19" rx="9.5" fill="#745188"/>
+      <path d="M40 211h47m22 0h11m-4-4 4 4-4 4" stroke="#fffdf9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g stroke="#745188" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m41 260 3 3 5-6"/><path d="m204 260 3 3 5-6"/><path d="m367 260 3 3 5-6"/>
+      </g>
+    </g>
+  </svg>
+  <div class="build-steps">{steps.map((step, index) => <div class={'build-step build-step--' + index}><span>{step}</span><i></i></div>)}</div>
+</div>
+<style>
+.website-build{width:100%;min-width:0}
+.website-build svg{display:block;width:100%;height:auto;overflow:visible}
+.build-layer{opacity:1;transform:none}
+.build-guides{opacity:0}
+.build-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.build-step{font:11px/1.4 Arial,Helvetica,sans-serif;color:#745188;text-align:left}
+.build-step i{display:block;position:relative;height:3px;margin-top:8px;background:#e3d7eb;border-radius:3px;overflow:hidden}
+.build-step i:after{content:'';display:block;position:absolute;inset:0;background:#9670af;transform-origin:left;border-radius:3px}
+@media(prefers-reduced-motion:no-preference){
+  .build-layer{animation-duration:10s;animation-timing-function:cubic-bezier(.22,.61,.36,1);animation-iteration-count:infinite;animation-fill-mode:both}
+  .build-guides{animation:build-wireframe 10s ease-in-out infinite both}
+  .build-nav{animation-name:build-navigation}
+  .build-copy{animation-name:build-content}
+  .build-cards{animation-name:build-sections}
+  .build-image{animation-name:build-design}
+  .build-finish{animation-name:build-complete}
+  .build-step i:after{animation-duration:10s;animation-timing-function:linear;animation-iteration-count:infinite;animation-fill-mode:both}
+  .build-step--0 i:after{animation-name:build-progress-one}
+  .build-step--1 i:after{animation-name:build-progress-two}
+  .build-step--2 i:after{animation-name:build-progress-three}
+  @keyframes build-wireframe{0%,100%{opacity:.35}10%,25%{opacity:1}65%,92%{opacity:0}}
+  @keyframes build-navigation{0%,10%,100%{opacity:0;transform:translateY(4px)}19%,92%{opacity:1;transform:translateY(0)}}
+  @keyframes build-content{0%,26%,100%{opacity:0;transform:translateY(7px)}36%,92%{opacity:1;transform:translateY(0)}}
+  @keyframes build-sections{0%,36%,100%{opacity:0;transform:translateY(7px)}46%,92%{opacity:1;transform:translateY(0)}}
+  @keyframes build-design{0%,49%,100%{opacity:0;transform:translateY(7px)}59%,92%{opacity:1;transform:translateY(0)}}
+  @keyframes build-complete{0%,60%,100%{opacity:0;transform:translateY(3px)}67%,92%{opacity:1;transform:translateY(0)}}
+  @keyframes build-progress-one{0%,100%{transform:scaleX(0);opacity:1}26%,92%{transform:scaleX(1);opacity:1}99%{transform:scaleX(1);opacity:0}}
+  @keyframes build-progress-two{0%,26%,100%{transform:scaleX(0);opacity:1}49%,92%{transform:scaleX(1);opacity:1}99%{transform:scaleX(1);opacity:0}}
+  @keyframes build-progress-three{0%,49%,100%{transform:scaleX(0);opacity:1}67%,92%{transform:scaleX(1);opacity:1}99%{transform:scaleX(1);opacity:0}}
+}
+</style>

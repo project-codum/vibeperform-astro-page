@@ -10,7 +10,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
   test(`${route}: complete agency homepage, direct booking, service discovery and valid link targets`,async()=>{
     const html=await readFile(path.join(dist,route),'utf8');
     assert.equal((html.match(/<h1\b/g)||[]).length,1);
-    assert.match(html,language==='de'?/Wir kümmern uns darum\./:/We take care of it\./);
+    assert.match(html,language==='de'?/Online-Auftritt/:/In professional hands\./);
     assert.match(html,/class="vf-portrait-bubble"/);
     assert.doesNotMatch(html,/class="vf-audience"/);
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
@@ -18,25 +18,25 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.ok(actions);
     assert.match(actions,/href="https:\/\/calendar.app.google\/utFQgw33PwJTiDk56"/);
     assert.equal((actions.match(/<a\b/g)||[]).length,2);
-    assert.match(actions,/href="#leistungen"/);
-    assert.match(actions,language==='de'?/Leistungen ansehen/:/Explore services/);
-    for (const id of ['home-next','leistungen','weiterentwicklung','kontakt']) assert(html.includes(`id="${id}"`));
+    assert.match(actions,/href="#projekt-hms-loistl"/);
+    assert.match(actions,language==='de'?/Unsere Arbeit ansehen/:/See our work/);
+    for (const id of ['home-next','leistungen','leitgedanke','kontakt']) assert(html.includes(`id="${id}"`));
     for (const [,id] of html.matchAll(/href="#([^" ]+)"/g)) assert(html.includes(`id="${id}"`),`Anchor ${id} exists`);
     for (const [,href] of html.matchAll(/href="(\/(?:de|en)\/[^"#?]*)"/g)) await access(path.join(dist,href.slice(1),'index.html'));
     assert.match(html,/mailto:contact@vibeperform.com/);
     assert.match(html,/calendar.app.google\/utFQgw33PwJTiDk56/);
     assert.doesNotMatch(html,/UNSERE LEISTUNGEN|UNSERE VISION|SO ARBEITEN WIR ZUSAMMEN|VOR DEM ERSTEN GESPRÄCH|DER NÄCHSTE SCHRITT|OUR SERVICES|OUR VISION|WORKING TOGETHER|BEFORE WE TALK|THE NEXT STEP/);
-    assert.match(html,language==='de'?/Immer eine/:/Always an/);
-    assert.match(html,language==='de'?/Erstgespräch buchen/:/Book an intro call/);
+    assert.match(html,language==='de'?/Sie kennen Ihren Betrieb\./:/You know your business\./);
+    assert.match(html,language==='de'?/Termin finden/:/Find a time/);
     assert.match(html,/class="hp-presence-loop(?: |\")/);
     assert.match(html,language==='de'?/Unternehmensprofil/:/Business profile/);
-    assert.match(html,language==='de'?/Veraltete Website/:/Outdated website/);
+    assert.match(html,language==='de'?/Stockfotos von Gebäuden außerhalb der Zielgruppe\./:/Stock photos of buildings outside the target market\./);
     assert.doesNotMatch(html,/class="hp-presence-toggle"|data-presence-toggle/);
-    assert.match(html,language==='de'?/Wir halten Ihren Online-Auftritt immer aktuell\./:/We keep your online presence up to date\./);
-    assert.match(html,/data-scroll-reveal/);
+    assert.match(html,language==='de'?/Wir machen Ihre Arbeit sichtbar\./:/We make your work visible\./);
+    assert.doesNotMatch(html,/data-scroll-reveal|hp-cycle/);
     assert.doesNotMatch(html,/id="zusammenarbeit"|hp-process-title-line|href="[^" ]*#zusammenarbeit"/);
-    assert.match(html,language==='de'?/die immer aktuell bleibt\./:/stays up to date\./);
-    assert.match(html,language==='de'?/Daten erfassen/:/Collect data/);
+    assert.match(html,language==='de'?/Wir glauben, Spitzenmarketing/:/We believe great marketing/);
+    assert.match(html,language==='de'?/KI, um Arbeitsschritte zu beschleunigen/:/AI to speed up tasks/);
     assert.match(html,/has-scroll-reveals/);
     assert.doesNotMatch(html,/Ihr Betrieb leistet gute Arbeit\. Online sollte man das genauso erkennen|Your business does good work/);
     assert.doesNotMatch(html,/<video\b/i);
@@ -44,13 +44,16 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.ok(services);
     assert.equal((services.match(/class="hp-service-card hp-service-card--\d"/g)||[]).length,4);
     assert.doesNotMatch(services,/class="hp-number"|class="hp-number"/);
-    assert.match(services,/hp-presence-loop--website-static/);
-    assert.match(services,/hp-presence-loop--website hp-presence-loop--animated/);
+    assert.match(services,/class="website-build"/);
+    assert.match(services,/class="website-care"/);
     assert.match(services,/hp-presence-loop--profile hp-presence-loop--animated/);
     assert.doesNotMatch(services,/Eine neue Website oder ein frischer Start|A new website or a fresh start/);
-    assert.match(services,language==='de'?/Erstellung neuer Webseiten/:/Create a new website/);
+    assert.match(services,language==='de'?/Ihre neue Webseite/:/Your new website/);
     assert.match(services,/hp-service-primary-link/);
-    assert.match(services,language==='de'?/Einrichtung des Unternehmensprofils/:/Set up your business profile/);
+    assert.equal((services.match(/class="hp-service-description"/g)||[]).length,3);
+    assert.match(services,language==='de'?/Damit Kunden Sie finden und verstehen\./:/Help customers find and understand your business\./);
+    assert.doesNotMatch(services,/hp-seo-track|hp-seo-term|Technical SEO|Generative Engine/);
+    assert.match(services,language==='de'?/Ihr Google-Unternehmensprofil/:/Your Google Business Profile/);
     const faq=html.match(/<section class="hp-section hp-faq"[\s\S]*?<\/section>/)?.[0];
     assert.equal((faq.match(/<details\b/g)||[]).length,4);
   });
@@ -58,11 +61,11 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
 
 test('homepage machine-readable content reflects websites and profiles',async()=>{
   const markdown=await readFile(path.join(dist,'de/index.md'),'utf8');
-  assert.match(markdown,/Immer eine aktuelle Webseite/);
-  assert.match(markdown,/- Veraltete Website[\s\S]*- Veraltetes Unternehmensprofil[\s\S]*- Uneinheitliche Angaben/);
+  assert.match(markdown,/Sie kennen Ihren Betrieb\. Wir machen Ihre Arbeit sichtbar\./);
+  assert.match(markdown,/HMS Loistl[\s\S]*Mehrfamilienhäuser[\s\S]*Servicegebiete/);
   assert.doesNotMatch(markdown,/Keine Zeit für Pflege|Der erste Eindruck zählt|Ein klarer Weg\. Ein fester Ansprechpartner/);
-  assert.match(markdown,/Erstellung neuer Webseiten/);
-  assert.match(markdown,/Einrichtung des Unternehmensprofils/);
+  assert.match(markdown,/Ihre neue Webseite/);
+  assert.match(markdown,/Ihr Google-Unternehmensprofil/);
   assert.doesNotMatch(markdown,/Proposal Assistant|Angebotsassistent|Compliance inklusive|\bundefined\b/);
   const html=await readFile(path.join(dist,'de/index.html'),'utf8');
   const data=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
@@ -74,19 +77,22 @@ test('homepage contains animated content within its mobile viewport',async()=>{
   assert.match(styles,/\.home-shell\{[^}]*overflow-x:clip/);
 });
 
-test('scroll reveals animate in sequence and leave reduced-motion users unaffected',async()=>{
-  const styles=await readFile(path.join(root,'src/styles/home-page.css'),'utf8');
-  const source=await readFile(path.join(root,'src/components/HomePage.astro'),'utf8');
-  assert.match(styles,/@media\(prefers-reduced-motion:no-preference\)/);
-  assert.match(styles,/\.hp-evolution\.is-revealed \.hp-cycle li:nth-child\(2\)\{animation-delay:\.19s\}/);
-  assert.match(styles,/\.hp-evolution\.is-revealed \.hp-cycle li:nth-child\(3\)\{animation-delay:\.38s\}/);
-  assert.match(styles,/\.hp-process\.is-revealed \.hp-process-title-line--second\{animation:hp-slide-in[^}]*\.28s/);
-  assert.match(styles,/animation-delay:calc\(1\.12s \+ var\(--process-stagger, 0s\)\)/);
-  assert.match(styles,/\.hp-process-grid li:nth-child\(3\)\{--process-stagger:\.36s\}/);
-  assert.match(styles,/\.hp-process:not\(\.is-revealed\) \.hp-process-grid li\{transform:translateY\(30px\)\}/);
-  assert.match(source,/threshold: 0\.24, rootMargin: '0px 0px -18% 0px'/);
-  assert.match(styles,/\.hp-service-card--1\{[^}]*transform:translateY\(-9px\)[^}]*box-shadow/s);
-  assert.match(styles,/\.hp-service-card--1 \.hp-service-primary-link\{[^}]*background:var\(--hp-plum\)/);
+test('the guiding principle replaces the repeated care section in both languages',async()=>{
+  for (const locale of ['de','en']) {
+    const html=await readFile(path.join(dist,locale,'index.html'),'utf8');
+    const section=html.match(/<section[^>]*id="leitgedanke"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(section);
+    assert.equal((section.match(/<article>/g)||[]).length,0);
+    assert.doesNotMatch(section,/<a |<button|data-scroll-reveal|data-presence-animation/);
+    assert.match(section,locale==='de'?/Unsere Vision/:/Our vision/);
+    assert.match(section,locale==='de'?/präzise Texte, die Ihren Kunden Orientierung geben/:/precise copy that guides your customers/);
+    assert.doesNotMatch(section,/hp-purpose-pillars|Unser Leitgedanke|Our guiding principle/);
+    assert.doesNotMatch(html,/hp-evolution|#weiterentwicklung/);
+    assert.match(html,locale==='de'?/href="\/de\/website-betreuung\/"/:/href="\/en\/website-support\/"/);
+  }
+  const markdown=await readFile(path.join(dist,'de/index.md'),'utf8');
+  assert.match(markdown,/Spitzenmarketing[\s\S]*Qualitätsniveau großer Marken[\s\S]*Unsere Vision/);
+  assert.doesNotMatch(markdown,/Eine Webseite, die immer aktuell bleibt/);
 });
 
 test('contact booking CTA uses the requested text and a reduced-motion-safe pulse',async()=>{
@@ -102,14 +108,6 @@ test('native homepage animation distinguishes the portrait business profile and 
   const source=await readFile(path.join(root,'src/components/HomeProblemAnimation.astro'),'utf8');
   const styles=await readFile(path.join(root,'src/styles/home-problem-animation.css'),'utf8');
   assert.match(source,/<svg class="hp-illustration hp-illustration--website" viewBox="0 0 520 360"/);
-  assert.match(source,/hp-website-orb/);
-  assert.match(styles,/hp-website-visual--unfold \.hp-illustration--website\{[^}]*animation:hp-website-unfold/);
-  assert.match(styles,/hp-website-visual--unfold \.hp-website-orb\{[^}]*animation:hp-website-orb-pulse/);
-  assert.match(styles,/hp-website-unfold/);
-  assert.match(styles,/hp-website-orb-pulse 3\.4s/);
-  assert.match(styles,/hp-website-shockwave/);
-  assert.match(styles,/hp-website-sparks/);
-  assert.match(styles,/clip-path:circle\(160% at 50% 50%\)/);
   assert.match(source,/hp-presence-card--profile/);
   assert.match(source,/viewBox="0 0 320 460"/);
   assert.match(source,/hp-rating-star--1/);
@@ -130,16 +128,14 @@ test('native homepage animation distinguishes the portrait business profile and 
   assert.match(styles,/@keyframes hp-presence-pop-four\{0%,29%\{opacity:0/);
 });
 
-test('homepage problems copy follows the visual on narrow screens and service heroes avoid repetitive kickers',async()=>{
+test('homepage collaboration links to the conversation and service heroes avoid repetitive kickers',async()=>{
   const homepage=await readFile(path.join(dist,'de/index.html'),'utf8');
   const section=homepage.match(/<section[^>]*id="home-next"[\s\S]*?<\/section>/)?.[0];
   assert.ok(section);
-  assert.ok(section.indexOf('id="problems-title"')<section.indexOf('hp-presence-loop'));
-  assert.ok(section.indexOf('hp-presence-loop')<section.indexOf('Wir halten Ihren Online-Auftritt immer aktuell.'));
-  assert.ok(section.indexOf('Wir halten Ihren Online-Auftritt immer aktuell.')<section.indexOf('Erstgespräch buchen'));
-  const animationStyles=await readFile(path.join(root,'src/styles/home-problem-animation.css'),'utf8');
-  assert.match(animationStyles,/grid-template-areas:"heading visual" "copy visual"/);
-  assert.match(animationStyles,/@media\(max-width:900px\)\{[^}]*grid-template-areas:"heading" "visual" "copy"/);
+  assert.match(section,/aria-labelledby="collaboration-title"/);
+  assert.match(section,/href="#kontakt"/);
+  assert.equal((section.match(/<article>/g)||[]).length,3);
+  assert.doesNotMatch(section,/hp-presence-loop--problems/);
 
   for (const route of ['de/website-betreuung/index.html','en/website-support/index.html']) {
     const html=await readFile(path.join(dist,route),'utf8');
@@ -152,4 +148,32 @@ test('homepage problems copy follows the visual on narrow screens and service he
   const seo=await readFile(path.join(dist,'de/suchmaschinenoptimierung/index.html'),'utf8');
   assert.match(seo,/<p class="sv-kicker">Die richtigen Fragen\. Die passenden Antworten\.<\/p>/);
   assert.doesNotMatch(seo,/<p class="sv-kicker">Suchmaschinenoptimierung/);
+});
+
+
+test('both homepages share the visual case study and workflow with localised copy', async () => {
+  for (const locale of ['de', 'en']) {
+    const html = await readFile(path.join(dist, locale, 'index.html'), 'utf8');
+    const story = html.match(/<div class="hcs-story">[\s\S]*?<p class="hcs-live"/)?.[0];
+    const workflow = html.match(/<section[^>]*id="home-next"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(story);
+    assert.ok(workflow);
+    assert.equal((story.match(/<article>/g) || []).length, 2);
+    assert.equal((workflow.match(/<article>/g) || []).length, 3);
+    assert.doesNotMatch(story, /hcs-story-step|Beliebiges Stockmotiv|Fokus: Hauseingang|Pullach/);
+    assert.match(story, /Solln/);
+    assert.match(workflow, /href="#kontakt"/);
+    assert.ok(story.includes(locale === 'de' ? 'Den Kunden abholen' : 'Help customers find what they need'));
+    assert.doesNotMatch(story, /work-evidence|rasen-vorher|rasen-nachher/);
+    for (const label of locale === 'de' ? ['Wir machen Vorschläge', 'Sie liefern', 'Wir setzen um'] : ['We make suggestions', 'You supply', 'We create']) {
+      assert.ok(workflow.includes(label));
+    }
+    if (locale === 'en') {
+      assert.match(story, /Before[\s\S]*After/);
+      assert.match(workflow, /Discuss your online presence/);
+      assert.doesNotMatch(story + workflow, /Vorher|Nachher|Leistungen|Servicegebiete|Kundenfoto|Geliefertes|Umgesetzte/);
+    }
+    const hero = html.match(/<div[^>]*id="home-intro"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(hero.indexOf('vf-actions') < hero.indexOf('vf-intro'));
+  }
 });

@@ -7,7 +7,9 @@ const fragment = `precision highp float;
 uniform vec2 resolution;
 uniform vec2 pointer;
 uniform float cursorPresence;
-uniform vec3 centres[4];
+uniform vec3 centres[5];
+uniform sampler2D portrait;
+uniform float portraitReady;
 float join(float a,float b,float k){
   float h=clamp(.5+.5*(b-a)/k,0.,1.);
   return mix(b,a,h)-k*h*(1.-h);
@@ -20,7 +22,7 @@ float field(vec3 p){
   d=join(d,length(p-centres[1])-.26,.30);
   d=join(d,length(p-centres[2])-.64,.30);
   d=join(d,length(p-centres[3])-.30,.32);
-  // The upper-right satellite is the portrait in HomeFluidBackdrop.
+  d=join(d,length(p-centres[4])-.13,.18);
   // The pointer lives in the same aspect-correct world as the other spheres.
   // Smooth union creates a real neck between surfaces, rather than an overlap.
   if(cursorPresence>.001){
@@ -56,15 +58,35 @@ void main(){
   vec3 color=base*(.27+diffuse*.65)+vec3(.58,.48,.74)*rim*.8+vec3(.95,.83,.99)*spec*.36;
   float band=pow(max(dot(n,normalize(vec3(1.,-.3,.15))),0.),5.);
   color+=vec3(.26,.12,.09)*band;
+  // Map the photograph onto the curved, merged surface itself. The surface
+  // normal changes across the neck when the pointer joins the portrait sphere.
+  vec3 local=p-centres[4];
+  vec3 radial=normalize(local);
+  vec2 surface=local.xy/.13;
+  vec2 cursor=vec2(pointer.x*resolution.x/resolution.y,pointer.y);
+  vec2 reach=cursor-centres[4].xy;
+  float contact=(1.-smoothstep(.16,.55,length(reach)))*cursorPresence;
+  vec2 pull=reach/max(length(reach),.001);
+  surface-=pull*dot(surface,pull)*contact*.42;
+  surface-=reach/.13*contact*.16;
+  surface+=(n.xy-radial.xy)*.22*(1.-smoothstep(.15,.30,length(local)));
+  // A slight spherical lens remains visible even while the mouse is away.
+  surface+=radial.xy*pow(1.-max(radial.z,0.),2.)*.10;
+  vec2 photoUV=vec2(.5+surface.x*.49,.59+surface.y*.39);
+  vec3 photo=texture2D(portrait,clamp(photoUV,.001,.999)).rgb;
+  float coverage=(1.-smoothstep(.20,.48,length(local)))*portraitReady;
+  vec3 coated=photo*(.62+.38*diffuse)+vec3(.35,.20,.48)*rim*.48;
+  coated+=vec3(.95,.83,.99)*spec*.20;
+  color=mix(color,coated,coverage);
   gl_FragColor=vec4(color,1.);
 }`;
 
-export function mountFluid(canvas, { onState = () => {} } = {}) {
+export function mountFluid(canvas, { onState = () => {}, portraitImage = null } = {}) {
   const host = canvas.parentElement;
   const region = host.closest('.vf-hero') || host;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const coarse = matchMedia('(pointer: coarse)');
-  let gl, program, buffer, shaders = [], raf = 0;
+  let gl, program, buffer, texture, shaders = [], raf = 0;
   let ready = false, preparing = false, epoch = 0;
   let disposed = false, lost = false, paused = false, visible = false;
   let elapsed = 0, lastFrame = 0, lastTick = 0;
@@ -72,7 +94,7 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
   let cursorPresence = 0, cursorTarget = 0;
   let pointerInside = false;
   let uniforms;
-  const centres = new Float32Array(12);
+  const centres = new Float32Array(15);
 
   const state = () => {
     const canAnimate = Boolean(gl && ready && !lost && !motion.matches);
@@ -84,6 +106,8 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
   function release() {
     epoch++; ready = preparing = false;
     if (!gl) return;
+    if (texture) gl.deleteTexture(texture);
+    texture = null;
     if (buffer) gl.deleteBuffer(buffer);
     if (program) gl.deleteProgram(program);
     shaders.forEach(shader => gl.deleteShader(shader));
@@ -121,6 +145,21 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
     gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
     uniforms = Object.fromEntries(['resolution','pointer','cursorPresence'].map(key => [key,gl.getUniformLocation(program,key)]));
     uniforms.centres = gl.getUniformLocation(program, 'centres[0]');
+    if (portraitImage) {
+      await portraitImage.decode();
+      if (disposed || lost || attempt !== epoch) return;
+      texture = gl.createTexture();
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, portraitImage);
+      gl.uniform1i(gl.getUniformLocation(program, 'portrait'), 0);
+      gl.uniform1f(gl.getUniformLocation(program, 'portraitReady'), 1);
+    }
     ready = true; preparing = false;
     if (!resize()) draw();
     sync();
@@ -140,6 +179,7 @@ export function mountFluid(canvas, { onState = () => {} } = {}) {
       lx + .40 + Math.sin(t) * .16, ly - .46 + Math.cos(t) * .13, .06,
       rx, ry, .06,
       rx - .50 + Math.sin(t * .8) * .16, ry + .46 + Math.cos(t * .7) * .13, .06,
+      a * .59 + Math.sin(t * .8) * .10, .48 + Math.cos(t) * .12, .10,
     ]);
     gl.uniform3fv(uniforms.centres, centres);
     gl.drawArrays(gl.TRIANGLES,0,3);

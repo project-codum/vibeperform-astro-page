@@ -15,7 +15,7 @@ class Node extends EventTarget {
   click() { this.dispatchEvent(new Event('click')); }
 }
 
-function fixture(t, { reduced = false } = {}) {
+function fixture(t, { reduced = false, autoOpen = false } = {}) {
   const saved = Object.getOwnPropertyDescriptor(globalThis,'matchMedia');
   const media = new EventTarget(); media.matches = reduced;
   Object.defineProperty(globalThis,'matchMedia',{configurable:true,value:()=>media});
@@ -25,7 +25,7 @@ function fixture(t, { reduced = false } = {}) {
   nodes.frame.dataset.src = 'https://calendar.google.com/calendar/appointments/schedules/example?gv=true';
   const animations=[];
   nodes.panel.animate=()=>{const animation={cancelled:false,cancel(){this.cancelled=true}};animations.push(animation);return animation;};
-  const root = { dataset:{phase:'closed'}, querySelector(selector) { return nodes[selector.match(/data-booking-(\w+)/)[1]]; } };
+  const root = { dataset:{phase:'closed',autoOpen:String(autoOpen)}, querySelector(selector) { return nodes[selector.match(/data-booking-(\w+)/)[1]]; } };
   const controller=mountBookingCalendar(root);
   t.after(()=>controller.destroy());
   return {root,nodes,controller,animations,media};
@@ -69,13 +69,15 @@ test('reduced motion skips the opening animation and stops an active one when th
   media.matches=true; media.dispatchEvent(new Event('change')); assert.equal(animations[0].cancelled,true);
 });
 
-test('built contact sections keep a no-JavaScript booking link and defer Google embedding in both languages', () => {
+test('built contact sections keep a no-JavaScript link and opt into automatic lazy calendar loading', () => {
   for (const locale of ['de','en']) {
     const html = readFileSync(new URL(`../dist/${locale}/index.html`,import.meta.url),'utf8');
     const section = html.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)?.[0];
     assert(section);
     const frame = section.match(/<iframe\b[^>]*>/)?.[0];
     assert(frame);
+    assert.match(section,/data-auto-open="true"/);
+    assert.match(frame,/loading="lazy"/);
     assert.doesNotMatch(frame,/\ssrc=/);
     assert.match(frame,/data-src="https:\/\/calendar.google.com\/calendar\/u\/0\/appointments\/schedules\//);
     assert.match(frame,/\?gv=true&amp;hl=(?:de|en)/);
@@ -84,4 +86,21 @@ test('built contact sections keep a no-JavaScript booking link and defer Google 
     assert.match(section,/mailto:contact@vibeperform.com/);
     assert.doesNotMatch(html,/class="hp-extra"|Wir betrachten verfügbare Nutzungsdaten|We consider available usage data/);
   }
+});
+
+
+test('homepage calendar opens automatically without moving focus and stays closed after dismissal', t => {
+  const {root,nodes,animations}=fixture(t,{autoOpen:true});
+  assert.equal(root.dataset.phase,'loading');
+  assert.equal(nodes.panel.hidden,false);
+  assert.equal(nodes.placeholder.hidden,true);
+  assert.equal(nodes.frame.attrs.get('src'),nodes.frame.dataset.src);
+  assert.equal(nodes.frame.focused,undefined);
+  assert.equal(animations.length,0);
+  nodes.hide.click();
+  assert.equal(root.dataset.phase,'closed');
+  assert.equal(nodes.frame.hasAttribute('src'),false);
+  nodes.load.click();
+  assert.equal(root.dataset.phase,'loading');
+  assert.equal(nodes.frame.focused,true);
 });

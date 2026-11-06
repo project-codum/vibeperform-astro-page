@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import before from '../assets/case-studies/loistl/rasen-vorher.jpg';
+import after from '../assets/case-studies/loistl/rasen-nachher.jpg';
+interface Props { index: number; locale: 'de' | 'en'; }
+const { index, locale } = Astro.props;
+const de = locale === 'de';
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+---
+<div class="collaboration-visual">
+  {index === 0 ? <div class="shot-plan" role="img" aria-label={de ? 'Motivvorschlag: dieselbe Fläche vor und nach der Arbeit fotografieren' : 'Photo suggestion: photograph the same area before and after the work'}>
+    <div class="camera" aria-hidden="true"><svg viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 9h10l4-6h10l4 6h10v24H5z"/><circle cx="24" cy="21" r="8"/><path d="M36 14h3"/></svg></div>
+    <div class="shot-frames" aria-hidden="true"><div><span class="landscape"><i></i></span><span>{de ? 'Vorher' : 'Before'}</span></div><div><span class="landscape landscape-after"><i></i></span><span>{de ? 'Nachher' : 'After'}</span></div></div>
+  </div> : index === 1 ? <div class="supplied-photos">
+    <Image src={before} width={240} format="webp" alt={de ? 'Geliefertes Kundenbild: Rasenfläche vor der Laubbeseitigung' : 'Photo supplied by the client: lawn before leaf removal'} loading="lazy" />
+    <Image src={after} width={240} format="webp" alt={de ? 'Geliefertes Kundenbild: Rasenfläche nach der Laubbeseitigung' : 'Photo supplied by the client: lawn after leaf removal'} loading="lazy" />
+  </div> : <div class="published-page"><div class="page-bar" aria-hidden="true"><span>● ● ●</span><span>hms-loistl.de</span></div><img src={`${base}/case-studies/loistl/after-desktop.webp`} width="1440" height="1000" alt={de ? 'Umgesetzte HMS-Loistl-Webseite mit Hauseingang und klarer Leistungsbeschreibung' : 'Completed HMS Loistl website with a building entrance and clear service descriptions'} loading="lazy" /></div>}
+</div>
+<style>
+.collaboration-visual{width:170px;min-height:148px;display:grid;place-items:center;border:1px solid #d9cce3;border-radius:14px;background:#eee6f3;padding:12px;overflow:hidden;box-sizing:border-box}
+.shot-plan{width:100%}.camera{width:42px;margin:0 auto 10px;color:#745188}.camera svg{display:block;width:100%}.shot-frames{display:grid;grid-template-columns:1fr 1fr;gap:8px}.shot-frames>div{font-size:9px;color:#745188;text-align:center}.landscape{display:block;position:relative;height:43px;border:1px dashed #a087b2;border-radius:5px;background:#fffdf9;overflow:hidden;margin-bottom:4px}.landscape:before{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#d6bdf2;top:7px;right:9px}.landscape i{position:absolute;left:0;right:0;bottom:0;height:21px;background:#bca8cd;clip-path:polygon(0 60%,25% 0,55% 60%,74% 30%,100% 75%,100% 100%,0 100%)}.landscape-after{border-style:solid;background:#faf6ff}
+.supplied-photos{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%}.supplied-photos img{width:100%;height:122px;object-fit:cover;border-radius:6px;display:block}
+.published-page{width:100%;overflow:hidden;border:1px solid #ded7e2;border-radius:6px;background:white;box-shadow:0 7px 14px #39274414}.published-page img{display:block;width:100%;height:auto}.page-bar{display:flex;justify-content:space-between;gap:5px;padding:6px;font-size:6px;color:#887493}.page-bar>span:first-child{letter-spacing:1px;font-size:5px}
+@media(max-width:1100px) and (min-width:701px){.collaboration-visual{width:140px;padding:10px}.supplied-photos img{height:120px}}
+@media(max-width:420px){.collaboration-visual{width:100%;min-height:165px}.shot-plan{max-width:180px}.supplied-photos{max-width:200px}.supplied-photos img{height:150px}.published-page{max-width:240px}}
+</style>
