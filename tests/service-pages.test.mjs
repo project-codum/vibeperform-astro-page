@@ -54,8 +54,8 @@ for (const page of pages) {
 test('website design and trade offer remain distinct pages', async () => {
   const general = await load('/de/website-erstellen-lassen/');
   const trade = await load('/de/websites-fuer-handwerksbetriebe/');
-  assert.match(general, /Gestaltungsbeispiel/);
+  assert.match(general, /Ein Projekt von VibePerform/);
   assert.match(general, /href="\/de\/websites-fuer-handwerksbetriebe\/"/);
   assert.doesNotMatch(trade, /name="robots" content="noindex/);
-  assert.equal((general.match(/<main[\s\S]*<\/main>/)[0].match(/<details\b/g) || []).length, 5);
+  assert.equal((general.match(/<main[\s\S]*<\/main>/)[0].match(/<details\b/g) || []).length, 8);
 });

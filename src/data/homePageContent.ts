@@ -33,7 +33,7 @@ export const homePageContent = {
         { question: 'Wie funktioniert die laufende Betreuung?', answer: 'Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.' },
       ],
     },
-    contact: { title: 'Was soll Ihr Auftritt', emphasis: 'für Sie leisten?', body: 'Im Erstgespräch gehen wir gemeinsam durch Ihren aktuellen Online-Auftritt. Welche Kunden möchten Sie erreichen? Welche Leistungen sollen im Mittelpunkt stehen? Und was möchten Sie von Ihrem Betrieb zeigen? Daraus entwickeln wir die Richtung für Ihre Positionierung und dafür, wie Ihr Auftritt passende Anfragen unterstützen kann. Das Vorgehen richtet sich nach Ihrem Unternehmen und dem, was Sie nach außen zeigen möchten.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben' },
+    contact: { title: 'Buchen Sie sich ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommen Sie von uns kostenlos einen Statuscheck Ihres Online-Auftritts mit Benotung und Feedback.', detail: 'Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir Ihren geplanten Auftritt.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben' },
     footer: { tagline: 'Webseiten und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', support: 'Betreuung', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
   },
   en: {
@@ -70,7 +70,7 @@ export const homePageContent = {
         { question: 'How does ongoing support work?', answer: 'We agree which content and areas we will maintain. New services, projects, usage data and search trends can all inform further improvements. We agree the scope with you.' },
       ],
     },
-    contact: { title: 'What should your online presence', emphasis: 'do for you?', body: 'In our first conversation, we look through your current online presence together. Which customers do you want to reach? Which services should take centre stage? And what would you like to show about your business? From there, we shape the direction of your positioning and how your online presence can help attract relevant enquiries. The approach depends on your business and what you are comfortable sharing publicly.', booking: 'Book an intro call', email: 'Prefer to send an email?' },
+    contact: { title: 'Book an', emphasis: 'introductory call', body: 'During the call, you’ll receive a free assessment of your online presence, including a rating and feedback.', detail: 'We look at design, clarity and ways to get in touch. No website yet? Then we discuss the presence you want to build.', booking: 'Book an intro call', email: 'Prefer to send an email?' },
     footer: { tagline: 'Websites and business profiles. Created, maintained and continuously developed.', services: 'Services', support: 'Ongoing support', about: 'About us', aboutHref: '/en/about-us/', legal: 'Legal notice', legalHref: '/en/legal-notice/', privacy: 'Privacy', privacyHref: '/en/privacy/', top: 'Back to top', rights: 'All rights reserved.' },
   },
 } as const;

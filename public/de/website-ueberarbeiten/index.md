@@ -1,51 +1,51 @@
-# Webseite überarbeiten. Passend zu Ihrem Betrieb.
+# Ihr Betrieb ist weiter. Ihre Webseite zieht mit.
 Canonical URL: https://www.vibeperform.com/de/website-ueberarbeiten/
 English alternate: https://www.vibeperform.com/en/website-redesign/
 Summary: Ihre bestehende Webseite gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.
 
-Webseite überarbeiten. Passend zu Ihrem Betrieb.
+Ihr Betrieb ist weiter. Ihre Webseite zieht mit.
 
-Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.
+Ihr Angebot hat sich verändert, Ihre Webseite zeigt noch den alten Stand. Wir erhalten, was weiterhin passt, und bringen Inhalte, Gestaltung und Kontaktwege auf den heutigen Stand.
 
-## Es hat sich viel verändert. Zeit, es zu zeigen.
+## Gleicher Betrieb. Ein treffenderer Auftritt.
 
-### Die Leistungen sind weiter als die Website.
+Reales Projekt · HMS Loistl
 
-Neue Angebote, Projekte oder Zielgruppen tauchen auf Ihrer Website kaum auf. Besucher sehen einen Stand, der Ihren Betrieb nicht mehr richtig beschreibt.
+Früher zeigten Stockfotos Gebäude außerhalb der gewünschten Zielgruppe. Heute stehen ein gepflegter Hauseingang, konkrete Leistungen und passende Servicegebiete im Mittelpunkt.
 
-### Der nächste Schritt bleibt unklar.
+### Behalten
 
-Informationen sind verteilt, wichtige Fragen bleiben offen und der Kontaktweg ist schwer zu finden.
+Die Identität und die fachlichen Leistungen des Betriebs.
 
-### Auf dem Handy wird es mühsam.
+### Neu ausrichten
 
-Texte, Bilder oder Navigation funktionieren auf kleinen Bildschirmen nicht so, wie Ihre Kunden es brauchen.
+Bildauswahl und Ansprache auf große Mehrfamilienhäuser.
+
+### Ergänzen
+
+Eigene Seiten für Leistungen und Servicegebiete.
 
 ## Das Gute bleibt. Der Rest wird besser.
 
 Aus dem bestehenden Auftritt entwickeln wir einen konkreten Überarbeitungsplan. Der Umfang reicht von gezielten Änderungen bis zu einem abgestimmten Relaunch.
 
-### Bestand verstehen
+### Eine verständliche Seitenstruktur
 
-Wir sehen uns Seiten, Inhalte, Kontaktwege und die technische Grundlage an. Daraus entsteht ein Überblick über das, was bleiben kann und wo Handlungsbedarf besteht.
+Wichtige Leistungen bekommen einen klaren Platz. Fehlende Antworten werden ergänzt, überholte Inhalte entfernt.
 
-### Struktur und Inhalte ordnen
+### Ein Auftritt, der zum Betrieb passt
 
-Leistungen bekommen einen klaren Platz. Wir aktualisieren vereinbarte Texte und planen fehlende Inhalte aus Sicht Ihrer Kunden.
+Bilder, Texte und Gestaltung zeigen Ihr heutiges Angebot. Navigation und Kontaktwege funktionieren auch auf dem Handy.
 
-### Gestaltung und Bedienung verbessern
+### Ein geordneter Wechsel
 
-Schrift, Bilder, Abstände und Navigation werden zu einem stimmigen Auftritt. Desktop und Mobilgeräte werden gemeinsam berücksichtigt.
-
-### Änderungen umsetzen und prüfen
-
-Wir setzen den vereinbarten Umfang um und prüfen Darstellung und Kontaktwege. Werden Adressen verändert, berücksichtigen wir erforderliche Weiterleitungen.
+Wir berücksichtigen vorhandene Seitenadressen und planen nötige Weiterleitungen. Bewährte Inhalte bleiben nutzbar.
 
 Ob das vorhandene System geeignet ist und welche Inhalte übernommen werden können, klären wir vor der Umsetzung. Ein vollständiger Neuaufbau oder zusätzliche Funktionen werden ausdrücklich vereinbart.
 
 ## Zusammenarbeit
 
-### Website gemeinsam ansehen
+### Webseite gemeinsam ansehen
 
 Sie zeigen uns den aktuellen Auftritt und erklären, was sich im Betrieb verändert hat. Wir prüfen Inhalte und verfügbare Zugänge.
 
@@ -57,7 +57,7 @@ Wir stimmen Prioritäten, betroffene Seiten und gewünschte Änderungen ab. Sie 
 
 Sie prüfen die Vorschau und die fachlichen Angaben. Danach stimmen wir Veröffentlichung und Übergabe ab.
 
-Wir brauchen die bestehende Website, passende Zugänge, aktuelle Unternehmensinformationen und eine Person, die Rückmeldungen bündelt.
+Sie zeigen uns, was sich verändert hat. Wir entwickeln daraus den Überarbeitungsplan und die neue Fassung. Sie prüfen die Angaben und geben die Veröffentlichung frei.
 
 ## Passende nächste Schritte
 
@@ -67,9 +67,9 @@ Wir brauchen die bestehende Website, passende Zugänge, aktuelle Unternehmensinf
 
 ## Häufige Fragen
 
-### Muss meine Website komplett neu gebaut werden?
+### Muss meine Webseite komplett neu gebaut werden?
 
-Das entscheiden wir nach einem Blick auf die bestehende Website. Oft lassen sich Inhalte und Teile der Gestaltung weiterverwenden. Bei technischen oder strukturellen Grenzen kann ein Neuaufbau sinnvoll sein.
+Das entscheiden wir nach einem Blick auf die bestehende Webseite. Oft lassen sich Inhalte und Teile der Gestaltung weiterverwenden. Bei technischen oder strukturellen Grenzen kann ein Neuaufbau sinnvoll sein.
 
 ### Können Sie mit unserem vorhandenen System arbeiten?
 
@@ -83,13 +83,13 @@ Wir berücksichtigen die vorhandenen Seitenadressen im Überarbeitungsplan. Bei 
 
 Der Aufwand hängt vom Bestand und den gewünschten Änderungen ab. Nach der Bestandsaufnahme erhalten Sie ein Angebot für den konkret vereinbarten Umfang.
 
-### Können Sie die Website danach weiter betreuen?
+### Können Sie die Webseite danach weiter betreuen?
 
 Ja, eine anschließende Betreuung können wir passend zum System und Ihrem Bedarf vereinbaren. Inhaltliche Änderungen und technische Aufgaben werden dabei konkret festgelegt.
 
 ## Kontakt
 
-Zeigen Sie uns Ihre aktuelle Website. Gemeinsam klären wir, was heute noch passt und was sich verändern sollte.
+Zeigen Sie uns Ihre aktuelle Webseite. Gemeinsam klären wir, was heute noch passt und was sich verändern sollte.
 
 [Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
 

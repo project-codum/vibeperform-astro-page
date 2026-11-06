@@ -1,25 +1,29 @@
-# AI consulting & strategy. A clear next step.
+# AI in everyday work. Start with one specific task.
 Canonical URL: https://www.vibeperform.com/en/ai-strategy/
 German alternate: https://www.vibeperform.com/de/ki-strategie/
 Summary: Additional AI consulting for small businesses: understand a workflow, assess useful assistance and identify a sensible next step.
 
-AI consulting & strategy. A clear next step.
+AI in everyday work. Start with one specific task.
 
 Which recurring office task takes up your time? We examine a specific workflow, identify where AI could help prepare work and clarify the information and human decisions it requires.
 
-## The task is specific. The options are unclear.
+## Understand one task. Find a useful role for AI.
 
-### Office work repeats itself.
+Additional consulting for everyday work
 
-Information from enquiries, documents and notes is gathered and rearranged again and again.
+We examine a specific workflow, its information and the human decisions involved. This gives us a basis to assess where AI could help.
 
-### There are many tools.
+### Input
 
-You want to assess which support fits your tasks and existing systems.
+What information is available?
 
-### Responsibility must stay clear.
+### Output
 
-Facts, prices, dates and communication need reliable checkpoints. You want to understand the boundaries.
+What needs to be prepared?
+
+### Decision
+
+What must a person check and approve?
 
 ## Understand the workflow. Find an informed direction.
 

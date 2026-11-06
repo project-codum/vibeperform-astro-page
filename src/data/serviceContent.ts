@@ -11,7 +11,7 @@ export const serviceContent = {
     overview: {
       title: 'Leistungen für Ihren digitalen Firmenauftritt | VibePerform',
       description: 'Webseiten-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.',
-      kicker: 'Unsere Leistungen', headline: 'Webdesign, SEO & Inhalte.', emphasis: 'Unsere Leistungen für Sie.',
+      kicker: 'Unsere Leistungen', headline: 'Wo steht Ihr Auftritt?', emphasis: 'Hier geht es weiter.',
       intro: 'Eine Website, die Ihren Betrieb zeigt. Inhalte, die Ihre Leistungen erklären. Unternehmensprofile, die dazu passen. Wir gestalten Ihren Auftritt und entwickeln ihn mit Ihnen weiter.',
       action: 'Leistungen entdecken', sectionTitle: 'Was Ihr Auftritt braucht.', sectionEmphasis: 'Und wie wir helfen.',
       sectionIntro: 'Starten Sie dort, wo Ihr Unternehmen gerade steht. Unsere Leistungen lassen sich einzeln beauftragen und sinnvoll miteinander verbinden.',

@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import CollaborationVisual from './CollaborationVisual.astro';
+import AssessmentExample from './AssessmentExample.astro';
+import afterPhoto from '../assets/case-studies/loistl/rasen-nachher.jpg';
+import { serviceNarratives } from '../data/serviceNarratives';
+import { type ServiceKey } from '../data/serviceDetails';
+import type { Locale } from '../lib/siteMetadata';
+import phoneIcon from 'lucide-static/icons/phone.svg?raw';
+import globeIcon from 'lucide-static/icons/globe.svg?raw';
+interface Props { locale:Locale; kind:ServiceKey; }
+const { locale,kind }=Astro.props;
+const de=locale==='de';
+const c=serviceNarratives[locale][kind];
+const base=(import.meta.env.BASE_URL??'/').replace(/\/$/,'');
+const shot=(name:string)=>`${base}/case-studies/loistl/${name}.webp`;
+---
+<section class={`hp-section sn-evidence sn-${kind}`} id="beispiel" aria-labelledby="example-title">
+  <div class="hp-wrap">
+    <header class="sn-example-heading"><div><p class="hp-kicker">{c.label}</p><h2 id="example-title">{c.title}<br/><em>{c.emphasis}</em></h2></div><p>{c.body}</p></header>
+    {kind==='redesign' && <div class="sn-comparison">
+      <figure class="sn-before"><figcaption>{de?'Vorher':'Before'}</figcaption><div><img src={shot('before-small')} width="1000" height="3623" loading="lazy" alt={de?'Original der früheren HMS-Loistl-Webseite mit Stockmotiv einer Villa':'Original HMS Loistl website featuring a stock photo of a villa'}/></div></figure>
+      <span class="sn-change-arrow" aria-hidden="true">→</span>
+      <figure class="sn-after"><figcaption>{de?'Heute · von VibePerform gestaltet':'Today · designed by VibePerform'}</figcaption><img src={shot('after-desktop')} width="1440" height="1000" loading="lazy" alt={de?'Neue HMS-Loistl-Webseite mit gepflegtem Hauseingang':'New HMS Loistl website featuring a well-kept entrance'}/></figure>
+    </div>}
+    {(kind==='support'||kind==='content') && <div class="sn-transformation">
+      <div class="sn-source"><p class="sn-visual-label">{de?'Das Ausgangsmaterial':'The starting material'}</p>{kind==='support'?<CollaborationVisual locale={locale} index={1} large/>:<div class="sn-editorial-note"><span>{de?'Bildinformation':'Image information'}</span><p>{de?'Laubbeseitigung an einer Wohnanlage. Zwei Fotos derselben Rasenfläche.':'Leaf removal at an apartment building. Two photos of the same lawn.'}</p><small>{de?'Die fachliche Grundlage für den Text.':'The factual basis for the copy.'}</small></div>}<p class="sn-source-caption">{kind==='support'?(de?'Beispiel einer E-Mail. Die Bilder kommen als Anhang.':'Example email. Photos arrive as attachments.'):(de?'Aus Bildinformationen wird ein verständlicher Projekttext.':'Image information becomes a clear project story.')}</p></div>
+      <div class="sn-transform-arrow" aria-hidden="true">→</div>
+      <div class="sn-result"><p class="sn-visual-label">{de?'Der aufbereitete Inhalt':'The finished content'}</p><CollaborationVisual locale={locale} index={2} large/></div>
+    </div>}
+    {kind==='profile' && <div class="sn-profile-layout"><div class="sn-profile-card"><div class="sn-profile-header"><span class="sn-profile-monogram" aria-hidden="true">H</span><div><strong>HMS Loistl</strong><p>{de?'Hausmeisterservice':'Property care'}</p></div></div><p class="sn-profile-description">{de?'Betreuung für Wohnanlagen und Gewerbeimmobilien in München und Umgebung.':'Care for residential and commercial properties in and around Munich.'}</p><div class="sn-profile-actions" aria-hidden="true"><span><Fragment set:html={phoneIcon}/>{de?'Anrufen':'Call'}</span><span><Fragment set:html={globeIcon}/>{de?'Webseite':'Website'}</span></div><div class="sn-profile-update"><Image src={afterPhoto} width={650} format="webp" alt={de?'Gepflegte Rasenfläche an einer Wohnanlage als Beispiel eines Einblicks in die Arbeit':'A maintained lawn at an apartment building, illustrating a work update'}/><div><span>{de?'Einblick in die Arbeit':'An insight into the work'}</span><strong>{de?'Außenflächen gepflegt halten.':'Keeping grounds well maintained.'}</strong><p>{de?'Bilder aus dem Alltag zeigen die Leistungen des Betriebs.':'Day-to-day photos show the business’s services.'}</p></div></div></div><div class="sn-profile-explanation"><span class="sn-large-word">{de?'Wissen.':'Learn.'}<br/>{de?'Vertrauen.':'Trust.'}<br/><em>{de?'Kontakt.':'Contact.'}</em></span><p>{de?'Einrichtung schafft die Grundlage. Laufende Pflege hält Angaben und Einblicke aktuell. Beides stimmen wir auf Ihren Betrieb ab.':'Setup establishes the foundation. Ongoing care keeps information and updates current. Both are tailored to your business.'}</p><small>{de?'Beispielhafte Darstellung eines Unternehmensprofils.':'Illustrative business profile layout.'}</small></div></div>}
+    {kind==='seo' && <div class="sn-search-journey"><div class="sn-search-question"><span>{de?'Die Kundenfrage':'The customer’s question'}</span><p>{de?'Wer betreut unser Mehrfamilienhaus in Solln?':'Who can look after our apartment building in Solln?'}</p><div class="sn-query">{de?'Hausmeisterservice Solln':'Property care Solln'}<span aria-hidden="true">↗</span></div></div><div class="sn-answer-page"><span class="sn-visual-label">{de?'Die passende Seite · Inhaltskonzept':'The relevant page · Content concept'}</span><h3>{de?'Hausbetreuung in Solln.':'Property care in Solln.'}</h3><dl><div><dt>{de?'Was wird betreut?':'What is covered?'}</dt><dd>{de?'Wohnanlagen und große Mehrfamilienhäuser.':'Residential properties and large apartment buildings.'}</dd></div><div><dt>{de?'Welche Arbeiten gehören dazu?':'Which services are available?'}</dt><dd>{de?'Leistungen wie Reinigung, Außenpflege und Winterdienst verständlich erklären.':'Explain services such as cleaning, grounds care and winter service.'}</dd></div><div><dt>{de?'Wie geht es weiter?':'What happens next?'}</dt><dd>{de?'Eine Betreuung für das konkrete Gebäude anfragen.':'Enquire about care for the specific property.'}</dd></div></dl><p class="sn-proof-limit">{de?'Inhaltskonzept für eine lokale Leistungsseite.':'Content concept for a local service page.'}</p></div></div>}
+    {kind==='ai' && <div class="sn-ai-example"><AssessmentExample locale={locale}/></div>}
+    <dl class="sn-decisions">{c.notes.map(([title,body],i)=><div><dt><span aria-hidden="true">0{i+1}</span>{title}</dt><dd>{body}</dd></div>)}</dl>
+  </div>
+</section>

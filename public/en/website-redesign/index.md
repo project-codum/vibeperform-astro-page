@@ -1,45 +1,45 @@
-# Website redesign. Built around your business.
+# Your business has moved on. Let your website catch up.
 Canonical URL: https://www.vibeperform.com/en/website-redesign/
 German alternate: https://www.vibeperform.com/de/website-ueberarbeiten/
 Summary: Update your existing business website with clearer structure, current content, thoughtful design and straightforward contact options.
 
-Website redesign. Built around your business.
+Your business has moved on. Let your website catch up.
 
-Your website should reflect where your business is today. We review your existing presence, retain what works and improve what no longer serves your services and customers.
+Your offer has changed, but your website still shows the old picture. We keep what works and bring content, design and contact options up to date.
 
-## A lot has changed. Time to show it.
+## The same business. A more accurate impression.
 
-### Your services have outgrown your website.
+Real project · HMS Loistl
 
-New services, projects and audiences barely appear online. Visitors see a picture that no longer reflects your business.
+The old stock photos showed buildings outside the intended audience. The new website focuses on a well-kept entrance, specific services and relevant service areas.
 
-### The next step is unclear.
+### Keep
 
-Information is scattered, questions remain unanswered and contact details are difficult to find.
+The business identity and professional services.
 
-### Mobile browsing feels difficult.
+### Refocus
 
-Text, images or navigation do not work the way your customers need on smaller screens.
+Images and messaging on large apartment buildings.
+
+### Add
+
+Dedicated pages for services and service areas.
 
 ## Keep what works. Improve what matters.
 
 We turn the current website into a clear improvement plan, from targeted updates to an agreed redesign.
 
-### Understand the current website
+### A clear page structure
 
-We review pages, content, contact options and technical foundations to identify what can stay and what needs attention.
+Important services get a clear place. We add missing answers and remove outdated information.
 
-### Organise structure and content
+### A presence that reflects your business
 
-Services get a clear place. We update agreed copy and plan missing information around your customers’ needs.
+Images, copy and design show your current offer. Navigation and contact options work on mobile too.
 
-### Improve design and usability
+### An orderly transition
 
-Typography, images, spacing and navigation work together. Desktop and mobile are considered together.
-
-### Implement and check
-
-We implement the agreed changes and check layout and contact options. If page addresses change, we account for necessary redirects.
+We consider existing page addresses and plan any redirects needed. Useful content remains available.
 
 We first establish whether your existing system is suitable and which content can be retained. A complete rebuild or additional features are agreed explicitly.
 
@@ -57,7 +57,7 @@ Together, we agree priorities, pages and updates. You know what will remain and 
 
 You review the preview and check the facts. We then agree publication and handover.
 
-We need your existing website, appropriate access, current business information and one person to coordinate feedback.
+You show us what has changed. We turn that into a redesign plan and a new version. You check the facts and approve publication.
 
 ## Related services
 

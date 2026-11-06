@@ -1,78 +1,54 @@
 # Webseiten für Handwerksbetriebe. Damit Kunden sehen, was Sie anbieten.
 Canonical URL: https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/
-Summary: Wir zeigen Ihre Leistungen, Projekte und Ihr Einzugsgebiet – mit einem einfachen Weg zur Projektanfrage. Wenn Sie einstellen, ergänzen wir einen passenden Bewerbungsweg.
+Summary: Ihre Leistungen, Ihre Wunschaufträge und Ihr Einsatzgebiet gehören auf den ersten Blick zusammen. Wir bauen eine Webseite, auf der Interessenten erkennen, ob Ihr Betrieb zu ihrem Vorhaben passt.
 
-Websites für Handwerksbetriebe
+Webseiten für Handwerksbetriebe
 
-Vier kurze Fragen und Ihre E-Mail-Adresse. Sie erhalten eine persönliche Einschätzung zu Ihrer bestehenden oder geplanten Website. Kein Termin wird automatisch gebucht.
+Vier kurze Fragen und Ihre E-Mail-Adresse. Sie erhalten eine persönliche Einschätzung zu Ihrer bestehenden oder geplanten Webseite. Kein Termin wird automatisch gebucht.
 
-## Gute Arbeit allein ist online noch nicht sichtbar.
+## Die richtigen Informationen. Für die passenden Vorhaben.
 
-### Besucher erkennen nicht, was Sie anbieten.
+### Welche Aufträge möchten Sie?
 
-Wir ordnen Ihre Leistungen und Ihr Einzugsgebiet so, dass Interessenten schnell einschätzen können, ob Sie der richtige Betrieb für ihr Vorhaben sind.
+Wir zeigen die Leistungen und Projektarten, für die Ihr Betrieb stehen soll. Echte Arbeitsbeispiele machen den Unterschied zwischen einer allgemeinen Behauptung und einer konkreten Vorstellung.
 
-### Anfragen passen selten zu Ihrem Betrieb.
+### Wo sind Sie im Einsatz?
 
-Klare Leistungsbeschreibungen und gezielte Fragen zu Vorhaben, Ort und Umfang helfen, passende Projekte früh zu erkennen.
+Ihr Einsatzgebiet wird dort sichtbar, wo Kunden nach einer Leistung suchen. Interessenten können früh erkennen, ob der Projektort passt.
 
-### Gute Leute finden keinen einfachen Einstieg.
+### Was brauchen Sie für die erste Einschätzung?
 
-Wenn Sie einstellen, zeigen wir Ihren Arbeitsalltag und offene Stellen mit einem verständlichen Weg zur Bewerbung.
+Projektart, Ort und vorhandene Fotos geben Ihnen einen besseren Einstieg ins Gespräch. Wir stimmen die Anfragefragen auf Ihren Betrieb ab.
 
-## Ihr Betrieb. Klar auf den Punkt.
+## Ein paar Angaben. Ein besserer Einstieg.
 
-Wir planen Ihre Website passend zu Ihren Leistungen und den Menschen, die Sie erreichen möchten. Seiten und Funktionen vereinbaren wir vor dem Start.
+Vorhaben: Was soll gemacht werden?
 
-### Struktur & Gestaltung
+Projektort: Wo ist die Arbeit geplant?
 
-Ein verständlicher Seitenplan und ein Auftritt, der auf dem Handy genauso gut funktioniert wie am großen Bildschirm.
+Einblick: Welche Fotos oder Maße liegen schon vor?
 
-### Texte & Bildauswahl
-
-Texte aus Ihrem Betriebswissen, passende vorhandene Fotos und vereinbarte Grafiken. Ihre Leistungen und Arbeitsweise werden greifbar.
-
-### Auffindbarkeit
-
-Seiten für Ihre Leistungen und Ihr Einzugsgebiet, verständliche Überschriften und technisch zugängliche Inhalte.
-
-### Anfragen & Bewerbungen
-
-Ein klarer Kontaktweg. Bei Bedarf ergänzen wir Projektfragen, Karriereinhalte oder einen einfachen Bewerbungsweg.
-
-## Sie kennen Ihr Handwerk. Wir machen es sichtbar.
-
-Sie erzählen uns von Ihrem Betrieb, Ihren Wunschprojekten und Ihrem Arbeitsalltag. Wir übersetzen das in Struktur, Texte und Gestaltung.
-
-Informationen über Ihren Betrieb, vorhandene nutzbare Bilder und gebündeltes Feedback. Sie prüfen die fachlichen Angaben und geben den Entwurf frei.
+Die Webseite sammelt Kontext. Die fachliche Einschätzung bleibt bei Ihrem Betrieb.
 
 ## Von der ersten Idee bis zum Start.
 
 Wenn Sie für Ihren Betrieb eine [Webseite erstellen](https://www.vibeperform.com/de/website-erstellen-lassen/) lassen möchten, finden Sie hier den Ablauf – vom ersten Gespräch bis zur Freigabe.
 
-### Kennenlernen
+### Sie zeigen uns Ihren Betrieb.
 
-Wir besprechen Ihren Betrieb, Ziele und vorhandene Website. Danach stehen Seiten, Funktionen und Aufwand im Angebot.
+Leistungen, Wunschaufträge, Einsatzgebiet und vorhandene Bilder geben die Richtung vor.
 
-### Gestalten
+### Wir entwickeln Ihren Auftritt.
 
-Wir entwickeln die Texte und den Entwurf. Sie sehen früh, wie Ihr neuer Auftritt aussehen kann.
+Wir übernehmen Struktur, Texte und Gestaltung. Sie prüfen die fachlichen Angaben in der Vorschau.
 
-### Gemeinsam prüfen
+### Sie geben frei. Wir veröffentlichen.
 
-Sie prüfen Inhalte und Gestaltung. Wir testen die vereinbarten Kontaktwege und die Darstellung auf kleinen und großen Bildschirmen.
+Wir prüfen Darstellung und vereinbarte Kontaktwege. Nach Ihrer Freigabe folgt der Start.
 
-### Veröffentlichen
+## Ihr Betrieb wächst weiter. Ihre Webseite auch.
 
-Nach Ihrer Freigabe setzen wir den vereinbarten Start und die Übergabe um. Die weitere Betreuung stimmen wir separat ab.
-
-## Ihr Betrieb wächst weiter. Ihre Website auch.
-
-Neue Projekte, Leistungen und Stellen gehören auf Ihre Website. Mit einer passenden Betreuung halten wir Ihren Auftritt aktuell und wählen anhand Ihrer Rückmeldungen und verfügbarer Such- und Nutzungsdaten die nächsten Verbesserungen aus.
-
-Umfang und Rhythmus richten sich nach Ihrem Bedarf und der eingesetzten Technik. Ein Google-Unternehmensprofil können wir als ergänzende Leistung einbeziehen.
-
-[Website-Betreuung entdecken](https://www.vibeperform.com/de/website-betreuung/)
+[Webseiten-Betreuung entdecken](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Vor Ihrer Entscheidung.
 
@@ -80,7 +56,7 @@ Umfang und Rhythmus richten sich nach Ihrem Bedarf und der eingesetzten Technik.
 
 Webseiten starten meistens bei 1.800 Euro brutto. Der Preis hängt davon ab, wie viele zusätzliche Seiten hinzukommen.
 
-### Kann unsere bestehende Website bleiben?
+### Kann unsere bestehende Webseite bleiben?
 
 Wir prüfen das eingesetzte System, Hosting und verfügbare Zugänge. Anschließend klären wir, welche Inhalte und Funktionen sich weiterverwenden lassen und ob gezielte Änderungen oder ein Neuaufbau sinnvoll sind.
 
@@ -94,16 +70,16 @@ Wenn Mitarbeitergewinnung Ihr Ziel ist, planen wir passende Inhalte und einen Be
 
 ### Was passiert nach meiner Anfrage?
 
-Wir sehen uns Ihre Angaben und, falls vorhanden, Ihre Website an. Sie erhalten eine persönliche Einschätzung mit drei konkreten Verbesserungsmöglichkeiten. Der Check ist kostenlos und verpflichtet Sie zu keinem Website-Projekt.
+Wir sehen uns Ihre Angaben und, falls vorhanden, Ihre Webseite an. Sie erhalten eine persönliche Einschätzung mit drei konkreten Verbesserungsmöglichkeiten. Der Check ist kostenlos und verpflichtet Sie zu keinem Webseiten-Projekt.
 
 ### Garantieren Sie Aufträge oder Bewerbungen?
 
 Eine feste Anzahl können wir nicht zusagen. Wir schaffen die Grundlagen: klare Leistungen, glaubwürdige Einblicke in Ihren Betrieb und einen einfachen Kontaktweg. Angebot, Nachfrage und Region beeinflussen das Ergebnis.
 
-## Was soll Ihre Website leichter machen?
+## Was soll Ihre Webseite leichter machen?
 
-Beantworten Sie vier kurze Fragen zu Ihrem Betrieb und hinterlassen Sie Ihre E-Mail-Adresse. Wir melden uns persönlich mit einer Einschätzung zu Ihrem bestehenden oder geplanten Auftritt.
+Beantworten Sie vier kurze Fragen zu Ihrem Betrieb und Ihrem Vorhaben. Sie erhalten unseren kostenlosen schriftlichen Check mit drei konkreten Verbesserungsmöglichkeiten per E-Mail.
 
-[Kostenlosen Website-Check anfragen](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/#anfrage)
+[Kostenlosen Webseiten-Check anfragen](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/#anfrage)
 
 contact@vibeperform.com

@@ -4,7 +4,7 @@ export const websiteInquiryContent = {
       {
         label: 'Vorhaben',
         title: 'Was möchten Sie zuerst klären?',
-        options: ['Eine neue Website', 'Bestehende Website verbessern', 'Noch nicht sicher']
+        options: ['Eine neue Webseite', 'Bestehende Webseite verbessern', 'Noch nicht sicher']
       },
       {
         label: 'Betriebsart',
@@ -17,8 +17,8 @@ export const websiteInquiryContent = {
         options: ['Leistungen klar erklären', 'Eigene Arbeiten sichtbar machen', 'Passendere Projektanfragen', 'Mitarbeiter gewinnen', 'Den Auftritt modernisieren', 'Noch nicht sicher']
       },
       {
-        label: 'Bestehende Website',
-        title: 'Gibt es schon eine Website?',
+        label: 'Bestehende Webseite',
+        title: 'Gibt es schon eine Webseite?',
         type: 'url'
       },
       { label: 'Abschluss', title: 'Fast geschafft. Wohin dürfen wir antworten?', type: 'summary' }
@@ -26,12 +26,12 @@ export const websiteInquiryContent = {
     other: 'Welches Handwerk? (optional)',
     otherHint: 'z. B. Elektroinstallation',
     urlHint: 'Wenn vorhanden, können Sie die Adresse ergänzen. Dieser Schritt ist optional.',
-    urlLabel: 'Ihre bisherige Website (optional)',
+    urlLabel: 'Ihre bisherige Webseite (optional)',
     urlPlaceholder: 'www.ihr-betrieb.de',
     noteHint: 'Ein Wunsch oder eine Frage genügt. Sie können diesen Schritt auch überspringen.',
     noteLabel: 'Ihre Ergänzung (optional)',
-    notePlaceholder: 'Was soll Ihre Website zuerst leichter machen?',
-    summaryHint: 'Was wünschen Sie sich für Ihre Website? Ein paar Worte genügen.',
+    notePlaceholder: 'Was soll Ihre Webseite zuerst leichter machen?',
+    summaryHint: 'Was wünschen Sie sich für Ihre Webseite? Ein paar Worte genügen.',
     emailLabel: 'An welche E-Mail-Adresse sollen wir uns bei Ihnen melden?',
     emailHint: 'Wir nutzen Ihre Angaben, um persönlich zu antworten.',
     emailPlaceholder: 'name@ihr-betrieb.de',
@@ -46,7 +46,7 @@ export const websiteInquiryContent = {
     submit: 'Kostenlosen Check anfragen',
     back: 'Zurück',
     selectError: 'Bitte wählen Sie eine Antwort aus.',
-    urlError: 'Bitte eine Website-Adresse eingeben oder das Feld leer lassen.',
+    urlError: 'Bitte eine Webseiten-Adresse eingeben oder das Feld leer lassen.',
     emailError: 'Bitte eine gültige E-Mail-Adresse eingeben.',
     review: 'Ihre bisherigen Angaben prüfen',
     sending: 'Wird gesendet …',

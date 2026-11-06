@@ -1,51 +1,30 @@
-# Webdesign, SEO & Inhalte. Unsere Leistungen für Sie.
+# Wo steht Ihr Auftritt? Hier geht es weiter.
 Canonical URL: https://www.vibeperform.com/de/leistungen/
-English alternate: https://www.vibeperform.com/en/services/
 Summary: Webseiten-Erstellung, Relaunch, Betreuung, SEO, Google-Unternehmensprofile, Texte und Grafiken. Entdecken Sie die Leistungen von VibePerform.
 
-Eine Website, die Ihren Betrieb zeigt. Inhalte, die Ihre Leistungen erklären. Unternehmensprofile, die dazu passen. Wir gestalten Ihren Auftritt und entwickeln ihn mit Ihnen weiter.
+Sie möchten neu starten, Ihren bestehenden Auftritt verbessern oder die laufende Arbeit abgeben? Finden Sie den passenden Einstieg für Ihren Betrieb.
 
-## Was Ihr Auftritt braucht. Und wie wir helfen.
+## Sie brauchen eine neue Webseite.
 
-Starten Sie dort, wo Ihr Unternehmen gerade steht. Unsere Leistungen lassen sich einzeln beauftragen und sinnvoll miteinander verbinden.
+Wir entwickeln Ihren Auftritt von den ersten Inhalten bis zur Veröffentlichung. Sie geben Einblick in Ihren Betrieb, wir übernehmen den Aufbau.
 
-## Website erstellen lassen
+[Ihre neue Webseite](https://www.vibeperform.com/de/website-erstellen-lassen/)
 
-Ihr Unternehmen bekommt einen Auftritt, der seine Leistungen verständlich zeigt und den Weg zur Anfrage einfach macht.
+## Ihr Auftritt passt nicht mehr.
 
-- Seitenstruktur und Gestaltung
-- Texte, Bilder und Grafiken
-- Umsetzung für Mobilgeräte und Desktop
+Leistungen, Bilder oder Gestaltung sind überholt? Wir prüfen den Bestand und verbessern gezielt, was Ihren Betrieb nicht mehr richtig zeigt.
 
-[Website-Erstellung entdecken](https://www.vibeperform.com/de/website-erstellen-lassen/)
+[Bestehende Webseite überarbeiten](https://www.vibeperform.com/de/website-ueberarbeiten/)
 
-## Website überarbeiten
+## Jemand soll sich darum kümmern.
 
-Ihr Betrieb hat sich verändert. Wir prüfen, was an Ihrer Website noch passt, und bringen Struktur, Gestaltung und Inhalte auf den heutigen Stand.
+Neue Bilder, geänderte Leistungen, aktuelle Projekte: Wir halten Ihren Auftritt in Bewegung, während Sie sich um Ihren Betrieb kümmern.
 
-- Bestehenden Auftritt prüfen
-- Inhalte und Kontaktwege verbessern
-- Überarbeitung oder Neuaufbau planen
-
-[Mehr zur Überarbeitung](https://www.vibeperform.com/de/website-ueberarbeiten/)
-
-## Website betreuen & weiterentwickeln
-
-Neue Leistungen, aktuelle Projekte und Hinweise aus Nutzungsdaten: Wir machen daraus die nächsten sinnvollen Verbesserungen für Ihre Website.
-
-- Inhalte aktuell halten
-- Such- und Nutzungsdaten einordnen
-- Anpassungen gemeinsam priorisieren
-
-[Mehr zur Betreuung](https://www.vibeperform.com/de/website-betreuung/)
+[Laufende Betreuung](https://www.vibeperform.com/de/website-betreuung/)
 
 ## Suchmaschinenoptimierung
 
 Wir richten Struktur und Inhalte auf die Fragen Ihrer Kunden aus. Damit Ihr Angebot für Menschen und Suchmaschinen verständlich wird.
-
-- Suchbegriffe und Kundenfragen recherchieren
-- Seiten und Inhalte gezielt optimieren
-- Entwicklung anhand verfügbarer Daten prüfen
 
 [Mehr zur Suchmaschinenoptimierung](https://www.vibeperform.com/de/suchmaschinenoptimierung/)
 
@@ -53,31 +32,15 @@ Wir richten Struktur und Inhalte auf die Fragen Ihrer Kunden aus. Damit Ihr Ange
 
 Leistungen, Öffnungszeiten, Bilder und Kontaktdaten sollen zusammenpassen. Wir unterstützen bei der Einrichtung und Pflege Ihres Profils.
 
-- Bestehendes Profil und Zugriff prüfen
-- Unternehmensangaben mit der Website abstimmen
-- Änderungen im vereinbarten Umfang pflegen
-
 [Mehr zum Unternehmensprofil](https://www.vibeperform.com/de/google-unternehmensprofil/)
 
 ## Texte & Grafiken
 
 Wir bringen auf den Punkt, was Ihren Betrieb ausmacht. Mit verständlichen Texten und einer Bildsprache, die Ihren Auftritt zusammenhält.
 
-- Leistungen verständlich beschreiben
-- Projekte und Referenzen aufbereiten
-- Bilder bearbeiten und Grafiken gestalten
-
 [Mehr zu Texten und Grafiken](https://www.vibeperform.com/de/texte-grafiken/)
 
-## Ein guter Start. Ein Auftritt, der mitwächst.
-
-Struktur, Texte, Gestaltung und SEO greifen schon bei der Erstellung ineinander. Später entwickeln wir die Website und Ihre Unternehmensprofile im vereinbarten Umfang weiter.
-
-Gemeinsam legen wir fest, welche Aufgaben zu Ihrem Projekt gehören und welche laufende Betreuung sinnvoll ist. So wissen Sie, was Sie bekommen und wer sich darum kümmert.
-
 ## KI-Beratung für den Arbeitsalltag
-
-Ergänzend zum Firmenauftritt unterstützen wir Sie dabei, passende KI-Anwendungen für konkrete Aufgaben im Betrieb zu finden.
 
 [Zur KI-Beratung](https://www.vibeperform.com/de/ki-strategie/)
 

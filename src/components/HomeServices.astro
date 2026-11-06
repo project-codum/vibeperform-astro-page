@@ -1,0 +1,62 @@
+---
+import WebsiteBuildAnimation from './WebsiteBuildAnimation.astro';
+import WebsiteCareAnimation from './WebsiteCareAnimation.astro';
+import HomeProblemAnimation from './HomeProblemAnimation.astro';
+import SearchVisibilityVisual from './SearchVisibilityVisual.astro';
+import { homePageContent } from '../data/homePageContent';
+import type { Locale } from '../lib/siteMetadata';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = homePageContent[locale].services;
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+---
+<section class="hp-section hp-services" id="leistungen" aria-labelledby="services-title" data-analytics-section="home-services">
+  <div class="hp-wrap hp-section-heading"><h2 id="services-title">{t.title}<br /><em>{t.emphasis}</em></h2></div>
+  <div class="hp-service-sections">
+    {t.items.map((item, index) => <article class:list={['hp-service-row', index % 2 === 1 && 'hp-service-row--reverse']} aria-labelledby={`home-service-${index}`}>
+      <div class="hp-wrap hp-service-layout">
+        <div class:list={['hp-service-visual', index === 1 && 'hp-service-visual--profile']}>
+          {index === 0 && <span class="hp-service-badge" data-presence-animation><span class="hp-service-badge-shape"><strong>90%</strong><span>{locale === 'de' ? 'starten hier' : 'start here'}</span></span></span>}
+          {index === 0 ? <WebsiteBuildAnimation locale={locale} /> : index === 1 ? <HomeProblemAnimation locale={locale} variant="profile" /> : index === 2 ? <WebsiteCareAnimation locale={locale} /> : <SearchVisibilityVisual locale={locale} />}
+        </div>
+        <div class="hp-service-text">
+          <h3 id={`home-service-${index}`}>{item.title}</h3>
+          <p class="hp-service-description">{item.body}</p>
+          <a class:list={['hp-text-link', index === 0 && 'hp-service-primary-link']} href={`${base}${item.href}`}>{item.link}<span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>)}
+  </div>
+</section>
+<style>
+.hp-services{padding-bottom:0;background:#f5f2ed}
+.hp-service-sections{margin-top:54px}
+.hp-service-row{padding:72px 0;border-top:1px solid #d9d2dc}
+.hp-service-row:nth-child(even){background:#ede8e3}
+.hp-service-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10%;align-items:center}
+.hp-service-visual{position:relative;width:100%;min-width:0}
+.hp-service-text{min-width:0}
+.hp-service-row--reverse .hp-service-visual{grid-column:2;grid-row:1}
+.hp-service-row--reverse .hp-service-text{grid-column:1;grid-row:1}
+.hp-service-text h3{font-size:clamp(30px,3.4vw,46px);line-height:1.12;letter-spacing:-.04em;margin:0 0 24px;text-wrap:balance;overflow-wrap:normal;hyphens:auto}
+.hp-service-text .hp-service-description{font-size:18px;line-height:1.7;max-width:39ch;margin:0 0 32px}
+.hp-service-text .hp-text-link{max-width:100%}
+.hp-service-primary-link{background:#745188;border-color:#745188;color:#fff;font-weight:600}
+.hp-service-primary-link:hover{background:#5d3e70}
+.hp-service-visual--profile :global(.hp-illustration--profile){width:min(100%,270px);margin-inline:auto}
+.hp-service-visual .hp-service-badge{right:-10px;top:-34px}
+@media(max-width:900px){.hp-service-layout{gap:7%}.hp-service-text .hp-service-description{font-size:17px}.hp-service-row{padding:60px 0}}
+@media(max-width:700px){
+ .hp-service-sections{margin-top:42px}
+ .hp-service-layout{grid-template-columns:1fr;gap:32px}
+ .hp-service-row{padding:50px 0}
+ .hp-service-row .hp-service-text{grid-column:1;grid-row:1}
+ .hp-service-row .hp-service-visual{grid-column:1;grid-row:2;max-width:500px;margin-inline:auto}
+ .hp-service-text h3{font-size:32px;margin-bottom:18px}
+ .hp-service-text .hp-service-description{margin-bottom:24px}
+ .hp-service-visual .hp-service-badge{width:80px;top:-10px;right:-7px}
+ .hp-service-visual .hp-service-badge strong{font-size:26px}
+ .hp-service-visual .hp-service-badge-shape>span{font-size:10px}
+ .hp-service-visual--profile :global(.hp-illustration--profile){width:min(75%,230px)}
+}
+</style>

@@ -1,45 +1,45 @@
-# Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
+# Im Betrieb passiert viel. Wir bringen es online.
 Canonical URL: https://www.vibeperform.com/de/website-betreuung/
 English alternate: https://www.vibeperform.com/en/website-support/
 Summary: Webseiten-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.
 
-Webseiten-Betreuung. Wir halten Ihren Auftritt aktuell.
+Im Betrieb passiert viel. Wir bringen es online.
 
-Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.
+Neue Leistungen, neue Projekte, neue Bilder: Geben Sie die laufende Arbeit am Auftritt ab. Wir bereiten Ihre Informationen auf, setzen Änderungen um und schlagen Verbesserungen vor.
 
-## Im Betrieb geht es weiter. Online bleibt etwas liegen.
+## Aus zwei Fotos wird ein neuer Einblick.
 
-### Für die Pflege fehlt die Zeit.
+Ein Beispiel aus der Betreuung
 
-Neue Informationen sind vorhanden, schaffen es aber nicht auf die Website. Aktualisierungen werden immer wieder verschoben.
+HMS Loistl liefert Bilder aus dem Arbeitsalltag. Wir machen daraus einen verständlichen Projektabschnitt. So bekommt die Webseite neue Inhalte aus der Arbeit, die ohnehin stattfindet.
 
-### Es gibt viele Ideen, aber keine Reihenfolge.
+### Input
 
-Sie wissen, dass sich etwas verbessern ließe. Was zuerst sinnvoll ist, bleibt zwischen Tagesgeschäft und technischen Fragen offen.
+Eine Nachricht und zwei Dateien.
 
-### Es ist unklar, wer sich kümmert.
+### Entwurf & Freigabe
 
-Inhaltliche Änderungen und technische Aufgaben haben keine feste Zuständigkeit. Sie möchten nachvollziehen können, was erledigt wurde.
+Wir bereiten vor. Sie entscheiden.
+
+### Aktualisierung
+
+Der neue Inhalt ergänzt den Auftritt.
 
 ## Aktuell halten. Gezielt weiterentwickeln.
 
 Wir legen gemeinsam fest, welche Aufgaben zu Ihrer Betreuung gehören. Fachliche Änderungen im Betrieb und verfügbare Daten helfen, sinnvolle Prioritäten zu setzen.
 
-### Inhalte pflegen
+### Aktuelle Informationen
 
-Vereinbarte Änderungen an Leistungen, Kontaktdaten, Bildern und Projekten werden auf der Website umgesetzt.
+Neue Angebote, geänderte Kontaktdaten und wichtige Hinweise finden ihren Platz auf Ihrer Webseite.
 
-### Hinweise aus Daten einordnen
+### Neue Einblicke in Ihre Arbeit
 
-Soweit passende Datenquellen verfügbar sind, betrachten wir Suchfragen und Nutzung. Wir halten fest, welche Beobachtungen eine Anpassung nahelegen.
+Aus Fotos und Informationen entstehen Projektberichte, Bildvergleiche oder ergänzende Leistungsinhalte.
 
-### Verbesserungen umsetzen
+### Schrittweise Verbesserungen
 
-Aus den abgestimmten Prioritäten entstehen konkrete Änderungen an Texten, Abschnitten oder Kontaktwegen. Umfang und Reihenfolge bleiben nachvollziehbar.
-
-### Technische Aufgaben abstimmen
-
-Wir klären, welche Prüfungen und Wartungsaufgaben zur eingesetzten Technik passen und übernommen werden sollen. Inhaltliche Pflege und technische Wartung werden getrennt beschrieben.
+Wir überarbeiten unklare Texte, ergänzen fehlende Antworten und erleichtern Kontaktwege. Die Prioritäten richten sich nach Ihrem Betrieb.
 
 Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt. Wenn Sie erst eine [Webseite erstellen](https://www.vibeperform.com/de/website-erstellen-lassen/) lassen möchten, stimmen wir den Aufbau und die anschließende Betreuung von Anfang an aufeinander ab.
 
@@ -47,7 +47,7 @@ Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, z
 
 ### Ausgangspunkt klären
 
-Wir prüfen Website, Zugänge und vorhandene Informationen. Gemeinsam legen wir Zuständigkeiten und den passenden Betreuungsumfang fest.
+Wir prüfen Webseite, Zugänge und vorhandene Informationen. Gemeinsam legen wir Zuständigkeiten und den passenden Betreuungsumfang fest.
 
 ### Nächste Aufgaben bestimmen
 
@@ -57,7 +57,7 @@ Sie melden Änderungen im Betrieb. Wir ordnen diese mit vorhandenen Beobachtunge
 
 Wir bearbeiten die vereinbarten Aufgaben und dokumentieren den Stand. Spätere Beobachtungen helfen, die nächsten Schritte zu bestimmen.
 
-Sie informieren uns über Änderungen im Unternehmen, ermöglichen die vereinbarten Zugänge und prüfen neue fachliche Aussagen. Wir übernehmen die abgestimmte Arbeit am Auftritt.
+Eine Nachricht, eine Sprachnotiz oder Bilder reichen als Ausgangspunkt. Wir klären Rückfragen, machen einen Entwurf und holen Ihre Freigabe ein.
 
 ## Passende nächste Schritte
 
@@ -67,15 +67,15 @@ Sie informieren uns über Änderungen im Unternehmen, ermöglichen die vereinbar
 
 ## Häufige Fragen
 
-### Ist Website-Betreuung dasselbe wie technische Wartung?
+### Ist Webseiten-Betreuung dasselbe wie technische Wartung?
 
 Technische Wartung und inhaltliche Weiterentwicklung erfüllen unterschiedliche Aufgaben. Wir beschreiben im Angebot, welche technischen Prüfungen und welche Arbeiten an Inhalten oder Gestaltung enthalten sind.
 
-### Betreuen Sie auch Websites, die jemand anderes erstellt hat?
+### Betreuen Sie auch Webseiten, die jemand anderes erstellt hat?
 
-Wir sehen uns zuerst Technik, Zustand und Zugänge an. Danach klären wir, welche Betreuung wir für die vorhandene Website sinnvoll übernehmen können.
+Wir sehen uns zuerst Technik, Zustand und Zugänge an. Danach klären wir, welche Betreuung wir für die vorhandene Webseite sinnvoll übernehmen können.
 
-### Wird meine Website automatisch verändert?
+### Wird meine Webseite automatisch verändert?
 
 Neue fachliche Aussagen und Änderungen stimmen wir im vereinbarten Ablauf mit Ihnen ab. Die Betreuung berücksichtigt Ihre Informationen und Prioritäten.
 
@@ -89,7 +89,7 @@ Preis, Arbeitsumfang, Laufzeit und Kündigungsbedingungen legen wir im konkreten
 
 ## Kontakt
 
-Welche Änderungen bleiben bei Ihnen liegen? Erzählen Sie uns von Ihrer Website und dem Bedarf, den wir übernehmen sollen.
+Wir sehen uns Ihre Webseite an und besprechen, was im Alltag liegen bleibt. Sie bekommen einen kostenlosen Statuscheck mit Benotung und Feedback. Danach können wir klären, welche laufenden Aufgaben Sie abgeben möchten.
 
 [Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
 

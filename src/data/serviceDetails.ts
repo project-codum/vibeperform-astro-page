@@ -18,20 +18,20 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     "redesign": {
       "name": "Webseite überarbeiten",
       "description": "Ihre bestehende Webseite gezielt überarbeiten: Struktur, Inhalte, Design und Kontaktwege auf den heutigen Stand bringen. Mit VibePerform.",
-      "kicker": "Website-Überarbeitung & Relaunch",
+      "kicker": "Webseiten-Überarbeitung & Relaunch",
       "title": [
-        "Webseite überarbeiten.",
-        "Passend zu Ihrem Betrieb."
+        "Ihr Betrieb ist weiter.",
+        "Ihre Webseite zieht mit."
       ],
-      "intro": "Ihre Website darf zeigen, wo Ihr Unternehmen heute steht. Wir prüfen den bestehenden Auftritt, erhalten Bewährtes und überarbeiten, was Ihren Leistungen und Kunden nicht mehr gerecht wird.",
+      "intro": "Ihr Angebot hat sich verändert, Ihre Webseite zeigt noch den alten Stand. Wir erhalten, was weiterhin passt, und bringen Inhalte, Gestaltung und Kontaktwege auf den heutigen Stand.",
       "problemTitle": [
         "Es hat sich viel verändert.",
         "Zeit, es zu zeigen."
       ],
       "problems": [
         [
-          "Die Leistungen sind weiter als die Website.",
-          "Neue Angebote, Projekte oder Zielgruppen tauchen auf Ihrer Website kaum auf. Besucher sehen einen Stand, der Ihren Betrieb nicht mehr richtig beschreibt."
+          "Die Leistungen sind weiter als die Webseite.",
+          "Neue Angebote, Projekte oder Zielgruppen tauchen auf Ihrer Webseite kaum auf. Besucher sehen einen Stand, der Ihren Betrieb nicht mehr richtig beschreibt."
         ],
         [
           "Der nächste Schritt bleibt unklar.",
@@ -49,26 +49,22 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "Aus dem bestehenden Auftritt entwickeln wir einen konkreten Überarbeitungsplan. Der Umfang reicht von gezielten Änderungen bis zu einem abgestimmten Relaunch.",
       "scope": [
         [
-          "Bestand verstehen",
-          "Wir sehen uns Seiten, Inhalte, Kontaktwege und die technische Grundlage an. Daraus entsteht ein Überblick über das, was bleiben kann und wo Handlungsbedarf besteht."
+          "Eine verständliche Seitenstruktur",
+          "Wichtige Leistungen bekommen einen klaren Platz. Fehlende Antworten werden ergänzt, überholte Inhalte entfernt."
         ],
         [
-          "Struktur und Inhalte ordnen",
-          "Leistungen bekommen einen klaren Platz. Wir aktualisieren vereinbarte Texte und planen fehlende Inhalte aus Sicht Ihrer Kunden."
+          "Ein Auftritt, der zum Betrieb passt",
+          "Bilder, Texte und Gestaltung zeigen Ihr heutiges Angebot. Navigation und Kontaktwege funktionieren auch auf dem Handy."
         ],
         [
-          "Gestaltung und Bedienung verbessern",
-          "Schrift, Bilder, Abstände und Navigation werden zu einem stimmigen Auftritt. Desktop und Mobilgeräte werden gemeinsam berücksichtigt."
-        ],
-        [
-          "Änderungen umsetzen und prüfen",
-          "Wir setzen den vereinbarten Umfang um und prüfen Darstellung und Kontaktwege. Werden Adressen verändert, berücksichtigen wir erforderliche Weiterleitungen."
+          "Ein geordneter Wechsel",
+          "Wir berücksichtigen vorhandene Seitenadressen und planen nötige Weiterleitungen. Bewährte Inhalte bleiben nutzbar."
         ]
       ],
       "boundary": "Ob das vorhandene System geeignet ist und welche Inhalte übernommen werden können, klären wir vor der Umsetzung. Ein vollständiger Neuaufbau oder zusätzliche Funktionen werden ausdrücklich vereinbart.",
       "process": [
         [
-          "Website gemeinsam ansehen",
+          "Webseite gemeinsam ansehen",
           "Sie zeigen uns den aktuellen Auftritt und erklären, was sich im Betrieb verändert hat. Wir prüfen Inhalte und verfügbare Zugänge."
         ],
         [
@@ -80,15 +76,15 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Sie prüfen die Vorschau und die fachlichen Angaben. Danach stimmen wir Veröffentlichung und Übergabe ab."
         ]
       ],
-      "contribution": "Wir brauchen die bestehende Website, passende Zugänge, aktuelle Unternehmensinformationen und eine Person, die Rückmeldungen bündelt.",
+      "contribution": "Sie zeigen uns, was sich verändert hat. Wir entwickeln daraus den Überarbeitungsplan und die neue Fassung. Sie prüfen die Angaben und geben die Veröffentlichung frei.",
       "related": [
         "support",
         "content"
       ],
       "faq": [
         [
-          "Muss meine Website komplett neu gebaut werden?",
-          "Das entscheiden wir nach einem Blick auf die bestehende Website. Oft lassen sich Inhalte und Teile der Gestaltung weiterverwenden. Bei technischen oder strukturellen Grenzen kann ein Neuaufbau sinnvoll sein."
+          "Muss meine Webseite komplett neu gebaut werden?",
+          "Das entscheiden wir nach einem Blick auf die bestehende Webseite. Oft lassen sich Inhalte und Teile der Gestaltung weiterverwenden. Bei technischen oder strukturellen Grenzen kann ein Neuaufbau sinnvoll sein."
         ],
         [
           "Können Sie mit unserem vorhandenen System arbeiten?",
@@ -103,11 +99,11 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Der Aufwand hängt vom Bestand und den gewünschten Änderungen ab. Nach der Bestandsaufnahme erhalten Sie ein Angebot für den konkret vereinbarten Umfang."
         ],
         [
-          "Können Sie die Website danach weiter betreuen?",
+          "Können Sie die Webseite danach weiter betreuen?",
           "Ja, eine anschließende Betreuung können wir passend zum System und Ihrem Bedarf vereinbaren. Inhaltliche Änderungen und technische Aufgaben werden dabei konkret festgelegt."
         ]
       ],
-      "contact": "Zeigen Sie uns Ihre aktuelle Website. Gemeinsam klären wir, was heute noch passt und was sich verändern sollte.",
+      "contact": "Zeigen Sie uns Ihre aktuelle Webseite. Gemeinsam klären wir, was heute noch passt und was sich verändern sollte.",
       "visual": {
         "label": "Gestaltungsbeispiel",
         "title": "Klarer aufgebaut.",
@@ -125,12 +121,12 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
     "support": {
       "name": "Webseite betreuen & weiterentwickeln",
       "description": "Webseiten-Betreuung für einen aktuellen Firmenauftritt: Inhalte pflegen, Verbesserungen priorisieren und vereinbarte Änderungen nachvollziehbar umsetzen.",
-      "kicker": "Website-Betreuung & Weiterentwicklung",
+      "kicker": "Webseiten-Betreuung & Weiterentwicklung",
       "title": [
-        "Webseiten-Betreuung.",
-        "Wir halten Ihren Auftritt aktuell."
+        "Im Betrieb passiert viel.",
+        "Wir bringen es online."
       ],
-      "intro": "Eine neue Leistung, ein abgeschlossenes Projekt, eine bessere Antwort auf Kundenfragen: Wir kümmern uns um die vereinbarte Pflege und entwickeln Ihre Website Schritt für Schritt mit Ihnen weiter.",
+      "intro": "Neue Leistungen, neue Projekte, neue Bilder: Geben Sie die laufende Arbeit am Auftritt ab. Wir bereiten Ihre Informationen auf, setzen Änderungen um und schlagen Verbesserungen vor.",
       "problemTitle": [
         "Im Betrieb geht es weiter.",
         "Online bleibt etwas liegen."
@@ -138,7 +134,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "problems": [
         [
           "Für die Pflege fehlt die Zeit.",
-          "Neue Informationen sind vorhanden, schaffen es aber nicht auf die Website. Aktualisierungen werden immer wieder verschoben."
+          "Neue Informationen sind vorhanden, schaffen es aber nicht auf die Webseite. Aktualisierungen werden immer wieder verschoben."
         ],
         [
           "Es gibt viele Ideen, aber keine Reihenfolge.",
@@ -156,20 +152,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "Wir legen gemeinsam fest, welche Aufgaben zu Ihrer Betreuung gehören. Fachliche Änderungen im Betrieb und verfügbare Daten helfen, sinnvolle Prioritäten zu setzen.",
       "scope": [
         [
-          "Inhalte pflegen",
-          "Vereinbarte Änderungen an Leistungen, Kontaktdaten, Bildern und Projekten werden auf der Website umgesetzt."
+          "Aktuelle Informationen",
+          "Neue Angebote, geänderte Kontaktdaten und wichtige Hinweise finden ihren Platz auf Ihrer Webseite."
         ],
         [
-          "Hinweise aus Daten einordnen",
-          "Soweit passende Datenquellen verfügbar sind, betrachten wir Suchfragen und Nutzung. Wir halten fest, welche Beobachtungen eine Anpassung nahelegen."
+          "Neue Einblicke in Ihre Arbeit",
+          "Aus Fotos und Informationen entstehen Projektberichte, Bildvergleiche oder ergänzende Leistungsinhalte."
         ],
         [
-          "Verbesserungen umsetzen",
-          "Aus den abgestimmten Prioritäten entstehen konkrete Änderungen an Texten, Abschnitten oder Kontaktwegen. Umfang und Reihenfolge bleiben nachvollziehbar."
-        ],
-        [
-          "Technische Aufgaben abstimmen",
-          "Wir klären, welche Prüfungen und Wartungsaufgaben zur eingesetzten Technik passen und übernommen werden sollen. Inhaltliche Pflege und technische Wartung werden getrennt beschrieben."
+          "Schrittweise Verbesserungen",
+          "Wir überarbeiten unklare Texte, ergänzen fehlende Antworten und erleichtern Kontaktwege. Die Prioritäten richten sich nach Ihrem Betrieb."
         ]
       ],
       "boundary": "Betreuung bedeutet einen vereinbarten Arbeitsumfang. Neue umfangreiche Seiten, zusätzliche Funktionen, Reaktionszeiten und technische Betriebsaufgaben werden gesondert festgelegt.",
@@ -182,7 +174,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "process": [
         [
           "Ausgangspunkt klären",
-          "Wir prüfen Website, Zugänge und vorhandene Informationen. Gemeinsam legen wir Zuständigkeiten und den passenden Betreuungsumfang fest."
+          "Wir prüfen Webseite, Zugänge und vorhandene Informationen. Gemeinsam legen wir Zuständigkeiten und den passenden Betreuungsumfang fest."
         ],
         [
           "Nächste Aufgaben bestimmen",
@@ -193,22 +185,22 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Wir bearbeiten die vereinbarten Aufgaben und dokumentieren den Stand. Spätere Beobachtungen helfen, die nächsten Schritte zu bestimmen."
         ]
       ],
-      "contribution": "Sie informieren uns über Änderungen im Unternehmen, ermöglichen die vereinbarten Zugänge und prüfen neue fachliche Aussagen. Wir übernehmen die abgestimmte Arbeit am Auftritt.",
+      "contribution": "Eine Nachricht, eine Sprachnotiz oder Bilder reichen als Ausgangspunkt. Wir klären Rückfragen, machen einen Entwurf und holen Ihre Freigabe ein.",
       "related": [
         "seo",
         "profile"
       ],
       "faq": [
         [
-          "Ist Website-Betreuung dasselbe wie technische Wartung?",
+          "Ist Webseiten-Betreuung dasselbe wie technische Wartung?",
           "Technische Wartung und inhaltliche Weiterentwicklung erfüllen unterschiedliche Aufgaben. Wir beschreiben im Angebot, welche technischen Prüfungen und welche Arbeiten an Inhalten oder Gestaltung enthalten sind."
         ],
         [
-          "Betreuen Sie auch Websites, die jemand anderes erstellt hat?",
-          "Wir sehen uns zuerst Technik, Zustand und Zugänge an. Danach klären wir, welche Betreuung wir für die vorhandene Website sinnvoll übernehmen können."
+          "Betreuen Sie auch Webseiten, die jemand anderes erstellt hat?",
+          "Wir sehen uns zuerst Technik, Zustand und Zugänge an. Danach klären wir, welche Betreuung wir für die vorhandene Webseite sinnvoll übernehmen können."
         ],
         [
-          "Wird meine Website automatisch verändert?",
+          "Wird meine Webseite automatisch verändert?",
           "Neue fachliche Aussagen und Änderungen stimmen wir im vereinbarten Ablauf mit Ihnen ab. Die Betreuung berücksichtigt Ihre Informationen und Prioritäten."
         ],
         [
@@ -220,7 +212,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Preis, Arbeitsumfang, Laufzeit und Kündigungsbedingungen legen wir im konkreten Angebot fest. So ist vor Beginn klar, welche Aufgaben und Bedingungen vereinbart sind."
         ]
       ],
-      "contact": "Welche Änderungen bleiben bei Ihnen liegen? Erzählen Sie uns von Ihrer Website und dem Bedarf, den wir übernehmen sollen.",
+      "contact": "Wir sehen uns Ihre Webseite an und besprechen, was im Alltag liegen bleibt. Sie bekommen einen kostenlosen Statuscheck mit Benotung und Feedback. Danach können wir klären, welche laufenden Aufgaben Sie abgeben möchten.",
       "visual": {
         "label": "Beispiel eines Pflegeablaufs",
         "title": "Ein klarer Plan.",
@@ -241,10 +233,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "SEO für Unternehmenswebseiten: Kundenfragen recherchieren, passende Seiten entwickeln und Inhalte sowie technische Grundlagen gezielt verbessern.",
       "kicker": "Die richtigen Fragen. Die passenden Antworten.",
       "title": [
-        "SEO –",
-        "Suchmaschinenoptimierung"
+        "Ihre Kunden suchen.",
+        "Ihre Webseite gibt Antworten."
       ],
-      "intro": "Ihre Kunden suchen nach einer Lösung. Wir richten Struktur und Inhalte Ihrer Website auf die Leistungen aus, die Sie tatsächlich anbieten – und auf die Fragen, die Menschen dazu stellen.",
+      "intro": "Wir richten Ihre Seiten auf konkrete Kundenfragen aus. Mit passenden Inhalten, einer klaren Struktur und einer technischen Grundlage, die Suchmaschinen verstehen können.",
       "problemTitle": [
         "Ihr Angebot ist da.",
         "Findet man die Antwort?"
@@ -252,7 +244,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "problems": [
         [
           "Wichtige Leistungen haben keinen Platz.",
-          "Was Sie anbieten, steht nur beiläufig auf der Website. Für konkrete Anliegen fehlt eine verständliche, passende Seite."
+          "Was Sie anbieten, steht nur beiläufig auf der Webseite. Für konkrete Anliegen fehlt eine verständliche, passende Seite."
         ],
         [
           "Die Begriffe passen nicht zu den Kundenfragen.",
@@ -267,23 +259,19 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
         "Suchfragen verstehen.",
         "Seiten gezielt verbessern."
       ],
-      "scopeIntro": "Wir verbinden Recherche mit konkreter Arbeit an Ihrer Website. Welche Maßnahmen sinnvoll sind, ergibt sich aus Ihrem Angebot, dem vorhandenen Auftritt und der verfügbaren Datenbasis.",
+      "scopeIntro": "Wir verbinden Recherche mit konkreter Arbeit an Ihrer Webseite. Welche Maßnahmen sinnvoll sind, ergibt sich aus Ihrem Angebot, dem vorhandenen Auftritt und der verfügbaren Datenbasis.",
       "scope": [
         [
-          "Suchbegriffe und Fragen recherchieren",
-          "Wir untersuchen, wie Menschen nach Ihren Leistungen suchen, und ordnen relevante Begriffe den tatsächlichen Angeboten Ihres Betriebs zu."
+          "Seiten für relevante Fragen",
+          "Wir verbinden Leistungen, Kundenbedarf und gegebenenfalls Einsatzorte zu einem nachvollziehbaren Seitenplan."
         ],
         [
-          "Seiten klar ausrichten",
-          "Jede wichtige Seite bekommt eine verständliche Aufgabe. Überschriften, Beschreibungen und interne Verlinkungen führen zu passenden Informationen."
+          "Inhalte mit einer klaren Antwort",
+          "Überschriften, Texte und Verweise helfen Besuchern, das Angebot zu verstehen und die passende Leistung zu finden."
         ],
         [
-          "Inhalte und Grundlagen verbessern",
-          "Wir prüfen vorhandene Inhalte und ausgewählte technische Grundlagen. Daraus entstehen konkrete Anpassungen oder ein Briefing für benötigte neue Inhalte."
-        ],
-        [
-          "Entwicklung nachvollziehen",
-          "Wir dokumentieren umgesetzte Maßnahmen und betrachten verfügbare Such- und Nutzungsdaten. Beobachtungen und Vermutungen bleiben unterscheidbar."
+          "Eine verständliche technische Grundlage",
+          "Wir prüfen unter anderem Seitenbeschreibungen, interne Verlinkung und Zugänglichkeit für Suchmaschinen. Auffälligkeiten werden nach Bedeutung priorisiert."
         ]
       ],
       "boundary": "SEO ist Arbeit an Auffindbarkeit und Verständlichkeit. Bestimmte Platzierungen, Besucherzahlen oder Anfragen können wir nicht zusagen. Umfangreiche neue Inhalte und bezahlte Werbung sind eigene Aufgaben.",
@@ -301,7 +289,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Wir setzen die vereinbarten Maßnahmen um. Anhand verfügbarer Beobachtungen besprechen wir sinnvolle nächste Schritte."
         ]
       ],
-      "contribution": "Von Ihnen brauchen wir verlässliche Angaben zu Leistungen, Zielkunden und Einsatzgebiet sowie passende Website- und Analysezugänge, soweit vorhanden.",
+      "contribution": "Sie kennen die Fragen Ihrer Kunden. Wir verbinden dieses Wissen mit der Suchrecherche und entwickeln daraus konkrete Seiten und Verbesserungen.",
       "related": [
         "content",
         "support"
@@ -309,11 +297,11 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "faq": [
         [
           "Können Sie Platz eins bei Google garantieren?",
-          "Nein. Wir bearbeiten die vereinbarten Inhalte und Grundlagen Ihrer Website. Wie Suchmaschinen Seiten einordnen und wie viele Anfragen daraus entstehen, können wir nicht garantieren."
+          "Nein. Wir bearbeiten die vereinbarten Inhalte und Grundlagen Ihrer Webseite. Wie Suchmaschinen Seiten einordnen und wie viele Anfragen daraus entstehen, können wir nicht garantieren."
         ],
         [
-          "Ist SEO bei einer neuen Website schon enthalten?",
-          "Die vereinbarte erstmalige SEO-Arbeit gehört zum Website-Projekt. Weitergehende Recherche, zusätzliche Inhalte und laufende Optimierung stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht doppelt angesetzt."
+          "Ist SEO bei einer neuen Webseite schon enthalten?",
+          "Die vereinbarte erstmalige SEO-Arbeit gehört zum Webseiten-Projekt. Weitergehende Recherche, zusätzliche Inhalte und laufende Optimierung stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht doppelt angesetzt."
         ],
         [
           "Brauchen wir dafür ständig neue Blogartikel?",
@@ -325,10 +313,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
         ],
         [
           "Was kostet Suchmaschinenoptimierung?",
-          "Das hängt von Website, Ausgangslage und Umfang der Maßnahmen ab. Wir vereinbaren einen konkreten Auftrag oder einen passenden Umfang für die laufende Betreuung."
+          "Das hängt von Webseite, Ausgangslage und Umfang der Maßnahmen ab. Wir vereinbaren einen konkreten Auftrag oder einen passenden Umfang für die laufende Betreuung."
         ]
       ],
-      "contact": "Welche Leistungen sollen Ihre Kunden besser finden und verstehen? Gemeinsam schauen wir auf Ihre Website und den nächsten sinnvollen Schritt.",
+      "contact": "Wir betrachten Ihre Webseite und die Fragen Ihrer Wunschkunden. Im kostenlosen Statuscheck erhalten Sie Benotung und Feedback zu Ihrem Auftritt. Für eine vertiefte SEO-Analyse und Umsetzung besprechen wir anschließend den passenden Umfang.",
       "visual": {
         "label": "Illustratives Suchbeispiel",
         "title": "Von der Suchfrage",
@@ -347,13 +335,13 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Google-Unternehmensprofil einrichten, überarbeiten und pflegen lassen. VibePerform stimmt Unternehmensangaben, Bilder und Kontaktwege mit Ihrer Webseite ab.",
       "kicker": "Google-Unternehmensprofil",
       "title": [
-        "Google-Unternehmensprofil.",
-        "Vor Ort und online erkennbar."
+        "Bei Google gefunden.",
+        "Als Betrieb verstanden."
       ],
-      "intro": "Aktuelle Öffnungszeiten, passende Leistungen und ein direkter Weg zu Ihnen. Wir unterstützen Sie bei der Einrichtung, Überarbeitung und vereinbarten Pflege Ihres Google-Unternehmensprofils.",
+      "intro": "Ihr Google-Unternehmensprofil zeigt Interessenten, was Sie anbieten und wie sie Sie erreichen. Wir kümmern uns um passende Angaben, Bilder und Einblicke in Ihre Arbeit.",
       "problemTitle": [
         "Der erste Kontakt beginnt",
-        "oft vor Ihrer Website."
+        "oft vor Ihrer Webseite."
       ],
       "problems": [
         [
@@ -361,7 +349,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Geänderte Zeiten, neue Leistungen oder veraltete Bilder vermitteln ein unvollständiges Bild Ihres Betriebs."
         ],
         [
-          "Website und Profil erzählen Verschiedenes.",
+          "Webseite und Profil erzählen Verschiedenes.",
           "Kontaktangaben und Leistungsbeschreibungen passen nicht zusammen. Interessenten müssen selbst herausfinden, welche Information stimmt."
         ],
         [
@@ -376,20 +364,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "Wir beginnen mit dem vorhandenen Stand. Ein bestehendes Profil kann häufig gezielt überarbeitet werden; eine Einrichtung betrachten wir passend zur tatsächlichen Situation.",
       "scope": [
         [
-          "Profil und Zugriff prüfen",
-          "Wir klären, ob bereits ein Profil besteht, welche Zugänge vorhanden sind und welche Schritte für die Bearbeitung noch fehlen."
+          "Ein stimmiges Profil",
+          "Name, Kontaktdaten, Leistungen und Öffnungszeiten passen zum Betrieb und zu Ihrer Webseite."
         ],
         [
-          "Unternehmensangaben abstimmen",
-          "Name, Kontaktwege, Zeiten und angebotene Leistungen werden mit Ihren aktuellen Informationen und der Website abgeglichen."
+          "Bilder und Beiträge aus Ihrem Alltag",
+          "Vorhandenes Material wird passend aufbereitet. Interessenten sehen, welche Arbeit Sie leisten."
         ],
         [
-          "Bilder und Verweise aufbereiten",
-          "Geeignete bereitgestellte Bilder und passende Website-Verweise ergänzen den Auftritt. Wir achten auf verständliche und zusammenpassende Inhalte."
-        ],
-        [
-          "Pflege organisieren",
-          "Für spätere Änderungen legen wir einen klaren Ablauf fest. Vereinbarte Anpassungen und noch offene Schritte werden nachvollziehbar festgehalten."
+          "Ein klarer Weg zu Ihnen",
+          "Telefonnummer, Webseitenverweis und weitere passende Kontaktangaben werden geprüft und gepflegt."
         ]
       ],
       "boundary": "Einrichtung und laufende Pflege werden nach Bedarf vereinbart. Weitere Standorte, Beiträge und Antworten auf Bewertungen gehören nur im ausdrücklich vereinbarten Umfang dazu. Freischaltung und Platzierung liegen nicht in unserer Hand.",
@@ -407,7 +391,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Wir setzen die vereinbarten Änderungen um und halten offene Schritte fest. Bei erforderlichen Bestätigungen ist Ihre Mitwirkung nötig."
         ]
       ],
-      "contribution": "Sie ermöglichen berechtigten Zugriff, liefern korrekte Geschäftsdaten und nutzbare Bilder und wirken bei erforderlichen Bestätigungen mit.",
+      "contribution": "Sie bestätigen die Angaben zu Ihrem Betrieb und ermöglichen den passenden Zugriff. Wir unterstützen Sie bei den nötigen Schritten, auch wenn Google eine Bestätigung verlangt.",
       "related": [
         "support",
         "seo"
@@ -434,7 +418,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Einrichtung, Überarbeitung und laufende Pflege haben unterschiedliche Umfänge. Nach einem Blick auf den vorhandenen Stand erstellen wir ein passendes Angebot."
         ]
       ],
-      "contact": "Ist Ihr Profil aktuell, vollständig und zugänglich? Gemeinsam klären wir den vorhandenen Stand und die Aufgaben, bei denen Sie Unterstützung möchten.",
+      "contact": "Wir sehen uns Ihr Unternehmensprofil gemeinsam an: Stimmen die Angaben, zeigen die Bilder Ihre Arbeit und finden Interessenten den Kontakt? Daraus ergibt sich, ob Einrichtung, Überarbeitung oder laufende Pflege sinnvoll ist.",
       "visual": {
         "label": "Schematische Profilansicht",
         "title": "Ihr Unternehmen",
@@ -443,8 +427,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Leistungen",
           "Öffnungszeiten",
           "Kontakt",
-          "Website",
-          "Profil ↔ Website"
+          "Webseite",
+          "Profil ↔ Webseite"
         ],
         "note": "Gestaltungsbeispiel mit beispielhaften Feldern."
       }
@@ -454,10 +438,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Verständliche Webseiten-Texte, Projektbeschreibungen und passende Grafiken für Ihren Firmenauftritt. VibePerform bereitet Ihre Inhalte gezielt auf.",
       "kicker": "Texte, Bilder & Grafiken",
       "title": [
-        "Texte & Grafiken.",
-        "Für Ihren digitalen Auftritt."
+        "Ihre Arbeit liefert den Stoff.",
+        "Wir machen Inhalte daraus."
       ],
-      "intro": "Sie kennen Ihren Betrieb. Wir bringen seine Leistungen auf den Punkt und gestalten die passenden Inhalte für Ihren digitalen Auftritt – verständlich, stimmig und auf Ihre Kunden ausgerichtet.",
+      "intro": "Fotos, Stichpunkte oder eine kurze Nachricht: Wir bringen auf den Punkt, was Sie zeigen möchten. Mit Texten und Bildern, die Kunden Ihr Angebot verständlich machen.",
       "problemTitle": [
         "Viel zu erzählen.",
         "Noch nicht auf den Punkt."
@@ -469,7 +453,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
         ],
         [
           "Gute Arbeit bleibt unsichtbar.",
-          "Aktuelle Projekte und praktische Beispiele liegen in Ordnern. Auf der Website findet sich davon wenig."
+          "Aktuelle Projekte und praktische Beispiele liegen in Ordnern. Auf der Webseite findet sich davon wenig."
         ],
         [
           "Die Materialien passen nicht zusammen.",
@@ -483,20 +467,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "Wir stimmen zuerst ab, welche Inhalte Sie für welchen Einsatz brauchen. Daraus entsteht ein klar begrenzter Auftrag mit passenden Texten, Bildern oder Grafiken.",
       "scope": [
         [
-          "Inhalte planen",
-          "Wir klären Zielgruppe, Aussage und Verwendungsort. Ihre Informationen werden zu einer verständlichen Struktur für die benötigten Inhalte."
+          "Leistungen verständlich beschreiben",
+          "Was bieten Sie an, für wen passt es und wie läuft es ab? Wir bringen diese Antworten in eine lesbare Form."
         ],
         [
-          "Texte formulieren",
-          "Wir schreiben oder überarbeiten vereinbarte Leistungsbeschreibungen, Seitentexte und Projektvorstellungen – auf Basis Ihrer tatsächlichen Arbeit."
+          "Projekte nachvollziehbar zeigen",
+          "Wir ordnen Informationen und Bilder zu einem Einblick in Ihre Arbeit. Konkrete Aussagen ersetzen allgemeine Werbeformeln."
         ],
         [
-          "Bilder und Grafiken gestalten",
-          "Vorhandene Bilder werden für den Einsatz aufbereitet. Vereinbarte Grafiken und Bildkombinationen orientieren sich an Ihrer Marke und der jeweiligen Aussage."
-        ],
-        [
-          "Abstimmen und übergeben",
-          "Sie prüfen fachliche Angaben und geben Rückmeldung. Danach bauen wir die Inhalte wie vereinbart ein oder übergeben die passenden Dateien."
+          "Bilder und Grafiken passend aufbereiten",
+          "Bildausschnitte, Beschriftungen und Gestaltung passen zum Inhalt und zum vorgesehenen Einsatz auf Webseite oder Unternehmensprofil."
         ]
       ],
       "boundary": "Seiten, Formate, Sprachen, Korrekturen und Nutzungsumfang legen wir vorab fest. Fotoshooting, Logoentwicklung und umfangreiche zusätzliche Inhalte sind keine pauschalen Bestandteile.",
@@ -514,7 +494,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Sie bestätigen Fakten und Nutzungsberechtigungen. Wir arbeiten das abgestimmte Feedback ein und bereiten Einbau oder Übergabe vor."
         ]
       ],
-      "contribution": "Sie liefern Fachinformationen, vorhandenes Material und echte Beispiele. Welche Inhalte fehlen und wie wir sie ergänzen, klären wir gemeinsam.",
+      "contribution": "Sie teilen Ihr Wissen und vorhandenes Material. Wir übernehmen die redaktionelle und gestalterische Arbeit. Sie prüfen die Fakten und entscheiden, was veröffentlicht wird.",
       "related": [
         "seo",
         "redesign"
@@ -522,7 +502,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "faq": [
         [
           "Müssen wir die Texte selbst vorschreiben?",
-          "Nein. Wir brauchen Ihre Fachinformationen und die wichtigsten Aussagen. Daraus können wir Texte entwickeln. Vorhandene Entwürfe und Materialien sind hilfreich, aber kein fertiger Website-Text ist Voraussetzung."
+          "Nein. Wir brauchen Ihre Fachinformationen und die wichtigsten Aussagen. Daraus können wir Texte entwickeln. Vorhandene Entwürfe und Materialien sind hilfreich, aber kein fertiger Webseiten-Text ist Voraussetzung."
         ],
         [
           "Können Sie bestehende Texte verbessern?",
@@ -533,15 +513,15 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Wenn ein generiertes Motiv für den vereinbarten Zweck geeignet ist, können wir es einsetzen. Echte Projekte und Kundenreferenzen werden dadurch nicht erfunden oder ersetzt. Die passende Bildquelle wird vorab geklärt."
         ],
         [
-          "Sind Texte und Grafiken bei der Website-Erstellung schon enthalten?",
-          "Die vereinbarten Inhalte gehören zum Website-Projekt. Zusätzliche Seiten, spätere Projektberichte oder weitere Grafiken stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht nochmals angesetzt."
+          "Sind Texte und Grafiken bei der Webseiten-Erstellung schon enthalten?",
+          "Die vereinbarten Inhalte gehören zum Webseiten-Projekt. Zusätzliche Seiten, spätere Projektberichte oder weitere Grafiken stimmen wir separat ab. Bereits enthaltene Arbeiten werden nicht nochmals angesetzt."
         ],
         [
           "Was kostet ein Text- oder Grafikauftrag?",
           "Wir kalkulieren nach benötigten Inhalten, vorhandenen Grundlagen, Formaten und dem vereinbarten Korrekturumfang. Sie erhalten ein konkretes Angebot für die gewünschte Lieferung."
         ]
       ],
-      "contact": "Welche Leistung, welches Projekt oder welche Idee soll verständlich werden? Zeigen Sie uns Ihr Material und den vorgesehenen Einsatz.",
+      "contact": "Bringen Sie ein Thema, ein Projekt oder vorhandenes Material mit. Gemeinsam klären wir, welche Aussage Ihre Kunden verstehen sollen und welcher Inhalt dafür gebraucht wird.",
       "visual": {
         "label": "Redaktionelles Gestaltungsbeispiel",
         "title": "Räume mit Charakter.",
@@ -559,8 +539,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Ergänzende KI-Beratung für kleine Unternehmen: einen Arbeitsablauf verstehen, geeignete Unterstützung prüfen und einen sinnvollen nächsten Schritt bestimmen.",
       "kicker": "Ergänzende Leistung · KI-Beratung",
       "title": [
-        "KI-Beratung & KI-Strategie.",
-        "Ein klarer nächster Schritt."
+        "KI im Arbeitsalltag.",
+        "Mit einer konkreten Aufgabe anfangen."
       ],
       "intro": "Welche wiederkehrende Aufgabe kostet Ihr Büro Zeit? Wir betrachten einen konkreten Arbeitsablauf und prüfen, wo KI sinnvoll vorbereiten kann, welche Informationen sie braucht und was Menschen entscheiden.",
       "problemTitle": [
@@ -669,10 +649,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Update your existing business website with clearer structure, current content, thoughtful design and straightforward contact options.",
       "kicker": "Website updates & redesign",
       "title": [
-        "Website redesign.",
-        "Built around your business."
+        "Your business has moved on.",
+        "Let your website catch up."
       ],
-      "intro": "Your website should reflect where your business is today. We review your existing presence, retain what works and improve what no longer serves your services and customers.",
+      "intro": "Your offer has changed, but your website still shows the old picture. We keep what works and bring content, design and contact options up to date.",
       "problemTitle": [
         "A lot has changed.",
         "Time to show it."
@@ -698,20 +678,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "We turn the current website into a clear improvement plan, from targeted updates to an agreed redesign.",
       "scope": [
         [
-          "Understand the current website",
-          "We review pages, content, contact options and technical foundations to identify what can stay and what needs attention."
+          "A clear page structure",
+          "Important services get a clear place. We add missing answers and remove outdated information."
         ],
         [
-          "Organise structure and content",
-          "Services get a clear place. We update agreed copy and plan missing information around your customers’ needs."
+          "A presence that reflects your business",
+          "Images, copy and design show your current offer. Navigation and contact options work on mobile too."
         ],
         [
-          "Improve design and usability",
-          "Typography, images, spacing and navigation work together. Desktop and mobile are considered together."
-        ],
-        [
-          "Implement and check",
-          "We implement the agreed changes and check layout and contact options. If page addresses change, we account for necessary redirects."
+          "An orderly transition",
+          "We consider existing page addresses and plan any redirects needed. Useful content remains available."
         ]
       ],
       "boundary": "We first establish whether your existing system is suitable and which content can be retained. A complete rebuild or additional features are agreed explicitly.",
@@ -729,7 +705,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "You review the preview and check the facts. We then agree publication and handover."
         ]
       ],
-      "contribution": "We need your existing website, appropriate access, current business information and one person to coordinate feedback.",
+      "contribution": "You show us what has changed. We turn that into a redesign plan and a new version. You check the facts and approve publication.",
       "related": [
         "support",
         "content"
@@ -776,10 +752,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Keep your business website current with content updates, prioritised improvements and clearly agreed ongoing support.",
       "kicker": "Website support & development",
       "title": [
-        "Website support & maintenance.",
-        "We keep your presence current."
+        "Your business moves forward.",
+        "Your website keeps up."
       ],
-      "intro": "A new service, a completed project, a clearer answer to a customer question: we take care of agreed updates and develop your website with you, step by step.",
+      "intro": "New services, projects and photos: hand over the work of keeping your website current. We prepare your information, make updates and suggest improvements.",
       "problemTitle": [
         "Business moves forward.",
         "Online updates get left behind."
@@ -805,20 +781,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "Together, we define the tasks included in your support. Changes in your business and available data help us set sensible priorities.",
       "scope": [
         [
-          "Maintain content",
-          "Agreed updates to services, contact details, images and projects are implemented on your website."
+          "Current information",
+          "New offers, updated contact details and important notices find their place on your website."
         ],
         [
-          "Interpret available data",
-          "Where suitable data sources exist, we review searches and usage. We record observations that may suggest an improvement."
+          "Fresh insights into your work",
+          "Photos and information become project stories, image comparisons or additional service content."
         ],
         [
-          "Implement improvements",
-          "Agreed priorities become specific changes to copy, sections or contact options. Scope and sequence remain clear."
-        ],
-        [
-          "Agree technical tasks",
-          "We identify the checks and maintenance suited to your technology. Content work and technical maintenance are described separately."
+          "Practical improvements",
+          "We clarify copy, add missing answers and simplify contact options. Priorities follow the needs of your business."
         ]
       ],
       "boundary": "Support covers an agreed amount of work. Substantial new pages, extra features, response times and technical operations are defined separately.",
@@ -836,7 +808,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "We complete agreed tasks and document progress. Later observations help determine the next steps."
         ]
       ],
-      "contribution": "You tell us about business changes, provide agreed access and review new factual statements. We take care of the agreed work on your presence.",
+      "contribution": "A message, voice note or a few photos give us a starting point. We clarify any questions, prepare a draft and ask for your approval.",
       "related": [
         "seo",
         "profile"
@@ -863,7 +835,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Price, scope, term and cancellation conditions are defined in the proposal. You know the agreed tasks and terms before we begin."
         ]
       ],
-      "contact": "Which updates keep getting postponed? Tell us about your website and the work you would like us to take care of.",
+      "contact": "We look at your website and discuss what gets left behind during a busy working week. You receive a free assessment with a rating and feedback. We can then identify the ongoing tasks you would like to hand over.",
       "visual": {
         "label": "Example support workflow",
         "title": "A clear plan.",
@@ -884,10 +856,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "SEO for business websites: research customer questions, organise relevant pages and improve content and technical foundations.",
       "kicker": "The right questions. The relevant answers.",
       "title": [
-        "SEO –",
-        "Search engine optimisation"
+        "Your customers have questions.",
+        "Your website has answers."
       ],
-      "intro": "Your customers are looking for a solution. We align your website’s structure and content with the services you actually provide and the questions people ask about them.",
+      "intro": "We shape your pages around the questions customers actually ask, with relevant content, clear structure and a technical foundation that search engines can understand.",
       "problemTitle": [
         "Your service is there.",
         "Can people find the answer?"
@@ -913,20 +885,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "We connect research with specific work on your website. Your services, current presence and available data determine the relevant actions.",
       "scope": [
         [
-          "Research search terms and questions",
-          "We explore how people search for your services and connect relevant terms with what your business actually offers."
+          "Pages for relevant questions",
+          "We connect services, customer needs and, where relevant, locations in a clear page plan."
         ],
         [
-          "Give pages a clear purpose",
-          "Each important page gets a clear role. Headings, descriptions and internal links guide visitors to useful information."
+          "Content with a useful answer",
+          "Headings, copy and links help visitors understand the offer and find the service they need."
         ],
         [
-          "Improve content and foundations",
-          "We review existing content and selected technical foundations. The result is a set of changes or a brief for the new content needed."
-        ],
-        [
-          "Review developments",
-          "We document completed actions and review available search and usage data, keeping observations distinct from assumptions."
+          "A clear technical foundation",
+          "We review page descriptions, internal links and search-engine accessibility, among other factors. Issues are prioritised by their significance."
         ]
       ],
       "boundary": "SEO addresses visibility and clarity. We cannot promise specific rankings, visitor numbers or enquiries. Substantial new content and paid advertising are separate tasks.",
@@ -944,7 +912,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "We implement the agreed actions. Available observations inform the discussion about sensible next steps."
         ]
       ],
-      "contribution": "We need reliable information about services, customers and your service area, plus suitable website and analytics access where available.",
+      "contribution": "You know the questions your customers ask. We combine that knowledge with search research to develop useful pages and practical improvements.",
       "related": [
         "content",
         "support"
@@ -971,7 +939,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "It depends on your website, starting point and scope. We agree a specific project or a suitable level of ongoing work."
         ]
       ],
-      "contact": "Which services should your customers find and understand more easily? Let’s look at your website and the next useful step.",
+      "contact": "We look at your website and the questions your ideal customers ask. The free introductory assessment includes a rating and feedback on your online presence. We then discuss the scope of any deeper SEO analysis and implementation.",
       "visual": {
         "label": "Illustrative search example",
         "title": "From a search question",
@@ -990,10 +958,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Set up, improve and maintain your Google Business Profile. VibePerform aligns business details, images and contact options with your website.",
       "kicker": "Google Business Profile",
       "title": [
-        "Google Business Profile.",
-        "Known locally. Clear online."
+        "Found on Google.",
+        "Understood as a business."
       ],
-      "intro": "Current opening hours, relevant services and a direct way to reach you. We help set up, improve and maintain your Google Business Profile within the agreed scope.",
+      "intro": "Your Google Business Profile shows people what you offer and how to reach you. We take care of useful information, suitable photos and updates about your work.",
       "problemTitle": [
         "The first contact often starts",
         "before your website."
@@ -1019,20 +987,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "We start with what already exists. An existing profile may only need targeted updates; setup work depends on the actual situation.",
       "scope": [
         [
-          "Review the profile and access",
-          "We establish whether a profile already exists, who has access and what steps are still needed before editing."
+          "Consistent business information",
+          "Your name, contact details, services and opening hours reflect your business and match your website."
         ],
         [
-          "Align business details",
-          "Name, contact options, hours and services are checked against current business information and your website."
+          "Photos and updates from your work",
+          "We prepare existing material so people can see the work your business does."
         ],
         [
-          "Prepare images and links",
-          "Suitable supplied images and relevant website links complete the presence. Content stays clear and consistent."
-        ],
-        [
-          "Organise ongoing updates",
-          "We agree a clear process for later changes and keep track of completed work and outstanding steps."
+          "A clear way to reach you",
+          "We check and maintain your phone number, website link and other relevant contact information."
         ]
       ],
       "boundary": "Setup and ongoing maintenance are agreed according to need. Additional locations, posts and review responses are included only where explicitly agreed. Activation and rankings are outside our control.",
@@ -1050,7 +1014,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "We implement the agreed changes and record outstanding steps. Required confirmations may need your involvement."
         ]
       ],
-      "contribution": "You provide authorised access, accurate business details and usable images, and participate in required confirmations.",
+      "contribution": "You confirm the business information and provide appropriate access. We help with the necessary steps, including any verification requested by Google.",
       "related": [
         "support",
         "seo"
@@ -1077,7 +1041,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "Setup, improvements and ongoing maintenance have different scopes. After reviewing the current situation, we prepare a suitable proposal."
         ]
       ],
-      "contact": "Is your profile current, complete and accessible? Let’s establish the starting point and where you would like support.",
+      "contact": "We review your profile together: is the information accurate, do the images show your work and can people easily contact you? This helps us identify whether you need setup, improvements or ongoing care.",
       "visual": {
         "label": "Illustrative profile layout",
         "title": "Your business",
@@ -1097,10 +1061,10 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Clear website copy, project descriptions and relevant graphics for your online presence. VibePerform prepares content around your business.",
       "kicker": "Copy, images & graphics",
       "title": [
-        "Copy & graphics.",
-        "For your online presence."
+        "Your work is the starting point.",
+        "We turn it into content."
       ],
-      "intro": "You know your business. We explain its services clearly and create suitable content for your online presence, with a consistent style and your customers in mind.",
+      "intro": "Photos, notes or a short message: we bring out what you want to say. With copy and images that help customers understand your offer.",
       "problemTitle": [
         "Plenty to say.",
         "Time to make it clear."
@@ -1126,20 +1090,16 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "scopeIntro": "We first agree what content you need and where it will be used. This creates a defined project for the relevant copy, images or graphics.",
       "scope": [
         [
-          "Plan the content",
-          "We clarify audience, message and intended use. Your information becomes a clear structure for the content needed."
+          "Explain services clearly",
+          "What do you offer, who is it for and how does it work? We turn those answers into readable content."
         ],
         [
-          "Write the copy",
-          "We write or improve agreed service descriptions, page copy and project presentations based on your actual work."
+          "Make projects understandable",
+          "We organise information and photos into an insight into your work. Specific statements replace generic promotional language."
         ],
         [
           "Prepare images and graphics",
-          "Existing images are prepared for their intended use. Agreed graphics and image combinations follow your brand and the message."
-        ],
-        [
-          "Review and hand over",
-          "You check facts and provide feedback. We then add the content as agreed or supply suitable files."
+          "Crops, captions and design suit the content and its intended use on your website or business profile."
         ]
       ],
       "boundary": "Pages, formats, languages, revisions and usage are agreed in advance. Photography, logo design and substantial additional content are not standard inclusions.",
@@ -1157,7 +1117,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "You confirm facts and usage rights. We incorporate agreed feedback and prepare implementation or handover."
         ]
       ],
-      "contribution": "You provide subject knowledge, existing materials and real examples. Together, we identify what is missing and how to complete it.",
+      "contribution": "You share your expertise and existing material. We handle editorial work and design. You check the facts and decide what gets published.",
       "related": [
         "seo",
         "redesign"
@@ -1184,7 +1144,7 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
           "We price the required content, available source material, formats and agreed revisions. You receive a specific proposal for the intended deliverables."
         ]
       ],
-      "contact": "Which service, project or idea needs explaining? Show us your material and where you want to use it.",
+      "contact": "Bring a topic, a project or existing material. Together, we clarify what your customers need to understand and what content would help them.",
       "visual": {
         "label": "Editorial design example",
         "title": "Spaces with character.",
@@ -1202,8 +1162,8 @@ export const serviceDetails:Record<Locale,Record<ServiceKey,ServiceDetail>> = {
       "description": "Additional AI consulting for small businesses: understand a workflow, assess useful assistance and identify a sensible next step.",
       "kicker": "Additional service · AI consulting",
       "title": [
-        "AI consulting & strategy.",
-        "A clear next step."
+        "AI in everyday work.",
+        "Start with one specific task."
       ],
       "intro": "Which recurring office task takes up your time? We examine a specific workflow, identify where AI could help prepare work and clarify the information and human decisions it requires.",
       "problemTitle": [

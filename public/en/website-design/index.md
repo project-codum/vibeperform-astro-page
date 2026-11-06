@@ -1,111 +1,55 @@
-# Website design & development. Make your offer clear.
+# Your new website. We take care of the build.
 Canonical URL: https://www.vibeperform.com/en/website-design/
 German alternate: https://www.vibeperform.com/de/website-erstellen-lassen/
 Summary: A business website that explains your services clearly. VibePerform brings together web design, copy, SEO and ongoing support.
 
-For businesses that need a new website or whose existing site no longer reflects their services. We plan, write, design and build, with a clear route to an enquiry.
+You know your business. We turn that knowledge into a website that makes your offer easy to understand, bringing copy, design and development together.
 
-## Visitors have questions. Your website answers them.
+## A good website starts with understanding the business.
 
-Is this the right business for my project? What does it offer? How can I get in touch? Your new website helps answer these questions.
+HMS Loistl wants to maintain large apartment buildings. That is why the new website features a well-kept entrance. Dedicated pages explain its services and service areas.
 
-### Explain your services
+[Visit the project](https://www.hms-loistl.de/)
 
-A clear page structure shows what you offer and who your work is for.
+## From your business to your new website.
 
-### Make quality visible
+### We find out what matters.
 
-Thoughtful design, real insights and clear copy communicate how your business works.
+What work do you want to show? Which customers do you want to reach? We turn your answers into a plan for pages and content.
 
-### Make contact easy
+Your part: You tell us about your business and share existing material.
 
-Visitors find the right next step, from a phone call to a specific project enquiry.
+The result: A page plan with a clear purpose for every page.
 
-## From the first idea to your new presence.
+We clarify audiences, services and contact options. Your existing brand is our starting point. We discuss the scope, any additional design work and the images needed before development begins.
 
-### Understand & plan
+### We make your offer easy to understand.
 
-We discuss your business, customers and goals, then plan the pages, content and scope.
+We write the copy, choose suitable images and design your website. You see a complete draft, rather than making isolated decisions about fonts and colours.
 
-### Design & review
+Your part: You check the facts and tell us what needs adjusting.
 
-We develop the copy and design. You review the draft, share feedback and check the facts about your business.
+The result: A preview with your content and design.
 
-### Build & launch
+Images, colours, typography and layout work together. We use your existing logo and materials where appropriate. Search optimisation informs the page structure, headings and descriptions.
 
-We build your website, check the agreed functions and prepare to launch after your approval.
+### You approve it. We launch it.
 
-## Your presence takes shape.
+We check the layout on mobile and desktop, along with the agreed contact functions. After your approval, we prepare the website for publication.
 
-A good website takes shape step by step. Discover how your business becomes a coherent digital presence.
+Your part: You decide whether the website is ready to go live.
 
-### Brand core: First, we discover what makes you, you.
+The result: The agreed pages go live, with a plan for their future upkeep.
 
-Your services, customers and standards give us the direction for your website.
+Before launch, we clarify the domain, hosting and required access. Publication and handover complete the project. Ongoing support can be arranged separately.
 
-The result: a clear direction for your entire presence.
+## Know what to expect before work begins.
 
-### Language: The right words. Your own voice.
+from €1,800 — including VAT · Websites usually start here. The final price depends in part on additional pages.
 
-We turn your expertise into clear copy. Visitors understand what you offer and how it fits their project.
+We discuss the pages, content and functions you need. This gives us the basis for a proposal and a project schedule. A specific launch date is agreed around your project.
 
-Clear in meaning. Personal in tone.
-
-### Logo: One identity. Recognisable everywhere.
-
-Your existing logo gets the right setting: on light and dark backgrounds and in the browser tab.
-
-A new logo design can be agreed separately if needed.
-
-### Colour: One feeling. An entire palette.
-
-We find colours that suit your business. Quiet backgrounds, purposeful accents and legible contrasts work together.
-
-Core colours, shades and clear roles for each application.
-
-### Typography: Type has personality.
-
-Distinctive headings, readable text and a considered accent: we find the right type combination for your presence.
-
-A clear hierarchy, from first glance to final paragraph.
-
-### Imagery: Before we read, we feel.
-
-Images, materials and graphics make your work tangible. Together, we choose imagery that explains your services.
-
-Real insights first. Generated imagery where it makes sense.
-
-### Layout & structure: Everything finds its place.
-
-We organise your services into a clear page structure. Every page has a purpose and guides visitors to the next relevant step.
-
-Structure, spacing and visual hierarchy work together.
-
-### Application: Big screen. Small screen.
-
-The design adapts: images, text and navigation rearrange. Your website stays clear and usable on the go.
-
-### Search optimisation: Be found. With the right words.
-
-We connect your services with your customers’ search questions. Relevant terms, focused pages and clear descriptions inform the structure.
-
-A foundation for search optimisation and ongoing development.
-
-## Your business keeps evolving. Your website should too.
-
-New services and projects belong on your website. Search queries and available usage data can highlight opportunities to improve it further.
-
-With the right support, we keep your presence current and develop it with you. We agree tasks and scope in advance.
-
-[Explore ongoing support](https://www.vibeperform.com/en/website-support/)
-
-## Do you run a trade business?
-
-Our dedicated offer for trade businesses addresses common questions about enquiries, services and recruitment.
-
-[Explore websites for trade businesses](https://www.vibeperform.com/en/websites-for-trade-businesses/)
-
-## Good to know
+## Common questions
 
 ### How much does a new website cost?
 
@@ -126,6 +70,12 @@ That depends on the scope and available content. After our initial discussion, w
 ### Do you provide support after launch?
 
 Yes. We offer ongoing support and development. We agree the content, technical tasks and improvements based on your needs.
+
+## Your new website starts with a conversation.
+
+We discuss your offer, the customers you want to reach and what your website needs to do. If you already have a site, you receive a free assessment with a rating and feedback. If you do not, we work out the right starting point together.
+
+[Discuss your website](https://calendar.app.google/utFQgw33PwJTiDk56)
 
 ## Contact
 

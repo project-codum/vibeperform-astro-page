@@ -1,111 +1,55 @@
-# Webseite erstellen lassen. Damit Ihr Angebot klar wird.
+# Ihre neue Webseite. Wir übernehmen den Aufbau.
 Canonical URL: https://www.vibeperform.com/de/website-erstellen-lassen/
 English alternate: https://www.vibeperform.com/en/website-design/
 Summary: Lassen Sie eine Unternehmenswebseite erstellen, die Ihre Leistungen klar zeigt. VibePerform verbindet Webdesign, Texte, SEO und anschließende Betreuung.
 
-Für Betriebe, die eine neue Website brauchen oder deren Auftritt nicht mehr zum Angebot passt. Wir planen, texten, gestalten und entwickeln – mit einem klaren Weg zur Anfrage.
+Sie kennen Ihren Betrieb. Wir machen daraus einen Auftritt, der Ihr Angebot verständlich zeigt – mit Texten, Gestaltung und Umsetzung aus einer Hand.
 
-## Besucher haben Fragen. Ihre Website gibt Antworten.
+## Ein guter Auftritt beginnt mit dem richtigen Blick auf den Betrieb.
 
-Passt dieser Betrieb zu meinem Vorhaben? Was bietet er an? Wie erreiche ich ihn? Ihre neue Website hilft dabei, diese Fragen zu beantworten.
+HMS Loistl möchte große Mehrfamilienhäuser betreuen. Deshalb zeigt der neue Auftritt einen gepflegten Hauseingang. Eigene Seiten erklären die Leistungen und Servicegebiete.
 
-### Leistungen auf den Punkt bringen
+[Das Projekt ansehen](https://www.hms-loistl.de/)
 
-Eine klare Seitenstruktur zeigt, was Sie anbieten und für wen Ihre Arbeit passt.
+## Aus Ihrem Betrieb wird Ihre neue Webseite.
 
-### Qualität sichtbar machen
+### Wir finden heraus, worauf es ankommt.
 
-Passende Gestaltung, echte Einblicke und verständliche Texte vermitteln, wie Ihr Unternehmen arbeitet.
+Welche Arbeit möchten Sie zeigen? Welche Kunden möchten Sie erreichen? Wir ordnen Ihre Antworten zu einem Plan für Seiten und Inhalte.
 
-### Kontakt einfach machen
+Ihr Beitrag: Sie erzählen von Ihrem Betrieb und zeigen uns vorhandenes Material.
 
-Interessenten finden den passenden nächsten Schritt – vom Anruf bis zur konkreten Projektanfrage.
+Was daraus entsteht: Ein Seitenplan mit einer klaren Aufgabe für jede Seite.
 
-## Von der ersten Idee bis zum fertigen Auftritt.
+Wir klären Zielgruppe, Leistungen und Kontaktwege. Ihre vorhandene Marke bildet die Grundlage. Umfang, zusätzliche Gestaltung und benötigte Bilder sprechen wir vor der Umsetzung ab.
 
-### Verstehen & planen
+### Wir machen Ihr Angebot verständlich.
 
-Wir besprechen Ihren Betrieb, Ihre Kunden und Ihre Ziele. Daraus entsteht der Plan für Seiten, Inhalte und Umfang.
+Wir schreiben Ihre Texte, wählen passende Bilder und gestalten den Auftritt. Sie sehen einen zusammenhängenden Entwurf statt einzelner Entscheidungen über Schrift und Farbe.
 
-### Gestalten & abstimmen
+Ihr Beitrag: Sie prüfen die fachlichen Angaben und sagen uns, was noch nicht passt.
 
-Wir entwickeln Texte und Gestaltung. Sie sehen den Entwurf, geben Feedback und prüfen die Angaben zu Ihrem Betrieb.
+Was daraus entsteht: Eine Vorschau mit Ihren Inhalten und Ihrer Gestaltung.
 
-### Umsetzen & starten
+Bildauswahl, Farben, Typografie und Aufbau greifen ineinander. Vorhandene Logos und Materialien werden passend eingesetzt. Suchmaschinenoptimierung fließt über Seitenstruktur, Überschriften und Beschreibungen ein.
 
-Wir bauen die Website, prüfen die vereinbarten Funktionen und bereiten den Start nach Ihrer Freigabe vor.
+### Sie geben frei. Wir bringen ihn online.
 
-## Ihr Auftritt nimmt Form an.
+Wir prüfen die Darstellung auf Handy und Desktop sowie die vereinbarten Kontaktfunktionen. Nach Ihrer Freigabe bereiten wir die Veröffentlichung vor.
 
-Eine gute Website entsteht Schritt für Schritt. Entdecken Sie, wie aus Ihrem Unternehmen ein stimmiger digitaler Auftritt wird.
+Ihr Beitrag: Sie entscheiden, ob der Auftritt veröffentlicht werden kann.
 
-### Markenkern: Zuerst verstehen wir, was Sie ausmacht.
+Was daraus entsteht: Die vereinbarten Seiten gehen online. Die weitere Pflege ist geklärt.
 
-Ihre Leistungen, Ihre Kunden, Ihr Anspruch: Daraus entwickeln wir den roten Faden für Ihre Website.
+Vor dem Start stimmen wir Domain, Hosting und die nötigen Zugänge ab. Veröffentlichung und Übergabe gehören zum Projektabschluss. Eine laufende Betreuung vereinbaren wir bei Bedarf separat.
 
-Das Ergebnis: eine klare Richtung für den gesamten Auftritt.
+## Vor dem Start wissen Sie, womit Sie planen können.
 
-### Sprache: Die richtigen Worte. Ihr eigener Ton.
+ab 1.800 € — brutto · Webseiten starten meistens hier. Der konkrete Preis hängt unter anderem von zusätzlichen Seiten ab.
 
-Wir übersetzen Ihr Können in verständliche Texte. Besucher erkennen, was Sie anbieten und warum es zu ihrem Vorhaben passt.
+Im Gespräch klären wir, welche Seiten, Inhalte und Funktionen Sie brauchen. Daraus ergeben sich das Angebot und der Zeitplan. Ein fester Termin wird auf Basis Ihres Projekts abgestimmt.
 
-Klar in der Aussage. Persönlich im Ton.
-
-### Logo: Ein Absender. Überall erkennbar.
-
-Ihr vorhandenes Logo bekommt den richtigen Platz – mit passenden Varianten für helle und dunkle Flächen und einem Zeichen für den Browser-Tab.
-
-Eine neue Logoentwicklung stimmen wir bei Bedarf gesondert ab.
-
-### Farben: Ein Gefühl. Eine ganze Palette.
-
-Wir finden Farben, die zu Ihrem Unternehmen passen. Helle Flächen schaffen Ruhe, Akzente geben Orientierung und Kontraste machen Inhalte lesbar.
-
-Grundfarben, Abstufungen und feste Rollen für die Anwendung.
-
-### Typografie: Schrift hat Persönlichkeit.
-
-Prägnante Überschriften, gut lesbare Texte und gezielte Akzente: Wir finden die passende Schriftkombination für Ihren Auftritt.
-
-Eine klare Hierarchie – vom ersten Blick bis zum letzten Absatz.
-
-### Bildsprache: Bevor man liest, fühlt man.
-
-Bilder, Materialien und Grafiken machen Ihre Arbeit greifbar. Gemeinsam wählen wir eine Bildwelt, die Ihre Leistungen verständlich zeigt.
-
-Echte Einblicke bevorzugt. Generierte Motive dort, wo sie sinnvoll sind.
-
-### Layout & Struktur: Alles findet seinen Platz.
-
-Wir ordnen Ihre Leistungen zu einem verständlichen Seitenplan. Jede Seite bekommt eine Aufgabe und führt Besucher zum nächsten passenden Schritt.
-
-Struktur, Abstände und Blickführung greifen ineinander.
-
-### Anwendung: Großer Bildschirm. Kleiner Bildschirm.
-
-Das Design passt sich an: Bilder, Texte und Navigation ordnen sich neu. So bleibt Ihre Website auch unterwegs verständlich und bedienbar.
-
-### Suchmaschinenoptimierung: Gefunden werden. Mit den richtigen Worten.
-
-Wir verbinden Ihre Leistungen mit den Suchfragen Ihrer Kunden. Relevante Begriffe, passende Seiten und verständliche Beschreibungen fließen in den Aufbau ein.
-
-Die Grundlage für Suchmaschinenoptimierung und spätere Weiterentwicklung.
-
-## Ihr Unternehmen entwickelt sich. Ihre Website sollte das auch.
-
-Neue Angebote und Projekte gehören auf Ihre Website. Suchanfragen und verfügbare Nutzungsdaten zeigen, wo weitere Verbesserungen sinnvoll sein können.
-
-Mit einer passenden Betreuung halten wir Ihren Auftritt aktuell und entwickeln ihn gemeinsam weiter. Aufgaben und Umfang vereinbaren wir vorab.
-
-[Mehr zur laufenden Betreuung](https://www.vibeperform.com/de/website-betreuung/)
-
-## Sie führen einen Handwerksbetrieb?
-
-Für Handwerksbetriebe haben wir das Website-Angebot auf typische Fragen zu Aufträgen, Leistungen und Mitarbeitergewinnung zugeschnitten.
-
-[Zum Angebot für Handwerksbetriebe](https://www.vibeperform.com/de/websites-fuer-handwerksbetriebe/)
-
-## Gut zu wissen
+## Häufige Fragen
 
 ### Was kostet eine neue Website?
 
@@ -126,6 +70,12 @@ Das hängt vom Umfang und den verfügbaren Inhalten ab. Nach der ersten Abstimmu
 ### Kümmern Sie sich auch nach dem Start?
 
 Ja. Wir bieten laufende Betreuung und Weiterentwicklung an. Welche Inhalte, technischen Aufgaben und Optimierungen dazugehören, vereinbaren wir passend zu Ihrem Bedarf.
+
+## Ihre neue Webseite beginnt im Gespräch.
+
+Wir sprechen über Ihr Angebot, Ihre Wunschkunden und darüber, was Ihr Auftritt leisten soll. Gibt es bereits eine Webseite, bekommen Sie einen kostenlosen Statuscheck mit Benotung und Feedback. Ohne bestehende Webseite klären wir gemeinsam den Einstieg.
+
+[Ihre Webseite besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
 
 ## Kontakt
 

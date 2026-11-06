@@ -38,3 +38,15 @@ Prüfung: Build mit 62 Seiten und 10 Homepage-Tests bestanden. DE/EN bei 320, 39
 ### Korrektur der Wortanimation
 
 Nach Nutzerfeedback zum Flackern ersetzt: Jedes Wort erscheint sofort mit voller Deckkraft bei 112 % Größe und schrumpft in 0,32 Sekunden auf 100 %. Kein Farbwechsel, keine Helligkeits-/Unschärfefilter, keine vertikale Bewegung und kein Zurückfedern. Wortabstand mindestens 0,32 Sekunden. DE/Desktop und EN/Mobil im Browser über Zeitproben geprüft: konstante Farben, ausschließlich volle Deckkraft sichtbarer Wörter und monoton abnehmende Größe. Build und 10 Homepage-Tests bestanden.
+
+## Aufbau und Input nach Browserfeedback
+
+Lokale Überarbeitung: Der erklärende HMS-Loistl-Block mit den zwei Detailkarten entfällt; der große Webseitenvergleich bleibt erhalten. In der Zusammenarbeit heißt Schritt 2 jetzt „Sie geben Input“ und erklärt WhatsApp, Sprachnachrichten und E-Mails mit Anhang. Ein generiertes E-Mail-Beispiel ersetzt dort die Kundenfotos. Es enthält neutrale Beispieldaten und ist keine echte Kundenkorrespondenz. Die Originalbilder rasen-vorher.jpg und rasen-nachher.jpg erscheinen in Schritt 3 als gestalteter Vergleich auf dunkelgrünem Grund entsprechend der gelieferten Webseitenreferenz. Der Text stellt die redaktionelle/gestalterische Arbeit und die Freigabe des Kunden klar.
+
+Der Leitgedanke steht jetzt zwischen Zusammenarbeit und Leistungen. Vier offene, abwechselnde Bild-Text-Abschnitte ersetzen die Leistungskacheln: Webseite, Unternehmensprofil, laufende Betreuung und Suchmaschinenoptimierung. Die bestehenden Animationen, Links und das 90%-Badge bleiben; der Suchabschnitt erhält eine schematische Suchgrafik ohne behauptete Platzierungen. Auf Mobil folgen die Grafiken dem jeweiligen Text. Beide Sprachen und die maschinenlesbare Fassung sind synchronisiert.
+
+Bildquellen: Built-in Imagegen, neue fiktive E-Mail-Illustration und englische Textlokalisierung; Assets unter src/assets/collaboration/input-email-de-documents.png und input-email-en-documents.png. Astro liefert responsive WebP-Dateien. Prompt und Verwendung in docs/collaboration-email-illustration.md. Die echten Vorher-Nachher-Fotos bleiben unverändert.
+
+Prüfung: Build mit 62 Seiten, alle 115 Tests, git diff --check. DE/EN bei 1440, 1042, 768, 390 und 320 Pixeln: keine horizontalen Überläufe, abwechselnde Grafikpositionen auf Desktop und korrekte Stapelung mobil. Zusammenarbeit und Leistungsbereich visuell geprüft; Bilder geladen, Leistungslinks lokalisiert und Animationen bei Sichtbarkeit aktiv. Lokal, noch nicht veröffentlicht.
+
+Nachkorrektur: Die generierte E-Mail zeigt ausschließlich Dokumentanhänge vorher.jpg/nachher.jpg, keine Fotos oder Vorschaubilder. DE und EN entsprechend ersetzt. Originalfotos weiterhin nur im umgesetzten Vergleich.
