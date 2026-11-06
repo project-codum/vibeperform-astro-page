@@ -4,7 +4,7 @@ import TradeInquiryForm from './TradeInquiryForm.astro';
 import { tradePageContent } from '../data/tradePageContent';
 import kitchenPlanning from '../assets/website-service/joinery-consultation.png';
 import CollaborationVisual from './CollaborationVisual.astro';
-import { bookingUrl } from '../lib/siteMetadata';
+import BookingCalendar from './BookingCalendar.astro';
 import '../styles/service-narrative.css';
 import '../styles/trade-page.css';
 interface Props { locale:'de'|'en'; }
@@ -26,7 +26,8 @@ const de=locale==='de';
 <section class="hp-section tw-process" id="zusammenarbeit" aria-labelledby="process-title"><div class="hp-wrap"><p class="hp-kicker">{de?'So arbeiten wir':'How we work'}</p><h2 id="process-title">{c.processTitle}<br/><em>{c.processEmphasis}</em></h2>{'processNote' in c && <p class="hp-intro">{c.processNote.before}<a href={c.processNote.href} class="underline underline-offset-4">{c.processNote.label}</a>{c.processNote.after}</p>}<ol class="hp-process-grid">{c.steps.map(([title,body],i)=><li><span class="hp-number">0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></div></section>
 <aside class="sn-related hp-wrap" id="betreuung" aria-label={de?'Nach dem Start':'After launch'}><span>{de?'Auch nach dem Start an Ihrer Seite:':'Support after launch:'}</span><a href={c.careHref}>{c.careLink} ↗</a></aside>
 <section class="hp-section hp-faq" id="fragen" aria-labelledby="faq-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{de?'Gut zu wissen':'Good to know'}</p><h2 id="faq-title">{c.faqTitle}<br/><em>{c.faqEmphasis}</em></h2></div><div>{c.faq.map(([q,a])=><details><summary>{q}<span aria-hidden="true">＋</span></summary><p>{a}</p></details>)}</div></div></section>
-<section class="hp-section tw-contact" id="anfrage" aria-labelledby="inquiry-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.contactKicker}</p><h2 id="inquiry-title">{c.contactTitle}<br/><em>{c.contactEmphasis}</em></h2><p class="hp-intro">{c.contactBody}</p><p class="tw-note">{c.contactNote}</p><a class="hp-text-link tf-call" href={bookingUrl}>{de?'Lieber persönlich sprechen':'Prefer a conversation?'}<span aria-hidden="true">↗</span></a><p class="tw-email">{c.mail}<br/><a class="hp-text-link" href="mailto:contact@vibeperform.com">contact@vibeperform.com ↗</a></p></div><TradeInquiryForm locale={locale}/></div></section>
+<section class="hp-section tw-contact" id="anfrage" aria-labelledby="inquiry-title"><div class="hp-wrap hp-split"><div><p class="hp-kicker">{c.contactKicker}</p><h2 id="inquiry-title">{c.contactTitle}<br/><em>{c.contactEmphasis}</em></h2><p class="hp-intro">{c.contactBody}</p><p class="tw-note">{c.contactNote}</p><a class="hp-text-link tf-call" href="#kontakt">{de?'Lieber persönlich sprechen':'Prefer a conversation?'}<span aria-hidden="true">↗</span></a><p class="tw-email">{c.mail}<br/><a class="hp-text-link" href="mailto:contact@vibeperform.com">contact@vibeperform.com ↗</a></p></div><TradeInquiryForm locale={locale}/></div></section>
+<section class="hp-section hp-contact" id="kontakt" aria-labelledby="trade-call-title"><div class="hp-wrap"><h2 id="trade-call-title">{de?'Lieber persönlich':'Prefer a'}<br/><em>{de?'kennenlernen?':'conversation?'}</em></h2><p class="hp-intro">{de?'Im Gespräch bekommen Sie kostenlos einen Statuscheck Ihres Online-Auftritts mit Benotung und Feedback.':'During the call, you receive a free assessment of your online presence, including a rating and feedback.'}</p><BookingCalendar locale={locale} autoOpen /></div></section>
 </div>
 
 <style>

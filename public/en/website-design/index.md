@@ -45,7 +45,7 @@ Before launch, we clarify the domain, hosting and required access. Publication a
 
 ## Know what to expect before work begins.
 
-from €1,800 — including VAT · Websites usually start here. The final price depends in part on additional pages.
+from €1,799 — excluding VAT · Websites usually start here. The final price depends in part on additional pages.
 
 We discuss the pages, content and functions you need. This gives us the basis for a proposal and a project schedule. A specific launch date is agreed around your project.
 
@@ -53,7 +53,7 @@ We discuss the pages, content and functions you need. This gives us the basis fo
 
 ### How much does a new website cost?
 
-Websites usually start at €1,800 including VAT. The price depends on how many additional pages are needed.
+Websites usually start at €1,799 excluding VAT. The price depends on how many additional pages are needed.
 
 ### Can you redesign our existing website?
 

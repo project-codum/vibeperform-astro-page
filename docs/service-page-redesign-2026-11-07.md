@@ -12,7 +12,7 @@ Die ausführlichen wiederholten Problemkarten und allgemeinen Schlussabschnitte 
 
 | Seite | Neuer Schwerpunkt |
 | --- | --- |
-| Webseite erstellen | Drei Phasen: Betrieb verstehen, Inhalte und Gestaltung entwickeln, prüfen und freigeben. Reales HMS-Projekt, Seitenplan, Bildentscheidung und Ansichten auf verschiedenen Geräten. Bestehende Preisorientierung von 1.800 Euro brutto erhalten. |
+| Webseite erstellen | Drei Phasen: Betrieb verstehen, Inhalte und Gestaltung entwickeln, prüfen und freigeben. Reales HMS-Projekt, Seitenplan, Bildentscheidung und Ansichten auf verschiedenen Geräten. Preisorientierung nach Nutzerkorrektur: ab 1.799 Euro netto (DE/EN und FAQ). |
 | Webseite überarbeiten | Bestehenden Auftritt prüfen und gezielt verändern. Echter HMS-Vergleich; nachvollziehbare Entscheidungen zu Zielgruppe, Bildern und eigenen Leistungsseiten. |
 | Laufende Betreuung | Nachricht mit Dateianhängen wird zu einem gestalteten Projektabschnitt. Fachlicher Input, redaktionelle Bearbeitung und Kundenfreigabe sind getrennt erkennbar. |
 | Google-Unternehmensprofil | Angaben, Einblicke und Kontaktmöglichkeiten. Schematische Profilansicht mit realem Arbeitsbild; Einrichtung und laufende Pflege unterschieden. |
@@ -53,3 +53,7 @@ Alle zwölf Seiten wurden auf Deutsch und Englisch überarbeitet. URLs und beste
 - Das ausdrücklich gewünschte Badge „90% starten hier“ ist erhalten. Eine statistische Bezugsgröße ist in der ausgewerteten Grundlage nicht dokumentiert. Vor Veröffentlichung belastbar zuordnen oder qualitativ formulieren.
 - Die PIM-Grundlage der KI-Potenzialanalyse enthält noch keinen final bestätigten Preis. Deshalb wird keine Zahl genannt; Preis und Konditionen werden vor einer Beauftragung geklärt. Die Seite ist keine kommerzielle Freigabe des Angebots.
 - Keine neuen Termin-, Ranking-, Umsatz- oder Anfragegarantien eingeführt. Kein Nachweis tatsächlicher Buchungen oder Live-Veröffentlichung.
+
+## Ergänzungen zur Veröffentlichungsfreigabe
+
+Der Nutzer hat die Preisangabe am 7. November auf 1.799 Euro netto korrigiert. Die Angaben zum selben Angebot sind in deutscher und englischer Fassung angepasst. Kalender werden an den Gesprächsabschlüssen direkt geöffnet angezeigt; der Anfrageweg für die eigenständige KI-Analyse und der schriftliche Handwerkscheck bleiben zusätzlich verfügbar.
