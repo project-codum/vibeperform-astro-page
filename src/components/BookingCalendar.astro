@@ -1,7 +1,7 @@
 ---
 import { bookingEmbedUrl, bookingUrl, type Locale } from '../lib/siteMetadata';
-interface Props { locale: Locale; autoOpen?: boolean; }
-const { locale, autoOpen = false } = Astro.props;
+interface Props { locale: Locale; autoOpen?: boolean; analyticsLocation?: string; }
+const { locale, autoOpen = false, analyticsLocation = 'home-contact' } = Astro.props;
 const de = locale === 'de';
 const t = de ? {
   button: 'Termin finden',
@@ -21,8 +21,8 @@ const t = de ? {
 ---
 <div class="booking-calendar" data-booking-calendar data-auto-open={autoOpen ? 'true' : undefined} data-phase="closed">
   <div class="booking-placeholder" data-booking-placeholder>
-    <button class="hp-button booking-load" type="button" data-booking-load hidden aria-description={t.description} aria-controls={`booking-panel-${locale}`} aria-expanded="false" data-analytics-event="contact_start" data-analytics-name="load-booking-calendar" data-analytics-location="home-contact">{t.button}<span aria-hidden="true">↗</span></button>
-    <a class="hp-button booking-fallback" data-booking-fallback href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.button}<span aria-hidden="true">↗</span></a>
+    <button class="hp-button booking-trigger booking-load" type="button" data-booking-load hidden aria-description={t.description} aria-controls={`booking-panel-${locale}`} aria-expanded="false" data-analytics-event="contact_start" data-analytics-name="load-booking-calendar" data-analytics-location={analyticsLocation}>{t.button}</button>
+    <a class="hp-button booking-trigger booking-fallback" data-booking-fallback href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.button}</a>
   </div>
   <div class="booking-panel" id={`booking-panel-${locale}`} data-booking-panel hidden aria-busy="false">
     <div class="booking-window">
@@ -41,11 +41,32 @@ const t = de ? {
 </div>
 <script>
   import { mountBookingCalendar } from '../scripts/bookingCalendar';
-  document.querySelectorAll<HTMLElement>('[data-booking-calendar]').forEach(mountBookingCalendar);
+  document.querySelectorAll<HTMLElement>('[data-booking-calendar]').forEach(root => {
+    mountBookingCalendar(root);
+    const triggers = [...root.querySelectorAll<HTMLElement>('.booking-trigger')];
+    if (!('IntersectionObserver' in window)) {
+      triggers.forEach(trigger => trigger.classList.add('is-animation-visible'));
+      return;
+    }
+    const visible = new Set<Element>();
+    const sync = () => triggers.forEach(trigger => trigger.classList.toggle('is-animation-visible', !document.hidden && visible.has(trigger)));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+      sync();
+    });
+    root.dataset.motionReady = 'true';
+    triggers.forEach(trigger => observer.observe(trigger));
+    document.addEventListener('visibilitychange', sync);
+  });
 </script>
 <style>
   .booking-calendar{width:100%;max-width:1040px;margin:36px auto 0;text-align:center}
   .booking-load{cursor:pointer;font-family:inherit}
+  .booking-placeholder .booking-trigger{min-width:180px;justify-content:center;background:var(--hp-plum);border-color:var(--hp-plum);color:#fff}
+  .booking-placeholder .booking-trigger:hover{background:#5d3e70;border-color:#5d3e70}
   .booking-load[hidden],.booking-fallback[hidden],.booking-panel[hidden],.booking-placeholder[hidden],.booking-status[hidden]{display:none}
   .booking-panel{text-align:left;background:#fff;border:1px solid #d6c9e0;border-radius:16px;overflow:hidden;box-shadow:0 18px 55px -38px #32214066;transform-origin:top center}
   .booking-window{position:relative;background:white}
@@ -70,5 +91,5 @@ const t = de ? {
     @keyframes booking-cell-wave{50%{transform:translateY(-5px);background:#d8bdf2}}
     @keyframes booking-content-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
   }
-  @media(max-width:700px){.booking-calendar{margin-top:28px}.booking-panel{border-radius:12px}.booking-placeholder .hp-button{justify-content:space-between;padding:15px 22px}.booking-window iframe{height:1100px}.booking-status{padding:80px 20px 30px}.booking-tools{flex-wrap:wrap;padding:14px 16px;gap:13px}.booking-tools :is(a,button){min-height:36px}}
+  @media(max-width:700px){.booking-calendar{margin-top:28px}.booking-panel{border-radius:12px}.booking-placeholder .hp-button{justify-content:center;padding:15px 22px}.booking-window iframe{height:1100px}.booking-status{padding:80px 20px 30px}.booking-tools{flex-wrap:wrap;padding:14px 16px;gap:13px}.booking-tools :is(a,button){min-height:36px}}
 </style>

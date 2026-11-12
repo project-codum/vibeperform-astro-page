@@ -101,7 +101,7 @@ test('contact booking CTA uses the requested text and a reduced-motion-safe puls
   const styles=await readFile(path.join(root,'src/styles/home-page.css'),'utf8');
   assert.match(content,/booking: 'Erstgespräch buchen'/);
   assert.match(content,/booking: 'Book an intro call'/);
-  assert.match(styles,/@media\(prefers-reduced-motion:no-preference\)\{[\s\S]*?\.hp-contact-actions>\.hp-button\{animation:hp-contact-pulse 3s ease-in-out infinite\}/);
+  assert.match(styles,/@media\(prefers-reduced-motion:no-preference\)\{[\s\S]*?\.booking-calendar\[data-phase=closed\] \.booking-trigger\{animation:hp-contact-pulse 3s ease-in-out infinite\}/);
   assert.match(styles,/@keyframes hp-contact-pulse\{[^}]*\}/);
 });
 

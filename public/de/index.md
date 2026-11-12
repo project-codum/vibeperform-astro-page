@@ -75,8 +75,6 @@ Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile un
 Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.
 ## Jetzt Kennenlerngespräch buchen. Ihr Online-Auftritt wird kostenlos bewertet.
 
-Im Gespräch bekommen Sie von uns kostenlos einen Statuscheck Ihres Online-Auftritts mit Benotung und Feedback.
-
 Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir Ihren geplanten Auftritt.
 
 E-Mail: contact@vibeperform.com
