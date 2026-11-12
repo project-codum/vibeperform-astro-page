@@ -167,7 +167,8 @@ results.push({ sitemapEndpoints: `${sitemapChecks.length}/${sitemapChecks.length
 
 // Inspect every built public endpoint, including URLs excluded from the sitemap.
 const files = await readdir(dist, { recursive: true, withFileTypes: true });
-const publicFiles = files.filter(entry => entry.isFile());
+// Finder metadata is not a website endpoint, including in nested asset folders.
+const publicFiles = files.filter(entry => entry.isFile() && entry.name !== '.DS_Store');
 let publicFilesChecked = 0;
 for (const entry of publicFiles) {
 	const relative = path.relative(fileURLToPath(dist), path.join(entry.parentPath, entry.name));
