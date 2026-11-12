@@ -115,13 +115,13 @@ function renderHomeAgentPage() {
  const intro = homeIntroContent.de;
  const articles = items => items.map(item => `### ${item.title}\n\n${item.body}`).join('\n\n');
  return normalizeBlankLines(`${pageHeader({title:'Vibeperform',canonicalPath:'/de/',description:intro.description,alternatePath:'/en/'})}
-${section('Positionierung', `${intro.headline.replaceAll('\n', ' ')} ${intro.emphasis}\n\n${intro.intro.join(' ')}\n\n${intro.audience}\n\n[${intro.personLabel}](${absoluteUrl(intro.personHref)})`)}
+${section('Positionierung', `${intro.headline.replaceAll('\n', ' ')} ${intro.emphasis}\n\n${intro.intro.join(' ')}\n\n${intro.audience}`)}
 ${section('HMS Loistl: Gute Arbeit. Endlich sichtbar.', '[Webseite besuchen](https://www.hms-loistl.de/) – Vorher-Nachher-Vergleich des Webseitenauftritts.')}
 ${section(`${homeStoryContent.de.collaboration.title} ${homeStoryContent.de.collaboration.emphasis}`, articles(homeStoryContent.de.collaboration.items))}
 ${section(`${c.purpose.title} ${c.purpose.middle} ${c.purpose.emphasis}`, `${c.purpose.mission}\n\n### ${c.purpose.visionLabel}\n\n${c.purpose.vision}`)}
 ${section(`${c.services.title} ${c.services.emphasis}`, `${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}`)}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\n${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
+${section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
 }
 
 function renderWorkshopsAgentPage(locale='de') {

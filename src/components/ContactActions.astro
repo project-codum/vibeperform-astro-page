@@ -1,0 +1,13 @@
+---
+import BookingCalendar from './BookingCalendar.astro';
+import { homePageContent } from '../data/homePageContent';
+import { contactEmail, type Locale } from '../lib/siteMetadata';
+
+interface Props { locale: Locale; analyticsLocation?: string; }
+const { locale, analyticsLocation = 'service-contact' } = Astro.props;
+---
+
+<BookingCalendar autoOpen locale={locale} analyticsLocation={analyticsLocation} />
+<div class="hp-contact-actions" data-contact-actions>
+  <a class="hp-button hp-button--outline" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location={analyticsLocation}>{homePageContent[locale].contact.emailButton}</a>
+</div>

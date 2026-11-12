@@ -8,8 +8,6 @@ Summary: Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, 
 Ihr Online-Auftritt. In professionellen Händen.
 
 Wir lernen Ihren Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuung. Damit Sie sich auf Ihre Arbeit konzentrieren können.
-
-[Ihr Ansprechpartner: Marlon Dietrich](https://www.vibeperform.com/de/ueber-uns/)
 ## HMS Loistl: Gute Arbeit. Endlich sichtbar.
 
 [Webseite besuchen](https://www.hms-loistl.de/) – Vorher-Nachher-Vergleich des Webseitenauftritts.
@@ -19,7 +17,7 @@ Wir lernen Ihren Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuun
 
 Ein Beispiel: „Wie wäre ein Vorher-Nachher-Vergleich? Ein Foto, bevor die Arbeit passiert ist. Ein Foto aus dem gleichen Winkel, wenn die Arbeit gemacht wurde.“
 
-### Sie geben Input
+### Sie geben Input (z.B. per Mail)
 
 Ganz egal ob WhatsApp-Nachricht, Sprachnachricht oder E-Mail mit Anhang: Wir verarbeiten, was Sie uns schicken.
 
@@ -75,9 +73,7 @@ Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile un
 ### Wie funktioniert die laufende Betreuung?
 
 Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.
-## Kontakt
-
-Im Gespräch bekommen Sie von uns kostenlos einen Statuscheck Ihres Online-Auftritts mit Benotung und Feedback.
+## Jetzt Kennenlerngespräch buchen. Ihr Online-Auftritt wird kostenlos bewertet.
 
 Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir Ihren geplanten Auftritt.
 

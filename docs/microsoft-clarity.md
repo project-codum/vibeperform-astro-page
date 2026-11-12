@@ -1,6 +1,6 @@
 # Microsoft Clarity — vorbereitete Einbindung
 
-Stand: 9. September 2026. Code vorbereitet, noch nicht aktiviert: Projekt-ID fehlt. Kein Produktions-Deployment in diesem Arbeitsschritt.
+Stand: 9. September 2026. Code veröffentlicht, noch nicht aktiviert: Projekt-ID fehlt.
 
 ## Konfiguration zum Aktivieren
 

@@ -57,5 +57,3 @@
 .vf-title-matched em{display:inline-block;white-space:nowrap}
 :lang(en) .vf-title-matched .vf-title-line{font-size:1.0215em}
 @media(max-width:700px){.vf-copy h1.vf-title-matched{font-size:clamp(23px,7.8vw,54px)}}
-
-.vf-person{display:inline-block;margin-top:16px;font-size:12px;line-height:1.5;color:#d9c4ee!important;text-underline-offset:4px}.vf-person:hover{text-decoration:underline}

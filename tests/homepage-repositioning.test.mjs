@@ -101,7 +101,7 @@ test('contact booking CTA uses the requested text and a reduced-motion-safe puls
   const styles=await readFile(path.join(root,'src/styles/home-page.css'),'utf8');
   assert.match(content,/booking: 'Erstgespräch buchen'/);
   assert.match(content,/booking: 'Book an intro call'/);
-  assert.match(styles,/@media\(prefers-reduced-motion:no-preference\)\{[\s\S]*?\.hp-contact-actions>\.hp-button\{animation:hp-contact-pulse 3s ease-in-out infinite\}/);
+  assert.match(styles,/@media\(prefers-reduced-motion:no-preference\)\{[\s\S]*?\.booking-calendar\[data-phase=closed\] \.booking-trigger\{animation:hp-contact-pulse 3s ease-in-out infinite\}/);
   assert.match(styles,/@keyframes hp-contact-pulse\{[^}]*\}/);
 });
 
@@ -161,7 +161,8 @@ test('both homepages show input and published work without repeating the removed
     assert.match(html, /data-case-study/);
     assert.equal((workflow.match(/<article>/g) || []).length, 3);
     assert.match(workflow, /href="#kontakt"/);
-    assert.match(workflow, new RegExp(`input-email-${locale}`));
+    assert.match(workflow, /class="input-email"/);
+    assert.match(workflow, locale === 'de' ? /vorher\.jpg/ : /before\.jpg/);
     const steps = workflow.match(/<article>[\s\S]*?<\/article>/g);
     assert.match(steps[1], /input-email/);
     assert.doesNotMatch(steps[1], /published-pair/);
