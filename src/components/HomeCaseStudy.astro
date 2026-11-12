@@ -10,6 +10,8 @@ const de = locale === 'de';
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const image = (name: string) => `${base}/case-studies/loistl/${name}.webp`;
 const t = de ? {
+  eyebrow: 'Aus unserer Arbeit', projectType: 'Webseiten-Relaunch', mobileVisit: 'Webseite ansehen',
+  mobileContactFirst: 'Ihre Arbeit verdient', mobileContactSecond: 'einen passenden Auftritt.', mobileContact: 'Über Ihre Webseite sprechen',
   title: 'Gute Arbeit.', emphasis: 'Endlich sichtbar.',
   visit: 'Die Webseite besuchen', before: 'Vorher', after: 'Nachher', newTag: 'Neu',
   enlargeBefore: 'Vorher groß anzeigen', enlargeAfter: 'Nachher groß anzeigen',
@@ -18,6 +20,8 @@ const t = de ? {
   contact: 'VibePerform kontaktieren', contactLabel: 'VibePerform kontaktieren',
   dialogTitle: 'Sprechen wir über Ihre Webseite.', close: 'Kontaktfenster schließen', call: 'Anrufen', mail: 'E-Mail schreiben',
 } : {
+  eyebrow: 'Our work', projectType: 'Website redesign', mobileVisit: 'Visit website',
+  mobileContactFirst: 'Your work deserves', mobileContactSecond: 'a fitting online presence.', mobileContact: 'Let’s talk about your website',
   title: 'Good work.', emphasis: 'Finally visible.',
   visit: 'Visit the website', before: 'Before', after: 'After', newTag: 'New',
   enlargeBefore: 'Show the previous website large', enlargeAfter: 'Show the new website large',
@@ -29,10 +33,12 @@ const t = de ? {
 ---
 <section class="hcs" id="projekt-hms-loistl" aria-labelledby="hcs-title" data-case-study data-front="after">
   <div class="hcs-wrap">
+    <p class="hcs-mobile-only hcs-mobile-eyebrow">{t.eyebrow}</p>
     <div class="hcs-intro">
       <div><h2 id="hcs-title">{t.title}<br /><em>{t.emphasis}</em></h2></div>
       <div class="hcs-intro-copy"><a class="hcs-visit" href="https://www.hms-loistl.de/" target="_blank" rel="noopener noreferrer">{t.visit}<span aria-hidden="true">↗</span></a></div>
     </div>
+    <div class="hcs-mobile-only hcs-mobile-project"><span>HMS Loistl</span><span>{t.projectType}</span></div>
     <div class="hcs-mobile-controls" role="group" aria-label={de ? 'Webseiten-Stand auswählen' : 'Choose website version'}>
       <button type="button" data-hcs-go="before" aria-pressed="false">{t.before}</button><button type="button" data-hcs-go="after" aria-pressed="true">{t.after}</button>
     </div>
@@ -41,7 +47,7 @@ const t = de ? {
         <figcaption><span>{t.before}</span></figcaption>
         <div class="hcs-browser"><div class="hcs-chrome" aria-hidden="true"><span>● ● ●</span><span>hms-loistl.de</span></div>
           <button type="button" class="hcs-swap" data-hcs-switch aria-label={t.enlargeBefore} data-before-label={t.enlargeBefore} data-after-label={t.enlargeAfter}>
-            <div class="hcs-old-image"><img src={image('before-small')} srcset={`${image('before-small')} 1000w, ${image('before-desktop')} 1800w`} sizes="(max-width:700px) 90vw, 860px" width="1800" height="6522" loading="lazy" alt={t.beforeAlt} /></div>
+            <picture class="hcs-old-image"><source media="(max-width:700px)" srcset={`${image('before-overview-720')} 720w, ${image('before-overview-1080')} 1080w`} sizes="calc(100vw - 40px)" /><img src={image('before-small')} srcset={`${image('before-small')} 1000w, ${image('before-desktop')} 1800w`} sizes="(max-width:700px) 90vw, 860px" width="1800" height="6522" loading="lazy" alt={t.beforeAlt} /></picture>
           </button>
         </div>
       </figure>
@@ -49,11 +55,17 @@ const t = de ? {
         <figcaption><span>{t.after}</span><svg class="hcs-new-tag" xmlns="http://www.w3.org/2000/svg" viewBox="88 32 84 68.5" role="img" aria-label={de ? 'Neu von VibePerform' : 'New by VibePerform'}><path fill="#ad46ff" d="M128 32C128 57 118 68 88 68C118 68 128 79 128 100.5C128 79 140 68 172 68C140 68 128 57 128 32Z" /><text x="128" y="69" text-anchor="middle" dominant-baseline="middle">{t.newTag}</text></svg></figcaption>
         <div class="hcs-browser"><div class="hcs-chrome" aria-hidden="true"><span>● ● ●</span><span>hms-loistl.de</span><span>↗</span></div>
           <button type="button" class="hcs-swap" data-hcs-switch aria-label={t.enlargeBefore} data-before-label={t.enlargeBefore} data-after-label={t.enlargeAfter}>
-            <picture class="hcs-new-image"><source media="(max-width:700px)" srcset={image('after-mobile')} /><img src={image('after-desktop')} width="1440" height="1000" loading="lazy" alt={t.afterAlt} /></picture>
+            <picture class="hcs-new-image"><source media="(max-width:700px)" srcset={`${image('after-overview-720')} 720w, ${image('after-overview-1080')} 1080w`} sizes="calc(100vw - 40px)" /><img src={image('after-desktop')} width="1440" height="1000" loading="lazy" alt={t.afterAlt} /></picture>
           </button>
           <button class="hcs-image-contact" type="button" data-hcs-contact aria-label={t.contactLabel}>{t.contact}<span aria-hidden="true">↗</span></button>
         </div>
       </figure>
+    </div>
+    <div class="hcs-mobile-only hcs-mobile-below"><p>hms-loistl.de</p><a href="https://www.hms-loistl.de/" target="_blank" rel="noopener noreferrer">{t.mobileVisit}<span aria-hidden="true"> ↗</span></a></div>
+    <div class="hcs-mobile-only hcs-mobile-contact">
+      <p>{t.mobileContactFirst}<br />{t.mobileContactSecond}</p>
+      <button class="hcs-mobile-cta" type="button" data-hcs-contact>{t.mobileContact}<span aria-hidden="true">↗</span></button>
+      <a class="hcs-mobile-cta hcs-mobile-contact-fallback" href="#kontakt">{t.mobileContact}<span aria-hidden="true">↗</span></a>
     </div>
     <p class="hcs-live" aria-live="polite" data-hcs-status data-before={t.currentBefore} data-after={t.currentAfter}>{t.currentAfter}</p>
   </div>
