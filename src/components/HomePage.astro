@@ -3,13 +3,13 @@ import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
 import HomeCaseStudy from './HomeCaseStudy.astro';
 import AgencyFooter from './AgencyFooter.astro';
-import BookingCalendar from './BookingCalendar.astro';
+import ContactActions from './ContactActions.astro';
 import HomeServices from './HomeServices.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { homePageContent } from '../data/homePageContent';
 import { homeStoryContent } from '../data/homeStoryContent';
 import CollaborationVisual from './CollaborationVisual.astro';
-import { contactEmail, type Locale } from '../lib/siteMetadata';
+import { type Locale } from '../lib/siteMetadata';
 import '../styles/home-page.css';
 
 interface Props { currentLocale: Locale; alternateLocaleHref: string; }
@@ -57,7 +57,7 @@ const story = homeStoryContent[locale];
     </section>
 
     <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
-      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><p class="hp-contact-detail">{t.contact.detail}</p><BookingCalendar locale={locale} autoOpen /><div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
+      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-contact-detail">{t.contact.detail}</p><ContactActions locale={locale} analyticsLocation="home-contact" /></div>
     </section>
   </main>
 
@@ -67,7 +67,7 @@ const story = homeStoryContent[locale];
 <script>
   import '../scripts/purposeCaption';
   // Repeated SVG and button effects only run while their section is visible.
-  const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button');
+  const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button:not(.hp-button--outline)');
   if ('IntersectionObserver' in window) {
     const active = new Set<Element>();
     const update = () => looping.forEach(node => node.classList.toggle('is-animation-visible', !document.hidden && active.has(node)));

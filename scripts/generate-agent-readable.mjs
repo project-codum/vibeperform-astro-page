@@ -121,7 +121,7 @@ ${section(`${homeStoryContent.de.collaboration.title} ${homeStoryContent.de.coll
 ${section(`${c.purpose.title} ${c.purpose.middle} ${c.purpose.emphasis}`, `${c.purpose.mission}\n\n### ${c.purpose.visionLabel}\n\n${c.purpose.vision}`)}
 ${section(`${c.services.title} ${c.services.emphasis}`, `${c.services.items.map(item=>`### ${item.title}\n\n${item.body}\n\n[${item.link}](${absoluteUrl(item.href.startsWith('#')?'/de/'+item.href:item.href)})`).join('\n\n')}`)}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
+${section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
 }
 
 function renderWorkshopsAgentPage(locale='de') {

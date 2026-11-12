@@ -2,8 +2,7 @@
 import { Image, getImage } from 'astro:assets';
 import AgencyDocument from './AgencyDocument.astro';
 import { aboutContent, aboutPaths, type AboutLocale } from '../data/aboutContent';
-import BookingCalendar from './BookingCalendar.astro';
-import { contactEmail } from '../lib/siteMetadata';
+import ContactActions from './ContactActions.astro';
 import portrait from '../assets/agency/marlon-studio-portrait-v1.png';
 import heroPortrait from '../assets/agency/marlon-studio-portrait-outside-frame-v1.png';
 import '../styles/about-page.css';
@@ -63,8 +62,7 @@ const shareImageAlt = locale === 'de' ? 'Marlon Dietrich, Inhaber von VibePerfor
       <Image class="ag-contact-portrait" src={portrait} alt="Marlon Dietrich" width={144} height={144} fit="cover" format="webp" loading="lazy"/>
       <h2 id="contact-title">{c.contact.title}<br/><em>{c.contact.emphasis}</em></h2>
       <p class="hp-intro">{c.contact.body}</p>
-      <BookingCalendar locale={locale} autoOpen />
-      <div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="agency-contact">{contactEmail}<span aria-hidden="true">↗</span></a></div>
+    <ContactActions locale={locale} analyticsLocation="agency-contact" />
     </div>
   </section>
 </AgencyDocument>

@@ -1,0 +1,27 @@
+---
+import 'lenis/dist/lenis.css';
+---
+
+<script>
+  import { mountSmoothScroll } from '../scripts/smoothScroll';
+
+  let cleanup: (() => void) | undefined;
+  const mount = () => { cleanup ??= mountSmoothScroll(); };
+  const unmount = () => { cleanup?.(); cleanup = undefined; };
+
+  mount();
+  document.addEventListener('astro:before-swap', unmount);
+  document.addEventListener('astro:page-load', mount);
+  window.addEventListener('pagehide', unmount);
+  window.addEventListener('pageshow', mount);
+</script>
+
+<style is:global>
+  /* Lenis owns interpolation; native CSS smoothing would fight its updates. */
+  html.lenis { scroll-behavior: auto !important; }
+  dialog:modal { overscroll-behavior: contain; }
+  dialog::backdrop { overflow: hidden; overscroll-behavior: contain; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+  }
+</style>
