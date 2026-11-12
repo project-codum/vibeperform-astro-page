@@ -33,14 +33,20 @@ const story = homeStoryContent[locale];
 
     <section class="hp-section hp-purpose" id="leitgedanke" aria-labelledby="purpose-title" data-analytics-section="home-purpose">
       <div class="hp-wrap">
+        <div class="hp-purpose-stage" data-purpose-stage>
+        <div class="hp-purpose-pin" data-purpose-pin>
         <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
           {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
             const Tag = index === 2 ? 'em' : 'span';
             return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
           })}
         </h2>
+        </div>
+        </div>
+        <div class="hp-purpose-details">
         <p class="hp-purpose-mission">{t.purpose.mission}</p>
         <div class="hp-purpose-vision"><p class="hp-purpose-label">{t.purpose.visionLabel}</p><p class="hp-purpose-vision-text">{t.purpose.vision}</p></div>
+        </div>
       </div>
     </section>
 

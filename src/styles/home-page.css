@@ -123,3 +123,32 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
 @media(prefers-reduced-motion:reduce){.hp-caption-word{opacity:1!important;transform:none!important;filter:none!important}}
 
 .hp-contact-detail{max-width:76ch;font-size:15px;line-height:1.7;margin:18px 0 32px;color:#62516e;text-align:left}
+
+/* The statement gets its own mobile screen; mission and vision follow below. */
+@media(max-width:700px){
+  .hp-purpose{padding-top:0;scroll-margin-top:0}
+  .hp-purpose-stage{min-height:100svh;display:flex;align-items:center;padding:48px 0;scroll-margin-top:0}
+  .hp-purpose h2{font-size:clamp(32px,10.4vw,64px);line-height:1.14;letter-spacing:-.045em;width:100%}
+  .hp-purpose h2>span,.hp-purpose h2>em{white-space:normal}
+  .hp-purpose h2>em{font-size:.8em;line-height:1.2;margin-top:.15em}
+  .hp-purpose-details{padding-bottom:10px}
+  .hp-purpose .hp-purpose-mission{margin-top:0}
+}
+@media(max-width:700px) and (max-height:520px){
+  .hp-purpose-stage{padding:32px 0}
+  .hp-purpose h2{font-size:clamp(28px,6.4vw,44px)}
+}
+
+/* A native sticky stage gives the first reading pass real scroll distance. */
+.hp-purpose-pin{width:100%}
+@media(prefers-reduced-motion:no-preference){
+  .hp-purpose-stage[data-caption-scroll=active]{display:block;position:relative;min-height:calc(var(--purpose-pin-height,100svh) + var(--purpose-scroll-distance,900px));padding:0}
+  .hp-purpose-stage[data-caption-scroll=active] .hp-purpose-pin{position:sticky;top:0;min-height:100svh;display:flex;align-items:center;padding:48px 0}
+}
+@media(max-height:520px) and (prefers-reduced-motion:no-preference){
+  .hp-purpose-stage[data-caption-scroll=active] .hp-purpose-pin{padding:24px 0}
+  .hp-purpose-stage[data-caption-scroll=active] h2{font-size:clamp(28px,6.4vw,64px)}
+}
+
+/* Larger word entrances stay inside the left edge on narrow screens. */
+@media(max-width:700px){.hp-caption-word{transform-origin:0% 70%}}
