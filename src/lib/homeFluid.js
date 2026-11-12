@@ -10,6 +10,9 @@ uniform float cursorPresence;
 uniform vec3 centres[5];
 uniform sampler2D portrait;
 uniform float portraitReady;
+uniform sampler2D surprisedPortrait;
+uniform float surprisedPortraitReady;
+uniform float portraitReaction;
 float join(float a,float b,float k){
   float h=clamp(.5+.5*(b-a)/k,0.,1.);
   return mix(b,a,h)-k*h*(1.-h);
@@ -73,7 +76,14 @@ void main(){
   // A slight spherical lens remains visible even while the mouse is away.
   surface+=radial.xy*pow(1.-max(radial.z,0.),2.)*.10;
   vec2 photoUV=vec2(.5+surface.x*.49,.59+surface.y*.39);
-  vec3 photo=texture2D(portrait,clamp(photoUV,.001,.999)).rgb;
+  // Uniform across the draw: only sample both textures during the blend.
+  float surprise=portraitReaction*surprisedPortraitReady;
+  vec3 photo;
+  if(surprise>=1.) photo=texture2D(surprisedPortrait,clamp(photoUV,.001,.999)).rgb;
+  else {
+    photo=texture2D(portrait,clamp(photoUV,.001,.999)).rgb;
+    if(surprise>0.) photo=mix(photo,texture2D(surprisedPortrait,clamp(photoUV,.001,.999)).rgb,surprise);
+  }
   float coverage=(1.-smoothstep(.20,.48,length(local)))*portraitReady;
   vec3 coated=photo*(.62+.38*diffuse)+vec3(.35,.20,.48)*rim*.48;
   coated+=vec3(.95,.83,.99)*spec*.20;
@@ -81,12 +91,21 @@ void main(){
   gl_FragColor=vec4(color,1.);
 }`;
 
-export function mountFluid(canvas, { onState = () => {}, portraitImage = null } = {}) {
+// Same distance/contact curve as the surface deformation. Evaluate once per
+// frame rather than once per shaded pixel; keep light deformation neutral.
+export function portraitReaction(distance, presence) {
+  const reach = Math.max(0, Math.min(1, (distance - .16) / .39));
+  const contact = (1 - reach * reach * (3 - 2 * reach)) * presence;
+  const blend = Math.max(0, Math.min(1, (contact - .28) / .20));
+  return blend * blend * (3 - 2 * blend);
+}
+
+export function mountFluid(canvas, { onState = () => {}, portraitImage = null, surprisedPortraitSrc = null } = {}) {
   const host = canvas.parentElement;
   const region = host.closest('.vf-hero') || host;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const coarse = matchMedia('(pointer: coarse)');
-  let gl, program, buffer, texture, shaders = [], raf = 0;
+  let gl, program, buffer, texture, surprisedTexture, shaders = [], raf = 0;
   let ready = false, preparing = false, epoch = 0;
   let disposed = false, lost = false, paused = false, visible = false;
   let elapsed = 0, lastFrame = 0, lastTick = 0;
@@ -107,7 +126,8 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null } 
     epoch++; ready = preparing = false;
     if (!gl) return;
     if (texture) gl.deleteTexture(texture);
-    texture = null;
+    if (surprisedTexture) gl.deleteTexture(surprisedTexture);
+    texture = surprisedTexture = null;
     if (buffer) gl.deleteBuffer(buffer);
     if (program) gl.deleteProgram(program);
     shaders.forEach(shader => gl.deleteShader(shader));
@@ -143,26 +163,47 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null } 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,3,-1,-1,3]), gl.STATIC_DRAW);
     const position = gl.getAttribLocation(program, 'position');
     gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    uniforms = Object.fromEntries(['resolution','pointer','cursorPresence'].map(key => [key,gl.getUniformLocation(program,key)]));
+    uniforms = Object.fromEntries(['resolution','pointer','cursorPresence','portraitReaction'].map(key => [key,gl.getUniformLocation(program,key)]));
     uniforms.centres = gl.getUniformLocation(program, 'centres[0]');
     if (portraitImage) {
       await portraitImage.decode();
       if (disposed || lost || attempt !== epoch) return;
-      texture = gl.createTexture();
-      gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, texture);
-      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, portraitImage);
+      texture = uploadPortrait(portraitImage, 0);
       gl.uniform1i(gl.getUniformLocation(program, 'portrait'), 0);
       gl.uniform1f(gl.getUniformLocation(program, 'portraitReady'), 1);
     }
     ready = true; preparing = false;
     if (!resize()) draw();
     sync();
+    // Optional decoration never delays the normal portrait or breaks its
+    // fallback. A stale decode must not upload into a restored GPU context.
+    if (portraitImage && surprisedPortraitSrc && !coarse.matches) {
+      void loadSurprisedPortrait(attempt).catch(() => {});
+    }
+  }
+  function uploadPortrait(image, unit) {
+    const result = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE0 + unit);
+    gl.bindTexture(gl.TEXTURE_2D, result);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+    return result;
+  }
+  async function loadSurprisedPortrait(attempt) {
+    const image = new Image();
+    image.decoding = 'async';
+    image.fetchPriority = 'low';
+    image.src = surprisedPortraitSrc;
+    await image.decode();
+    if (disposed || lost || attempt !== epoch) return;
+    surprisedTexture = uploadPortrait(image, 1);
+    gl.uniform1i(gl.getUniformLocation(program, 'surprisedPortrait'), 1);
+    gl.uniform1f(gl.getUniformLocation(program, 'surprisedPortraitReady'), 1);
+    draw();
   }
   function draw() {
     if (!gl || !ready || lost || disposed || motion.matches || document.hidden) return;
@@ -182,6 +223,10 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null } 
       a * .59 + Math.sin(t * .8) * .10, .48 + Math.cos(t) * .12, .10,
     ]);
     gl.uniform3fv(uniforms.centres, centres);
+    gl.uniform1f(uniforms.portraitReaction, portraitReaction(
+      Math.hypot(px * a - centres[12], py - centres[13]),
+      coarse.matches ? 0 : cursorPresence,
+    ));
     gl.drawArrays(gl.TRIANGLES,0,3);
   }
   function resize() {
@@ -262,7 +307,7 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null } 
   canvas.addEventListener('webglcontextrestored',contextRestored);
   preference();
   return {
-    toggle() { paused=!paused; sync(); },
+    toggle() { paused=!paused; if (paused) { clearCursor(); draw(); } sync(); },
     destroy() {
       disposed=true; stop(); sizeObserver.disconnect(); visibilityObserver.disconnect();
       region.removeEventListener('pointermove',move); region.removeEventListener('pointerleave',leave);

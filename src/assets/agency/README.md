@@ -1,5 +1,13 @@
 # Marlon Dietrich: Agenturseiten-Porträt
 
+## Interaktive erschrockene Mimik · 12.11.2026
+
+`marlon-studio-portrait-surprised-v1.png` ist eine mit dem integrierten Bildwerkzeug generativ bearbeitete Ableitung von `marlon-studio-portrait-v1.png`: geweitete Augen und runder offener Mund bei erhaltenem Ausschnitt, Hintergrund und Kleidung. Marlon hat die Fassung, den späteren Wechsel bei stärkerer Verzerrung sowie Commit, Merge und Veröffentlichung am 12.11.2026 bestätigt.
+
+Einsatz: ausschließlich als interaktive zweite Textur in der Homepage-Bubble (DE/EN). Astro erzeugt eine 512 × 640 Pixel große WebP-Datei (23.646 Bytes im geprüften Build). Sie lädt mit niedriger Priorität nach dem normalen Porträt, nicht auf Touch-Geräten oder bei reduzierter Bewegung. Der Shader nutzt den pro Frame berechneten Verzerrungswert; beide Texturen werden nur während des Übergangs abgefragt. Bei Ladefehler bleibt das Original aktiv. Die 30-fps-Begrenzung, Sichtbarkeitspausen und GPU-Aufräumlogik bleiben erhalten.
+
+Bild und vollständiger Prompt: [Mediennachweis in Drive](https://drive.google.com/file/d/1Zorl0wNxJLJG4bJ8qHth7Mo-kE1souKu/view).
+
 Quelle: vom Nutzer bereitgestelltes Foto `PXL_20260917_144523587~2.jpg`.
 Bildbearbeitung: KI-bearbeitetes Studioporträt, Version 1 vom 19.09.2026; vom Nutzer mit „top“ für die Agenturseite bestätigt.
 Original des freigegebenen Ergebnisses: `KI-Beratung/outputs/marlon-portrait-2026-09-19/marlon-studio-portrait-v1.png`.
