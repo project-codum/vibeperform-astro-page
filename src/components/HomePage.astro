@@ -27,7 +27,7 @@ const story = homeStoryContent[locale];
     <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
       <div class="hp-wrap hp-split">
         <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
-        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><h3>{item.title}</h3><CollaborationVisual index={index} locale={locale} /><p>{item.body}</p></article>)}</div>
       </div>
     </section>
 
