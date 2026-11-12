@@ -76,10 +76,10 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
 
 .hp-collaboration{background:#f5f2ed;border-top:1px solid var(--hp-line)}.hp-collaboration-cta{margin-top:28px;max-width:100%}.hp-collaboration .hp-editorial-list h3{margin-top:0}
 
-.hp-collaboration-steps article{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:center}.hp-collaboration-steps article>div{min-width:0}.hp-collaboration-steps p{font-size:15px}.hp-collaboration .hp-split{grid-template-columns:.85fr 1.4fr;gap:6%}
+.hp-collaboration-steps article{display:grid;grid-template-columns:230px minmax(0,1fr);grid-template-areas:"heading heading" "visual copy";gap:18px 24px;align-items:center}.hp-collaboration-steps article>h3{grid-area:heading;margin:0;text-wrap:initial}.hp-collaboration-steps article>div{grid-area:visual;min-width:0}.hp-collaboration-steps article>p{grid-area:copy}.hp-collaboration-steps p{font-size:15px}.hp-collaboration .hp-split{grid-template-columns:.85fr 1.4fr;gap:6%}
 @media(max-width:1100px) and (min-width:701px){.hp-collaboration-steps article{grid-template-columns:200px minmax(0,1fr);gap:20px}.hp-collaboration .hp-split{grid-template-columns:.8fr 1.4fr;gap:5%}}
 @media(max-width:900px){.hp-collaboration .hp-split{grid-template-columns:1fr;gap:44px}.hp-collaboration .hp-heading{max-width:620px}.hp-collaboration-steps article{grid-template-columns:230px minmax(0,1fr)}}
-@media(max-width:600px){.hp-collaboration-steps article{grid-template-columns:1fr;gap:22px}}
+@media(max-width:600px){.hp-collaboration-steps article{grid-template-columns:1fr;grid-template-areas:"heading" "visual" "copy";gap:20px}.hp-collaboration-steps article>div{max-width:none}}
 
 
 
@@ -133,6 +133,7 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
   .hp-purpose h2>em{font-size:.8em;line-height:1.2;margin-top:.15em}
   .hp-purpose-details{padding-bottom:10px}
   .hp-purpose .hp-purpose-mission{margin-top:0}
+  .home-main>.hp-contact h2{hyphens:none;overflow-wrap:break-word;font-size:clamp(30px,7.8vw,44px)}
 }
 @media(max-width:700px) and (max-height:520px){
   .hp-purpose-stage{padding:32px 0}

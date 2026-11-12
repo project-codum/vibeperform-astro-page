@@ -161,7 +161,8 @@ test('both homepages show input and published work without repeating the removed
     assert.match(html, /data-case-study/);
     assert.equal((workflow.match(/<article>/g) || []).length, 3);
     assert.match(workflow, /href="#kontakt"/);
-    assert.match(workflow, new RegExp(`input-email-${locale}`));
+    assert.match(workflow, /class="input-email"/);
+    assert.match(workflow, locale === 'de' ? /vorher\.jpg/ : /before\.jpg/);
     const steps = workflow.match(/<article>[\s\S]*?<\/article>/g);
     assert.match(steps[1], /input-email/);
     assert.doesNotMatch(steps[1], /published-pair/);
