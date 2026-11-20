@@ -169,7 +169,8 @@ test('both homepages show input and published work without repeating the removed
     for (const label of locale === 'de' ? ['Wir machen Vorschläge', 'Sie geben Input', 'Wir setzen um'] : ['We make suggestions', 'You share your input', 'We create']) assert.ok(workflow.includes(label));
     assert.match(workflow, locale === 'de' ? /Sie entscheiden, ob die neuen Inhalte online kommen/ : /You decide whether the new content goes online/);
     if (locale === 'en') assert.doesNotMatch(workflow, /Vorher|Nachher|Sie geben Input/);
-    assert.ok(html.indexOf('id="home-next"') < html.indexOf('id="leitgedanke"'));
+    const flow = ['top', 'home-title', 'designstudien', 'leitgedanke', 'leistungen', 'projekt-hms-loistl', 'home-next'];
+    for (let i = 1; i < flow.length; i++) assert.ok(html.indexOf(`id="${flow[i]}"`) > html.indexOf(`id="${flow[i - 1]}"`), `Expected ${flow[i]} after ${flow[i - 1]}`);
     assert.ok(html.indexOf('id="leitgedanke"') < html.indexOf('id="leistungen"'));
     const services = html.match(/<section[^>]*id="leistungen"[\s\S]*?<\/section>/)[0];
     assert.equal((services.match(/hp-service-row--reverse/g)||[]).length, 2);

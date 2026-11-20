@@ -3,6 +3,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import { defineConfig } from 'astro/config';
+import { localHomepagePreview, privatePreviewFlags } from './scripts/local-homepage-preview.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,7 @@ export default defineConfig({
 	cacheDir: './.cache/astro',
 	trailingSlash: 'always',
 	// Remove base when using custom domain
-	integrations: [react()],
+	integrations: [react(), localHomepagePreview()],
 	i18n: {
 		defaultLocale: 'de',
 		locales: ['de', 'en'],
@@ -21,6 +22,7 @@ export default defineConfig({
 	},
 	vite: {
 		cacheDir: '.cache/vite',
+		define: privatePreviewFlags,
 		plugins: [tailwindcss()],
 	},
 });

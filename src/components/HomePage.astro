@@ -1,10 +1,13 @@
 ---
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
+import HomeDesignStudies from './HomeDesignStudies.astro';
+import HomeProjectVisibility from './HomeProjectVisibility.astro';
 import HomeCaseStudy from './HomeCaseStudy.astro';
 import AgencyFooter from './AgencyFooter.astro';
 import BookingCalendar from './BookingCalendar.astro';
 import HomeServices from './HomeServices.astro';
+import HomeSituationSolutions from './HomeSituationSolutions.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { homePageContent } from '../data/homePageContent';
 import { homeStoryContent } from '../data/homeStoryContent';
@@ -20,16 +23,12 @@ const story = homeStoryContent[locale];
 <div class="home-shell" id="top">
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
   <main class="home-main">
-    <HomeHero copy={homeIntroContent[locale]} />
-    <HomeCaseStudy locale={locale} />
-    <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
+    <div class="hp-hero-canvas">
+      <HomeHero copy={homeIntroContent[locale]} />
+      <HomeDesignStudies locale={locale} />
+    </div>
 
-    <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
-      <div class="hp-wrap hp-split">
-        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
-        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
-      </div>
-    </section>
+    <HomeProjectVisibility locale={locale} />
 
     <section class="hp-section hp-purpose" id="leitgedanke" aria-labelledby="purpose-title" data-analytics-section="home-purpose">
       <div class="hp-wrap">
@@ -50,7 +49,19 @@ const story = homeStoryContent[locale];
       </div>
     </section>
 
+    <HomeSituationSolutions locale={locale} />
     <HomeServices locale={locale} />
+
+    <HomeCaseStudy locale={locale} />
+    <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
+
+    <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
+      <div class="hp-wrap hp-split">
+        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
+        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+      </div>
+    </section>
+
 
     <section class="hp-section hp-faq" aria-labelledby="faq-title">
       <div class="hp-wrap hp-split"><div><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div>
