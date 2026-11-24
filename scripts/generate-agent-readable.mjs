@@ -18,6 +18,7 @@ const { aboutContent } = await jiti.import('../src/data/aboutContent.ts');
 
 const { knowledgeContent, groupKnowledgePosts } = await jiti.import('../src/data/knowledgeContent.ts');
 const { tradePageContent } = await jiti.import('../src/data/tradePageContent.ts');
+const { designStudies } = await jiti.import('../src/data/designStudies.ts');
 const { homePageContent } = await jiti.import('../src/data/homePageContent.ts');
 const { homeIntroContent } = await jiti.import('../src/data/homeIntroContent.ts');
 const { serviceNarratives } = await jiti.import('../src/data/serviceNarratives.ts');
@@ -109,6 +110,13 @@ function pageHeader({ title, canonicalPath, description, alternatePath }) {
 	return `${lines.join('\n')}\n\n`;
 }
 
+function renderStudyLinks(locale) {
+ const title = locale === 'de' ? 'Designstudien nach Branche' : 'Website design studies by industry';
+ return section(title, designStudies(locale).map(study =>
+   `- [${study.imageTitle} – ${study.detail}](${absoluteUrl('/studien/hero-kmu/' + study.id + '.html')})`
+ ).join('\n'));
+}
+
 function renderHomeAgentPage() {
  const c = homePageContent.de;
  const intro = homeIntroContent.de;
@@ -118,6 +126,7 @@ ${section('Positionierung', `${intro.headline.replaceAll('\n', ' ')} ${intro.emp
 ${section(`${c.purpose.title} ${c.purpose.middle} ${c.purpose.emphasis}`, c.purpose.mission)}
 ${section('Projekte, Fachwissen und Veranstaltungen sichtbar machen', 'Wir machen aus deinen Fotos und Notizen Projektbeiträge, beantworten wiederkehrende Kundenfragen und machen Termine, Orte und Anmeldung zu Veranstaltungen auffindbar. [VibePerform-Ratgeber: Welche Inhalte braucht eine Handwerker-Webseite?](/de/blog/handwerker-website-inhalte-checkliste/)')}
 ${section(c.seo.title, `${c.seo.body}\n\n[${c.seo.link}](${absoluteUrl(c.seo.href)})`)}
+${renderStudyLinks('de')}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
 ${section('Kontakt', `${c.contact.body}\n\n${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
 }
@@ -401,6 +410,12 @@ const pages = [
 ];
 const pageByPath = new Map(pages.map((page) => [page.relativePath, page.content]));
 const negotiatedPages = [
+ {relativePath:'en/index.md', content:normalizeBlankLines([
+   pageHeader({title:'VibePerform', canonicalPath:'/en/', alternatePath:'/de/', description:homeIntroContent.en.description}),
+   homeIntroContent.en.intro.join(' '), homePageContent.en.purpose.mission, renderStudyLinks('en'),
+   section('Services', `[All services](${absoluteUrl(servicePaths.en.overview)})`),
+   section('Contact', `${homePageContent.en.contact.body}\n\n${contactEmail} · [Book an introductory call](${calendarUrl})`),
+ ].join('\n\n'))},
  {relativePath:'de/blog/index.md',content:renderKnowledgeIndex('de',blogPosts)},
  {relativePath:'en/blog/index.md',content:renderKnowledgeIndex('en',englishBlogPosts)},
  ...englishBlogPosts.map(post=>({relativePath:`en/blog/${post.slug}/index.md`,content:renderBlogAgentPage(post)})),

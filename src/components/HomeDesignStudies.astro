@@ -1,31 +1,12 @@
 ---
+import { designStudies } from '../data/designStudies';
 import type { Locale } from '../lib/siteMetadata';
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const de = locale === 'de';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const studies = [
-  { id: "01-sauerteig", trade: de ? "Bäckerei" : "Bakery", detail: de ? "Sauerteig und Kruste" : "Sourdough and crust" },
-  { id: "02-metallbau", trade: de ? "Metallbau" : "Metal fabrication", detail: de ? "Vom Plan zum Teil" : "From drawing to finished part" },
-  { id: "03-floristik", trade: de ? "Floristik" : "Floristry", detail: de ? "Blüten nach Gefühl" : "Flowers by feel" },
-  { id: "04-radwerkstatt", trade: de ? "Fahrradwerkstatt" : "Bike repair", detail: de ? "Was macht dein Rad?" : "How is your bike doing?" },
-  { id: "05-physio", trade: de ? "Physiotherapie" : "Physiotherapy", detail: de ? "Wieder leichter bewegen" : "Move with greater ease" },
-  { id: "06-zimmerei", trade: de ? "Zimmerei" : "Carpentry", detail: de ? "Mehr Raum aus Holz" : "More room, built in wood" },
-  { id: "07-kaeserei", trade: de ? "Käserei" : "Cheesemaking", detail: de ? "Reife ist Geschmack" : "Flavor takes time" },
-  { id: "08-elektrotechnik", trade: de ? "Elektrotechnik" : "Electrical engineering", detail: de ? "Laden, wo du parkst" : "Charge where you park" },
-  { id: "09-buchhandlung", trade: de ? "Buchhandlung" : "Bookshop", detail: de ? "Zwischen zwei Deckeln" : "Between two covers" },
-  { id: "10-hundepflege", trade: de ? "Hundepflege" : "Dog grooming", detail: de ? "Einmal fein, bitte!" : "A little grooming, please!" },
-  { id: "11-elektriker-v2", trade: de ? "Elektriker" : "Electrical contractor", detail: de ? "Fertig, wenn die Frühschicht kommt" : "Ready for the morning shift" },
-  { id: "12-dachdecker-v2", trade: de ? "Dachdeckerei" : "Roofing", detail: de ? "Der erste Regen" : "The first rain" },
-  { id: "13-schreiner", trade: de ? "Schreinerei" : "Joinery", detail: de ? "Einbauten für Wohnräume" : "Built-ins for living spaces" },
-  { id: "14-heizungsinstallateur", trade: de ? "Heizungsbau" : "Heating installation", detail: de ? "Wärmepumpen im Altbau" : "Heat pumps for older buildings" },
-  { id: "15-maler-v2", trade: de ? "Malerbetrieb" : "Painting and decorating", detail: de ? "Licht auf Kalk" : "Light on lime" },
-  { id: "16-fliesenleger", trade: de ? "Fliesenhandwerk" : "Tiling", detail: de ? "Großformatige Fliesen im Sanierungsbad" : "Large-format tiles for a bathroom renovation" },
-  { id: "17-kammerjaeger-v2", trade: de ? "Schädlingsmanagement" : "Pest management", detail: de ? "Der Kontrollgang" : "The inspection round" },
-  { id: "18-berater", trade: de ? "Unternehmensberatung" : "Business consulting", detail: de ? "Unternehmerische Übergänge" : "Business transitions" },
-  { id: "19-psychologe", trade: de ? "Psychologische Praxis" : "Psychology practice", detail: de ? "Raum für Veränderung" : "Space for change" },
-];
+const studies = designStudies(locale);
 const start = 0;
 const offsetFrom = (index: number, center: number) => ((index - center + 2 + studies.length) % studies.length) - 2;
 const image = (id: string) => `${base}studien/hero-kmu/${id}.webp`;
@@ -42,7 +23,9 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
         <article class="design-studies__card" data-card data-index={index} data-offset={offsetFrom(index, start)} data-active={index === start ? 'true' : 'false'}>
           <a class="design-studies__card-link" href={`${base}studien/hero-kmu/${study.id}.html`} data-select data-title={study.trade}
             aria-label={`${study.trade}: ${openLabel}`} tabindex={index === start ? undefined : '-1'}>
-            <img src={image(study.id)} alt="" width="1280" height="820" loading="eager" fetchpriority="low" decoding="async" draggable="false" />
+            <div class="design-studies__thumbnail">
+              <template><img src={image(study.id)} alt={`${study.imageTitle} – ${study.detail}`} width="720" height="405" decoding="async" draggable="false" /></template>
+            </div>
             <div class="design-studies__card-body">
               <h3>{study.trade}</h3>
               <p class="design-studies__description">{study.detail}</p>
@@ -69,12 +52,16 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     ))}
   </div>
   <p class="design-studies__visually-hidden" aria-live="polite" aria-atomic="true" data-status></p>
+  <noscript>
+    <ul>{studies.map(study => <li><a href={`${base}studien/hero-kmu/${study.id}.html`}>{study.imageTitle} – {study.detail}</a></li>)}</ul>
+  </noscript>
   <dialog class="design-studies__dialog" aria-labelledby="design-studies-dialog-title" data-dialog>
     <div class="design-studies__dialog-bar">
       <div><p>{de ? 'Designstudie · kein Kundenprojekt' : 'Design study · not a client project'}</p><h3 id="design-studies-dialog-title" data-dialog-title></h3></div>
       <form method="dialog"><button type="submit" aria-label={de ? 'Vorschau schließen' : 'Close preview'} autofocus>×</button></form>
     </div>
     <iframe data-study-frame title={de ? 'Interaktive Designstudie' : 'Interactive design study'}></iframe>
+    <form class="design-studies__return" method="dialog"><button type="submit">{de ? '← Zur Studienübersicht' : '← Back to studies'}</button></form>
   </dialog>
 </section>
 
@@ -90,7 +77,27 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     const dialog = root.querySelector<HTMLDialogElement>('[data-dialog]');
     const dialogTitle = root.querySelector<HTMLElement>('[data-dialog-title]');
     const frame = root.querySelector<HTMLIFrameElement>('[data-study-frame]');
-    let fullscreenOwner = false;
+    const narrow = matchMedia('(max-width: 650px)');
+    let galleryVisible = false;
+    function loadVisibleImages() {
+      if (!galleryVisible) return;
+      const radius = narrow.matches ? 1 : 2;
+      for (const card of cards) {
+        if (Math.abs(Number(card.dataset.offset)) > radius) continue;
+        const template = card.querySelector('template');
+        if (template) template.replaceWith(template.content.cloneNode(true));
+      }
+    }
+    if (swipe && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        galleryVisible = entry.isIntersecting;
+        loadVisibleImages();
+      });
+      observer.observe(swipe);
+    } else {
+      galleryVisible = true;
+    }
+    narrow.addEventListener('change', loadVisibleImages);
     const language = document.documentElement.lang;
     const german = language === 'de';
     const length = cards.length;
@@ -110,6 +117,7 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
         link.tabIndex = selected ? 0 : -1;
         if (selected) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
       });
+      loadVisibleImages();
       dots.forEach((dot, n) => {
         if (n === active) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
       });
@@ -173,12 +181,7 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
       frame.title = link.getAttribute('aria-label') ?? dialogTitle.textContent;
       frame.src = link.href;
       dialog.showModal();
-      if (!document.fullscreenElement && document.fullscreenEnabled) {
-        document.documentElement.requestFullscreen().then(() => {
-          fullscreenOwner = true;
-          if (!dialog.open && document.fullscreenElement) void document.exitFullscreen();
-        }).catch(() => { /* The viewport-filling dialog also works without native fullscreen. */ });
-      }
+
     }));
 
     root.addEventListener('keydown', (event) => {
@@ -207,23 +210,14 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     frame?.addEventListener('load', () => {
       if (!dialog?.open) return;
       const doc = frame.contentDocument;
-      doc?.querySelector('[data-back-to-studies]')?.addEventListener('click', (event) => {
-        event.preventDefault();
-        dialog.close();
-      });
+      const navigation = doc?.querySelector<HTMLElement>('[data-study-navigation]');
+      if (navigation) navigation.hidden = true;
       doc?.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') { event.preventDefault(); dialog.close(); }
       });
     });
-    document.addEventListener('fullscreenchange', () => {
-      if (fullscreenOwner && !document.fullscreenElement) {
-        fullscreenOwner = false;
-        if (dialog?.open) dialog.close();
-      }
-    });
     dialog?.addEventListener('close', () => {
       frame?.removeAttribute('src');
-      if (fullscreenOwner && document.fullscreenElement) void document.exitFullscreen();
       cards[active].querySelector<HTMLAnchorElement>('[data-select]')?.focus({preventScroll: true});
     });
     dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
@@ -302,6 +296,7 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
   }
   .design-studies__card-link:hover { border-color: #ba9ae5; }
   .design-studies__card[data-active="true"] .design-studies__card-link { border-color: #100e14; box-shadow: 0 1rem 2.15rem #0009; }
+  .design-studies__thumbnail { aspect-ratio: 16 / 9; background: #151218; }
   .design-studies__card-link img {
     width: 100%; aspect-ratio: 16 / 9; display: block; height: auto; object-fit: cover; object-position: top;
     background: #09080b; border: 4px solid #09080b; border-radius: .78rem .78rem .34rem .34rem;
@@ -339,13 +334,18 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     max-width: none; max-height: none; box-sizing: border-box; padding: 0; margin: 0;
     border: 0; background: #1a1422; color: #fff; overflow: hidden;
   }
-  .design-studies__dialog[open] { display: grid; grid-template-rows: auto minmax(0,1fr); }
+  .design-studies__dialog[open] { display: grid; grid-template-rows: auto minmax(0,1fr) auto; }
   :global(html:has(.design-studies__dialog[open])) { overflow: hidden; }
   .design-studies__dialog::backdrop { background: #100916dc; }
   .design-studies__dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; }
   .design-studies__dialog-bar p { margin: 0; font-size: .9375rem; color: #f7efff; }
   .design-studies__dialog-bar h3 { margin: .15rem 0 0; font-size: 1.25rem; font-weight: 700; }
   .design-studies__dialog-bar button { width: 2.65rem; height: 2.65rem; display: grid; place-items: center; border: 1px solid #795792; border-radius: 50%; background: #271d32; color: #fff; font-size: 1.4rem; cursor: pointer; }
+  .design-studies__return { padding: .4rem 1rem max(.4rem, env(safe-area-inset-bottom)); }
+  .design-studies__return button { min-height: 44px; padding: 0 .5rem; background: transparent; color: #fff; border: 0; text-decoration: underline; cursor: pointer; }
+  @media (scripting: none) {
+    .design-studies__carousel, .design-studies__dots, .design-studies__hint { display: none; }
+  }
   .design-studies__dialog iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
   @media (max-width: 650px) {
     .design-studies { width: calc(100% - 1.25rem); }

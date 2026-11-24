@@ -107,6 +107,7 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null, s
   const coarse = matchMedia('(pointer: coarse)');
   let gl, program, buffer, texture, surprisedTexture, shaders = [], raf = 0;
   let ready = false, preparing = false, epoch = 0;
+  let requestedPortraitEpoch = -1;
   let disposed = false, lost = false, paused = false, visible = false;
   let elapsed = 0, lastFrame = 0, lastTick = 0;
   let px = 0, py = 0, tx = 0, ty = 0;
@@ -175,11 +176,12 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null, s
     ready = true; preparing = false;
     if (!resize()) draw();
     sync();
-    // Optional decoration never delays the normal portrait or breaks its
-    // fallback. A stale decode must not upload into a restored GPU context.
-    if (portraitImage && surprisedPortraitSrc && !coarse.matches) {
-      void loadSurprisedPortrait(attempt).catch(() => {});
-    }
+    if (pointerInside) requestSurprisedPortrait();
+  }
+  function requestSurprisedPortrait() {
+    if (!ready || !portraitImage || !surprisedPortraitSrc || coarse.matches || requestedPortraitEpoch === epoch) return;
+    requestedPortraitEpoch = epoch;
+    void loadSurprisedPortrait(epoch).catch(() => {});
   }
   function uploadPortrait(image, unit) {
     const result = gl.createTexture();
@@ -278,6 +280,7 @@ export function mountFluid(canvas, { onState = () => {}, portraitImage = null, s
     // Enter at the actual pointer, never fly in from the centre of the text.
     if (!pointerInside) { px=tx; py=ty; }
     pointerInside=true; cursorTarget=1;
+    requestSurprisedPortrait();
     host.dataset.cursor='active';
   }
   const leave = () => {
