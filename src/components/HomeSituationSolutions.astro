@@ -63,7 +63,7 @@ const modes=[
         {de ? <div class="original-maler">
           <h4 class="maler-title">Beispielformular für einen Malerbetrieb – individuell entwickelt</h4>
           <p class="mini-label">keine Datenübermittlung</p>
-          <iframe data-original-maler title="Interaktive Maleranfrage: Wände, Maße und Projektstart auswählen" src={import.meta.env.DEV ? '/demos/malerbetrieb/index.html' : '/demos/malerbetrieb/'} sandbox="allow-scripts allow-forms"></iframe>
+          <iframe loading="lazy" data-original-maler title="Interaktive Maleranfrage: Wände, Maße und Projektstart auswählen" src={import.meta.env.DEV ? '/demos/malerbetrieb/index.html' : '/demos/malerbetrieb/'} sandbox="allow-scripts allow-forms"></iframe>
         </div> : <div class="demo" data-enquiry-demo>
           <div class="demo-form">
             <p class="mini-label">{de ? 'Interaktive Demo · Malerbetrieb' : 'Interactive demo · Painting business'}</p>

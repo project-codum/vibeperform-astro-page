@@ -6,7 +6,11 @@ const { locale } = Astro.props;
 const de = locale === 'de';
 const base = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}projektbeispiel/`;
 const photo = `${base}schreinerei-massfuge.webp`;
-const tilePhotos = [photo, `${base}massfuge-regal.webp`, `${base}massfuge-sitzbank.webp`];
+const tilePhotos = [
+  { src: photo, alt: de ? 'Eicheneinbau mit Sitzplatz am Fenster' : 'Oak built-in with a window seat' },
+  { src: `${base}massfuge-regal.webp`, alt: de ? 'Detail des eingebauten Eichenregals' : 'Detail of the built-in oak shelving' },
+  { src: `${base}massfuge-sitzbank.webp`, alt: de ? 'Detail der maßgefertigten Sitzbank' : 'Detail of the custom window seat' },
+];
 const copy = de ? {
   kicker:'Gute Arbeit sichtbar machen', title:'Deine besten Projekte stecken noch', emphasis:'auf deinem Handy.',
   before:'Auf deinem Handy', photos:'Fotos', recent:'Letzte Aufnahmen', note:'Eiche · Stauraum · Sitzplatz am Fenster',
@@ -45,7 +49,7 @@ const copy = de ? {
           <strong>{copy.photos}</strong>
           <span class="project-visibility__recent">{copy.recent}</span>
           <div class="project-visibility__tiles">
-            {tilePhotos.map((tilePhoto, n) => <img class={`project-visibility__tile project-visibility__tile--${n}`} src={tilePhoto} alt="" loading="lazy" decoding="async" />)}
+            {tilePhotos.map((tilePhoto, n) => <img class={`project-visibility__tile project-visibility__tile--${n}`} src={tilePhoto.src} alt={tilePhoto.alt} loading="lazy" decoding="async" />)}
           </div>
           <div class="project-visibility__note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>{copy.note}</span></div>
         </div>
