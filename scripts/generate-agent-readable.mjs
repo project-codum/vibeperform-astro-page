@@ -172,9 +172,18 @@ function renderAboutAgentPage(locale = 'de') {
   return normalizeBlankLines([
     pageHeader({ title: `${c.hero.title} ${c.hero.emphasis}`, canonicalPath, description: c.metaDescription, alternatePath }),
     c.hero.intro,
-    section(`${c.vision.title} ${c.vision.emphasis}`, `${c.vision.body}\n\n${c.vision.mission}\n\n[${c.vision.link}](${absoluteUrl(c.vision.href)})`),
-    section(`${c.journey.title} ${c.journey.emphasis}`, c.journey.paragraphs.join('\n\n')),
-    section(`${c.future.title} ${c.future.emphasis}`, `${c.future.body}\n\n${c.future.extra}\n\n[${c.future.link}](${absoluteUrl(c.future.href)})`),
+    `Marlon Dietrich, ${c.hero.role}`,
+    `[${c.hero.action}](${absoluteUrl(canonicalPath)}#kontakt)`,
+    ...c.chapters.map((chapter, index) => {
+      const content = [...chapter.paragraphs];
+      if (index === 2) {
+        const alt = locale === 'de' ? 'Die obere Kante des Eicheneinbaus am Fenster' : 'The top edge of the oak window seat installation';
+        content.splice(1, 0, `![${alt}](${absoluteUrl('/projektbeispiel/schreinerei-massfuge.webp')})`);
+      }
+      if (index === c.chapters.length - 1) content.push('Marlon');
+      if (chapter.sources) content.push(chapter.researchNote, chapter.sources.map(source => `- [${source.label}](${source.href})`).join('\n'));
+      return section(`${chapter.title} ${chapter.emphasis}`, content.join('\n\n'));
+    }),
     section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}`),
   ].join('\n\n'));
 }

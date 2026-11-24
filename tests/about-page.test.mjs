@@ -67,8 +67,37 @@ for (const [locale, route, alternate, role] of [
     }
     assert.ok(main.includes('mailto:contact@vibeperform.com'));
     assert.ok(main.includes('https://calendar.app.google/utFQgw33PwJTiDk56'));
-    assert.equal((main.match(/data-about-slide-in/g) || []).length, 2);
-    assert.ok(main.includes(locale === 'de' ? 'Und für KI verständlich.' : 'And understandable to AI.'));
+    assert.ok(main.includes('class="ag-letterhead"'));
+    assert.ok(main.includes('class="ag-pencil-circle"'));
+    assert.ok(main.includes('class="ag-signature"'));
+    assert.ok(main.includes(locale === 'de' ? 'Und wo steht das?' : 'And where is that written down?'));
+    const clips = [...main.matchAll(/data-audio="([^"]+)"/g)];
+    assert.equal(clips.length, 4);
+    for (const [, file] of clips) {
+      assert.ok(file.startsWith(`/audio/about/${locale}-marlon-`));
+      await access(path.join(dist, file));
+    }
+    for (const source of [html, md]) {
+      assert.doesNotMatch(source, /Loistl|Laubbeseitigung|leaf removal/i);
+      assert.ok(source.includes(locale === 'de' ? 'Ich habe VibePerform gegründet' : 'I started VibePerform'));
+    }
+    assert.ok(main.includes(locale === 'de' ? 'Audioguide mit meiner KI-Stimme' : 'Audio guide in my AI-generated voice'));
+    const scenes = main.match(/<section[^>]*data-about-chapter[\s\S]*?<\/section>/g);
+    assert.equal(scenes.length, 4);
+    for (const scene of scenes) {
+      const timedParagraphs = [...scene.matchAll(/data-cue="([\d.]+)"/g)].map(match => Number(match[1]));
+      assert.ok(timedParagraphs.length > 0);
+      assert.ok(timedParagraphs.every((time, i) => time > (i ? timedParagraphs[i - 1] : 0)));
+    }
+    assert.match(main, /<audio[^>]*preload="none"/);
+    for (const control of ['play', 'sound', 'index', 'chapter-menu', 'chapter-count', 'meter']) assert.ok(main.includes('data-' + control));
+    assert.equal([...main.matchAll(/data-choice="/g)].length, clips.length);
+    assert.ok(main.indexOf('class="ag-hero"') < main.indexOf('data-about-story'));
+    for (const version of [main, md]) {
+      assert.match(version, /introducing-deep-research/);
+      assert.doesNotMatch(version, /Mein Weg|My background/);
+      assert.ok(version.includes(locale === 'de' ? 'Die moderne Webseitenagentur.' : 'the modern web agency.'));
+    }
     const removedCopy = locale === 'de'
       ? ['Marlon Dietrich · Inhaber von VibePerform', 'Persönlich verantwortlich. Von der ersten Idee an.', 'Mein Weg zu VibePerform', 'Mit Blick nach vorne', 'Sie sprechen direkt mit mir. Ich freue mich auf Ihr Vorhaben.', 'Lernen wir uns kennen']
       : ['Marlon Dietrich · Owner of VibePerform', 'Personally responsible. From the first idea onwards.', 'My path to VibePerform', 'Looking ahead', 'You’ll speak directly with me. I look forward to hearing about your project.', 'Let’s meet'];
@@ -78,14 +107,3 @@ for (const [locale, route, alternate, role] of [
     }
   });
 }
-
-test('about-page emphasis lines reveal from the right on scroll and respect reduced motion', async () => {
-  const component = await readFile(new URL('../src/components/AboutPage.astro', import.meta.url), 'utf8');
-  const styles = await readFile(new URL('../src/styles/about-page.css', import.meta.url), 'utf8');
-  assert.equal((component.match(/<em data-about-slide-in>/g) || []).length, 2);
-  assert.match(component, /rootMargin: '0px 0px -18% 0px', threshold: 0\.2/);
-  assert.match(component, /prefers-reduced-motion: reduce/);
-  assert.match(styles, /@media\(prefers-reduced-motion:no-preference\)/);
-  assert.match(styles, /translateX\(54px\)/);
-  assert.match(styles, /@keyframes ag-slide-in-from-right/);
-});
