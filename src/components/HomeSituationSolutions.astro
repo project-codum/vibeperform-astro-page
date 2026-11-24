@@ -44,20 +44,26 @@ const modes=[
     </question-headlines>
   </div>
 
-  <div class="hp-wrap sc-response">
+  <div class="hp-wrap sc-response" data-stacked={de || undefined}>
     <h2>{de ? 'Wir arbeiten für dich' : 'What we'} {de && <br />}<em>{de ? 'an deinem Online-Auftritt.' : 'work on for you'}</em></h2>
     <article class="solution">
-      <h3>{de ? 'Eine Webseite, die deinen Betrieb von heute zeigt.' : 'A website that reflects your business today.'}</h3>
+      {de ? <header class="solution-intro">
+        <h3>Eine Webseite die immer aktuell bleibt</h3>
+        <p>Wir publizieren stetig deine neusten Projekte und Rezensionen damit die nächsten Kunden wissen <strong>was du heute kannst</strong>.</p>
+      </header> : <h3>A website that reflects your business today.</h3>}
       <div class="scene"><WebsiteBuildAnimation locale={locale} /></div>
       <a class="hp-button sc-cta" href="#kontakt">{de ? 'Kennenlerngespräch vereinbaren' : 'Book an intro call'}<span aria-hidden="true">↓</span></a>
     </article>
     <article class="solution" id="anfrage-demo">
-      <h3>{de ? 'Deine Kunden treffen erste Entscheidungen, damit du eine konkrete Anfrage bekommst.' : 'Get the details you need before you call back.'}</h3>
+      {de ? <header class="solution-intro">
+        <h3>So fragen wir Informationen von Kunden ab.</h3>
+        <p>Grafisch treffen Kunden erste Entscheidungen damit <strong>du sinnvolle Anfragen bekommst.</strong></p>
+      </header> : <h3>Get the details you need before you call back.</h3>}
       <div class="scene">
         {de ? <div class="original-maler">
           <h4 class="maler-title">Beispielformular für einen Malerbetrieb – individuell entwickelt</h4>
           <p class="mini-label">keine Datenübermittlung</p>
-          <iframe data-original-maler title="Interaktive Maleranfrage: Wände, Maße und Projektstart auswählen" src="/demos/malerbetrieb/" sandbox="allow-scripts allow-forms"></iframe>
+          <iframe data-original-maler title="Interaktive Maleranfrage: Wände, Maße und Projektstart auswählen" src={import.meta.env.DEV ? '/demos/malerbetrieb/index.html' : '/demos/malerbetrieb/'} sandbox="allow-scripts allow-forms"></iframe>
         </div> : <div class="demo" data-enquiry-demo>
           <div class="demo-form">
             <p class="mini-label">{de ? 'Interaktive Demo · Malerbetrieb' : 'Interactive demo · Painting business'}</p>
@@ -164,10 +170,21 @@ const modes=[
   .solution > h3 { grid-area: title; align-self: end; }
   .solution > .scene { grid-area: scene; }
   .sc-cta { grid-area: button; align-self: start; justify-self: start; margin-top: 1.5rem; }
+  .sc-response[data-stacked] .solution {
+    grid-template: "title" auto "scene" auto "button" auto / minmax(0, 1fr);
+    row-gap: clamp(1.25rem, 2.5vw, 2rem);
+    max-width: 50rem;
+    margin-inline: auto;
+  }
+  .solution-intro { grid-area: title; }
+  .solution-intro p { margin: .65rem 0 0; max-width: 65ch; font-size: 1.25rem; line-height: 1.55; }
+  .solution-intro strong { font-weight: 700; }
+  .sc-response[data-stacked] .sc-cta { margin-top: 0; }
   .sc-cta:focus-visible, .sc-field select:focus-visible { outline: 2px solid var(--hp-plum); outline-offset: 3px; }
   .scene { min-width: 0; padding: clamp(.75rem, 2.5vw, 1.5rem); border: 1px solid var(--hp-line); border-radius: 6px; background: var(--sc-flieder); }
   .maler-title { margin: 0 0 .35rem; font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.2; text-wrap: balance; }
   .mini-label { margin-bottom: .75rem; font-size: .9375rem; font-weight: 700; line-height: 1.4; }
+  .original-maler > .mini-label { font-size: 1rem; }
   .demo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
   .demo-form, .demo-result { padding: .875rem; border: 1px solid var(--hp-line); border-radius: 6px; background: var(--sc-surface); font-size: 1rem; line-height: 1.5; }
   .demo-result ul { padding-left: 1rem; margin: .55rem 0; }
