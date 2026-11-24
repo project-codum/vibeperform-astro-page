@@ -1,0 +1,33 @@
+---
+import arrow from 'lucide-static/icons/arrow-left.svg?raw';
+import archive from 'lucide-static/icons/archive.svg?raw';
+import trash from 'lucide-static/icons/trash-2.svg?raw';
+import more from 'lucide-static/icons/ellipsis-vertical.svg?raw';
+import file from 'lucide-static/icons/file-image.svg?raw';
+import paperclip from 'lucide-static/icons/paperclip.svg?raw';
+interface Props { locale: 'de' | 'en'; }
+const { locale } = Astro.props;
+const de = locale === 'de';
+---
+<div class="input-email" role="img" aria-label={de ? 'Beispiel einer E-Mail: Projektbilder von Ihrem Betrieb an VibePerform, mit den Dateianhängen vorher.jpg und nachher.jpg, ohne Bildvorschau.' : 'Example email: project photos from your business to VibePerform, with before.jpg and after.jpg file attachments and no photo previews.'}>
+  <div class="mail-toolbar" aria-hidden="true"><Fragment set:html={arrow}/><span></span><Fragment set:html={archive}/><Fragment set:html={trash}/><i></i><Fragment set:html={more}/></div>
+  <div class="mail-content" aria-hidden="true">
+    <div class="mail-subject">{de ? 'Projektbilder' : 'Project photos'} <span>{de ? 'Posteingang' : 'Inbox'}</span></div>
+    <div class="mail-sender"><span class="mail-avatar">B</span><div><strong>{de ? 'Ihr Betrieb' : 'Your business'}</strong><small>{de ? 'an' : 'to'} VibePerform <span>▾</span></small></div><time>10:35</time></div>
+    <div class="mail-message">{de ? 'Hallo Marlon,' : 'Hi Marlon,'}<br/>{de ? 'anbei die Vorher-Nachher-Bilder.' : 'here are the before-and-after photos.'}</div>
+    <div class="mail-attachment-label"><Fragment set:html={paperclip}/><strong>{de ? '2 Anhänge' : '2 attachments'}</strong></div>
+    <div class="mail-attachments">{(de ? ['vorher.jpg', 'nachher.jpg'] : ['before.jpg', 'after.jpg']).map(name => <div class="mail-file"><div class="mail-file-icon"><Fragment set:html={file}/></div><div class="mail-file-name">{name}<small>JPG</small></div></div>)}</div>
+  </div>
+</div>
+<style>
+.input-email{width:100%;background:#fff;color:#202124;font-family:Arial,Helvetica,sans-serif;border-radius:12px;overflow:hidden;container-type:inline-size}
+.mail-toolbar{height:35px;display:flex;align-items:center;gap:14px;padding:0 12px;background:#f2f5fa;border-bottom:1px solid #e5e7eb;color:#5f6368}
+.mail-toolbar :global(svg){width:13px;height:13px;stroke-width:1.7}.mail-toolbar>span{height:13px;border-left:1px solid #dadce0}.mail-toolbar>i{flex:1}
+.mail-content{padding:14px 12px 16px;font-size:clamp(10px,3.4cqi,14px);line-height:1.5}
+.mail-subject{font-size:clamp(15px,5.1cqi,22px);line-height:1.3;letter-spacing:-.025em;margin-bottom:18px;font-weight:400}
+.mail-subject>span{display:inline-block;vertical-align:middle;font-size:clamp(8px,2.5cqi,10px);letter-spacing:0;background:#e9eaed;color:#5f6368;border-radius:3px;padding:1px 4px;margin-left:4px}
+.mail-sender{display:flex;align-items:center;gap:8px;margin-bottom:16px}.mail-avatar{display:grid;place-items:center;flex-shrink:0;width:27px;height:27px;border-radius:50%;background:#6a75bc;color:white;font-size:15px}.mail-sender strong{font-size:inherit;font-weight:600}.mail-sender small{display:block;font-size:.9em;color:#5f6368}.mail-sender time{font-size:.85em;color:#5f6368;margin-left:auto;align-self:flex-start;padding-top:2px}
+.mail-message{line-height:1.65;margin-bottom:20px}.mail-attachment-label{display:flex;align-items:center;gap:5px;border-top:1px solid #e8eaed;padding-top:12px;margin-bottom:9px;font-size:.9em}.mail-attachment-label strong{font-weight:600}.mail-attachment-label :global(svg){width:12px;height:12px;color:#5f6368}
+.mail-attachments{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px}.mail-file{border:1px solid #dadce0;border-radius:5px;overflow:hidden;min-width:0}.mail-file-icon{height:48px;display:grid;place-items:center;background:#fafafa;color:#80868b}.mail-file-icon :global(svg){width:23px;height:28px;stroke-width:1.4}.mail-file-name{background:#f1f3f4;padding:6px 7px;font-size:clamp(9px,2.8cqi,12px);font-weight:600}.mail-file-name small{display:block;font-size:8px;font-weight:400;color:#70757a;line-height:1.4}
+@container(min-width:300px){.mail-content{padding:20px}.mail-toolbar{height:40px;padding-inline:18px}.mail-file-icon{height:62px}.mail-avatar{width:32px;height:32px;font-size:18px}.mail-subject{margin-bottom:20px}}
+</style>

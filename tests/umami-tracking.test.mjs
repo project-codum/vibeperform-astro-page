@@ -8,9 +8,9 @@ test('all content HTML pages have one Umami tracker in head and no active CMP, G
   const html=await readFile(path,'utf8');if(!html.includes('</head>') || path.pathname.endsWith('/404.html') || /http-equiv="refresh"/i.test(html))continue;
   const head=html.match(/<head>([\s\S]*?)<\/head>/)?.[1];if(!head)continue;
   const scripts=[...head.matchAll(/<script\b[^>]*src="https:\/\/cloud\.umami\.is\/script\.js"[^>]*>/g)];
-  if (path.pathname.endsWith('/de/fallstudien/hms-loistl/index.html')) {
-   // Unreleased local reference preview: never emit analytics or index it.
-   assert.match(head, /name="robots" content="noindex,nofollow"/);
+  if (path.pathname.endsWith('/de/fallstudien/hms-loistl/index.html') || path.pathname.includes('/studien/hero-kmu/') || path.pathname.endsWith('/demos/malerbetrieb/index.html')) {
+   // Standalone examples and local reference previews do not track visitors.
+   assert.match(head, path.pathname.includes('/studien/hero-kmu/') ? /name="robots" content="noindex(?:,\s*nofollow)?"/ : /name="robots" content="noindex,nofollow"/);
    assert.equal(scripts.length,0,String(path));
    assert.doesNotMatch(head,/cdn\.consentmanager|d\.delivery\.consentmanager|googletagmanager\.com|www\.clarity\.ms/);
    continue;

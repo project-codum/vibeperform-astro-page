@@ -1,4 +1,5 @@
 ---
+import SmoothScroll from './SmoothScroll.astro';
 import '../styles/global.css';
 import ConsentManagerHead from './ConsentManagerHead.astro';
 import HomePage from './HomePage.astro';
@@ -69,5 +70,6 @@ const structuredData = [organizationSchema(), websiteSchema(locale)];
 
 	<body class="bg-white text-slate-900">
 		<HomePage currentLocale={locale} alternateLocaleHref={page.alternatePath} />
+		<SmoothScroll />
 	</body>
 </html>

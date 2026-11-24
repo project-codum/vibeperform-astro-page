@@ -1,7 +1,7 @@
 ---
 import { homePageContent } from '../data/homePageContent';
-import BookingCalendar from './BookingCalendar.astro';
-import { contactEmail, type Locale } from '../lib/siteMetadata';
+import ContactActions from './ContactActions.astro';
+import type { Locale } from '../lib/siteMetadata';
 interface Props { locale: Locale; copy?: { kicker?: string; title: string; emphasis: string; body: string }; showKicker?: boolean; }
 const { locale, copy, showKicker = true } = Astro.props;
 const t = homePageContent[locale].contact;
@@ -12,9 +12,6 @@ const c = copy ?? t;
     {showKicker && c.kicker && <p class="hp-kicker">{c.kicker}</p>}
     <h2 id="contact-title">{c.title}<br /><em>{c.emphasis}</em></h2>
     <p class="hp-intro">{c.body}</p>
-    <BookingCalendar locale={locale} autoOpen />
-    <div class="hp-contact-actions">
-      <a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="service-contact">{t.email}<span aria-hidden="true">↗</span></a>
-    </div>
+    <ContactActions locale={locale} />
   </div>
 </section>

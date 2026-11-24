@@ -2,6 +2,10 @@
 
 A bilingual marketing site built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The site is built at the domain root for `https://www.vibeperform.com`, with Cloudflare Workers serving static assets and negotiating Markdown for agents.
 
+## Architecture and operations
+
+See [Architektur und Betrieb](docs/architecture-and-operations.md) for Namecheap, Cloudflare DNS/Worker/D1, Google mail, CI/CD, deployment permissions, enquiry delivery, rollback limitations, and pending activations.
+
 ## 1. Prerequisites
 - Node.js 24 LTS (aligns with the GitHub Actions workflow)
 - npm (comes with Node.js)
@@ -84,7 +88,7 @@ Astro routes map 1:1 to files (`src/pages/**/*.astro`). German pages live under 
   - `exploreWorkshopContent.ts` feeds the dedicated Explore Workshop page and the agent-readable Markdown layer.
 - Each content module exports both the literal data (`as const`) and derived TypeScript types to catch missing fields at build time. Reuse these types when wiring props into components.
 - Honour the structure:
-  - `nav.links` controls both label text and target URLs. Use absolute URLs that include `/vibeperform-astro-page` so navigation works in production.
+  - `nav.links` controls both label text and target URLs. Use root-relative paths such as `/de/`; production has no `/vibeperform-astro-page` base path.
   - Locale objects should expose the same keys (`hero`, `values`, `cta`, etc.) across languages to keep toggles symmetrical.
 - When adding or updating copy, edit the relevant data module rather than the `.astro` page. Rendering files should only orchestrate layout and pass the correct locale slice.
 - Agent-readable files are generated from the same content sources. Run `npm run generate:agent` to refresh `public/llms.txt`, `public/llms-full.txt`, `public/agent/**`, `public/robots.txt`, and `public/sitemap.xml`; `npm run build` does this automatically before Astro builds.
@@ -102,8 +106,9 @@ Run `npx wrangler whoami` and verify the intended account before deploying with
 The production routes are declared by zone name in `wrangler.jsonc`; no old zone ID is embedded.
 
 `.github/workflows/cloudflare.yml` deploys on pushes to `master` and manual dispatch.
+It applies D1 migrations before deployment and checks public endpoints afterwards.
 It requires repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
-Use a scoped deployment token with Workers Scripts Edit and Account Settings Read
+Use a scoped deployment token with Workers Scripts Edit, D1 Edit, and Account Settings Read
 for the intended account, plus Workers Routes Edit and Zone Read for `vibeperform.com`.
 Never store a developer's Wrangler OAuth credentials in CI.
 
@@ -126,9 +131,10 @@ and matching `_headers` rules, then add their URLs to the discovery generator.
 During DNS cutover preserve all five Google Workspace MX records and the Google
 verification TXT record. Check the complete registrar inventory before changing
 nameservers. Keep the existing GitHub Pages deployment as a rollback origin.
-With the existing proxied GitHub DNS records retained, removing only the two
-Worker routes restores the GitHub origin; restoring the previous Namecheap
-nameservers is the DNS-level rollback and requires propagation. A bad Worker
+Verify the current proxied DNS origins and Pages build before removing Worker routes.
+GitHub Pages restores static content only; the enquiry API and email delivery require
+a Worker or another backend. A nameserver rollback requires an up-to-date previous
+DNS zone and propagation. A bad Worker
 release can be reverted with `npx wrangler rollback <previous-version-id>`.
 
 ## 8. Recommended Workflow

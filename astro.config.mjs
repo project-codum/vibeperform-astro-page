@@ -1,7 +1,6 @@
 // @ts-check
 
 import tailwindcss from '@tailwindcss/vite';
-import react from '@astrojs/react';
 import { defineConfig } from 'astro/config';
 import { localHomepagePreview, privatePreviewFlags } from './scripts/local-homepage-preview.mjs';
 
@@ -11,7 +10,7 @@ export default defineConfig({
 	cacheDir: './.cache/astro',
 	trailingSlash: 'always',
 	// Remove base when using custom domain
-	integrations: [react(), localHomepagePreview()],
+	integrations: [localHomepagePreview()],
 	i18n: {
 		defaultLocale: 'de',
 		locales: ['de', 'en'],

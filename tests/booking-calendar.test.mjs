@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { mountBookingCalendar } from '../src/scripts/bookingCalendar.ts';
 
 class Node extends EventTarget {
@@ -103,4 +103,28 @@ test('homepage calendar opens automatically without moving focus and stays close
   nodes.load.click();
   assert.equal(root.dataset.phase,'loading');
   assert.equal(nodes.frame.focused,true);
+});
+
+test('all DE and EN agency contact sections share the calendar and icon-free email button', () => {
+  const dist = new URL('../dist/', import.meta.url);
+  const checked = [];
+  for (const file of readdirSync(dist, { recursive: true })) {
+    if (!/^(de|en)[\\/].*\.html$/.test(file)) continue;
+    const html = readFileSync(new URL(file, dist), 'utf8');
+    const section = html.match(/<section\b[^>]*class="[^"]*\bhp-contact\b[^"]*"[^>]*>[\s\S]*?<\/section>/)?.[0];
+    if (!section || !section.includes('data-contact-actions')) continue;
+    const de = file.startsWith('de');
+    const load = section.match(/<button\b[^>]*data-booking-load\b[^>]*>([\s\S]*?)<\/button>/)?.[1];
+    assert.equal(load, de ? 'Termin finden' : 'Find a time', file);
+    assert.equal((section.match(/<div\b[^>]*\bdata-booking-calendar\b/g) || []).length, 1, file);
+    const frame = section.match(/<iframe\b[^>]*>/)?.[0];
+    assert.ok(frame, file);
+    assert.match(section, /data-auto-open="true"/, file);
+    assert.doesNotMatch(frame, /\ssrc=/, file);
+    assert.match(frame, new RegExp(`data-src="[^\"]+hl=${de ? 'de' : 'en'}"`), file);
+    const email = section.match(/<a\b[^>]*class="hp-button hp-button--outline"[^>]*href="mailto:contact@vibeperform.com"[^>]*>([\s\S]*?)<\/a>/)?.[1];
+    assert.equal(email, de ? 'E-Mail schreiben' : 'Send an email', file);
+    checked.push(file);
+  }
+  assert.ok(checked.length >= 20, `coverage: ${checked.length} contact pages`);
 });

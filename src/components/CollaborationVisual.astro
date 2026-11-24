@@ -1,14 +1,11 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import before from '../assets/case-studies/loistl/rasen-vorher.jpg';
 import after from '../assets/case-studies/loistl/rasen-nachher.jpg';
-import emailDe from '../assets/collaboration/input-email-de-documents.png';
-import emailEn from '../assets/collaboration/input-email-en-documents.png';
+import InputEmail from './InputEmail.astro';
 interface Props { index: number; locale: 'de' | 'en'; large?: boolean; illustrative?: boolean; }
 const { index, locale, large = false, illustrative = false } = Astro.props;
 const de = locale === 'de';
-const email = de ? emailDe : emailEn;
-const emailPreview = index === 1 && !large && !illustrative ? await getImage({ src: email, width: 1280, format: 'webp' }) : undefined;
 
 ---
 <div class="collaboration-visual">
@@ -17,10 +14,7 @@ const emailPreview = index === 1 && !large && !illustrative ? await getImage({ s
     <div class="shot-frames" aria-hidden="true"><div><span class="landscape"><i></i></span><span>{de ? 'Vorher' : 'Before'}</span></div><div><span class="landscape landscape-after"><i></i></span><span>{de ? 'Nachher' : 'After'}</span></div></div>
   </div> : illustrative && index === 1 ? <div class="safe-mock"><strong>{de ? 'Neue Nachricht · Beispiel' : 'New message · Example'}</strong><p>{de ? 'Anbei zwei Bilder und eine kurze Erklärung zur Arbeit.' : 'Two photos and a short note about the job are attached.'}</p><span>{de ? '▧  2 Bildanhänge' : '▧  2 image attachments'}</span></div>
   : illustrative ? <div class="safe-mock"><strong>{de ? 'Projektbeitrag · Entwurf' : 'Project story · Draft'}</strong><p>{de ? 'So haben wir aus einer Nische einen Einbau mit Stauraum gemacht.' : 'How we turned an unused niche into built-in storage.'}</p><span>{de ? 'Bereit zur Freigabe' : 'Ready for review'}</span></div>
-  : index === 1 ? <figure class="collaboration-email">
-    <Image class="input-email" src={email} widths={[320, 640, 960]} sizes={large ? '(max-width:760px) 90vw, 420px' : '(max-width:600px) 90vw, 230px'} format="webp" alt={de ? 'Beispiel einer E-Mail mit zwei Bildanhängen' : 'Example email with two photo attachments'} loading="lazy" />
-    {emailPreview && <figcaption><a href={emailPreview.src} target="_blank" rel="noopener">{de ? 'E-Mail-Beispiel vergrößern' : 'Enlarge the example email'} <span aria-hidden="true">↗</span></a></figcaption>}
-  </figure> : <div class="published-example">
+  : index === 1 ? <InputEmail locale={locale} /> : <div class="published-example">
     <div class="published-heading">{de ? 'Weniger Laub. Mehr gepflegte Fläche.' : 'Fewer leaves. Better-kept grounds.'}</div>
     <div class="published-pair">
       <figure><Image src={before} width={large ? 650 : 360} format="webp" alt={de ? 'Rasenfläche vor der Laubbeseitigung' : 'Lawn before leaf removal'} loading="lazy" /><figcaption>{de ? 'Vorher' : 'Before'}</figcaption></figure>

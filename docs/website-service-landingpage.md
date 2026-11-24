@@ -26,9 +26,9 @@ Anfragen liegen zunächst unter **Cloudflare → Workers & Pages → D1 → vibe
 
 ## Cloudflare und GitHub Actions
 
-Die Datenbank `vibeperform-website-inquiries` wurde im vorhandenen Konto angelegt (Standort-Hinweis WEUR), die Migration `0001_website_inquiries.sql` ist remote und lokal angewendet. Es wurden keine Testanfragen in der entfernten Datenbank angelegt. WEUR ist ein Standort-Hinweis, keine zugesicherte Datenresidenz.
+Die Datenbank `vibeperform-website-inquiries` wurde im vorhandenen Konto angelegt (Standort-Hinweis WEUR), die Migrationen 0001 und 0002 sind remote und lokal angewendet. Eine ausdrücklich freigegebene, gekennzeichnete Testanfrage wurde remote gespeichert und zugestellt. WEUR ist ein Standort-Hinweis, keine zugesicherte Datenresidenz.
 
-Die bestehende Cloudflare-Workflowdatei führt künftig vor dem Worker-Deployment die D1-Migrationen aus. Der bestehende GitHub-Deployment-Token benötigt dafür zusätzlich **Account → D1 → Edit**. Die Berechtigungen dieses in GitHub gespeicherten Tokens konnten lokal nicht eingesehen werden; vor dem ersten Produktionslauf prüfen. Worker-Routen, Produktions-HTTPS und bisherige Markdown-Aushandlung bleiben erhalten.
+Die bestehende Cloudflare-Workflowdatei führt vor dem Worker-Deployment die D1-Migrationen aus. Der bestehende GitHub-Deployment-Token erhielt nach ausdrücklicher Freigabe zusätzlich **Account → D1 → Edit**. Der Produktionslauf mit diesen Rechten war erfolgreich. Worker-Routen, Produktions-HTTPS und bisherige Markdown-Aushandlung bleiben erhalten.
 
 Lokale vollständige Vorschau:
 
@@ -47,7 +47,7 @@ Prüfung der vorhandenen öffentlichen Dateipfade, Redirects und Markdown-Aushan
 npm run verify:live -- http://127.0.0.1:8787
 ```
 
-Noch kein Push und kein Website-Deployment aus diesem Arbeitsstand.
+Veröffentlicht über PR #33 und den Produktionsbranch `master`. Zentrale Infrastrukturübersicht: [Architektur und Betrieb](architecture-and-operations.md).
 
 ## Forschungsgrundlage
 
@@ -59,7 +59,7 @@ Der explizit beauftragte Luna-Research liegt im Strategieprojekt unter `outputs/
 - [Cloudflare: Rate limiting](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/)
 - [Cloudflare: D1 migrations](https://developers.cloudflare.com/d1/reference/migrations/)
 
-## Prüfung am 9. September 2026
+## Historische Prüfung vor Veröffentlichung am 9. September 2026
 
 - Produktionsbuild: erfolgreich, einschließlich WebP-Generierung.
 - Node-Tests: 22/22 bestanden; vorhandene Agenten-Tests plus Datenbank-/API- und DE/EN-Metadaten-Tests.
