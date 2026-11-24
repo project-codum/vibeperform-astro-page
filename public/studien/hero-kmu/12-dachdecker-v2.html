@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Dachdeckerei Wetterfirst. Komplette Dachsanierung am bewohnten Haus."
+    />
+    <title>Der erste Regen · Dachdeckerei Wetterfirst</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --storm: #19232a;
+        --chalk: #f2eee1;
+        --light: #e5b779;
+        --line: color-mix(in srgb, var(--chalk) 37%, transparent);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--storm);
+        color: var(--chalk);
+        font:
+          16px/1.5 "Avenir Next",
+          Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      :focus-visible {
+        outline: 2px solid var(--light);
+        outline-offset: 5px;
+      }
+      .stage {
+        margin: 0;
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: clamp(510px, max(76svh, 45vw), 920px);
+        overflow: hidden;
+      }
+      .stage img,
+      .weather {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .stage img {
+        object-fit: cover;
+        object-position: 50% 78%;
+        z-index: -3;
+      }
+      .stage::before,
+      .stage::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .stage::before {
+        z-index: -2;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--storm) 76%, transparent),
+          color-mix(in srgb, var(--storm) 33%, transparent) 21%,
+          transparent 48%
+        );
+      }
+      .stage::after {
+        z-index: -2;
+        background: linear-gradient(
+          0deg,
+          color-mix(in srgb, var(--storm) 66%, transparent),
+          transparent 18%
+        );
+      }
+      .weather {
+        pointer-events: none;
+        z-index: -1;
+      }
+      .frame-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.1rem;
+        padding: 1rem clamp(1rem, 4vw, 4rem);
+        font-size: 0.9rem;
+      }
+      .frame-header strong {
+        font:
+          600 clamp(1rem, 2vw, 1.5rem)/1.25 Charter,
+          Georgia,
+          serif;
+      }
+      .rain-switch {
+        align-self: end;
+        justify-self: start;
+        margin: 0 clamp(1rem, 4vw, 4rem) 1.35rem;
+        padding: 0.5rem 0.9rem;
+        border: 1px solid var(--line);
+        background: var(--storm);
+        color: inherit;
+        border-radius: 30px;
+        min-height: 44px;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.88rem;
+      }
+      .rain-switch[aria-pressed="true"] {
+        border-color: var(--light);
+        color: var(--light);
+      }
+      .inside {
+        width: min(100% - 2rem, 1110px);
+        margin: auto;
+        padding: clamp(1.2rem, 3vw, 2.3rem) 0 1.6rem;
+        text-align: center;
+      }
+      .sky-copy {
+        align-self: start;
+        padding: clamp(1.55rem, 4.2svh, 4rem) clamp(1rem, 6vw, 6rem) 0;
+      }
+      h1 {
+        font:
+          400 clamp(2.8rem, 7.15vw, 7.1rem)/0.94 Charter,
+          Georgia,
+          serif;
+        letter-spacing: -0.062em;
+        margin: 0;
+        max-width: 13.5ch;
+        text-shadow: 0 2px 22px
+          color-mix(in srgb, var(--storm) 76%, transparent);
+      }
+      details {
+        width: min(100%, 570px);
+        margin: auto;
+      }
+      summary {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-height: 44px;
+        padding: 0.45rem 0;
+        border-bottom: 1px solid var(--line);
+        font-weight: 650;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        color: var(--light);
+      }
+      details[open] summary::after {
+        content: "−";
+      }
+      details p {
+        margin: 1rem auto 0;
+        max-width: 47ch;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 1rem;
+        font-size: 0.84rem;
+        text-align: center;
+      }
+      @media (max-width: 570px) {
+        .stage {
+          min-height: clamp(470px, 72svh, 620px);
+        }
+        .stage img {
+          object-position: 88% 57%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="stage">
+        <img
+          src="assets/12-dachdecker-v2.jpg"
+          alt="Dunkle Regenwolken über dem neuen Ziegeldach. Im warm beleuchteten Giebelfenster schaut eine Person mit einer Tasse zum Himmel."
+        />
+        <canvas class="weather" aria-hidden="true" hidden></canvas>
+        <div class="frame-header">
+          <strong>Dachdeckerei Wetterfirst</strong
+          ><a href="../../#designstudien" data-back-to-studies>Studienübersicht</a>
+        </div>
+        <div class="sky-copy">
+          <h1>
+            Der erste<br />
+            Regen danach.
+          </h1>
+        </div>
+        <button class="rain-switch" type="button" aria-pressed="false">
+          Regen einblenden
+        </button>
+      </div>
+      <div class="inside">
+        <details>
+          <summary>Dachsanierung am bewohnten Haus</summary>
+          <p>
+            Beim ersten Rundgang besprechen wir, wie Sie ins Haus kommen, wann
+            es laut wird und wie wir offene Dachflächen während der Arbeiten vor
+            dem Wetter schützen.
+          </p>
+        </details>
+      </div>
+    </main>
+    <footer><a href="12-dachdecker.html">Ersten Entwurf ansehen</a></footer>
+    <script>
+      const stage = document.querySelector(".stage");
+      const rain = document.querySelector(".rain-switch");
+      const canvas = stage.querySelector(".weather");
+      const context = canvas.getContext("2d");
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+      const period = 500;
+      // Depth changes how far a drop travels during the exposure.
+      const layers = [
+        { density: 205, speed: 370, trail: 9, width: 0.52, opacity: 0.24 },
+        { density: 138, speed: 625, trail: 16, width: 0.72, opacity: 0.34 },
+        { density: 34, speed: 925, trail: 26, width: 0.94, opacity: 0.37 },
+      ];
+      let width = 0;
+      let height = 0;
+      let drops = [];
+      let animationFrame = null;
+
+      function sizeRain() {
+        const bounds = stage.getBoundingClientRect();
+        width = bounds.width;
+        height = bounds.height;
+        if (!width || !height) return;
+        const scale = Math.min(window.devicePixelRatio || 1, 1.5, 2000 / width);
+        canvas.width = Math.round(width * scale);
+        canvas.height = Math.round(height * scale);
+        context.setTransform(scale, 0, 0, scale, 0, 0);
+        context.lineCap = "round";
+        context.strokeStyle = "#dce8f2";
+
+        // Keep the distribution steady across resize and each half-second cycle.
+        let seed = 4831;
+        function random() {
+          seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+          return seed / 4294967296;
+        }
+        drops = layers.flatMap((layer) => {
+          const count = Math.max(
+            6,
+            Math.round((width * height * layer.density) / 1e6),
+          );
+          return Array.from({ length: count }, () => {
+            const travel =
+              (layer.speed * period * (0.75 + random() * 0.5)) / 1000;
+            const slant = 0.16 + random() * 0.13;
+            return {
+              x: random() * (width + travel * slant + 40) - travel * slant - 20,
+              y: random() * (height + travel) - travel,
+              phase: random(),
+              travel,
+              slant,
+              trail: layer.trail * (0.56 + random() * 0.92),
+              width: layer.width * (0.84 + random() * 0.32),
+              opacity: layer.opacity * (0.48 + random() * 0.72),
+            };
+          });
+        });
+      }
+
+      function drawRain(timestamp) {
+        const cycle = (timestamp % period) / period;
+        context.clearRect(0, 0, width, height);
+        for (const drop of drops) {
+          const age = (cycle + drop.phase) % 1;
+          const fade = Math.min(1, age * 9, (1 - age) * 9);
+          const distance = drop.travel * age;
+          const x = drop.x + distance * drop.slant;
+          const y = drop.y + distance;
+          if (x < 0 || x > width + 30 || y < 0 || y > height + 35) continue;
+          context.globalAlpha = drop.opacity * fade;
+          context.lineWidth = drop.width;
+          context.beginPath();
+          context.moveTo(x - drop.trail * drop.slant, y - drop.trail);
+          context.lineTo(x, y);
+          context.stroke();
+        }
+        context.globalAlpha = 1;
+      }
+
+      function animate(timestamp) {
+        drawRain(timestamp);
+        animationFrame = requestAnimationFrame(animate);
+      }
+
+      function updateRain() {
+        if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+        const active = rain.getAttribute("aria-pressed") === "true";
+        canvas.hidden = !active;
+        if (!active || document.hidden) return;
+        if (reducedMotion.matches) {
+          drawRain(175);
+        } else {
+          drawRain(performance.now());
+          animationFrame = requestAnimationFrame(animate);
+        }
+      }
+
+      if (!context) {
+        rain.hidden = true;
+      } else {
+        const observer = new ResizeObserver(() => {
+          if (canvas.hidden) return;
+          sizeRain();
+          updateRain();
+        });
+        observer.observe(stage);
+        reducedMotion.addEventListener("change", updateRain);
+        document.addEventListener("visibilitychange", updateRain);
+        rain.addEventListener("click", () => {
+          const active = rain.getAttribute("aria-pressed") !== "true";
+          rain.setAttribute("aria-pressed", String(active));
+          rain.textContent = active ? "Regen ausblenden" : "Regen einblenden";
+          if (active) sizeRain();
+          updateRain();
+        });
+        if (!reducedMotion.matches) rain.click();
+      }
+    </script>
+  </body>
+</html>

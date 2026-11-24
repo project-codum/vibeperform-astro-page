@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Regelmäßiges Schädlingsmonitoring für Lebensmittelbetriebe, von der ersten Begehung bis zur laufenden Dokumentation."
+    />
+    <title>Klarspur Schädlingsmanagement · Hero-Studie</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+      }
+      a,
+      summary {
+        color: inherit;
+      }
+      a {
+        text-underline-offset: 0.3em;
+      }
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+      }
+      summary {
+        cursor: pointer;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      :root {
+        --ink: #183a35;
+        --paper: #f4f5ed;
+        --accent: #c1da76;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+      }
+      .wrap {
+        width: min(1450px, 100%);
+        margin: auto;
+        padding: 0 clamp(18px, 4.4vw, 75px) 30px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 24px 0;
+        border-bottom: 1px solid;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 1.4rem;
+        font-weight: 750;
+      }
+      .mark {
+        display: inline-block;
+        width: 29px;
+        height: 29px;
+        background: repeating-linear-gradient(
+          135deg,
+          var(--ink) 0 5px,
+          transparent 5px 9px
+        );
+        border-radius: 50%;
+      }
+      .brand small {
+        display: block;
+        font-size: 0.68rem;
+        font-weight: normal;
+      }
+      header a,
+      .cue,
+      .caption {
+        font:
+          0.77rem/1.4 Menlo,
+          monospace;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.87fr) minmax(0, 1.13fr);
+        margin-top: clamp(24px, 4vw, 65px);
+      }
+      .intro {
+        align-self: center;
+        padding: 20px clamp(20px, 4vw, 74px) 30px 0;
+      }
+      .cue {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+      }
+      .cue::before {
+        content: "";
+        width: 0.8rem;
+        height: 0.8rem;
+        background: var(--accent);
+        border: 1px solid;
+      }
+      h1 {
+        font-size: clamp(3rem, 5.6vw, 6rem);
+        line-height: 0.98;
+        letter-spacing: -0.067em;
+        margin: 27px 0 24px;
+      }
+      .lead {
+        max-width: 40ch;
+        font-size: clamp(1rem, 1.4vw, 1.3rem);
+        line-height: 1.5;
+      }
+      figure {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: 1fr auto;
+        min-width: 0;
+        background: var(--ink);
+      }
+      figure img {
+        min-height: 0;
+        aspect-ratio: 1.48;
+      }
+      .caption {
+        padding: 10px 14px;
+        color: var(--paper);
+      }
+      details {
+        margin-top: 26px;
+        border: 1px solid;
+      }
+      summary {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--accent);
+        padding: 16px 20px;
+        font-weight: 700;
+        list-style: none;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        font: 1.45rem monospace;
+      }
+      details[open] summary::after {
+        content: "−";
+      }
+      ol {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        counter-reset: phase;
+      }
+      li {
+        counter-increment: phase;
+        padding: 20px;
+        line-height: 1.5;
+      }
+      li::before {
+        content: "0" counter(phase);
+        display: block;
+        font: 0.8rem monospace;
+        margin-bottom: 0.7rem;
+      }
+      li strong {
+        display: block;
+      }
+      @media (max-width: 800px) {
+        .hero,
+        ol {
+          grid-template-columns: 1fr;
+        }
+        .intro {
+          padding: 0 0 25px;
+        }
+        header {
+          padding: 17px 0;
+        }
+        li + li {
+          border-top: 1px dotted;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <i class="mark" aria-hidden="true"></i
+          ><span>Klarspur<small>Schädlingsmanagement</small></span>
+        </div>
+        <a href="../../#designstudien" data-back-to-studies>Zur Übersicht</a>
+      </header>
+      <main>
+        <section class="hero" aria-labelledby="titel">
+          <div class="intro">
+            <p class="cue">Monitoring für Lebensmittelbetriebe</p>
+            <h1 id="titel">Schon vor der ersten Schicht.</h1>
+            <p class="lead">
+              Bei der ersten Begehung legen wir mit Ihnen fest, wo wir
+              regelmäßig kontrollieren. Jeder Besuch wird dokumentiert, damit
+              Sie wissen, was im Betrieb zu tun ist.
+            </p>
+          </div>
+          <figure>
+            <img
+              src="assets/17-kammerjaeger.jpg"
+              alt="Eine Fachkraft mit Klemmbrett prüft den Sockelbereich eines Lebensmittelbetriebs."
+            />
+            <figcaption class="caption">
+              Vor Ort · Sichtkontrolle im Sockelbereich
+            </figcaption>
+          </figure>
+        </section>
+        <details>
+          <summary>So läuft das Monitoring ab</summary>
+          <ol>
+            <li>
+              <strong>Gemeinsam begehen</strong>Wir besichtigen Anlieferung,
+              Lager und Arbeitsräume zu einem mit Ihnen abgestimmten Zeitpunkt.
+            </li>
+            <li>
+              <strong>Kontrollpunkte festlegen</strong>Sie erfahren, welche
+              Stellen wir beobachten und in welchem Abstand wir wiederkommen.
+            </li>
+            <li>
+              <strong>Befunde besprechen</strong>Nach jeder Kontrolle erhalten
+              Sie ein Protokoll. Auffälligkeiten und mögliche nächste Schritte
+              besprechen wir direkt mit Ihnen.
+            </li>
+          </ol>
+        </details>
+      </main>
+    </div>
+  </body>
+</html>

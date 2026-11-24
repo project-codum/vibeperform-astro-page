@@ -62,6 +62,7 @@ const t = de ? {
       </figure>
     </div>
     <div class="hcs-mobile-only hcs-mobile-below"><p>hms-loistl.de</p><a href="https://www.hms-loistl.de/" target="_blank" rel="noopener noreferrer">{t.mobileVisit}<span aria-hidden="true"> ↗</span></a></div>
+    {de && import.meta.env.VP_LOCAL_CASE_READY && <p class="hcs-full-study"><a href={`${base}/de/fallstudien/hms-loistl/`}>Fallstudie ansehen <span aria-hidden="true">↗</span></a></p>}
     <div class="hcs-mobile-only hcs-mobile-contact">
       <p>{t.mobileContactFirst}<br />{t.mobileContactSecond}</p>
       <button class="hcs-mobile-cta" type="button" data-hcs-contact>{t.mobileContact}<span aria-hidden="true">↗</span></button>
@@ -83,3 +84,8 @@ const t = de ? {
   import { mountCaseStudy } from '../scripts/caseStudy';
   document.querySelectorAll<HTMLElement>('[data-case-study]').forEach(root => mountCaseStudy(root));
 </script>
+
+<style>
+  .hcs-full-study { width: fit-content; margin: 1.25rem auto; font-size: .95rem; }
+  .hcs-full-study a { color: inherit; text-decoration: underline; text-underline-offset: .25em; }
+</style>

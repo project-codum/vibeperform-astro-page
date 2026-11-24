@@ -4,11 +4,11 @@ import { bookingUrl } from '../lib/siteMetadata';
 export const homeIntroContent = {
   de: {
     title: 'Webseiten & Unternehmensprofile | VibePerform',
-    description: 'Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir Ihren digitalen Firmenauftritt laufend weiter.',
+    description: 'Wir erstellen und betreuen Webseiten und Unternehmensprofile. Mit SEO, Texten und Grafiken entwickeln wir deinen digitalen Firmenauftritt laufend weiter.',
     audience: '',
-    headline: 'Ihr Online-Auftritt.',
+    headline: 'Dein Online-Auftritt.',
     emphasis: 'In professionellen Händen.',
-    intro: ['Wir lernen Ihren Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuung. Damit Sie sich auf Ihre Arbeit konzentrieren können.'],
+    intro: ['Wir lernen deinen Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuung. Damit du dich auf deine Arbeit konzentrieren kannst.'],
     primaryLabel: 'Uns kennenlernen',
     heroPrimaryLabel: 'Uns kennenlernen',
     primaryHref: bookingUrl,

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Brote aus dem Steinofen und der Backplan für den Morgen."
+    />
+    <title>Zeit für Kruste · Krume & Glut</title>
+    <style>
+      body {
+        --bg: #f4e6ce;
+        --fg: #382518;
+        --accent: #9d4128;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 20px var(--pad);
+        position: relative;
+        z-index: 2;
+      }
+      header {
+        border-bottom: 1px solid currentColor;
+      }
+      header strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.05em;
+      }
+      header span,
+      footer,
+      figcaption,
+      .micro {
+        font:
+          600 0.72rem/1.45 "Courier New",
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      header span {
+        text-align: right;
+      }
+      footer {
+        border-top: 1px solid currentColor;
+        flex-wrap: wrap;
+      }
+      footer a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      .wrap {
+        --pad: clamp(18px, 5vw, 85px);
+        max-width: 2000px;
+        margin: auto;
+      }
+      main {
+        position: relative;
+        isolation: isolate;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      h1 {
+        line-height: 0.94;
+        letter-spacing: -0.069em;
+        font-size: clamp(3.25rem, 7.8vw, 9rem);
+      }
+      p {
+        line-height: 1.48;
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+        max-width: 39ch;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      figure {
+        position: relative;
+        min-width: 0;
+      }
+      figcaption {
+        padding: 9px 0;
+      }
+      summary,
+      select,
+      input {
+        cursor: pointer;
+      }
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        list-style: none;
+        width: fit-content;
+        border-bottom: 2px solid currentColor;
+        padding: 0.7em 0;
+        font-weight: 700;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary span {
+        font-size: 1.25em;
+      }
+      details[open] summary span {
+        transform: rotate(90deg);
+      }
+      .answer,
+      .chooser li {
+        max-width: 44ch;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding-top: 12px;
+      }
+      .chooser label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: bold;
+      }
+      .chooser select {
+        font: inherit;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid currentColor;
+        padding: 7px 11px;
+        border-radius: 0;
+      }
+      .chooser ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .chooser li strong {
+        font-weight: 700;
+      }
+      :focus-visible {
+        outline: 3px dashed currentColor;
+        outline-offset: 4px;
+      }
+      .copy {
+        display: grid;
+        gap: 22px;
+        align-content: center;
+      }
+      .micro {
+        display: block;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      ::selection {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      @media (max-width: 650px) {
+        header {
+          padding-block: 14px;
+        }
+        header strong {
+          font-size: 1.12rem;
+        }
+        header span {
+          font-size: 0.6rem;
+        }
+        footer {
+          font-size: 0.63rem;
+        }
+        h1 {
+          font-size: clamp(3rem, 13vw, 5.2rem);
+        }
+        .copy {
+          gap: 15px;
+        }
+      }
+      main {
+        padding: 4vw var(--pad);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 5vw;
+      }
+      .copy h1 {
+        font-weight: 400;
+        font-size: clamp(4rem, 9.6vw, 10rem);
+      }
+      .copy em {
+        color: var(--accent);
+      }
+      figure {
+        height: clamp(400px, 38vw, 630px);
+        border-radius: 50% 50% 3px 3px;
+        overflow: hidden;
+      }
+      figure img {
+        transition: transform 1s;
+      }
+      figure:hover img {
+        transform: scale(1.04);
+      }
+      .stamp {
+        position: absolute;
+        right: 4%;
+        bottom: 5%;
+        width: 90px;
+        aspect-ratio: 1;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        border: 4px double var(--bg);
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--bg);
+        font: bold 15px/1 monospace;
+        letter-spacing: 0.13em;
+        transform: rotate(11deg);
+      }
+      @media (max-width: 650px) {
+        main {
+          grid-template-columns: 1fr;
+          padding-block: 25px;
+        }
+        .copy h1 br {
+          display: none;
+        }
+        .copy h1 {
+          font-size: 17vw;
+        }
+        figure {
+          height: 60vw;
+        }
+        .stamp {
+          width: 66px;
+          font-size: 11px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      h1.serif {
+        font-family:
+          "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <strong>Krume & Glut</strong><span>Sauerteigbäckerei</span>
+      </header>
+      <main>
+        <div class="copy">
+          <span class="micro">Aus unserer Backstube</span>
+          <h1 class="serif">Zeit für <br /><em>Kruste.</em></h1>
+          <p>
+            Unser Roggensauer ruht über Nacht. Morgens zieht der erste Laib mit
+            kräftiger Kruste aus dem Steinofen.
+          </p>
+          <details>
+            <summary>
+              Was kommt wann aus dem Ofen?<span aria-hidden="true">↗</span>
+            </summary>
+            <div class="answer">
+              Ab 7 Uhr gibt es Roggenlaib, ab 9 Uhr das helle Landbrot. Samstags
+              kommt um 10 Uhr das Walnussbrot dazu.
+            </div>
+          </details>
+        </div>
+        <figure>
+          <img
+            src="assets/01-sauerteig.jpg"
+            alt="Bemehlter Sauerteiglaib mit kräftiger Kruste"
+          />
+        </figure>
+        <div class="stamp" aria-hidden="true">STEIN <br />OFEN</div>
+      </main>
+      <footer>
+        <span>Roggen · Dinkel · Weizen</span
+        ><a href="../../#designstudien" data-back-to-studies>Zur Studienübersicht</a>
+      </footer>
+    </div>
+  </body>
+</html>

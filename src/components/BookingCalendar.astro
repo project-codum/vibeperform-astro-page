@@ -9,7 +9,7 @@ const t = de ? {
   external: 'Kalender in neuem Tab öffnen',
   hide: 'Kalender schließen',
   loading: 'Wir laden die freien Termine …',
-  frame: 'Freie Termine für Ihr Erstgespräch mit VibePerform',
+  frame: 'Freie Termine für dein Erstgespräch mit VibePerform',
 } : {
   button: 'Find a time',
   description: 'Loads available times from Google Calendar.',
@@ -91,5 +91,8 @@ const t = de ? {
     @keyframes booking-cell-wave{50%{transform:translateY(-5px);background:#d8bdf2}}
     @keyframes booking-content-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
   }
-  @media(max-width:700px){.booking-calendar{margin-top:28px}.booking-panel{border-radius:12px}.booking-placeholder .hp-button{justify-content:center;padding:15px 22px}.booking-window iframe{height:1100px}.booking-status{padding:80px 20px 30px}.booking-tools{flex-wrap:wrap;padding:14px 16px;gap:13px}.booking-tools :is(a,button){min-height:36px}}
+  @media(max-width:700px){.booking-calendar{margin-top:28px}.booking-panel{border-radius:12px}.booking-placeholder .hp-button{justify-content:space-between;padding:15px 22px}.booking-window iframe{height:1100px}.booking-status{padding:80px 20px 30px}.booking-tools{flex-wrap:wrap;padding:14px 16px;gap:13px}.booking-tools :is(a,button){min-height:36px}}
+  :global(.home-shell--front) .booking-status p { color: #000; font-size: 1rem; }
+  :global(.home-shell--front) .booking-tools { font-size: 1rem; font-weight: 700; flex-wrap: wrap; }
+  :global(.home-shell--front) .booking-tools :is(a, button) { color: #000; min-height: 44px; }
 </style>

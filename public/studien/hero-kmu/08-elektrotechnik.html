@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Den ersten Schritt zur Wallbox für den eigenen Stellplatz finden."
+    />
+    <title>Laden, wo du parkst · PHASEWERK</title>
+    <style>
+      body {
+        --bg: #141d29;
+        --fg: #ecf2f5;
+        --accent: #80c9f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 20px var(--pad);
+        position: relative;
+        z-index: 2;
+      }
+      header {
+        border-bottom: 1px solid currentColor;
+      }
+      header strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.05em;
+      }
+      header span,
+      footer,
+      figcaption,
+      .micro {
+        font:
+          600 0.72rem/1.45 "Courier New",
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      header span {
+        text-align: right;
+      }
+      footer {
+        border-top: 1px solid currentColor;
+        flex-wrap: wrap;
+      }
+      footer a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      .wrap {
+        --pad: clamp(18px, 5vw, 85px);
+        max-width: 2000px;
+        margin: auto;
+      }
+      main {
+        position: relative;
+        isolation: isolate;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      h1 {
+        line-height: 0.94;
+        letter-spacing: -0.069em;
+        font-size: clamp(3.25rem, 7.8vw, 9rem);
+      }
+      p {
+        line-height: 1.48;
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+        max-width: 39ch;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      figure {
+        position: relative;
+        min-width: 0;
+      }
+      figcaption {
+        padding: 9px 0;
+      }
+      summary,
+      select,
+      input {
+        cursor: pointer;
+      }
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        list-style: none;
+        width: fit-content;
+        border-bottom: 2px solid currentColor;
+        padding: 0.7em 0;
+        font-weight: 700;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary span {
+        font-size: 1.25em;
+      }
+      details[open] summary span {
+        transform: rotate(90deg);
+      }
+      .answer,
+      .chooser li {
+        max-width: 44ch;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding-top: 12px;
+      }
+      .chooser label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: bold;
+      }
+      .chooser select {
+        font: inherit;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid currentColor;
+        padding: 7px 11px;
+        border-radius: 0;
+      }
+      .chooser ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .chooser li strong {
+        font-weight: 700;
+      }
+      :focus-visible {
+        outline: 3px dashed currentColor;
+        outline-offset: 4px;
+      }
+      .copy {
+        display: grid;
+        gap: 22px;
+        align-content: center;
+      }
+      .micro {
+        display: block;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      ::selection {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      @media (max-width: 650px) {
+        header {
+          padding-block: 14px;
+        }
+        header strong {
+          font-size: 1.12rem;
+        }
+        header span {
+          font-size: 0.6rem;
+        }
+        footer {
+          font-size: 0.63rem;
+        }
+        h1 {
+          font-size: clamp(3rem, 13vw, 5.2rem);
+        }
+        .copy {
+          gap: 15px;
+        }
+      }
+      header strong {
+        font-weight: 950;
+        letter-spacing: -0.07em;
+      }
+      main {
+        min-height: clamp(520px, 43vw, 800px);
+        display: grid;
+        align-items: center;
+        padding: 3vw var(--pad);
+      }
+      figure {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+      }
+      figure img {
+        object-position: 70% center;
+      }
+      figure:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          #141d29 0%,
+          #141d29f0 24%,
+          #141d29cd 43%,
+          transparent 77%
+        );
+      }
+      .copy {
+        max-width: 49%;
+        border-left: 3px solid var(--accent);
+        padding-left: 2.5vw;
+      }
+      h1 {
+        font-size: clamp(3.4rem, 6.6vw, 8rem);
+      }
+      .micro,
+      h1 span {
+        color: var(--accent);
+      }
+      .chooser {
+        border-top: 1px solid var(--accent);
+        padding-top: 16px;
+      }
+      .chooser select {
+        border-color: var(--accent);
+      }
+      .copy:before {
+        content: "";
+        position: absolute;
+        left: var(--pad);
+        width: 3px;
+        height: 24px;
+        background: var(--fg);
+        animation: pulse 4s infinite alternate;
+      }
+      @keyframes pulse {
+        from {
+          translate: 0 0;
+        }
+        to {
+          translate: 0 135px;
+        }
+      }
+      @media (max-width: 650px) {
+        main {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          min-height: 0;
+        }
+        figure {
+          position: relative;
+          inset: auto;
+          width: 100%;
+          height: 53vw;
+        }
+        figure:after {
+          background: linear-gradient(0deg, var(--bg), transparent 45%);
+        }
+        .copy {
+          max-width: 100%;
+          margin: 0 var(--pad) 24px;
+          padding-left: 12px;
+        }
+        .copy:before {
+          display: none;
+        }
+        h1 {
+          font-size: 15vw;
+        }
+        h1 br {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      h1,
+      header strong {
+        font-family: "Avenir Next", Avenir, Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header><strong>PHASEWERK</strong><span>Elektrotechnik</span></header>
+      <main>
+        <figure>
+          <img
+            src="assets/08-elektrotechnik.jpg"
+            alt="Elektroauto am privaten Stellplatz mit angeschlossener Wallbox"
+          />
+        </figure>
+        <div class="copy">
+          <span class="micro">Wallbox für zu Hause</span>
+          <h1>Laden, wo <br />du parkst<span>.</span></h1>
+          <p>
+            Welche Ladelösung passt zu deinem Stellplatz? Starte mit deiner
+            Wohnsituation.
+          </p>
+          <div class="chooser">
+            <label
+              >Ich wohne im
+              <select>
+                <option value="0">Eigenheim</option>
+                <option value="1">Mehrfamilienhaus</option>
+                <option value="2">Mietobjekt</option>
+              </select></label
+            >
+            <ul aria-live="polite">
+              <li>
+                <strong>Eigenheim</strong> · Für den ersten Check helfen Fotos
+                von Stellplatz und Zählerschrank.
+              </li>
+              <li>
+                <strong>Mehrfamilienhaus</strong> · Halte Lage des Stellplatzes
+                und mögliche Leitungswege fest.
+              </li>
+              <li>
+                <strong>Mietobjekt</strong> · Stimme den Einbau mit der
+                Vermietung ab und kläre, wer die Planung begleitet.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span>Elektroinstallation · Ladeinfrastruktur</span
+        ><a href="../../#designstudien" data-back-to-studies>Zur Studienübersicht</a>
+      </footer>
+    </div>
+    <script>
+      document.querySelectorAll(".chooser").forEach((group) => {
+        const s = group.querySelector("select"),
+          items = group.querySelectorAll("li");
+        function change() {
+          items.forEach((item, i) => (item.hidden = i !== s.selectedIndex));
+          document.body.dataset.choice = s.value;
+        }
+        s.addEventListener("change", change);
+        change();
+      });
+    </script>
+  </body>
+</html>

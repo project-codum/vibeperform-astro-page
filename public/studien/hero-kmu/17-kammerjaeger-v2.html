@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Ein Kontrollgang von Klarspur Schädlingsmanagement vor dem Arbeitsbeginn im Lebensmittelbetrieb."
+    />
+    <title>Der Kontrollgang · Klarspur Schädlingsmanagement</title>
+    <style>
+      :root {
+        --ink: #133b36;
+        --paper: #eff3e8;
+        --mark: #d8ee8b;
+        --line: color-mix(in srgb, var(--ink) 28%, transparent);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.5 "Avenir Next",
+          Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      :focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 5px;
+      }
+      .shell {
+        width: min(calc(100% - 2rem), 1150px);
+        margin: auto;
+      }
+      header,
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.2rem;
+        padding-block: 1rem;
+        font-size: 0.88rem;
+      }
+      header strong {
+        font-size: 1.15rem;
+        line-height: 1.05;
+        display: grid;
+        gap: 0.16rem;
+        letter-spacing: -0.04em;
+      }
+      header small {
+        font-size: 0.73rem;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+      footer {
+        justify-content: flex-end;
+        border-top: 1px solid var(--line);
+        margin-top: 1.4rem;
+      }
+      .framing {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1.1rem;
+        align-items: end;
+        padding: clamp(1.1rem, 3vw, 2.4rem) 0 1rem;
+        border-top: 1px solid var(--line);
+      }
+      h1 {
+        margin: 0;
+        font:
+          750 clamp(2.55rem, 5.25vw, 4.8rem)/0.9 "Avenir Next",
+          Arial,
+          sans-serif;
+        letter-spacing: -0.074em;
+        max-width: 26ch;
+        text-wrap: balance;
+      }
+      .job {
+        margin: 0;
+        border-left: 2px solid var(--ink);
+        padding-left: 0.8rem;
+        font-size: 0.87rem;
+        max-width: 23ch;
+      }
+      .map {
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        isolation: isolate;
+      }
+      .map img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 2.35/1;
+        object-fit: cover;
+        object-position: 50% 42%;
+      }
+      .map::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 0 1px var(--line);
+      }
+      .target {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transform: translate(-50%, -50%);
+        padding: 0.35rem 0.75rem 0.35rem 0.45rem;
+        min-height: 44px;
+        border: 1px solid var(--ink);
+        border-radius: 32px;
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+        white-space: nowrap;
+        font:
+          700 0.85rem/1 "Avenir Next",
+          Arial,
+          sans-serif;
+        box-shadow: 0 2px 14px color-mix(in srgb, var(--ink) 36%, transparent);
+      }
+      .target:focus-visible {
+        outline-color: var(--mark);
+        box-shadow: 0 0 0 4px var(--ink);
+      }
+      .target::before {
+        content: "+";
+        display: grid;
+        place-items: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--paper);
+        font-weight: 500;
+        font-size: 1rem;
+      }
+      .target[aria-pressed="true"],
+      .target:hover {
+        background: var(--mark);
+      }
+      .target[aria-pressed="true"]::before {
+        content: "•";
+      }
+      .annotation {
+        border: 1px solid var(--line);
+        border-top: 0;
+        display: grid;
+        grid-template-columns: minmax(190px, 1fr) minmax(0, 1.65fr);
+        gap: 0.45rem 1.2rem;
+        padding: 1.05rem 1.2rem;
+        background: color-mix(in srgb, var(--mark) 16%, var(--paper));
+      }
+      .annotation h2 {
+        margin: 0;
+        font-size: 1.03rem;
+        line-height: 1.4;
+      }
+      .annotation p {
+        margin: 0;
+        max-width: 66ch;
+        font-size: 0.94rem;
+      }
+      .annotation.changed {
+        animation: reveal 0.24s ease-out;
+      }
+      @keyframes reveal {
+        from {
+          opacity: 0.55;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .story {
+        margin: 1rem 0 0;
+        max-width: 67ch;
+        font-size: 0.9rem;
+      }
+      @media (max-width: 650px) {
+        .framing,
+        .annotation {
+          grid-template-columns: 1fr;
+        }
+        .job {
+          max-width: none;
+        }
+        .map img {
+          aspect-ratio: 1.48/1;
+          object-position: 50% 58%;
+        }
+        .target {
+          padding: 0.35rem 0.52rem 0.35rem 0.32rem;
+          font-size: 0.75rem;
+          gap: 4px;
+        }
+        .target[data-stop="protokoll"] {
+          left: 53%;
+          top: 71%;
+        }
+        .target::before {
+          width: 1.16rem;
+          height: 1.16rem;
+          font-size: 0.85rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .annotation.changed {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <strong>Klarspur<small>Schädlingsmanagement</small></strong
+        ><a href="../../#designstudien" data-back-to-studies>Studienübersicht</a>
+      </header>
+      <main>
+        <div class="framing">
+          <h1>Der Rundgang vor der Schicht.</h1>
+          <p class="job">Schädlingsmonitoring für Lebensmittelbetriebe</p>
+        </div>
+        <figure class="map" aria-label="Kontrollpunkte beim Rundgang">
+          <img
+            src="assets/17-kammerjaeger.jpg"
+            alt="Ein Schädlingsbekämpfer mit Klemmbrett kniet in einer Lebensmittelproduktion und blickt unter einen Edelstahlschrank."
+          />
+          <button
+            type="button"
+            class="target"
+            style="--x: 21%; --y: 34%"
+            data-stop="lager"
+            aria-label="Lager"
+            aria-controls="kontrollpunkt"
+            aria-pressed="false"
+          >
+            Lager
+          </button>
+          <button
+            type="button"
+            class="target"
+            style="--x: 56%; --y: 64%"
+            data-stop="protokoll"
+            aria-label="Protokoll"
+            aria-controls="kontrollpunkt"
+            aria-pressed="false"
+          >
+            Protokoll
+          </button>
+          <button
+            type="button"
+            class="target"
+            style="--x: 83%; --y: 58%"
+            data-stop="sockel"
+            aria-label="Sockel"
+            aria-controls="kontrollpunkt"
+            aria-pressed="true"
+          >
+            Sockel
+          </button>
+        </figure>
+        <div class="annotation" id="kontrollpunkt" aria-live="polite">
+          <h2>Was liegt unter dem Schrank?</h2>
+          <p>
+            Am Sockel halten wir fest, welche Stellen im Arbeitsalltag schwer
+            einzusehen sind. Daraus ergeben sich Kontrollpunkte für die nächsten
+            Besuche.
+          </p>
+        </div>
+        <p class="story">
+          Ist die Begehung abgeschlossen, erfahren Sie, was aufgefallen ist und
+          welche Schritte im Betrieb sinnvoll sind.
+        </p>
+      </main>
+      <footer><a href="17-kammerjaeger.html">Ersten Entwurf ansehen</a></footer>
+    </div>
+    <script>
+      const stops = {
+        lager: [
+          "Wo kommt Ware an?",
+          "Wir lassen uns die Wege von der Anlieferung bis ins Lager zeigen und legen mit Ihnen fest, welche Stellen regelmäßig kontrolliert werden.",
+        ],
+        protokoll: [
+          "Was steht nach der Kontrolle fest?",
+          "Sie erhalten die Beobachtungen im Protokoll und wissen, welche Auffälligkeiten wir beim nächsten Besuch erneut prüfen.",
+        ],
+        sockel: [
+          "Was liegt unter dem Schrank?",
+          "Am Sockel halten wir fest, welche Stellen im Arbeitsalltag schwer einzusehen sind. Daraus ergeben sich Kontrollpunkte für die nächsten Besuche.",
+        ],
+      };
+      const targets = Array.from(document.querySelectorAll(".target"));
+      const annotation = document.querySelector(".annotation");
+      targets.forEach((target) => {
+        target.addEventListener("click", () => {
+          const [headline, description] = stops[target.dataset.stop];
+          targets.forEach((item) =>
+            item.setAttribute("aria-pressed", String(item === target)),
+          );
+          annotation.querySelector("h2").textContent = headline;
+          annotation.querySelector("p").textContent = description;
+          annotation.classList.remove("changed");
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => annotation.classList.add("changed")),
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

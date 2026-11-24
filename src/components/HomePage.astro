@@ -1,15 +1,17 @@
 ---
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
-import HomeCaseStudy from './HomeCaseStudy.astro';
+import HomeDesignStudies from './HomeDesignStudies.astro';
+import HomeProjectVisibility from './HomeProjectVisibility.astro';
 import AgencyFooter from './AgencyFooter.astro';
-import ContactActions from './ContactActions.astro';
+import BookingCalendar from './BookingCalendar.astro';
 import HomeServices from './HomeServices.astro';
+import HomeSituationSolutions from './HomeSituationSolutions.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { homePageContent } from '../data/homePageContent';
 import { homeStoryContent } from '../data/homeStoryContent';
 import CollaborationVisual from './CollaborationVisual.astro';
-import { type Locale } from '../lib/siteMetadata';
+import { contactEmail, type Locale } from '../lib/siteMetadata';
 import '../styles/home-page.css';
 
 interface Props { currentLocale: Locale; alternateLocaleHref: string; }
@@ -17,47 +19,50 @@ const { currentLocale: locale, alternateLocaleHref } = Astro.props;
 const t = homePageContent[locale];
 const story = homeStoryContent[locale];
 ---
-<div class="home-shell" id="top">
+<div class="home-shell home-shell--front" id="top">
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
   <main class="home-main">
-    <HomeHero copy={homeIntroContent[locale]} />
-    <HomeCaseStudy locale={locale} />
-    <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
-
-    <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
-      <div class="hp-wrap hp-split">
-        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
-        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><h3>{item.title}</h3><CollaborationVisual index={index} locale={locale} /><p>{item.body}</p></article>)}</div>
-      </div>
-    </section>
+    <div class="hp-hero-canvas">
+      <HomeHero copy={homeIntroContent[locale]} />
+      <HomeDesignStudies locale={locale} />
+    </div>
 
     <section class="hp-section hp-purpose" id="leitgedanke" aria-labelledby="purpose-title" data-analytics-section="home-purpose">
       <div class="hp-wrap">
         <div class="hp-purpose-stage" data-purpose-stage>
-        <div class="hp-purpose-pin" data-purpose-pin>
-        <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
-          {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
-            const Tag = index === 2 ? 'em' : 'span';
-            return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
-          })}
-        </h2>
-        </div>
-        </div>
-        <div class="hp-purpose-details">
-        <p class="hp-purpose-mission">{t.purpose.mission}</p>
-        <div class="hp-purpose-vision"><p class="hp-purpose-label">{t.purpose.visionLabel}</p><p class="hp-purpose-vision-text">{t.purpose.vision}</p></div>
+          <div class="hp-purpose-pin" data-purpose-pin>
+            <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
+              {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
+                const Tag = index === 2 ? 'em' : 'span';
+                return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
+              })}
+            </h2>
+            <p class="hp-purpose-mission" data-purpose-mission>{t.purpose.mission}</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <HomeSituationSolutions locale={locale} />
+    <HomeProjectVisibility locale={locale} />
     <HomeServices locale={locale} />
+
+    <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
+
+    {locale === 'en' && <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
+      <div class="hp-wrap hp-split">
+        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}{' '}<em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">Discuss your online presence<span aria-hidden="true">↓</span></a></div>
+        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} illustrative /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+      </div>
+    </section>}
+
 
     <section class="hp-section hp-faq" aria-labelledby="faq-title">
       <div class="hp-wrap hp-split"><div><h2 id="faq-title">{t.faq.title}<br /><em>{t.faq.emphasis}</em></h2></div><div>{t.faq.items.map(item => <details><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></div>
     </section>
 
     <section class="hp-section hp-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="home-contact">
-      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-contact-detail">{t.contact.detail}</p><ContactActions locale={locale} analyticsLocation="home-contact" /></div>
+      <div class="hp-wrap"><h2 id="contact-title">{t.contact.title}<br /><em>{t.contact.emphasis}</em></h2><p class="hp-intro">{t.contact.body}</p><p class="hp-contact-detail">{t.contact.detail}</p><BookingCalendar locale={locale} autoOpen /><div class="hp-contact-actions"><a class="hp-text-link" href={`mailto:${contactEmail}`} data-analytics-event="contact_start" data-analytics-name="email" data-analytics-location="home-contact">{t.contact.email}<span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 
@@ -67,7 +72,7 @@ const story = homeStoryContent[locale];
 <script>
   import '../scripts/purposeCaption';
   // Repeated SVG and button effects only run while their section is visible.
-  const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button:not(.hp-button--outline)');
+  const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button');
   if ('IntersectionObserver' in window) {
     const active = new Set<Element>();
     const update = () => looping.forEach(node => node.classList.toggle('is-animation-visible', !document.hidden && active.has(node)));

@@ -131,8 +131,8 @@ export const serviceMenu = (locale: Locale) => {
     { title: 'Websites', links: [itemLink(0), itemLink(1), itemLink(2)] },
     { title: de ? 'Sichtbarkeit & Inhalte' : 'Visibility & content', links: [itemLink(3), itemLink(4), itemLink(5)] },
     { title: de ? 'Überblick' : 'Overview', links: [
-      { label: de ? 'Alle Leistungen' : 'All services', description: de ? 'Ihr Firmenauftritt aus einer Hand' : 'Your online presence in one place', href: paths.overview },
-      { label: de ? 'Für Handwerksbetriebe' : 'For trade businesses', description: de ? 'Das Angebot für Ihren Betrieb' : 'An offer tailored to your trade', href: serviceContent[locale].website.trade.href },
+      { label: de ? 'Alle Leistungen' : 'All services', description: de ? 'Dein Firmenauftritt aus einer Hand' : 'Your online presence in one place', href: paths.overview },
+      { label: de ? 'Für Handwerksbetriebe' : 'For trade businesses', description: de ? 'Das Angebot für deinen Betrieb' : 'An offer tailored to your trade', href: serviceContent[locale].website.trade.href },
       { label: de ? 'KI-Beratung' : 'AI consulting', description: de ? 'Ergänzende Hilfe im Arbeitsalltag' : 'Additional support for everyday work', href: serviceContent[locale].overview.additional.href },
     ] },
   ];

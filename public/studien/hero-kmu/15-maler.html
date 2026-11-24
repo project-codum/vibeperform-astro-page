@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Maleratelier Kalk und Kelle – Stucco Veneziano für Wohnräume. Fiktive Gestaltungsstudie."
+    />
+    <title>Stucco Veneziano für Wohnräume · Maleratelier Kalk und Kelle</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      a:focus-visible,
+      summary:focus-visible,
+      input:focus-visible + label {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .back {
+        font:
+          500 0.82rem/1.4 system-ui,
+          sans-serif;
+        white-space: nowrap;
+        text-underline-offset: 0.3em;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      summary,
+      label {
+        cursor: pointer;
+      }
+      details summary {
+        width: fit-content;
+      }
+      details p {
+        margin-top: 0.85rem;
+        max-width: 55ch;
+        line-height: 1.5;
+      }
+      fieldset {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      fieldset input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+      :root {
+        --paper: #f8f0df;
+        --ink: #38251f;
+        --clay: #8e442c;
+      }
+      body {
+        color: var(--ink);
+        background: var(--paper);
+        font:
+          1rem/1.55 Georgia,
+          serif;
+      }
+      header {
+        padding: 1.3rem 4vw;
+        border-bottom: 1px solid var(--ink);
+      }
+      .brand {
+        font-style: italic;
+        font-size: clamp(1rem, 2vw, 1.45rem);
+      }
+      main {
+        padding: 2.6vw 4vw 2rem;
+      }
+      main > section {
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: clamp(1rem, 4vw, 4rem);
+        align-items: center;
+      }
+      figure {
+        position: relative;
+      }
+      .photo {
+        position: relative;
+        overflow: hidden;
+        background: var(--clay);
+      }
+      .photo img {
+        display: block;
+        width: 100%;
+        height: clamp(25rem, 62vh, 42rem);
+        object-fit: cover;
+        transition: filter 0.45s ease;
+      }
+      figure:has(#relief:checked) img {
+        filter: contrast(1.35) brightness(1.08);
+      }
+      figcaption {
+        padding: 0.8rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.7rem;
+        border-bottom: 1px solid var(--ink);
+      }
+      figcaption,
+      .kicker,
+      legend,
+      .switch {
+        font:
+          550 0.74rem/1.5 "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+      fieldset {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .switch {
+        padding: 0.3rem 0.65rem;
+        border: 1px solid var(--ink);
+        border-radius: 2rem;
+      }
+      input:checked + .switch {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      legend {
+        position: absolute;
+        clip-path: inset(50%);
+      }
+      .kicker {
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: var(--clay);
+      }
+      h1 {
+        font-weight: 400;
+        font-size: clamp(3rem, 6.2vw, 7rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+        margin: 1.2rem 0;
+      }
+      h1 em {
+        color: var(--clay);
+      }
+      .intro {
+        max-width: 38ch;
+        font-size: clamp(1rem, 1.45vw, 1.3rem);
+      }
+      details {
+        margin-top: 1.75rem;
+      }
+      summary {
+        font:
+          600 0.9rem/1.5 system-ui,
+          sans-serif;
+        text-decoration: underline;
+        text-underline-offset: 0.35em;
+      }
+      @media (max-width: 700px) {
+        main {
+          padding-top: 1.5rem;
+        }
+        main > section {
+          grid-template-columns: 1fr;
+        }
+        .photo img {
+          height: clamp(13rem, 64vw, 25rem);
+        }
+        h1 {
+          margin: 0.6rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">Maleratelier Kalk und Kelle</div>
+      <a class="back" href="../../#designstudien" data-back-to-studies>← Zur Galerie</a>
+    </header>
+    <main>
+      <section aria-labelledby="titel">
+        <figure>
+          <div class="photo">
+            <img
+              src="assets/15-maler.jpg"
+              alt="Beim Auftragen von Kalkspachtel hebt seitliches Licht die Spuren der Kelle hervor"
+            />
+          </div>
+          <figcaption>
+            <span>Werkdetail · Kalk und Kelle</span>
+            <fieldset>
+              <legend>Bildkontrast wählen</legend>
+              <input type="radio" id="natural" name="light" checked /><label
+                class="switch"
+                for="natural"
+                >Original</label
+              >
+              <input type="radio" id="relief" name="light" /><label
+                class="switch"
+                for="relief"
+                >Mehr Kontrast</label
+              >
+            </fieldset>
+          </figcaption>
+        </figure>
+        <div>
+          <p class="kicker">Venezianische Kalkspachteltechnik</p>
+          <h1 id="titel">Wenn Licht über <em>Kalk</em> streicht.</h1>
+          <p class="intro">
+            Eine Wand schimmert, die nächste wirkt fast matt. Für Ihren Wohnraum
+            stimmen wir den Stucco Veneziano über mehrere Flächen ab, vom ersten
+            Muster bis zum letzten Zug der Kelle.
+          </p>
+          <details>
+            <summary>Eine Musterfläche planen</summary>
+            <p>
+              Wählen Sie eine Wand, an der tagsüber Licht entlangstreicht. Dort
+              lässt sich am Muster besprechen, wie lebhaft die Zeichnung sein
+              soll und wie sie an der nächsten Wand weiterläuft.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

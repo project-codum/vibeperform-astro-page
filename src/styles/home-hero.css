@@ -12,14 +12,14 @@
 .vf-copy h1{font-size:clamp(52px,6.35vw,92px);font-weight:400;line-height:1.035;letter-spacing:-.065em;margin:0;text-wrap:balance}
 .vf-copy em{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-style:italic;letter-spacing:-.06em;color:#d9c4ee}
 
-.vf-actions{display:flex;align-items:center;justify-content:center;gap:28px;margin-top:32px;font-size:14px}
-.vf-actions .vf-primary{background:#d6bdf2;color:#21172e;border:1px solid #e5d2fc;padding:17px 23px;border-radius:var(--radius-pill,9999px);display:flex;align-items:center;gap:27px;transition:background .2s,transform .2s;min-height:48px}
+.vf-actions{display:flex;align-items:center;justify-content:center;gap:28px;margin-top:32px;font-size:1rem;font-weight:700}
+.vf-actions .vf-primary{background:#d6bdf2;color:#000;border:1px solid #e5d2fc;padding:17px 23px;border-radius:var(--radius-pill,9999px);display:flex;align-items:center;gap:27px;transition:background .2s,transform .2s;min-height:48px}
 .vf-primary:hover{background:#eadbf9;transform:translateY(-2px)}.vf-primary span{font-size:20px;line-height:1}
 .vf-secondary{border:1px solid #b9a1ce;border-radius:var(--radius-pill,9999px);padding:17px 23px;justify-content:center;display:flex;align-items:center;gap:14px;color:#e8e1ef;min-height:48px}.vf-secondary:hover{text-decoration:underline!important;text-underline-offset:5px}
 
 .vf-hero-bottom{min-height:68px;position:relative;z-index:1;padding:0 4.4% 24px;display:flex;font-size:11px;letter-spacing:.025em;color:#b6aabe;align-items:center;pointer-events:none}.vf-hero-bottom a{min-height:44px;display:inline-flex;align-items:center;pointer-events:auto}.vf-hero-bottom a span{margin-left:20px}
-.vf-motion{position:absolute;right:4.4%;bottom:24px;min-height:44px;pointer-events:auto;z-index:3;border:1px solid #776387;background:#17131ed9;color:#d8cce1;border-radius:var(--radius-pill,9999px);font:11px Arial,Helvetica,sans-serif;padding:10px 14px;cursor:pointer}.vf-motion:hover{background:#392546}.vf-motion[hidden]{display:none}
-@media(max-width:700px){.vf-hero{min-height:max(760px,100svh);padding-top:100px}.vf-copy{padding:52px 22px 100px}.vf-copy h1{overflow-wrap:anywhere;hyphens:auto;hyphenate-limit-chars:6;font-size:clamp(38px,8.7vw,61px);letter-spacing:-.065em}.vf-kicker{font-size:10px;letter-spacing:.12em;margin-bottom:26px}.vf-desktop{display:none}.vf-actions{flex-direction:column;gap:14px;margin-top:28px;font-size:13px}.vf-primary{padding:16px 21px}.vf-hero-bottom{padding:0 22px 20px;font-size:10px}.vf-motion{right:22px;bottom:20px;font-size:10px;padding:10px}.vf-fluid canvas{opacity:.72}}
+.vf-motion{position:absolute;right:4.4%;bottom:24px;min-height:44px;pointer-events:auto;z-index:3;border:1px solid #776387;background:#17131e;color:#fff;border-radius:var(--radius-pill,9999px);font:700 .875rem Arial,Helvetica,sans-serif;padding:10px 14px;cursor:pointer}.vf-motion:hover{background:#392546}.vf-motion[hidden]{display:none}
+@media(max-width:700px){.vf-hero{min-height:max(760px,100svh);padding-top:100px}.vf-copy{padding:52px 22px 100px}.vf-copy h1{overflow-wrap:anywhere;hyphens:auto;hyphenate-limit-chars:6;font-size:clamp(38px,8.7vw,61px);letter-spacing:-.065em}.vf-kicker{font-size:10px;letter-spacing:.12em;margin-bottom:26px}.vf-desktop{display:none}.vf-actions{flex-direction:column;gap:14px;margin-top:28px}.vf-primary{padding:16px 21px}.vf-hero-bottom{padding:0 22px 20px;font-size:10px}.vf-motion{right:22px;bottom:20px;padding:10px}.vf-fluid canvas{opacity:.72}}
 @media(prefers-reduced-motion:reduce){.vf-hero a{transition:none}.vf-primary:hover{transform:none}.vf-fluid canvas{display:none}.vf-poster{opacity:1!important}}
 
 /* Keep the complete offer and booking expectation together in the first view. */
@@ -49,11 +49,11 @@
 .vf-title-aligned em{display:inline-block;font-size:1.149em;white-space:nowrap}
 
 /* Supporting copy follows the actions in a readable, compact panel. */
-.vf-intro{max-width:56ch;margin:32px auto 0;padding:22px 28px;border:1px solid #ffffff24;border-radius:20px;background:#111116b8;color:#fff;font-size:17px;line-height:1.65;text-wrap:pretty}
-@media(max-width:700px){.vf-intro{margin-top:26px;padding:18px 20px;font-size:15px;border-radius:18px}}
+.vf-intro{max-width:56ch;margin:32px auto 0;padding:22px 28px;border:1px solid #ffffff24;border-radius:20px;background:#111116e6;color:#fff;font-size:1.125rem;line-height:1.6;text-wrap:pretty}
+@media(max-width:700px){.vf-intro{margin-top:26px;padding:18px 20px;font-size:1.0625rem;border-radius:18px}}
 
 /* Match the two headline widths with font sizing, preserving the letterforms. */
 .vf-title-matched .vf-title-line{display:inline-block;white-space:nowrap;letter-spacing:-.055em;font-size:1.5666em}
 .vf-title-matched em{display:inline-block;white-space:nowrap}
 :lang(en) .vf-title-matched .vf-title-line{font-size:1.0215em}
-@media(max-width:700px){.vf-copy h1.vf-title-matched{font-size:clamp(23px,7.8vw,54px)}}
+@media(max-width:700px){.vf-copy h1.vf-title-matched{font-size:clamp(23px,7.35vw,54px)}}

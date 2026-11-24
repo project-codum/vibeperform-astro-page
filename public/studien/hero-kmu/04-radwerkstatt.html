@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Wähle ein Geräusch und finde heraus, was die Werkstatt bei der Annahme wissen möchte."
+    />
+    <title>Was macht dein Rad? · Ritzel Klub</title>
+    <style>
+      body {
+        --bg: #f3fa80;
+        --fg: #151714;
+        --accent: #e2e1d8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 20px var(--pad);
+        position: relative;
+        z-index: 2;
+      }
+      header {
+        border-bottom: 1px solid currentColor;
+      }
+      header strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.05em;
+      }
+      header span,
+      footer,
+      figcaption,
+      .micro {
+        font:
+          600 0.72rem/1.45 "Courier New",
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      header span {
+        text-align: right;
+      }
+      footer {
+        border-top: 1px solid currentColor;
+        flex-wrap: wrap;
+      }
+      footer a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      .wrap {
+        --pad: clamp(18px, 5vw, 85px);
+        max-width: 2000px;
+        margin: auto;
+      }
+      main {
+        position: relative;
+        isolation: isolate;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      h1 {
+        line-height: 0.94;
+        letter-spacing: -0.069em;
+        font-size: clamp(3.25rem, 7.8vw, 9rem);
+      }
+      p {
+        line-height: 1.48;
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+        max-width: 39ch;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      figure {
+        position: relative;
+        min-width: 0;
+      }
+      figcaption {
+        padding: 9px 0;
+      }
+      summary,
+      select,
+      input {
+        cursor: pointer;
+      }
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        list-style: none;
+        width: fit-content;
+        border-bottom: 2px solid currentColor;
+        padding: 0.7em 0;
+        font-weight: 700;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary span {
+        font-size: 1.25em;
+      }
+      details[open] summary span {
+        transform: rotate(90deg);
+      }
+      .answer,
+      .chooser li {
+        max-width: 44ch;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding-top: 12px;
+      }
+      .chooser label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: bold;
+      }
+      .chooser select {
+        font: inherit;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid currentColor;
+        padding: 7px 11px;
+        border-radius: 0;
+      }
+      .chooser ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .chooser li strong {
+        font-weight: 700;
+      }
+      :focus-visible {
+        outline: 3px dashed currentColor;
+        outline-offset: 4px;
+      }
+      .copy {
+        display: grid;
+        gap: 22px;
+        align-content: center;
+      }
+      .micro {
+        display: block;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      ::selection {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      @media (max-width: 650px) {
+        header {
+          padding-block: 14px;
+        }
+        header strong {
+          font-size: 1.12rem;
+        }
+        header span {
+          font-size: 0.6rem;
+        }
+        footer {
+          font-size: 0.63rem;
+        }
+        h1 {
+          font-size: clamp(3rem, 13vw, 5.2rem);
+        }
+        .copy {
+          gap: 15px;
+        }
+      }
+      header strong {
+        font-size: 1.8rem;
+        font-weight: 950;
+        font-style: italic;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .headline {
+        padding: 5vw 0 4vw var(--pad);
+        z-index: 1;
+        align-self: center;
+      }
+      h1 {
+        font-weight: 950;
+        font-size: clamp(4rem, 8.5vw, 10rem);
+        line-height: 0.88;
+      }
+      h1 em {
+        font-weight: 950;
+      }
+      figure {
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+        height: clamp(310px, 31vw, 550px);
+        background: var(--fg);
+      }
+      figure img {
+        filter: grayscale(1);
+        transition: transform 0.5s;
+      }
+      body[data-choice="1"] img {
+        transform: scale(1.04);
+      }
+      body[data-choice="2"] img {
+        transform: scale(1.08);
+      }
+      .strip {
+        grid-column: 1/-1;
+        background: var(--fg);
+        color: var(--bg);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vw;
+        padding: 25px var(--pad);
+      }
+      .strip p {
+        margin-top: 5px;
+        font-weight: bold;
+      }
+      .chooser li {
+        color: var(--accent);
+      }
+      @media (max-width: 650px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+        .headline {
+          padding: 25px var(--pad);
+        }
+        h1 {
+          font-size: 16vw;
+        }
+        h1 br {
+          display: none;
+        }
+        figure {
+          height: 54vw;
+          clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+        }
+        .strip {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      h1,
+      header strong {
+        font-family: "Avenir Next Condensed", "Arial Narrow", Arial, sans-serif;
+      }
+      .switch label {
+        border: 2px solid var(--bg);
+        font:
+          900 italic 1.05rem "Arial Narrow",
+          Arial,
+          sans-serif;
+        transform: skew(-6deg);
+        text-transform: uppercase;
+      }
+      .opt:checked + label {
+        background: var(--bg);
+        color: var(--fg);
+      }
+      body:has(#pick-1:checked) figure img {
+        transform: scale(1.06);
+      }
+      body:has(#pick-2:checked) figure img {
+        transform: scale(1.12);
+      }
+      .tool {
+        min-width: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      .tool legend {
+        padding: 0;
+        margin: 0 0 0.6em;
+        font-weight: bold;
+      }
+      .switch {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .switch label {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 9px 12px;
+        min-height: 40px;
+      }
+      .opt {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+      }
+      .opt:focus-visible + label {
+        outline: 3px dashed currentColor;
+        outline-offset: 3px;
+      }
+      .response {
+        font-size: 1rem;
+        line-height: 1.45;
+        margin-top: 12px;
+        display: none;
+      }
+      .tool:has(#pick-0:checked) .r0,
+      .tool:has(#pick-1:checked) .r1,
+      .tool:has(#pick-2:checked) .r2 {
+        display: block;
+      }
+      .wrap {
+        position: relative;
+      }
+      header {
+        position: absolute;
+        z-index: 3;
+        top: 17px;
+        left: var(--pad);
+        border: 0;
+        display: block;
+        padding: 0;
+        transform: rotate(-5deg);
+      }
+      header strong {
+        display: inline-block;
+        background: var(--fg);
+        color: var(--bg);
+        padding: 4px 13px 7px;
+        font-size: clamp(1.5rem, 2.3vw, 2.7rem);
+        line-height: 1;
+      }
+      header span {
+        display: none;
+      }
+      .headline {
+        padding-top: 6.7vw;
+      }
+      .strip .micro {
+        font:
+          900 italic 1.25rem/1.1 "Arial Narrow",
+          Arial,
+          sans-serif;
+        letter-spacing: -0.04em;
+        text-transform: none;
+      }
+      footer {
+        border: 0;
+        justify-content: flex-end;
+        padding-block: 11px;
+      }
+      footer > span {
+        display: none;
+      }
+      @media (max-width: 650px) {
+        header {
+          top: 12px;
+        }
+        .headline {
+          padding-top: 65px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <strong>Ritzel Klub</strong><span>Freie Fahrradwerkstatt</span>
+      </header>
+      <main>
+        <div class="headline">
+          <h1>Was macht <br /><em>dein Rad?</em></h1>
+        </div>
+        <figure>
+          <img
+            src="assets/04-radwerkstatt.jpg"
+            alt="Mechaniker an einem Fahrrad in der Werkstatt"
+          />
+        </figure>
+        <section class="strip">
+          <div>
+            <span class="micro">Werkstattannahme</span>
+            <p>Hilf uns beim Hinhören. Welches Geräusch macht dein Rad?</p>
+          </div>
+          <fieldset class="tool">
+            <legend>Was hörst du?</legend>
+            <div class="switch">
+              <input
+                class="opt"
+                id="pick-0"
+                name="pick"
+                type="radio"
+                checked
+                value="0"
+              /><label for="pick-0">knackt</label
+              ><input
+                class="opt"
+                id="pick-1"
+                name="pick"
+                type="radio"
+                value="1"
+              /><label for="pick-1">schleift</label
+              ><input
+                class="opt"
+                id="pick-2"
+                name="pick"
+                type="radio"
+                value="2"
+              /><label for="pick-2">klappert</label>
+            </div>
+            <p class="response r0">
+              Beim Treten oder beim Rollen? Merke dir, wann es auftritt.
+            </p>
+            <p class="response r1">
+              Nur beim Bremsen oder bei jeder Radumdrehung?
+            </p>
+            <p class="response r2">
+              Auf Kopfsteinpflaster oder auch auf glatter Straße?
+            </p>
+          </fieldset>
+        </section>
+      </main>
+      <footer>
+        <span>Werkstatt für Alltagsräder</span
+        ><a href="../../#designstudien" data-back-to-studies>Zur Studienübersicht</a>
+      </footer>
+    </div>
+  </body>
+</html>

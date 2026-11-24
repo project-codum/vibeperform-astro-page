@@ -19,7 +19,7 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
       <details class="home-services-menu">
         <summary class:list={{ 'home-services-active': groups.some(group => group.links.some(link => active(link.href))) || currentPath.includes(servicePaths[locale].website) }}>{locale === 'de' ? 'Leistungen' : 'Services'}<span aria-hidden="true">⌄</span></summary>
         <div class="home-mega-panel">
-          <div class="home-mega-top"><span>{locale === 'de' ? 'Ihr digitaler Firmenauftritt' : 'Your online presence'}</span><a href={`${base}${servicePaths[locale].overview}`}>{locale === 'de' ? 'Alle Leistungen' : 'All services'} ↗</a></div>
+          <div class="home-mega-top"><span>{locale === 'de' ? 'Dein digitaler Firmenauftritt' : 'Your online presence'}</span><a href={`${base}${servicePaths[locale].overview}`}>{locale === 'de' ? 'Alle Leistungen' : 'All services'} ↗</a></div>
           <div class="home-mega-columns">{groups.map(group => <div class="home-mega-group"><h2>{group.title}</h2>{group.links.map(link => <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined}><strong>{link.label}</strong><span>{link.description}</span></a>)}</div>)}</div>
         </div>
       </details>
@@ -101,4 +101,11 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
   .home-mega-columns{display:grid;grid-template-columns:1fr 1fr .9fr;gap:25px}.home-mega-group h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#786289;font-weight:400;margin:0 0 14px}.home-mega-group a{display:flex;flex-direction:column;align-items:start;gap:5px;padding:12px 10px;margin:0 -10px;border-radius:4px;min-height:65px}.home-mega-group a:hover,.home-mega-group a[aria-current=page]{background:#e7deee;text-decoration:none}.home-mega-group strong{font-size:15px;line-height:1.35;font-weight:400}.home-mega-group a>span{font-size:11px;line-height:1.5;color:#706873}.home-mega-panel a:focus-visible{outline-color:#745188}
   @media(max-width:900px){vf-home-navigation[data-enhanced] nav{max-height:calc(100svh - 115px);overflow-y:auto;overscroll-behavior:contain}.home-services-menu>summary{padding:8px 12px;justify-content:space-between}.home-mega-panel{position:static;padding:16px 18px;margin:4px 0 12px;max-height:none;overflow:visible}.home-mega-top{flex-direction:column;align-items:start;gap:4px;margin-bottom:20px}.home-mega-columns{grid-template-columns:1fr;gap:24px}.home-mega-group a{padding:10px;min-height:60px}.home-mega-group:not(:first-child){border-top:1px solid #d9d2dc;padding-top:20px}.home-mega-group h2{margin-bottom:8px}}
   @media(prefers-reduced-motion:reduce){a{transition:none}}
+  :global(.home-shell--front) :is(nav, .home-menu-toggle) { font-size: 1rem; font-weight: 700; }
+  :global(.home-shell--front) .home-language { color: #fff; font-size: .875rem; }
+  :global(.home-shell--front) .home-mega-panel,
+  :global(.home-shell--front) .home-mega-panel :is(.home-mega-top > span, .home-mega-top a, h2, .home-mega-group a > span) { color: #000; }
+  :global(.home-shell--front) .home-mega-panel :is(.home-mega-top a, strong) { font-size: 1rem; font-weight: 700; }
+  :global(.home-shell--front) .home-mega-panel :is(.home-mega-top > span, h2) { font-size: .875rem; font-weight: 700; }
+  :global(.home-shell--front) .home-mega-group a > span { font-size: .9375rem; font-weight: 400; }
 </style>

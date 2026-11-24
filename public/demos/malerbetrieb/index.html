@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; form-action 'none'; base-uri 'none'; connect-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Maleranfrage · Vorher und nachher</title>
+  <style>
+    :root {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #26212a;
+      background: #f5f4ef;
+      font-synthesis: none;
+      --ink: #26212a;
+      --muted: #635667;
+      --plum: #653583;
+      --plum-hover: #4f246a;
+      --border: #d8c7e3;
+      --selected: #f5e9fc;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; min-width: 280px; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: default; }
+    button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visible,
+    .choice:has(:focus-visible) { outline: 3px solid #8141ab; outline-offset: 3px; }
+    .page { width: min(1120px, calc(100% - 64px)); margin: 0 auto; padding: 46px 0 48px; }
+    .masthead { display: flex; gap: 18px; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; }
+    .kicker { color: var(--plum); font-size: .75rem; font-weight: 740; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 11px; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.25rem, 5.1vw, 4rem); letter-spacing: -.055em; font-weight: 400; line-height: 1.02; }
+    .reset { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #d9c9df; border-radius: 9px; background: transparent; color: var(--plum); padding: 9px 12px; font-size: .83rem; font-weight: 670; white-space: nowrap; }
+    .reset:hover { background: #f1e7f8; }
+    .reset span { font-size: 1.12rem; line-height: 1; }
+    .comparison { display: grid; grid-template-columns: minmax(280px, .86fr) minmax(0, 1.7fr); gap: 22px; align-items: start; }
+    .card { border: 1px solid #e4d6e8; background: #fff; border-radius: 18px; padding: clamp(20px, 2.35vw, 30px);
+      box-shadow: 0 12px 28px rgb(35 49 30 / .045), 0 1px 1px rgb(35 49 30 / .025); }
+    .new { border-color: #e4d3e6; box-shadow: 0 12px 30px rgb(33 65 36 / .065); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px 14px; margin-bottom: 20px; }
+    .tag { display: inline-block; font-size: .69rem; line-height: 1; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; border-radius: 6px; padding: 7px 8px; color: #584962; background: #f4edf8; }
+    .new .tag { color: #653583; background: #ffede3; }
+    .step-meter { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .77rem; font-weight: 650; }
+    #step-count { white-space: nowrap; }
+    .segments { display: flex; gap: 4px; }
+    .segments i { width: 11px; height: 3px; border-radius: 8px; background: #ebdff0; }
+    .segments .passed { background: #a04d2b; }
+    h2 { margin: 0; font-size: clamp(1.45rem, 2.45vw, 2rem); line-height: 1.15; letter-spacing: -.042em; text-wrap: balance; }
+    .old h2 { font-size: clamp(1.45rem, 2.1vw, 1.78rem); }
+    h2:focus { outline: none; }
+    .description { color: var(--muted); margin: 8px 0 0; font-size: .9rem; line-height: 1.5; }
+    form { margin: 0; }
+    #old-form { margin-top: 24px; }
+    .fields { display: grid; gap: 15px; }
+    .fields.split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .field { display: grid; gap: 7px; align-content: start; color: #49394f; font-size: .85rem; font-weight: 660; }
+    .field.wide { grid-column: 1 / -1; }
+    .field small { color: var(--muted); font-weight: 450; font-size: .75rem; }
+    .field input, .field textarea, .field select { min-width: 0; width: 100%; border: 1px solid var(--border); color: var(--ink); border-radius: 8px; padding: 10px 11px; line-height: 1.4; background: #fff; font-size: .9rem; font-weight: 400; }
+    .field input, .field select { min-height: 43px; }
+    .field textarea { resize: vertical; min-height: 103px; }
+    .field textarea::placeholder, .field input::placeholder { color: #746678; }
+    .button { min-height: 43px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 8px; padding: 10px 16px; border: 1px solid transparent; font-size: .88rem; font-weight: 690; }
+    .primary { background: var(--plum); color: #fff; }
+    .primary:hover:not(:disabled) { background: var(--plum-hover); }
+    .primary:disabled { background: #eee7f0; color: #655c69; }
+    .neutral { background: #2b2430; color: #fff; }
+    .neutral:hover { background: #403345; }
+    .back { border-color: var(--border); background: #fff; color: var(--plum); }
+    .back:hover { background: #f6edf9; }
+    .old .button { width: 100%; margin-top: 20px; }
+    .old-response { color: var(--plum); font-size: .85rem; margin: 13px 0 0; line-height: 1.5; }
+    .wizard { scroll-margin-top: 18px; }
+    .room-frame { margin: 17px 0 15px; border-radius: 11px; overflow: hidden; border: 1px solid #e9d6ce; position: relative; background: #fcf3ed; }
+    #room { width: 100%; display: block; aspect-ratio: 800 / 414; }
+    .room-preview-label { position: absolute; left: 10px; bottom: 10px; border-radius: 5px; background: rgb(255 255 252 / .94);
+      padding: 5px 7px; color: #673b32; font-size: .68rem; font-weight: 680; box-shadow: 0 1px 3px #49253316; }
+    .room-controls { padding: 12px; background: #fff8f2; border-top: 1px solid #f2ded1; }
+    .room-dock { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; gap: 9px; }
+    .room-dock > div { min-width: 0; }
+    .room-dock label, .dock-label { display: block; margin: 0 0 5px; color: #53365f; font-size: .76rem; font-weight: 680; }
+    .room-stepper { display: grid; grid-template-columns: clamp(24px, 2.8vw, 34px) minmax(0, 1fr) clamp(24px, 2.8vw, 34px); min-width: 0; align-items: center; height: 39px; background: white; border: 1px solid #e3cfe8; border-radius: 8px; }
+    .room-stepper button { height: 100%; border: 0; border-radius: 7px; background: #f1e5f8; color: var(--plum); font-size: 1.1rem; font-weight: 600; padding: 0; }
+    .room-stepper button:hover:not(:disabled) { background: #fbe0d1; }
+    .room-stepper button:disabled { background: #f3eff5; color: #968c9a; }
+    .room-stepper output { color: var(--plum); text-align: center; white-space: nowrap; font-size: .83rem; font-weight: 740; }
+    .measure-input { display: flex; align-items: center; justify-content: center; gap: 1px; padding: 0 2px; min-width: 0; }
+    .measure-input input { width: 100%; min-width: 0; text-align: center; padding: 4px 0; border: 0; border-radius: 3px; color: var(--plum); font-size: .85rem; font-weight: 700; }
+    .measure-input span { color: var(--muted); font-size: .69rem; }
+    .measure-input input[aria-invalid="true"] { color: #922b26; }
+    .room-picker { margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+    .room-picker label { margin: 0; }
+    .room-picker select, .room-height input { min-width: 0; padding: 5px 7px; border: 1px solid #e3cfe8; border-radius: 6px; background: #fff; color: var(--ink); font-size: .8rem; }
+    .room-help { margin: 8px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.45; }
+    .room-height { margin-top: 7px; font-size: .75rem; color: var(--plum); }
+    .room-height summary { cursor: pointer; width: fit-content; }
+    .room-height input { margin-top: 6px; width: 75px; }
+    .actions.area-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+    .area-result { min-width: 0; display: grid; gap: 3px; color: #763e2d; }
+    .area-result strong { font-size: .95rem; }
+    .area-result span { color: var(--muted); font-size: .74rem; line-height: 1.4; }
+    .property-address { padding-top: 13px; border-top: 1px solid var(--border); }
+    .property-address h3 { margin: 0 0 8px; font-size: .91rem; }
+    .property-line { grid-template-columns: minmax(65px, .45fr) minmax(0, 1fr); }
+    fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; white-space: nowrap; clip-path: inset(50%); }
+    .choices { display: grid; gap: 8px; }
+    .choices.surfaces { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .surface-legend { padding: 0; margin: 0 0 8px; color: var(--ink); font-weight: 690; font-size: .85rem; }
+    .choice:has(input:disabled) { color: #706574; background: #f5f0f5; border-color: #e3d8e5; cursor: default; }
+    .choices.furniture { grid-template-columns: 1fr 1fr; }
+    .choice { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; padding: 9px 6px; border: 1px solid var(--border); background: #fff; border-radius: 8px;
+      color: #514058; font-size: clamp(.78rem, 1.18vw, .88rem); font-weight: 650; cursor: pointer; text-align: center; }
+    .choice:hover { background: #f7edf9; border-color: #b99fc4; }
+    .choice:has(:checked) { color: #4d2867; background: var(--selected); border-color: #9666b7; box-shadow: inset 0 0 0 1px #9666b7; }
+    .choice input { appearance: none; margin: 0; width: 13px; height: 13px; border-radius: 50%; border: 1px solid #937ba2; flex: 0 0 13px; }
+    .choice input:checked { background: #77439b; border-color: #77439b; box-shadow: inset 0 0 0 2.5px var(--selected); }
+    .choice input:focus-visible { outline: none; }
+    .choice b { font-weight: 760; white-space: nowrap; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 16px; }
+    .actions > .primary { margin-left: auto; }
+    .arrow { line-height: 1; font-size: 1.18em; font-weight: 550; }
+    .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; margin: 16px 0; padding: 12px; background: #fbf2ec; border: 1px solid #efd9cd; border-radius: 9px; }
+    .summary div { min-width: 0; }
+    .summary dt { color: #65516a; font-size: .72rem; margin-bottom: 4px; }
+    .summary dd { margin: 0; color: #53365f; font-size: .86rem; font-weight: 700; overflow-wrap: anywhere; white-space: pre-line; }
+    .finished { margin-top: 17px; }
+    .finished .summary { grid-template-columns: 1fr 1fr; }
+    .step-form { margin-top: 18px; }
+    .start-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .start-note, .drying { margin: 12px 0 0; color: var(--muted); font-size: .81rem; line-height: 1.45; }
+    .drying summary { cursor: pointer; width: fit-content; color: var(--plum); }
+    .drying p { margin: 5px 0; }
+    .drying a { color: var(--plum); }
+    .field-error { color: #922b26; font-size: .83rem; margin: 7px 0 0; }
+    .demo-note { margin: 14px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.4; }
+    @media (max-width: 800px) {
+      .page { width: min(630px, calc(100% - 38px)); padding-top: 32px; }
+      .comparison { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .masthead { margin-bottom: 21px; }
+      .old .button { width: auto; }
+    }
+    @media (max-width: 435px) {
+      .page { width: calc(100% - 26px); padding-top: 26px; }
+      .masthead { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .card { padding: 16px; border-radius: 13px; }
+      .card-top { margin-bottom: 16px; }
+      .choice { gap: 4px; }
+      .choice input { width: 11px; height: 11px; flex-basis: 11px; }
+      .fields.split { grid-template-columns: minmax(0, 1fr); }
+      .start-options .choice { flex-direction: column; font-size: .75rem; padding-inline: 3px; }
+      .step-meter, .segments { gap: 5px; }
+      .segments i { width: 8px; }
+      .room-dock { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 7px; }
+      .room-dock .rooms-total { grid-column: 1 / -1; width: min(150px, 100%); }
+      .room-stepper { grid-template-columns: 28px minmax(0, 1fr) 28px; }
+      .room-controls { padding-inline: 9px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .button, .choice, .reset { transition: background-color .18s, border-color .18s, box-shadow .18s; }
+    }
+  :root{--plum:#614372;--plum-hover:#45314f;--selected:#f2e9f6;--ink:#26212a;background:white}.page{width:100%;padding:0}.masthead{display:flex;margin:0;padding:9px 18px;align-items:center;justify-content:flex-end}.masthead>div,.card-top>.tag,.demo-note{display:none}.reset{padding:5px 8px;font-size:.76rem}.comparison{display:block}.card,.new{border:0;box-shadow:none;padding:3px clamp(14px,3.1vw,26px) 24px;border-radius:0}.card-top{margin-bottom:10px}.steps{color:var(--plum)}.room-frame{background:#f8f6f4}.finished,.description{word-wrap:break-word}.old{display:none}body.oldmode .old{display:block}body.oldmode .new{display:none}.field select{width:100%}.step-meter{margin-left:auto}.choice:has(input:checked){color:#4c305d;border-color:#9571a4;background:#f1e9f6}.fill{padding:6px 10px;font-size:.8rem;color:#50365d;background:#f5f0f6;border:1px solid #cebbd6;border-radius:5px;margin:8px 0;cursor:pointer}@media(max-width:500px){.room-dock{flex-wrap:wrap}.fields.split{grid-template-columns:1fr}.card{padding-inline:12px}body{min-width:0}.actions{flex-wrap:wrap}.masthead{padding:6px 12px}}
+#qualification{padding:14px;background:#fff0e6;border-left:4px solid #a04d2b;margin:12px 0 18px;color:#63321f}#qualification p{font-size:.9rem;margin:4px 0 0}
+:root{--plum:#653583;--plum-hover:#4f246a;--selected:#f2e5fb;--ink:#26212a;--border:#d8c7e3;background:#fffbff}
+.new{background:#fffbff}.choice:hover,.reset:hover,.fill{background:#f1e7f8}.choice:has(input:checked){color:#4d2867;border-color:#9666b7;background:#f2e5fb}.choice:has(:checked){box-shadow:inset 0 0 0 1px #9666b7}
+.choice input:checked{background:#77439b;border-color:#77439b}.summary,.room-stepper button{background:#f3eaf8}.summary dd,.field,.room-dock label,.dock-label,.area-result{color:#523563}
+.button:focus-visible,input:focus-visible,.choice:has(:focus-visible),.reset:focus-visible{outline-color:#8141ab}
+.sample-presets{margin:0 0 1rem;font-size:.85rem}.sample-presets button{margin-right:.6rem}.sample-presets p{color:#654479}
+.showcase-insight{border-radius:9px;margin:0 0 16px;padding:14px 15px;background:#fff0e6;color:#63321f;border:1px solid #e8baa5;line-height:1.45}
+.showcase-insight p{margin:5px 0 0;font-size:.88rem}
+.room-stepper button:hover:not(:disabled){background:#fbe0d1}
+
+    :root { color: #000; --ink: #000; --muted: #000; }
+    .description { font-size: 1.0625rem; line-height: 1.6; }
+    .reset, .field, .surface-legend, .area-result strong, .summary dd, .button, .choice,
+    .field :is(input, textarea, select), .measure-input input, .room-picker select, .room-height input {
+      font-size: 1rem;
+    }
+    .reset, .field, .room-dock label, .dock-label, .step-meter, .measure-input input,
+    .choice, .choice:has(input:checked), .choice:has(input:disabled), .area-result, .summary dt, .summary dd,
+    .drying summary, .old-response, .room-preview-label, .fill, .sample-presets p, .showcase-insight,
+    .room-stepper button, .back, #qualification { color: #000; }
+    .room-dock label, .dock-label, .step-meter, .summary dt, .drying summary { font-weight: 700; }
+    .tag, .room-preview-label, .step-meter, .field small, .room-dock label, .dock-label,
+    .measure-input span, .area-result span, .summary dt, .field-error, .demo-note { font-size: .875rem; }
+    .room-help, .start-note, .drying, .old-response, .showcase-insight p, #qualification p { font-size: .9375rem; line-height: 1.55; }
+    .field input::placeholder, .field textarea::placeholder { color: #333; }
+    .room-stepper { height: 44px; }
+    .reset, .button { min-height: 44px; font-weight: 700; }
+    .choice { line-height: 1.35; padding-inline: 8px; }
+    .choice input { width: 15px; height: 15px; flex-basis: 15px; }
+    .primary:disabled { color: #333; }
+    @media (max-width: 420px) {
+      .choices.surfaces, .choices.furniture, .start-options { grid-template-columns: minmax(0, 1fr); }
+      .start-options .choice { flex-direction: row; }
+      .choice { justify-content: flex-start; }
+    }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+
+        <h1>Zimmer streichen lassen</h1>
+      </div>
+      <button class="reset" id="reset" type="button"><span aria-hidden="true">↻</span> Neu starten</button>
+    </header>
+
+    <div class="comparison">
+      <section class="card old" aria-labelledby="old-title">
+        <div class="card-top"><span class="tag">Vorher</span></div>
+        <h2 id="old-title">Kontakt aufnehmen</h2>
+
+        <form id="old-form">
+          <div class="fields">
+            <label class="field">Name <input name="name" autocomplete="name" required></label>
+            <label class="field">E-Mail <input type="email" name="email" autocomplete="email" required></label>
+            <label class="field">Deine Nachricht <textarea name="message" rows="4" required></textarea></label>
+          </div>
+          <button class="button neutral" type="submit">Beispielanfrage ansehen</button>
+          <p class="old-response" id="old-response" role="status" hidden></p>
+        </form>
+      </section>
+
+      <section class="card new wizard" aria-labelledby="new-title" id="wizard">
+        <div class="card-top">
+          <span class="tag">Nachher</span>
+          <div class="step-meter" id="step-meter">
+            <span id="step-count">Schritt 1 von 4</span>
+            <span class="segments" aria-hidden="true"><i class="passed"></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <h2 id="new-title" tabindex="-1">Wie groß ist die Fläche?</h2>
+        <p class="description" id="new-description">Breite und Länge reichen für eine erste Einschätzung.</p>
+
+        <figure class="room-frame" id="preview">
+          <canvas id="room" width="800" height="414" role="img" aria-label="Leeres Zimmer mit weißen Wänden und weißer Decke."></canvas>
+          <figcaption>
+            <span id="room-preview-label" class="room-preview-label" hidden>Ein Zimmer</span>
+            <div class="room-controls" id="room-controls">
+              <div class="room-dock">
+                <div>
+                  <label for="room-width">Breite</label>
+                  <div class="room-stepper">
+                    <button type="button" data-adjust="room-width" data-delta="-0.5" aria-label="Breite um einen halben Meter verringern">−</button>
+                    <div class="measure-input"><input id="room-width" inputmode="decimal" maxlength="6" value="4" aria-describedby="room-help"><span>m</span></div>
+                    <button type="button" data-adjust="room-width" data-delta="0.5" aria-label="Breite um einen halben Meter erhöhen">+</button>
+                  </div>
+                </div>
+                <div>
+                  <label for="room-length">Länge</label>
+                  <div class="room-stepper">
+                    <button type="button" data-adjust="room-length" data-delta="-0.5" aria-label="Länge um einen halben Meter verringern">−</button>
+                    <div class="measure-input"><input id="room-length" inputmode="decimal" maxlength="6" value="6" aria-describedby="room-help"><span>m</span></div>
+                    <button type="button" data-adjust="room-length" data-delta="0.5" aria-label="Länge um einen halben Meter erhöhen">+</button>
+                  </div>
+                </div>
+              </div>
+              <p class="room-help" id="room-help">Grobe Maße reichen. Für eine einzelne Wand gib bei Länge 0 m ein.</p>
+              <p class="field-error" id="room-error" role="alert" hidden>Die Maße müssen zwischen 0,5 und 100 m liegen. Für die Länge ist auch 0 m möglich.</p>
+            </div>
+          </figcaption>
+        </figure>
+
+        <div id="surface-step">
+          <fieldset class="choices surfaces" id="surface-choices" aria-describedby="surface-note">
+            <legend class="surface-legend">Was soll gestrichen werden?</legend>
+            <label class="choice"><input type="radio" name="surface" value="walls" checked> <span id="wall-choice-label">Wände</span></label>
+            <label class="choice"><input type="radio" name="surface" value="ceiling"> Decke</label>
+            <label class="choice"><input type="radio" name="surface" value="both"> Wände und Decke</label>
+          </fieldset>
+          <p class="room-help" id="surface-note" aria-live="polite" hidden>Bei 0 m Länge gibt es nur eine Wand. Für die Decke gib eine Länge größer als 0 m ein.</p>
+          <div class="actions area-actions">
+            <output class="area-result" id="area-result" for="room-width room-length" aria-live="polite">
+              <strong id="area-total">Streichfläche schätzen</strong>
+              <span id="area-detail">Mit 2,60 m Raumhöhe gerechnet.</span>
+            </output>
+            <button class="button primary" id="to-furniture" type="button">Weiter <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <div id="furniture-step" hidden>
+          <fieldset class="choices furniture">
+            <legend class="sr-only">Möbelservice auswählen</legend>
+            <label class="choice"><input type="radio" name="furniture" value="no"> Nein, ich kümmere mich darum</label>
+            <label class="choice"><input type="radio" name="furniture" value="yes"> <span>Ja, bitte</span></label>
+          </fieldset>
+          <div class="actions">
+            <button class="button back" type="button" data-back="1"><span class="arrow" aria-hidden="true">←</span> Zurück</button>
+            <button class="button primary" id="to-schedule" type="button" disabled>Weiter <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <form class="step-form" id="schedule-step" hidden>
+          <fieldset class="choices start-options" aria-describedby="start-note">
+            <legend class="sr-only">Gewünschter Projektstart</legend>
+            <label class="choice"><input type="radio" name="projectStart" value="So bald wie möglich" required> So bald wie möglich</label>
+            <label class="choice"><input type="radio" name="projectStart" value="4–6 Wochen"> 4–6 Wochen</label>
+            <label class="choice"><input type="radio" name="projectStart" value="Kein Zeitdruck"> Kein Zeitdruck</label>
+          </fieldset>
+          <p class="start-note" id="start-note">Das Zeitfenster hilft dem Malerbetrieb bei der Einsatzplanung.</p>
+          <details class="drying" id="drying-note">
+            <summary>Trocknungszeit und Herstellerangaben</summary>
+            <p>Bei 20 °C und normaler Luftfeuchte sind viele Innenwandfarben nach etwa 4–6 Stunden überstreichbar. Bis zur vollen Belastbarkeit können mehrere Tage vergehen.</p>
+            <span>Caparol Indeko-plus</span> ·
+            <span>Schöner Wohnen Polarweiss</span>
+          </details>
+          <div class="actions">
+            <button class="button back" type="button" data-back="2"><span class="arrow" aria-hidden="true">←</span> Zurück</button>
+            <button class="button primary" type="submit">Weiter <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </form>
+
+        <form id="contact-step" hidden>
+          <dl class="summary">
+            <div><dt>Zu streichen</dt><dd id="summary-surface"></dd></div>
+            <div><dt>Geschätzte Streichfläche</dt><dd id="summary-area"></dd></div>
+            <div><dt>Möbel</dt><dd id="summary-furniture"></dd></div>
+            <div><dt>Projektstart</dt><dd id="summary-start"></dd></div>
+          </dl>
+          <div class="fields split">
+            <label class="field">Name <input name="name" autocomplete="name" required></label>
+            <label class="field">E-Mail <input type="email" name="email" autocomplete="email" required></label>
+            <div class="property-address field wide">
+              <h3>Objektadresse</h3>
+              <label class="field">Straße und Hausnummer <input name="objectStreet" autocomplete="section-object street-address" maxlength="150" required></label>
+              <div class="fields property-line">
+                <label class="field">PLZ <input name="objectZip" autocomplete="section-object postal-code" maxlength="12" required></label>
+                <label class="field">Ort <input name="objectCity" autocomplete="section-object address-level2" maxlength="120" required></label>
+              </div>
+            </div>
+            <label class="field wide"><span>Noch etwas? <small>(optional)</small></span><textarea name="notes" rows="3"></textarea></label>
+          </div>
+          <div class="actions">
+            <button class="button back" type="button" data-back="3"><span class="arrow" aria-hidden="true">←</span> Zurück</button>
+            <button class="button primary" type="submit">Ergebnis ansehen</button>
+          </div>
+        </form>
+
+        <div class="finished" id="review-step" hidden>
+          <div id="qualification" role="status"></div><dl class="summary" id="request-summary"></dl>
+          <aside class="showcase-insight" aria-labelledby="showcase-insight-title">
+            <strong id="showcase-insight-title">Warum Besucher bis zum Ende weiterklicken</strong>
+            <p>Wer schon Maße, Möbelservice und Starttermin gewählt hat, möchte wissen, was aus den Angaben wird. So führt das Formular Schritt für Schritt zu einem Ergebnis für das eigene Projekt.</p>
+          </aside>
+          <button class="button back" type="button" data-back="4">Anfrage bearbeiten</button>
+        </div>
+      </section>
+    </div>
+    <p class="demo-note">Interaktive Demo · Formulareingaben bleiben in diesem Browserfenster.</p>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const stepPanels = ["surface-step", "furniture-step", "schedule-step", "contact-step", "review-step"].map($);
+    const totalSteps = stepPanels.length - 1;
+    const initialMeasurements = { width: "4", length: "6" };
+    const state = { step: 1, furniture: "", surface: "walls", dimensions: { ...initialMeasurements } };
+    const surfaceOptions = [...$("surface-choices").querySelectorAll('input[name="surface"]')];
+    const descriptions = [
+      ["Wie groß ist die Fläche?", "Breite und Länge reichen für eine erste Einschätzung."],
+      ["Sollen wir die Möbel verrücken und abdecken?", "Wähle, wer den Raum für den Anstrich vorbereitet."],
+      ["Wann soll das Projekt starten?", ""],
+      ["Wie können wir dich erreichen?", ""],
+      ["Das kommt im Büro an", "So würde deine Anfrage beim Malerbetrieb ankommen."]
+    ];
+    const furnitureSummary = () => state.furniture === "yes" ? "Verrücken und abdecken" : "Ohne Möbelservice";
+    const meters = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 2 });
+    const heightMeters = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const squareMeters = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
+    const defaultRoomHeight = 2.6;
+    const measurements = [
+      { key: "width", input: $("room-width"), example: 4 },
+      { key: "length", input: $("room-length"), example: 6 }
+    ];
+
+    function readMeters(raw, allowZero = false) {
+      const value = raw.trim().replace(",", ".");
+      if (!/^(?:\d+(?:\.\d{0,2})?|\.\d{1,2})$/.test(value)) return null;
+      const number = Number(value);
+      return (allowZero && number === 0) || (number >= .5 && number <= 100) ? number : null;
+    }
+
+    function singleWallPreview() {
+      return readMeters(state.dimensions.length, true) === 0;
+    }
+
+    function surfaceSummary() {
+      if (singleWallPreview()) return "Eine Wand";
+      if (state.surface === "ceiling") return "Decke";
+      if (state.surface === "both") return "Wände und Decke";
+      return "Wände im Zimmer";
+    }
+    const areaText = (number) => `${squareMeters.format(number)} m²`;
+    function areaEstimate() {
+      const width = readMeters(state.dimensions.width);
+      const length = readMeters(state.dimensions.length, true);
+      if (width === null || length === null) return null;
+      const walls = (length === 0 ? width : 2 * (width + length)) * defaultRoomHeight;
+      const ceiling = width * length;
+      return state.surface === "ceiling" ? ceiling : state.surface === "both" ? walls + ceiling : walls;
+    }
+
+    function areaSummary() {
+      const estimate = areaEstimate();
+      return estimate === null ? "Maße noch offen" : `ca. ${areaText(estimate)}`;
+    }
+
+    function roomMeasurementsSummary() {
+      const width = readMeters(state.dimensions.width);
+      const length = readMeters(state.dimensions.length, true);
+      if (width === null || length === null) return "Maße noch offen";
+      return length === 0
+        ? `${meters.format(width)} m Breite · 0 m Länge (einzelne Wand)`
+        : `${meters.format(width)} × ${meters.format(length)} m`;
+    }
+
+    function updateMeasurements() {
+      let hasError = false;
+      for (const { key, input } of measurements) {
+        state.dimensions[key] = input.value.trim();
+        const invalid = state.dimensions[key] !== "" && readMeters(state.dimensions[key], key === "length") === null;
+        input.setAttribute("aria-invalid", String(invalid));
+        hasError ||= invalid;
+      }
+      const singleWall = singleWallPreview();
+      const switchedToWall = singleWall && state.surface !== "walls";
+      const surfaceNote = $("surface-note");
+      if (switchedToWall) state.surface = "walls";
+      for (const option of surfaceOptions) {
+        option.disabled = singleWall && option.value !== "walls";
+        option.checked = option.value === state.surface;
+      }
+      $("wall-choice-label").textContent = singleWall ? "Wand" : "Wände";
+      surfaceNote.hidden = !singleWall;
+      if (!singleWall || switchedToWall || !surfaceNote.textContent.startsWith("Auf Wand")) {
+        surfaceNote.textContent = switchedToWall
+          ? "Auf Wand umgestellt: Bei 0 m Länge gibt es keine Deckenfläche."
+          : "Bei 0 m Länge gibt es nur eine Wand. Für die Decke gib eine Länge größer als 0 m ein.";
+      }
+      const estimate = areaEstimate();
+      $("room-error").hidden = !hasError;
+      $("to-furniture").disabled = estimate === null;
+      $("area-total").textContent = estimate === null ? "Streichfläche schätzen" : `ca. ${areaText(estimate)} Streichfläche`;
+      $("area-detail").textContent = estimate === null
+        ? "Gib Breite und Länge ein."
+        : state.surface === "ceiling" ? surfaceSummary()
+        : `${surfaceSummary()} · mit ${heightMeters.format(defaultRoomHeight)} m Raumhöhe gerechnet.`;
+      $("room-preview-label").textContent = surfaceSummary();
+      updateRoom();
+    }
+
+    function showRoomEditor() {
+      for (const { key, input } of measurements) input.value = state.dimensions[key];
+      updateMeasurements();
+    }
+
+    for (const option of surfaceOptions) option.addEventListener("change", () => {
+      state.surface = option.value;
+      updateMeasurements();
+    });
+    for (const { input } of measurements) input.addEventListener("input", updateMeasurements);
+    for (const button of document.querySelectorAll("[data-adjust]")) {
+      button.addEventListener("click", () => {
+        const { key, input, example } = measurements.find(({ input }) => input.id === button.dataset.adjust);
+        const allowZero = key === "length";
+        const value = (readMeters(input.value, allowZero) ?? example) + Number(button.dataset.delta);
+        input.value = meters.format(allowZero && value < .5 ? 0 : Math.min(100, Math.max(.5, value)));
+        updateMeasurements();
+      });
+    }
+    const scheduleForm = $("schedule-step");
+    const projectStart = () => scheduleForm.elements.projectStart.value;
+    const contactForm = $("contact-step");
+    const addressFields = ["objectStreet", "objectZip", "objectCity"].map((name) => contactForm.elements[name]);
+
+    const canvas = $("room");
+    const ctx = canvas.getContext("2d", { alpha: false });
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const width = 800;
+    const height = 414;
+
+    // Render the same 3D room from a fixed, eye-level camera in both steps.
+    const project = ([x, y, z]) => [400 + 510 * x / z, 197 + 510 * (1.56 - y) / z];
+    const near = 3.35, far = 7.5, edge = 3.5, ceiling = 3.36;
+    const room = {
+      floor: [[-edge, 0, near], [edge, 0, near], [edge, 0, far], [-edge, 0, far]],
+      roof: [[-edge, ceiling, near], [edge, ceiling, near], [edge, ceiling, far], [-edge, ceiling, far]],
+      back: [[-edge, ceiling, far], [edge, ceiling, far], [edge, 0, far], [-edge, 0, far]],
+      left: [[-edge, ceiling, near], [-edge, ceiling, far], [-edge, 0, far], [-edge, 0, near]],
+      right: [[edge, ceiling, far], [edge, ceiling, near], [edge, 0, near], [edge, 0, far]]
+    };
+
+    function path(points) {
+      ctx.beginPath();
+      for (const [index, point] of points.entries()) {
+        const [x, y] = project(point);
+        if (index === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+    }
+
+    function face(points, fill, stroke) {
+      path(points);
+      ctx.closePath();
+      ctx.fillStyle = fill;
+      ctx.fill();
+      if (stroke) {
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = .7;
+        ctx.stroke();
+      }
+    }
+
+    function line(points, color, thickness = 1) {
+      path(points);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = thickness;
+      ctx.stroke();
+    }
+
+    function gradient(start, end, stops) {
+      const g = ctx.createLinearGradient(...start, ...end);
+      for (const [distance, color] of stops) g.addColorStop(distance, color);
+      return g;
+    }
+
+    function blend(from, to, weight) {
+      return `rgb(${from.map((channel, i) => Math.round(channel + (to[i] - channel) * weight)).join(",")})`;
+    }
+
+    function drawRoom({ wall, sideWalls, roof }) {
+      const backFloorY = project(room.back[2])[1];
+      const backRoofY = project(room.back[1])[1];
+      const backLeftX = project(room.back[0])[0];
+      const backRightX = project(room.back[1])[0];
+
+      ctx.fillStyle = "#f6f1f4";
+      ctx.fillRect(0, 0, width, height);
+      face(room.back, gradient([0, backRoofY], [0, backFloorY], [
+        [0, blend([232, 234, 229], [231, 145, 111], wall)],
+        [.17, blend([247, 248, 245], [255, 204, 180], wall)],
+        [1, blend([242, 244, 238], [251, 184, 154], wall)]
+      ]));
+      const edgeShade = "rgba(46, 62, 46, .11)";
+      face(room.left, gradient([0, 0], [backLeftX, 0], [
+        [0, blend([250, 250, 248], [255, 219, 200], sideWalls)],
+        [.88, blend([245, 247, 243], [255, 196, 165], sideWalls)],
+        [1, blend([232, 236, 228], [230, 147, 115], sideWalls)]
+      ]));
+      face(room.right, gradient([backRightX, 0], [width, 0], [
+        [0, blend([229, 232, 226], [226, 144, 112], sideWalls)],
+        [.16, blend([241, 243, 238], [247, 178, 148], sideWalls)],
+        [1, blend([249, 250, 247], [255, 214, 193], sideWalls)]
+      ]));
+      face(room.roof, gradient([0, 0], [0, backRoofY], [
+        [0, blend([246, 246, 242], [255, 226, 213], roof)],
+        [.78, blend([240, 241, 236], [250, 190, 166], roof)],
+        [1, blend([222, 225, 217], [227, 149, 116], roof)]
+      ]));
+      face(room.floor, gradient([0, backFloorY], [0, height], [
+        [0, "#dedfd9"], [.22, "#e8e8e2"], [1, "#efeee9"]
+      ]));
+
+      ctx.save();
+      path(room.floor);
+      ctx.closePath();
+      ctx.clip();
+      for (let x = -edge; x < edge + .01; x += .5) {
+        line([[x, 0, far], [x, 0, near]], "rgba(102, 107, 100, .15)", .9);
+      }
+      for (let z = far - .42; z >= near; z -= .42) {
+        line([[-edge, 0, z], [edge, 0, z]], "rgba(102, 107, 100, .15)", .9);
+      }
+      ctx.restore();
+      line(room.back.slice(0, 2), edgeShade);
+      line(room.back.slice(2), "rgba(47, 58, 48, .22)");
+      line([room.left[1], room.left[2]], edgeShade);
+      line([room.right[0], room.right[3]], edgeShade);
+      line([room.left[2], room.left[3]], "rgba(60, 70, 62, .15)");
+      line([room.right[2], room.right[3]], "rgba(60, 70, 62, .15)");
+    }
+
+    function cuboid({ x, y, z, w, h, d }, [front, top, side], stroke = "#40342530") {
+      const left = x - w / 2, right = x + w / 2;
+      const a = [left, y, z], b = [right, y, z];
+      const c = [left, y + h, z], e = [right, y + h, z];
+      const f = [left, y + h, z + d], g = [right, y + h, z + d];
+      if (left > 0) face([a, [left, y, z + d], f, c], side, stroke);
+      if (right < 0) face([b, [right, y, z + d], g, e], side, stroke);
+      if (y + h < 1.56) face([f, g, e, c], top, stroke);
+      face([c, e, b, a], front, stroke);
+    }
+
+    function shadow({ x, z, w, d }, opacity) {
+      const [cx, cy] = project([x, 0, z + d / 2]);
+      const [left] = project([x - w / 2, 0, z]);
+      const [right, bottom] = project([x + w / 2, 0, z]);
+      const [, top] = project([x, 0, z + d]);
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.scale((right - left) * .65, (bottom - top) * .85 + 9);
+      const g = ctx.createRadialGradient(0, 0, .12, 0, 0, 1);
+      g.addColorStop(0, `rgba(30, 43, 36, ${opacity})`);
+      g.addColorStop(1, "rgba(30, 43, 36, 0)");
+      ctx.fillStyle = g;
+      ctx.fillRect(-1, -1, 2, 2);
+      ctx.restore();
+    }
+
+    function drawMeasurementGuides() {
+      const guides = [
+        { endpoints: [[-2.42, .02, 6.82], [2.43, .02, 6.82]], label: "Breite", labelAt: [400, 296] },
+        { endpoints: [[2.54, .02, 6.65], [2.54, .02, 4.02]], label: "Länge", labelAt: [630, 350] }
+      ];
+      if (singleWallPreview()) guides.pop();
+      ctx.save();
+      ctx.font = '700 31px system-ui, sans-serif';
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (const { endpoints, label, labelAt } of guides) {
+        line(endpoints, "#984127ad", 2);
+        for (const point of endpoints) {
+          ctx.beginPath();
+          ctx.arc(...project(point), 3, 0, Math.PI * 2);
+          ctx.fillStyle = "#984127";
+          ctx.fill();
+        }
+        ctx.lineJoin = "round";
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = "#fff2e8";
+        ctx.strokeText(label, ...labelAt);
+        ctx.fillStyle = "#000";
+        ctx.fillText(label, ...labelAt);
+      }
+      ctx.restore();
+    }
+
+    const furniture = [
+      { kind: "bed", x: -1.81, z: 4.55, dx: .96, dz: .05, w: 2.02, d: 2.4, h: .90 },
+      { kind: "nightstand", x: -.37, z: 6.19, dx: .25, dz: -.07, w: .60, d: .60, h: .63 },
+      { kind: "dresser", x: 2.38, z: 5.9, dx: -.91, dz: -.39, w: 1.35, d: .67, h: .84 }
+    ];
+    const oak = ["#a8815d", "#bf9a72", "#946e50"];
+    const linen = ["#dcdad0", "#eeede5", "#cfcbc0"];
+    const covers = ["#b6a7bd", "#e7deeb", "#95839e"];
+
+    function drawUncovered(item) {
+      const { x, z, w, d, h } = item;
+      if (item.kind === "bed") {
+        cuboid({ x, z: z + d - .20, y: .05, w, d: .20, h: .85 }, oak);
+        cuboid({ x, z, y: .08, w, d: d - .20, h: .24 }, oak);
+        cuboid({ x, z: z + .09, y: .32, w: w - .13, d: d - .29, h: .22 }, linen);
+        cuboid({ x, z: z + .09, y: .47, w: w - .10, d: d - .77, h: .08 }, ["#b1a1ba", "#cebed7", "#9e8aa7"]);
+        for (const offset of [-.45, .45]) {
+          cuboid({ x: x + offset, z: z + d - .74, y: .54, w: .66, d: .44, h: .10 }, linen, "#40342520");
+        }
+        return;
+      }
+      cuboid({ x, z, y: .06, w, d, h: h - .06 }, oak);
+      for (let y = .18; y < h - .09; y += .21) {
+        line([[x - w * .45, y, z], [x + w * .45, y, z]], "#59402d5c");
+        line([[x - w * .09, y + .08, z], [x + w * .09, y + .08, z]], "#513c2c", 1.7);
+      }
+    }
+
+    function drawCover(item) {
+      const { x, z, w, d, h } = item;
+      const left = x - w / 2 - .08, right = x + w / 2 + .08;
+      const front = z - .08, back = z + d + .08, top = h + .035;
+      const drape = item.kind === "bed" ? .45 : top;
+      const zigzag = [0, .31, .56, .82, 1].map((pos, i) => [left + (right - left) * pos, .05 + (i % 2) * .055, front - .035 * (i % 2)]);
+      const frontLeft = [left, drape, front], frontRight = [right, drape, front];
+      const backLeft = [left, top, back], backRight = [right, top, back];
+      if (left > 0) face([backLeft, frontLeft, zigzag[0], [left, .08, back]], covers[2], "#48304f40");
+      if (right < 0) face([frontRight, backRight, [right, .08, back], zigzag[4]], covers[2], "#48304f40");
+      face([backLeft, backRight, frontRight, frontLeft], covers[1], "#48304f40");
+      face([frontLeft, frontRight, ...zigzag.slice().reverse()], covers[0], "#48304f40");
+      for (const [index, point] of zigzag.entries()) {
+        if (index === 0 || index === zigzag.length - 1) continue;
+        line([[point[0] + .04, drape, front], point], "#48304f38");
+      }
+    }
+
+    function drawFurniture(visibility, covered) {
+      if (visibility < .002) return;
+      const objects = furniture.map((item) => ({
+        ...item,
+        x: item.x + item.dx * covered,
+        z: item.z + item.dz * covered
+      })).sort((first, second) => second.z - first.z);
+      ctx.save();
+      ctx.globalAlpha = visibility;
+      for (const item of objects) shadow(item, .22);
+      for (const item of objects) {
+        if (covered < .999) drawUncovered(item);
+        if (covered > .001) {
+          ctx.globalAlpha = visibility * covered;
+          drawCover(item);
+          ctx.globalAlpha = visibility;
+        }
+      }
+      ctx.restore();
+    }
+
+    let current = { wall: 0, sideWalls: 0, roof: 0, furniture: 0, covered: 0 };
+    let animation = 0;
+    function paint() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const targetWidth = Math.round(width * dpr), targetHeight = Math.round(height * dpr);
+      if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      drawRoom(current);
+      drawFurniture(current.furniture, current.covered);
+      if (state.step === 1) drawMeasurementGuides();
+    }
+
+    function updateRoom() {
+      const singleWall = singleWallPreview();
+      const paintWalls = state.surface !== "ceiling";
+      const destination = {
+        wall: Number(paintWalls),
+        sideWalls: Number(paintWalls && !singleWall),
+        roof: Number(!singleWall && state.surface !== "walls"),
+        furniture: Number(state.step >= 2),
+        covered: Number(state.step >= 2 && state.furniture === "yes")
+      };
+      canvas.setAttribute("aria-label", "3D-Vorschau eines Zimmers. " +
+        surfaceSummary() + " orange markiert. " +
+        (state.step === 1 ? singleWall ? "Die Maßlinie zeigt die Breite der Wand. " : "Maßlinien zeigen Breite und Länge. " : "") +
+        (state.step === 2 && state.furniture === "yes"
+          ? "Alle Möbel stehen weiter in der Mitte und sind abgedeckt."
+          : state.step === 2 ? "Die Möbel stehen an den Wänden." : ""));
+
+      cancelAnimationFrame(animation);
+      if (reduceMotion.matches) {
+        current = destination;
+        paint();
+        return;
+      }
+      const start = { ...current };
+      const duration = start.covered !== destination.covered ? 540 : 320;
+      let began;
+      function frame(time) {
+        began ??= time;
+        const progress = Math.min(1, (time - began) / duration);
+        const eased = 1 - (1 - progress) ** 3;
+        for (const key of Object.keys(destination)) current[key] = start[key] + (destination[key] - start[key]) * eased;
+        paint();
+        if (progress < 1) animation = requestAnimationFrame(frame);
+      }
+      animation = requestAnimationFrame(frame);
+    }
+
+    function showStep(step, focus = true) {
+      state.step = step;
+      requestAnimationFrame(notifyParent);
+      for (const [index, panel] of stepPanels.entries()) panel.hidden = index !== step - 1;
+      $("preview").hidden = step > 2;
+      $("room-controls").hidden = step !== 1;
+      $("room-preview-label").hidden = step !== 2;
+      $("step-meter").hidden = step > totalSteps;
+      $("step-count").textContent = `Schritt ${Math.min(step, totalSteps)} von ${totalSteps}`;
+      for (const [index, segment] of [...document.querySelectorAll(".segments i")].entries()) {
+        segment.classList.toggle("passed", index < step);
+      }
+      const [title, description] = descriptions[step - 1];
+      $("new-title").textContent = title;
+      $("new-description").textContent = description;
+      $("new-description").hidden = !description;
+      if (step === totalSteps) {
+        $("summary-surface").textContent = surfaceSummary();
+        $("summary-area").textContent = areaSummary();
+        $("summary-furniture").textContent = furnitureSummary();
+        $("summary-start").textContent = projectStart();
+      }
+      if (step <= 2) updateRoom();
+
+      if (focus) {
+        $("new-title").focus({ preventScroll: true });
+        const rect = $("new-title").getBoundingClientRect();
+
+      }
+    }
+
+    $("furniture-step").addEventListener("change", (event) => {
+      state.furniture = event.target.value;
+      $("to-schedule").disabled = false;
+      updateRoom();
+    });
+    $("to-furniture").addEventListener("click", () => showStep(2));
+    $("to-schedule").addEventListener("click", () => showStep(3));
+    for (const button of document.querySelectorAll("[data-back]")) {
+      button.addEventListener("click", () => showStep(Number(button.dataset.back)));
+    }
+
+    $("old-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      $("old-response").hidden = false;
+      $("old-response").textContent = "So kommt die Nachricht im Büro an: " + event.currentTarget.elements.message.value.trim();
+    });
+
+    scheduleForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      showStep(4);
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = new FormData(event.currentTarget);
+      const missingAddress = addressFields.find((field) => !field.value.trim());
+      if (missingAddress) {
+        missingAddress.setCustomValidity("Bitte fülle dieses Feld aus.");
+        missingAddress.reportValidity();
+        return;
+      }
+      const [street, zip, city] = addressFields.map((field) => field.value.trim());
+      const details = [
+        ["Zu streichen", surfaceSummary()],
+        ["Geschätzte Streichfläche", areaSummary()],
+        ["Maße", roomMeasurementsSummary()],
+        ["Möbel", furnitureSummary()],
+        ["Objektadresse", `${street}\n${zip} ${city}`],
+        ["Fahrtkosten", "Werden anhand der Objektadresse geprüft"],
+        ["Projektstart", projectStart()],
+        ["Name", fields.get("name").trim()],
+        ["E-Mail", fields.get("email").trim()],
+        ["Notiz", fields.get("notes").trim()]
+      ].filter(([, value]) => value);
+      $("request-summary").replaceChildren(...details.map(([label, value]) => {
+        const row = document.createElement("div");
+        const term = document.createElement("dt");
+        const description = document.createElement("dd");
+        term.textContent = label;
+        description.textContent = value;
+        row.append(term, description);
+        return row;
+      }));
+      const inArea = /^(80|81)\d{3}$/.test(zip);
+      const soon = projectStart() === "So bald wie möglich";
+      const title = !inArea ? "Zuerst den Einsatzort klären" : soon ? "Zuerst den Termin klären" : "Besichtigung besprechen";
+      const reason = !inArea ? "Die angegebene PLZ liegt außerhalb des Beispielgebiets. Der Meister prüft, ob die Anfahrt für diesen Auftrag sinnvoll ist." : soon ? "Das Objekt liegt im Beispielgebiet. Für den kurzfristigen Start sollte das Büro zuerst die Kapazität prüfen." : "Ort und gewünschter Start passen zum Beispielbetrieb. Der Meister kann beim Rückruf die Besichtigung besprechen.";
+      const heading = document.createElement("strong"); heading.textContent = title;
+      const explanation = document.createElement("p"); explanation.textContent = reason;
+      $("qualification").replaceChildren(heading, explanation);
+      showStep(totalSteps + 1);
+    });
+
+    for (const field of addressFields) field.addEventListener("input", () => field.setCustomValidity(""));
+
+    function reset() {
+      $("old-form").reset();
+      scheduleForm.reset();
+      $("drying-note").open = false;
+      contactForm.reset();
+      for (const field of addressFields) field.setCustomValidity("");
+      $("old-response").hidden = true;
+      $("old-response").textContent = "";
+      $("request-summary").replaceChildren();
+      for (const choice of document.querySelectorAll('#furniture-step input')) choice.checked = choice.defaultChecked;
+      state.furniture = "";
+      state.surface = "walls";
+      state.dimensions = { ...initialMeasurements };
+      showRoomEditor();
+      $("to-schedule").disabled = true;
+      showStep(1, false);
+    }
+
+    $("reset").addEventListener("click", reset);
+    window.addEventListener("resize", paint);
+    reduceMotion.addEventListener("change", updateRoom);
+    paint();
+    reset();
+let currentMode="new";
+function notifyParent(){parent.postMessage({kind:"maler-state",height:Math.ceil(document.querySelector(".page").getBoundingClientRect().height)+3,step:state.step,mode:currentMode},"*")}
+new ResizeObserver(notifyParent).observe(document.querySelector(".page"));
+window.addEventListener("message",e=>{if(e.source!==parent||e.data?.kind!=="maler-mode")return;currentMode=e.data.mode==="old"?"old":"new";document.body.classList.toggle("oldmode",currentMode==="old");notifyParent();requestAnimationFrame(()=>{if(currentMode==="new")paint()})});
+for(const field of contactForm.querySelectorAll('input,textarea')) {
+ field.readOnly=true; field.autocomplete='off';
+}
+const presets=document.createElement('div');
+presets.className='sample-presets';
+presets.innerHTML='<p>Nur Beispieldaten. Nichts wird gesendet.</p>';
+for(const [label,zip,city] of [['Beispiel: München','80331','München'],['Beispiel: außerhalb','86150','Augsburg']]){
+ const btn=document.createElement('button');btn.type='button';btn.className='fill';btn.textContent=label;presets.append(btn);
+ btn.addEventListener('click',()=>{const sample={name:'Lena Beispiel',email:'lena@example.org',objectStreet:'Musterweg 4',objectZip:zip,objectCity:city};for(const [key,value] of Object.entries(sample)){contactForm.elements[key].value=value;contactForm.elements[key].setCustomValidity('');}});
+}
+contactForm.prepend(presets);
+notifyParent();
+
+</script>
+</body>
+</html>

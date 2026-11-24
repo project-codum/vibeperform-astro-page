@@ -13,7 +13,8 @@ async function fixture(t, reduced = false) {
   const motion = new EventTarget();
   motion.matches = reduced;
   window.matchMedia = () => motion;
-  const pin = { getBoundingClientRect: () => ({ height: 865 }) };
+  const mission = { style: style() };
+  const pin = { getBoundingClientRect: () => ({ height: 865 }), querySelector: () => mission };
   const stage = {
     style: style(), dataset: {}, querySelector: () => pin,
     getBoundingClientRect: () => ({ top: 2000 - window.scrollY }),
@@ -44,7 +45,7 @@ async function fixture(t, reduced = false) {
     window.dispatchEvent(new Event('scroll'));
     flush();
   };
-  return { window, words, heading, stage, motion, frames, flush, scroll };
+  return { window, words, heading, mission, stage, motion, frames, flush, scroll };
 }
 
 test('first word waits for 120px and subsequent words require 150px each', async t => {
@@ -59,6 +60,9 @@ test('first word waits for 120px and subsequent words require 150px each', async
   f.scroll(271);
   assert.equal(f.words[1].style.opacity, '1');
   assert.equal(f.words[2].style.opacity, '0');
+  assert.equal(f.mission.style.opacity, '0');
+  f.scroll(1320);
+  assert.ok(Math.abs(Number(f.mission.style.opacity) - 0.5) < 1e-9);
 });
 
 test('scroll events coalesce, stop without autoplay, and reverse until completion', async t => {
@@ -74,6 +78,8 @@ test('scroll events coalesce, stop without autoplay, and reverse until completio
   f.scroll(1470);
   assert.equal(f.heading.dataset.captionState, 'complete');
   assert(f.words.every(word => word.style.opacity === undefined && word.style.transform === undefined));
+  assert.equal(f.mission.style.opacity, undefined);
+  assert.equal(f.mission.style.transform, undefined);
   f.scroll(0);
   assert.equal(f.heading.dataset.captionState, 'complete');
   assert.equal(f.frames.size, 0);
@@ -83,5 +89,6 @@ test('reduced motion keeps the complete text static without a scroll stage', asy
   const f = await fixture(t, true);
   assert.equal(f.stage.dataset.captionScroll, undefined);
   assert(f.words.every(word => word.style.opacity === undefined));
+  assert.equal(f.mission.style.opacity, undefined);
   assert.equal(f.frames.size, 0);
 });
