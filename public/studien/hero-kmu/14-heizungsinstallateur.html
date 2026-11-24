@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Heizwerk Morgenwarm – Wärmepumpen im Altbau. Fiktive Gestaltungsstudie."
+    />
+    <title>Wärmepumpen im Altbau · Heizwerk Morgenwarm</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      a:focus-visible,
+      summary:focus-visible,
+      input:focus-visible + label {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .back {
+        font:
+          500 0.82rem/1.4 system-ui,
+          sans-serif;
+        white-space: nowrap;
+        text-underline-offset: 0.3em;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      summary,
+      label {
+        cursor: pointer;
+      }
+      details summary {
+        width: fit-content;
+      }
+      details p {
+        margin-top: 0.85rem;
+        max-width: 55ch;
+        line-height: 1.5;
+      }
+      fieldset {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      fieldset input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+      :root {
+        --night: #142329;
+        --light: #fff4df;
+        --amber: #ffc877;
+      }
+      body {
+        background: var(--night);
+        color: var(--light);
+        font:
+          1rem/1.55 "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+      header {
+        padding: 1.25rem 5vw;
+        border-bottom: 1px solid #fff4df42;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-weight: 700;
+        line-height: 1.12;
+      }
+      .sun {
+        color: var(--amber);
+        width: 2.65rem;
+        height: 1.35rem;
+        border: 3px solid;
+        border-radius: 3rem 3rem 0 0;
+        box-shadow:
+          0 5px var(--night),
+          0 7px currentColor;
+      }
+      .hero {
+        position: relative;
+        isolation: isolate;
+        min-height: clamp(36rem, 76vh, 52rem);
+        display: grid;
+        align-items: end;
+      }
+      .hero img,
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        object-fit: cover;
+        object-position: 65% center;
+      }
+      .hero::after {
+        content: "";
+        z-index: -1;
+        background:
+          linear-gradient(
+            90deg,
+            #142329fa 0%,
+            #142329d9 28%,
+            #14232944 65%,
+            transparent
+          ),
+          linear-gradient(0deg, #142329ad, transparent 44%);
+      }
+      .copy {
+        padding: clamp(3rem, 7vw, 7rem) 5vw;
+      }
+      .kicker {
+        font:
+          650 0.75rem/1.4 ui-monospace,
+          monospace;
+        color: var(--amber);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      h1 {
+        max-width: 12ch;
+        margin: 1rem 0;
+        font-size: clamp(3rem, 6.8vw, 7rem);
+        line-height: 0.99;
+        letter-spacing: -0.065em;
+      }
+      .intro {
+        max-width: 37ch;
+        font-size: clamp(1rem, 1.4vw, 1.25rem);
+      }
+      .plan {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+        gap: 2rem;
+        padding: 1.6rem 5vw 2.4rem;
+        border-top: 2px solid var(--amber);
+      }
+      .plan summary {
+        color: var(--amber);
+        font-weight: 650;
+      }
+      @media (max-width: 650px) {
+        .hero {
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
+          align-items: stretch;
+        }
+        .hero img {
+          position: static;
+          height: clamp(13rem, 60vw, 24rem);
+          object-position: 74% center;
+        }
+        .hero::after {
+          display: none;
+        }
+        .copy {
+          padding: 2rem 5vw;
+        }
+        .plan {
+          grid-template-columns: 1fr;
+          gap: 0.55rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span aria-hidden="true" class="sun"></span
+        ><span>Heizwerk<br />Morgenwarm</span>
+      </div>
+      <a class="back" href="../../#designstudien" data-back-to-studies>← Zur Galerie</a>
+    </header>
+    <main>
+      <section class="hero">
+        <img
+          src="assets/14-heizungsinstallateur.jpg"
+          alt="Wärmepumpe vor einem Wohnhaus mit warm beleuchteten Fenstern in der Dämmerung"
+        />
+        <div class="copy">
+          <p class="kicker">Wärmepumpen im Altbau</p>
+          <h1>Dem Winter ruhig entgegen.</h1>
+          <p class="intro">
+            Sie wohnen im Haus, während die Heizung wechselt. Wir planen mit
+            Ihnen, was vor dem Ausbau der alten Heizung geklärt sein muss, und
+            übernehmen die Installation.
+          </p>
+        </div>
+      </section>
+      <section class="plan" aria-label="Vorbereitung auf das Erstgespräch">
+        <p class="kicker">Vor dem Heizungswechsel</p>
+        <details>
+          <summary>Den ersten Termin vorbereiten</summary>
+          <p>
+            Legen Sie einen Grundriss und die letzten Heizabrechnungen bereit,
+            soweit vorhanden. Beim Rundgang schauen wir uns Heizkörper,
+            Leitungen und mögliche Standorte der Außeneinheit an. Gemeinsam
+            besprechen wir, wann die Heizung für den Umbau außer Betrieb gehen
+            kann.
+          </p>
+        </details>
+      </section>
+    </main>
+  </body>
+</html>

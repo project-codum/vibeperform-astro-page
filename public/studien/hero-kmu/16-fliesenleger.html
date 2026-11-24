@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Fugenklar Fliesenhandwerk – Großformatige Fliesen im Sanierungsbad. Fiktive Gestaltungsstudie."
+    />
+    <title>
+      Großformatige Fliesen im Sanierungsbad · Fugenklar Fliesenhandwerk
+    </title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      a:focus-visible,
+      summary:focus-visible,
+      input:focus-visible + label {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .back {
+        font:
+          500 0.82rem/1.4 system-ui,
+          sans-serif;
+        white-space: nowrap;
+        text-underline-offset: 0.3em;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      summary,
+      label {
+        cursor: pointer;
+      }
+      details summary {
+        width: fit-content;
+      }
+      details p {
+        margin-top: 0.85rem;
+        max-width: 55ch;
+        line-height: 1.5;
+      }
+      fieldset {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      fieldset input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+      :root {
+        --sand: #eae4d8;
+        --ink: #303630;
+        --moss: #525f4e;
+      }
+      body {
+        color: var(--ink);
+        background: var(--sand);
+        font:
+          1rem/1.55 "Avenir Next",
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+      .frame {
+        margin: 0 4vw;
+        border-inline: 1px solid var(--moss);
+      }
+      header {
+        min-height: 4.6rem;
+        padding: 0.9rem 2vw;
+        border-bottom: 1px solid var(--moss);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-weight: 650;
+        line-height: 1.15;
+      }
+      .mark {
+        width: 1.9rem;
+        aspect-ratio: 1;
+        background:
+          linear-gradient(
+            90deg,
+            transparent 45%,
+            var(--sand) 45% 51%,
+            transparent 51%
+          ),
+          linear-gradient(
+            transparent 57%,
+            var(--sand) 57% 63%,
+            transparent 63%
+          ),
+          var(--moss);
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 1.35fr 1fr;
+        align-items: end;
+        gap: 2rem;
+        padding: 2.5vw 2vw;
+      }
+      h1 {
+        font-weight: 450;
+        font-size: clamp(3rem, 6.4vw, 7rem);
+        letter-spacing: -0.075em;
+        line-height: 0.99;
+      }
+      .intro p {
+        max-width: 43ch;
+      }
+      .scene {
+        display: grid;
+        grid-template-columns: 2.1fr 1fr;
+        border-block: 1px solid var(--moss);
+      }
+      .scene img {
+        width: 100%;
+        height: clamp(23rem, 51vh, 39rem);
+        display: block;
+        object-fit: cover;
+      }
+      aside {
+        border-left: 1px solid var(--moss);
+        padding: 2vw;
+      }
+      h2 {
+        font-size: clamp(1.4rem, 2.3vw, 2.2rem);
+        letter-spacing: -0.045em;
+        font-weight: 500;
+        line-height: 1.1;
+        margin: 0 0 1.2rem;
+      }
+      details {
+        border-top: 1px solid var(--moss);
+        padding: 0.8rem 0;
+      }
+      summary {
+        font-weight: 600;
+      }
+      summary::marker {
+        color: var(--moss);
+      }
+      details p {
+        margin: 0.6rem 0 0;
+      }
+      @media (max-width: 700px) {
+        .intro,
+        .scene {
+          grid-template-columns: 1fr;
+        }
+        .intro,
+        aside {
+          padding: 1.5rem 0.9rem;
+        }
+        .intro {
+          gap: 1rem;
+        }
+        header {
+          padding: 0.85rem 0.7rem;
+        }
+        .scene img {
+          height: clamp(13rem, 60vw, 26rem);
+        }
+        aside {
+          border-left: 0;
+          border-top: 1px solid var(--moss);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <header>
+        <div class="brand">
+          <span aria-hidden="true" class="mark"></span
+          ><span>Fugenklar<br />Fliesenhandwerk</span>
+        </div>
+        <a class="back" href="../../#designstudien" data-back-to-studies>← Zur Galerie</a>
+      </header>
+      <main>
+        <section class="intro">
+          <h1>Morgens ins Bad.<br />Erst mal Ruhe.</h1>
+          <p>
+            Großformatiges Feinsteinzeug gibt Ihrem neuen Bad weite, ruhige
+            Flächen. Für die Sanierung planen wir jede Fuge, vom Türanschluss
+            bis zum Ablauf der bodengleichen Dusche.
+          </p>
+        </section>
+        <div class="scene">
+          <img
+            src="assets/16-fliesenleger.jpg"
+            alt="Bodengleiche Dusche mit großformatigen Fliesen in Sandsteinoptik und seitlichem Tageslicht"
+          />
+          <aside aria-labelledby="beratung">
+            <h2 id="beratung">Ihr Bad im Detail</h2>
+            <details open>
+              <summary>Fugenbild</summary>
+              <p>
+                Wo trifft die Bodenfuge auf die Wand? Im Verlegeplan legen wir
+                die Linien über Ecken, Nischen und Dusche hinweg fest.
+              </p>
+            </details>
+            <details>
+              <summary>Plattenformat</summary>
+              <p>
+                Bringen Sie Ihren Grundriss zum Gespräch mit. Darauf vergleichen
+                wir Formate und sehen, wo Zuschnitte an Tür, Ablauf und Wand
+                entstehen.
+              </p>
+            </details>
+            <details>
+              <summary>Oberfläche</summary>
+              <p>
+                Ein Muster am Fenster zeigt Farbe und Struktur im Tageslicht.
+                Für den Duschboden besprechen wir Rutschhemmung, Gefälle und
+                Pflege.
+              </p>
+            </details>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

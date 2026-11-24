@@ -169,6 +169,32 @@
 .showcase-insight{border-radius:9px;margin:0 0 16px;padding:14px 15px;background:#fff0e6;color:#63321f;border:1px solid #e8baa5;line-height:1.45}
 .showcase-insight p{margin:5px 0 0;font-size:.88rem}
 .room-stepper button:hover:not(:disabled){background:#fbe0d1}
+
+    :root { color: #000; --ink: #000; --muted: #000; }
+    .description { font-size: 1.0625rem; line-height: 1.6; }
+    .reset, .field, .surface-legend, .area-result strong, .summary dd, .button, .choice,
+    .field :is(input, textarea, select), .measure-input input, .room-picker select, .room-height input {
+      font-size: 1rem;
+    }
+    .reset, .field, .room-dock label, .dock-label, .step-meter, .measure-input input,
+    .choice, .choice:has(input:checked), .choice:has(input:disabled), .area-result, .summary dt, .summary dd,
+    .drying summary, .old-response, .room-preview-label, .fill, .sample-presets p, .showcase-insight,
+    .room-stepper button, .back, #qualification { color: #000; }
+    .room-dock label, .dock-label, .step-meter, .summary dt, .drying summary { font-weight: 700; }
+    .tag, .room-preview-label, .step-meter, .field small, .room-dock label, .dock-label,
+    .measure-input span, .area-result span, .summary dt, .field-error, .demo-note { font-size: .875rem; }
+    .room-help, .start-note, .drying, .old-response, .showcase-insight p, #qualification p { font-size: .9375rem; line-height: 1.55; }
+    .field input::placeholder, .field textarea::placeholder { color: #333; }
+    .room-stepper { height: 44px; }
+    .reset, .button { min-height: 44px; font-weight: 700; }
+    .choice { line-height: 1.35; padding-inline: 8px; }
+    .choice input { width: 15px; height: 15px; flex-basis: 15px; }
+    .primary:disabled { color: #333; }
+    @media (max-width: 420px) {
+      .choices.surfaces, .choices.furniture, .start-options { grid-template-columns: minmax(0, 1fr); }
+      .start-options .choice { flex-direction: row; }
+      .choice { justify-content: flex-start; }
+    }
 </style>
 </head>
 <body>
@@ -190,7 +216,7 @@
           <div class="fields">
             <label class="field">Name <input name="name" autocomplete="name" required></label>
             <label class="field">E-Mail <input type="email" name="email" autocomplete="email" required></label>
-            <label class="field">Ihre Nachricht <textarea name="message" rows="4" required></textarea></label>
+            <label class="field">Deine Nachricht <textarea name="message" rows="4" required></textarea></label>
           </div>
           <button class="button neutral" type="submit">Beispielanfrage ansehen</button>
           <p class="old-response" id="old-response" role="status" hidden></p>
@@ -231,7 +257,7 @@
                   </div>
                 </div>
               </div>
-              <p class="room-help" id="room-help">Grobe Maße reichen. Für eine einzelne Wand geben Sie bei Länge 0 m ein.</p>
+              <p class="room-help" id="room-help">Grobe Maße reichen. Für eine einzelne Wand gib bei Länge 0 m ein.</p>
               <p class="field-error" id="room-error" role="alert" hidden>Die Maße müssen zwischen 0,5 und 100 m liegen. Für die Länge ist auch 0 m möglich.</p>
             </div>
           </figcaption>
@@ -244,7 +270,7 @@
             <label class="choice"><input type="radio" name="surface" value="ceiling"> Decke</label>
             <label class="choice"><input type="radio" name="surface" value="both"> Wände und Decke</label>
           </fieldset>
-          <p class="room-help" id="surface-note" aria-live="polite" hidden>Bei 0 m Länge gibt es nur eine Wand. Für die Decke geben Sie eine Länge größer als 0 m ein.</p>
+          <p class="room-help" id="surface-note" aria-live="polite" hidden>Bei 0 m Länge gibt es nur eine Wand. Für die Decke gib eine Länge größer als 0 m ein.</p>
           <div class="actions area-actions">
             <output class="area-result" id="area-result" for="room-width room-length" aria-live="polite">
               <strong id="area-total">Streichfläche schätzen</strong>
@@ -316,7 +342,7 @@
           <div id="qualification" role="status"></div><dl class="summary" id="request-summary"></dl>
           <aside class="showcase-insight" aria-labelledby="showcase-insight-title">
             <strong id="showcase-insight-title">Warum Besucher bis zum Ende weiterklicken</strong>
-            <p>Sie haben schon Maße, Möbelservice und Starttermin gewählt. Jetzt möchten sie wissen, was aus ihren Angaben wird. So führt das Formular Schritt für Schritt zu einem Ergebnis für ihr eigenes Projekt.</p>
+            <p>Wer schon Maße, Möbelservice und Starttermin gewählt hat, möchte wissen, was aus den Angaben wird. So führt das Formular Schritt für Schritt zu einem Ergebnis für das eigene Projekt.</p>
           </aside>
           <button class="button back" type="button" data-back="4">Anfrage bearbeiten</button>
         </div>
@@ -334,10 +360,10 @@
     const surfaceOptions = [...$("surface-choices").querySelectorAll('input[name="surface"]')];
     const descriptions = [
       ["Wie groß ist die Fläche?", "Breite und Länge reichen für eine erste Einschätzung."],
-      ["Sollen wir die Möbel verrücken und abdecken?", "Wählen Sie, wer den Raum für den Anstrich vorbereitet."],
+      ["Sollen wir die Möbel verrücken und abdecken?", "Wähle, wer den Raum für den Anstrich vorbereitet."],
       ["Wann soll das Projekt starten?", ""],
-      ["Wie können wir Sie erreichen?", ""],
-      ["Das kommt im Büro an", "So würde Ihre Anfrage beim Malerbetrieb ankommen."]
+      ["Wie können wir dich erreichen?", ""],
+      ["Das kommt im Büro an", "So würde deine Anfrage beim Malerbetrieb ankommen."]
     ];
     const furnitureSummary = () => state.furniture === "yes" ? "Verrücken und abdecken" : "Ohne Möbelservice";
     const meters = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 2 });
@@ -411,14 +437,14 @@
       if (!singleWall || switchedToWall || !surfaceNote.textContent.startsWith("Auf Wand")) {
         surfaceNote.textContent = switchedToWall
           ? "Auf Wand umgestellt: Bei 0 m Länge gibt es keine Deckenfläche."
-          : "Bei 0 m Länge gibt es nur eine Wand. Für die Decke geben Sie eine Länge größer als 0 m ein.";
+          : "Bei 0 m Länge gibt es nur eine Wand. Für die Decke gib eine Länge größer als 0 m ein.";
       }
       const estimate = areaEstimate();
       $("room-error").hidden = !hasError;
       $("to-furniture").disabled = estimate === null;
       $("area-total").textContent = estimate === null ? "Streichfläche schätzen" : `ca. ${areaText(estimate)} Streichfläche`;
       $("area-detail").textContent = estimate === null
-        ? "Geben Sie Breite und Länge ein."
+        ? "Gib Breite und Länge ein."
         : state.surface === "ceiling" ? surfaceSummary()
         : `${surfaceSummary()} · mit ${heightMeters.format(defaultRoomHeight)} m Raumhöhe gerechnet.`;
       $("room-preview-label").textContent = surfaceSummary();
@@ -590,7 +616,7 @@
       ];
       if (singleWallPreview()) guides.pop();
       ctx.save();
-      ctx.font = '650 19px system-ui, sans-serif';
+      ctx.font = '700 31px system-ui, sans-serif';
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       for (const { endpoints, label, labelAt } of guides) {
@@ -602,10 +628,10 @@
           ctx.fill();
         }
         ctx.lineJoin = "round";
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 6;
         ctx.strokeStyle = "#fff2e8";
         ctx.strokeText(label, ...labelAt);
-        ctx.fillStyle = "#71331d";
+        ctx.fillStyle = "#000";
         ctx.fillText(label, ...labelAt);
       }
       ctx.restore();
@@ -788,7 +814,7 @@
       const fields = new FormData(event.currentTarget);
       const missingAddress = addressFields.find((field) => !field.value.trim());
       if (missingAddress) {
-        missingAddress.setCustomValidity("Bitte füllen Sie dieses Feld aus.");
+        missingAddress.setCustomValidity("Bitte fülle dieses Feld aus.");
         missingAddress.reportValidity();
         return;
       }

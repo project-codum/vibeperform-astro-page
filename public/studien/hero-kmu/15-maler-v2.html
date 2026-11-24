@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Venezianische Kalkspachteltechnik im Streiflicht. Maleratelier Kalk und Kelle."
+    />
+    <title>Licht auf Kalk · Maleratelier Kalk und Kelle</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ash: #2a2018;
+        --ivory: #fff8e9;
+        --sand: #ddbd8e;
+        --edge: color-mix(in srgb, var(--ivory) 45%, transparent);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--ash);
+        color: var(--ivory);
+        font:
+          16px/1.5 "Avenir Next",
+          Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 5px;
+      }
+      :focus-visible {
+        outline: 2px solid var(--ivory);
+        outline-offset: 5px;
+      }
+      .canvas {
+        position: relative;
+        isolation: isolate;
+        min-height: 100vh;
+        min-height: 100svh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: clamp(1.2rem, 4vw, 3rem) clamp(1.3rem, 5.3vw, 6rem);
+        overflow: hidden;
+      }
+      .material {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+        z-index: -3;
+      }
+      .canvas::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background:
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--ash) 61%, transparent),
+            transparent 17%,
+            transparent 70%,
+            color-mix(in srgb, var(--ash) 76%, transparent)
+          ),
+          radial-gradient(
+            ellipse at 95% 23%,
+            color-mix(in srgb, var(--ash) 87%, transparent),
+            color-mix(in srgb, var(--ash) 51%, transparent) 19%,
+            transparent 58%
+          );
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        font-size: 0.86rem;
+      }
+      header strong {
+        font:
+          500 clamp(1rem, 1.8vw, 1.36rem)/1.2 "Baskerville",
+          Georgia,
+          serif;
+        letter-spacing: 0.008em;
+        text-shadow: 0 1px 9px var(--ash);
+      }
+      .title {
+        align-self: start;
+        justify-self: end;
+        text-align: right;
+        margin-top: clamp(2.7rem, 9svh, 6.1rem);
+        padding-bottom: clamp(170px, 38svh, 365px);
+      }
+      h1 {
+        margin: 0;
+        font:
+          400 clamp(3.15rem, 7vw, 7.4rem)/0.92 "Baskerville",
+          "Palatino Linotype",
+          Georgia,
+          serif;
+        letter-spacing: -0.05em;
+        text-wrap: balance;
+      }
+      .title p {
+        margin: 0.85rem 0 0;
+        font-size: clamp(0.9rem, 1.25vw, 1.04rem);
+        letter-spacing: 0.02em;
+      }
+      .ground {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.65rem;
+      }
+      .ground > a {
+        font-size: 0.83rem;
+        flex: none;
+      }
+      details {
+        width: min(100%, 29rem);
+        text-align: left;
+      }
+      summary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-height: 44px;
+        padding: 0.52rem 0;
+        border-bottom: 1px solid var(--edge);
+        font-size: 0.94rem;
+        font-weight: 650;
+        cursor: pointer;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        color: var(--sand);
+      }
+      details[open] summary::after {
+        content: "−";
+      }
+      details p {
+        margin: 0.85rem 0 0;
+        padding: 0.85rem 1rem;
+        border: 1px solid var(--edge);
+        background: var(--ash);
+        font-size: 0.95rem;
+        text-align: left;
+      }
+      @media (max-width: 680px) {
+        .material {
+          object-position: 68% 50%;
+        }
+        .canvas::before {
+          background: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--ash) 74%, transparent),
+            color-mix(in srgb, var(--ash) 49%, transparent) 25%,
+            transparent 50%,
+            transparent 79%,
+            color-mix(in srgb, var(--ash) 74%, transparent)
+          );
+        }
+        .title {
+          margin-top: clamp(2.6rem, 11svh, 6.5rem);
+          padding-bottom: clamp(235px, 40svh, 390px);
+        }
+        .title p {
+          max-width: 23ch;
+          margin-left: auto;
+        }
+        .ground {
+          gap: 0.6rem 1rem;
+          align-items: start;
+        }
+        details {
+          text-align: left;
+        }
+        .ground > a {
+          padding-block: 0.45rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <img
+        class="material"
+        src="assets/15-maler-v2.jpg"
+        alt="Streiflicht macht die Struktur des venezianischen Kalkspachtels sichtbar. Unten rechts führt eine Hand die Glättkelle."
+      />
+      <header>
+        <strong>Maleratelier Kalk und Kelle</strong
+        ><a href="../../#designstudien" data-back-to-studies>Studienübersicht</a>
+      </header>
+      <div class="title">
+        <h1>Licht auf Kalk.</h1>
+        <p>Venezianische Kalkspachteltechnik</p>
+      </div>
+      <div class="ground">
+        <details>
+          <summary>Musterfläche ansehen</summary>
+          <p>
+            Am Nachmittag fällt das Licht flach auf die Wand. Dann zeigen sich
+            die feinen Spuren der Kelle. Gemeinsam bemustern wir Farbe und Glanz
+            an der Stelle, an der Sie die Fläche später sehen.
+          </p>
+        </details>
+        <a href="15-maler.html">Ersten Entwurf ansehen</a>
+      </div>
+    </main>
+  </body>
+</html>

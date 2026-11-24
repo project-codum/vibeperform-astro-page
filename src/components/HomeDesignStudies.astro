@@ -6,52 +6,45 @@ const { locale } = Astro.props;
 const de = locale === 'de';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const studies = [
-  { id: "01-sauerteig", name: "Krume & Glut", trade: de ? "Bäckerei" : "Bakery", detail: de ? "Sauerteig und Kruste" : "Sourdough and crust" },
-  { id: "02-metallbau", name: "KANT / WERK", trade: de ? "Metallbau" : "Metal fabrication", detail: de ? "Vom Plan zum Teil" : "From drawing to finished part" },
-  { id: "03-floristik", name: "Atelier Flore", trade: de ? "Floristik" : "Floristry", detail: de ? "Blüten nach Gefühl" : "Flowers by feel" },
-  { id: "04-radwerkstatt", name: "Ritzel Klub", trade: de ? "Fahrradwerkstatt" : "Bike repair", detail: de ? "Was macht dein Rad?" : "How is your bike doing?" },
-  { id: "05-physio", name: "Praxis Weitlauf", trade: de ? "Physiotherapie" : "Physiotherapy", detail: de ? "Wieder leichter bewegen" : "Move with greater ease" },
-  { id: "06-zimmerei", name: "First & Fuge", trade: de ? "Zimmerei" : "Carpentry", detail: de ? "Mehr Raum aus Holz" : "More room, built in wood" },
-  { id: "07-kaeserei", name: "Hofkäserei Auenried", trade: de ? "Käserei" : "Cheesemaking", detail: de ? "Reife ist Geschmack" : "Flavor takes time" },
-  { id: "08-elektrotechnik", name: "PHASEWERK", trade: de ? "Elektrotechnik" : "Electrical engineering", detail: de ? "Laden, wo du parkst" : "Charge where you park" },
-  { id: "09-buchhandlung", name: "Eselsohr", trade: de ? "Buchhandlung" : "Bookshop", detail: de ? "Zwischen zwei Deckeln" : "Between two covers" },
-  { id: "10-hundepflege", name: "Struppstudio", trade: de ? "Hundepflege" : "Dog grooming", detail: de ? "Einmal fein, bitte!" : "A little grooming, please!" },
-  { id: "11-elektriker-v2", name: "VOLTWERK ELEKTRO", trade: de ? "Elektriker" : "Electrical contractor", detail: de ? "Fertig, wenn die Frühschicht kommt" : "Ready for the morning shift" },
-  { id: "12-dachdecker-v2", name: "Dachdeckerei Wetterfirst", trade: de ? "Dachdeckerei" : "Roofing", detail: de ? "Der erste Regen" : "The first rain" },
-  { id: "13-schreiner", name: "Schreinerei Maßfuge", trade: de ? "Schreinerei" : "Joinery", detail: de ? "Einbauten für Wohnräume" : "Built-ins for living spaces" },
-  { id: "14-heizungsinstallateur", name: "Heizwerk Morgenwarm", trade: de ? "Heizungsbau" : "Heating installation", detail: de ? "Wärmepumpen im Altbau" : "Heat pumps for older buildings" },
-  { id: "15-maler-v2", name: "Maleratelier Kalk und Kelle", trade: de ? "Malerbetrieb" : "Painting and decorating", detail: de ? "Licht auf Kalk" : "Light on lime" },
-  { id: "16-fliesenleger", name: "Fugenklar Fliesenhandwerk", trade: de ? "Fliesenhandwerk" : "Tiling", detail: de ? "Großformatige Fliesen im Sanierungsbad" : "Large-format tiles for a bathroom renovation" },
-  { id: "17-kammerjaeger-v2", name: "Klarspur Schädlingsmanagement", trade: de ? "Schädlingsmanagement" : "Pest management", detail: de ? "Der Kontrollgang" : "The inspection round" },
-  { id: "18-berater", name: "Übergangswerk Unternehmensberatung", trade: de ? "Unternehmensberatung" : "Business consulting", detail: de ? "Unternehmerische Übergänge" : "Business transitions" },
-  { id: "19-psychologe", name: "Praxis Zwischenraum", trade: de ? "Psychologische Praxis" : "Psychology practice", detail: de ? "Raum für Veränderung" : "Space for change" },
+  { id: "01-sauerteig", trade: de ? "Bäckerei" : "Bakery", detail: de ? "Sauerteig und Kruste" : "Sourdough and crust" },
+  { id: "02-metallbau", trade: de ? "Metallbau" : "Metal fabrication", detail: de ? "Vom Plan zum Teil" : "From drawing to finished part" },
+  { id: "03-floristik", trade: de ? "Floristik" : "Floristry", detail: de ? "Blüten nach Gefühl" : "Flowers by feel" },
+  { id: "04-radwerkstatt", trade: de ? "Fahrradwerkstatt" : "Bike repair", detail: de ? "Was macht dein Rad?" : "How is your bike doing?" },
+  { id: "05-physio", trade: de ? "Physiotherapie" : "Physiotherapy", detail: de ? "Wieder leichter bewegen" : "Move with greater ease" },
+  { id: "06-zimmerei", trade: de ? "Zimmerei" : "Carpentry", detail: de ? "Mehr Raum aus Holz" : "More room, built in wood" },
+  { id: "07-kaeserei", trade: de ? "Käserei" : "Cheesemaking", detail: de ? "Reife ist Geschmack" : "Flavor takes time" },
+  { id: "08-elektrotechnik", trade: de ? "Elektrotechnik" : "Electrical engineering", detail: de ? "Laden, wo du parkst" : "Charge where you park" },
+  { id: "09-buchhandlung", trade: de ? "Buchhandlung" : "Bookshop", detail: de ? "Zwischen zwei Deckeln" : "Between two covers" },
+  { id: "10-hundepflege", trade: de ? "Hundepflege" : "Dog grooming", detail: de ? "Einmal fein, bitte!" : "A little grooming, please!" },
+  { id: "11-elektriker-v2", trade: de ? "Elektriker" : "Electrical contractor", detail: de ? "Fertig, wenn die Frühschicht kommt" : "Ready for the morning shift" },
+  { id: "12-dachdecker-v2", trade: de ? "Dachdeckerei" : "Roofing", detail: de ? "Der erste Regen" : "The first rain" },
+  { id: "13-schreiner", trade: de ? "Schreinerei" : "Joinery", detail: de ? "Einbauten für Wohnräume" : "Built-ins for living spaces" },
+  { id: "14-heizungsinstallateur", trade: de ? "Heizungsbau" : "Heating installation", detail: de ? "Wärmepumpen im Altbau" : "Heat pumps for older buildings" },
+  { id: "15-maler-v2", trade: de ? "Malerbetrieb" : "Painting and decorating", detail: de ? "Licht auf Kalk" : "Light on lime" },
+  { id: "16-fliesenleger", trade: de ? "Fliesenhandwerk" : "Tiling", detail: de ? "Großformatige Fliesen im Sanierungsbad" : "Large-format tiles for a bathroom renovation" },
+  { id: "17-kammerjaeger-v2", trade: de ? "Schädlingsmanagement" : "Pest management", detail: de ? "Der Kontrollgang" : "The inspection round" },
+  { id: "18-berater", trade: de ? "Unternehmensberatung" : "Business consulting", detail: de ? "Unternehmerische Übergänge" : "Business transitions" },
+  { id: "19-psychologe", trade: de ? "Psychologische Praxis" : "Psychology practice", detail: de ? "Raum für Veränderung" : "Space for change" },
 ];
 const start = 0;
 const offsetFrom = (index: number, center: number) => ((index - center + 2 + studies.length) % studies.length) - 2;
 const image = (id: string) => `${base}studien/hero-kmu/${id}.webp`;
-const studyImageLabel = (name: string) => de ? `Webseitenentwurf für ${name}` : `Homepage design for ${name}`;
-const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · not client projects';
+const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen';
 ---
 <section class="design-studies" id="designstudien" aria-labelledby="design-studies-title" data-design-studies data-start={start}>
   <header class="design-studies__heading">
-    <p class="design-studies__eyebrow">{de ? 'Entdecken Sie unsere Vielfalt' : 'Explore our design range'}</p>
-    <h2 id="design-studies-title">
-      {de ? 'Verschiedene Hero-Sektionen im Überblick' : 'Explore different homepage hero designs'}
-      <span>{de ? 'Maßgeschneiderte Designs für jede Branche' : 'Tailored designs for different trades'}</span>
-    </h2>
-    <p class="design-studies__label">{label}</p>
+    <h2 id="design-studies-title">{de ? 'Maßgeschneiderte Designs für dich' : 'Tailored designs for you'}</h2>
   </header>
 
   <div class="design-studies__carousel" role="group" aria-label={de ? 'Designstudien durchblättern' : 'Browse design studies'} tabindex="0" data-stage>
     <div class="design-studies__stage" data-swipe>
       {studies.map((study, index) => (
         <article class="design-studies__card" data-card data-index={index} data-offset={offsetFrom(index, start)} data-active={index === start ? 'true' : 'false'}>
-          <a class="design-studies__card-link" href={image(study.id)} data-select data-title={study.name} data-image-label={studyImageLabel(study.name)}
-            aria-label={index === start ? `${study.name}: ${de ? 'groß ansehen' : 'view full size'}` : `${study.name}: ${de ? 'auswählen' : 'select'}`} tabindex={index === start ? undefined : '-1'}>
+          <a class="design-studies__card-link" href={`${base}studien/hero-kmu/${study.id}.html`} data-select data-title={study.trade}
+            aria-label={`${study.trade}: ${openLabel}`} tabindex={index === start ? undefined : '-1'}>
             <img src={image(study.id)} alt="" width="1280" height="820" loading="eager" fetchpriority="low" decoding="async" draggable="false" />
             <div class="design-studies__card-body">
-              <h3>{study.name}</h3>
-              <p class="design-studies__trade">{study.trade}</p>
+              <h3>{study.trade}</h3>
               <p class="design-studies__description">{study.detail}</p>
               <span class="design-studies__expand" aria-hidden="true">↗</span>
             </div>
@@ -72,7 +65,7 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
   </div>
   <div class="design-studies__dots" role="group" aria-label={de ? 'Designstudie auswählen' : 'Choose a design study'}>
     {studies.map((study, index) => (
-      <button type="button" data-dot data-index={index} aria-label={`${index + 1}. ${study.name}`} aria-current={index === start ? 'true' : undefined}><span></span></button>
+      <button type="button" data-dot data-index={index} aria-label={`${index + 1}. ${study.trade}`} aria-current={index === start ? 'true' : undefined}><span></span></button>
     ))}
   </div>
   <p class="design-studies__visually-hidden" aria-live="polite" aria-atomic="true" data-status></p>
@@ -81,7 +74,7 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
       <div><p>{de ? 'Designstudie · kein Kundenprojekt' : 'Design study · not a client project'}</p><h3 id="design-studies-dialog-title" data-dialog-title></h3></div>
       <form method="dialog"><button type="submit" aria-label={de ? 'Vorschau schließen' : 'Close preview'} autofocus>×</button></form>
     </div>
-    <img data-dialog-image alt="" />
+    <iframe data-study-frame title={de ? 'Interaktive Designstudie' : 'Interactive design study'}></iframe>
   </dialog>
 </section>
 
@@ -96,7 +89,8 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
     const status = root.querySelector<HTMLElement>('[data-status]');
     const dialog = root.querySelector<HTMLDialogElement>('[data-dialog]');
     const dialogTitle = root.querySelector<HTMLElement>('[data-dialog-title]');
-    const dialogImage = root.querySelector<HTMLImageElement>('[data-dialog-image]');
+    const frame = root.querySelector<HTMLIFrameElement>('[data-study-frame]');
+    let fullscreenOwner = false;
     const language = document.documentElement.lang;
     const german = language === 'de';
     const length = cards.length;
@@ -114,7 +108,6 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
         const link = card.querySelector<HTMLAnchorElement>('[data-select]');
         if (!link) return;
         link.tabIndex = selected ? 0 : -1;
-        link.setAttribute('aria-label', `${link.dataset.title}: ${selected ? (german ? 'groß ansehen' : 'view full size') : (german ? 'auswählen' : 'select')}`);
         if (selected) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
       });
       dots.forEach((dot, n) => {
@@ -123,6 +116,48 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
       if (announce && status) status.textContent = `${cards[active].querySelector('h3')?.textContent}, ${active + 1} ${german ? 'von' : 'of'} ${length}`;
     }
 
+    const motion = matchMedia('(prefers-reduced-motion: no-preference)');
+    if (swipe && length > 4 && motion.matches && 'IntersectionObserver' in window) {
+      // Vary the opening card so every study can be the last one in the preview.
+      active = Math.floor(Math.random() * length);
+      let remaining = Math.random() < .5 ? 3 : 4;
+      let timer: number | undefined;
+      const listeners = new AbortController();
+      const stop = () => {
+        window.clearTimeout(timer);
+        observer.disconnect();
+        listeners.abort();
+        root.removeAttribute('data-preview-running');
+      };
+      const advance = () => {
+        if (listeners.signal.aborted || document.hidden || !root.isConnected) return stop();
+        show(active + 1, false);
+        remaining -= 1;
+        timer = remaining ? window.setTimeout(advance, 270) : window.setTimeout(stop, 220);
+      };
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.intersectionRatio >= .5 && timer === undefined && !document.hidden) {
+          root.setAttribute('data-preview-running', '');
+          timer = window.setTimeout(advance, 160);
+        } else if (!entry.isIntersecting && timer !== undefined) {
+          stop();
+        }
+      }, { threshold: [0, .5] });
+      const options = { signal: listeners.signal };
+      for (const event of ['pointerdown', 'focusin', 'click', 'keydown']) {
+        root.addEventListener(event, stop, { ...options, capture: true });
+      }
+      motion.addEventListener('change', stop, options);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && timer !== undefined) stop();
+        else if (!document.hidden && timer === undefined) {
+          observer.unobserve(swipe);
+          observer.observe(swipe);
+        }
+      }, options);
+      window.addEventListener('pagehide', stop, options);
+      observer.observe(swipe);
+    }
     show(active, false);
     root.querySelector('[data-prev]')?.addEventListener('click', () => show(active - 1));
     root.querySelector('[data-next]')?.addEventListener('click', () => show(active + 1));
@@ -131,13 +166,19 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
       if (performance.now() < suppressClickUntil) { event.preventDefault(); return; }
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       const link = event.currentTarget as HTMLAnchorElement;
-      if (active !== n) { event.preventDefault(); show(n); return; }
-      if (!dialog?.showModal || !dialogTitle || !dialogImage) return;
+      if (!dialog?.showModal || !dialogTitle || !frame) return;
       event.preventDefault();
       dialogTitle.textContent = link.dataset.title ?? '';
-      dialogImage.src = link.href;
-      dialogImage.alt = link.dataset.imageLabel ?? '';
+      show(n, false);
+      frame.title = link.getAttribute('aria-label') ?? dialogTitle.textContent;
+      frame.src = link.href;
       dialog.showModal();
+      if (!document.fullscreenElement && document.fullscreenEnabled) {
+        document.documentElement.requestFullscreen().then(() => {
+          fullscreenOwner = true;
+          if (!dialog.open && document.fullscreenElement) void document.exitFullscreen();
+        }).catch(() => { /* The viewport-filling dialog also works without native fullscreen. */ });
+      }
     }));
 
     root.addEventListener('keydown', (event) => {
@@ -163,6 +204,28 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
       }
     });
     swipe?.addEventListener('pointercancel', () => { down = undefined; });
+    frame?.addEventListener('load', () => {
+      if (!dialog?.open) return;
+      const doc = frame.contentDocument;
+      doc?.querySelector('[data-back-to-studies]')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        dialog.close();
+      });
+      doc?.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') { event.preventDefault(); dialog.close(); }
+      });
+    });
+    document.addEventListener('fullscreenchange', () => {
+      if (fullscreenOwner && !document.fullscreenElement) {
+        fullscreenOwner = false;
+        if (dialog?.open) dialog.close();
+      }
+    });
+    dialog?.addEventListener('close', () => {
+      frame?.removeAttribute('src');
+      if (fullscreenOwner && document.fullscreenElement) void document.exitFullscreen();
+      cards[active].querySelector<HTMLAnchorElement>('[data-select]')?.focus({preventScroll: true});
+    });
     dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   };
   document.querySelectorAll<HTMLElement>('[data-design-studies]').forEach(setup);
@@ -182,10 +245,7 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
     scroll-margin-top: 6rem;
   }
   .design-studies__heading { text-align: center; padding: 0 1.15rem; position: relative; z-index: 2; }
-  .design-studies__eyebrow { color: var(--study-lilac); font-size: clamp(.78rem, 1.6vw, 1.02rem); font-weight: 550; margin: 0 0 .5rem; }
   .design-studies h2 { margin: 0 auto; max-width: 43ch; font-weight: 530; font-size: clamp(1.5rem, 3.9vw, 3.3rem); line-height: 1.05; letter-spacing: -.052em; text-wrap: balance; }
-  .design-studies h2 span { display: block; }
-  .design-studies__label { margin: .72rem 0 0; color: #bfb2cc; font-size: .76rem; letter-spacing: .015em; }
   .design-studies__carousel { position: relative; margin: clamp(.9rem, 3vw, 2.6rem) 0 0; }
   .design-studies__stage { position: relative; touch-action: pan-y; height: clamp(17rem, 36vw, 28.5rem); }
   /* Backlight is anchored to the card silhouette, not painted on its frame.
@@ -225,10 +285,11 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
   .design-studies__card:not([data-offset="-2"], [data-offset="-1"], [data-offset="0"], [data-offset="1"], [data-offset="2"]) {
     opacity: 0; visibility: hidden; pointer-events: none;
   }
-  .design-studies__card[data-offset="-2"] { --study-x: -162%; --study-y: 9%; --study-scale: .76; --study-opacity: .62; --study-depth: 1; }
-  .design-studies__card[data-offset="-1"] { --study-x: -91%; --study-y: 7%; --study-scale: .845; --study-opacity: .88; --study-depth: 2; }
-  .design-studies__card[data-offset="1"]  { --study-x: 91%; --study-y: 7%; --study-scale: .845; --study-opacity: .88; --study-depth: 2; }
-  .design-studies__card[data-offset="2"]  { --study-x: 162%; --study-y: 9%; --study-scale: .76; --study-opacity: .62; --study-depth: 1; }
+  [data-preview-running] .design-studies__card { transition-duration: .21s, .17s; }
+  .design-studies__card[data-offset="-2"] { --study-x: -162%; --study-y: 9%; --study-scale: .76; --study-opacity: .86; --study-depth: 1; }
+  .design-studies__card[data-offset="-1"] { --study-x: -91%; --study-y: 7%; --study-scale: .845; --study-depth: 2; }
+  .design-studies__card[data-offset="1"]  { --study-x: 91%; --study-y: 7%; --study-scale: .845; --study-depth: 2; }
+  .design-studies__card[data-offset="2"]  { --study-x: 162%; --study-y: 9%; --study-scale: .76; --study-opacity: .86; --study-depth: 1; }
   .design-studies__card-link {
     position: relative; display: block; text-decoration: none; color: inherit;
     background: #151218; border: 1px solid #43384d; border-radius: .82rem; overflow: hidden;
@@ -246,9 +307,8 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
     background: #09080b; border: 4px solid #09080b; border-radius: .78rem .78rem .34rem .34rem;
   }
   .design-studies__card-body { position: relative; min-height: clamp(5.6rem, 12vw, 8rem); padding: .72rem 2.25rem .76rem .86rem; }
-  .design-studies__card-body h3 { margin: 0; font-size: clamp(1rem, 2vw, 1.55rem); line-height: 1.05; font-weight: 650; letter-spacing: -.03em; }
-  .design-studies__trade { margin: .26rem 0 0; font-size: clamp(.73rem, 1vw, .92rem); color: #e5d8ee; }
-  .design-studies__description { margin: .47rem 0 0; line-height: 1.3; font-size: clamp(.7rem, 1.05vw, .91rem); color: #cfc3d5; }
+  .design-studies__card-body h3 { margin: 0; font-size: clamp(1.125rem, 2vw, 1.55rem); line-height: 1.18; font-weight: 700; letter-spacing: -.025em; overflow-wrap: anywhere; hyphens: auto; }
+  .design-studies__description { margin: .47rem 0 0; line-height: 1.4; font-size: 1rem; color: #fff; }
   .design-studies__expand { position: absolute; top: .64rem; right: .85rem; color: var(--study-lilac); font-size: 1.1rem; line-height: 1; }
   .design-studies__arrow {
     z-index: 5; position: absolute; top: 50%; transform: translateY(-44%); display: grid; place-items: center;
@@ -260,7 +320,7 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
   .design-studies__arrow svg { width: 1.4rem; height: 1.4rem; }
   .design-studies__arrow--prev { left: clamp(.3rem, 1.5vw, 1.5rem); }
   .design-studies__arrow--next { right: clamp(.3rem, 1.5vw, 1.5rem); }
-  .design-studies__hint { position: relative; display: flex; align-items: center; justify-content: center; gap: .58rem; margin: .26rem 0 .28rem; color: #d4b5f3; font-size: .76rem; }
+  .design-studies__hint { position: relative; display: flex; align-items: center; justify-content: center; gap: .58rem; margin: .26rem 0 .28rem; color: #f7efff; font-size: .9375rem; font-weight: 700; }
   .design-studies__hint span { width: min(15%, 8rem); height: 1px; background: #b58fe7; opacity: .75; }
   .design-studies__hint span:first-child::before, .design-studies__hint span:last-child::after { content:''; width: .37rem; height: .37rem; border: solid #b58fe7; border-width: 1px 0 0 1px; display: block; position: relative; top: -.14rem; transform: rotate(-45deg); }
   .design-studies__hint span:last-child::after { margin-left: auto; transform: rotate(135deg); }
@@ -275,18 +335,21 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
   .design-studies [data-stage]:focus-visible { outline-offset: -3px; }
   .design-studies__visually-hidden { position: absolute; overflow: hidden; clip: rect(0, 0, 0, 0); width: 1px; height: 1px; margin: -1px; }
   .design-studies__dialog {
-    width: min(66rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); padding: 0; margin: auto; overflow: auto;
-    border: 1px solid #9d76d9; border-radius: .85rem; background: #1a1422; color: #fff; box-shadow: 0 0 3rem #000b;
+    position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh;
+    max-width: none; max-height: none; box-sizing: border-box; padding: 0; margin: 0;
+    border: 0; background: #1a1422; color: #fff; overflow: hidden;
   }
+  .design-studies__dialog[open] { display: grid; grid-template-rows: auto minmax(0,1fr); }
+  :global(html:has(.design-studies__dialog[open])) { overflow: hidden; }
   .design-studies__dialog::backdrop { background: #100916dc; }
   .design-studies__dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; }
-  .design-studies__dialog-bar p { margin: 0; font-size: .75rem; color: var(--study-lilac); }
-  .design-studies__dialog-bar h3 { margin: .15rem 0 0; font-size: 1.25rem; }
+  .design-studies__dialog-bar p { margin: 0; font-size: .9375rem; color: #f7efff; }
+  .design-studies__dialog-bar h3 { margin: .15rem 0 0; font-size: 1.25rem; font-weight: 700; }
   .design-studies__dialog-bar button { width: 2.65rem; height: 2.65rem; display: grid; place-items: center; border: 1px solid #795792; border-radius: 50%; background: #271d32; color: #fff; font-size: 1.4rem; cursor: pointer; }
-  .design-studies__dialog img { display: block; width: 100%; height: auto; max-height: calc(100dvh - 7rem); object-fit: contain; }
+  .design-studies__dialog iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
   @media (max-width: 650px) {
     .design-studies { width: calc(100% - 1.25rem); }
-    .design-studies__stage { height: clamp(15.25rem, 76vw, 23rem); }
+    .design-studies__stage { height: clamp(16.5rem, 76vw, 23rem); }
     .design-studies__stage::before { width: 105%; height: 123%; }
     .design-studies__stage::after { width: 112%; }
     .design-studies__card { width: 71%; }
@@ -294,7 +357,7 @@ const label = de ? 'Designstudien · keine Kundenprojekte' : 'Design studies · 
     .design-studies__card[data-offset="1"] { --study-x: 83%; --study-scale: .83; }
     .design-studies__card[data-offset="-2"], .design-studies__card[data-offset="2"] { opacity: 0; visibility: hidden; }
     .design-studies__arrow { width: 2.75rem; height: 2.75rem; }
-    .design-studies__card-body { padding-left: .68rem; min-height: 5.6rem; }
+    .design-studies__card-body { padding-left: .68rem; min-height: 6.5rem; }
     .design-studies__dots { max-width: min(100%, 19rem); }
     .design-studies__dots button { width: 1.5rem; height: 1.5rem; }
   }

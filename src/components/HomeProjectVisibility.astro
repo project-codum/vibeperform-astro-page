@@ -8,33 +8,33 @@ const base = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}projektbeispiel/`;
 const photo = `${base}schreinerei-massfuge.webp`;
 const tilePhotos = [photo, `${base}massfuge-regal.webp`, `${base}massfuge-sitzbank.webp`];
 const copy = de ? {
-  kicker:'Gute Arbeit sichtbar machen', title:'Deine besten Projekte stecken noch', emphasis:'in deiner Kamerarolle.',
-  story:'Du hast gerade einen Auftrag abgeschlossen, von dem du gern mehr hättest. Dein Kunde empfiehlt dich weiter. Der nächste googelt deinen Betrieb und findet kein einziges Beispiel dafür, was du gerade gebaut hast.',
-  before:'Auf deinem Handy', photos:'Kamerarolle', recent:'Letzte Aufnahmen', note:'Eiche · Stauraum · Sitzplatz am Fenster',
-  after:'Auf deiner Webseite', path:'/projekte/fensterbank-aus-eiche', firm:'Schreinerei Maßfuge', sample:'Fiktives Beispiel', project:'Vom ungenutzten Fenster zur Sitzbank.',
-  detail:'Ein maßgefertigter Einbau aus Eiche mit Platz zum Sitzen und Verstauen.',
+  kicker:'Gute Arbeit sichtbar machen', title:'Deine besten Projekte stecken noch', emphasis:'auf deinem Handy.',
+  before:'Auf deinem Handy', photos:'Fotos', recent:'Letzte Aufnahmen', note:'Eiche · Stauraum · Sitzplatz am Fenster',
+  after:'Auf deiner Webseite', path:'/projekte/fensterbank-aus-eiche', firm:'Schreinerei Maßfuge', enquiry:'Anfragen', project:'Vom ungenutzten Fenster zur Wohlfühlecke.',
   alt:'Maßgefertigte Eichenschränke und eine gepolsterte Sitzbank um ein großes Fenster',
-  offer:'Aus deinen Fotos und ein paar Sätzen machen wir ein Projektbeispiel für deine Webseite. So sehen Interessenten, was du heute machst und ob ihr Vorhaben zu deinem Betrieb passt.',
-  cta:'Über deine Projekte sprechen',
+  topics:[['Projekte','Aus Fotos und einer kurzen Notiz wird ein Projektbeitrag: Was war die Aufgabe, was habt ihr gemacht, wie sieht das Ergebnis aus?'],['Fachwissen','Aus einer Frage, die Kunden ständig stellen, wird eine verständliche Antwort auf deiner Webseite.'],['Veranstaltungen','Wenn du auf einer Messe bist oder zum Tag der offenen Tür einlädst, machen wir Termin, Ort und Anmeldung leicht auffindbar.']],
+  articleTitle:'Welche Inhalte braucht eine Handwerker-Webseite?', articleNote:'VibePerform-Ratgeber · Marlon Dietrich', articleHref:'/de/blog/handwerker-website-inhalte-checkliste/', articleLink:'Ratgeber lesen',
 } : {
-  kicker:'Put your best work on show', title:'Your best projects are still', emphasis:'in your camera roll.',
+  kicker:'Put your best work on show', title:'Your best projects are still', emphasis:'on your phone.',
   story:'You just finished the kind of job you want more of. Your customer recommends you. The next person searches for your business and can’t find a single example of what you just built.',
-  before:'On your phone', photos:'Camera roll', recent:'Recent photos', note:'Oak · hidden storage · window seat',
-  after:'On your website', path:'/projects/oak-window-seat', firm:'Maßfuge Joinery', sample:'Fictional example', project:'From unused window to built-in seat.',
-  detail:'A custom oak cabinet with a place to sit and storage to keep things out of sight.',
+  before:'On your phone', photos:'Photos', recent:'Recent photos', note:'Oak · hidden storage · window seat',
+  after:'On your website', path:'/projects/oak-window-seat', firm:'Maßfuge Joinery', enquiry:'Enquire', project:'From unused window to a cosy nook.',
   alt:'Custom oak cabinets and a cushioned window seat frame a large window',
-  offer:'We turn your photos and a few sentences into a project story for your website. Prospects can see the work you do today and tell whether their project is a good fit.',
+  offer:'We turn your photos and a few sentences into a project story for your website and posts suited to your channels. Prospects can see the work you do today and tell whether their project is a good fit.',
   cta:'Let’s talk about your projects',
+  example:'Illustrative design example · not a client project',
+  topics:[['Projects','We turn photos and a short note into a project story: the brief, the work and the result.'],['Expertise','We turn a question customers keep asking into a clear answer on your website.'],['Events','For a trade show or open day, we make the date, location and registration easy to find.']],
+  articleTitle:'What content does a trade business website need?', articleNote:'VibePerform guide · Marlon Dietrich', articleHref:'/en/blog/trade-business-website-content-checklist/', articleLink:'Read the guide',
 };
 ---
 <section class="hp-section project-visibility" id="projekt-sichtbar" aria-labelledby="project-visibility-title">
   <div class="hp-wrap">
-    <header class="project-visibility__heading">
+    <header class:list={['project-visibility__heading', { 'project-visibility__heading--wide': de }]}>
       <div>
         <p class="project-visibility__kicker">{copy.kicker}</p>
         <h2 id="project-visibility-title">{copy.title} <em>{copy.emphasis}</em></h2>
       </div>
-      <p class="project-visibility__story">{copy.story}</p>
+      {!de && <p class="project-visibility__story">{copy.story}</p>}
     </header>
 
     <figure class="project-visibility__stage">
@@ -59,65 +59,92 @@ const copy = de ? {
             <span>{copy.path}</span>
           </div>
           <div class="project-visibility__mock-page">
-            <div class="project-visibility__masthead"><span>{copy.firm}</span><span>{copy.sample}</span></div>
+            <div class="project-visibility__masthead"><span>{copy.firm}</span><span>{copy.enquiry}</span></div>
             <img class="project-visibility__cover" src={photo} alt={copy.alt} width="1120" height="747" loading="lazy" decoding="async" />
-            <div class="project-visibility__mock-copy"><span>{copy.project}</span><p>{copy.detail}</p></div>
+            <div class="project-visibility__mock-copy"><span>{copy.project}</span></div>
           </div>
         </div>
       </div>
     </figure>
-    <div class="project-visibility__close">
+    {!de && <p class="project-visibility__caption">{copy.example}</p>}
+    <div class="project-visibility__topics">
+      {copy.topics.map(([title,body])=><article><h3>{title}</h3><p>{body}</p></article>)}
+    </div>
+    <aside class="project-visibility__article">
+      <div><p>{copy.articleNote}</p><strong>{copy.articleTitle}</strong></div>
+      <a href={`${import.meta.env.BASE_URL.replace(/\/$/,'')}${copy.articleHref}`}>{copy.articleLink} <span aria-hidden="true">↗</span></a>
+    </aside>
+    {!de && <div class="project-visibility__close">
       <p>{copy.offer}</p>
       <a class="project-visibility__cta" href="#kontakt">{copy.cta}<span aria-hidden="true">↘</span></a>
-    </div>
+    </div>}
   </div>
 </section>
 
 <style>
   .project-visibility{background:linear-gradient(180deg,#211929 0%,#211929 28%,#282033 62%,#211929 100%);color:#fcf6ff;padding:clamp(2.8rem,4.9vw,4.5rem) 0 clamp(4rem,7vw,6.5rem);scroll-margin-top:24px}
+  .project-visibility__caption{color:#ecdbfb;font-size:.88rem;margin-top:.65rem}
+  .project-visibility__topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.55rem;margin-block:2.2rem}
+  .project-visibility__topics article{border-top:1px solid #6e5282;padding-top:.85rem}
+  .project-visibility__topics h3{margin:0 0 .35rem;font-size:1.2rem;color:#fff}
+  .project-visibility__topics p{color:#f0e4f5;font-size:1rem;line-height:1.5}
+  .project-visibility__article{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.65rem;padding:.9rem 1.05rem;border:1px solid #765989;border-radius:.65rem;background:#32243d}
+  .project-visibility__article p{font-size:.875rem;color:#ebdafa;margin:0 0 .2rem}
+  .project-visibility__article a{color:#fff;text-decoration:underline;text-underline-offset:.25em}
+  @media(max-width:620px){.project-visibility__topics{grid-template-columns:1fr;gap:.9rem}}
   .project-visibility__heading{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(0,1fr);align-items:end;gap:clamp(1.6rem,5vw,4.8rem)}
   .project-visibility h2{font-size:clamp(2.25rem,4.5vw,4.375rem);max-width:20ch;line-height:1.045;letter-spacing:-.061em;text-wrap:balance}
+  .project-visibility__heading--wide { grid-template-columns: minmax(0, 1fr); }
+  .project-visibility__heading--wide h2 { max-width: none; }
   .project-visibility h2 em{color:#ddc6f5;letter-spacing:-.063em}
-  .project-visibility p.project-visibility__kicker{font-size:.69rem;text-transform:uppercase;letter-spacing:.17em;color:#dabbf1;margin:0 0 1.35rem}
-  .project-visibility p.project-visibility__story{color:#e1d5e9;font-size:clamp(.95rem,1.36vw,1.125rem);max-width:38ch;padding-bottom:.16rem}
+  .project-visibility p.project-visibility__kicker{font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#f1e4ff;margin:0 0 1.35rem}
+  .project-visibility p.project-visibility__story{color:#fff;font-size:clamp(1.0625rem,1.36vw,1.1875rem);max-width:38ch;padding-bottom:.16rem}
   .project-visibility__stage{isolation:isolate;position:relative;display:grid;grid-template-columns:minmax(0,.76fr) minmax(3rem,.26fr) minmax(0,1.45fr);align-items:center;gap:clamp(.5rem,1.5vw,1.6rem);margin:clamp(1.7rem,4.5vw,3.5rem) 0 0;padding:clamp(1.4rem,3.15vw,2.75rem) clamp(.8rem,3.6vw,3.55rem);border:1px solid #634a74;border-radius:clamp(1.15rem,3vw,2rem);background-color:#261b32;background-image:radial-gradient(ellipse at 62% 53%,#573a72 0%,#342344 50%,transparent 80%),radial-gradient(circle,#e6c8fd36 .7px,transparent .8px);background-size:100% 100%,15px 15px;box-shadow:0 20px 65px #160d1d55}
   .project-visibility__source,.project-visibility__destination{min-width:0}
   .project-visibility__source{width:min(100%,14.2rem);justify-self:center}
-  .project-visibility p.project-visibility__index{color:#f7eafe;font-size:.64rem;line-height:1.3;letter-spacing:.11em;text-transform:uppercase;display:flex;gap:.55rem;align-items:center;margin:0 0 .85rem;white-space:normal}
+  .project-visibility p.project-visibility__index{color:#fff;font-size:.875rem;font-weight:700;line-height:1.4;letter-spacing:.055em;text-transform:uppercase;display:flex;gap:.55rem;align-items:center;margin:0 0 .85rem;white-space:normal}
   .project-visibility__index>span{border:1px solid #aa89c8;display:grid;place-items:center;width:1.5rem;min-width:1.5rem;height:1.5rem;border-radius:100%;letter-spacing:0;font-variant-numeric:tabular-nums}
   .project-visibility__phone{border-radius:1.65rem;background:#221a2b;border:1px solid #8a74a1;box-shadow:0 0 0 4px #261b2e,0 13px 24px #140b20c4;color:#fcf5ff;padding:.58rem .65rem .78rem;position:relative}
-  .project-visibility__phone-top{display:flex;align-items:center;justify-content:space-between;font-size:.54rem;position:relative;padding:0 .25rem;margin-bottom:.83rem}
+  .project-visibility__phone-top{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;font-weight:700;position:relative;padding:0 .25rem;margin-bottom:.83rem}
   .project-visibility__phone-top b{position:absolute;left:50%;transform:translateX(-50%);background:#120d15;border-radius:1rem;width:27%;height:.46rem}
   .project-visibility__phone>strong{display:block;font-size:1.12rem;letter-spacing:-.03em;margin-bottom:.14rem}
-  .project-visibility__recent{font-size:.63rem;color:#dfcce8}
+  .project-visibility__recent{font-size:.875rem;color:#fff}
   .project-visibility__tiles{margin-top:.45rem;display:grid;grid-template-columns:1fr 1fr;gap:.24rem}
   .project-visibility__tile{width:100%;height:100%;min-height:0;object-fit:cover;display:block;border-radius:.32rem}
   .project-visibility__tile--0{grid-column:1 / -1;aspect-ratio:1.86;border:1px solid #e6c6fc;object-position:50% 58%}
   .project-visibility__tile--1,.project-visibility__tile--2{aspect-ratio:1.42}
-  .project-visibility__note{margin-top:.52rem;display:flex;gap:.33rem;align-items:flex-start;background:#3d284b;color:#f4dbff;padding:.46rem .39rem;border-radius:.4rem;font-size:.61rem;line-height:1.35}
+  .project-visibility__note{margin-top:.52rem;display:flex;gap:.33rem;align-items:flex-start;background:#3d284b;color:#fff;padding:.46rem .39rem;border-radius:.4rem;font-size:.875rem;line-height:1.4}
   .project-visibility__note svg{flex:none;color:#dab7f4}
   .project-visibility__transfer{justify-self:center;width:clamp(2.45rem,4.4vw,3.55rem);aspect-ratio:1;border-radius:50%;border:1px solid #f0dbff;display:grid;place-items:center;color:#25182d;background:#e6c7fb;box-shadow:0 0 2.8rem #f0afff85;position:relative}
   .project-visibility__transfer::before{content:'';position:absolute;z-index:-1;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(5.75rem,16vw,14.5rem);border-top:1px dashed #ba9cd5}
   .project-visibility__browser{border:1px solid #b89acd;border-radius:1rem;overflow:hidden;background:#1d1723;box-shadow:0 17px 44px #1a0d25a3,0 0 30px #e4bbfa20;position:relative}
-  .project-visibility__browser-top{height:2rem;padding:0 .7rem;display:flex;align-items:center;gap:.72rem;color:#e3d3ec;overflow:hidden}
-  .project-visibility__browser-top>span{background:#33273e;border-radius:.22rem;padding:.25rem .49rem;font-family:ui-monospace,Menlo,monospace;font-size:clamp(.48rem,.75vw,.68rem);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .project-visibility__browser-top{min-height:2rem;padding:.35rem .7rem;display:flex;align-items:center;gap:.72rem;color:#fff}
+  .project-visibility__browser-top>span{background:#33273e;border-radius:.22rem;padding:.25rem .49rem;font-family:ui-monospace,Menlo,monospace;font-size:.8125rem;overflow-wrap:anywhere}
   .project-visibility__lights{display:flex;gap:.23rem;flex:none}
   .project-visibility__lights i{height:.31rem;width:.31rem;background:#a88ab8;border-radius:100%}
-  .project-visibility__mock-page{background:#f7efe5;color:#39261f}
-  .project-visibility__masthead{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.59rem .82rem}
-  .project-visibility__masthead span:first-child{font-family:Georgia,serif;font-size:clamp(.64rem,1.25vw,.92rem)}
-  .project-visibility__masthead span:last-child{font-size:.58rem;letter-spacing:.035em;background:#e9ded0;color:#584037;padding:.23rem .35rem;border-radius:3px;text-align:center}
+  .project-visibility__mock-page{background:#f7efe5;color:#000}
+  .project-visibility__masthead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding:.59rem .82rem}
+  .project-visibility__masthead span:first-child{font-family:Georgia,serif;font-size:1rem;font-weight:700}
+  .project-visibility__masthead span:last-child{font-size:.875rem;font-weight:700;background:#e9ded0;color:#000;padding:.23rem .35rem;border-radius:3px;text-align:center}
   .project-visibility__cover{width:100%;height:auto;aspect-ratio:2.5;object-fit:cover;object-position:center 58%;display:block;background:#b38d67}
-  .project-visibility__mock-copy{padding:clamp(.7rem,1.8vw,1.35rem);display:grid;gap:.33rem}
+  .project-visibility__mock-copy{padding:clamp(.7rem,1.8vw,1.35rem);display:grid}
   .project-visibility__mock-copy>span{font-family:Georgia,serif;font-size:clamp(1rem,2.3vw,1.7rem);line-height:1.08;letter-spacing:-.025em}
-  .project-visibility__mock-copy p{color:#634b41;font-size:clamp(.7rem,1.08vw,.9rem);line-height:1.45}
   .project-visibility__close{display:flex;justify-content:space-between;align-items:center;gap:1.2rem 2rem;margin-top:1.8rem}
-  .project-visibility__close p{color:#e4d7ec;max-width:65ch;font-size:.98rem}
-  .project-visibility__cta{min-height:46px;display:inline-flex;align-items:center;justify-content:space-between;gap:1.15rem;flex:none;border:1px solid #a788bb;background:#31213d;color:#f3dfff;border-radius:999px;font-size:.84rem;line-height:1.4;padding:.63rem 1rem;text-decoration:none;transition:background-color .2s,color .2s}
-  .project-visibility__cta:hover{background:#e6c7f9;color:#261732}
+  .project-visibility__close p{color:#fff;max-width:65ch;font-size:1.125rem}
+  .project-visibility__cta{min-height:46px;display:inline-flex;align-items:center;justify-content:space-between;gap:1.15rem;flex:none;border:1px solid #a788bb;background:#31213d;color:#fff;border-radius:999px;font-size:1rem;font-weight:700;line-height:1.4;padding:.63rem 1rem;text-decoration:none;transition:background-color .2s,color .2s}
+  .project-visibility__cta:hover{background:#e6c7f9;color:#000}
   .project-visibility .project-visibility__cta:focus-visible{outline:2px solid #f0d7ff}
   @media(max-width:760px) {
-    .project-visibility__heading{grid-template-columns:1fr;gap:1.25rem}
+    .project-visibility__caption{color:#ecdbfb;font-size:.88rem;margin-top:.65rem}
+  .project-visibility__topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.55rem;margin-block:2.2rem}
+  .project-visibility__topics article{border-top:1px solid #6e5282;padding-top:.85rem}
+  .project-visibility__topics h3{margin:0 0 .35rem;font-size:1.2rem;color:#fff}
+  .project-visibility__topics p{color:#f0e4f5;font-size:1rem;line-height:1.5}
+  .project-visibility__article{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.65rem;padding:.9rem 1.05rem;border:1px solid #765989;border-radius:.65rem;background:#32243d}
+  .project-visibility__article p{font-size:.875rem;color:#ebdafa;margin:0 0 .2rem}
+  .project-visibility__article a{color:#fff;text-decoration:underline;text-underline-offset:.25em}
+  @media(max-width:620px){.project-visibility__topics{grid-template-columns:1fr;gap:.9rem}}
+  .project-visibility__heading{grid-template-columns:1fr;gap:1.25rem}
     .project-visibility p.project-visibility__story{max-width:48ch}
     .project-visibility__close{align-items:flex-start;flex-direction:column}
   }

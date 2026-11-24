@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Welche Pflege passt zum Fell deines Hundes?"
+    />
+    <title>Einmal fein, bitte! · Struppstudio</title>
+    <style>
+      body {
+        --bg: #f7ced7;
+        --fg: #412334;
+        --accent: #accddd;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 20px var(--pad);
+        position: relative;
+        z-index: 2;
+      }
+      header {
+        border-bottom: 1px solid currentColor;
+      }
+      header strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.05em;
+      }
+      header span,
+      footer,
+      figcaption,
+      .micro {
+        font:
+          600 0.72rem/1.45 "Courier New",
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      header span {
+        text-align: right;
+      }
+      footer {
+        border-top: 1px solid currentColor;
+        flex-wrap: wrap;
+      }
+      footer a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      .wrap {
+        --pad: clamp(18px, 5vw, 85px);
+        max-width: 2000px;
+        margin: auto;
+      }
+      main {
+        position: relative;
+        isolation: isolate;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      h1 {
+        line-height: 0.94;
+        letter-spacing: -0.069em;
+        font-size: clamp(3.25rem, 7.8vw, 9rem);
+      }
+      p {
+        line-height: 1.48;
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+        max-width: 39ch;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      figure {
+        position: relative;
+        min-width: 0;
+      }
+      figcaption {
+        padding: 9px 0;
+      }
+      summary,
+      select,
+      input {
+        cursor: pointer;
+      }
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        list-style: none;
+        width: fit-content;
+        border-bottom: 2px solid currentColor;
+        padding: 0.7em 0;
+        font-weight: 700;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary span {
+        font-size: 1.25em;
+      }
+      details[open] summary span {
+        transform: rotate(90deg);
+      }
+      .answer,
+      .chooser li {
+        max-width: 44ch;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding-top: 12px;
+      }
+      .chooser label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: bold;
+      }
+      .chooser select {
+        font: inherit;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid currentColor;
+        padding: 7px 11px;
+        border-radius: 0;
+      }
+      .chooser ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .chooser li strong {
+        font-weight: 700;
+      }
+      :focus-visible {
+        outline: 3px dashed currentColor;
+        outline-offset: 4px;
+      }
+      .copy {
+        display: grid;
+        gap: 22px;
+        align-content: center;
+      }
+      .micro {
+        display: block;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      ::selection {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      @media (max-width: 650px) {
+        header {
+          padding-block: 14px;
+        }
+        header strong {
+          font-size: 1.12rem;
+        }
+        header span {
+          font-size: 0.6rem;
+        }
+        footer {
+          font-size: 0.63rem;
+        }
+        h1 {
+          font-size: clamp(3rem, 13vw, 5.2rem);
+        }
+        .copy {
+          gap: 15px;
+        }
+      }
+      header strong {
+        font-weight: 1000;
+        font-size: 1.8rem;
+        letter-spacing: -0.085em;
+      }
+      .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+        font: 800 clamp(12px, 1.3vw, 20px)/2 Arial;
+        letter-spacing: 0.12em;
+        background: var(--fg);
+        color: var(--bg);
+        word-spacing: 1em;
+      }
+      .salon {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 3vw var(--pad);
+        gap: 5vw;
+      }
+      h1 {
+        font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+        font-size: clamp(4.1rem, 7.4vw, 9rem);
+        font-weight: 900;
+      }
+      h1 em {
+        font-family: Georgia;
+        font-weight: bold;
+      }
+      figure {
+        background: var(--accent);
+        height: clamp(340px, 35vw, 600px);
+        border: 5px solid var(--fg);
+        border-radius: 48% 48% 36% 35% / 49% 45% 41% 47%;
+        overflow: hidden;
+        transform: rotate(3deg);
+        box-shadow: 7px 7px 0 var(--fg);
+        transition:
+          border-radius 0.65s,
+          transform 0.65s;
+      }
+      body[data-choice="1"] figure {
+        border-radius: 38% 46% 49% 37%;
+        transform: rotate(-2deg);
+      }
+      body[data-choice="2"] figure {
+        border-radius: 48% 39% 36% 47%;
+        transform: rotate(1deg);
+      }
+      .chooser select {
+        border-radius: 30px;
+        background: var(--accent);
+      }
+      @media (max-width: 650px) {
+        .salon {
+          grid-template-columns: 1fr;
+          padding-block: 25px;
+          gap: 18px;
+        }
+        h1 {
+          font-size: 15vw;
+        }
+        h1 br {
+          display: none;
+        }
+        figure {
+          height: 59vw;
+          width: 77%;
+          margin: auto;
+          border-width: 3px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      header strong {
+        font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header><strong>Struppstudio</strong><span>Hundesalon</span></header>
+      <main>
+        <div class="marquee" aria-hidden="true">
+          WASCHEN　✳　BÜRSTEN　✳　SCHNEIDEN　✳　WASCHEN　✳　BÜRSTEN　✳　SCHNEIDEN
+        </div>
+        <div class="salon">
+          <div class="copy">
+            <span class="micro">Hundepflege mit Ruhe</span>
+            <h1>Einmal fein, <br /><em>bitte!</em></h1>
+            <p>
+              Vom dichten Unterfell bis zur feinen Locke. Wähle den Felltyp
+              deines Hundes für einen Blick auf die passende Pflege.
+            </p>
+            <div class="chooser">
+              <label
+                >Felltyp
+                <select>
+                  <option value="0">Lockig</option>
+                  <option value="1">Dichte Unterwolle</option>
+                  <option value="2">Kurz & glatt</option>
+                </select></label
+              >
+              <ul aria-live="polite">
+                <li>
+                  <strong>Lockig</strong> · Wir besprechen die Wunschlänge und
+                  prüfen, wie gut sich die Locken durchkämmen lassen.
+                </li>
+                <li>
+                  <strong>Dichte Unterwolle</strong> · Wir lösen lockere
+                  Unterwolle mit einer zum Fell passenden Bürste.
+                </li>
+                <li>
+                  <strong>Kurz & glatt</strong> · Sanfte Wäsche und eine weiche
+                  Bürste helfen, lose Haare zu entfernen.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <figure>
+            <img
+              src="assets/10-hundepflege.jpg"
+              alt="Frisch gepflegter Hund nach dem Besuch im Salon"
+            />
+          </figure>
+        </div>
+      </main>
+      <footer>
+        <span>Fellpflege für Hunde</span
+        ><a href="../../#designstudien" data-back-to-studies>Zur Studienübersicht</a>
+      </footer>
+    </div>
+    <script>
+      document.querySelectorAll(".chooser").forEach((group) => {
+        const s = group.querySelector("select"),
+          items = group.querySelectorAll("li");
+        function change() {
+          items.forEach((item, i) => (item.hidden = i !== s.selectedIndex));
+          document.body.dataset.choice = s.value;
+        }
+        s.addEventListener("change", change);
+        change();
+      });
+    </script>
+  </body>
+</html>

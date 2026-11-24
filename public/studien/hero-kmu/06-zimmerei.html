@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Zimmerei für Anbauten, Dachaufstockungen und Holzrahmenbau."
+    />
+    <title>Mehr Raum aus Holz · First & Fuge</title>
+    <style>
+      body {
+        --bg: #f2eeda;
+        --fg: #263b2f;
+        --accent: #a45132;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 20px var(--pad);
+        position: relative;
+        z-index: 2;
+      }
+      header {
+        border-bottom: 1px solid currentColor;
+      }
+      header strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.05em;
+      }
+      header span,
+      footer,
+      figcaption,
+      .micro {
+        font:
+          600 0.72rem/1.45 "Courier New",
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      header span {
+        text-align: right;
+      }
+      footer {
+        border-top: 1px solid currentColor;
+        flex-wrap: wrap;
+      }
+      footer a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      .wrap {
+        --pad: clamp(18px, 5vw, 85px);
+        max-width: 2000px;
+        margin: auto;
+      }
+      main {
+        position: relative;
+        isolation: isolate;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      h1 {
+        line-height: 0.94;
+        letter-spacing: -0.069em;
+        font-size: clamp(3.25rem, 7.8vw, 9rem);
+      }
+      p {
+        line-height: 1.48;
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+        max-width: 39ch;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      figure {
+        position: relative;
+        min-width: 0;
+      }
+      figcaption {
+        padding: 9px 0;
+      }
+      summary,
+      select,
+      input {
+        cursor: pointer;
+      }
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        list-style: none;
+        width: fit-content;
+        border-bottom: 2px solid currentColor;
+        padding: 0.7em 0;
+        font-weight: 700;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary span {
+        font-size: 1.25em;
+      }
+      details[open] summary span {
+        transform: rotate(90deg);
+      }
+      .answer,
+      .chooser li {
+        max-width: 44ch;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding-top: 12px;
+      }
+      .chooser label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: bold;
+      }
+      .chooser select {
+        font: inherit;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid currentColor;
+        padding: 7px 11px;
+        border-radius: 0;
+      }
+      .chooser ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .chooser li strong {
+        font-weight: 700;
+      }
+      :focus-visible {
+        outline: 3px dashed currentColor;
+        outline-offset: 4px;
+      }
+      .copy {
+        display: grid;
+        gap: 22px;
+        align-content: center;
+      }
+      .micro {
+        display: block;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      ::selection {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      @media (max-width: 650px) {
+        header {
+          padding-block: 14px;
+        }
+        header strong {
+          font-size: 1.12rem;
+        }
+        header span {
+          font-size: 0.6rem;
+        }
+        footer {
+          font-size: 0.63rem;
+        }
+        h1 {
+          font-size: clamp(3rem, 13vw, 5.2rem);
+        }
+        .copy {
+          gap: 15px;
+        }
+      }
+      header strong {
+        font-family: Georgia;
+      }
+      .blueprint {
+        position: relative;
+        isolation: isolate;
+        padding: 3vw var(--pad);
+        min-height: clamp(370px, 36vw, 720px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 18px;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 39px, #263b2f15 40px),
+          repeating-linear-gradient(0deg, transparent 0 39px, #263b2f15 40px);
+      }
+      h1 {
+        font-weight: 400;
+        font-size: clamp(4rem, 8.4vw, 10rem);
+      }
+      h1 em {
+        color: var(--accent);
+      }
+      figure {
+        position: absolute;
+        inset: 1.5vw 3vw 0 46%;
+        clip-path: polygon(0 37%, 52% 0, 100% 33%, 100% 100%, 0 100%);
+        z-index: -1;
+      }
+      .beam {
+        position: absolute;
+        top: 15%;
+        right: 29%;
+        height: 1px;
+        width: 23%;
+        background: var(--accent);
+        transform: rotate(-26deg);
+        transform-origin: right;
+        animation: draw 1.3s ease both;
+      }
+      @keyframes draw {
+        from {
+          scale: 0 1;
+        }
+      }
+      .planning {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 22px var(--pad);
+        border-top: 1px solid currentColor;
+      }
+      .planning p {
+        max-width: 50ch;
+      }
+      .planning details {
+        max-width: 40%;
+      }
+      @media (max-width: 650px) {
+        .blueprint {
+          padding-block: 22px 0;
+          min-height: 0;
+        }
+        .blueprint h1 {
+          font-size: 15vw;
+        }
+        .blueprint figure {
+          position: relative;
+          inset: auto;
+          height: 52vw;
+        }
+        .planning {
+          display: grid;
+          gap: 12px;
+        }
+        .planning details {
+          max-width: none;
+        }
+        .beam {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      h1.serif {
+        font-family: Rockwell, "American Typewriter", Georgia, serif;
+        font-weight: 500;
+      }
+      @media (min-width: 651px) {
+        .blueprint h1 {
+          font-size: clamp(3.2rem, 7.05vw, 9rem);
+        }
+        .blueprint figure {
+          left: 48.5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <strong>First & Fuge</strong><span>Zimmerei / Holzrahmenbau</span>
+      </header>
+      <main>
+        <section class="blueprint">
+          <span class="micro">Zimmerei für Holzrahmenbau</span>
+          <h1 class="serif">Mehr Raum <br />aus <em>Holz.</em></h1>
+          <figure>
+            <img
+              src="assets/06-zimmerei.jpg"
+              alt="Holzrahmenbau mit sichtbaren Balken und Sparren"
+            />
+          </figure>
+          <span class="beam" aria-hidden="true"></span>
+        </section>
+        <section class="planning">
+          <p>
+            Ob Anbau im Garten oder ein neues Geschoss unterm Dach. Der erste
+            Schritt ist ein Blick auf den Bestand.
+          </p>
+          <details>
+            <summary>
+              Was braucht die Zimmerei?<span aria-hidden="true">↗</span>
+            </summary>
+            <div class="answer">
+              Ein Foto vom Gebäude, grobe Außenmaße und eine Skizze Ihrer Idee
+              helfen uns, den Ortstermin vorzubereiten.
+            </div>
+          </details>
+        </section>
+      </main>
+      <footer>
+        <span>Anbau · Aufstockung · Holzrahmenbau</span
+        ><a href="../../#designstudien" data-back-to-studies>Zur Studienübersicht</a>
+      </footer>
+    </div>
+  </body>
+</html>

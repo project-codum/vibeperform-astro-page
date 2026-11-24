@@ -1,19 +1,26 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import before from '../assets/case-studies/loistl/rasen-vorher.jpg';
 import after from '../assets/case-studies/loistl/rasen-nachher.jpg';
 import emailDe from '../assets/collaboration/input-email-de-documents.png';
 import emailEn from '../assets/collaboration/input-email-en-documents.png';
-interface Props { index: number; locale: 'de' | 'en'; large?: boolean; }
-const { index, locale, large = false } = Astro.props;
+interface Props { index: number; locale: 'de' | 'en'; large?: boolean; illustrative?: boolean; }
+const { index, locale, large = false, illustrative = false } = Astro.props;
 const de = locale === 'de';
+const email = de ? emailDe : emailEn;
+const emailPreview = index === 1 && !large && !illustrative ? await getImage({ src: email, width: 1280, format: 'webp' }) : undefined;
 
 ---
 <div class="collaboration-visual">
   {index === 0 ? <div class="shot-plan" role="img" aria-label={de ? 'Motivvorschlag: dieselbe Fläche vor und nach der Arbeit fotografieren' : 'Photo suggestion: photograph the same area before and after the work'}>
     <div class="camera" aria-hidden="true"><svg viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 9h10l4-6h10l4 6h10v24H5z"/><circle cx="24" cy="21" r="8"/><path d="M36 14h3"/></svg></div>
     <div class="shot-frames" aria-hidden="true"><div><span class="landscape"><i></i></span><span>{de ? 'Vorher' : 'Before'}</span></div><div><span class="landscape landscape-after"><i></i></span><span>{de ? 'Nachher' : 'After'}</span></div></div>
-  </div> : index === 1 ? <Image class="input-email" src={de ? emailDe : emailEn} widths={[320, 640, 960]} sizes={large ? '(max-width:760px) 90vw, 420px' : '(max-width:600px) 90vw, 230px'} format="webp" alt={de ? 'Beispiel einer E-Mail mit zwei Bildanhängen' : 'Example email with two photo attachments'} loading="lazy" /> : <div class="published-example">
+  </div> : illustrative && index === 1 ? <div class="safe-mock"><strong>{de ? 'Neue Nachricht · Beispiel' : 'New message · Example'}</strong><p>{de ? 'Anbei zwei Bilder und eine kurze Erklärung zur Arbeit.' : 'Two photos and a short note about the job are attached.'}</p><span>{de ? '▧  2 Bildanhänge' : '▧  2 image attachments'}</span></div>
+  : illustrative ? <div class="safe-mock"><strong>{de ? 'Projektbeitrag · Entwurf' : 'Project story · Draft'}</strong><p>{de ? 'So haben wir aus einer Nische einen Einbau mit Stauraum gemacht.' : 'How we turned an unused niche into built-in storage.'}</p><span>{de ? 'Bereit zur Freigabe' : 'Ready for review'}</span></div>
+  : index === 1 ? <figure class="collaboration-email">
+    <Image class="input-email" src={email} widths={[320, 640, 960]} sizes={large ? '(max-width:760px) 90vw, 420px' : '(max-width:600px) 90vw, 230px'} format="webp" alt={de ? 'Beispiel einer E-Mail mit zwei Bildanhängen' : 'Example email with two photo attachments'} loading="lazy" />
+    {emailPreview && <figcaption><a href={emailPreview.src} target="_blank" rel="noopener">{de ? 'E-Mail-Beispiel vergrößern' : 'Enlarge the example email'} <span aria-hidden="true">↗</span></a></figcaption>}
+  </figure> : <div class="published-example">
     <div class="published-heading">{de ? 'Weniger Laub. Mehr gepflegte Fläche.' : 'Fewer leaves. Better-kept grounds.'}</div>
     <div class="published-pair">
       <figure><Image src={before} width={large ? 650 : 360} format="webp" alt={de ? 'Rasenfläche vor der Laubbeseitigung' : 'Lawn before leaf removal'} loading="lazy" /><figcaption>{de ? 'Vorher' : 'Before'}</figcaption></figure>
@@ -23,11 +30,17 @@ const de = locale === 'de';
 
 </div>
 <style>
+.safe-mock{margin:.8rem;padding:1rem;border:1px solid #d9cce3;border-radius:.45rem;background:#fffdf9;color:#33263f;display:grid;gap:.35rem;width:calc(100% - 1.6rem)}.safe-mock p{margin:0}.safe-mock span{color:#654479;font-size:.9rem}
 .collaboration-visual{width:100%;min-height:170px;display:grid;place-items:center;border:1px solid #d9cce3;border-radius:14px;background:#eee6f3;overflow:hidden;box-sizing:border-box}
 .shot-plan{width:100%;max-width:210px;padding:18px}.camera{width:42px;margin:0 auto 12px;color:#745188}.camera svg{display:block;width:100%}.shot-frames{display:grid;grid-template-columns:1fr 1fr;gap:8px}.shot-frames>div{font-size:10px;color:#745188;text-align:center}.landscape{display:block;position:relative;height:50px;border:1px dashed #a087b2;border-radius:5px;background:#fffdf9;overflow:hidden;margin-bottom:4px}.landscape:before{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#d6bdf2;top:7px;right:9px}.landscape i{position:absolute;left:0;right:0;bottom:0;height:24px;background:#bca8cd;clip-path:polygon(0 60%,25% 0,55% 60%,74% 30%,100% 75%,100% 100%,0 100%)}.landscape-after{border-style:solid;background:#faf6ff}
 .input-email{display:block;width:100%;height:auto}
+.collaboration-email{margin:0;width:100%}
+.collaboration-email a{display:block;padding:.6rem .75rem;color:#000;font-size:.9375rem;font-weight:700;line-height:1.4;text-decoration:underline;text-underline-offset:.2em}
 .published-example{width:100%;background:#123e30;color:#f5f2ed;padding:16px 12px}
 .published-heading{font-size:15px;line-height:1.15;font-weight:600;letter-spacing:-.035em;margin-bottom:14px;max-width:18ch}
 .published-pair{display:grid;grid-template-columns:1fr 1fr;gap:7px}.published-pair figure{position:relative;margin:0;min-width:0}.published-pair img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:6px}.published-pair figcaption{position:absolute;top:5px;left:5px;background:#f5f2ed;color:#19362d;border-radius:999px;padding:3px 5px;font-size:8px;font-weight:600}
 @media(max-width:600px){.collaboration-visual{max-width:360px;min-height:190px}.shot-plan{max-width:240px}.published-example{padding:22px 18px}.published-heading{font-size:23px}.published-pair figcaption{font-size:10px;padding:5px 8px}}
+  :global(.home-shell--front) .shot-frames > div { color: #000; font-size: .875rem; font-weight: 700; }
+  :global(.home-shell--front) .published-heading { color: #fff; font-size: 1rem; font-weight: 700; line-height: 1.3; }
+  :global(.home-shell--front) .published-pair figcaption { color: #000; font-size: .8125rem; font-weight: 700; }
 </style>

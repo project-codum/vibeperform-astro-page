@@ -3,7 +3,6 @@ import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
 import HomeDesignStudies from './HomeDesignStudies.astro';
 import HomeProjectVisibility from './HomeProjectVisibility.astro';
-import HomeCaseStudy from './HomeCaseStudy.astro';
 import AgencyFooter from './AgencyFooter.astro';
 import BookingCalendar from './BookingCalendar.astro';
 import HomeServices from './HomeServices.astro';
@@ -20,7 +19,7 @@ const { currentLocale: locale, alternateLocaleHref } = Astro.props;
 const t = homePageContent[locale];
 const story = homeStoryContent[locale];
 ---
-<div class="home-shell" id="top">
+<div class="home-shell home-shell--front" id="top">
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
   <main class="home-main">
     <div class="hp-hero-canvas">
@@ -28,39 +27,34 @@ const story = homeStoryContent[locale];
       <HomeDesignStudies locale={locale} />
     </div>
 
-    <HomeProjectVisibility locale={locale} />
-
     <section class="hp-section hp-purpose" id="leitgedanke" aria-labelledby="purpose-title" data-analytics-section="home-purpose">
       <div class="hp-wrap">
         <div class="hp-purpose-stage" data-purpose-stage>
-        <div class="hp-purpose-pin" data-purpose-pin>
-        <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
-          {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
-            const Tag = index === 2 ? 'em' : 'span';
-            return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
-          })}
-        </h2>
-        </div>
-        </div>
-        <div class="hp-purpose-details">
-        <p class="hp-purpose-mission">{t.purpose.mission}</p>
-        <div class="hp-purpose-vision"><p class="hp-purpose-label">{t.purpose.visionLabel}</p><p class="hp-purpose-vision-text">{t.purpose.vision}</p></div>
+          <div class="hp-purpose-pin" data-purpose-pin>
+            <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
+              {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
+                const Tag = index === 2 ? 'em' : 'span';
+                return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
+              })}
+            </h2>
+            <p class="hp-purpose-mission" data-purpose-mission>{t.purpose.mission}</p>
+          </div>
         </div>
       </div>
     </section>
 
     <HomeSituationSolutions locale={locale} />
+    <HomeProjectVisibility locale={locale} />
     <HomeServices locale={locale} />
 
-    <HomeCaseStudy locale={locale} />
     <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>
 
-    <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
+    {locale === 'en' && <section class="hp-section hp-collaboration" id="home-next" tabindex="-1" aria-labelledby="collaboration-title" data-analytics-section="home-collaboration">
       <div class="hp-wrap hp-split">
-        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}<br /><em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">{locale === 'de' ? 'Ihren Auftritt besprechen' : 'Discuss your online presence'}<span aria-hidden="true">↓</span></a></div>
-        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+        <div class="hp-heading"><h2 id="collaboration-title">{story.collaboration.title}{' '}<em>{story.collaboration.emphasis}</em></h2><a class="hp-button hp-collaboration-cta" href="#kontakt">Discuss your online presence<span aria-hidden="true">↓</span></a></div>
+        <div class="hp-editorial-list hp-collaboration-steps">{story.collaboration.items.map((item, index) => <article><CollaborationVisual index={index} locale={locale} illustrative /><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
       </div>
-    </section>
+    </section>}
 
 
     <section class="hp-section hp-faq" aria-labelledby="faq-title">

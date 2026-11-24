@@ -63,6 +63,7 @@ const steps = locale === 'de' ? ['Struktur', 'Inhalte', 'Gestaltung'] : ['Struct
 .build-guides{opacity:0}
 .build-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
 .build-step{font:11px/1.4 Arial,Helvetica,sans-serif;color:#745188;text-align:left}
+:global(.home-shell--front) .build-step{font-size:.875rem;font-weight:700;color:#000;overflow-wrap:anywhere}
 .build-step i{display:block;position:relative;height:3px;margin-top:8px;background:#e3d7eb;border-radius:3px;overflow:hidden}
 .build-step i:after{content:'';display:block;position:absolute;inset:0;background:#9670af;transform-origin:left;border-radius:3px}
 @media(prefers-reduced-motion:no-preference){

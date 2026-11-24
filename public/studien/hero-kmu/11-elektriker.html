@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Umbau im laufenden Betrieb · VOLTWERK ELEKTRO</title>
+    <style>
+      :root {
+        --ink: #152126;
+        --paper: #eff2eb;
+        --signal: #c3f05b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--paper);
+        font-family: Arial, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.3rem 4vw;
+      }
+      header {
+        border-bottom: 1px solid var(--paper);
+      }
+      .brand {
+        font-weight: 900;
+        letter-spacing: -0.055em;
+        font-size: 1.2rem;
+      }
+      .brand i {
+        color: var(--signal);
+        font-style: normal;
+      }
+      .tag,
+      .label,
+      ol,
+      summary,
+      footer {
+        font:
+          0.83rem/1.45 ui-monospace,
+          monospace;
+      }
+      .label {
+        color: var(--signal);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1.02fr;
+        max-width: 1800px;
+        margin: auto;
+      }
+      article {
+        padding: clamp(2rem, 6vw, 7rem) 4vw;
+      }
+      h1 {
+        font-size: clamp(3.2rem, 6.75vw, 8rem);
+        line-height: 0.95;
+        letter-spacing: -0.077em;
+        margin: 1.4rem 0;
+      }
+      h1 span {
+        display: block;
+        color: var(--signal);
+      }
+      .intro {
+        max-width: 35em;
+        line-height: 1.55;
+        font-size: 1.12rem;
+      }
+      details {
+        margin-top: 2rem;
+      }
+      summary {
+        cursor: pointer;
+        width: fit-content;
+        background: var(--signal);
+        color: var(--ink);
+        padding: 0.85rem 1rem;
+        font-weight: bold;
+      }
+      details p {
+        line-height: 1.55;
+        max-width: 34em;
+      }
+      figure {
+        position: relative;
+        margin: 0;
+        min-height: 31rem;
+        border-left: 1px solid var(--paper);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: 55% center;
+      }
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: var(--ink);
+        color: var(--signal);
+        font:
+          0.83rem ui-monospace,
+          monospace;
+        padding: 0.8rem 1rem;
+      }
+      ol {
+        list-style: none;
+        margin: 0;
+        padding: 0 4vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-block: 1px solid var(--paper);
+      }
+      li {
+        padding: 1.4rem 1rem 1.4rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      li b {
+        color: var(--signal);
+        border: 1px solid;
+        padding: 0.25em;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--signal);
+        outline-offset: 4px;
+      }
+      @media (max-width: 760px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+        figure {
+          min-height: clamp(15rem, 56vw, 27rem);
+          border-left: 0;
+        }
+        article {
+          padding: 2.4rem 5vw;
+        }
+        ol {
+          grid-template-columns: 1fr;
+        }
+        li {
+          padding: 0.65rem 0;
+        }
+        header .tag {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong class="brand">VOLTWERK <i>ELEKTRO</i></strong
+      ><span class="tag">Elektrotechnik für Gewerbe</span>
+    </header>
+    <main>
+      <article>
+        <div class="label">Umbau der Elektroverteilung</div>
+        <h1>Ihr Betrieb<br />gibt den <span>Takt vor.</span></h1>
+        <p class="intro">
+          Welche Maschine muss morgens als Erste laufen? Gemeinsam legen wir
+          fest, welche Bereiche Ihrer Werkstatt wann vom Netz gehen können.
+        </p>
+        <details>
+          <summary>Abschaltfenster vorbereiten</summary>
+          <p>
+            Halten Sie Ihre Schichtzeiten, fest zugesagten Aufträge und die
+            Maschinen fest, die gleichzeitig laufen müssen. Damit besprechen wir
+            beim Rundgang, welche Arbeiten sich bündeln lassen.
+          </p>
+        </details>
+      </article>
+      <figure>
+        <img
+          src="assets/11-elektriker.jpg"
+          alt="Elektrikerin vor einem geschlossenen Verteiler in einer Gewerbewerkstatt"
+        />
+        <figcaption>Verteilung / Werkstatt</figcaption>
+      </figure>
+    </main>
+    <ol aria-label="Planungsschritte">
+      <li><b>01</b> Bestand aufnehmen</li>
+      <li><b>02</b> Abschaltfenster abstimmen</li>
+      <li><b>03</b> Wiederanlauf planen</li>
+    </ol>
+    <footer>
+      <a href="../../#designstudien" data-back-to-studies>← Zur Studienübersicht</a
+      ><span>Fiktiver Betrieb</span>
+    </footer>
+  </body>
+</html>

@@ -57,12 +57,9 @@ test('contact window closes and returns focus to the opener',t=>{
   const f=fixture(t);f.openers[0].click();assert.equal(f.dialog.open,true);assert(f.classes.has('hcs-dialog-open'));
   f.close.click();assert.equal(f.dialog.open,false);assert.equal(f.doc.focused,f.openers[0]);assert(!f.classes.has('hcs-dialog-open'));
 });
-test('built DE and EN contact dialogs contain only the confirmed VibePerform details',()=>{
+test('built homepages no longer show or link to the HMS Loistl showcase',()=>{
   for(const locale of ['de','en']){
     const html=readFileSync(new URL(`../dist/${locale}/index.html`,import.meta.url),'utf8');
-    const dialog=html.match(/<dialog[^>]*data-hcs-dialog[\s\S]*?<\/dialog>/)?.[0];assert(dialog);
-    assert.match(dialog,/\+49 160 94712200/);assert.match(dialog,/contact@vibeperform\.com/);assert.match(dialog,/href="tel:\+4916094712200"/);assert.match(dialog,/href="mailto:contact@vibeperform\.com"/);assert.doesNotMatch(dialog,/hms-loistl|5288693|7128814/);
-    assert(html.indexOf('data-home-hero')<html.indexOf('id="projekt-hms-loistl"'));
-    assert(html.indexOf('id="projekt-hms-loistl"')<html.indexOf('id="home-next"'));
+    assert.doesNotMatch(html,/projekt-hms-loistl|data-case-study|data-hcs-dialog|hms-loistl\.de|\/de\/fallstudien\/hms-loistl\//);
   }
 });

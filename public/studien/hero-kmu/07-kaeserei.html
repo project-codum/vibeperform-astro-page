@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Drei Reifestufen unseres Hofkäses entdecken."
+    />
+    <title>Reife ist Geschmack · Hofkäserei Auenried</title>
+    <style>
+      body {
+        --bg: #452b1b;
+        --fg: #fff0c7;
+        --accent: #e7a847;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header,
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 20px var(--pad);
+        position: relative;
+        z-index: 2;
+      }
+      header {
+        border-bottom: 1px solid currentColor;
+      }
+      header strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.05em;
+      }
+      header span,
+      footer,
+      figcaption,
+      .micro {
+        font:
+          600 0.72rem/1.45 "Courier New",
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      header span {
+        text-align: right;
+      }
+      footer {
+        border-top: 1px solid currentColor;
+        flex-wrap: wrap;
+      }
+      footer a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      .wrap {
+        --pad: clamp(18px, 5vw, 85px);
+        max-width: 2000px;
+        margin: auto;
+      }
+      main {
+        position: relative;
+        isolation: isolate;
+      }
+      h1,
+      p,
+      figure {
+        margin: 0;
+      }
+      h1 {
+        line-height: 0.94;
+        letter-spacing: -0.069em;
+        font-size: clamp(3.25rem, 7.8vw, 9rem);
+      }
+      p {
+        line-height: 1.48;
+        font-size: clamp(1rem, 1.35vw, 1.28rem);
+        max-width: 39ch;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      figure {
+        position: relative;
+        min-width: 0;
+      }
+      figcaption {
+        padding: 9px 0;
+      }
+      summary,
+      select,
+      input {
+        cursor: pointer;
+      }
+      summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        list-style: none;
+        width: fit-content;
+        border-bottom: 2px solid currentColor;
+        padding: 0.7em 0;
+        font-weight: 700;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary span {
+        font-size: 1.25em;
+      }
+      details[open] summary span {
+        transform: rotate(90deg);
+      }
+      .answer,
+      .chooser li {
+        max-width: 44ch;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding-top: 12px;
+      }
+      .chooser label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: bold;
+      }
+      .chooser select {
+        font: inherit;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid currentColor;
+        padding: 7px 11px;
+        border-radius: 0;
+      }
+      .chooser ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .chooser li strong {
+        font-weight: 700;
+      }
+      :focus-visible {
+        outline: 3px dashed currentColor;
+        outline-offset: 4px;
+      }
+      .copy {
+        display: grid;
+        gap: 22px;
+        align-content: center;
+      }
+      .micro {
+        display: block;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      ::selection {
+        background: var(--fg);
+        color: var(--bg);
+      }
+      @media (max-width: 650px) {
+        header {
+          padding-block: 14px;
+        }
+        header strong {
+          font-size: 1.12rem;
+        }
+        header span {
+          font-size: 0.6rem;
+        }
+        footer {
+          font-size: 0.63rem;
+        }
+        h1 {
+          font-size: clamp(3rem, 13vw, 5.2rem);
+        }
+        .copy {
+          gap: 15px;
+        }
+      }
+      header strong {
+        font-family: Georgia;
+      }
+      main {
+        padding: 3vw var(--pad);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7vw;
+        align-items: center;
+      }
+      .dial {
+        position: relative;
+        aspect-ratio: 1;
+        width: 100%;
+        max-width: 590px;
+        margin: auto;
+      }
+      .dial figure {
+        position: absolute;
+        inset: 7%;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .ticks {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: repeating-conic-gradient(
+          var(--accent) 0 0.6deg,
+          transparent 0.6deg 6deg
+        );
+        mask: radial-gradient(transparent 65%, #000 65.4%);
+        transition: transform 0.8s;
+      }
+      body[data-choice="1"] .ticks {
+        transform: rotate(24deg);
+      }
+      body[data-choice="2"] .ticks {
+        transform: rotate(55deg);
+      }
+      .maturity {
+        position: absolute;
+        bottom: 5%;
+        right: 9%;
+        padding: 6px 14px;
+        background: var(--accent);
+        color: var(--bg);
+        font: italic 2.5rem Georgia;
+        border-radius: 50%;
+      }
+      h1 {
+        font-weight: 400;
+        font-size: clamp(3.5rem, 6.8vw, 8rem);
+      }
+      h1 em,
+      .micro {
+        color: var(--accent);
+      }
+      @media (max-width: 650px) {
+        main {
+          grid-template-columns: 1fr;
+          padding-block: 16px 27px;
+          gap: 18px;
+        }
+        .dial {
+          max-width: 230px;
+        }
+        .copy h1 {
+          font-size: 14vw;
+        }
+        .copy h1 br {
+          display: none;
+        }
+        .maturity {
+          font-size: 1.5rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      .switch {
+        position: relative;
+        width: fit-content;
+        border: 1px solid var(--accent);
+        border-radius: 50px;
+        gap: 0 !important;
+        overflow: visible;
+      }
+      .switch label {
+        border-radius: 40px;
+        font-family: Georgia;
+        font-style: italic;
+      }
+      .opt:checked + label {
+        background: var(--accent);
+        color: var(--bg);
+      }
+      .dial:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg 75deg,
+          var(--accent) 76deg 80deg,
+          transparent 81deg
+        );
+        mask: radial-gradient(transparent 62%, #000 62.5%);
+        transition: transform 0.6s;
+      }
+      body:has(#pick-1:checked) .dial:after {
+        transform: rotate(90deg);
+      }
+      body:has(#pick-2:checked) .dial:after {
+        transform: rotate(250deg);
+      }
+      .maturity {
+        font-size: 0;
+      }
+      .maturity:after {
+        content: "03";
+        font: italic 2.4rem Georgia;
+      }
+      body:has(#pick-1:checked) .maturity:after {
+        content: "06";
+      }
+      body:has(#pick-2:checked) .maturity:after {
+        content: "12";
+      }
+      body:has(#pick-1:checked) .ticks {
+        transform: rotate(21deg);
+      }
+      body:has(#pick-2:checked) .ticks {
+        transform: rotate(42deg);
+      }
+      h1 {
+        font-family: "Palatino Linotype", Palatino, Georgia, serif;
+      }
+      @media (max-width: 400px) {
+        .switch label {
+          padding-inline: 8px;
+        }
+        .maturity:after {
+          font-size: 1.6rem;
+        }
+      }
+      .tool {
+        min-width: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      .tool legend {
+        padding: 0;
+        margin: 0 0 0.6em;
+        font-weight: bold;
+      }
+      .switch {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .switch label {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 9px 12px;
+        min-height: 40px;
+      }
+      .opt {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+      }
+      .opt:focus-visible + label {
+        outline: 3px dashed currentColor;
+        outline-offset: 3px;
+      }
+      .response {
+        font-size: 1rem;
+        line-height: 1.45;
+        margin-top: 12px;
+        display: none;
+      }
+      .tool:has(#pick-0:checked) .r0,
+      .tool:has(#pick-1:checked) .r1,
+      .tool:has(#pick-2:checked) .r2 {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <strong>Hofkäserei Auenried</strong><span>Aus der Hofkäserei</span>
+      </header>
+      <main>
+        <section class="dial">
+          <figure>
+            <img
+              src="assets/07-kaeserei.jpg"
+              alt="Käserad mit natürlicher Rinde"
+            />
+          </figure>
+          <div class="ticks" aria-hidden="true"></div>
+          <span class="maturity" aria-hidden="true">03</span>
+        </section>
+        <div class="copy">
+          <span class="micro">Aus unserem Reifekeller</span>
+          <h1 class="serif">Reife ist <br /><em>Geschmack.</em></h1>
+          <p>
+            Ein Hofkäse, drei Reifestufen. Entdecke, wie sich Biss und Würze mit
+            den Monaten verändern.
+          </p>
+          <fieldset class="tool">
+            <legend>Wie lange gereift?</legend>
+            <div class="switch">
+              <input
+                class="opt"
+                id="pick-0"
+                name="pick"
+                type="radio"
+                checked
+                value="0"
+              /><label for="pick-0">3 Monate</label
+              ><input
+                class="opt"
+                id="pick-1"
+                name="pick"
+                type="radio"
+                value="1"
+              /><label for="pick-1">6 Monate</label
+              ><input
+                class="opt"
+                id="pick-2"
+                name="pick"
+                type="radio"
+                value="2"
+              /><label for="pick-2">12 Monate</label>
+            </div>
+            <p class="response r0">Mild und milchig, mit geschmeidigem Teig.</p>
+            <p class="response r1">
+              Nussig, etwas fester und schön zum Hobeln.
+            </p>
+            <p class="response r2">
+              Kräftig und mürbe. In groben Stücken genießen.
+            </p>
+          </fieldset>
+        </div>
+      </main>
+      <footer>
+        <span>Hofkäse aus Kuhmilch</span
+        ><a href="../../#designstudien" data-back-to-studies>Zur Studienübersicht</a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -3,6 +3,7 @@
 const heading = document.querySelector<HTMLElement>('[data-caption-reveal]');
 const stage = document.querySelector<HTMLElement>('[data-purpose-stage]');
 const pin = stage?.querySelector<HTMLElement>('[data-purpose-pin]');
+const mission = pin?.querySelector<HTMLElement>('[data-purpose-mission]');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (heading && stage && pin && !reducedMotion.matches) {
@@ -22,6 +23,8 @@ if (heading && stage && pin && !reducedMotion.matches) {
       word.style.removeProperty('opacity');
       word.style.removeProperty('transform');
     });
+    mission?.style.removeProperty('opacity');
+    mission?.style.removeProperty('transform');
     heading.dataset.captionState = 'complete';
     heading.dataset.captionProgress = '1';
     events.abort();
@@ -46,6 +49,11 @@ if (heading && stage && pin && !reducedMotion.matches) {
       word.style.opacity = local >= 0 ? '1' : '0';
       word.style.transform = `scale(${1 + .2 * (1 - ease)})`;
     });
+    if (mission) {
+      const arrival = Math.max(0, 1 - (1 - progress) * words.length / 2);
+      mission.style.opacity = String(arrival);
+      mission.style.transform = `translateY(${(1 - arrival) * 16}px)`;
+    }
   };
   const schedule = () => {
     if (!done && !frame) frame = requestAnimationFrame(render);

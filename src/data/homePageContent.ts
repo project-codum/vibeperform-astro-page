@@ -2,38 +2,28 @@ export const homePageContent = {
   de: {
     problems: {
       title: 'Immer eine', emphasis: 'aktuelle Webseite.',
-      intro: 'Wir halten Ihren Online-Auftritt immer aktuell.',
+      intro: 'Wir halten deinen Online-Auftritt immer aktuell.',
       items: [
         { label: '01', title: 'Veraltete Webseite', body: '' },
         { label: '02', title: 'Veraltetes Unternehmensprofil', body: '' },
         { label: '03', title: 'Uneinheitliche Angaben', body: '' },
       ],
     },
-    services: {
-      title: 'Ihr Online-Auftritt.', emphasis: 'Wir kümmern uns darum.',
-      items: [
-        { number: '01', title: 'Ihre neue Webseite', body: 'Zeigt, was Sie anbieten, für wen Sie arbeiten und wie Kunden Sie erreichen.', link: 'Neue Webseite', href: '/de/website-erstellen-lassen/' },
-        { number: '02', title: 'Ihr Google-Unternehmensprofil', body: 'Gibt Interessenten aktuelle Informationen und Einblicke in Ihre Arbeit.', link: 'Unternehmensprofil verbessern', href: '/de/google-unternehmensprofil/' },
-        { number: '03', title: 'Die laufende Betreuung', body: 'Neue Leistungen, Bilder und Projekte kommen online. Ihr Auftritt entwickelt sich mit Ihrem Betrieb.', link: 'Online-Auftritt betreuen', href: '/de/website-betreuung/' },
-        { number: '04', title: 'Damit Kunden Sie finden und verstehen.', body: 'Wir richten Ihre Inhalte auf die Fragen Ihrer Kunden aus, erklären Ihr Angebot verständlich und verbessern die Auffindbarkeit Ihrer Webseite in Suchmaschinen.', link: 'SEO optimieren', href: '/de/suchmaschinenoptimierung/' },
-      ],
-    },
+    seo: { title: 'Damit Kunden und KI dich finden.', body: 'Wir richten deine Inhalte auf die Fragen deiner Kunden aus, erklären dein Angebot verständlich und verbessern die Auffindbarkeit deiner Webseite in Suchmaschinen.', link: 'SEO optimieren', href: '/de/suchmaschinenoptimierung/' },
     purpose: {
       title: 'Wir glauben, Spitzenmarketing', middle: 'darf keine Frage', emphasis: 'der Unternehmensgröße sein.',
-      mission: 'Wir machen einen Online-Auftritt auf dem Qualitätsniveau großer Marken für kleine Unternehmen bezahlbar. Dafür verbinden wir erstklassiges Design, das die Qualität Ihres Betriebs sichtbar macht, präzise Texte, die Ihren Kunden Orientierung geben, und den professionellen Einsatz von KI, um Arbeitsschritte zu beschleunigen.',
-      visionLabel: 'Unsere Vision',
-      vision: 'Kleine Unternehmen haben ein starkes Marketingteam an ihrer Seite – unabhängig von ihrer Größe.',
+      mission: 'Wir machen einen Online-Auftritt auf dem Qualitätsniveau großer Marken für kleine Unternehmen bezahlbar.\n\nGemeinsam mit dir entwickeln wir die Online-Strategie für deinen Betrieb. Die Umsetzung und die laufende Betreuung übernehmen wir. Wir entwickeln deine Webseite weiter, schreiben neue Artikel und legen Unternehmensprofile bei Google und Bing an. Wir tragen deinen Betrieb in Branchenbücher ein und betreuen deine Kanäle auf Instagram, TikTok und YouTube.',
     },
     faq: {
-      title: 'Vielleicht fragen', emphasis: 'Sie sich gerade …',
+      title: 'Vielleicht fragst', emphasis: 'du dich gerade …',
       items: [
-        { question: 'Können Sie unsere bestehende Webseite übernehmen?', answer: 'Wir schauen uns Ihre Webseite und die technische Grundlage an. Danach besprechen wir, welche Verbesserungen möglich sind und ob eine Überarbeitung oder ein neuer Aufbau sinnvoller ist.' },
-        { question: 'Müssen Texte und Bilder schon fertig sein?', answer: 'Nein. Wir schlagen Ihnen vor, welche Arbeiten und Motive Ihren Betrieb verständlich zeigen. Sie liefern Einblicke und vorhandene Bilder; wir kümmern uns um Auswahl, Aufbereitung und die passenden Texte.' },
-        { question: 'Gehört das Google-Unternehmensprofil dazu?', answer: 'Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile und Aufgaben Teil Ihres Projekts sind, vereinbaren wir gemeinsam.' },
-        { question: 'Wie funktioniert die laufende Betreuung?', answer: 'Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit Ihnen ab.' },
+        { question: 'Könnt ihr unsere bestehende Webseite übernehmen?', answer: 'Wir schauen uns deine Webseite und die technische Grundlage an. Danach besprechen wir, welche Verbesserungen möglich sind und ob eine Überarbeitung oder ein neuer Aufbau sinnvoller ist.' },
+        { question: 'Müssen Texte und Bilder schon fertig sein?', answer: 'Nein. Wir schlagen dir vor, welche Arbeiten und Motive deinen Betrieb verständlich zeigen. Du lieferst Einblicke und vorhandene Bilder. Wir kümmern uns um Auswahl, Aufbereitung und die passenden Texte.' },
+        { question: 'Gehört das Google-Unternehmensprofil dazu?', answer: 'Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile und Aufgaben Teil deines Projekts sind, vereinbaren wir gemeinsam.' },
+        { question: 'Wie funktioniert die laufende Betreuung?', answer: 'Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit dir ab.' },
       ],
     },
-    contact: { title: 'Buchen Sie sich ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommen Sie von uns kostenlos einen Statuscheck Ihres Online-Auftritts mit Benotung und Feedback.', detail: 'Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir Ihren geplanten Auftritt.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben' },
+    contact: { title: 'Buch dir ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommst du von uns kostenlos einen Statuscheck deines Online-Auftritts mit Benotung und Feedback.', detail: 'Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir deinen geplanten Auftritt.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben' },
     footer: { tagline: 'Webseiten und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', support: 'Betreuung', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
   },
   en: {
@@ -46,20 +36,10 @@ export const homePageContent = {
         { label: '03', title: 'Inconsistent details', body: '' },
       ],
     },
-    services: {
-      title: 'Your online presence.', emphasis: 'We take care of it.',
-      items: [
-        { number: '01', title: 'Your new website', body: 'Shows what you offer, who you work with and how customers can reach you.', link: 'New website', href: '/en/website-design/' },
-        { number: '02', title: 'Your Google Business Profile', body: 'Gives potential customers up-to-date information and a look at your work.', link: 'Improve your business profile', href: '/en/google-business-profile/' },
-        { number: '03', title: 'Ongoing support', body: 'New services, photos and projects go online. Your online presence grows with your business.', link: 'Manage your online presence', href: '/en/website-support/' },
-        { number: '04', title: 'Help customers find and understand your business.', body: 'We shape your content around your customers’ questions, explain your services clearly and improve how easily your website can be found in search engines.', link: 'Improve your SEO', href: '/en/search-engine-optimisation/' },
-      ],
-    },
+    seo: { title: 'Help customers find and understand your business.', body: 'We shape your content around your customers’ questions, explain your services clearly and improve how easily your website can be found in search engines.', link: 'Improve your SEO', href: '/en/search-engine-optimisation/' },
     purpose: {
       title: 'We believe great marketing', middle: 'should never depend', emphasis: 'on the size of your business.',
       mission: 'We make an online presence with the quality of leading brands affordable for small businesses. We combine first-class design that makes the quality of your business visible, precise copy that guides your customers, and the professional use of AI to speed up tasks.',
-      visionLabel: 'Our vision',
-      vision: 'Small businesses have a strong marketing team by their side – whatever their size.',
     },
     faq: {
       title: 'You might', emphasis: 'be wondering …',

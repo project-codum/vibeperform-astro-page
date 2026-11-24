@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="VOLTWERK ELEKTRO plant den Umbau von Elektroverteilungen rund um die Schichten einer Gewerbewerkstatt."
+    />
+    <title>Fertig, wenn die Frühschicht kommt · VOLTWERK ELEKTRO</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --night: #101d23;
+        --paper: #f0f3ec;
+        --signal: #d3f47d;
+        --edge: color-mix(in srgb, var(--paper) 28%, transparent);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--night);
+        color: var(--paper);
+        font:
+          16px/1.5 "Avenir Next",
+          Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      :focus-visible {
+        outline: 2px solid var(--signal);
+        outline-offset: 4px;
+      }
+      .shell {
+        width: min(calc(100% - 3.5rem), 1320px);
+        margin: auto;
+      }
+      header,
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+      header {
+        padding: 1.05rem 0;
+        border-bottom: 1px solid var(--edge);
+      }
+      header strong {
+        font-weight: 850;
+        letter-spacing: -0.04em;
+      }
+      header strong span {
+        color: var(--signal);
+      }
+      footer {
+        padding: 1.1rem 0 1.65rem;
+        border-top: 1px solid var(--edge);
+        justify-content: flex-end;
+      }
+      .lead {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(240px, 0.75fr);
+        align-items: end;
+        gap: 2rem;
+        padding-block: clamp(1.7rem, 4vw, 3.1rem) 1.4rem;
+      }
+      h1 {
+        margin: 0;
+        font:
+          850 clamp(2.45rem, 5.05vw, 5.45rem)/0.92 "Avenir Next Condensed",
+          "Arial Narrow",
+          Arial,
+          sans-serif;
+        letter-spacing: -0.056em;
+        text-wrap: balance;
+      }
+      .finished {
+        display: block;
+        color: var(--signal);
+        font-size: 1.18em;
+      }
+      .lead p {
+        margin: 0;
+        max-width: 31ch;
+      }
+      .monitor {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        align-content: end;
+        min-height: clamp(250px, 28vw, 405px);
+        overflow: hidden;
+        margin: 0;
+        padding: clamp(1.2rem, 3vw, 3rem);
+        border: 1px solid var(--edge);
+      }
+      .monitor img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 21%;
+        z-index: -2;
+      }
+      .monitor::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          90deg,
+          var(--night),
+          color-mix(in srgb, var(--night) 72%, transparent) 27%,
+          transparent 66%
+        );
+      }
+      .monitor::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: repeating-linear-gradient(
+          transparent 0 4px,
+          color-mix(in srgb, var(--night) 10%, transparent) 4px 5px
+        );
+        pointer-events: none;
+      }
+      .time {
+        display: block;
+        color: var(--signal);
+        font:
+          600 clamp(4.85rem, 10vw, 10rem)/0.8 "SFMono-Regular",
+          Consolas,
+          "Liberation Mono",
+          monospace;
+        letter-spacing: -0.105em;
+        margin-left: -0.07em;
+      }
+      .monitor figcaption {
+        margin-top: 0.9rem;
+        max-width: 15rem;
+        font:
+          600 0.84rem/1.5 "SFMono-Regular",
+          Consolas,
+          monospace;
+      }
+      .monitor.pulse .time {
+        animation: acquire 0.42s ease-out;
+      }
+      @keyframes acquire {
+        from {
+          opacity: 0.4;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .schedule {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr);
+        gap: clamp(1rem, 3vw, 2.4rem);
+        align-items: start;
+        padding: 1.2rem 0 1.55rem;
+      }
+      .slots {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .slots button {
+        display: grid;
+        gap: 0.45rem;
+        align-content: start;
+        width: 100%;
+        min-height: 4.4rem;
+        padding: 0.72rem 0.72rem 0.85rem;
+        border: 0;
+        border-top: 3px solid var(--edge);
+        background: transparent;
+        color: inherit;
+        text-align: left;
+        font: inherit;
+        cursor: pointer;
+      }
+      .slots button[aria-pressed="true"] {
+        border-color: var(--signal);
+        background: color-mix(in srgb, var(--signal) 13%, var(--night));
+      }
+      .slots button:hover {
+        border-color: var(--signal);
+      }
+      .slots span {
+        font:
+          600 0.77rem/1.25 "SFMono-Regular",
+          Consolas,
+          monospace;
+        color: var(--signal);
+      }
+      .slots strong {
+        font-size: 0.91rem;
+        line-height: 1.15;
+      }
+      .note strong {
+        display: block;
+        line-height: 1.2;
+        margin-bottom: 0.35rem;
+      }
+      .note p {
+        margin: 0;
+        font-size: 0.92rem;
+      }
+      @media (max-width: 870px) {
+        .lead,
+        .schedule {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+        .lead p {
+          max-width: 48ch;
+        }
+      }
+      @media (max-width: 560px) {
+        .shell {
+          width: calc(100% - 2rem);
+        }
+        .monitor {
+          min-height: 280px;
+          align-content: end;
+        }
+        .monitor img {
+          object-position: 42% 25%;
+        }
+        .monitor::before {
+          background: linear-gradient(
+            0deg,
+            var(--night),
+            color-mix(in srgb, var(--night) 52%, transparent) 31%,
+            transparent 64%
+          );
+        }
+        .slots button {
+          padding-inline: 0.4rem;
+        }
+        .slots strong {
+          font-size: 0.82rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .monitor.pulse .time {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <strong>VOLTWERK <span>ELEKTRO</span></strong
+        ><a href="../../#designstudien" data-back-to-studies>Studienübersicht</a>
+      </header>
+      <main>
+        <div class="lead">
+          <h1>
+            <span class="finished">FERTIG,</span> wenn die Frühschicht kommt.
+          </h1>
+          <p>
+            Wir planen den Umbau Ihrer Elektroverteilung rund um die Maschinen,
+            die der Betrieb zuerst wieder braucht.
+          </p>
+        </div>
+        <figure class="monitor">
+          <img
+            src="assets/11-elektriker.jpg"
+            alt="Eine Elektrikerin prüft mit Klemmbrett die geschlossene Elektroverteilung einer Werkstatt."
+          />
+          <div class="time" aria-hidden="true">06:00</div>
+          <figcaption>Ein Schichtplan als Beispiel</figcaption>
+        </figure>
+        <div class="schedule">
+          <ul class="slots" aria-label="Abschnitte des Beispielplans">
+            <li>
+              <button
+                type="button"
+                data-step="0"
+                aria-controls="planhinweis"
+                aria-pressed="false"
+              >
+                <span>17:00</span><strong>Schichtende</strong>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                data-step="1"
+                aria-controls="planhinweis"
+                aria-pressed="false"
+              >
+                <span>21:30</span><strong>Umbaufenster</strong>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                data-step="2"
+                aria-controls="planhinweis"
+                aria-pressed="true"
+              >
+                <span>06:00</span><strong>Frühschicht</strong>
+              </button>
+            </li>
+          </ul>
+          <div class="note" id="planhinweis" aria-live="polite">
+            <strong>06:00 · Welche Maschine braucht zuerst Strom?</strong>
+            <p>
+              Beim Rundgang stimmen wir mit Ihnen ab, welche Bereiche zuerst
+              wieder in Betrieb gehen sollen.
+            </p>
+          </div>
+        </div>
+      </main>
+      <footer><a href="11-elektriker.html">Ersten Entwurf ansehen</a></footer>
+    </div>
+    <script>
+      const plan = [
+        [
+          "17:00",
+          "Was muss bis Schichtende laufen?",
+          "Vor dem Umbau halten wir gemeinsam fest, welche Anlagen bis zuletzt gebraucht werden.",
+        ],
+        [
+          "21:30",
+          "Wann darf welcher Bereich ausfallen?",
+          "Wir stimmen die Abschaltfenster für die betroffenen Bereiche mit der Betriebsleitung ab.",
+        ],
+        [
+          "06:00",
+          "Welche Maschine braucht zuerst Strom?",
+          "Beim Rundgang stimmen wir mit Ihnen ab, welche Bereiche zuerst wieder in Betrieb gehen sollen.",
+        ],
+      ];
+      const monitor = document.querySelector(".monitor");
+      const buttons = Array.from(document.querySelectorAll(".slots button"));
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const [time, heading, description] =
+            plan[Number(button.dataset.step)];
+          buttons.forEach((item) =>
+            item.setAttribute("aria-pressed", String(item === button)),
+          );
+          monitor.querySelector(".time").textContent = time;
+          document.querySelector(".note strong").textContent =
+            time + " · " + heading;
+          document.querySelector(".note p").textContent = description;
+          monitor.classList.remove("pulse");
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => monitor.classList.add("pulse")),
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
