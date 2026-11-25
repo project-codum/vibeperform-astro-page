@@ -47,8 +47,9 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.match(services,language==='de'?/href="\/de\/suchmaschinenoptimierung\/"/:/href="\/en\/search-engine-optimisation\/"/);
     const situations = html.match(/<section[^>]*id="situationen"[\s\S]*?<\/section>/)?.[0];
     assert.ok(situations);
-    assert.equal((situations.match(/<article class="solution"/g)||[]).length,2);
-    assert.equal((situations.match(/href="#kontakt"/g)||[]).length,2);
+    assert.equal((situations.match(/<article class="solution"/g)||[]).length,1);
+    assert.equal((situations.match(/href="#kontakt"/g)||[]).length,1);
+    assert.doesNotMatch(html, /id="anfrage-demo"|data-enquiry-demo|data-original-maler/);
     assert.match(situations,/class="website-build"/);
     assert.doesNotMatch(situations,/story-pair|video-showcase|<video\b/);
     const faq=html.match(/<section class="hp-section hp-faq"[\s\S]*?<\/section>/)?.[0];
