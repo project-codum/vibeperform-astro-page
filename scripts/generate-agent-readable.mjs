@@ -344,6 +344,7 @@ Sitemap: ${absoluteUrl('/sitemap.xml')}
 
 function renderSitemapXml(blogPosts) {
 	const staticUrls = [
+		'/de/fallstudien/wunderwelt-kids/',
         ...Object.values(servicePaths).flatMap(paths => Object.values(paths)),
         ...Object.values(detailPaths).flatMap(paths => Object.values(paths)),
 		'/de/',

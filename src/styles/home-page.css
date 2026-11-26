@@ -191,3 +191,9 @@ html:lang(de) .hp-purpose .hp-purpose-mission {
       linear-gradient(to bottom, #111116 0%, #111116 77%, #211929 100%);
   }
 }
+
+.case-reference { padding: 24px 0; background: var(--hp-paper); border-block: 1px solid var(--hp-line); }
+  .case-reference a { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; color: var(--hp-ink); font-size: clamp(17px, 2vw, 24px); text-decoration: none; }
+  .case-reference a span { color: var(--hp-plum); font-size: 14px; }
+  .case-reference a b { margin-left: auto; color: var(--hp-plum); }
+  .case-reference a:hover { text-decoration: underline; text-underline-offset: 4px; }

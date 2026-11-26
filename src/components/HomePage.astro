@@ -45,6 +45,7 @@ const story = homeStoryContent[locale];
 
     <HomeSituationSolutions locale={locale} />
     <HomeProjectVisibility locale={locale} />
+    {locale === 'de' && <aside class="case-reference"><div class="hp-wrap"><a href="/de/fallstudien/wunderwelt-kids/"><span>Fallstudie lesen</span>Warum wir die Website von Wunderwelt.kids mit einem Hotelfoto eröffnen <b aria-hidden="true">↗</b></a></div></aside>}
     <HomeServices locale={locale} />
 
     <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>

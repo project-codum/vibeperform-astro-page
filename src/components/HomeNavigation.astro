@@ -10,10 +10,16 @@ const currentPath = Astro.url.pathname;
 const active = (path: string) => currentPath === `${base}${path}`;
 const agencyPath = `/${locale}/${de ? 'ueber-uns' : 'about-us'}/`;
 const insightsPath = `/${locale}/blog/`;
-const servicesLabel = de ? 'Leistungen' : 'Services';
 const localize = (text: string) => de ? text.replaceAll('Websites', 'Webseiten').replaceAll('Website', 'Webseite') : text;
-const groups = serviceMenu(locale);
-const servicesActive = groups.some(group => group.links.some(link => active(link.href)));
+type MenuLink = { href: string; label: string; description?: string; language?: 'de' };
+const agencyLinks: MenuLink[] = [
+  { href: agencyPath, label: de ? 'Über uns' : 'About us' },
+  { href: '/de/fallstudien/wunderwelt-kids/', label: de ? 'Fallstudien' : 'Case studies', language: 'de', description: de ? undefined : 'In German' },
+];
+const dropdowns = [
+  { className: 'home-services-menu', label: de ? 'Leistungen' : 'Services', groups: serviceMenu(locale) },
+  { className: 'home-agency-menu', label: de ? 'Agentur' : 'Agency', groups: [{ title: '', links: agencyLinks }] },
+];
 ---
 <a class="home-skip" href="#home-intro">{copy.skipLabel}</a>
 <header class="home-navigation">
@@ -25,28 +31,28 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
       <span data-menu-label>{copy.menuLabel}</span><span class="home-menu-icon" aria-hidden="true"></span>
     </button>
     <nav id="home-menu" aria-label={copy.navLabel} data-lenis-prevent>
-      <details class="home-services-menu">
-        <summary class:list={{ 'home-services-active': servicesActive }}>
-          {servicesLabel}<span class="home-chevron" aria-hidden="true"></span>
+      {dropdowns.map(({ className, label, groups }) => <details class={className}>
+        <summary class:list={{ 'home-dropdown-active': groups.some(group => group.links.some(link => active(link.href))) }}>
+          {label}<span class="home-chevron" aria-hidden="true"></span>
         </summary>
         <div class="home-mega-panel">
           <div class="home-mega-mobile-head">
             <button class="home-mega-back" type="button" hidden>
               <span class="home-chevron" aria-hidden="true"></span>{de ? 'Zurück' : 'Back'}
             </button>
-            <span>{servicesLabel}</span>
+            <span>{label}</span>
           </div>
           <div class="home-mega-columns">
             {groups.map(group => (
               <div class="home-mega-group">
-                <h2>{localize(group.title)}</h2>
+                {group.title && <h2>{localize(group.title)}</h2>}
                 <ul>
-                  {group.links.map(link => (
+                  {group.links.map((link: MenuLink) => (
                     <li>
-                      <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined}>
+                      <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined} hreflang={link.language}>
                         <span class="home-mega-link-copy">
                           <strong>{localize(link.label)}</strong>
-                          <span>{localize(link.description)}</span>
+                          {link.description && <span>{localize(link.description)}</span>}
                         </span>
                         <span class="home-chevron" aria-hidden="true"></span>
                       </a>
@@ -57,9 +63,8 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
             ))}
           </div>
         </div>
-      </details>
+      </details>)}
       <div class="home-main-links">
-        <a aria-current={active(agencyPath) ? 'page' : undefined} href={`${base}${agencyPath}`}>{de ? 'Agentur' : 'Agency'}</a>
         <a aria-current={currentPath.startsWith(`${base}${insightsPath}`) ? (active(insightsPath) ? 'page' : 'location') : undefined} href={`${base}${insightsPath}`}>{de ? 'Wissen' : 'Insights'}</a>
       </div>
       <div class="home-nav-actions">
@@ -79,78 +84,92 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
       const toggle = this.querySelector<HTMLButtonElement>('.home-menu-toggle')!;
       const toggleLabel = toggle.querySelector<HTMLElement>('[data-menu-label]')!;
       const menu = this.querySelector<HTMLElement>('nav')!;
-      const services = this.querySelector<HTMLDetailsElement>('.home-services-menu')!;
-      const summary = services.querySelector<HTMLElement>('summary')!;
-      const panel = services.querySelector<HTMLElement>('.home-mega-panel')!;
-      const back = panel.querySelector<HTMLButtonElement>('.home-mega-back')!;
+      const dropdowns = Array.from(menu.querySelectorAll<HTMLDetailsElement>('details'), details => ({
+        details,
+        summary: details.querySelector<HTMLElement>('summary')!,
+        panel: details.querySelector<HTMLElement>('.home-mega-panel')!,
+        back: details.querySelector<HTMLButtonElement>('.home-mega-back')!,
+      }));
       const mobile = matchMedia('(max-width: 900px)');
       const events = new AbortController();
       const options = { signal: events.signal };
+      let activeDropdown: typeof dropdowns[number] | undefined;
       let leaveTimer: number | undefined;
       let openedOnHover = false;
 
-      const setServices = (open: boolean) => {
+      const setDropdown = (next?: typeof activeDropdown, byHover = false) => {
         window.clearTimeout(leaveTimer);
-        openedOnHover = false;
-        services.open = open;
+        if (activeDropdown && activeDropdown !== next) activeDropdown.details.open = false;
+        activeDropdown = next;
+        openedOnHover = byHover;
+        if (next) next.details.open = true;
         if (mobile.matches) menu.scrollTop = 0;
       };
       const setMenu = (open: boolean) => {
-        if (!open) setServices(false);
+        if (!open) setDropdown();
         toggle.setAttribute('aria-expanded', String(open));
         toggleLabel.textContent = open ? toggle.dataset.closeLabel! : toggle.dataset.openLabel!;
         menu.hidden = mobile.matches && !open;
       };
       const sync = () => {
         const focusInMenu = menu.contains(document.activeElement);
-        const focusNeedsDesktopTarget = document.activeElement === toggle || panel.contains(document.activeElement);
+        const desktopFocus = activeDropdown?.panel.contains(document.activeElement)
+          ? activeDropdown.summary
+          : document.activeElement === toggle ? dropdowns[0]?.summary : undefined;
         toggle.hidden = !mobile.matches;
-        back.hidden = !mobile.matches;
+        dropdowns.forEach(({ back }) => { back.hidden = !mobile.matches; });
         setMenu(false);
         if (mobile.matches && focusInMenu) toggle.focus();
-        if (!mobile.matches && focusNeedsDesktopTarget) summary.focus();
+        else if (!mobile.matches) desktopFocus?.focus();
       };
 
+      // A disclosure opened before enhancement may already have focus inside it.
+      activeDropdown = dropdowns.find(({ details }) => details.open);
       this.dataset.enhanced = 'true';
       sync();
       mobile.addEventListener('change', sync, options);
       toggle.addEventListener('click', () => setMenu(menu.hidden), options);
-      summary.addEventListener('click', event => {
-        event.preventDefault();
-        const open = !services.open || (openedOnHover && event.detail > 0);
-        setServices(open);
-        if (open && mobile.matches) back.focus({ preventScroll: true });
-      }, options);
-      back.addEventListener('click', () => {
-        setServices(false);
-        summary.focus({ preventScroll: true });
-      }, options);
 
-      summary.addEventListener('pointerenter', event => {
-        if (mobile.matches || event.pointerType !== 'mouse') return;
-        window.clearTimeout(leaveTimer);
-        if (!services.open) {
-          setServices(true);
-          openedOnHover = true;
-        }
-      }, options);
-      panel.addEventListener('pointerenter', () => window.clearTimeout(leaveTimer), options);
-      services.addEventListener('pointerleave', event => {
-        if (mobile.matches || event.pointerType !== 'mouse') return;
-        window.clearTimeout(leaveTimer);
-        leaveTimer = window.setTimeout(() => {
-          if (openedOnHover && !panel.contains(document.activeElement)) setServices(false);
-        }, 140);
-      }, options);
-      services.addEventListener('focusout', event => {
-        if (!mobile.matches && event.relatedTarget && !services.contains(event.relatedTarget as Node)) setServices(false);
-      }, options);
+      dropdowns.forEach(dropdown => {
+        const { details, summary, panel, back } = dropdown;
+        summary.addEventListener('click', event => {
+          event.preventDefault();
+          const open = activeDropdown !== dropdown || (openedOnHover && event.detail > 0);
+          setDropdown(open ? dropdown : undefined);
+          if (open && mobile.matches) back.focus({ preventScroll: true });
+        }, options);
+        back.addEventListener('click', () => {
+          setDropdown();
+          summary.focus({ preventScroll: true });
+        }, options);
+
+        summary.addEventListener('pointerenter', event => {
+          if (mobile.matches || event.pointerType !== 'mouse') return;
+          window.clearTimeout(leaveTimer);
+          if (activeDropdown !== dropdown && !activeDropdown?.panel.contains(document.activeElement)) {
+            setDropdown(dropdown, true);
+          }
+        }, options);
+        panel.addEventListener('pointerenter', () => window.clearTimeout(leaveTimer), options);
+        details.addEventListener('pointerleave', event => {
+          if (mobile.matches || event.pointerType !== 'mouse' || activeDropdown !== dropdown) return;
+          window.clearTimeout(leaveTimer);
+          leaveTimer = window.setTimeout(() => {
+            if (openedOnHover && !details.matches(':hover') && !panel.contains(document.activeElement)) setDropdown();
+          }, 140);
+        }, options);
+        details.addEventListener('focusout', event => {
+          if (!mobile.matches && activeDropdown === dropdown && event.relatedTarget
+            && !details.contains(event.relatedTarget as Node)) setDropdown();
+        }, options);
+      });
 
       document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
-        if (services.open) {
+        if (activeDropdown) {
+          const { summary } = activeDropdown;
           const restoreFocus = this.contains(document.activeElement);
-          setServices(false);
+          setDropdown();
           if (restoreFocus) summary.focus({ preventScroll: true });
         } else if (mobile.matches && !menu.hidden) {
           setMenu(false);
@@ -166,13 +185,13 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
           try { localStorage.setItem('vibeperform:locale', link.dataset.targetLocale); } catch { /* Language links still navigate without storage. */ }
         }
         if (mobile.matches && !menu.hidden) toggle.focus({ preventScroll: true });
-        else if (panel.contains(link)) summary.focus({ preventScroll: true });
+        else if (activeDropdown?.panel.contains(link)) activeDropdown.summary.focus({ preventScroll: true });
         setMenu(false);
       }, options);
       document.addEventListener('click', event => {
         if (this.contains(event.target as Node)) return;
         if (mobile.matches && menu.contains(document.activeElement)) toggle.focus({ preventScroll: true });
-        else if (!mobile.matches && panel.contains(document.activeElement)) summary.focus({ preventScroll: true });
+        else if (!mobile.matches && activeDropdown?.panel.contains(document.activeElement)) activeDropdown.summary.focus({ preventScroll: true });
         setMenu(false);
       }, options);
       this.addEventListener('focusout', event => {
@@ -229,7 +248,7 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
     border-radius: 9px;
   }
   .home-main-links a:hover, .home-language:hover, summary:hover { background: #e6d1f616; }
-  nav a[aria-current], .home-services-active, details[open] > summary { color: var(--nav-accent); }
+  nav a[aria-current], .home-dropdown-active, details[open] > summary { color: var(--nav-accent); }
   .home-nav-contact {
     justify-content: center;
     gap: 14px;
@@ -250,7 +269,8 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
     border-width: 0 1.5px 1.5px 0;
     transform: rotate(-45deg);
   }
-  .home-services-menu { align-self: stretch; display: flex; align-items: center; }
+  nav > details { align-self: stretch; display: flex; align-items: center; }
+  .home-agency-menu { position: relative; }
   summary { gap: 11px; cursor: pointer; list-style: none; }
   summary::-webkit-details-marker { display: none; }
   summary .home-chevron { margin-block-start: -4px; transform: rotate(45deg); }
@@ -267,6 +287,10 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
     background: var(--nav-surface);
     box-shadow: 0 26px 72px #080511a6;
   }
+  .home-agency-menu .home-mega-panel { inset-inline: 0 auto; width: 16rem; }
+  .home-agency-menu .home-mega-columns { display: block; }
+  .home-agency-menu .home-mega-group { padding: 12px 18px; background: transparent; }
+  .home-agency-menu .home-mega-group a { min-height: 48px; }
   details[open] .home-mega-panel { animation: home-nav-enter 160ms ease-out both; }
   .home-mega-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .home-mega-group { padding: clamp(22px, 2.6vw, 38px); }
@@ -353,7 +377,7 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
       scroll-padding-block-start: 58px;
       box-shadow: 0 18px 54px #090510a6;
     }
-    .home-services-menu { display: block; }
+    nav > details { display: block; }
     summary, .home-main-links a { width: 100%; justify-content: space-between; min-height: 56px; padding-inline: 20px; border-radius: 0; font-size: 1.0625rem; }
     summary .home-chevron { margin: 0; transform: rotate(-45deg); }
     .home-main-links { align-items: stretch; flex-direction: column; gap: 0; }
@@ -362,11 +386,13 @@ const servicesActive = groups.some(group => group.links.some(link => active(link
     .home-nav-contact { flex: 1 1 auto; }
     .home-language { border: 1px solid var(--nav-line); }
     .home-mega-panel { position: static; max-height: none; overflow: visible; border: 0; border-radius: 0; box-shadow: none; }
+    .home-agency-menu .home-mega-panel { width: auto; }
     .home-mega-columns { display: block; }
     .home-mega-group { padding: 18px 20px; }
     .home-mega-group + .home-mega-group { border-inline-start: 0; border-top: 1px solid var(--nav-line); }
-    .home-mega-group a { min-height: 56px; }
-    vf-home-navigation[data-enhanced] nav:has(details[open]) :is(summary, .home-main-links, .home-nav-actions) { display: none; }
+    .home-mega-group a, .home-agency-menu .home-mega-group a { min-height: 56px; }
+    vf-home-navigation[data-enhanced] nav:has(details[open]) > :is(details:not([open]), .home-main-links, .home-nav-actions),
+    vf-home-navigation[data-enhanced] nav > details[open] > summary { display: none; }
     .home-mega-mobile-head:has(button:not([hidden])) {
       position: sticky;
       top: 0;
