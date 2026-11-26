@@ -1,3 +1,4 @@
+import { handleWebCheckRequest, retryWebCheckEmails } from './web-check-requests.js';
 import { handleBlogInquiry } from './blog-inquiries.js';
 import { retryBlogInquiryEmails } from './blog-inquiry-email.js';
 import { retryInquiryEmails } from './website-inquiry-email.js';
@@ -120,6 +121,7 @@ export async function handleRequest(request, env) {
 		return Response.redirect(url.toString(), 301);
 	}
 	if (url.pathname === '/api/website-inquiries') return handleWebsiteInquiry(request, env);
+	if (url.pathname === '/api/web-check-requests') return handleWebCheckRequest(request, env);
 	if (url.pathname === '/api/blog-inquiries') return handleBlogInquiry(request, env);
 	if (STATIC_EXTENSION.test(url.pathname) || url.pathname.startsWith('/api/')) {
 		return env.ASSETS.fetch(request);
@@ -184,6 +186,6 @@ export default {
 	fetch: handleRequest,
 	async scheduled(_event, env) {
 		// Each outbox remains independent if another queue is temporarily unavailable.
-		await Promise.allSettled([retryInquiryEmails(env), retryBlogInquiryEmails(env)]);
+		await Promise.allSettled([retryInquiryEmails(env), retryBlogInquiryEmails(env), retryWebCheckEmails(env)]);
 	},
 };
