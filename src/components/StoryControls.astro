@@ -1,26 +1,37 @@
 ---
-import type { AboutLocale, aboutContent } from '../data/aboutContent';
-type Edition = typeof aboutContent[AboutLocale];
-interface Props { labels: Edition['controls']; chapters: Edition['chapters']; }
-const { labels, chapters } = Astro.props;
+import type { Locale } from '../lib/siteMetadata';
+
+interface Props {
+  chapters: readonly string[];
+  playLabel: string;
+  locale?: Locale;
+  label?: string;
+}
+const { chapters, playLabel, locale = 'de', label } = Astro.props;
+const de = locale === 'de';
 ---
-<div class="controls" data-story-controls role="group" aria-label={labels.label} data-play-label={labels.play} data-pause-label={labels.pause}
-  data-resume-label={labels.resume} data-replay-label={labels.replay} data-mute-label={labels.mute} data-unmute-label={labels.unmute} hidden>
+<div class="controls" data-story-controls role="group" aria-label={label ?? (de ? 'Audioguide' : 'Audio guide')} hidden>
   <div class="control-row">
-    <button type="button" data-play>{labels.play}</button>
-    <button type="button" data-sound>{labels.mute}</button>
-    <button type="button" class="chapter-trigger" data-index aria-expanded="false" aria-controls="guide-chapters" aria-label={labels.index}><span><span data-chapter-count>1 / {chapters.length}</span><span class="chapter-name"> · <span data-current-chapter>{chapters[0].name}</span></span></span><i aria-hidden="true"></i></button>
+    <button type="button" data-play>{playLabel}</button>
+    <button type="button" data-sound>{de ? 'Ton aus' : 'Mute'}</button>
+    <button type="button" class="chapter-trigger" data-index aria-expanded="false" aria-controls="guide-chapters" aria-label={de ? 'Kapitel auswählen' : 'Choose a chapter'}>
+      <span><span data-chapter-count>1 / {chapters.length}</span><span class="chapter-name"> · <span data-current-chapter>{chapters[0]}</span></span></span>
+      <i aria-hidden="true"></i>
+    </button>
   </div>
   <div class="chapter-menu" id="guide-chapters" data-chapter-menu inert>
-    {chapters.map((c,i)=><button type="button" data-choice={i} aria-current={i===0?'step':undefined}>
-      <span class="chapter-number">{String(i+1).padStart(2,'0')}</span><span>{c.name}</span><i aria-hidden="true"></i>
-    </button>)}
+    {chapters.map((name, index) => (
+      <button type="button" data-choice={index} aria-current={index === 0 ? 'step' : undefined}>
+        <span class="chapter-number">{String(index + 1).padStart(2, '0')}</span><span>{name}</span><i aria-hidden="true"></i>
+      </button>
+    ))}
   </div>
-  <p class="feedback" data-feedback role="status" hidden>{labels.error}</p>
+  <p class="feedback" data-feedback role="status" hidden></p>
   <div class="track" aria-hidden="true"><i data-meter></i></div>
 </div>
 <style>
-  .controls:not([data-docked]) {position:relative;inset:auto;translate:none;width:100%;max-width:none}
+  .controls[hidden] {display:none}
+  .controls:not([data-docked]) {top:var(--hero-top);bottom:auto}
   .controls {position:fixed;z-index:25;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));translate:-50% 0;width:410px;max-width:calc(100% - 16px);padding:5px 7px 8px;border-radius:18px;border:1px solid #504759;background:#211c27;color:#fff;box-shadow:0 5px 22px #17121d40}
   .control-row {display:flex;align-items:center;justify-content:center;gap:4px}
   .controls button {font:inherit;color:inherit;background:#211c27;border:0;min-height:44px;padding:0 12px;cursor:pointer}
@@ -41,12 +52,11 @@ const { labels, chapters } = Astro.props;
   @media(prefers-reduced-motion:reduce){.chapter-menu,.chapter-trigger i {transition:none}}
 
   .controls :focus-visible {outline:2px solid #ad74d2;outline-offset:-3px}
-  .controls .feedback {max-width:32ch;padding:6px 8px;font-size:14px;line-height:1.4}
+  .controls .feedback {margin:0;max-width:32ch;padding:6px 8px;font-size:14px;line-height:1.4}
   .track {position:absolute;inset:auto 14px 0;height:3px;overflow:hidden;border-radius:2px;background:#514955}
   .track i {display:block;width:100%;height:100%;background:#dab9ec;transform-origin:left;transform:scaleX(0)}
   @media(max-width:700px) {
     .control-row {font-size:14px;gap:2px}
     .controls button {padding-inline:8px}
   }
-  @media print { .controls { display:none } }
 </style>

@@ -13,6 +13,16 @@ for (const [locale, route, alternate, role] of [
     const html = await load(route);
     const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
     const md = await readFile(path.join(dist, route, 'index.md'), 'utf8');
+    const voicePath = `/audio/about/${locale}-mission-vision.mp3`;
+    assert.ok(main.includes(voicePath));
+    await access(path.join(dist, voicePath));
+    const prose = main.replace(/<[^>]+>/g, '');
+    const approved = locale === 'de' ? [
+      'VibePerform ist die moderne Webseitenagentur.',
+      'Spitzenmarketing ist keine Frage der Unternehmensgröße mehr.',
+      'Wenn du mit deinem Betrieb wachsen willst! Dann will ich mit dir arbeiten! Wann passt es dir?',
+    ] : ['VibePerform exists so small businesses can afford an online presence of the same quality as major brands.'];
+    for (const line of approved) assert.ok(prose.includes(line) && md.includes(line));
     assert.equal((main.match(/<h1\b/g) || []).length, 1);
     assert.doesNotMatch(main, /ag-collaboration|ag-expectations/);
     for (const source of [main, md]) {
@@ -56,8 +66,8 @@ for (const [locale, route, alternate, role] of [
     assert.equal(meta('og:locale:alternate'), locale === 'de' ? 'en_US' : 'de_DE');
     assert.ok(html.includes(`hreflang="${locale}" href="https://www.vibeperform.com/${route}/"`));
     assert.ok(html.includes(`hreflang="${locale === 'de' ? 'en' : 'de'}" href="https://www.vibeperform.com/${alternate}/"`));
-    const contactPortrait = main.match(/<img[^>]+class="ag-contact-portrait"[^>]*>/)[0];
-    assert.ok(contactPortrait.match(/ src="([^"]+)"/)[1].includes('marlon-studio-portrait-v1'));
+    assert.doesNotMatch(main, /ag-contact-portrait/);
+    assert.match(main, /<a class="hp-button" href="#kontakt">[^<]+<\/a>/);
     for (const [, href] of html.matchAll(/href="([^" ]+)"/g)) {
       if (!href.startsWith('/') && !href.startsWith('#')) continue;
       const url = new URL(href, `https://www.vibeperform.com/${route}/`);
@@ -67,35 +77,51 @@ for (const [locale, route, alternate, role] of [
     }
     assert.ok(main.includes('mailto:contact@vibeperform.com'));
     assert.ok(main.includes('https://calendar.app.google/utFQgw33PwJTiDk56'));
-    assert.ok(main.includes('class="ag-letterhead"'));
-    assert.ok(main.includes('class="ag-pencil-circle"'));
-    assert.ok(main.includes('class="ag-signature"'));
-    assert.ok(main.includes(locale === 'de' ? 'Und wo steht das?' : 'And where is that written down?'));
-    const clips = [...main.matchAll(/data-audio="([^"]+)"/g)];
-    assert.equal(clips.length, 4);
-    for (const [, file] of clips) {
-      assert.ok(file.startsWith(`/audio/about/${locale}-marlon-`));
-      await access(path.join(dist, file));
+    const home = await load(locale);
+    const purpose = page => page.match(/<div class="hp-purpose-stage"[\s\S]*?<\/section>/)[0];
+    if (locale === 'de') {
+      for (const id of ['agency-title', 'purpose-title', 'angebot', 'strategie', 'betreuung', 'contact-title']) {
+        assert.ok(main.includes('id="' + id + '"'));
+        assert.ok(main.includes('&quot;' + id + '&quot;'));
+      }
+      assert.match(main, /<button type="button" data-play[^>]*>Start<\/button>/);
+      assert.ok(main.includes('&quot;caption&quot;'));
+      const intro = main.match(/<dialog[^>]+id="internet-im-wandel"[^>]*>[\s\S]*?<\/dialog>/)[0];
+      assert.match(intro, /aria-label="Das Internet verändert sich\."/);
+      assert.doesNotMatch(intro, /<dialog[^>]*\sopen[\s=>]/);
+      assert.match(intro, /<form method="dialog"[^>]*>[\s\S]*?Überspringen/);
+      assert.ok(main.indexOf(intro) < main.indexOf('id="home-intro"'));
+      assert.doesNotMatch(md, /## Das Internet verändert sich\./);
+      const cards = main.match(/<ul class="ag-contact-questions"[^>]*>([\s\S]*?)<\/ul>/)[1];
+      assert.deepEqual([...cards.matchAll(/<li>([^<]+)<\/li>/g)].map(match => match[1]), [
+        'Was kommt zu kurz?', 'Wo tust du dich schwer?', 'Wobei kann ich helfen?',
+      ]);
+      const contact = main.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)[0];
+      assert.doesNotMatch(contact, /Wenn du mit deinem Betrieb wachsen willst/);
+      assert.match(purpose(home), /Wir glauben, Spitzenmarketing/);
+      assert.match(purpose(main), /aria-label="Spitzenmarketing ist keine Frage der Unternehmensgröße mehr\."/);
+      for (const source of [main, md]) {
+        assert.match(source, /Dein Betrieb auf dem Qualitätsniveau großer, vergleichbarer Unternehmen\.\s+Das ist möglich und bezahlbar\./);
+        assert.match(source, /Gemeinsam entwickeln wir eine Online-Strategie für deinen Betrieb und ideal auf deine Arbeitsweise abgestimmt\./);
+        assert.match(source, /Die Umsetzung und laufende Betreuung übernehme ich\./);
+        assert.match(source, /Dein Auftritt bleibt immer aktuell\. Aus deiner Arbeit, aktuellen Projekten und deiner Expertise werden Inhalte für die Webseite, das Unternehmensprofil und die sozialen Medien\./);
+        assert.doesNotMatch(source, /Branchenbücher|Instagram, TikTok und YouTube/);
+        assert.match(source.replace(/<[^>]+>/g, ''), /Was willst du mit\s+deinem Betrieb erreichen\?/);
+        for (const question of ['Was kommt zu kurz?', 'Wo tust du dich schwer?', 'Wobei kann ich helfen?']) {
+          assert.ok(source.includes(question));
+        }
+      }
+    } else {
+      assert.equal(purpose(main), purpose(home));
     }
-    for (const source of [html, md]) {
-      assert.doesNotMatch(source, /Loistl|Laubbeseitigung|leaf removal/i);
-      assert.ok(source.includes(locale === 'de' ? 'Ich habe VibePerform gegründet' : 'I started VibePerform'));
-    }
-    assert.ok(main.includes(locale === 'de' ? 'Audioguide mit meiner KI-Stimme' : 'Audio guide in my AI-generated voice'));
-    const scenes = main.match(/<section[^>]*data-about-chapter[\s\S]*?<\/section>/g);
-    assert.equal(scenes.length, 4);
-    for (const scene of scenes) {
-      const timedParagraphs = [...scene.matchAll(/data-cue="([\d.]+)"/g)].map(match => Number(match[1]));
-      assert.ok(timedParagraphs.length > 0);
-      assert.ok(timedParagraphs.every((time, i) => time > (i ? timedParagraphs[i - 1] : 0)));
-    }
+    assert.ok(main.includes(locale === 'de' ? 'dein erster direkter Ansprechpartner' : 'your first point of contact'));
     assert.match(main, /<audio[^>]*preload="none"/);
     for (const control of ['play', 'sound', 'index', 'chapter-menu', 'chapter-count', 'meter']) assert.ok(main.includes('data-' + control));
-    assert.equal([...main.matchAll(/data-choice="/g)].length, clips.length);
-    assert.ok(main.indexOf('class="ag-hero"') < main.indexOf('data-about-story'));
+    assert.equal([...main.matchAll(/data-choice="/g)].length, locale === 'de' ? 3 : 2);
+    assert.ok(main.indexOf('data-controls-origin') < main.indexOf('data-story-controls'));
+    assert.ok(main.indexOf('data-story-controls') < main.indexOf('id="vision"'));
     for (const version of [main, md]) {
-      assert.match(version, /introducing-deep-research/);
-      assert.doesNotMatch(version, /Mein Weg|My background/);
+      assert.doesNotMatch(version, /Gründerbrief|founder letter|ag-letterhead|ag-signature|marlon-brief|introducing-deep-research|Loistl|Laubbeseitigung|leaf removal/i);
       assert.ok(version.includes(locale === 'de' ? 'Die moderne Webseitenagentur.' : 'the modern web agency.'));
     }
     const removedCopy = locale === 'de'

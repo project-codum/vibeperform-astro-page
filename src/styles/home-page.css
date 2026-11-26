@@ -85,8 +85,7 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
 
 
 .hp-purpose{background:#211929;color:#f7f4fb;padding:80px 0 64px}
-.hp-purpose em{color:#d9c4ee}
-.hp-purpose .hp-purpose-mission{font-size:20px;line-height:1.65;color:#e0d8e5;max-width:62ch;margin:clamp(32px,4vw,64px) auto 0;text-align:center}
+.hp-purpose .hp-purpose-mission{font-size:20px;line-height:1.65;color:#fff;max-width:62ch;margin:clamp(32px,4vw,64px) auto 0;text-align:center}
 
 .hp-service-grid .hp-service-card--1{overflow:visible}
 .hp-service-art--1{border-radius:17px 17px 0 0}
@@ -158,8 +157,7 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
   hyphens: auto;
 }
 .home-shell--front :is(.hp-collaboration, .hp-faq, .hp-services, .hp-contact) h2 em { color: inherit; }
-.home-shell--front .hp-purpose h2 em { color: #ead9ff; }
-.home-shell--front .hp-purpose-mission { color: #fff; }
+.hp-purpose h2 em { color: #ead9ff; }
 html:lang(de) .hp-purpose .hp-purpose-mission {
   width: 100%;
   max-width: none;

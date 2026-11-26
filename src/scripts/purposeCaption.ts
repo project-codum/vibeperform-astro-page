@@ -1,5 +1,4 @@
-// One scroll-driven reading pass per page visit. No playback clock, scroll
-// alignment, wheel interception or touch lock. Plain text is the default.
+// A single scroll-driven pass by default. The About page can use the audio clock instead.
 const heading = document.querySelector<HTMLElement>('[data-caption-reveal]');
 const stage = document.querySelector<HTMLElement>('[data-purpose-stage]');
 const pin = stage?.querySelector<HTMLElement>('[data-purpose-pin]');
@@ -15,10 +14,7 @@ if (heading && stage && pin && !reducedMotion.matches) {
   let lastProgress = Number.NaN;
   let done = false;
 
-  const finish = () => {
-    if (done) return;
-    done = true;
-    cancelAnimationFrame(frame);
+  const showComplete = () => {
     words.forEach(word => {
       word.style.removeProperty('opacity');
       word.style.removeProperty('transform');
@@ -27,19 +23,25 @@ if (heading && stage && pin && !reducedMotion.matches) {
     mission?.style.removeProperty('transform');
     heading.dataset.captionState = 'complete';
     heading.dataset.captionProgress = '1';
-    events.abort();
-    // Keep the reserved scroll distance after completion so the page does not
-    // jump. Scrolling back shows the full text and never restarts the reveal.
   };
 
-  const render = () => {
-    frame = 0;
+  const stopManual = () => {
+    done = true;
+    cancelAnimationFrame(frame);
+    events.abort();
+  };
+
+  const finish = () => {
     if (done) return;
-    const progress = Math.max(-1, Math.min(1, (-stage.getBoundingClientRect().top - leadIn) / distance));
-    if (progress >= 1) { finish(); return; }
-    if (progress === lastProgress) return;
-    lastProgress = progress;
-    heading.dataset.captionState = progress > 0 ? 'scrolling' : 'waiting';
+    stopManual();
+    showComplete();
+    // Keep the reserved scroll distance after completion so the page does not jump.
+  };
+
+  const paint = (progress: number, mode: 'audio' | 'scrolling') => {
+    if (progress >= 1) { showComplete(); return; }
+    const waiting = progress < 0 || (progress === 0 && mode === 'scrolling');
+    heading.dataset.captionState = waiting ? 'waiting' : mode;
     heading.dataset.captionProgress = Math.max(0, progress).toFixed(4);
     words.forEach((word, index) => {
       const local = progress * words.length - index;
@@ -55,6 +57,16 @@ if (heading && stage && pin && !reducedMotion.matches) {
       mission.style.transform = `translateY(${(1 - arrival) * 16}px)`;
     }
   };
+  const render = () => {
+    frame = 0;
+    if (done) return;
+    const progress = Math.max(-1, Math.min(1, (-stage.getBoundingClientRect().top - leadIn) / distance));
+    if (progress >= 1) { finish(); return; }
+    if (progress === lastProgress) return;
+    lastProgress = progress;
+    paint(progress, 'scrolling');
+  };
+
   const schedule = () => {
     if (!done && !frame) frame = requestAnimationFrame(render);
   };
@@ -75,6 +87,11 @@ if (heading && stage && pin && !reducedMotion.matches) {
     if (reducedMotion.matches) finish();
   }, { signal: events.signal });
   window.addEventListener('pagehide', finish, { signal: events.signal });
+  // Audio can replay the reveal even after the manual scroll pass has finished.
+  stage.addEventListener('purpose:audio-progress', event => {
+    if (!done) stopManual();
+    paint((event as CustomEvent<number>).detail, 'audio');
+  });
   measure();
   cancelAnimationFrame(frame);
   render();

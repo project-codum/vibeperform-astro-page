@@ -167,6 +167,10 @@ function renderTradePage(locale) {
 
 function renderAboutAgentPage(locale = 'de') {
   const c = aboutContent[locale];
+  const { purpose } = c;
+  const contactCopy = 'questions' in c.contact
+    ? c.contact.questions.map(question => `- ${question}`).join('\n')
+    : c.contact.body;
   const canonicalPath = locale === 'de' ? '/de/ueber-uns/' : '/en/about-us/';
   const alternatePath = locale === 'de' ? '/en/about-us/' : '/de/ueber-uns/';
   return normalizeBlankLines([
@@ -174,17 +178,9 @@ function renderAboutAgentPage(locale = 'de') {
     c.hero.intro,
     `Marlon Dietrich, ${c.hero.role}`,
     `[${c.hero.action}](${absoluteUrl(canonicalPath)}#kontakt)`,
-    ...c.chapters.map((chapter, index) => {
-      const content = [...chapter.paragraphs];
-      if (index === 2) {
-        const alt = locale === 'de' ? 'Die obere Kante des Eicheneinbaus am Fenster' : 'The top edge of the oak window seat installation';
-        content.splice(1, 0, `![${alt}](${absoluteUrl('/projektbeispiel/schreinerei-massfuge.webp')})`);
-      }
-      if (index === c.chapters.length - 1) content.push('Marlon');
-      if (chapter.sources) content.push(chapter.researchNote, chapter.sources.map(source => `- [${source.label}](${source.href})`).join('\n'));
-      return section(`${chapter.title} ${chapter.emphasis}`, content.join('\n\n'));
-    }),
-    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}`),
+    section(`${purpose.title} ${purpose.middle} ${purpose.emphasis}`, purpose.mission),
+    section(`${c.contact.title} ${c.contact.emphasis}`, `${contactCopy}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}`),
+    section(locale === 'de' ? 'Audioguide zum Mitlesen' : 'Audio guide transcript', c.guide.flatMap(chapter => chapter.cues.map(cue => cue.text)).join('\n\n')),
   ].join('\n\n'));
 }
 

@@ -3,98 +3,74 @@ import { Image, getImage } from 'astro:assets';
 import AgencyDocument from './AgencyDocument.astro';
 import ContactActions from './ContactActions.astro';
 import { aboutContent, aboutPaths, type AboutLocale } from '../data/aboutContent';
-import portrait from '../assets/agency/marlon-studio-portrait-v1.png';
+import AboutInternetIntro from './AboutInternetIntro.astro';
 import heroPortrait from '../assets/agency/marlon-studio-portrait-outside-frame-v1.png';
-import AboutStoryControls from './AboutStoryControls.astro';
+import GuidingPrinciple from './GuidingPrinciple.astro';
+import StoryControls from './StoryControls.astro';
 import '../styles/about-page.css';
 
 interface Props { locale: AboutLocale; }
 const { locale } = Astro.props;
 const c = aboutContent[locale];
+const de = locale === 'de';
+const guideLabels = de ? {
+  label: 'Audioguide mit Marlons KI-Stimme',
+  transcript: 'Audioguide zum Mitlesen',
+} : {
+  label: 'Audio guide in Marlon’s AI voice',
+  transcript: 'Read the audio guide transcript',
+};
+const chapters = c.guide.map(chapter => chapter.label);
+const cues = [...c.guide].flatMap((entry, chapter) => [...entry.cues].map(cue => ({
+  start: cue.start, chapter, anchor: 'anchor' in cue ? cue.anchor : undefined,
+  caption: 'caption' in cue ? cue.caption : undefined,
+})));
 const alternate = locale === 'de' ? 'en' : 'de';
 const shareImage = await getImage({ src: heroPortrait, width: 900, format: 'webp' });
 const shareImageAlt = locale === 'de' ? 'Marlon Dietrich, Inhaber von VibePerform' : 'Marlon Dietrich, owner of VibePerform';
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 ---
 <AgencyDocument locale={locale} title={c.metaTitle} description={c.metaDescription} path={aboutPaths[locale]} alternatePath={aboutPaths[alternate]} about image={shareImage.src} imageWidth={Number(shareImage.attributes.width)} imageHeight={Number(shareImage.attributes.height)} imageAlt={shareImageAlt}>
+  {de && <AboutInternetIntro />}
   <section class="ag-hero" aria-labelledby="agency-title" id="home-intro" tabindex="-1">
     <div class="hp-wrap ag-hero-grid">
       <div class="ag-hero-copy">
         <h1 id="agency-title">{c.hero.title} <em>{c.hero.emphasis}</em></h1>
         <p class="sv-lead">{c.hero.intro}</p>
-        <a class="hp-button" href="#kontakt">{c.hero.action}<span aria-hidden="true">↗</span></a>
+        <a class="hp-button" href="#kontakt">{c.hero.action}</a>
       </div>
       <figure class="ag-portrait" id="marlon">
         <div class="ag-portrait-frame"><Image src={heroPortrait} alt="Marlon Dietrich" widths={[400,640,900,1122]} sizes="(max-width: 760px) 90vw, 42vw" format="webp" loading="eager" fetchpriority="high" /></div>
         <figcaption><strong>Marlon Dietrich</strong><span>{c.hero.role}</span></figcaption>
       </figure>
     </div>
-    <div class="hp-wrap ag-hero-foot" data-guide-footer hidden>
-      <p>{c.voiceNote}</p>
-      <div class="ag-guide-slot" data-controls-origin>
-        <AboutStoryControls labels={c.controls} chapters={c.chapters} />
-      </div>
-    </div>
+    <div class="ag-guide-origin" data-controls-origin aria-hidden="true"></div>
+    <StoryControls chapters={chapters} playLabel={de ? 'Start' : 'Listen'} locale={locale} label={guideLabels.label} />
+    <audio data-about-guide data-cues={JSON.stringify(cues)} lang={locale} preload="none"
+      src={base + '/audio/about/' + locale + '-mission-vision.mp3'}></audio>
+    <noscript><audio class="ag-guide-fallback" controls aria-label={guideLabels.label} preload="none"
+      src={base + '/audio/about/' + locale + '-mission-vision.mp3'}></audio></noscript>
   </section>
-  <article class="ag-story" aria-label={c.hero.foot} data-about-story data-lenis-prevent>
-    {c.chapters.map((chapter, index) => (
-      <section class="ag-scene" id={chapter.id} aria-labelledby={chapter.id + '-title'}
-        data-about-chapter data-name={chapter.name} data-duration={chapter.duration}
-        data-audio={base + '/audio/about/' + chapter.audio + '.mp3'}>
-        <div class="hp-wrap ag-sheet">
-          {index === 0 && <header class="ag-letterhead">
-            <span>{locale === 'de' ? 'Ein Brief von Marlon Dietrich' : 'A letter from Marlon Dietrich'}</span>
-            <span>VibePerform</span>
-          </header>}
-          <h2 id={chapter.id + '-title'}>{chapter.title} <em>{chapter.emphasis}</em></h2>
-          {chapter.paragraphs.map((paragraph, part) => {
-            const cue = chapter.paragraphStarts[part];
-            if (index === 0 && part === 1) return <div class="ag-passage" data-cue={cue}>
-              <div class="ag-dates" aria-hidden="true">
-                <span><small>{locale === 'de' ? 'Dein Betrieb' : 'Your business'}</small><b>{locale === 'de' ? 'Heute' : 'Today'}</b></span>
-                <i></i>
-                <span><small>{locale === 'de' ? 'Letztes Projekt online' : 'Latest project online'}</small><b>2022</b></span>
-              </div>
-              <p class="ag-body">{paragraph}</p>
-            </div>;
-            if (index === 1 && part === 0) return <p class="ag-questions" data-cue={cue}>
-              {paragraph.match(/[^?]+\?/g)?.map(question => <span>{question.trim()} </span>)}
-            </p>;
-            if (index === 1 && part === 1) return <p class="ag-note" data-cue={cue}>{paragraph}</p>;
-            if (index === 2 && part === 1) return <figure class="ag-enclosure" data-cue={cue}>
-              <div class="ag-photo"><img src={base + '/projektbeispiel/schreinerei-massfuge.webp'} width="1120" height="747" loading="lazy"
-                alt={locale === 'de' ? 'Beispieleinbau aus Eiche mit Sitzbank, Regal und deckenhoher Verkleidung am Fenster.' : 'Illustrative oak window seat with shelving and floor-to-ceiling panelling.'}/>
-                <i class="ag-pencil-circle" aria-hidden="true"></i>
-              </div>
-              <figcaption>{paragraph}</figcaption>
-            </figure>;
-            return <p class="ag-body" data-cue={cue}>{paragraph}</p>;
-          })}
-          {'sources' in chapter && <details class="ag-sources">
-            <summary>{locale === 'de' ? 'Quellen zur KI-Suche' : 'Sources on AI search'}</summary>
-            <p>{chapter.researchNote}</p>
-            <ul>{chapter.sources.map(source => <li><a href={source.href}>{source.label}</a></li>)}</ul>
-          </details>}
-          {index === c.chapters.length - 1 && <div class="ag-signoff">
-            <span class="ag-signature">Marlon</span>
-          </div>}
-        </div>
-      </section>
-    ))}
-    <audio data-guide preload="none"></audio>
-  </article>
+  <GuidingPrinciple locale={locale} purpose={c.purpose} id="vision" analyticsSection="agency-purpose" />
   <section class="hp-section hp-contact ag-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="contact">
     <div class="hp-wrap">
-      <h2 id="contact-title">{c.contact.title} <em>{c.contact.emphasis}</em></h2>
-      <p class="ag-body">{c.contact.body}</p>
-      <Image class="ag-contact-portrait" src={portrait} alt="Marlon Dietrich" width={144} height={144} fit="cover" format="webp" loading="lazy"/>
+      <h2 id="contact-title">{c.contact.title}{' '}{de && <br />}<em>{c.contact.emphasis}</em></h2>
+      {'questions' in c.contact
+        ? <ul class="ag-contact-questions" role="list">{c.contact.questions.map(question => <li>{question}</li>)}</ul>
+        : <p class="ag-body">{c.contact.body}</p>}
       <ContactActions locale={locale} analyticsLocation="agency-contact" />
     </div>
   </section>
+  <div class="ag-transcript">
+    <details class="hp-wrap">
+      <summary>{guideLabels.transcript}</summary>
+      {c.guide.map(chapter => chapter.cues.map(cue => <p>{cue.text}</p>))}
+    </details>
+  </div>
 </AgencyDocument>
 
 <script>
-  import { mountAboutStory } from '../scripts/aboutStory';
-  const story = document.querySelector<HTMLElement>('[data-about-story]');
-  if (story) mountAboutStory(story);
+  import { mountAboutGuide } from '../scripts/aboutGuide';
+  const hero = document.querySelector<HTMLElement>('.ag-hero');
+  if (hero) mountAboutGuide(hero);
 </script>
