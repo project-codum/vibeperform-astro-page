@@ -1,0 +1,290 @@
+---
+import AgencyDocument from '../../../components/AgencyDocument.astro';
+import WunderweltBook from '../../../components/WunderweltBook.astro';
+import BookingCalendar from '../../../components/BookingCalendar.astro';
+import { chapters } from '../../../data/wunderweltStory';
+const media = '/case-studies/wunderwelt-kids';
+const processSteps = ['Kennenlernen', 'Das Konzept entwickeln', 'Ihr Buch ausarbeiten'];
+const offers = [
+  { image:'hotelauflage', title:'Warum wir einen Stapel zeigen', label:'Geschichtenbuch · Hotelauflage', text:'Gleiche Einbände machen die Auflage sichtbar. Das Hotel bestellt eine Geschichte für sein Haus und bekommt sie in mehreren Exemplaren.', alt:'Stapel identischer Geschichtenbücher mit dem Hotel auf dem Einband' },
+  { image:'gaesteausgabe', title:'Warum der Name aufs Bild gehört', label:'Geschichtenbuch · Gästeausgabe', text:'Auf diesem Umschlag steht „Teodor“. An einem konkreten Namen lässt sich zeigen, was „personalisiert“ für eine Gastfamilie bedeutet.', alt:'Personalisierter Einband mit dem Namen des Gastkindes' },
+  { image:'wimmelbuch', title:'Warum wir das Buch aufschlagen', label:'Wimmelbuch · Hotelauflage', text:'Der Umschlag allein würde den Unterschied verdecken. Auf der Doppelseite lässt sich sofort selbst nach kleinen Hotelszenen suchen.', alt:'Illustrierte Doppelseite mit vielen kleinen Szenen aus dem Hotel' },
+];
+---
+<AgencyDocument locale="de" caseStudy title="Webdesign für Wunderwelt.kids | Wie VibePerform eine Buchidee sichtbar macht"
+  description="Vom Produktfoto zur animierten Hotelszene. VibePerform zeigt am Projekt Wunderwelt.kids, wie Bildidee, Buchanimation und Angebotsstruktur entstanden sind."
+  path="/de/fallstudien/wunderwelt-kids/" image={media + '/hero-poster.webp'} imageAlt="Ein echtes Hotel am Bergsee wird zur Buchillustration">
+  <article id="home-intro" class="story">
+    <header class="cover">
+      <img src={media + '/hotelfoto.webp'} width="1920" height="800" alt="Das reale Familienhotel am Bergsee vor der Verwandlung" fetchpriority="high"/>
+      <div class="wrap cover-copy">
+        <h1>Fallstudie <em>Wunderwelt.kids</em></h1>
+        <p>Für Wunderwelt.kids haben wir eine Website gestaltet, auf der Hotels schon im ersten Bild sehen, wie ihr eigenes Haus zur Buchwelt wird.</p>
+        <div class="controls-origin" data-controls-origin aria-hidden="true"></div>
+      </div>
+    </header>
+    <div class="controls" data-story-controls role="group" aria-label="Audioguide" hidden>
+      <div class="control-row">
+        <button type="button" data-play>Projekt anschauen</button>
+        <button type="button" data-sound>Ton aus</button>
+        <button type="button" class="chapter-trigger" data-index aria-expanded="false" aria-controls="guide-chapters" aria-label="Kapitel auswählen"><span><span data-chapter-count>1 / {chapters.length}</span><span class="chapter-name"> · <span data-current-chapter>Vorher</span></span></span><i aria-hidden="true"></i></button>
+      </div>
+      <div class="chapter-menu" id="guide-chapters" data-chapter-menu inert>
+        {chapters.map((c,i)=><button type="button" data-choice={i} aria-current={i===0?'step':undefined}>
+          <span class="chapter-number">{String(i+1).padStart(2,'0')}</span><span>{c.name}</span><i aria-hidden="true"></i>
+        </button>)}
+      </div>
+      <p class="feedback" data-feedback role="status" hidden></p>
+      <div class="track" aria-hidden="true"><i data-meter></i></div>
+    </div>
+    <div class="comparison" data-comparison data-phase="before">
+      <span id="nachher" class="after-anchor" data-chapter="1"></span>
+      <section id="vorher" data-chapter="0" class="scene comparison-stage">
+        <div class="wrap">
+          <div class="comparison-head">
+            {chapters.slice(0,2).map((c,i)=><div data-phase-copy={i===0?'before':'after'}><p class="eyebrow">{c.label}</p><h2>{c.title} <em>{c.emphasis}</em></h2></div>)}
+          </div>
+          <div class="comparison-screen">
+            <img class="draft" src={media+'/entwurf-oktober.webp'} alt="Der erste Hotelentwurf zeigte eine Familie beim Lesen." width="1264" height="683" />
+            <img class="comparison-poster" src={media+'/hero-poster.webp'} alt="Das Hotel am See und seine Buchillustration im neuen Webseitenentwurf." width="1360" height="684" />
+            <video class="manual-hero" muted playsinline loop preload="metadata" width="1360" height="684" poster={media+'/hero-poster.webp'} src={media+'/hotelszene.mp4'} aria-label="Die Hotelszene verwandelt sich in eine Buchillustration"></video>
+            <video class="guide" data-narration playsinline preload="metadata" width="1264" height="682" poster={media+'/entwurf-oktober.webp'} src={media+'/rundgang.mp4'} aria-label="Geführte Fallstudie mit synchronisierter Hotelszene und deutscher Erzählung"></video>
+          </div>
+          <div class="comparison-captions">{chapters.slice(0,2).map((c,i)=><p data-phase-copy={i===0?'before':'after'} class="caption">{c.copy}</p>)}</div>
+          <noscript><img src={media+'/hero-poster.webp'} width="1360" height="684" alt="Der neue Einstieg zeigt die Verwandlung des Hotels in die Buchwelt." /></noscript>
+        </div>
+      </section>
+    </div>
+    {chapters.slice(2).map((c,offset)=>{const i=offset+2;return <section id={c.id} data-chapter={i} class:list={['scene','scene-'+c.id]}>
+      {i===3 ? <>
+        <div class="formats-stage" data-formats-stage>
+          <div class="wrap">
+            <p class="eyebrow">{c.label}</p>
+            <h2 id="book-formats-title">{c.title} <em>{c.emphasis}</em></h2>
+            <div class="formats-overview" data-formats-overview role="region" aria-labelledby="book-formats-title" tabindex="0">
+              {offers.map(offer => <figure data-edition>
+                <img src={media+'/'+offer.image+'.webp'} width="1080" height="756" alt={offer.alt} />
+                <figcaption>
+                  <small>{offer.label}</small>
+                  <strong>{offer.title}</strong>
+                  <p>{offer.text}</p>
+                </figcaption>
+              </figure>)}
+            </div>
+          </div>
+        </div>
+      </> : i===4 ? <div class="wrap">
+        <div class="process-stage">
+          <div class="process-lead" data-process-heading>
+            <p class="eyebrow">{c.label}</p>
+            <h2>{c.title} <em>{c.emphasis}</em></h2>
+            <p class="caption process-intro">{c.copy}</p>
+            <h3>So leiten wir durch Prozessschritte</h3>
+          </div>
+          <div class="process-demo">
+            <ol class="process-stack" data-process-stack>{processSteps.map((step,i)=><li data-process-card>
+              <header><span aria-hidden="true">{String(i+1).padStart(2,'0')} Schritt</span><h4>{step}</h4></header>
+            </li>)}</ol>
+          </div>
+        </div>
+        <div class="links"><a href="https://www.wunderwelt.kids/">Wunderwelt Kids ansehen ↗</a></div>
+      </div> : <div class="wrap">
+        <p class="eyebrow">{c.label}</p>
+        <h2>{c.title} <em>{c.emphasis}</em></h2>
+        {i===2 && <WunderweltBook />}
+        {i===5 && <p class="caption">{c.copy}</p>}
+        {i===5 && <BookingCalendar locale="de" autoOpen analyticsLocation="wunderwelt-case" />}
+      </div>}
+    </section>})}
+    <div class="transcript wrap"><details><summary>Audioguide zum Mitlesen</summary>{chapters.map(c=><p><strong>{c.name}.</strong> {c.voice}</p>)}</details></div>
+  </article>
+</AgencyDocument>
+<script>
+  import { mountWunderweltStory } from '../../../scripts/wunderweltStory';
+  const story = document.querySelector<HTMLElement>('.story');
+  if (story) mountWunderweltStory(story);
+</script>
+<style>
+  .story {background:#f5f2ed;color:#27222e}
+  .wrap {width:min(1160px,89%);margin-inline:auto}
+  .story [hidden] {display:none!important}
+  .story h1,.story h2,.story p,.story figure {margin:0}
+  .story h1,.story h2 {font-weight:400;letter-spacing:-.055em;line-height:1.03}
+  .story em {display:block;font-family:Georgia,serif;color:#765388}
+  .cover {position:relative;isolation:isolate;background:#17141d;color:white;min-height:clamp(560px,82svh,840px);display:grid;align-items:end;padding:130px 0 clamp(45px,7vw,100px)}
+  .cover>img,.cover:after {position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+  .cover>img {object-fit:cover;object-position:65% center}
+  .cover:after {content:'';background:linear-gradient(90deg,rgba(19,16,24,.96),rgba(19,16,24,.76) 41%,transparent 78%),linear-gradient(0deg,#17141daf,transparent 55%,#15121a77)}
+  .story .eyebrow,.formats-overview small {font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+  .story h1 {font-size:clamp(48px,6vw,92px);margin:18px 0}
+  .cover em {color:#e8cdfa}
+  .cover-copy>p {max-width:45ch;font-size:clamp(16px,1.55vw,21px);line-height:1.5}
+  .links {display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px}
+  .links a {text-decoration:underline;text-underline-offset:5px}
+  .controls-origin {position:relative;top:16px;height:60px;margin-top:24px}
+  .controls:not([data-docked]) {top:var(--hero-top);bottom:auto}
+  .controls {position:fixed;z-index:25;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));translate:-50% 0;width:410px;max-width:calc(100% - 16px);padding:5px 7px 8px;border-radius:18px;border:1px solid #504759;background:#211c27;color:#fff;box-shadow:0 5px 22px #17121d40}
+  .control-row {display:flex;align-items:center;justify-content:center;gap:4px}
+  .controls button {font:inherit;color:inherit;background:#211c27;border:0;min-height:44px;padding:0 12px;cursor:pointer}
+  @media(max-width:360px){.chapter-trigger .chapter-name {display:none}}
+  .controls [data-play] {min-width:5em;border-radius:12px;background:#eed8fc;color:#261b2d;font-weight:650}
+  .controls .chapter-trigger {display:flex;flex:1;align-items:center;justify-content:space-between;gap:6px;min-width:0;border-left:1px solid #54495b}
+  .chapter-trigger span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chapter-trigger i {width:9px;height:9px;flex:none;border:solid #dfc6ed;border-width:2px 2px 0 0;transform:rotate(-45deg);transition:transform .22s}
+  .chapter-trigger[aria-expanded="true"] i {transform:rotate(135deg)}
+  .chapter-menu {position:absolute;bottom:calc(100% + 7px);left:-1px;right:-1px;padding:7px;max-height:calc(var(--hero-top,100dvh) - 16px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #625168;border-radius:18px;background:#211c27;box-shadow:0 12px 30px #17121d40;opacity:0;visibility:hidden;transform:translateY(8px) scale(.98);transform-origin:center bottom;transition:transform .22s ease,opacity .18s ease,visibility 0s .22s}
+  .controls[data-docked] .chapter-menu {max-height:calc(100dvh - 100px - env(safe-area-inset-bottom))}
+  .controls[data-menu-open] .chapter-menu {visibility:visible;opacity:1;transform:none;transition-delay:0s}
+  .controls .chapter-menu button {display:grid;grid-template-columns:2.2em 1fr 12px;align-items:center;gap:8px;width:100%;min-height:52px;padding:7px 13px;border-radius:10px;text-align:left;font-size:clamp(19px,2vw,23px);line-height:1.25}
+  .chapter-number {font-size:14px;font-variant-numeric:tabular-nums;color:#c7b3cf}
+  .chapter-menu button:hover,.chapter-menu button:focus-visible {background:#382f40}
+  .chapter-menu button[aria-current] {background:#49394f;color:#f3ddff}
+  .chapter-menu button[aria-current] i {width:8px;height:8px;border-radius:50%;background:#e8c7fb}
+  @media(prefers-reduced-motion:reduce){.chapter-menu,.chapter-trigger i {transition:none}}
+
+  .controls :focus-visible {outline:2px solid #ad74d2;outline-offset:-3px}
+  .controls .feedback {max-width:32ch;padding:6px 8px;font-size:14px;line-height:1.4}
+  :global(.home-shell:has(.story) footer) {padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .track {position:absolute;inset:auto 14px 0;height:3px;overflow:hidden;border-radius:2px;background:#514955}
+  .track i {display:block;width:100%;height:100%;background:#dab9ec;transform-origin:left;transform:scaleX(0)}
+  .scene {min-height:calc(100svh - 60px);scroll-margin-top:0;padding:clamp(30px,5.5vh,60px) 0 clamp(44px,6vh,76px)}
+  .scene .eyebrow {color:#795885}
+  .scene h2 {font-size:clamp(32px,4.1vw,58px);margin:8px 0 20px}
+  .comparison {scroll-margin-top:0;position:relative;background:#f5f2ed}
+  .comparison::after {content:"";display:block;height:80svh}
+  .comparison-stage {position:sticky;top:0;background:inherit;min-height:0}
+  .comparison-screen {position:relative;isolation:isolate;aspect-ratio:1264/683;max-height:47svh;overflow:hidden;border-radius:8px;background:#fcfbf6}
+  .comparison-screen {border:1px solid #dfd8d0}
+  .story .comparison-screen :is(img, video) {display:block;position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;background:transparent}
+  .story .comparison-screen .draft {padding:clamp(10px,2vw,24px);background:#f8f7f3}
+  .comparison-screen :is(.comparison-poster,video) {opacity:0;pointer-events:none}
+  .comparison[data-phase="before"] .comparison-poster,
+  .comparison[data-phase="after"] .draft {visibility:hidden}
+  .comparison[data-phase="after"] .comparison-poster,
+  .comparison[data-phase="after"]:not([data-cinema]) .manual-hero[data-frame-ready],
+  .comparison[data-phase="after"][data-cinema] .guide[data-frame-ready] {opacity:1}
+  .comparison-head,.comparison-captions {display:grid}
+  .comparison-head>*,.comparison-captions>* {grid-area:1/1}
+  .comparison[data-phase="before"] [data-phase-copy="after"],.comparison[data-phase="after"] [data-phase-copy="before"] {visibility:hidden;opacity:0}
+  @media(prefers-reduced-motion:no-preference) {
+    .comparison-head>*,.comparison-captions>*,.comparison-screen :is(.manual-hero,.guide) {transition:opacity .24s ease}
+  }
+  .after-anchor {position:absolute;top:55svh;scroll-margin-top:0}
+  @media(prefers-reduced-motion:reduce){
+    .comparison[data-phase="after"][data-cinema] .guide[data-frame-ready] {opacity:0}
+    .comparison[data-cinema][data-phase="after"]:not([data-drawing]) .comparison-screen:after {content:'';position:absolute;inset:0;background:#fcfbf6 url('/case-studies/wunderwelt-kids/hotelfoto.webp') center/contain no-repeat}
+  }
+  @media(max-width:700px){.comparison-screen {max-height:none}.comparison-stage {padding-top:25px}}
+
+  .scene-nachher em,.scene-nachher .eyebrow {color:#e0c4ef}
+  .scene-blaettern {background:#ece4ed}
+  .scene-projektablauf {
+    --process-surface:#e8e2df;
+    --mist:#eef4fb;
+    --blue:#284b70;
+    --process-inset:clamp(16px,3vw,42px);
+    background:var(--process-surface)
+  }
+  .evidence,.scene video {display:block;background:#fff;width:100%;border-radius:8px;overflow:hidden}
+  .evidence img,.scene video {width:100%;height:clamp(210px,47svh,540px);object-fit:contain}
+  .scene-vorher .evidence {background:#fdfcf6}
+  .scene-nachher video {background:#19171d}
+  .story .caption {margin-top:17px;font-size:clamp(17px,1.55vw,22px);line-height:1.5}
+  .formats-overview {
+    position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(16px,2.5vw,28px)
+  }
+  .formats-overview figure {min-width:0;padding-top:14px;border-top:1px solid #d8ccd9}
+  .formats-overview img {display:block;width:100%;height:auto;aspect-ratio:10/7;object-fit:contain;background:white;border-radius:8px}
+  .formats-overview figcaption {margin-top:14px}
+  .formats-overview :is(small,strong) {display:block}
+  .formats-overview small {color:#744d82}
+  .formats-overview strong {margin:4px 0;font-size:clamp(18px,1.65vw,23px);line-height:1.17;font-weight:500}
+  .formats-overview figcaption p {font-size:16px;line-height:1.45}
+  .formats-overview:focus-visible {outline:2px solid #765388;outline-offset:4px}
+  .formats-stage {overflow-anchor:none}
+  [data-editions-ready] .formats-overview {
+    min-height:calc(var(--format-expand,1) * var(--formats-feature-height,0px));
+    padding-bottom:8px
+  }
+  [data-editions-ready] figure {
+    --expand:0;
+    opacity:var(--card-opacity,1);
+    border-color:color-mix(in srgb,#d8ccd9 var(--format-overview,0%),transparent)
+  }
+  [data-editions-ready] figure[data-active] {--expand:var(--format-expand,1);z-index:1}
+  [data-editions-ready] figure[aria-hidden="true"] {visibility:hidden}
+  [data-editions-ready] figure img {
+    transform-origin:0 0;
+    transform:translateX(calc(var(--expand)*var(--feature-image-x,0px))) scale(calc(1 + var(--expand)*var(--feature-image-scale,0)))
+  }
+  [data-editions-ready] figcaption {
+    width:calc(100% + var(--expand)*var(--feature-caption-extra,0px));
+    transform:translate(calc(var(--expand)*var(--feature-caption-x,0px)),calc(var(--expand)*var(--feature-caption-y,0px)))
+  }
+  @media(max-width:700px) {
+    .formats-overview {
+      grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;
+      overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain
+    }
+    [data-editions-ready]:not([data-overview]) .formats-overview {overflow:clip;scroll-snap-type:none}
+    .formats-overview figure {scroll-snap-align:start}
+  }
+  .links {margin-top:18px;color:#58396a;font-weight:600}
+  .play-error,.transcript {padding:22px 0}.transcript details {max-width:78ch}.transcript summary {cursor:pointer}.transcript p {margin-top:.8em}
+  @media(max-width:700px) {
+    .cover {min-height:84svh;padding:190px 0 42px}
+    .cover>img {object-position:72% top;height:64%}
+    .cover:after {background:linear-gradient(0deg,#17141d 30%,rgba(23,20,29,.72) 56%,transparent 88%),linear-gradient(180deg,#17141dbb,transparent 22%)}
+    .story h1 {font-size:clamp(36px,8.7vw,56px)}
+    .scene h2 {font-size:clamp(25px,6.9vw,42px)}
+    .control-row {font-size:14px;gap:2px}
+    .controls button {padding-inline:8px}
+    .evidence img,.scene video {height:auto;max-height:48svh}
+  }
+  [data-book-ready],.scene-formate:has([data-editions-ready]) {padding-block:0}
+  :is([data-book-ready],[data-editions-ready])>.wrap {position:sticky;top:0;padding-block:clamp(16px,4svh,44px)}
+  [data-book-ready]::after {content:'';display:block;height:calc(2 * var(--page-distance) + 12svh)}
+  [data-editions-ready]::after {content:'';display:block;height:calc(3 * var(--page-distance))}
+  :is(.scene-blaettern,.scene-formate) {--page-distance:clamp(280px,65svh,640px)}
+  @media(max-width:700px) and (max-height:680px) {
+    .cover {padding-top:22svh}
+    [data-editions-ready]>.wrap {padding-block:12px}
+    .scene-formate h2 {margin-bottom:12px}
+    .formats-overview figcaption {margin-top:10px}
+  }
+  .scene-abschluss {background:#211b29;color:white}
+  .scene-abschluss em,.scene-abschluss .eyebrow {color:#e5c5f5}
+  .story .process-intro {margin:0 0 20px}
+  .process-lead h3,.process-demo {background:var(--mist);color:var(--blue);padding-inline:var(--process-inset)}
+  .process-lead h3 {margin:0;padding-block:var(--process-inset) 18px;border-radius:10px 10px 0 0;font-size:clamp(25px,3vw,40px);line-height:1.1}
+  .process-demo {padding-bottom:var(--process-inset);border-radius:0 0 10px 10px}
+  .scene-projektablauf:has([data-stacked]) {padding-top:0}
+  .process-stage:has([data-stacked]) {
+    --process-tail:calc(var(--process-card-height,0px) + var(--process-inset));
+    display:grid
+  }
+  .process-stage:has([data-stacked]) .process-lead {
+    position:sticky;top:0;z-index:2;padding-top:clamp(16px,4svh,44px);
+    margin-bottom:var(--process-tail);background:var(--process-surface)
+  }
+  .process-stage:has([data-stacked]) .process-demo {margin-top:calc(-1 * var(--process-tail))}
+  .process-stack {list-style:none;margin:0;padding:0}
+  .process-stack li {position:relative;background:var(--mist);border-top:1px solid #d7e1df}
+  .process-stack header {display:grid;gap:6px;padding:clamp(14px,2.4vw,32px) 0}
+  .process-stack header span {font-size:clamp(14px,1.5vw,18px);color:#8b571e;font-variant-numeric:tabular-nums}
+  .process-stack h4 {margin:0;font-size:clamp(23px,3.6vw,43px);line-height:1.12;font-weight:500}
+  .process-stack[data-stacked] {--step-gap:clamp(40px,12svh,112px);display:flex;flex-direction:column;gap:var(--step-gap)}
+  .process-stack[data-stacked]::after {content:'';flex:none;height:clamp(28px,8svh,72px);margin-top:calc(-1 * var(--step-gap))}
+  .process-stack[data-stacked] li {
+    position:sticky;top:var(--process-lead-height);z-index:1;
+    min-height:var(--process-card-height);padding-bottom:clamp(28px,6svh,64px)
+  }
+  .process-stack[data-stacked] li + li {box-shadow:0 -8px 16px -13px #284b7066}
+  @media(max-height:720px) {
+    .scene-projektablauf:has([data-stacked]) .process-lead {padding-top:16px}
+    .scene-projektablauf .process-lead h2,.story .process-intro {margin-bottom:12px}
+    .process-lead h3 {padding-block:14px 10px}
+    .process-stack header {padding-block:12px}
+  }
+</style>

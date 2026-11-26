@@ -8,19 +8,19 @@ const de = locale === 'de';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const studies = designStudies(locale);
 const start = 0;
-const offsetFrom = (index: number, center: number) => ((index - center + 2 + studies.length) % studies.length) - 2;
 const image = (id: string) => `${base}studien/hero-kmu/${id}.webp`;
 const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen';
 ---
 <section class="design-studies" id="designstudien" aria-labelledby="design-studies-title" data-design-studies data-start={start}>
   <header class="design-studies__heading">
+    <p class="design-studies__handoff" data-web-check-handoff tabindex="-1" hidden>{de ? 'Welches Design gefällt dir?' : 'Which design do you like?'}</p>
     <h2 id="design-studies-title">{de ? 'Maßgeschneiderte Designs für dich' : 'Tailored designs for you'}</h2>
   </header>
 
-  <div class="design-studies__carousel" role="group" aria-label={de ? 'Designstudien durchblättern' : 'Browse design studies'} tabindex="0" data-stage>
-    <div class="design-studies__stage" data-swipe>
+  <div class="design-studies__carousel" role="group" aria-label={de ? 'Designstudien durchblättern' : 'Browse design studies'} >
+    <div class="design-studies__stage" tabindex="0" data-stage>
       {studies.map((study, index) => (
-        <article class="design-studies__card" data-card data-index={index} data-offset={offsetFrom(index, start)} data-active={index === start ? 'true' : 'false'}>
+        <article class="design-studies__card" data-card data-index={index} data-offset={index - start} data-active={index === start ? 'true' : 'false'}>
           <a class="design-studies__card-link" href={`${base}studien/hero-kmu/${study.id}.html`} data-select data-title={study.trade}
             aria-label={`${study.trade}: ${openLabel}`} tabindex={index === start ? undefined : '-1'}>
             <div class="design-studies__thumbnail">
@@ -57,10 +57,19 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
   </noscript>
   <dialog class="design-studies__dialog" aria-labelledby="design-studies-dialog-title" data-dialog>
     <div class="design-studies__dialog-bar">
-      <div><p>{de ? 'Designstudie · kein Kundenprojekt' : 'Design study · not a client project'}</p><h3 id="design-studies-dialog-title" data-dialog-title></h3></div>
+      <form method="dialog"><button type="submit" aria-label={de ? 'Zurück zur Studienübersicht' : 'Back to studies'}>←</button></form>
+      <div><p>{de ? 'Designstudie · kein Kundenprojekt' : 'Design study · not a client project'}</p><h3 id="design-studies-dialog-title" data-dialog-title aria-live="polite"></h3></div>
       <form method="dialog"><button type="submit" aria-label={de ? 'Vorschau schließen' : 'Close preview'} autofocus>×</button></form>
     </div>
-    <iframe data-study-frame title={de ? 'Interaktive Designstudie' : 'Interactive design study'}></iframe>
+    <div class="design-studies__dialog-preview">
+      <iframe data-study-frame title={de ? 'Interaktive Designstudie' : 'Interactive design study'}></iframe>
+      <button class="design-studies__arrow design-studies__arrow--prev" type="button" data-dialog-prev aria-label={de ? 'Vorherige Studie im Vollbild' : 'Previous study in full screen'}>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 5-7 7 7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="design-studies__arrow design-studies__arrow--next" type="button" data-dialog-next aria-label={de ? 'Nächste Studie im Vollbild' : 'Next study in full screen'}>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
     <form class="design-studies__return" method="dialog"><button type="submit">{de ? '← Zur Studienübersicht' : '← Back to studies'}</button></form>
   </dialog>
 </section>
@@ -70,157 +79,213 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     if (root.dataset.ready) return;
     root.dataset.ready = 'true';
     const cards = [...root.querySelectorAll<HTMLElement>('[data-card]')];
+    const links = cards.map(card => card.querySelector<HTMLAnchorElement>('[data-select]')!);
     const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-dot]')];
-    const stage = root.querySelector<HTMLElement>('[data-stage]');
-    const swipe = root.querySelector<HTMLElement>('[data-swipe]');
-    const status = root.querySelector<HTMLElement>('[data-status]');
-    const dialog = root.querySelector<HTMLDialogElement>('[data-dialog]');
-    const dialogTitle = root.querySelector<HTMLElement>('[data-dialog-title]');
-    const frame = root.querySelector<HTMLIFrameElement>('[data-study-frame]');
+    const stage = root.querySelector<HTMLElement>('[data-stage]')!;
+    const status = root.querySelector<HTMLElement>('[data-status]')!;
+    const dialog = root.querySelector<HTMLDialogElement>('[data-dialog]')!;
+    const dialogTitle = root.querySelector<HTMLElement>('[data-dialog-title]')!;
+    const frame = root.querySelector<HTMLIFrameElement>('[data-study-frame]')!;
     const narrow = matchMedia('(max-width: 650px)');
+    const motion = matchMedia('(prefers-reduced-motion: no-preference)');
+    const german = document.documentElement.lang === 'de';
+    const length = cards.length;
+
+    function duplicateCards() {
+      return cards.map(card => {
+        const clone = card.cloneNode(true) as HTMLElement;
+        clone.setAttribute('aria-hidden', 'true');
+        clone.querySelector<HTMLAnchorElement>('[data-select]')!.tabIndex = -1;
+        return clone;
+      });
+    }
+    const before = duplicateCards();
+    const after = duplicateCards();
+    stage.prepend(...before);
+    stage.append(...after);
+    const slides = [...before, ...cards, ...after];
+
+    const studyIndex = (index: number) => ((index % length) + length) % length;
+    const centralIndex = (index: number) => length + studyIndex(index);
+    let active = centralIndex(Number(root.dataset.start));
+    let destination: number | undefined;
     let galleryVisible = false;
+    let scrollFrame = 0;
+    let scrollTimer: number | undefined;
+    let previewTimer: number | undefined;
+
     function loadVisibleImages() {
       if (!galleryVisible) return;
       const radius = narrow.matches ? 1 : 2;
-      for (const card of cards) {
-        if (Math.abs(Number(card.dataset.offset)) > radius) continue;
+      for (const card of slides.slice(Math.max(0, active - radius), active + radius + 1)) {
         const template = card.querySelector('template');
         if (template) template.replaceWith(template.content.cloneNode(true));
       }
     }
-    if (swipe && 'IntersectionObserver' in window) {
+
+    function show(index: number, announce: boolean) {
+      active = index;
+      const currentStudy = studyIndex(active);
+      slides.forEach((card, n) => {
+        card.dataset.offset = String(n - active);
+        card.dataset.active = String(n === active);
+      });
+      links.forEach((link, n) => {
+        const current = n === currentStudy;
+        link.tabIndex = current ? 0 : -1;
+        if (current) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+        if (current) dots[n].setAttribute('aria-current', 'true');
+        else dots[n].removeAttribute('aria-current');
+      });
+      loadVisibleImages();
+      if (announce) status.textContent = `${links[currentStudy].dataset.title}, ${currentStudy + 1} ${german ? 'von' : 'of'} ${length}`;
+    }
+
+    function cardPosition(index: number) {
+      const card = slides[index];
+      return card.offsetLeft + (card.offsetWidth - stage.clientWidth) / 2;
+    }
+
+    function select(index: number, animate = true, announce = true) {
+      const next = index >= 0 && index < slides.length ? index : centralIndex(index);
+      const animated = animate && motion.matches && !dialog.open && Math.abs(next - active) < 5;
+      destination = next;
+      show(next, announce);
+      stage.scrollTo({ left: cardPosition(next), behavior: animated ? 'smooth' : 'instant' });
+    }
+
+    function updateFromScroll() {
+      scrollFrame = 0;
+      if (destination !== undefined) {
+        if (Math.abs(stage.scrollLeft - cardPosition(destination)) < 2) destination = undefined;
+        else return;
+      }
+      const step = cardPosition(1) - cardPosition(0);
+      if (step <= 0) return;
+      const next = Math.min(slides.length - 1, Math.max(0, Math.round((stage.scrollLeft - cardPosition(0)) / step)));
+      if (next !== active) show(next, false);
+    }
+
+    function settleScroll() {
+      destination = undefined;
+      updateFromScroll();
+      const center = centralIndex(active);
+      // Identical rows on either side allow a native gesture to cross the seam.
+      // Return to the middle copy at rest without moving the visible content.
+      if (center !== active) select(center, false, false);
+    }
+
+    const hasScrollEnd = 'onscrollend' in stage;
+    stage.addEventListener('scroll', () => {
+      if (!scrollFrame) scrollFrame = requestAnimationFrame(updateFromScroll);
+      if (!hasScrollEnd) {
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(settleScroll, 150);
+      }
+    }, { passive: true });
+    stage.addEventListener('scrollend', settleScroll);
+
+    if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(([entry]) => {
         galleryVisible = entry.isIntersecting;
         loadVisibleImages();
       });
-      observer.observe(swipe);
-    } else {
-      galleryVisible = true;
-    }
+      observer.observe(stage);
+    } else galleryVisible = true;
     narrow.addEventListener('change', loadVisibleImages);
-    const language = document.documentElement.lang;
-    const german = language === 'de';
-    const length = cards.length;
-    let active = Number(root.dataset.start);
-    let down: { x: number; y: number } | undefined;
-    let suppressClickUntil = 0;
+    new ResizeObserver(() => select(active, false, false)).observe(stage);
 
-    function show(index: number, announce = true) {
-      active = (index + length) % length;
-      cards.forEach((card, n) => {
-        const offset = ((n - active + 2 + length) % length) - 2;
-        const selected = n === active;
-        card.dataset.offset = String(offset);
-        card.dataset.active = String(selected);
-        const link = card.querySelector<HTMLAnchorElement>('[data-select]');
-        if (!link) return;
-        link.tabIndex = selected ? 0 : -1;
-        if (selected) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
-      });
-      loadVisibleImages();
-      dots.forEach((dot, n) => {
-        if (n === active) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
-      });
-      if (announce && status) status.textContent = `${cards[active].querySelector('h3')?.textContent}, ${active + 1} ${german ? 'von' : 'of'} ${length}`;
-    }
-
-    const motion = matchMedia('(prefers-reduced-motion: no-preference)');
-    if (swipe && length > 4 && motion.matches && 'IntersectionObserver' in window) {
-      // Vary the opening card so every study can be the last one in the preview.
-      active = Math.floor(Math.random() * length);
-      let remaining = Math.random() < .5 ? 3 : 4;
-      let timer: number | undefined;
+    if (length > 4 && motion.matches && 'IntersectionObserver' in window) {
+      active = centralIndex(Math.floor(Math.random() * length));
+      let remaining = 3;
       const listeners = new AbortController();
       const stop = () => {
-        window.clearTimeout(timer);
+        window.clearTimeout(previewTimer);
         observer.disconnect();
         listeners.abort();
-        root.removeAttribute('data-preview-running');
       };
       const advance = () => {
         if (listeners.signal.aborted || document.hidden || !root.isConnected) return stop();
-        show(active + 1, false);
-        remaining -= 1;
-        timer = remaining ? window.setTimeout(advance, 270) : window.setTimeout(stop, 220);
+        select(active + 1, true, false);
+        if (--remaining) previewTimer = window.setTimeout(advance, 430);
+        else stop();
       };
       const observer = new IntersectionObserver(([entry]) => {
-        if (entry.intersectionRatio >= .5 && timer === undefined && !document.hidden) {
-          root.setAttribute('data-preview-running', '');
-          timer = window.setTimeout(advance, 160);
-        } else if (!entry.isIntersecting && timer !== undefined) {
-          stop();
-        }
+        if (entry.intersectionRatio >= .5 && previewTimer === undefined && !document.hidden) {
+          previewTimer = window.setTimeout(advance, 160);
+        } else if (!entry.isIntersecting && previewTimer !== undefined) stop();
       }, { threshold: [0, .5] });
       const options = { signal: listeners.signal };
-      for (const event of ['pointerdown', 'focusin', 'click', 'keydown']) {
-        root.addEventListener(event, stop, { ...options, capture: true });
+      for (const event of ['pointerdown', 'focusin', 'click', 'keydown', 'wheel']) {
+        root.addEventListener(event, stop, { ...options, capture: true, passive: true });
       }
       motion.addEventListener('change', stop, options);
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden && timer !== undefined) stop();
-        else if (!document.hidden && timer === undefined) {
-          observer.unobserve(swipe);
-          observer.observe(swipe);
-        }
-      }, options);
       window.addEventListener('pagehide', stop, options);
-      observer.observe(swipe);
+      observer.observe(stage);
     }
-    show(active, false);
-    root.querySelector('[data-prev]')?.addEventListener('click', () => show(active - 1));
-    root.querySelector('[data-next]')?.addEventListener('click', () => show(active + 1));
-    dots.forEach((dot, n) => dot.addEventListener('click', () => show(n)));
-    cards.forEach((card, n) => card.querySelector<HTMLAnchorElement>('[data-select]')?.addEventListener('click', (event) => {
-      if (performance.now() < suppressClickUntil) { event.preventDefault(); return; }
-      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      const link = event.currentTarget as HTMLAnchorElement;
-      if (!dialog?.showModal || !dialogTitle || !frame) return;
-      event.preventDefault();
-      dialogTitle.textContent = link.dataset.title ?? '';
-      show(n, false);
-      frame.title = link.getAttribute('aria-label') ?? dialogTitle.textContent;
-      frame.src = link.href;
-      dialog.showModal();
+    select(active, false, false);
 
+    for (const event of ['wheel', 'pointerdown']) {
+      stage.addEventListener(event, () => { destination = undefined; }, { passive: true });
+    }
+    root.querySelector('[data-prev]')?.addEventListener('click', () => select(active - 1));
+    root.querySelector('[data-next]')?.addEventListener('click', () => select(active + 1));
+    dots.forEach((dot, n) => dot.addEventListener('click', () => {
+      const distance = n - studyIndex(active);
+      const difference = distance - Math.round(distance / length) * length;
+      select(active + difference);
     }));
 
-    root.addEventListener('keydown', (event) => {
-      if (dialog?.open || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
-      const wasCard = event.target instanceof HTMLElement && Boolean(event.target.closest('[data-card]'));
-      const supportedTarget = event.target instanceof HTMLElement && Boolean(event.target.closest('[data-stage], [data-dot]'));
-      if (!supportedTarget || event.altKey || event.metaKey || event.ctrlKey) return;
+    function openStudy(index: number) {
+      select(centralIndex(index), false, false);
+      const link = links[studyIndex(active)];
+      dialogTitle.textContent = link.dataset.title ?? '';
+      frame.title = dialogTitle.textContent;
+      frame.src = link.href;
+      if (!dialog.open) dialog.showModal();
+    }
+
+    slides.forEach((slide, n) => slide.querySelector<HTMLAnchorElement>('[data-select]')?.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !dialog.showModal) return;
       event.preventDefault();
-      show(event.key === 'Home' ? 0 : event.key === 'End' ? length - 1 : active + (event.key === 'ArrowLeft' ? -1 : 1));
-      if (wasCard) cards[active].querySelector<HTMLAnchorElement>('[data-select]')?.focus({preventScroll: true});
-    });
-    swipe?.addEventListener('pointerdown', (event) => {
-      if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
-      down = {x: event.clientX, y: event.clientY};
-    });
-    swipe?.addEventListener('pointerup', (event) => {
-      if (!down) return;
-      const dx = event.clientX - down.x, dy = event.clientY - down.y;
-      down = undefined;
-      if (Math.abs(dx) > 42 && Math.abs(dx) > 1.4 * Math.abs(dy)) {
-        suppressClickUntil = performance.now() + 400;
-        show(active + (dx < 0 ? 1 : -1));
+      openStudy(n);
+    }));
+    dialog.querySelector('[data-dialog-prev]')?.addEventListener('click', () => openStudy(active - 1));
+    dialog.querySelector('[data-dialog-next]')?.addEventListener('click', () => openStudy(active + 1));
+
+    function fullscreenKeys(event: KeyboardEvent) {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.defaultPrevented) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        dialog.close();
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        const target = event.target;
+        if (target && 'closest' in target && (target as Element).closest('input, textarea, select, [contenteditable]')) return;
+        event.preventDefault();
+        openStudy(active + (event.key === 'ArrowLeft' ? -1 : 1));
       }
+    }
+
+    dialog.addEventListener('keydown', fullscreenKeys);
+    root.addEventListener('keydown', event => {
+      if (dialog.open || event.defaultPrevented || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      if (!(event.target instanceof HTMLElement) || !event.target.closest('[data-stage], [data-dot]') || event.altKey || event.metaKey || event.ctrlKey) return;
+      event.preventDefault();
+      select(event.key === 'Home' ? length : event.key === 'End' ? 2 * length - 1 : active + (event.key === 'ArrowLeft' ? -1 : 1));
+      if (event.target.closest('[data-card]')) links[studyIndex(active)].focus({ preventScroll: true });
     });
-    swipe?.addEventListener('pointercancel', () => { down = undefined; });
-    frame?.addEventListener('load', () => {
-      if (!dialog?.open) return;
+    frame.addEventListener('load', () => {
+      if (!dialog.open) return;
       const doc = frame.contentDocument;
       const navigation = doc?.querySelector<HTMLElement>('[data-study-navigation]');
       if (navigation) navigation.hidden = true;
-      doc?.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') { event.preventDefault(); dialog.close(); }
-      });
+      doc?.addEventListener('keydown', fullscreenKeys);
     });
-    dialog?.addEventListener('close', () => {
-      frame?.removeAttribute('src');
-      cards[active].querySelector<HTMLAnchorElement>('[data-select]')?.focus({preventScroll: true});
+    dialog.addEventListener('close', () => {
+      frame.removeAttribute('src');
+      links[studyIndex(active)].focus({ preventScroll: true });
     });
-    dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   };
   document.querySelectorAll<HTMLElement>('[data-design-studies]').forEach(setup);
 </script>
@@ -231,7 +296,7 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     position: relative;
     isolation: isolate;
     width: min(calc(100% - clamp(1rem, 8vw, 7rem)), 86rem);
-    margin: 0 auto;
+    margin: clamp(5rem, 14vw, 14rem) auto 0;
     padding: clamp(1.85rem, 5vw, 4.25rem) 0 clamp(1rem, 3vw, 2rem);
     background: transparent;
     color: #fcf9fe;
@@ -239,12 +304,26 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     scroll-margin-top: 6rem;
   }
   .design-studies__heading { text-align: center; padding: 0 1.15rem; position: relative; z-index: 2; }
+  .design-studies__handoff { margin: 0 0 .8rem; color: var(--study-lilac); font-size: 1rem; line-height: 1.45; }
   .design-studies h2 { margin: 0 auto; max-width: 43ch; font-weight: 530; font-size: clamp(1.5rem, 3.9vw, 3.3rem); line-height: 1.05; letter-spacing: -.052em; text-wrap: balance; }
-  .design-studies__carousel { position: relative; margin: clamp(.9rem, 3vw, 2.6rem) 0 0; }
-  .design-studies__stage { position: relative; touch-action: pan-y; height: clamp(17rem, 36vw, 28.5rem); }
+  .design-studies__carousel { position: relative; margin: clamp(2rem, 5.2vw, 4.25rem) 0 0; container-type: inline-size; }
+  .design-studies__stage {
+    --study-card-width: min(38.5cqw, 27rem);
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(17rem, 36vw, 28.5rem);
+    padding: 1rem calc((100% - var(--study-card-width)) / 2);
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .design-studies__stage::-webkit-scrollbar { display: none; }
   /* Backlight is anchored to the card silhouette, not painted on its frame.
      The link stays opaque; the broad light spills onto the scenery behind it. */
-  .design-studies__stage::before {
+  .design-studies__carousel::before {
     content: ''; position: absolute; pointer-events: none;
     left: 50%; top: 50%; transform: translate(-50%, -50%);
     width: min(59%, 42rem); height: 129%;
@@ -259,7 +338,7 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
 
   /* Layer only the lateral spill over the neighbors. The opaque active
      card covers its center, so neither the frame nor its contents light up. */
-  .design-studies__stage::after {
+  .design-studies__carousel::after {
     content: ''; position: absolute; z-index: 3; pointer-events: none;
     inset: 0 auto; left: 50%; transform: translateX(-50%);
     width: min(62%, 44rem);
@@ -269,21 +348,19 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
     filter: blur(clamp(7px, 1vw, 15px));
   }
   .design-studies__card {
-    position: absolute; top: 50%; left: 50%;
-    width: min(38.5%, 27rem); margin: 0; transform-origin: center;
-    transform: translate(-50%, -50%) translateX(var(--study-x, 0%)) translateY(var(--study-y, 0%)) scale(var(--study-scale, 1));
-    z-index: var(--study-depth, 4);
-    opacity: var(--study-opacity, 1);
+    position: relative;
+    flex: 0 0 var(--study-card-width);
+    margin-right: calc(var(--study-card-width) * -.1);
+    scroll-snap-align: center;
+    transform-origin: center;
+    transform: translateY(6%) scale(.82);
+    z-index: 1;
+    opacity: .85;
     transition: transform .38s cubic-bezier(.22,.7,.28,1), opacity .3s ease;
   }
-  .design-studies__card:not([data-offset="-2"], [data-offset="-1"], [data-offset="0"], [data-offset="1"], [data-offset="2"]) {
-    opacity: 0; visibility: hidden; pointer-events: none;
-  }
-  [data-preview-running] .design-studies__card { transition-duration: .21s, .17s; }
-  .design-studies__card[data-offset="-2"] { --study-x: -162%; --study-y: 9%; --study-scale: .76; --study-opacity: .86; --study-depth: 1; }
-  .design-studies__card[data-offset="-1"] { --study-x: -91%; --study-y: 7%; --study-scale: .845; --study-depth: 2; }
-  .design-studies__card[data-offset="1"]  { --study-x: 91%; --study-y: 7%; --study-scale: .845; --study-depth: 2; }
-  .design-studies__card[data-offset="2"]  { --study-x: 162%; --study-y: 9%; --study-scale: .76; --study-opacity: .86; --study-depth: 1; }
+  .design-studies__card:last-child { margin-right: 0; }
+  .design-studies__card:is([data-offset="-1"], [data-offset="1"]) { transform: translateY(4%) scale(.89); opacity: 1; z-index: 2; }
+  .design-studies__card[data-active="true"] { transform: none; opacity: 1; z-index: 4; }
   .design-studies__card-link {
     position: relative; display: block; text-decoration: none; color: inherit;
     background: #151218; border: 1px solid #43384d; border-radius: .82rem; overflow: hidden;
@@ -315,7 +392,7 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
   .design-studies__arrow svg { width: 1.4rem; height: 1.4rem; }
   .design-studies__arrow--prev { left: clamp(.3rem, 1.5vw, 1.5rem); }
   .design-studies__arrow--next { right: clamp(.3rem, 1.5vw, 1.5rem); }
-  .design-studies__hint { position: relative; display: flex; align-items: center; justify-content: center; gap: .58rem; margin: .26rem 0 .28rem; color: #f7efff; font-size: .9375rem; font-weight: 700; }
+  .design-studies__hint { position: relative; display: flex; align-items: center; justify-content: center; gap: .58rem; margin: clamp(1.1rem, 2.6vw, 2rem) 0 .28rem; color: #f7efff; font-size: .9375rem; font-weight: 700; }
   .design-studies__hint span { width: min(15%, 8rem); height: 1px; background: #b58fe7; opacity: .75; }
   .design-studies__hint span:first-child::before, .design-studies__hint span:last-child::after { content:''; width: .37rem; height: .37rem; border: solid #b58fe7; border-width: 1px 0 0 1px; display: block; position: relative; top: -.14rem; transform: rotate(-45deg); }
   .design-studies__hint span:last-child::after { margin-left: auto; transform: rotate(135deg); }
@@ -337,7 +414,13 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
   .design-studies__dialog[open] { display: grid; grid-template-rows: auto minmax(0,1fr) auto; }
   :global(html:has(.design-studies__dialog[open])) { overflow: hidden; }
   .design-studies__dialog::backdrop { background: #100916dc; }
-  .design-studies__dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; }
+  .design-studies__dialog-bar { display: flex; align-items: center; gap: .8rem; padding: .7rem 1rem; }
+  .design-studies__dialog-bar div { flex: 1; min-width: 0; }
+  .design-studies__dialog-preview { position: relative; min-height: 0; }
+  .design-studies__dialog-preview .design-studies__arrow {
+    width: 2.9rem; height: 2.9rem; border-color: #ba9ae5;
+    box-shadow: 0 .25rem 1rem #14101955;
+  }
   .design-studies__dialog-bar p { margin: 0; font-size: .9375rem; color: #f7efff; }
   .design-studies__dialog-bar h3 { margin: .15rem 0 0; font-size: 1.25rem; font-weight: 700; }
   .design-studies__dialog-bar button { width: 2.65rem; height: 2.65rem; display: grid; place-items: center; border: 1px solid #795792; border-radius: 50%; background: #271d32; color: #fff; font-size: 1.4rem; cursor: pointer; }
@@ -349,13 +432,13 @@ const openLabel = de ? 'Studie im Vollbild öffnen' : 'Open study in full screen
   .design-studies__dialog iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
   @media (max-width: 650px) {
     .design-studies { width: calc(100% - 1.25rem); }
-    .design-studies__stage { height: clamp(16.5rem, 76vw, 23rem); }
-    .design-studies__stage::before { width: 105%; height: 123%; }
-    .design-studies__stage::after { width: 112%; }
-    .design-studies__card { width: 71%; }
-    .design-studies__card[data-offset="-1"] { --study-x: -83%; --study-scale: .83; }
-    .design-studies__card[data-offset="1"] { --study-x: 83%; --study-scale: .83; }
-    .design-studies__card[data-offset="-2"], .design-studies__card[data-offset="2"] { opacity: 0; visibility: hidden; }
+    .design-studies__stage { --study-card-width: 71cqw; min-height: clamp(16.5rem, 76vw, 23rem); }
+    .design-studies__carousel::before { width: 105%; height: 123%; }
+    .design-studies__carousel::after { width: 112%; }
+    .design-studies__dialog-preview .design-studies__arrow { top: auto; bottom: .75rem; transform: none; }
+    .design-studies__dialog-bar { padding: .55rem .65rem; gap: .55rem; }
+    .design-studies__dialog-bar p { font-size: .75rem; }
+    .design-studies__dialog-bar h3 { font-size: 1.05rem; }
     .design-studies__arrow { width: 2.75rem; height: 2.75rem; }
     .design-studies__card-body { padding-left: .68rem; min-height: 6.5rem; }
     .design-studies__dots { max-width: min(100%, 19rem); }

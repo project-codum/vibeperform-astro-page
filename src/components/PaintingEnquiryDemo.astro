@@ -1,0 +1,111 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+const { locale } = Astro.props as { locale: Locale };
+const de = locale === 'de';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const modes=[
+ {label:de?'Ein Zimmer streichen':'Paint a room', fields:[
+  {label:de?'Wie groß ist das Zimmer?':'How big is the room?', options:de?['Bis 20 m²','Über 20 m²']:['Up to 20 m²','Over 20 m²']},
+  {label:de?'Decke mitstreichen?':'Paint the ceiling too?', options:de?['Nur Wände','Wände und Decke']:['Walls only','Walls and ceiling']},
+ ]},
+ {label:de?'Fassade sanieren':'Renovate a facade', fields:[
+  {label:de?'Was fällt an der Fassade auf?':'What condition is the facade in?', options:de?['Anstrich verwittert','Risse im Putz']:['Weathered paint','Cracked render']},
+  {label:de?'Wie hoch ist das Gebäude?':'How tall is the building?', options:de?['Ein Geschoss','Zwei oder mehr Geschosse']:['One storey','Two or more storeys']},
+ ]},
+];
+---
+<article class="solution" id="anfrage-demo" data-stacked={de || undefined}>
+  {de ? <header class="solution-intro">
+    <h3>So fragen wir Informationen von Kunden ab.</h3>
+    <p>Grafisch treffen Kunden erste Entscheidungen damit <strong>du sinnvolle Anfragen bekommst.</strong></p>
+  </header> : <h3>Get the details you need before you call back.</h3>}
+  <div class="scene">
+    {de ? <div class="original-maler">
+      <h4 class="maler-title">Beispielformular für einen Malerbetrieb – individuell entwickelt</h4>
+      <p class="mini-label">keine Datenübermittlung</p>
+      <iframe loading="lazy" data-original-maler title="Interaktive Maleranfrage: Wände, Maße und Projektstart auswählen" src={base + (import.meta.env.DEV ? '/demos/malerbetrieb/index.html' : '/demos/malerbetrieb/')} sandbox="allow-scripts allow-forms"></iframe>
+    </div> : <div class="demo" data-enquiry-demo>
+      <div class="demo-form">
+        <p class="mini-label">{de ? 'Interaktive Demo · Malerbetrieb' : 'Interactive demo · Painting business'}</p>
+        <label class="sc-field"><span>{de ? 'Was möchtest du machen lassen?' : 'What work do you need?'}</span><select data-mode>{modes.map((mode, index) => <option value={String(index)}>{mode.label}</option>)}</select></label>
+        {modes.map((mode, index) => <div data-branch={index} hidden={index !== 0}>{mode.fields.map(field => <label class="sc-field"><span>{field.label}</span><select>{field.options.map(option => <option>{option}</option>)}</select></label>)}</div>)}
+        <small>{de ? 'Nur ein Beispiel. Nichts wird gesendet.' : 'Example only. Nothing is sent.'}</small>
+      </div>
+      <div class="demo-result" aria-live="polite" aria-atomic="true">
+        <p class="mini-label">{de ? 'So kommt die Anfrage an' : 'What the business receives'}</p>
+        <strong data-summary-title>{modes[0].label}</strong>
+        <ul><li data-summary-answer>{modes[0].fields[0].options[0]}</li><li data-summary-answer>{modes[0].fields[1].options[0]}</li></ul>
+      </div>
+    </div>}
+  </div>
+  <a class="hp-button sc-cta" href={base + '/' + locale + '/#kontakt'}>{de ? 'Zum Kennenlerngespräch' : 'Go to the intro call'}<span aria-hidden="true">↓</span></a>
+</article>
+
+<script>
+ function setup(){
+  for(const frame of document.querySelectorAll<HTMLIFrameElement>('[data-original-maler]:not([data-ready])')){
+   frame.dataset.ready='true';
+   window.addEventListener('message',event=>{
+    if(event.source!==frame.contentWindow || event.data?.kind!=='maler-state' || !Number.isFinite(event.data.height))return;
+    frame.style.height=`${Math.min(1800,Math.max(280,Math.ceil(event.data.height)))}px`;
+   });
+  }
+  for(const demo of document.querySelectorAll<HTMLElement>('[data-enquiry-demo]')){
+   if(demo.dataset.ready)continue;
+   demo.dataset.ready='true';
+   const mode=demo.querySelector<HTMLSelectElement>('[data-mode]');
+   if(!mode)continue;
+   const branches=[...demo.querySelectorAll<HTMLElement>('[data-branch]')];
+   const title=demo.querySelector('[data-summary-title]');
+   const result=[...demo.querySelectorAll('[data-summary-answer]')];
+   const update=()=>{
+    branches.forEach((b,n)=>{b.hidden=n!==Number(mode.value);});
+    if(title)title.textContent=mode.selectedOptions[0].text;
+    branches[Number(mode.value)].querySelectorAll<HTMLSelectElement>('select').forEach((el,n)=>{result[n].textContent=el.value;});
+   };
+   demo.addEventListener('change',update);update();
+  }
+ }
+ setup();document.addEventListener('astro:page-load',setup);
+</script>
+
+<style>
+  .solution {
+    --sc-surface: #fffdfa;
+    --sc-flieder: #e8deef;
+  }
+  h3 { margin: 0; font-weight: 700; font-size: clamp(1.42rem, 2.3vw, 2rem); line-height: 1.2; letter-spacing: -.025em; }
+  p { margin: 0; }
+  .solution { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); grid-template-areas: "title scene" "button scene"; grid-template-rows: 1fr 1fr; column-gap: clamp(1.5rem, 6vw, 5rem); align-items: center; padding-block: clamp(1.75rem, 4.5vw, 3.5rem); scroll-margin-top: 5rem; }
+  .solution > h3 { grid-area: title; align-self: end; }
+  .solution > .scene { grid-area: scene; }
+  .sc-cta { grid-area: button; align-self: start; justify-self: start; margin-top: 1.5rem; }
+  .solution-intro { grid-area: title; }
+  .solution-intro p { margin: .65rem 0 0; max-width: 65ch; font-size: 1.25rem; line-height: 1.55; }
+  .solution-intro strong { font-weight: 700; }
+  .sc-cta:focus-visible, .sc-field select:focus-visible { outline: 2px solid var(--hp-plum); outline-offset: 3px; }
+  .scene { min-width: 0; padding: clamp(.75rem, 2.5vw, 1.5rem); border: 1px solid var(--hp-line); border-radius: 6px; background: var(--sc-flieder); }
+  .solution[data-stacked] {
+    grid-template: "title" auto "scene" auto "button" auto / minmax(0, 1fr);
+    row-gap: clamp(1.25rem, 2.5vw, 2rem);
+    max-width: 50rem;
+    margin-inline: auto;
+  }
+  .solution[data-stacked] .sc-cta { margin-top: 0; }
+  .maler-title { margin: 0 0 .35rem; font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.2; text-wrap: balance; }
+  .mini-label { margin-bottom: .75rem; font-size: .9375rem; font-weight: 700; line-height: 1.4; }
+  .original-maler > .mini-label { font-size: 1rem; }
+  .demo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .demo-form, .demo-result { padding: .875rem; border: 1px solid var(--hp-line); border-radius: 6px; background: var(--sc-surface); font-size: 1rem; line-height: 1.5; }
+  .demo-result ul { padding-left: 1rem; margin: .55rem 0; }
+  .demo-result li { margin-top: .25rem; }
+  .sc-field { display: grid; gap: .25rem; margin-bottom: .65rem; font-weight: 700; }
+  .sc-field select { width: 100%; min-height: 2.5rem; padding: .35rem; border: 1px solid var(--hp-plum); border-radius: 6px; background: var(--sc-surface); color: var(--hp-ink); font: inherit; }
+  .demo-form small { display: block; font-size: .875rem; line-height: 1.45; }
+  .original-maler iframe { display: block; width: 100%; height: 760px; border: 1px solid var(--hp-line); border-radius: 6px; background: var(--sc-surface); }
+  @media (max-width: 700px) {
+    .solution { grid-template: "title" auto "scene" auto "button" auto / minmax(0, 1fr); row-gap: 1.5rem; }
+    .sc-cta { margin-top: 0; }
+  }
+  @media (max-width: 430px) { .demo { grid-template-columns: 1fr; } }
+</style>

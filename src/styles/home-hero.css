@@ -30,17 +30,11 @@
 .vf-hero-bottom{min-height:60px}
 @media(max-width:700px){.vf-hero{padding-top:110px;min-height:max(740px,100svh)}.vf-copy{padding:35px 22px 48px}.vf-copy h1{font-size:clamp(33px,8.4vw,54px);line-height:1.12}.vf-actions{margin-top:24px;gap:8px}.vf-hero-bottom{min-height:55px}}
 
-/* Static portrait remains available without WebGL or with reduced motion. */
-.vf-portrait-bubble{position:absolute;right:8%;top:145px;width:clamp(120px,13vw,180px);aspect-ratio:1;border-radius:50%;overflow:hidden;z-index:2;border:2px solid #c7a4e970;box-shadow:0 0 30px #a77bd526}
-.vf-portrait-bubble img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.vf-fluid[data-fluid=ready]:not([data-motion=reduced]) .vf-portrait-bubble{opacity:0}
 .vf-copy{max-width:1160px;padding-top:145px}
 .vf-copy h1{font-size:clamp(40px,5.1vw,74px)}
 .vf-kicker{font-size:13px;letter-spacing:.025em;text-transform:none}
 
-@media(max-width:700px){.vf-portrait-bubble{width:100px;right:28px;top:100px}.vf-copy{padding-top:140px}.vf-copy h1{font-size:clamp(30px,7.8vw,54px);hyphens:none;overflow-wrap:normal}.vf-kicker{font-size:12px}.vf-actions .vf-primary{gap:14px;max-width:100%;text-align:left}}
-
-@media(prefers-reduced-motion:reduce){.vf-fluid .vf-portrait-bubble{opacity:1!important}}
+@media(max-width:700px){.vf-copy{padding-top:140px}.vf-copy h1{font-size:clamp(30px,7.8vw,54px);hyphens:none;overflow-wrap:normal}.vf-kicker{font-size:12px}.vf-actions .vf-primary{gap:14px;max-width:100%;text-align:left}}
 
 /* Match the three German headline lines through type size, without stretching glyphs. */
 .vf-copy h1.vf-title-aligned{letter-spacing:-.055em}

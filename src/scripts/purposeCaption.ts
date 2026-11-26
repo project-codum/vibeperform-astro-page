@@ -10,7 +10,7 @@ if (heading && stage && pin && !reducedMotion.matches) {
   const words = Array.from(heading.querySelectorAll<HTMLElement>('.hp-caption-word'));
   const events = new AbortController();
   let frame = 0;
-  const leadIn = 120; // Let the pinned statement arrive before its first word.
+  const leadIn = 64; // Let the pinned statement arrive before its first word.
   let distance = 1;
   let lastProgress = Number.NaN;
   let done = false;

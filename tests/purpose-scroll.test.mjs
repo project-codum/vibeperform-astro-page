@@ -48,20 +48,20 @@ async function fixture(t, reduced = false) {
   return { window, words, heading, mission, stage, motion, frames, flush, scroll };
 }
 
-test('first word waits for 120px and subsequent words require 150px each', async t => {
+test('first word waits for 64px and subsequent words require 150px each', async t => {
   const f = await fixture(t);
-  assert.equal(f.stage.style['--purpose-scroll-distance'], '1470px');
-  f.scroll(100);
+  assert.equal(f.stage.style['--purpose-scroll-distance'], '1414px');
+  f.scroll(63);
   assert(f.words.every(word => word.style.opacity === '0'));
-  f.scroll(120);
+  f.scroll(64);
   assert.equal(f.words[0].style.opacity, '1');
   assert.equal(f.words[0].style.transform, 'scale(1.2)');
   assert.equal(f.words[1].style.opacity, '0');
-  f.scroll(271);
+  f.scroll(215);
   assert.equal(f.words[1].style.opacity, '1');
   assert.equal(f.words[2].style.opacity, '0');
   assert.equal(f.mission.style.opacity, '0');
-  f.scroll(1320);
+  f.scroll(1264);
   assert.ok(Math.abs(Number(f.mission.style.opacity) - 0.5) < 1e-9);
 });
 
@@ -73,9 +73,9 @@ test('scroll events coalesce, stop without autoplay, and reverse until completio
   assert.equal(f.frames.size, 1);
   f.flush();
   assert.equal(f.frames.size, 0, 'no self-scheduling playback loop');
-  f.scroll(120);
+  f.scroll(64);
   assert.equal(f.words[1].style.opacity, '0');
-  f.scroll(1470);
+  f.scroll(1414);
   assert.equal(f.heading.dataset.captionState, 'complete');
   assert(f.words.every(word => word.style.opacity === undefined && word.style.transform === undefined));
   assert.equal(f.mission.style.opacity, undefined);

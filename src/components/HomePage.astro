@@ -23,7 +23,7 @@ const story = homeStoryContent[locale];
   <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={alternateLocaleHref} />
   <main class="home-main">
     <div class="hp-hero-canvas">
-      <HomeHero copy={homeIntroContent[locale]} />
+      <HomeHero copy={homeIntroContent[locale]} locale={locale} />
       <HomeDesignStudies locale={locale} />
     </div>
 
@@ -45,6 +45,7 @@ const story = homeStoryContent[locale];
 
     <HomeSituationSolutions locale={locale} />
     <HomeProjectVisibility locale={locale} />
+    {locale === 'de' && <aside class="case-reference"><div class="hp-wrap"><a href="/de/fallstudien/wunderwelt-kids/"><span>Fallstudie lesen</span>Warum wir die Website von Wunderwelt.kids mit einem Hotelfoto eröffnen <b aria-hidden="true">↗</b></a></div></aside>}
     <HomeServices locale={locale} />
 
     <script is:inline>document.documentElement.classList.add('has-scroll-reveals');</script>

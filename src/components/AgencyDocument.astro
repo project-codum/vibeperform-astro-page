@@ -9,14 +9,14 @@ import AgencyFooter from './AgencyFooter.astro';
 import { homeIntroContent } from '../data/homeIntroContent';
 import { absoluteUrl, jsonLd, organizationSchema, websiteSchema, type Locale } from '../lib/siteMetadata';
 
-interface Props { locale: Locale; title: string; description: string; path: string; alternatePath: string; service?: boolean; preview?: boolean; noindex?: boolean; about?: boolean; image?: string; imageWidth?: number; imageHeight?: number; imageAlt?: string; }
-const { locale, title, description, path, alternatePath, service = false, preview = false, noindex = false, about = false, image, imageWidth, imageHeight, imageAlt } = Astro.props;
+interface Props { locale: Locale; title: string; description: string; path: string; alternatePath?: string; caseStudy?: boolean; service?: boolean; preview?: boolean; noindex?: boolean; about?: boolean; image?: string; imageWidth?: number; imageHeight?: number; imageAlt?: string; }
+const { locale, title, description, path, alternatePath, caseStudy = false, service = false, preview = false, noindex = false, about = false, image, imageWidth, imageHeight, imageAlt } = Astro.props;
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const canonical = absoluteUrl(path);
 const socialImage = absoluteUrl(image ?? '/vibeperform-logo-a-20261020.png');
 const socialImageAlt = imageAlt ?? (about ? 'Marlon Dietrich · VibePerform' : 'VibePerform');
 const data = [organizationSchema(), websiteSchema(locale), {
-  '@context': 'https://schema.org', '@type': service ? 'Service' : about ? 'AboutPage' : 'CollectionPage',
+  '@context': 'https://schema.org', '@type': service ? 'Service' : about ? 'AboutPage' : caseStudy ? 'Article' : 'CollectionPage',
   '@id': `${canonical}#${service ? 'service' : 'webpage'}`, name: title.split(' | ')[0], description, url: canonical,
   ...(about ? { mainEntity: { '@type': 'Person', '@id': absoluteUrl('/de/ueber-uns/#marlon'), name: 'Marlon Dietrich', jobTitle: locale === 'de' ? 'Inhaber von VibePerform' : 'Owner of VibePerform', url: canonical, ...(image ? { image: absoluteUrl(image) } : {}) } } : {}),
   ...(service ? { provider: { '@id': absoluteUrl('/#organization') } } : { inLanguage: locale }),
@@ -38,10 +38,12 @@ const data = [organizationSchema(), websiteSchema(locale), {
     <meta name="description" content={description} />
     {(preview || noindex) && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
+    {alternatePath && <>
     <link rel="alternate" hreflang={locale} href={canonical} />
     <link rel="alternate" hreflang={locale === 'de' ? 'en' : 'de'} href={absoluteUrl(alternatePath)} />
     <link rel="alternate" hreflang="x-default" href={absoluteUrl(locale === 'de' ? path : alternatePath)} />
-    <link rel="alternate" type="text/markdown" href={absoluteUrl(`${path}index.md`)} />
+    </>}
+    {!caseStudy && <link rel="alternate" type="text/markdown" href={absoluteUrl(`${path}index.md`)} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -65,10 +67,10 @@ const data = [organizationSchema(), websiteSchema(locale), {
   </head>
   <body>
     <div class="home-shell" id="top">
-      <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={`${base}${alternatePath}${preview ? 'v2/' : ''}`} />
+      <HomeNavigation copy={homeIntroContent[locale]} locale={locale} alternateLocaleHref={`${base}${alternatePath ?? (locale === 'de' ? '/en/' : '/de/')}${preview ? 'v2/' : ''}`} />
       <main class="home-main"><slot /></main>
       <AgencyFooter locale={locale} />
     </div>
-    <SmoothScroll />
+    {!caseStudy && <SmoothScroll />}
   </body>
 </html>

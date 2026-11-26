@@ -1,0 +1,97 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+import '../styles/home-web-check.css';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const copy = locale === 'de' ? {
+  url: 'Adresse deiner Webseite',
+  placeholder: 'https://deine-webseite.de',
+  check: 'Checken',
+  close: 'Web Check schließen',
+  invalid: 'Gib eine öffentliche Webadresse ein, zum Beispiel deine-webseite.de.',
+  loading: 'Webseitenvorschau wird geladen …',
+  sequence: 'Überprüfen der Webseite',
+  steps: ['Gestaltung und Verständlichkeit', 'Aktuelle Inhalte und Leistungen', 'Lesbarkeit für KI', 'Kontaktmöglichkeiten'],
+  email: 'Deine E-Mail-Adresse',
+  phone: 'Deine Telefonnummer',
+  optional: 'optional',
+  send: 'Ergebnis anfordern',
+  privacyNotice: 'VibePerform verarbeitet deine Angaben für den Web Check und den Versand des Ergebnisses. Informationen zur Verarbeitung und zu deinen Rechten findest du in der',
+  privacy: 'Datenschutzerklärung',
+  pending: 'Anfrage wird gesendet …',
+  confirmation: 'Wir melden uns mit dem Ergebnis.',
+  failed: 'Deine Anfrage konnte gerade nicht gesendet werden. Versuch es bitte erneut.',
+  invalidContact: 'Prüfe bitte deine E-Mail-Adresse und gegebenenfalls deine Telefonnummer.',
+  limited: 'Bitte warte kurz und versuche es dann erneut.',
+} : {
+  url: 'Your website address',
+  placeholder: 'https://your-website.com',
+  check: 'Check',
+  close: 'Close Web Check',
+  invalid: 'Enter a public website address, for example your-website.com.',
+  loading: 'Loading website preview …',
+  sequence: 'Reviewing your website',
+  steps: ['Design and clarity', 'Up-to-date content and services', 'Readability for AI', 'Ways to get in touch'],
+  email: 'Your email address',
+  phone: 'Your phone number',
+  optional: 'optional',
+  send: 'Request results',
+  privacyNotice: 'VibePerform processes your details to review your website and send the results. For details about processing and your rights, see our',
+  privacy: 'privacy policy',
+  pending: 'Sending your request …',
+  confirmation: 'We’ll be in touch with the results.',
+  failed: 'Your request could not be sent. Please try again.',
+  invalidContact: 'Please check your email address and phone number if provided.',
+  limited: 'Please wait a moment before trying again.',
+};
+---
+<vf-web-check class="vf-web-check" data-locale={locale}>
+  <button class="vf-check-bubble" type="button" aria-controls="home-web-check" aria-expanded="false" aria-label="Web Check" hidden>
+    <span class="vf-check-bubble-label" aria-hidden="true"><span>Web</span><span>Check</span></span>
+  </button>
+  <div class="vf-check-morph" aria-hidden="true" hidden>
+    <span class="vf-check-bubble-label"><span>Web</span><span>Check</span></span>
+  </div>
+  <div class="vf-check-preview" aria-hidden="true" inert hidden>
+    <iframe title={copy.url} sandbox="" referrerpolicy="no-referrer" tabindex="-1"></iframe>
+  </div>
+  <div class="vf-check-panel" id="home-web-check" role="region" aria-label="Web Check" hidden>
+    <button class="vf-check-close" type="button" aria-label={copy.close}>×</button>
+    <form class="vf-check-url" novalidate>
+      <label class="vf-check-sr" for="web-check-url">{copy.url}</label>
+      <input id="web-check-url" type="text" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder={copy.placeholder} maxlength="2048" aria-describedby="web-check-url-error" required />
+      <button class="vf-check-action" type="submit">{copy.check}<span aria-hidden="true">↗</span></button>
+    </form>
+    <p class="vf-check-error" id="web-check-url-error" role="status" data-message={copy.invalid}></p>
+
+    <p class="vf-check-loading" role="status" hidden><span aria-hidden="true"></span>{copy.loading}</p>
+    <div class="vf-check-analysis" tabindex="-1" hidden>
+      <p class="vf-check-target"></p>
+      <h2>{copy.sequence}</h2>
+      <ul class="vf-check-steps">
+        {copy.steps.map(step => <li data-status="pending"><span class="vf-check-indicator" aria-hidden="true"></span>{step}</li>)}
+      </ul>
+      <p class="vf-check-sr" role="status" data-progress></p>
+    </div>
+    <form class="vf-check-contact" aria-label={copy.send} hidden>
+      <label>
+        <span>{copy.email}</span>
+        <input type="email" autocomplete="email" maxlength="254" required />
+      </label>
+      <label>
+        <span>{copy.phone} <small>({copy.optional})</small></span>
+        <input type="tel" autocomplete="tel" maxlength="40" />
+      </label>
+      <p class="vf-check-note">{copy.privacyNotice} <a href={locale === 'de' ? '/de/datenschutz/' : '/en/privacy/'}>{copy.privacy}</a>.</p>
+      <input type="text" class="vf-check-sr" data-contact-note tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button class="vf-check-action" type="submit" data-pending={copy.pending}>{copy.send}</button>
+      <p class="vf-check-confirmation" role="status" tabindex="-1" data-confirmation={copy.confirmation}
+        data-failed={copy.failed} data-invalid={copy.invalidContact} data-limited={copy.limited}></p>
+    </form>
+  </div>
+</vf-web-check>
+
+<script>
+  import '../scripts/homeWebCheck';
+</script>
