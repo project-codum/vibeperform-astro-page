@@ -24,7 +24,7 @@ export const homePageContent = {
       ],
     },
     contact: { title: 'Buch dir ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommst du von mir', bodyEmphasis: 'kostenlos',
-      benefits: ['einen Statuscheck', 'Benotung des Online-Auftritts', 'Feedback für Verbesserungen'],
+      benefits: ['Statuscheck der Webseite', 'Benotung des Online-Auftritts', 'Feedback für Verbesserungen'],
       booking: 'Erstgespräch buchen', emailButton: 'E-Mail schreiben',
       moreTitle: 'Noch nicht überzeugt?',
       moreLinks: [

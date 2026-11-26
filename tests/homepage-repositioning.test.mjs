@@ -31,7 +31,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
       const contact = html.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)?.[0];
       assert.ok(contact);
       assert.match(contact, /Im Gespräch bekommst du von mir\s*<strong>kostenlos<\/strong>:/);
-      assert.match(contact, /<li>einen Statuscheck<\/li>\s*<li>Benotung des Online-Auftritts<\/li>\s*<li>Feedback für Verbesserungen<\/li>/);
+      assert.match(contact, /<li>Statuscheck der Webseite<\/li>\s*<li>Benotung des Online-Auftritts<\/li>\s*<li>Feedback für Verbesserungen<\/li>/);
       assert.doesNotMatch(contact, /hp-contact-price|Lieber eine E-Mail schreiben/);
       assert.match(contact, /Noch nicht überzeugt\?/);
       assert.match(contact, /href="\/de\/fallstudien\/wunderwelt-kids\/"[^>]*>Kundenprojekt ansehen/);

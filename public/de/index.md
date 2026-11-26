@@ -63,7 +63,7 @@ Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Proj
 
 Im Gespräch bekommst du von mir **kostenlos**:
 
-- einen Statuscheck
+- Statuscheck der Webseite
 - Benotung des Online-Auftritts
 - Feedback für Verbesserungen
 
