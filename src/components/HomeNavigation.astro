@@ -1,12 +1,19 @@
 ---
-import { serviceMenu, servicePaths } from '../data/serviceContent';
+import { serviceMenu } from '../data/serviceContent';
 import type { HomeIntroContent } from '../data/homeIntroContent';
+
 interface Props { copy: HomeIntroContent; locale: 'de' | 'en'; alternateLocaleHref: string; }
 const { copy, locale, alternateLocaleHref } = Astro.props;
-const groups = serviceMenu(locale).map(group => locale === 'de' ? { ...group, title: group.title.replaceAll('Websites', 'Webseiten'), links: group.links.map(link => ({ ...link, label: link.label.replaceAll('Websites', 'Webseiten').replaceAll('Website', 'Webseite'), description: link.description.replaceAll('Websites', 'Webseiten').replaceAll('Website', 'Webseite') })) } : group);
+const de = locale === 'de';
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 const active = (path: string) => currentPath === `${base}${path}`;
-const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+const agencyPath = `/${locale}/${de ? 'ueber-uns' : 'about-us'}/`;
+const insightsPath = `/${locale}/blog/`;
+const servicesLabel = de ? 'Leistungen' : 'Services';
+const localize = (text: string) => de ? text.replaceAll('Websites', 'Webseiten').replaceAll('Website', 'Webseite') : text;
+const groups = serviceMenu(locale);
+const servicesActive = groups.some(group => group.links.some(link => active(link.href)));
 ---
 <a class="home-skip" href="#home-intro">{copy.skipLabel}</a>
 <header class="home-navigation">
@@ -14,19 +21,51 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
     <a class="home-brand" href={`${base}/${locale}/`} aria-label={copy.homeLabel}>
       <img src={`${base}/vibeperform-logo-a-20261020-dunkel.svg`} alt="VibePerform" width="224" height="132" loading="eager" decoding="async" />
     </a>
-    <button class="home-menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false" data-open-label={copy.menuLabel} data-close-label={copy.closeLabel} hidden>{copy.menuLabel}<span aria-hidden="true">＋</span></button>
-    <nav id="home-menu" aria-label={copy.navLabel}>
+    <button class="home-menu-toggle" type="button" aria-controls="home-menu" aria-expanded="false" data-open-label={copy.menuLabel} data-close-label={copy.closeLabel} hidden>
+      <span data-menu-label>{copy.menuLabel}</span><span class="home-menu-icon" aria-hidden="true"></span>
+    </button>
+    <nav id="home-menu" aria-label={copy.navLabel} data-lenis-prevent>
       <details class="home-services-menu">
-        <summary class:list={{ 'home-services-active': groups.some(group => group.links.some(link => active(link.href))) || currentPath.includes(servicePaths[locale].website) }}>{locale === 'de' ? 'Leistungen' : 'Services'}<span aria-hidden="true">⌄</span></summary>
+        <summary class:list={{ 'home-services-active': servicesActive }}>
+          {servicesLabel}<span class="home-chevron" aria-hidden="true"></span>
+        </summary>
         <div class="home-mega-panel">
-          <div class="home-mega-top"><span>{locale === 'de' ? 'Dein digitaler Firmenauftritt' : 'Your online presence'}</span><a href={`${base}${servicePaths[locale].overview}`}>{locale === 'de' ? 'Alle Leistungen' : 'All services'} ↗</a></div>
-          <div class="home-mega-columns">{groups.map(group => <div class="home-mega-group"><h2>{group.title}</h2>{group.links.map(link => <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined}><strong>{link.label}</strong><span>{link.description}</span></a>)}</div>)}</div>
+          <div class="home-mega-mobile-head">
+            <button class="home-mega-back" type="button" hidden>
+              <span class="home-chevron" aria-hidden="true"></span>{de ? 'Zurück' : 'Back'}
+            </button>
+            <span>{servicesLabel}</span>
+          </div>
+          <div class="home-mega-columns">
+            {groups.map(group => (
+              <div class="home-mega-group">
+                <h2>{localize(group.title)}</h2>
+                <ul>
+                  {group.links.map(link => (
+                    <li>
+                      <a href={`${base}${link.href}`} aria-current={active(link.href) ? 'page' : undefined}>
+                        <span class="home-mega-link-copy">
+                          <strong>{localize(link.label)}</strong>
+                          <span>{localize(link.description)}</span>
+                        </span>
+                        <span class="home-chevron" aria-hidden="true"></span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </details>
-      <a aria-current={active(`/${locale}/${locale === 'de' ? 'ueber-uns' : 'about-us'}/`) ? 'page' : undefined} href={`${base}/${locale}/${locale === 'de' ? 'ueber-uns' : 'about-us'}/`}>{locale === 'de' ? 'Agentur' : 'Agency'}</a>
-      <a aria-current={currentPath.startsWith(`${base}/${locale}/blog/`) ? (active(`/${locale}/blog/`) ? 'page' : 'location') : undefined} href={`${base}/${locale}/blog/`}>{locale === 'de' ? 'Wissen' : 'Insights'}</a>
-      <a class="home-nav-contact" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
-      <a class="home-language" href={alternateLocaleHref} aria-label={copy.languageAria} data-locale-switch data-target-locale={locale === 'de' ? 'en' : 'de'} data-analytics-location="home-navigation">{copy.languageLabel}</a>
+      <div class="home-main-links">
+        <a aria-current={active(agencyPath) ? 'page' : undefined} href={`${base}${agencyPath}`}>{de ? 'Agentur' : 'Agency'}</a>
+        <a aria-current={currentPath.startsWith(`${base}${insightsPath}`) ? (active(insightsPath) ? 'page' : 'location') : undefined} href={`${base}${insightsPath}`}>{de ? 'Wissen' : 'Insights'}</a>
+      </div>
+      <div class="home-nav-actions">
+        <a class="home-nav-contact" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
+        <a class="home-language" href={alternateLocaleHref} aria-label={copy.languageAria} data-locale-switch data-target-locale={de ? 'en' : 'de'} data-analytics-location="home-navigation">{copy.languageLabel}</a>
+      </div>
     </nav>
   </vf-home-navigation>
 </header>
@@ -34,78 +73,329 @@ const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 <script>
   class HomeNavigation extends HTMLElement {
     private cleanup?: () => void;
+
     connectedCallback() {
       if (this.cleanup) return;
-      const toggle = this.querySelector<HTMLButtonElement>('button')!;
+      const toggle = this.querySelector<HTMLButtonElement>('.home-menu-toggle')!;
+      const toggleLabel = toggle.querySelector<HTMLElement>('[data-menu-label]')!;
       const menu = this.querySelector<HTMLElement>('nav')!;
       const services = this.querySelector<HTMLDetailsElement>('.home-services-menu')!;
-      const servicesToggle = services.querySelector<HTMLElement>('summary')!;
+      const summary = services.querySelector<HTMLElement>('summary')!;
+      const panel = services.querySelector<HTMLElement>('.home-mega-panel')!;
+      const back = panel.querySelector<HTMLButtonElement>('.home-mega-back')!;
       const mobile = matchMedia('(max-width: 900px)');
       const events = new AbortController();
-      const setOpen = (open: boolean, restoreFocus = false) => {
-        if (!open) services.open = false;
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.innerHTML = `${open ? toggle.dataset.closeLabel : toggle.dataset.openLabel}<span aria-hidden="true">${open ? '−' : '＋'}</span>`;
-        menu.hidden = mobile.matches && !open;
-        if (restoreFocus) toggle.focus();
+      const options = { signal: events.signal };
+      let leaveTimer: number | undefined;
+      let openedOnHover = false;
+
+      const setServices = (open: boolean) => {
+        window.clearTimeout(leaveTimer);
+        openedOnHover = false;
+        services.open = open;
+        if (mobile.matches) menu.scrollTop = 0;
       };
-      const sync = () => { toggle.hidden = !mobile.matches; setOpen(false); };
-      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'), { signal: events.signal });
-      this.addEventListener('keydown', event => {
+      const setMenu = (open: boolean) => {
+        if (!open) setServices(false);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggleLabel.textContent = open ? toggle.dataset.closeLabel! : toggle.dataset.openLabel!;
+        menu.hidden = mobile.matches && !open;
+      };
+      const sync = () => {
+        const focusInMenu = menu.contains(document.activeElement);
+        const focusNeedsDesktopTarget = document.activeElement === toggle || panel.contains(document.activeElement);
+        toggle.hidden = !mobile.matches;
+        back.hidden = !mobile.matches;
+        setMenu(false);
+        if (mobile.matches && focusInMenu) toggle.focus();
+        if (!mobile.matches && focusNeedsDesktopTarget) summary.focus();
+      };
+
+      this.dataset.enhanced = 'true';
+      sync();
+      mobile.addEventListener('change', sync, options);
+      toggle.addEventListener('click', () => setMenu(menu.hidden), options);
+      summary.addEventListener('click', event => {
+        event.preventDefault();
+        const open = !services.open || (openedOnHover && event.detail > 0);
+        setServices(open);
+        if (open && mobile.matches) back.focus({ preventScroll: true });
+      }, options);
+      back.addEventListener('click', () => {
+        setServices(false);
+        summary.focus({ preventScroll: true });
+      }, options);
+
+      summary.addEventListener('pointerenter', event => {
+        if (mobile.matches || event.pointerType !== 'mouse') return;
+        window.clearTimeout(leaveTimer);
+        if (!services.open) {
+          setServices(true);
+          openedOnHover = true;
+        }
+      }, options);
+      panel.addEventListener('pointerenter', () => window.clearTimeout(leaveTimer), options);
+      services.addEventListener('pointerleave', event => {
+        if (mobile.matches || event.pointerType !== 'mouse') return;
+        window.clearTimeout(leaveTimer);
+        leaveTimer = window.setTimeout(() => {
+          if (openedOnHover && !panel.contains(document.activeElement)) setServices(false);
+        }, 140);
+      }, options);
+      services.addEventListener('focusout', event => {
+        if (!mobile.matches && event.relatedTarget && !services.contains(event.relatedTarget as Node)) setServices(false);
+      }, options);
+
+      document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
-        if (services.open) { services.open = false; servicesToggle.focus(); }
-        else if (toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
-      }, { signal: events.signal });
+        if (services.open) {
+          const restoreFocus = this.contains(document.activeElement);
+          setServices(false);
+          if (restoreFocus) summary.focus({ preventScroll: true });
+        } else if (mobile.matches && !menu.hidden) {
+          setMenu(false);
+          toggle.focus({ preventScroll: true });
+        } else return;
+        event.preventDefault();
+        event.stopPropagation();
+      }, options);
       this.addEventListener('click', event => {
         const link = (event.target as Element).closest<HTMLAnchorElement>('a');
         if (!link) return;
         if (link.dataset.targetLocale) {
           try { localStorage.setItem('vibeperform:locale', link.dataset.targetLocale); } catch { /* Language links still navigate without storage. */ }
         }
-        setOpen(false);
-      }, { signal: events.signal });
-      document.addEventListener('click', event => { if (!this.contains(event.target as Node)) setOpen(false); }, { signal: events.signal });
-      services.addEventListener('focusout', event => {
-        if (event.relatedTarget && !services.contains(event.relatedTarget as Node)) services.open = false;
-      }, { signal: events.signal });
+        if (mobile.matches && !menu.hidden) toggle.focus({ preventScroll: true });
+        else if (panel.contains(link)) summary.focus({ preventScroll: true });
+        setMenu(false);
+      }, options);
+      document.addEventListener('click', event => {
+        if (this.contains(event.target as Node)) return;
+        if (mobile.matches && menu.contains(document.activeElement)) toggle.focus({ preventScroll: true });
+        else if (!mobile.matches && panel.contains(document.activeElement)) summary.focus({ preventScroll: true });
+        setMenu(false);
+      }, options);
       this.addEventListener('focusout', event => {
-        if (event.relatedTarget && !this.contains(event.relatedTarget as Node)) setOpen(false);
-      }, { signal: events.signal });
-      mobile.addEventListener('change', sync);
-      sync();
-      this.dataset.enhanced = 'true';
-      this.cleanup = () => { events.abort(); mobile.removeEventListener('change', sync); this.cleanup = undefined; };
+        if (event.relatedTarget && !this.contains(event.relatedTarget as Node)) setMenu(false);
+      }, options);
+
+      this.cleanup = () => {
+        window.clearTimeout(leaveTimer);
+        events.abort();
+        this.cleanup = undefined;
+      };
     }
     disconnectedCallback() { this.cleanup?.(); }
   }
   if (!customElements.get('vf-home-navigation')) customElements.define('vf-home-navigation', HomeNavigation);
 </script>
 <style>
-  .home-navigation{position:absolute;top:0;left:0;right:0;z-index:20;color:#f7f4fb;font-family:Arial,Helvetica,sans-serif}
-  vf-home-navigation{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;width:min(100%,1440px);margin:auto;padding:22px 4.4%}
-  .home-brand{display:block;width:138px;flex-shrink:0;border-radius:4px}
-  .home-brand img{display:block;width:100%;height:auto}
-  nav{display:flex;align-items:center;gap:30px;font-size:14px}
-  nav[hidden],button[hidden]{display:none}
-  a{color:inherit;text-decoration:none}nav a{display:inline-flex;align-items:center;gap:15px;min-height:44px}
-  nav a:hover{text-decoration:underline;text-underline-offset:5px}
-  .home-nav-contact{border:1px solid #776387;padding:8px 15px;border-radius:var(--radius-pill,9999px)}
-  .home-language{border-left:1px solid #62596d;padding-left:22px;font-size:12px;color:#c9c4ce}
-  .home-menu-toggle{min-width:90px;min-height:44px;padding:8px 12px;border:1px solid #776387;border-radius:var(--radius-pill,9999px);background:#211a2c;color:#f7f4fb;align-items:center;justify-content:space-between;gap:12px;font:14px Arial,sans-serif;cursor:pointer}
-  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #dac8ff;outline-offset:5px}
-  .home-skip{position:fixed;top:10px;left:10px;z-index:100;padding:12px 18px;background:#f5f2ed;color:#28232e;transform:translateY(-160%);font:16px Arial,sans-serif}.home-skip:focus{transform:none}
-  @media(max-width:900px){vf-home-navigation{padding:15px 24px;flex-wrap:wrap;gap:8px}.home-brand{width:112px}.home-menu-toggle:not([hidden]){display:flex}nav{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:18px;background:#1d1923;border:1px solid #62596d;border-radius:6px}nav a{padding:8px 12px}.home-language{border-left:0;border-top:1px solid #62596d;margin-top:4px}.home-nav-contact{margin:5px 0}vf-home-navigation[data-enhanced] nav{position:absolute;top:calc(100% - 4px);left:24px;right:24px;width:auto}}
-  .home-services-menu>summary{display:flex;gap:10px;align-items:center;min-height:44px;cursor:pointer;list-style:none}.home-services-menu>summary::-webkit-details-marker{display:none}.home-services-menu>summary>span{transition:transform .2s}.home-services-menu[open]>summary>span{transform:rotate(180deg)}.home-services-menu[open]>summary,.home-services-active{color:#d6bdf2}
-  .home-mega-panel{position:absolute;top:calc(100% - 5px);left:4.4%;right:4.4%;background:#f5f2ed;color:#28232e;border:1px solid #c9b9d3;border-radius:8px;padding:22px 30px 30px;box-shadow:0 24px 60px #0005;max-height:calc(100svh - 145px);overflow-y:auto;overscroll-behavior:contain}
-  .home-mega-top{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #d9d2dc;padding-bottom:14px;margin-bottom:22px}.home-mega-top>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#786289}.home-mega-top a{font-size:13px;color:#60436e}
-  .home-mega-columns{display:grid;grid-template-columns:1fr 1fr .9fr;gap:25px}.home-mega-group h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#786289;font-weight:400;margin:0 0 14px}.home-mega-group a{display:flex;flex-direction:column;align-items:start;gap:5px;padding:12px 10px;margin:0 -10px;border-radius:4px;min-height:65px}.home-mega-group a:hover,.home-mega-group a[aria-current=page]{background:#e7deee;text-decoration:none}.home-mega-group strong{font-size:15px;line-height:1.35;font-weight:400}.home-mega-group a>span{font-size:11px;line-height:1.5;color:#706873}.home-mega-panel a:focus-visible{outline-color:#745188}
-  @media(max-width:900px){vf-home-navigation[data-enhanced] nav{max-height:calc(100svh - 115px);overflow-y:auto;overscroll-behavior:contain}.home-services-menu>summary{padding:8px 12px;justify-content:space-between}.home-mega-panel{position:static;padding:16px 18px;margin:4px 0 12px;max-height:none;overflow:visible}.home-mega-top{flex-direction:column;align-items:start;gap:4px;margin-bottom:20px}.home-mega-columns{grid-template-columns:1fr;gap:24px}.home-mega-group a{padding:10px;min-height:60px}.home-mega-group:not(:first-child){border-top:1px solid #d9d2dc;padding-top:20px}.home-mega-group h2{margin-bottom:8px}}
-  @media(prefers-reduced-motion:reduce){a{transition:none}}
-  :global(.home-shell--front) :is(nav, .home-menu-toggle) { font-size: 1rem; font-weight: 700; }
-  :global(.home-shell--front) .home-language { color: #fff; font-size: .875rem; }
-  :global(.home-shell--front) .home-mega-panel,
-  :global(.home-shell--front) .home-mega-panel :is(.home-mega-top > span, .home-mega-top a, h2, .home-mega-group a > span) { color: #000; }
-  :global(.home-shell--front) .home-mega-panel :is(.home-mega-top a, strong) { font-size: 1rem; font-weight: 700; }
-  :global(.home-shell--front) .home-mega-panel :is(.home-mega-top > span, h2) { font-size: .875rem; font-weight: 700; }
-  :global(.home-shell--front) .home-mega-group a > span { font-size: .9375rem; font-weight: 400; }
+  .home-navigation {
+    --nav-text: #f7f3fb;
+    --nav-muted: #c9bfd3;
+    --nav-accent: #e2c7fb;
+    --nav-line: #d7b5f334;
+    --nav-surface: #19151f;
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 20;
+    color: var(--nav-text);
+    font: 600 15px/1.4 Arial, Helvetica, sans-serif;
+  }
+  vf-home-navigation {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: clamp(20px, 3vw, 48px);
+    width: min(100%, 1440px);
+    margin-inline: auto;
+    padding-inline: 4.4%;
+  }
+  .home-brand { display: block; align-self: center; flex: 0 0 auto; width: 138px; padding-block: 20px; }
+  .home-brand img { display: block; width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { color: inherit; font: inherit; cursor: pointer; }
+  :is(a, button, summary):focus-visible { outline: 2px solid var(--nav-accent); outline-offset: 3px; }
+  nav, .home-main-links, .home-nav-actions { display: flex; align-items: center; }
+  nav { flex: 1; gap: 4px; }
+  .home-main-links { gap: 6px; }
+  .home-nav-actions { gap: 16px; margin-inline-start: auto; }
+  .home-main-links a, summary, .home-language, .home-nav-contact {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 12px;
+    border-radius: 9px;
+  }
+  .home-main-links a:hover, .home-language:hover, summary:hover { background: #e6d1f616; }
+  nav a[aria-current], .home-services-active, details[open] > summary { color: var(--nav-accent); }
+  .home-nav-contact {
+    justify-content: center;
+    gap: 14px;
+    padding-inline: 16px;
+    background: #dec6f4;
+    color: #1c1325;
+    border-radius: var(--radius-pill, 9999px);
+    text-align: center;
+  }
+  .home-nav-contact:hover { background: #eddafe; }
+  .home-language { min-width: 44px; justify-content: center; font-size: .875rem; }
+  .home-chevron {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    border: solid currentColor;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(-45deg);
+  }
+  .home-services-menu { align-self: stretch; display: flex; align-items: center; }
+  summary { gap: 11px; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary .home-chevron { margin-block-start: -4px; transform: rotate(45deg); }
+  details[open] > summary .home-chevron { margin-block-start: 3px; transform: rotate(225deg); }
+  .home-mega-panel {
+    position: absolute;
+    top: calc(100% - 12px);
+    inset-inline: 4.4%;
+    max-height: calc(100svh - 132px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--nav-line);
+    border-radius: 19px;
+    background: var(--nav-surface);
+    box-shadow: 0 26px 72px #080511a6;
+  }
+  details[open] .home-mega-panel { animation: home-nav-enter 160ms ease-out both; }
+  .home-mega-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .home-mega-group { padding: clamp(22px, 2.6vw, 38px); }
+  .home-mega-group + .home-mega-group { border-inline-start: 1px solid var(--nav-line); }
+  .home-mega-group:last-child { background: #271c33; }
+  .home-mega-group h2 {
+    margin: 0 0 12px;
+    color: #dbc0f0;
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: .025em;
+  }
+  .home-mega-group ul { margin: 0; padding: 0; list-style: none; }
+  .home-mega-group li + li { margin-top: 4px; }
+  .home-mega-group a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 63px;
+    margin-inline: -10px;
+    padding: 9px 10px;
+    border-radius: 9px;
+  }
+  .home-mega-group a:is(:hover, :focus-visible, [aria-current]) { background: #dfc2f318; }
+  .home-mega-group a .home-chevron { color: #cfabec; }
+  .home-mega-link-copy { display: grid; gap: 4px; }
+  .home-mega-link-copy strong { font-size: 1rem; font-weight: 600; }
+  .home-mega-link-copy > span { color: var(--nav-muted); font-size: .875rem; font-weight: 400; }
+  .home-mega-mobile-head, .home-menu-toggle, [hidden] { display: none; }
+  .home-skip { position: fixed; top: 10px; left: 10px; z-index: 100; padding: 12px 18px; background: #f5f2ed; color: #28232e; transform: translateY(-160%); font: 16px Arial,sans-serif; }
+  .home-skip:focus { transform: none; }
+
+  @keyframes home-nav-enter {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 900px) {
+    vf-home-navigation { align-items: center; flex-wrap: wrap; gap: 0; padding-inline: clamp(14px, 4.4vw, 32px); }
+    .home-brand { width: 112px; padding-block: 15px; }
+    .home-menu-toggle:not([hidden]) {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 44px;
+      padding: 0 14px;
+      color: var(--nav-text);
+      border: 1px solid #776387;
+      border-radius: var(--radius-pill, 9999px);
+      background: #211a2c;
+    }
+    .home-menu-icon { position: relative; display: inline-block; width: 14px; height: 14px; }
+    .home-menu-icon::before, .home-menu-icon::after {
+      position: absolute;
+      top: 6px;
+      inset-inline: 0;
+      height: 1.5px;
+      background: currentColor;
+      content: '';
+    }
+    .home-menu-icon::before { transform: translateY(-3px); }
+    .home-menu-icon::after { transform: translateY(3px); }
+    [aria-expanded="true"] .home-menu-icon::before { transform: rotate(45deg); }
+    [aria-expanded="true"] .home-menu-icon::after { transform: rotate(-45deg); }
+    nav:not([hidden]) {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      background: var(--nav-surface);
+      border: 1px solid var(--nav-line);
+      border-radius: 16px;
+    }
+    vf-home-navigation[data-enhanced] nav {
+      position: absolute;
+      top: calc(100% - 2px);
+      inset-inline: clamp(14px, 4.4vw, 32px);
+      width: auto;
+      max-height: calc(100dvh - 106px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scroll-padding-block-start: 58px;
+      box-shadow: 0 18px 54px #090510a6;
+    }
+    .home-services-menu { display: block; }
+    summary, .home-main-links a { width: 100%; justify-content: space-between; min-height: 56px; padding-inline: 20px; border-radius: 0; font-size: 1.0625rem; }
+    summary .home-chevron { margin: 0; transform: rotate(-45deg); }
+    .home-main-links { align-items: stretch; flex-direction: column; gap: 0; }
+    .home-main-links a, summary { border-bottom: 1px solid var(--nav-line); }
+    .home-nav-actions { gap: 12px; margin-inline-start: 0; padding: 17px 19px; }
+    .home-nav-contact { flex: 1 1 auto; }
+    .home-language { border: 1px solid var(--nav-line); }
+    .home-mega-panel { position: static; max-height: none; overflow: visible; border: 0; border-radius: 0; box-shadow: none; }
+    .home-mega-columns { display: block; }
+    .home-mega-group { padding: 18px 20px; }
+    .home-mega-group + .home-mega-group { border-inline-start: 0; border-top: 1px solid var(--nav-line); }
+    .home-mega-group a { min-height: 56px; }
+    vf-home-navigation[data-enhanced] nav:has(details[open]) :is(summary, .home-main-links, .home-nav-actions) { display: none; }
+    .home-mega-mobile-head:has(button:not([hidden])) {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 18px;
+      border-bottom: 1px solid var(--nav-line);
+      background: var(--nav-surface);
+      color: var(--nav-muted);
+      font-size: .875rem;
+    }
+    .home-mega-back {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 0 7px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--nav-accent);
+    }
+    .home-mega-back .home-chevron { transform: rotate(135deg); }
+    :is(.home-main-links a, summary):focus-visible { outline-offset: -5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    details[open] .home-mega-panel { animation: none; }
+  }
 </style>
