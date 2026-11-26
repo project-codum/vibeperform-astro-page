@@ -46,6 +46,6 @@ We explain what makes your business different, with clear writing and a visual s
 
 ## Contact
 
-[Discuss your project](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
+[Discuss your project](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com

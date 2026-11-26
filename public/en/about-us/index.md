@@ -31,6 +31,6 @@ That includes clear ways to enquire. Where it suits your project, we can also pl
 
 Tell me about your business and what you would like to change. In our first conversation, we’ll look at where you are now and identify a sensible next step.
 
-[Arrange a call with Marlon](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
+[Arrange a call with Marlon](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com

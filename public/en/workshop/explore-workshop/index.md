@@ -54,4 +54,4 @@ Which assumption should be tested first?
 
 In an introductory call, we clarify your goals, the roles involved and a suitable workshop scope. The assessment supports your decisions; implementation is agreed separately.
 
-https://calendar.app.google/NzPQzJCUCw9gu4Jx7
+https://www.vibeperform.com/en/#kontakt

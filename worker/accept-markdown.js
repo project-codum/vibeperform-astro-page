@@ -1,3 +1,4 @@
+import { createCalendarBooking, listBookingSlots, pruneBookingLocks } from './calendar-bookings.js';
 import { handleWebCheckRequest, retryWebCheckEmails } from './web-check-requests.js';
 import { handleBlogInquiry } from './blog-inquiries.js';
 import { retryBlogInquiryEmails } from './blog-inquiry-email.js';
@@ -120,6 +121,8 @@ export async function handleRequest(request, env) {
 		if (needsCanonicalHost) url.hostname = 'www.vibeperform.com';
 		return Response.redirect(url.toString(), 301);
 	}
+	if (url.pathname === '/api/booking/slots') return listBookingSlots(request, env);
+	if (url.pathname === '/api/booking/reservations') return createCalendarBooking(request, env);
 	if (url.pathname === '/api/website-inquiries') return handleWebsiteInquiry(request, env);
 	if (url.pathname === '/api/web-check-requests') return handleWebCheckRequest(request, env);
 	if (url.pathname === '/api/blog-inquiries') return handleBlogInquiry(request, env);
@@ -186,6 +189,6 @@ export default {
 	fetch: handleRequest,
 	async scheduled(_event, env) {
 		// Each outbox remains independent if another queue is temporarily unavailable.
-		await Promise.allSettled([retryInquiryEmails(env), retryBlogInquiryEmails(env), retryWebCheckEmails(env)]);
+		await Promise.allSettled([retryInquiryEmails(env), retryBlogInquiryEmails(env), retryWebCheckEmails(env), pruneBookingLocks(env)]);
 	},
 };

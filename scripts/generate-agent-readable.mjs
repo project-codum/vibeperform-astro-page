@@ -12,7 +12,8 @@ const siteUrl = 'https://www.vibeperform.com';
 const contactEmail = 'contact@vibeperform.com';
 
 const jiti = createJiti(import.meta.url);
-const { bookingUrl: calendarUrl } = await jiti.import('../src/lib/siteMetadata.ts');
+const { bookingPath } = await jiti.import('../src/lib/siteMetadata.ts');
+const calendarUrl = locale => absoluteUrl(bookingPath(locale));
 
 const { aboutContent } = await jiti.import('../src/data/aboutContent.ts');
 
@@ -42,7 +43,7 @@ function renderPotentialAnalysis(locale) {
  renderAssessment(locale),
  section(c.process.title,c.process.items.map(x=>`### ${x.title}\n\n${x.body}`).join('\n\n')),
  section(c.faq.kicker,c.faq.items.map(x=>`### ${x.question}\n\n${x.answer}`).join('\n\n')),
- section(`${t.analysisContactTitle} ${t.analysisContactEmphasis}`,`${c.finalCta.body}\n\n${t.analysisBoundary}\n\n[${t.analysisRequest}](${c.finalCta.button.href})\n\n[${t.introCall}](${calendarUrl})`)
+ section(`${t.analysisContactTitle} ${t.analysisContactEmphasis}`,`${c.finalCta.body}\n\n${t.analysisBoundary}\n\n[${t.analysisRequest}](${c.finalCta.button.href})\n\n[${t.introCall}](${calendarUrl(locale)})`)
  ].join('\n\n'));
 }
 
@@ -128,15 +129,15 @@ ${section('Projekte, Fachwissen und Veranstaltungen sichtbar machen', 'Wir mache
 ${section(c.seo.title, `${c.seo.body}\n\n[${c.seo.link}](${absoluteUrl(c.seo.href)})`)}
 ${renderStudyLinks('de')}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\n${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl}`)}`);
+${section('Kontakt', `${c.contact.body}\n\n${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}`);
 }
 
 function renderWorkshopsAgentPage(locale='de') {
  const c=supplementalContent[locale].workshops;
  return normalizeBlankLines([
  pageHeader({title:`${c.title} ${c.emphasis}`,canonicalPath:`/${locale}/workshops/`,description:c.intro}),
- ...c.formats.map((f,i)=>section(f.title,`${f.question}\n\n${f.body}\n\n${f.outcome}\n\n[${f.link}](${i===0?absoluteUrl(`/${locale}/workshop/explore-workshop/`):calendarUrl})`)),
- section(`${c.closingTitle} ${c.closingEmphasis}`,`${c.closingBody}\n\n${calendarUrl}`)
+ ...c.formats.map((f,i)=>section(f.title,`${f.question}\n\n${f.body}\n\n${f.outcome}\n\n[${f.link}](${i===0?absoluteUrl(`/${locale}/workshop/explore-workshop/`):calendarUrl(locale)})`)),
+ section(`${c.closingTitle} ${c.closingEmphasis}`,`${c.closingBody}\n\n${calendarUrl(locale)}`)
  ].join('\n\n'));
 }
 function renderExploreAgentPage(locale='de') {
@@ -145,7 +146,7 @@ function renderExploreAgentPage(locale='de') {
  pageHeader({title:`${c.title} ${c.emphasis}`,canonicalPath:`/${locale}/workshop/explore-workshop/`,description:c.intro}),
  section(`${c.resultTitle} ${c.resultEmphasis}`,c.resultBody),renderAssessment(locale),
  ...c.fields.map(([a,b])=>section(a,b)),
- section(`${c.closingTitle} ${c.closingEmphasis}`,`${c.closingBody}\n\n${calendarUrl}`)
+ section(`${c.closingTitle} ${c.closingEmphasis}`,`${c.closingBody}\n\n${calendarUrl(locale)}`)
  ].join('\n\n'));
 }
 
@@ -175,7 +176,7 @@ function renderAboutAgentPage(locale = 'de') {
     section(`${c.vision.title} ${c.vision.emphasis}`, `${c.vision.body}\n\n${c.vision.mission}\n\n[${c.vision.link}](${absoluteUrl(c.vision.href)})`),
     section(`${c.journey.title} ${c.journey.emphasis}`, c.journey.paragraphs.join('\n\n')),
     section(`${c.future.title} ${c.future.emphasis}`, `${c.future.body}\n\n${c.future.extra}\n\n[${c.future.link}](${absoluteUrl(c.future.href)})`),
-    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl})\n\n${contactEmail}`),
+    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl(locale)})\n\n${contactEmail}`),
   ].join('\n\n'));
 }
 
@@ -189,7 +190,7 @@ function renderKnowledgeIndex(locale, posts) {
   ...(featured ? [section(c.latest, renderPosts([featured]))] : []),
   section(`${c.articlesTitle} ${c.articlesEmphasis}`, `${c.articlesIntro}\n\n${renderPosts(websitePosts)}`),
   section(`${c.supplementaryTitle} ${c.supplementaryEmphasis}`, `${c.supplementaryIntro}\n\n${renderPosts(supplementalPosts)}`),
-  section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${contactEmail}\n\n${calendarUrl}`),
+  section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n${contactEmail}\n\n${calendarUrl(locale)}`),
  ].join('\n\n'));
 }
 
@@ -227,9 +228,9 @@ function renderServicePage(locale, kind) {
     parts.push(section(`${story.processTitle} ${story.processEmphasis}`, story.steps.map(item => `### ${item.title}\n\n${item.body}\n\n${story.yourPart}: ${item.contribution}\n\n${story.result}: ${item.result}\n\n${item.detail}`).join('\n\n')));
     parts.push(section(`${story.investmentTitle} ${story.investmentEmphasis}`, `${story.price} — ${story.priceNote}\n\n${story.investmentBody}`));
     parts.push(section(locale === 'de' ? 'Häufige Fragen' : 'Common questions', c.faq.items.map(item => `### ${item.question}\n\n${item.answer}`).join('\n\n')));
-    parts.push(section(`${story.contact.title} ${story.contact.emphasis}`, `${story.contact.body}\n\n[${story.primary}](${calendarUrl})`));
+    parts.push(section(`${story.contact.title} ${story.contact.emphasis}`, `${story.contact.body}\n\n[${story.primary}](${calendarUrl(locale)})`));
   }
-  parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
+  parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl(locale)})\n\n${contactEmail}`));
   return normalizeBlankLines(parts.join('\n\n'));
 }
 
@@ -248,7 +249,7 @@ function renderServiceDetail(locale, key) {
   ] : t.related.map(k => [serviceDetails[locale][k].name, detailPaths[locale][k]]);
   parts.push(section(locale === 'de' ? 'Passende nächste Schritte' : 'Related services', related.map(([name, path]) => `[${name}](${absoluteUrl(path)})`).join('\n\n')));
   parts.push(section(locale === 'de' ? 'Häufige Fragen' : 'Common questions', pairs(t.faq)));
-  parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `${t.contact}\n\n[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl})\n\n${contactEmail}`));
+  parts.push(section(locale === 'de' ? 'Kontakt' : 'Contact', `${t.contact}\n\n[${locale === 'de' ? 'Vorhaben besprechen' : 'Discuss your project'}](${calendarUrl(locale)})\n\n${contactEmail}`));
   return normalizeBlankLines(parts.join('\n\n'));
 }
 
@@ -282,7 +283,7 @@ ${blogLinks}
 ## Kontakt und Aktionen
 
 - E-Mail: ${contactEmail}
-- Erstgespräch buchen: ${calendarUrl}
+- Erstgespräch buchen: ${calendarUrl('de')}
 - Website: ${absoluteUrl('/de/')}
 
 ## Hinweise für Agenten
@@ -415,7 +416,7 @@ const negotiatedPages = [
    pageHeader({title:'VibePerform', canonicalPath:'/en/', alternatePath:'/de/', description:homeIntroContent.en.description}),
    homeIntroContent.en.intro.join(' '), homePageContent.en.purpose.mission, renderStudyLinks('en'),
    section('Services', `[All services](${absoluteUrl(servicePaths.en.overview)})`),
-   section('Contact', `${homePageContent.en.contact.body}\n\n${contactEmail} · [Book an introductory call](${calendarUrl})`),
+   section('Contact', `${homePageContent.en.contact.body}\n\n${contactEmail} · [Book an introductory call](${calendarUrl('en')})`),
  ].join('\n\n'))},
  {relativePath:'de/blog/index.md',content:renderKnowledgeIndex('de',blogPosts)},
  {relativePath:'en/blog/index.md',content:renderKnowledgeIndex('en',englishBlogPosts)},

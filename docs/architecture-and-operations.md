@@ -102,9 +102,26 @@ Lokale Tests beweisen keinen echten E-Mail-Eingang. Live-Testanfragen sind echte
 
 ## Terminbuchung
 
-Die Kontaktbereiche verwenden dieselbe Google-Calendar-Buchungsseite für das Kennenlerngespräch. Kurzlink und Einbettungsadresse stehen zusammen in [siteMetadata.ts](../src/lib/siteMetadata.ts). Die Website lädt den Kalender erst bei einer Buchungsaktion. Der direkte Kurzlink ist auch bei deaktiviertem JavaScript nutzbar.
+Die gemeinsame Astro-Komponente ruft `GET /api/booking/slots` und `POST /api/booking/reservations` auf derselben Origin auf. Der Worker liest die „Buchbar“-Einträge über [events.list](https://developers.google.com/workspace/calendar/api/v3/reference/events/list) und über [Google Calendar FreeBusy](https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query) die Belegtzeiten der konfigurierten Kalender. Beim Buchen prüft er die Zeit erneut, reserviert den Start in D1 und erstellt über [events.insert](https://developers.google.com/workspace/calendar/api/v3/reference/events/insert) den privaten Kalendereintrag mit Gast, Einladung und einer eigenen Meet-Konferenz. Der Browser erhält freie Startzeiten und bei bestätigter Buchung den verfügbaren Meet-Link.
 
-Google steuert die angezeigten Zeiten, Ausnahmen und Buchungsgrenzen in der Terminplanung. Änderungen an der Verfügbarkeit erfolgen dort. Beim Wechsel auf einen anderen Terminplan Kurzlink und Einbettungsadresse gemeinsam aktualisieren und die sichtbaren Termine im direkten Link und im Website-Kalender vergleichen. [Google-Anleitung zur Einbettung](https://support.google.com/calendar/answer/10733297)
+Für die Aktivierung die Google Calendar API im VibePerform-Workspace-Projekt einschalten. Der Zielkalender muss Google Meet unterstützen und dem autorisierenden Workspace-Konto gehören. Das Konto autorisiert einen internen OAuth-Client mit Offline-Zugriff und den Scopes `https://www.googleapis.com/auth/calendar.events.owned` und `https://www.googleapis.com/auth/calendar.events.freebusy`. Ein geteilter Verfügbarkeitskalender erfordert zusätzlich `https://www.googleapis.com/auth/calendar.events.readonly`. Die zusätzlichen Belegungskalender müssen für dieses Konto zur Verfügbarkeitsabfrage freigegeben sein. [Google OAuth für Webserver](https://developers.google.com/identity/protocols/oauth2/web-server) · [Calendar-Scopes](https://developers.google.com/workspace/calendar/api/auth)
+
+| Worker-Bindung | Wert |
+| --- | --- |
+| `BOOKING_GOOGLE_CLIENT_ID` | OAuth-Client-ID |
+| `BOOKING_GOOGLE_CLIENT_SECRET` | OAuth-Client-Secret |
+| `BOOKING_GOOGLE_REFRESH_TOKEN` | Token des Kalenderinhabers |
+| `BOOKING_CALENDAR_ID` | ID des Zielkalenders. Für VibePerform aktuell `marlon@vibeperform.com`. |
+| `BOOKING_AVAILABILITY_CALENDAR_ID` | Optional. Kalender für „Buchbar“-Einträge. Standard ist der Zielkalender. |
+| `BOOKING_BUSY_CALENDAR_IDS` | Optional. Kommagetrennte IDs zusätzlicher Kalender für Belegtzeiten |
+
+OAuth-Werte und Kalender-IDs über Worker-Secrets setzen, damit sie bei späteren Deployments erhalten bleiben. Für lokale Tests mit einem separaten Testkalender stehen sie in der git-ignorierten `.dev.vars`. Der bestehende D1-Migrationsschritt legt `calendar_bookings` an. Die Tabelle enthält Terminzeitfenster, eine zufällige Buchungs-ID, den Bestätigungszeitpunkt und einen Hash zur Wiedererkennung wiederholter Anfragen. Der bestehende Cron entfernt Einträge nach Ende des Terminzeitfensters.
+
+Die Verfügbarkeit kommt aus zeitgebundenen Google-Kalenderterminen mit Titel „Buchbar“ und Status „Frei“. Serien und verschobene Einzelvorkommen liest die API als einzelne Termine. Ein 45-Minuten-Eintrag öffnet genau seinen Start. Ein längerer Eintrag öffnet vom Beginn an 45-Minuten-Termine mit standardmäßig 15 Minuten Puffer. Der Worker berücksichtigt bei der Prüfung den Verfügbarkeitskalender, den Zielkalender und optional weitere Belegungskalender. Meet-Daten der Freigaben werden nicht abgefragt. Der Worker fordert einen eigenen Meet-Link an, sobald er eine Buchung anlegt.
+
+Die Website zeigt kommende Optionen bis zu 21 Tage im Voraus. `BOOKING_DURATION_MINUTES`, `BOOKING_BUFFER_MINUTES`, `BOOKING_LEAD_HOURS` und `BOOKING_DAYS_AHEAD` lassen sich über das Wrangler-Feld `vars` einstellen. Der Standardvorlauf ist 0 Stunden.
+
+Zur Abnahme zuerst einen vorhandenen blockierten Zeitraum und eine freie Zeit mit dem Kalender abgleichen. Eine Testbuchung an eine eigene Testadresse bestätigt, ob der Termin im richtigen Kalender erscheint, die Einladung zugestellt wird und der Meet-Link funktioniert. Bei Ausfall bleibt die Terminanfrage per E-Mail erreichbar.
 
 ## Betrieb, Fehler und Rückfall
 

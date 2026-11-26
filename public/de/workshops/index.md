@@ -20,10 +20,10 @@ Aufbauend auf einem ausgewählten Anwendungsfall entwerfen wir das Zusammenspiel
 
 Ein Ablaufentwurf mit Datenbedarf, Zuständigkeiten und Qualitätskriterien.
 
-[Design Workshop besprechen](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
+[Design Workshop besprechen](https://www.vibeperform.com/de/#kontakt)
 
 ## Welches Format passt zu Ihrem Vorhaben?
 
 Wir klären zunächst Ihren Anlass, die beteiligten Personen und das gewünschte Ergebnis. Umfang, Dauer und Konditionen werden vor einer Beauftragung abgestimmt. Eine technische Umsetzung ist ein eigener Schritt.
 
-https://calendar.app.google/NzPQzJCUCw9gu4Jx7
+https://www.vibeperform.com/de/#kontakt

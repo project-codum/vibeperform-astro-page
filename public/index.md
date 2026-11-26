@@ -67,4 +67,4 @@ Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Websei
 
 E-Mail: contact@vibeperform.com
 
-Erstgespräch buchen: https://calendar.app.google/NzPQzJCUCw9gu4Jx7
+Erstgespräch buchen: https://www.vibeperform.com/de/#kontakt

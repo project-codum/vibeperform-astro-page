@@ -75,10 +75,10 @@ Yes. We offer ongoing support and development. We agree the content, technical t
 
 We discuss your offer, the customers you want to reach and what your website needs to do. If you already have a site, you receive a free assessment with a rating and feedback. If you do not, we work out the right starting point together.
 
-[Discuss your website](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
+[Discuss your website](https://www.vibeperform.com/en/#kontakt)
 
 ## Contact
 
-[Discuss your project](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
+[Discuss your project](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com

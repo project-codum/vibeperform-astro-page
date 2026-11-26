@@ -68,7 +68,7 @@ const dropdowns = [
         <a aria-current={currentPath.startsWith(`${base}${insightsPath}`) ? (active(insightsPath) ? 'page' : 'location') : undefined} href={`${base}${insightsPath}`}>{de ? 'Wissen' : 'Insights'}</a>
       </div>
       <div class="home-nav-actions">
-        <a class="home-nav-contact" data-booking-entry href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
+        <a class="home-nav-contact" href={copy.primaryHref} data-analytics-event="contact_start" data-analytics-name="book-discovery-call" data-analytics-location="home-navigation">{copy.primaryLabel}<span aria-hidden="true">↗</span></a>
         <a class="home-language" href={alternateLocaleHref} aria-label={copy.languageAria} data-locale-switch data-target-locale={de ? 'en' : 'de'} data-analytics-location="home-navigation">{copy.languageLabel}</a>
       </div>
     </nav>
