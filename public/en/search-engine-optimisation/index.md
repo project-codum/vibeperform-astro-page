@@ -91,6 +91,6 @@ It depends on your website, starting point and scope. We agree a specific projec
 
 We look at your website and the questions your ideal customers ask. The free introductory assessment includes a rating and feedback on your online presence. We then discuss the scope of any deeper SEO analysis and implementation.
 
-[Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss your project](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

@@ -66,7 +66,7 @@ for (const [locale, route, alternate, role] of [
       if (url.hash) assert.ok(dest.includes(`id="${url.hash.slice(1)}"`), href);
     }
     assert.ok(main.includes('mailto:contact@vibeperform.com'));
-    assert.ok(main.includes('https://calendar.app.google/utFQgw33PwJTiDk56'));
+    assert.ok(main.includes('https://calendar.app.google/NzPQzJCUCw9gu4Jx7'));
     assert.equal((main.match(/data-about-slide-in/g) || []).length, 2);
     assert.ok(main.includes(locale === 'de' ? 'Und für KI verständlich.' : 'And understandable to AI.'));
     const removedCopy = locale === 'de'

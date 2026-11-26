@@ -77,4 +77,4 @@ Wir schauen gemeinsam auf Ihre Website und Ihre Ziele. Im Erstgespräch klären 
 
 contact@vibeperform.com
 
-https://calendar.app.google/utFQgw33PwJTiDk56
+https://calendar.app.google/NzPQzJCUCw9gu4Jx7

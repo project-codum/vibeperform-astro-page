@@ -93,7 +93,7 @@ const offers = [
         <h2>{c.title} <em>{c.emphasis}</em></h2>
         {i===2 && <WunderweltBook />}
         {i===5 && <p class="caption">{c.copy}</p>}
-        {i===5 && <BookingCalendar locale="de" autoOpen analyticsLocation="wunderwelt-case" />}
+        {i===5 && <BookingCalendar locale="de" analyticsLocation="wunderwelt-case" />}
       </div>}
     </section>})}
     <div class="transcript wrap"><details><summary>Audioguide zum Mitlesen</summary>{chapters.map(c=><p><strong>{c.name}.</strong> {c.voice}</p>)}</details></div>

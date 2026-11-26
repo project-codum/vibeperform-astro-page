@@ -24,13 +24,13 @@ async function boundedJson(request) {
   return JSON.parse(new TextDecoder().decode(bytes));
 }
 
-export async function readInquiryRequest(request, env, rateLimiter = env.INQUIRY_RATE_LIMITER) {
+export async function readInquiryRequest(request, env) {
   if (request.method !== 'POST') return reply(405, { error: 'method_not_allowed' }, { Allow: 'POST' });
   if (request.headers.get('Origin') !== new URL(request.url).origin || request.headers.get('Sec-Fetch-Site') === 'cross-site') return reply(403, { error: 'origin_not_allowed' });
   if (request.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json') return reply(415, { error: 'json_required' });
-  if (!env.INQUIRIES_DB || !rateLimiter) return reply(503, { error: 'temporarily_unavailable' });
+  if (!env.INQUIRIES_DB || !env.INQUIRY_RATE_LIMITER) return reply(503, { error: 'temporarily_unavailable' });
   try {
-    const limit = await rateLimiter.limit({ key: request.headers.get('CF-Connecting-IP') || 'unknown' });
+    const limit = await env.INQUIRY_RATE_LIMITER.limit({ key: request.headers.get('CF-Connecting-IP') || 'unknown' });
     if (!limit.success) return reply(429, { error: 'rate_limited' }, { 'Retry-After': '60' });
   } catch { return reply(503, { error: 'temporarily_unavailable' }); }
   let input;

@@ -95,6 +95,6 @@ Wir klären zunächst die Aufgabe und den passenden Analyse- oder Beratungsumfan
 
 Welcher Arbeitsablauf soll einfacher werden? Beschreiben Sie uns eine typische Aufgabe und wo Sie dabei heute Zeit verlieren.
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

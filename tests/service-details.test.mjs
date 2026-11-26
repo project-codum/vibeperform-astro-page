@@ -40,7 +40,7 @@ for(const locale of ['de','en']) for(const key of serviceKeys){
   for(const [,body] of [...serviceDetails[locale][key].scope,...serviceDetails[locale][key].faq]) assert.ok(markdown.includes(body),'Markdown includes the same scope and answers');
   assert.ok(markdown.includes(serviceDetails[locale][key].boundary));
   assert.match(html,/mailto:contact@vibeperform.com/);
-  assert.match(html,/calendar.app.google\/utFQgw33PwJTiDk56/);
+  assert.match(html,/calendar.app.google\/NzPQzJCUCw9gu4Jx7/);
   const sitemap=await readFile(new URL('../dist/sitemap.xml',import.meta.url),'utf8');
   assert.equal(sitemap.split(`<loc>${canonical}</loc>`).length-1,1);
   const current=html.match(/<a[^>]*aria-current="page"[^>]*>/g)||[];

@@ -91,6 +91,6 @@ Wir kalkulieren nach benötigten Inhalten, vorhandenen Grundlagen, Formaten und 
 
 Bringen Sie ein Thema, ein Projekt oder vorhandenes Material mit. Gemeinsam klären wir, welche Aussage Ihre Kunden verstehen sollen und welcher Inhalt dafür gebraucht wird.
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

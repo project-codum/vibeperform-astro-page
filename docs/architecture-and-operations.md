@@ -102,23 +102,9 @@ Lokale Tests beweisen keinen echten E-Mail-Eingang. Live-Testanfragen sind echte
 
 ## Terminbuchung
 
-Die gemeinsame Astro-Komponente ruft `GET /api/booking/slots` und `POST /api/booking/reservations` auf derselben Origin auf. Der Worker liest über [Google Calendar FreeBusy](https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query) ausschließlich Belegtzeiten der konfigurierten Kalender. Beim Buchen prüft er die Zeit erneut, reserviert den Start in D1 und erstellt über [events.insert](https://developers.google.com/workspace/calendar/api/v3/reference/events/insert) den privaten Kalendereintrag mit Gast, Einladung und einer eigenen Meet-Konferenz. Der Browser erhält freie Startzeiten und bei bestätigter Buchung den verfügbaren Meet-Link.
+Die Kontaktbereiche verwenden dieselbe Google-Calendar-Buchungsseite für das Kennenlerngespräch. Kurzlink und Einbettungsadresse stehen zusammen in [siteMetadata.ts](../src/lib/siteMetadata.ts). Die Website lädt den Kalender erst bei einer Buchungsaktion. Der direkte Kurzlink ist auch bei deaktiviertem JavaScript nutzbar.
 
-Für die Aktivierung die Google Calendar API im VibePerform-Workspace-Projekt einschalten. Der Zielkalender muss Google Meet unterstützen und dem autorisierenden Workspace-Konto gehören. Das Konto autorisiert einen internen OAuth-Client mit Offline-Zugriff und den Scopes `https://www.googleapis.com/auth/calendar.events.owned` und `https://www.googleapis.com/auth/calendar.events.freebusy`. Die zusätzlichen Belegungskalender müssen für dieses Konto zur Verfügbarkeitsabfrage freigegeben sein. [Google OAuth für Webserver](https://developers.google.com/identity/protocols/oauth2/web-server) · [Calendar-Scopes](https://developers.google.com/workspace/calendar/api/auth)
-
-| Worker-Bindung | Wert |
-| --- | --- |
-| `BOOKING_GOOGLE_CLIENT_ID` | OAuth-Client-ID |
-| `BOOKING_GOOGLE_CLIENT_SECRET` | OAuth-Client-Secret |
-| `BOOKING_GOOGLE_REFRESH_TOKEN` | Token des Kalenderinhabers |
-| `BOOKING_CALENDAR_ID` | ID des Zielkalenders |
-| `BOOKING_BUSY_CALENDAR_IDS` | Optional. Kommagetrennte IDs zusätzlicher Kalender für Belegtzeiten |
-
-OAuth-Werte und Kalender-IDs über Worker-Secrets setzen, damit sie bei späteren Deployments erhalten bleiben. Für lokale Tests mit einem separaten Testkalender stehen sie in der git-ignorierten `.dev.vars`. Der bestehende D1-Migrationsschritt legt `calendar_bookings` an. Die Tabelle enthält Startzeit, zufällige Buchungs-ID und einen Hash zur Wiedererkennung wiederholter Anfragen. Der bestehende Cron entfernt Sperren für vergangene Startzeiten.
-
-Die Voreinstellung erlaubt Buchungen montags bis freitags von 9 bis 17 Uhr in `Europe/Berlin`. Die Gesprächsdauer beträgt 45 Minuten. Zwischen Terminen liegen mindestens 15 Minuten. Das Fenster reicht von 24 Stunden Vorlauf bis 21 Tage im Voraus. Vor Aktivierung mit dem tatsächlichen Buchungsfenster und den zu prüfenden Kalendern abgleichen. Die Werte lassen sich im Wrangler-Feld `vars` über `BOOKING_START_HOUR`, `BOOKING_END_HOUR`, `BOOKING_DURATION_MINUTES`, `BOOKING_BUFFER_MINUTES`, `BOOKING_LEAD_HOURS` und `BOOKING_DAYS_AHEAD` konfigurieren.
-
-Zur Abnahme zuerst einen vorhandenen blockierten Zeitraum und eine freie Zeit mit dem Kalender abgleichen. Eine Testbuchung an eine eigene Testadresse bestätigt, ob der Termin im richtigen Kalender erscheint, die Einladung zugestellt wird und der Meet-Link funktioniert. Bei Ausfall der Verfügbarkeitsabfrage bleibt der externe Buchungslink erreichbar.
+Google steuert die angezeigten Zeiten, Ausnahmen und Buchungsgrenzen in der Terminplanung. Änderungen an der Verfügbarkeit erfolgen dort. Beim Wechsel auf einen anderen Terminplan Kurzlink und Einbettungsadresse gemeinsam aktualisieren und die sichtbaren Termine im direkten Link und im Website-Kalender vergleichen. [Google-Anleitung zur Einbettung](https://support.google.com/calendar/answer/10733297)
 
 ## Betrieb, Fehler und Rückfall
 

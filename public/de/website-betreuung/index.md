@@ -91,6 +91,6 @@ Preis, Arbeitsumfang, Laufzeit und Kündigungsbedingungen legen wir im konkreten
 
 Wir sehen uns Ihre Webseite an und besprechen, was im Alltag liegen bleibt. Sie bekommen einen kostenlosen Statuscheck mit Benotung und Feedback. Danach können wir klären, welche laufenden Aufgaben Sie abgeben möchten.
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

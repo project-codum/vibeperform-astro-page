@@ -54,4 +54,4 @@ Welche Annahme sollte zuerst überprüft werden?
 
 Im Kennenlerngespräch klären wir Anlass, beteiligte Rollen und den passenden Workshopumfang. Die Auswertung bildet eine Entscheidungsgrundlage; eine Umsetzung wird anschließend gesondert vereinbart.
 
-https://calendar.app.google/utFQgw33PwJTiDk56
+https://calendar.app.google/NzPQzJCUCw9gu4Jx7

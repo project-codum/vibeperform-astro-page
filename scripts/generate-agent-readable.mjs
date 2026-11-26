@@ -9,10 +9,10 @@ const publicDir = path.join(rootDir, 'public');
 const agentDir = path.join(publicDir, 'agent');
 const agentBlogDir = path.join(agentDir, 'blog');
 const siteUrl = 'https://www.vibeperform.com';
-const calendarUrl = 'https://calendar.app.google/utFQgw33PwJTiDk56';
 const contactEmail = 'contact@vibeperform.com';
 
 const jiti = createJiti(import.meta.url);
+const { bookingUrl: calendarUrl } = await jiti.import('../src/lib/siteMetadata.ts');
 
 const { aboutContent } = await jiti.import('../src/data/aboutContent.ts');
 

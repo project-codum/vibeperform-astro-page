@@ -76,4 +76,4 @@ The 60-minute potential analysis is a separately commissioned service with a wri
 
 [Request an analysis](mailto:contact@vibeperform.com?subject=AI%20potential%20analysis%20inquiry)
 
-[Start with an introductory call](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Start with an introductory call](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)

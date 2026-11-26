@@ -95,6 +95,6 @@ We first clarify the task and suitable analysis or consulting scope, then provid
 
 Which workflow should become easier? Tell us about a typical task and where you currently lose time.
 
-[Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss your project](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

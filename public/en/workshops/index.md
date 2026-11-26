@@ -20,10 +20,10 @@ Starting with a selected use case, we design how people, information and AI coul
 
 A workflow outline with data needs, responsibilities and quality criteria.
 
-[Discuss a Design Workshop](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss a Design Workshop](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 ## Which format fits your plans?
 
 We first clarify your goals, the people involved and the intended outcome. Scope, duration and terms are agreed before commissioning. Technical implementation is a separate step.
 
-https://calendar.app.google/utFQgw33PwJTiDk56
+https://calendar.app.google/NzPQzJCUCw9gu4Jx7

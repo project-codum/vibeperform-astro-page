@@ -91,6 +91,6 @@ Das hängt von Webseite, Ausgangslage und Umfang der Maßnahmen ab. Wir vereinba
 
 Wir betrachten Ihre Webseite und die Fragen Ihrer Wunschkunden. Im kostenlosen Statuscheck erhalten Sie Benotung und Feedback zu Ihrem Auftritt. Für eine vertiefte SEO-Analyse und Umsetzung besprechen wir anschließend den passenden Umfang.
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

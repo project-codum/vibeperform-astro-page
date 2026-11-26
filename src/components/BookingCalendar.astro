@@ -1,201 +1,49 @@
 ---
-import { bookingUrl, type Locale } from '../lib/siteMetadata';
+import { bookingEmbedUrl, bookingUrl, type Locale } from '../lib/siteMetadata';
 
-interface Props { locale: Locale; autoOpen?: boolean; analyticsLocation?: string; }
-const { locale, autoOpen = false, analyticsLocation = 'home-contact' } = Astro.props;
-const de = locale === 'de';
-const t = de ? {
-  button: 'Termin finden', close: 'Kalender schließen',
-  title: 'Termin wählen', details: 'Deine Kontaktdaten',
-  place: 'Google Meet', zone: 'Berliner Zeit', day: 'Tag', time: 'Uhrzeit',
-  previous: 'Vorheriger Tag', next: 'Nächster Tag',
-  name: 'Name', email: 'E-Mail', book: 'Termin buchen', booking: 'Termin wird gebucht …', retry: 'Buchung prüfen',
-  privacy: 'Datenschutz zur Terminbuchung',
-  external: 'Buchung bei Google öffnen',
-  unavailable: 'Die Termine sind gerade nicht verfügbar.',
-  empty: 'Zurzeit sind keine freien Termine verfügbar.',
-  taken: 'Dieser Termin ist inzwischen vergeben. Bitte wähle aus den aktuellen Terminen.',
-  failed: 'Die Buchung konnte gerade nicht abgeschlossen werden. Bitte versuche es erneut.',
-  unconfirmed: 'Die Buchung konnte noch nicht bestätigt werden. Prüfe sie erneut.',
-  limited: 'Bitte warte eine Minute und versuche es erneut.',
-  invalid: 'Bitte prüfe deinen Namen und deine E-Mail-Adresse.',
-  confirmed: 'Dein Termin ist gebucht.',
-  invitation: 'Die Kalendereinladung geht an deine E-Mail-Adresse.',
-  meet: 'Google Meet öffnen',
+interface Props { locale: Locale; analyticsLocation?: string; }
+const { locale, analyticsLocation = 'home-contact' } = Astro.props;
+const t = locale === 'de' ? {
+  title: 'Kennenlerngespräch',
+  button: 'Termin finden',
+  external: 'Kalender in neuem Tab öffnen',
+  close: 'Kalender schließen',
 } : {
-  button: 'Find a time', close: 'Close calendar',
-  title: 'Choose a time', details: 'Your contact details',
-  place: 'Google Meet', zone: 'Berlin time', day: 'Day', time: 'Time',
-  previous: 'Previous day', next: 'Next day',
-  name: 'Name', email: 'Email', book: 'Book appointment', booking: 'Booking appointment …', retry: 'Check booking',
-  privacy: 'Appointment booking privacy',
-  external: 'Open booking on Google',
-  unavailable: 'Appointment times are temporarily unavailable.',
-  empty: 'There are currently no available appointments.',
-  taken: 'That time has been taken. Please choose from the available times.',
-  failed: 'We could not complete the booking. Please try again.',
-  unconfirmed: 'Your booking could not be confirmed yet. Check it again.',
-  limited: 'Please wait a minute and try again.',
-  invalid: 'Please check your name and email address.',
-  confirmed: 'Your appointment is booked.',
-  invitation: 'The calendar invitation will be sent to your email address.',
-  meet: 'Open Google Meet',
+  title: 'Introductory call',
+  button: 'Find a time',
+  external: 'Open calendar in a new tab',
+  close: 'Close calendar',
 };
 ---
-<div class="booking-calendar" data-booking-calendar data-auto-open={autoOpen ? 'true' : undefined} data-phase="closed" data-copy={JSON.stringify(t)} lang={locale}>
-  <div class="booking-placeholder" data-booking-placeholder>
-    <button class="hp-button booking-trigger" type="button" data-booking-load hidden aria-expanded="false" data-analytics-event="contact_start" data-analytics-name="load-booking-calendar" data-analytics-location={analyticsLocation}>{t.button}</button>
-    <a class="hp-button booking-trigger" data-booking-fallback href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.button}</a>
-  </div>
-  <div class="booking-panel" data-booking-panel hidden aria-busy="false">
-    <form class="booking-form" action="/api/booking/reservations" method="post" data-booking-form>
-      <div class="booking-times">
-        <div class="booking-heading">{t.title}</div>
-        <div class="booking-meta"><span data-booking-duration></span><span>{t.place}</span><span data-booking-zone hidden>{t.zone}</span></div>
-        <div class="booking-picker" data-booking-picker hidden>
-          <div class="booking-days">
-            <button type="button" data-booking-previous aria-label={t.previous}><span aria-hidden="true">←</span></button>
-            <label>
-              <span class="sr-only">{t.day}</span>
-              <select data-booking-day></select>
-            </label>
-            <button type="button" data-booking-next aria-label={t.next}><span aria-hidden="true">→</span></button>
-          </div>
-          <fieldset>
-            <legend class="sr-only">{t.time}</legend>
-            <div class="booking-slots" data-booking-slots></div>
-          </fieldset>
-        </div>
-        <div class="booking-skeleton" data-booking-skeleton aria-hidden="true">
-          <span></span>
-          <div>{Array.from({ length: 4 }, () => <span></span>)}</div>
-        </div>
-        <div class="booking-notice" data-booking-availability role="status" hidden></div>
-        <a class="booking-link" data-booking-external href={bookingUrl} target="_blank" rel="noopener noreferrer" hidden>{t.external} <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="booking-details">
-        <div class="booking-heading">{t.details}</div>
-        <label>{t.name}<input name="name" type="text" autocomplete="name" maxlength="120" required /></label>
-        <label>{t.email}<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
-        <div class="booking-honeypot" aria-hidden="true"><label>Contact note<input type="text" name="contactNote" autocomplete="off" tabindex="-1" /></label></div>
-        <div class="booking-selection" data-booking-selection aria-live="polite"></div>
-        <button class="booking-submit" type="submit" data-booking-submit disabled>{t.book}<span aria-hidden="true">↗</span></button>
-        <div class="booking-notice" role="status" data-booking-message hidden></div>
-        <a class="booking-link booking-privacy" href={de ? '/de/datenschutz/' : '/en/privacy/'}>{t.privacy}</a>
-      </div>
-    </form>
-    <div class="booking-success" data-booking-success hidden tabindex="-1">
-      <div class="booking-heading">{t.confirmed}</div>
-      <div class="booking-confirmed-time" data-booking-confirmed-time></div>
-      <div>{t.invitation}</div>
-      <a class="booking-link" data-booking-meet hidden target="_blank" rel="noopener noreferrer">{t.meet} <span aria-hidden="true">↗</span></a>
+<div class="booking-calendar" id="terminbuchung" data-booking-calendar data-phase="closed">
+  <a class="hp-button booking-trigger" data-booking-fallback href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.button}</a>
+  <button class="hp-button booking-trigger" type="button" data-booking-open hidden aria-expanded="false" aria-controls="booking-panel" data-analytics-event="contact_start" data-analytics-name="load-booking-calendar" data-analytics-location={analyticsLocation}>{t.button}</button>
+  <div class="booking-panel" role="region" id="booking-panel" data-booking-panel aria-label={t.title} hidden tabindex="-1">
+    <div class="booking-tools">
+      <button type="button" data-booking-close>{t.close}</button>
+      <a href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.external}<span aria-hidden="true"> ↗</span></a>
     </div>
-    {!autoOpen && <button class="booking-close" type="button" data-booking-hide>{t.close}</button>}
+    <iframe title={t.title} data-booking-frame data-src={`${bookingEmbedUrl}&hl=${locale}`} loading="lazy" referrerpolicy="no-referrer" width="100%" height="720" data-cmp-ab="1"></iframe>
   </div>
 </div>
-
 <script>
   import { mountBookingCalendar } from '../scripts/bookingCalendar';
   document.querySelectorAll<HTMLElement>('[data-booking-calendar]').forEach(mountBookingCalendar);
 </script>
-
 <style>
-  .booking-calendar {
-    width: 100%;
-    max-width: 890px;
-    margin: 32px 0 0;
-    color: #2d2137;
-    text-align: left;
-    font-family: inherit;
-  }
+  .booking-calendar { width: 100%; max-width: 1040px; margin: 28px auto 0; text-align: center; scroll-margin-top: 105px; }
   .booking-calendar [hidden] { display: none; }
-  .booking-panel {
-    border: 1px solid #d6c9e0;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 18px 55px -38px #32214066;
-  }
-  .booking-panel :is(button, input, select) { font: inherit; }
-  .booking-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .booking-times, .booking-details, .booking-success { padding: clamp(20px, 3.4vw, 36px); }
-  .booking-times { background: #f8f4fb; }
-  :is([data-phase="empty"], [data-phase="unavailable"]) .booking-form { grid-template-columns: minmax(0, 1fr); }
-  :is([data-phase="empty"], [data-phase="unavailable"]) .booking-details { display: none; }
-  .booking-details { display: grid; align-content: start; gap: 13px; }
-  .booking-heading { font-size: 1.2rem; font-weight: 730; line-height: 1.25; }
-  .booking-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; margin: 7px 0 20px; }
-  .booking-meta, .booking-selection, .booking-notice { font-size: .875rem; line-height: 1.5; }
-  .booking-meta, .booking-selection { color: #66576f; }
-  .booking-meta span:empty { display: none; }
-  .booking-days { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 6px; }
-  .booking-days label { min-width: 0; }
-  .booking-panel :is(select, input:not([type="radio"]), .booking-days button) {
-    width: 100%;
-    min-height: 44px;
-    border: 1px solid #bcb0c5;
-    border-radius: 8px;
-    background: #fff;
-    color: #2d2137;
-  }
-  .booking-days select { padding: 0 6px; font-size: .875rem; font-weight: 650; }
-  .booking-days button { cursor: pointer; font-size: 1.05rem; }
-  .booking-days button:disabled { opacity: .36; cursor: default; }
-  .booking-panel fieldset { border: 0; padding: 0; margin: 12px 0 0; min-width: 0; }
-  .booking-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(68px, 1fr)); gap: 7px; }
-  .booking-slots :global(label) { position: relative; }
-  .booking-slots :global(input) { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-  .booking-slots :global(span) {
-    display: grid;
-    place-items: center;
-    min-height: 44px;
-    padding: 6px 3px;
-    border: 1px solid #bcb0c5;
-    border-radius: 8px;
-    background: #fff;
-    font-size: .9rem;
-    font-weight: 650;
-  }
-  .booking-slots :global(input:checked + span) { border-color: #573869; background: #573869; color: #fff; }
-  .booking-days button:hover:not(:disabled), .booking-slots :global(input:not(:checked):hover + span) { background: #eee6f5; }
-  .booking-details label { display: grid; gap: 4px; font-size: .875rem; font-weight: 650; }
-  .booking-details input { padding: 8px 11px; }
-  .booking-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .booking-selection { min-height: 1.4em; margin-top: 1px; }
-  .booking-panel .booking-submit {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-    min-height: 48px;
-    padding: 9px 15px;
-    border: 1px solid #573869;
-    border-radius: 9px;
-    background: #573869;
-    color: #fff;
-    font-weight: 700;
-    text-align: left;
-    cursor: pointer;
-  }
-  .booking-panel .booking-submit:hover:not(:disabled) { background: #402a4d; }
-  .booking-submit:disabled { opacity: .55; cursor: default; }
-  .booking-calendar :is(input, select, button, a):focus-visible,
-  .booking-slots :global(input:focus-visible + span) { outline: 2px solid #8038ee; outline-offset: 3px; }
-  .booking-link, .booking-close { color: #573869; text-decoration: underline; text-underline-offset: 3px; font-size: .875rem; }
-  .booking-link { display: inline-block; width: fit-content; }
-  .booking-privacy { font-size: .75rem; }
-  .booking-close { margin: 0 22px 18px; padding: 8px 0; border: 0; background: transparent; cursor: pointer; }
-  .booking-notice { color: #5d325a; }
-  .booking-times .booking-notice { margin: 12px 0; }
-  .booking-skeleton { display: grid; gap: 12px; }
-  .booking-skeleton div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .booking-skeleton span { display: block; min-height: 44px; border-radius: 8px; background: #eee6f5; }
-  .booking-success { display: grid; gap: 10px; }
-  .booking-confirmed-time { font-weight: 650; }
-  @media (max-width: 640px) {
-    .booking-calendar { margin-top: 24px; }
-    .booking-panel { border-radius: 13px; }
-    .booking-form { grid-template-columns: minmax(0, 1fr); }
+  .booking-trigger { min-width: 180px; background: #573869; border-color: #573869; color: #fff; font: inherit; cursor: pointer; }
+  .booking-trigger:hover { background: #402a4d; }
+  .booking-panel { text-align: left; background: #fff; border: 1px solid #d6c9e0; border-radius: 16px; overflow: hidden; }
+  .booking-tools { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; padding: 3px 22px; border-bottom: 1px solid #eee7f2; background: #f8f4fb; }
+  .booking-tools :is(a, button) { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 0; color: #573869; font: inherit; font-size: .875rem; text-decoration: underline; text-underline-offset: 3px; }
+  .booking-tools button { border: 0; background: transparent; cursor: pointer; }
+  .booking-panel iframe { display: block; width: 100%; height: 720px; border: 0; background: #fff; }
+  .booking-calendar :is(a, button):focus-visible { outline: 2px solid #8038ee; outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .booking-panel { border-radius: 12px; }
+    .booking-tools { padding-inline: 14px; }
+    .booking-panel iframe { height: 990px; }
   }
 </style>

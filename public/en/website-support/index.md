@@ -91,6 +91,6 @@ Price, scope, term and cancellation conditions are defined in the proposal. You 
 
 We look at your website and discuss what gets left behind during a busy working week. You receive a free assessment with a rating and feedback. We can then identify the ongoing tasks you would like to hand over.
 
-[Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss your project](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
 
 contact@vibeperform.com

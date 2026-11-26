@@ -65,4 +65,4 @@ Let’s look at your website and your goals together. In an initial conversation
 
 contact@vibeperform.com
 
-https://calendar.app.google/utFQgw33PwJTiDk56
+https://calendar.app.google/NzPQzJCUCw9gu4Jx7

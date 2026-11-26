@@ -37,4 +37,4 @@ We make an online presence with the quality of leading brands affordable for sma
 
 During the call, you’ll receive a free assessment of your online presence, including a rating and feedback.
 
-contact@vibeperform.com · [Book an introductory call](https://calendar.app.google/utFQgw33PwJTiDk56)
+contact@vibeperform.com · [Book an introductory call](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)

@@ -76,4 +76,4 @@ Die 60-minütige Potenzialanalyse ist eine eigenständig beauftragte Leistung mi
 
 [Analyse anfragen](mailto:contact@vibeperform.com?subject=Anfrage%20KI-Potenzialanalyse)
 
-[Zuerst kennenlernen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Zuerst kennenlernen](https://calendar.app.google/NzPQzJCUCw9gu4Jx7)
