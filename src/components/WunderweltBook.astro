@@ -1,0 +1,46 @@
+---
+const pages = [
+  { image:'hotel-book-welcome', caption:'Die Einsatzideen standen im ersten Entwurf in einem eigenen Textblock. Wir holten sie ins Buch. Die erste Doppelseite zeigt den Moment der Übergabe am Empfang.', title:'Willkommensgeschenk', printTitle:'Willkommens\u00adgeschenk', alt:'Eine Familie bekommt am Empfang ein illustriertes Buch überreicht.', text:'An der Rezeption bekommt die Familie ein Buch, in dem die Kinder ihr Urlaubshotel entdecken.' },
+  { image:'hotel-book-room-gift', caption:'Für das Andenken wechseln wir vom Empfang aufs Hotelzimmer. Das Buch auf dem Bett erzählt mit einem Bild, was die Familie später mit nach Hause nimmt.', title:'Erinnerung an den Aufenthalt', alt:'Ein Kinderbuch liegt auf dem Hotelbett mit Blick auf die Berge.', text:'Auf dem Hotelbett liegt die Geschichte des Hauses. Als Andenken reist sie mit der Familie nach Hause.' },
+  { image:'hotel-book-family-reading', caption:'Der Hotelshop schließt die Bildfolge ab. Hotels haben damit beim Blättern drei konkrete Situationen gesehen, in denen sie ihr Buch einsetzen können.', title:'Produkt im Hotelshop', alt:'Eine Familie liest gemeinsam in der Hotellounge.', text:'Im Hotelshop können Gäste das Buch für sich oder als Geschenk kaufen.' },
+];
+---
+<div class="book-frame">
+  {pages.map((page,i)=><article data-spread>
+    <div class="paper left">
+      <small>0{i+1} / 03</small><h3>{page.printTitle ?? page.title}</h3><p>{page.text}</p>
+    </div>
+    <div class="leaf">
+      <div class="front"><img src={'/case-studies/wunderwelt-kids/'+page.image+'.webp'} width="820" height="820" alt={page.alt}/></div>
+      {pages[i+1] && <div class="paper back" aria-hidden="true">
+        <small>0{i+2} / 03</small><strong>{pages[i+1].title}</strong><p>{pages[i+1].text}</p>
+      </div>}
+    </div>
+  </article>)}
+</div>
+<noscript><p>{pages[0].caption}</p></noscript>
+<div class="spread-captions">{pages.map((page,i)=><p data-spread-caption={i}><strong>{page.title}</strong>{page.caption}</p>)}</div>
+<style>
+  .book-frame {width:min(100%,92svh,940px);margin:clamp(18px,3vh,32px) auto 0;color:#284b70;perspective:6000px}
+  .book-frame article {position:relative;display:grid;grid-template-columns:1fr 1fr;aspect-ratio:2;container-type:inline-size;margin-bottom:20px}
+  .paper {display:flex;flex-direction:column;justify-content:center;padding:clamp(10px,2.8cqw,32px);background:#fff9ed}
+  .paper small {color:#95601e;font-weight:700;letter-spacing:.08em;font-size:clamp(10px,1.3cqw,14px)}
+  .paper h3,.paper strong {color:#284b70;margin:.55em 0;font-size:clamp(14px,3.6cqw,34px);font-weight:700;line-height:1.16;hyphens:auto;overflow-wrap:anywhere}
+  .paper p {margin:0;color:#24303b;font-size:clamp(12px,1.9cqw,18px);line-height:1.45}
+  .left {border-right:1px solid #e1d5bd;border-radius:4px 0 0 4px}
+  .leaf {position:relative;transform-origin:left center;transform-style:preserve-3d}
+  .front,.back {position:absolute;inset:0;backface-visibility:hidden;border-radius:0 4px 4px 0}
+  .front {padding:clamp(5px,1.4cqw,14px);background:#fff9ed;transform:translateZ(1px)}
+  .front img {width:100%;height:100%;object-fit:contain;display:block}
+  .back {transform:rotateY(180deg) translateZ(1px);border-radius:4px 0 0 4px}
+  :global([data-book-ready]) .book-frame {position:relative;aspect-ratio:2;box-shadow:0 12px 32px #30223224}
+  :global([data-book-ready]) .book-frame article {position:absolute;inset:0;margin:0}
+  :global([data-book-ready]) article[data-past] {visibility:hidden}
+  :global([data-book-ready]) .leaf {transform:rotateY(calc(-180deg * var(--turn,0)));box-shadow:calc(-12px * var(--arc,0)) calc(12px * var(--arc,0)) calc(22px * var(--arc,0)) #284b703d}
+  .spread-captions {display:none}
+  :global([data-book-ready]) .spread-captions {display:grid;margin-top:18px;font-size:clamp(17px,1.55vw,22px);line-height:1.48}
+  .spread-captions p {grid-area:1/1;visibility:hidden;margin:0}
+  .spread-captions [data-active] {visibility:visible}
+  .spread-captions strong {display:block;margin-bottom:4px}
+  @media(max-width:700px){:global([data-book-ready]) .paper p {display:none}}
+</style>
