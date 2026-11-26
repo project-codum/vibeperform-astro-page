@@ -1,16 +1,11 @@
+import { inquiryPayloadHash, readInquiryRequest, reply } from './inquiry-request.js';
 import { notifyBlogInquiry } from './blog-inquiry-email.js';
 
-const MAX_BODY_BYTES = 8192;
 const choices = {
   updateFrequency: ['weekly', 'monthly', 'rarely', 'never'],
   contentOwner: ['self', 'team', 'external', 'nobody'],
   updateObstacle: ['time', 'ideas', 'technology', 'none'],
 };
-const reply = (status, data, headers = {}) => Response.json(data, { status, headers: {
-  'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
-  'X-Robots-Tag': 'noindex', ...headers,
-} });
-
 export function validateBlogInquiry(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return null;
   // Do not silently reinterpret submissions from an older questionnaire.
@@ -33,41 +28,13 @@ export function validateBlogInquiry(input) {
   return data;
 }
 
-async function boundedJson(request) {
-  if (Number(request.headers.get('Content-Length')) > MAX_BODY_BYTES) throw new RangeError();
-  if (!request.body) throw new SyntaxError();
-  const reader = request.body.getReader();
-  const chunks = []; let size = 0;
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      size += value.byteLength;
-      if (size > MAX_BODY_BYTES) { await reader.cancel(); throw new RangeError(); }
-      chunks.push(value);
-    }
-  } finally { reader.releaseLock(); }
-  const bytes = new Uint8Array(size); let offset = 0;
-  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
-  return JSON.parse(new TextDecoder().decode(bytes));
-}
-
 export async function handleBlogInquiry(request, env) {
-  if (request.method !== 'POST') return reply(405, { error: 'method_not_allowed' }, { Allow: 'POST' });
-  if (request.headers.get('Origin') !== new URL(request.url).origin || request.headers.get('Sec-Fetch-Site') === 'cross-site') return reply(403, { error: 'origin_not_allowed' });
-  if (request.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json') return reply(415, { error: 'json_required' });
-  if (!env.INQUIRIES_DB || !env.INQUIRY_RATE_LIMITER) return reply(503, { error: 'temporarily_unavailable' });
-  try {
-    const limit = await env.INQUIRY_RATE_LIMITER.limit({ key: request.headers.get('CF-Connecting-IP') || 'unknown' });
-    if (!limit.success) return reply(429, { error: 'rate_limited' }, { 'Retry-After': '60' });
-  } catch { return reply(503, { error: 'temporarily_unavailable' }); }
-  let input;
-  try { input = await boundedJson(request); }
-  catch (error) { return reply(error instanceof RangeError ? 413 : 400, { error: 'invalid_request' }); }
-  const data = validateBlogInquiry(input);
+  const parsed = await readInquiryRequest(request, env);
+  if (parsed instanceof Response) return parsed;
+  const data = validateBlogInquiry(parsed.input);
   if (!data) return reply(422, { error: 'invalid_fields' });
   const { requestId, ...fields } = data;
-  const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(fields))))].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  const hash = await inquiryPayloadHash(fields);
   try {
     await env.INQUIRIES_DB.prepare(`INSERT INTO blog_inquiries
       (request_id, payload_hash, source, update_frequency, content_owner, update_obstacle, email)

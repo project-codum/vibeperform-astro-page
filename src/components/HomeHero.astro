@@ -1,9 +1,11 @@
 ---
 import HomeFluidBackdrop from './HomeFluidBackdrop.astro';
+import HomeWebCheck from './HomeWebCheck.astro';
+import type { Locale } from '../lib/siteMetadata';
 import type { HomeIntroContent } from '../data/homeIntroContent';
 import '../styles/home-hero.css';
-interface Props { copy: HomeIntroContent; }
-const { copy } = Astro.props;
+interface Props { copy: HomeIntroContent; locale: Locale; }
+const { copy, locale } = Astro.props;
 ---
 <section class="vf-hero" data-home-hero data-analytics-section="home-hero" aria-labelledby="home-title">
   <HomeFluidBackdrop pauseLabel={copy.pauseLabel} resumeLabel={copy.resumeLabel} />
@@ -16,6 +18,8 @@ const { copy } = Astro.props;
     </div>
     <p class="vf-intro">{copy.intro.map((paragraph, index) => <>{index > 0 && <><br class="vf-desktop" /> </>}{paragraph}</>)}</p>
   </div>
+
+  <HomeWebCheck locale={locale} />
 
   <div class="vf-hero-bottom" aria-hidden="true"></div>
 </section>

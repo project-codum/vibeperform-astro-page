@@ -11,7 +11,9 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     const html=await readFile(path.join(dist,route),'utf8');
     assert.equal((html.match(/<h1\b/g)||[]).length,1);
     assert.match(html,language==='de'?/Online-Auftritt/:/In professional hands\./);
-    assert.match(html,/class="vf-portrait-bubble"/);
+    assert.match(html,/<button class="vf-check-bubble"[^>]*aria-expanded="false"/);
+    assert.match(html,/<iframe[^>]*sandbox=""[^>]*referrerpolicy="no-referrer"/);
+    assert.doesNotMatch(html,/class="vf-portrait-bubble"/);
     assert.doesNotMatch(html,/class="vf-audience"/);
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
     const actions=html.match(/<div class="vf-actions">([\s\S]*?)<\/div>/)?.[1];

@@ -1,40 +1,10 @@
 ---
-import SmoothScroll from '../../components/SmoothScroll.astro';
-import ConsentManagerHead from '../../components/ConsentManagerHead.astro';
-import '../../styles/global.css';
 import LegalPage from '../../components/LegalPage.astro';
 import { legalContent } from '../../data/legalContent';
-import { absoluteUrl } from '../../lib/siteMetadata';
-
-const content = legalContent.en.privacy;
-const homeHref = '/en/';
-const alternateLocaleHref = '/de/datenschutz/';
-const faviconHref = `${import.meta.env.BASE_URL}favicon-spark-20261012.png`;
-const canonicalUrl = absoluteUrl('/en/privacy/');
-const alternateUrl = absoluteUrl(alternateLocaleHref);
 ---
-
-<html lang="en">
-	<head>
-		<ConsentManagerHead locale="en" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href={faviconHref} />
-		<title>{content.metaTitle}</title>
-		<meta name="description" content={content.metaDescription} />
-		<link rel="canonical" href={canonicalUrl} />
-		<link rel="alternate" hreflang="en" href={canonicalUrl} />
-		<link rel="alternate" hreflang="de" href={alternateUrl} />
-		<link rel="alternate" hreflang="x-default" href={alternateUrl} />
-	</head>
-
-	<body class="bg-white text-slate-900">
-		<LegalPage
-			content={content}
-			homeHref={homeHref}
-			alternateLocaleHref={alternateLocaleHref}
-			currentLocale="en"
-		/>
-		<SmoothScroll />
-	</body>
-</html>
+<LegalPage
+  content={legalContent.en.privacy}
+  locale="en"
+  path="/en/privacy/"
+  alternatePath="/de/datenschutz/"
+/>
