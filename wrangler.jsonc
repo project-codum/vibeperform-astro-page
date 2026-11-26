@@ -37,6 +37,22 @@
         "limit": 10,
         "period": 60
       }
+    },
+    {
+      "name": "BOOKING_READ_LIMITER",
+      "namespace_id": "209090002",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    },
+    {
+      "name": "BOOKING_WRITE_LIMITER",
+      "namespace_id": "209090003",
+      "simple": {
+        "limit": 4,
+        "period": 60
+      }
     }
   ],
   "send_email": [

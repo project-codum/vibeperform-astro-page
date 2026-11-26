@@ -1,3 +1,5 @@
+import { bookingPath } from '../lib/siteMetadata';
+
 const BASE_PATH = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 
 export const homeContent = {
@@ -19,7 +21,7 @@ export const homeContent = {
 			rotatingWords: ['Independent advice.', 'On-site analysis.', 'Turnkey implementation.'],
 			subtitle: 'We find useful applications, build the right solution and embed it with your team in daily work.',
 			primaryCta: 'Book an intro call',
-			primaryHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
+			primaryHref: bookingPath('en'),
 			secondaryCta: 'See our approach',
 			secondaryHref: '#how-we-work',
 			callouts: [
@@ -39,7 +41,7 @@ export const homeContent = {
 				heading: 'Sound like the right approach?',
 				primary: {
 					label: 'Book a free discovery call',
-					href: 'https://calendar.app.google/utFQgw33PwJTiDk56',
+					href: bookingPath('en'),
 				},
 				secondary: {
 					label: 'Explore workshops',
@@ -125,7 +127,7 @@ export const homeContent = {
 			rotatingWords: ['Unabhängig beraten.', 'Vor Ort analysieren.', 'Schlüsselfertige Umsetzung.'],
 			subtitle: 'Wir finden sinnvolle Einsatzfelder, bauen passende Lösungen und bringen sie gemeinsam mit Ihrem Team in den Alltag.',
 			primaryCta: 'Erstgespräch buchen',
-			primaryHref: 'https://calendar.app.google/utFQgw33PwJTiDk56',
+			primaryHref: bookingPath('de'),
 			secondaryCta: 'Vorgehen ansehen',
 			secondaryHref: '#so-arbeiten-wir',
 			callouts: [
@@ -145,7 +147,7 @@ export const homeContent = {
 				heading: 'Noch Fragen? Nutzen Sie unsere KI-Assistenz',
 				primary: {
 					label: 'Kostenloses Erstgespräch vereinbaren',
-					href: 'https://calendar.app.google/utFQgw33PwJTiDk56',
+					href: bookingPath('de'),
 				},
 				secondary: {
 					label: 'Workshops ansehen',

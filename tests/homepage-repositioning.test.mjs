@@ -18,7 +18,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
     const actions=html.match(/<div class="vf-actions">([\s\S]*?)<\/div>/)?.[1];
     assert.ok(actions);
-    assert.match(actions,/href="https:\/\/calendar.app.google\/utFQgw33PwJTiDk56"/);
+    assert.ok(actions.includes(`href="/${language}/#kontakt"`));
     assert.equal((actions.match(/<a\b/g)||[]).length,2);
     assert.match(actions,/href="#designstudien"/);
     assert.match(actions,language==='de'?/Unsere Arbeit ansehen/:/See our work/);

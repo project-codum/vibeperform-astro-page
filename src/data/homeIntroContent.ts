@@ -1,4 +1,4 @@
-import { bookingUrl } from '../lib/siteMetadata';
+import { bookingPath } from '../lib/siteMetadata';
 
 // Shared navigation and hero copy for the completed agency homepage.
 export const homeIntroContent = {
@@ -11,7 +11,7 @@ export const homeIntroContent = {
     intro: ['Wir lernen deinen Betrieb kennen und übernehmen Gestaltung, Inhalte und Betreuung. Damit du dich auf deine Arbeit konzentrieren kannst.'],
     primaryLabel: 'Uns kennenlernen',
     heroPrimaryLabel: 'Uns kennenlernen',
-    primaryHref: bookingUrl,
+    primaryHref: bookingPath('de'),
     moreLabel: 'Unsere Arbeit ansehen',
     homeLabel: 'VibePerform – Startseite',
     navLabel: 'Hauptnavigation',
@@ -32,7 +32,7 @@ export const homeIntroContent = {
     intro: ['We get to know your business and take care of design, content and ongoing support. So you can focus on your work.'],
     primaryLabel: 'Get to know us',
     heroPrimaryLabel: 'Get to know us',
-    primaryHref: bookingUrl,
+    primaryHref: bookingPath('en'),
     moreLabel: 'See our work',
     homeLabel: 'VibePerform – Home',
     navLabel: 'Main navigation',

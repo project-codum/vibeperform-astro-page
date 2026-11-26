@@ -1,130 +1,33 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { mountBookingCalendar } from '../src/scripts/bookingCalendar.ts';
 
-class Node extends EventTarget {
-  hidden = true;
-  attrs = new Map();
-  dataset = {};
-  setAttribute(k,v) { this.attrs.set(k,v); }
-  hasAttribute(k) { return this.attrs.has(k); }
-  removeAttribute(k) { this.attrs.delete(k); }
-  set src(v) { this.attrs.set('src',v); }
-  focus() { this.focused = true; }
-  click() { this.dispatchEvent(new Event('click')); }
+const dist = new URL('../dist/', import.meta.url);
+
+function assertNativeWidget(html, file, locale) {
+  const widget = html.match(/<div class="booking-calendar"[\s\S]*?<\/form>/)?.[0];
+  assert.ok(widget, file);
+  assert.match(widget, /data-auto-open="true"/, file);
+  assert.match(widget, /data-booking-slots/, file);
+  assert.match(widget, /<form[^>]+action="\/api\/booking\/reservations"[^>]+method="post"/, file);
+  assert.match(widget, /name="name"[^>]+autocomplete="name"/, file);
+  assert.match(widget, /name="email"[^>]+autocomplete="email"/, file);
+  assert.match(widget, /href="https:\/\/calendar.app.google\/utFQgw33PwJTiDk56" target="_blank" rel="noopener noreferrer"/, file);
+  assert.doesNotMatch(widget, /<iframe\b|calendar\.google\.com|Wir laden die freien Termine|Loading available times/, file);
+  assert.ok(widget.includes(locale === 'de' ? 'Termin finden' : 'Find a time'), file);
 }
 
-function fixture(t, { reduced = false, autoOpen = false } = {}) {
-  const saved = Object.getOwnPropertyDescriptor(globalThis,'matchMedia');
-  const media = new EventTarget(); media.matches = reduced;
-  Object.defineProperty(globalThis,'matchMedia',{configurable:true,value:()=>media});
-  t.after(()=>{if(saved) Object.defineProperty(globalThis,'matchMedia',saved); else delete globalThis.matchMedia;});
-  const names = ['load','fallback','hide','placeholder','panel','frame','status'];
-  const nodes = Object.fromEntries(names.map(name=>[name,new Node()]));
-  nodes.frame.dataset.src = 'https://calendar.google.com/calendar/appointments/schedules/example?gv=true';
-  const animations=[];
-  nodes.panel.animate=()=>{const animation={cancelled:false,cancel(){this.cancelled=true}};animations.push(animation);return animation;};
-  const root = { dataset:{phase:'closed',autoOpen:String(autoOpen)}, querySelector(selector) { return nodes[selector.match(/data-booking-(\w+)/)[1]]; } };
-  const controller=mountBookingCalendar(root);
-  t.after(()=>controller.destroy());
-  return {root,nodes,controller,animations,media};
-}
-
-test('calendar stays disconnected until requested and can be closed, reopened and disposed', t => {
-  const {root,nodes,controller,animations}=fixture(t);
-  assert.equal(nodes.load.hidden,false);
-  assert.equal(nodes.fallback.hidden,true);
-  assert.equal(nodes.frame.hasAttribute('src'),false);
-  nodes.load.click();
-  assert.equal(root.dataset.phase,'loading');
-  assert.equal(nodes.frame.attrs.get('src'),nodes.frame.dataset.src);
-  assert.equal(nodes.panel.hidden,false);
-  assert.equal(nodes.placeholder.hidden,true);
-  assert.equal(animations.length,1);
-  nodes.load.click();
-  assert.equal(animations.length,1,'a repeated opening does not restart the request');
-  nodes.frame.dispatchEvent(new Event('load'));
-  assert.equal(root.dataset.phase,'ready','readiness never waits for the opening animation');
-  assert.equal(nodes.status.hidden,true);
-  assert.equal(nodes.panel.attrs.get('aria-busy'),'false');
-  nodes.hide.click();
-  assert.equal(nodes.frame.hasAttribute('src'),false);
-  assert.equal(nodes.panel.hidden,true);
-  assert.equal(nodes.placeholder.hidden,false);
-  assert.equal(nodes.load.focused,true);
-  assert.equal(animations[0].cancelled,true);
-  nodes.frame.dispatchEvent(new Event('load'));
-  assert.equal(root.dataset.phase,'closed','late load events cannot reopen a closed calendar');
-  nodes.load.click();
-  assert.equal(nodes.frame.hasAttribute('src'),true,'calendar can be loaded again');
-  controller.destroy();
-  assert.equal(nodes.frame.hasAttribute('src'),false);
-});
-
-test('reduced motion skips the opening animation and stops an active one when the preference changes', t=>{
-  const {nodes,animations,media}=fixture(t,{reduced:true});
-  nodes.load.click(); assert.equal(animations.length,0);
-  nodes.hide.click(); media.matches=false; nodes.load.click(); assert.equal(animations.length,1);
-  media.matches=true; media.dispatchEvent(new Event('change')); assert.equal(animations[0].cancelled,true);
-});
-
-test('built contact sections keep a no-JavaScript link and opt into automatic lazy calendar loading', () => {
-  for (const locale of ['de','en']) {
-    const html = readFileSync(new URL(`../dist/${locale}/index.html`,import.meta.url),'utf8');
-    const section = html.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)?.[0];
-    assert(section);
-    const frame = section.match(/<iframe\b[^>]*>/)?.[0];
-    assert(frame);
-    assert.match(section,/data-auto-open="true"/);
-    assert.match(frame,/loading="lazy"/);
-    assert.doesNotMatch(frame,/\ssrc=/);
-    assert.match(frame,/data-src="https:\/\/calendar.google.com\/calendar\/u\/0\/appointments\/schedules\//);
-    assert.match(frame,/\?gv=true&amp;hl=(?:de|en)/);
-    assert.match(frame,/referrerpolicy="no-referrer"/);
-    assert.match(section,/href="https:\/\/calendar.app.google\/utFQgw33PwJTiDk56" target="_blank" rel="noopener noreferrer"/);
-    assert.match(section,/mailto:contact@vibeperform.com/);
-    assert.doesNotMatch(html,/class="hp-extra"|Wir betrachten verfügbare Nutzungsdaten|We consider available usage data/);
-  }
-});
-
-
-test('homepage calendar opens automatically without moving focus and stays closed after dismissal', t => {
-  const {root,nodes,animations}=fixture(t,{autoOpen:true});
-  assert.equal(root.dataset.phase,'loading');
-  assert.equal(nodes.panel.hidden,false);
-  assert.equal(nodes.placeholder.hidden,true);
-  assert.equal(nodes.frame.attrs.get('src'),nodes.frame.dataset.src);
-  assert.equal(nodes.frame.focused,undefined);
-  assert.equal(animations.length,0);
-  nodes.hide.click();
-  assert.equal(root.dataset.phase,'closed');
-  assert.equal(nodes.frame.hasAttribute('src'),false);
-  nodes.load.click();
-  assert.equal(root.dataset.phase,'loading');
-  assert.equal(nodes.frame.focused,true);
-});
-
-test('all DE and EN agency contact sections share the calendar and icon-free email button', () => {
-  const dist = new URL('../dist/', import.meta.url);
-  const checked = [];
-  for (const file of readdirSync(dist, { recursive: true })) {
-    if (!/^(de|en)[\\/].*\.html$/.test(file)) continue;
+test('home, service and case study pages render the shared first-party booking form', () => {
+  const files = readdirSync(dist, { recursive: true }).filter(file => /^(de|en)\/.*\.html$/.test(file));
+  let checked = 0;
+  for (const file of files) {
     const html = readFileSync(new URL(file, dist), 'utf8');
-    const section = html.match(/<section\b[^>]*class="[^"]*\bhp-contact\b[^"]*"[^>]*>[\s\S]*?<\/section>/)?.[0];
-    if (!section || !section.includes('data-contact-actions')) continue;
-    const de = file.startsWith('de');
-    const load = section.match(/<button\b[^>]*data-booking-load\b[^>]*>([\s\S]*?)<\/button>/)?.[1];
-    assert.equal(load, de ? 'Termin finden' : 'Find a time', file);
-    assert.equal((section.match(/<div\b[^>]*\bdata-booking-calendar\b/g) || []).length, 1, file);
-    const frame = section.match(/<iframe\b[^>]*>/)?.[0];
-    assert.ok(frame, file);
-    assert.match(section, /data-auto-open="true"/, file);
-    assert.doesNotMatch(frame, /\ssrc=/, file);
-    assert.match(frame, new RegExp(`data-src="[^\"]+hl=${de ? 'de' : 'en'}"`), file);
-    const email = section.match(/<a\b[^>]*class="hp-button hp-button--outline"[^>]*href="mailto:contact@vibeperform.com"[^>]*>([\s\S]*?)<\/a>/)?.[1];
-    assert.equal(email, de ? 'E-Mail schreiben' : 'Send an email', file);
-    checked.push(file);
+    if (!html.includes('data-booking-calendar')) continue;
+    assertNativeWidget(html, file, file.slice(0, 2));
+    checked++;
   }
-  assert.ok(checked.length >= 20, `coverage: ${checked.length} contact pages`);
+  assert.ok(checked >= 20, `coverage: ${checked} booking pages`);
+  for (const file of ['de/index.html', 'en/index.html', 'de/fallstudien/wunderwelt-kids/index.html']) {
+    assertNativeWidget(readFileSync(new URL(file, dist), 'utf8'), file, file.slice(0, 2));
+  }
 });

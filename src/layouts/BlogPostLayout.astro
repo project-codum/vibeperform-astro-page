@@ -9,6 +9,7 @@ import '../styles/home-page.css';
 import '../styles/service-pages.css';
 import '../styles/knowledge.css';
 import BookingCalendar from '../components/BookingCalendar.astro';
+import { bookingUrl } from '../lib/siteMetadata';
 import AgencyFooter from '../components/AgencyFooter.astro';
 import AiImageFrame from '../components/AiImageFrame.astro';
 import ResponsiveBlogImage from '../components/ResponsiveBlogImage.astro';
@@ -72,7 +73,7 @@ const defaultCtaButtonText = locale === 'de'
 const ctaTitle = customCtaTitle ?? defaultCtaTitle;
 const ctaBody = customCtaBody ?? defaultCtaBody;
 const ctaButtonText = customCtaButtonText ?? defaultCtaButtonText;
-const ctaHref = customCtaHref ?? 'https://calendar.app.google/utFQgw33PwJTiDk56';
+const ctaHref = customCtaHref ?? bookingUrl;
 const ctaIsExternal = /^https?:\/\//.test(ctaHref);
 const normalizedPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const canonicalUrl = absoluteUrl(normalizedPath);
