@@ -129,7 +129,7 @@ ${section('Projekte, Fachwissen und Veranstaltungen sichtbar machen', 'Wir mache
 ${section(c.seo.title, `${c.seo.body}\n\n[${c.seo.link}](${absoluteUrl(c.seo.href)})`)}
 ${renderStudyLinks('de')}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\n${c.contact.detail}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}`);
+${section('Kontakt', `${c.contact.body}\n\n${bulletList(c.contact.benefits)}\n\n${c.contact.price}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}`);
 }
 
 function renderWorkshopsAgentPage(locale='de') {

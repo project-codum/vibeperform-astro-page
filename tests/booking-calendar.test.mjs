@@ -10,6 +10,10 @@ function assertNativeWidget(html, file, locale) {
   assert.match(widget, /data-auto-open="true"/, file);
   assert.match(widget, /data-booking-slots/, file);
   assert.match(widget, /<form[^>]+action="\/api\/booking\/reservations"[^>]+method="post"/, file);
+  assert.match(widget, /data-booking-details hidden/, file);
+  assert.match(widget, /data-booking-email-field hidden/, file);
+  assert.match(widget, /data-booking-submit disabled hidden/, file);
+  assert.ok(widget.includes(locale === 'de' ? 'Wann passt es?' : 'What time works for you?'), file);
   assert.match(widget, /name="name"[^>]+autocomplete="name"/, file);
   assert.match(widget, /name="email"[^>]+autocomplete="email"/, file);
   assert.match(widget, /data-booking-fallback href="mailto:contact@vibeperform\.com"/, file);

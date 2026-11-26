@@ -101,6 +101,8 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
 @media(prefers-reduced-motion:reduce){.hp-caption-word{opacity:1!important;transform:none!important;filter:none!important}}
 
 .hp-contact-detail{max-width:76ch;font-size:15px;line-height:1.7;margin:18px 0 32px;color:#62516e;text-align:left}
+.hp-contact-benefits{list-style:disc;margin:4px 0 6px;padding-inline-start:1.5rem;text-align:left;font-size:1.125rem;line-height:1.6}
+.hp-contact-price{margin:0;text-align:left}
 
 /* Keep the statement and its supporting copy together on mobile. */
 @media(max-width:700px){

@@ -23,7 +23,9 @@ export const homePageContent = {
         { question: 'Wie funktioniert die laufende Betreuung?', answer: 'Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit dir ab.' },
       ],
     },
-    contact: { title: 'Buch dir ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommst du von uns kostenlos einen Statuscheck deines Online-Auftritts mit Benotung und Feedback.', detail: 'Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir deinen geplanten Auftritt.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben', emailButton: 'E-Mail schreiben' },
+    contact: { title: 'Buch dir ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommst du von mir:',
+      benefits: ['einen Statuscheck deines Online-Auftritts', 'Benotung', 'Feedback für Verbesserungen'],
+      price: 'kostenlos.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben', emailButton: 'E-Mail schreiben' },
     footer: { tagline: 'Webseiten und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', support: 'Betreuung', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
   },
   en: {

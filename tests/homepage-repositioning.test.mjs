@@ -27,6 +27,14 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     for (const [,href] of html.matchAll(/href="(\/(?:de|en)\/[^"#?]*)"/g)) await access(path.join(dist,href.slice(1),'index.html'));
     assert.match(html,/mailto:contact@vibeperform.com/);
     assert.match(html,/data-booking-calendar/);
+    if (language === 'de') {
+      const contact = html.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)?.[0];
+      assert.ok(contact);
+      assert.match(contact, /Im Gespräch bekommst du von mir:/);
+      assert.match(contact, /<li>einen Statuscheck deines Online-Auftritts<\/li>\s*<li>Benotung<\/li>\s*<li>Feedback für Verbesserungen<\/li>/);
+      assert.match(contact, /kostenlos\./);
+      assert.doesNotMatch(contact, /Wir schauen auf Gestaltung/);
+    }
     assert.doesNotMatch(html,/UNSERE LEISTUNGEN|UNSERE VISION|SO ARBEITEN WIR ZUSAMMEN|VOR DEM ERSTEN GESPRÄCH|DER NÄCHSTE SCHRITT|OUR SERVICES|OUR VISION|WORKING TOGETHER|BEFORE WE TALK|THE NEXT STEP/);
     assert.equal(html.includes('id="home-next"'), language === 'en');
     assert.match(html,language==='de'?/Termin finden/:/Find a time/);

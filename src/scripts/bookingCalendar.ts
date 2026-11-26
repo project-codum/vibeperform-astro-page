@@ -34,7 +34,9 @@ export function mountBookingCalendar(root: HTMLElement) {
   const previous = find<HTMLButtonElement>('previous');
   const next = find<HTMLButtonElement>('next');
   const slots = find('slots');
-  const selection = find('selection');
+  const details = find('details');
+  const emailField = find('email-field');
+  const privacy = find('privacy');
   const submit = find<HTMLButtonElement>('submit');
   const message = find('message');
   const success = find('success');
@@ -66,11 +68,23 @@ export function mountBookingCalendar(root: HTMLElement) {
   }
 
   function syncControls() {
-    submit.disabled = busy || !selectedSlot;
+    const hasSlot = Boolean(selectedSlot);
+    const hasName = hasSlot && Boolean(nameInput.value.trim());
+    details.hidden = !hasSlot;
+    nameInput.disabled = !hasSlot;
+    emailField.hidden = !hasName;
+    emailInput.disabled = !hasName;
+    const complete = hasName && emailInput.validity.valid;
+    submit.hidden = !complete;
+    privacy.hidden = !complete;
+    submit.disabled = busy || !complete;
     daySelect.disabled = busy || needsConfirmation;
     previous.disabled = daySelect.disabled || selectedDay === 0;
     next.disabled = daySelect.disabled || selectedDay >= days.length - 1;
-    slots.querySelectorAll('input').forEach(input => { input.disabled = daySelect.disabled; });
+    slots.querySelectorAll('button').forEach(button => {
+      button.disabled = daySelect.disabled;
+      button.setAttribute('aria-pressed', String(button.value === selectedSlot));
+    });
     nameInput.readOnly = busy || needsConfirmation;
     emailInput.readOnly = busy || needsConfirmation;
     if (hide) hide.disabled = busy || needsConfirmation;
@@ -81,7 +95,6 @@ export function mountBookingCalendar(root: HTMLElement) {
   function select(slot: string) {
     if (selectedSlot !== slot) requestId = '';
     selectedSlot = slot;
-    selection.textContent = slot ? describe(slot) : '';
     syncControls();
   }
 
@@ -90,20 +103,14 @@ export function mountBookingCalendar(root: HTMLElement) {
     if (!times) return;
     selectedDay = index;
     daySelect.selectedIndex = index;
-    const preferred = times.includes(selectedSlot) ? selectedSlot : times[0];
     slots.replaceChildren(...times.map(slot => {
-      const label = document.createElement('label');
-      const radio = document.createElement('input');
-      const text = document.createElement('span');
-      radio.type = 'radio';
-      radio.name = 'slot';
-      radio.value = slot;
-      radio.checked = slot === preferred;
-      text.textContent = timeLabel.format(new Date(slot));
-      label.append(radio, text);
-      return label;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.value = slot;
+      button.textContent = timeLabel.format(new Date(slot));
+      return button;
     }));
-    select(preferred);
+    select('');
   }
 
   async function loadSlots(refresh = false) {
@@ -154,6 +161,7 @@ export function mountBookingCalendar(root: HTMLElement) {
       picker.hidden = false;
       showDay(0);
       root.dataset.phase = 'ready';
+      if (refresh) slots.querySelector('button')?.focus({ preventScroll: true });
     } catch {
       if (controller.signal.aborted) return;
       notify(availability, copy.unavailable);
@@ -196,16 +204,30 @@ export function mountBookingCalendar(root: HTMLElement) {
   daySelect.addEventListener('change', () => showDay(daySelect.selectedIndex));
   previous.addEventListener('click', () => showDay(selectedDay - 1));
   next.addEventListener('click', () => showDay(selectedDay + 1));
-  slots.addEventListener('change', event => {
-    if (event.target instanceof HTMLInputElement) select(event.target.value);
+  slots.addEventListener('click', event => {
+    if (!(event.target instanceof HTMLButtonElement) || event.target.disabled) return;
+    select(event.target.value);
+    notify(message);
+    nameInput.focus();
   });
-  form.addEventListener('input', event => {
-    if (event.target === nameInput || event.target === emailInput) requestId = '';
+
+  function updateContactDetails() {
+    requestId = '';
+    syncControls();
+  }
+  for (const input of [nameInput, emailInput]) {
+    input.addEventListener('input', updateContactDetails);
+    input.addEventListener('change', syncControls);
+  }
+  nameInput.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' || event.isComposing || emailInput.disabled || nameInput.readOnly) return;
+    event.preventDefault();
+    emailInput.focus();
   });
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (busy || !selectedSlot || !form.reportValidity()) return;
+    if (submit.disabled || !form.reportValidity()) return;
     busy = true;
     syncControls();
     notify(message);

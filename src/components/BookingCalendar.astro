@@ -6,7 +6,7 @@ const { locale, autoOpen = false, analyticsLocation = 'home-contact' } = Astro.p
 const de = locale === 'de';
 const t = de ? {
   button: 'Termin finden', close: 'Kalender schließen',
-  title: 'Termin wählen', details: 'Deine Kontaktdaten',
+  title: 'Wann passt es?',
   place: 'Google Meet', zone: 'Berliner Zeit', day: 'Tag', time: 'Uhrzeit',
   previous: 'Vorheriger Tag', next: 'Nächster Tag',
   name: 'Name', email: 'E-Mail', book: 'Termin buchen', booking: 'Termin wird gebucht …', retry: 'Buchung prüfen',
@@ -24,7 +24,7 @@ const t = de ? {
   meet: 'Google Meet öffnen',
 } : {
   button: 'Find a time', close: 'Close calendar',
-  title: 'Choose a time', details: 'Your contact details',
+  title: 'What time works for you?',
   place: 'Google Meet', zone: 'Berlin time', day: 'Day', time: 'Time',
   previous: 'Previous day', next: 'Next day',
   name: 'Name', email: 'Email', book: 'Book appointment', booking: 'Booking appointment …', retry: 'Check booking',
@@ -73,16 +73,17 @@ const t = de ? {
         <div class="booking-notice" data-booking-availability role="status" hidden></div>
         <a class="booking-link" data-booking-alternative href={`mailto:${contactEmail}`} hidden>{t.fallback}</a>
       </div>
-      <div class="booking-details">
-        <div class="booking-heading">{t.details}</div>
-        <label>{t.name}<input name="name" type="text" autocomplete="name" maxlength="120" required /></label>
-        <label>{t.email}<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+      <div class="booking-details" data-booking-details hidden>
+        <label>{t.name}<input name="name" type="text" autocomplete="name" maxlength="120" required disabled /></label>
+        <label data-booking-email-field hidden>
+          {t.email}
+          <input name="email" type="email" autocomplete="email" maxlength="254" pattern={String.raw`[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+`} required disabled />
+        </label>
         <div class="booking-honeypot" aria-hidden="true"><label>Contact note<input type="text" name="contactNote" autocomplete="off" tabindex="-1" /></label></div>
-        <div class="booking-selection" data-booking-selection aria-live="polite"></div>
-        <button class="booking-submit" type="submit" data-booking-submit disabled>{t.book}<span aria-hidden="true">↗</span></button>
-        <div class="booking-notice" role="status" data-booking-message hidden></div>
-        <a class="booking-link booking-privacy" href={de ? '/de/datenschutz/' : '/en/privacy/'}>{t.privacy}</a>
+        <button class="booking-submit" type="submit" data-booking-submit disabled hidden>{t.book}<span aria-hidden="true">↗</span></button>
+        <a class="booking-link booking-privacy" data-booking-privacy href={de ? '/de/datenschutz/' : '/en/privacy/'} hidden>{t.privacy}</a>
       </div>
+      <div class="booking-notice" role="status" data-booking-message hidden></div>
     </form>
     <div class="booking-success" data-booking-success hidden tabindex="-1">
       <div class="booking-heading">{t.confirmed}</div>
@@ -102,7 +103,7 @@ const t = de ? {
 <style>
   .booking-calendar {
     width: 100%;
-    max-width: 890px;
+    max-width: 570px;
     margin: 32px 0 0;
     color: #2d2137;
     text-align: left;
@@ -117,52 +118,47 @@ const t = de ? {
     box-shadow: 0 18px 55px -38px #32214066;
   }
   .booking-panel :is(button, input, select) { font: inherit; }
-  .booking-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .booking-times, .booking-details, .booking-success { padding: clamp(20px, 3.4vw, 36px); }
-  .booking-times { background: #f8f4fb; }
-  :is([data-phase="empty"], [data-phase="unavailable"]) .booking-form { grid-template-columns: minmax(0, 1fr); }
-  :is([data-phase="empty"], [data-phase="unavailable"]) .booking-details { display: none; }
-  .booking-details { display: grid; align-content: start; gap: 13px; }
+  .booking-form, .booking-success { padding: clamp(20px, 3.4vw, 36px); }
+  .booking-form { display: grid; gap: 18px; background: #f8f4fb; }
+  .booking-details { display: grid; gap: 13px; }
   .booking-heading { font-size: 1.2rem; font-weight: 730; line-height: 1.25; }
   .booking-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; margin: 7px 0 20px; }
-  .booking-meta, .booking-selection, .booking-notice { font-size: .875rem; line-height: 1.5; }
-  .booking-meta, .booking-selection { color: #66576f; }
+  .booking-meta, .booking-notice { font-size: .875rem; line-height: 1.5; }
+  .booking-meta { color: #66576f; }
   .booking-meta span:empty { display: none; }
   .booking-days { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 6px; }
   .booking-days label { min-width: 0; }
-  .booking-panel :is(select, input:not([type="radio"]), .booking-days button) {
+  .booking-panel :is(select, input, .booking-days button) {
     width: 100%;
     min-height: 44px;
     border: 1px solid #bcb0c5;
-    border-radius: 8px;
     background: #fff;
     color: #2d2137;
   }
-  .booking-days select { padding: 0 6px; font-size: .875rem; font-weight: 650; }
+  .booking-days :is(select, button), .booking-trigger, .booking-close { border-radius: 9999px; }
+  .booking-days select { padding: 0 14px; font-size: .875rem; font-weight: 650; }
   .booking-days button { cursor: pointer; font-size: 1.05rem; }
   .booking-days button:disabled { opacity: .36; cursor: default; }
   .booking-panel fieldset { border: 0; padding: 0; margin: 12px 0 0; min-width: 0; }
-  .booking-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(68px, 1fr)); gap: 7px; }
-  .booking-slots :global(label) { position: relative; }
-  .booking-slots :global(input) { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-  .booking-slots :global(span) {
-    display: grid;
-    place-items: center;
+  .booking-slots { display: flex; flex-wrap: wrap; gap: 7px; }
+  .booking-slots :global(button) {
+    min-width: 76px;
     min-height: 44px;
-    padding: 6px 3px;
+    padding: 6px 14px;
     border: 1px solid #bcb0c5;
-    border-radius: 8px;
+    border-radius: 9999px;
     background: #fff;
+    color: #2d2137;
+    cursor: pointer;
     font-size: .9rem;
     font-weight: 650;
   }
-  .booking-slots :global(input:checked + span) { border-color: #573869; background: #573869; color: #fff; }
-  .booking-days button:hover:not(:disabled), .booking-slots :global(input:not(:checked):hover + span) { background: #eee6f5; }
+  .booking-slots :global(button[aria-pressed="true"]) { border-color: #573869; background: #573869; color: #fff; }
+  .booking-days button:hover:not(:disabled), .booking-slots :global(button[aria-pressed="false"]:hover:not(:disabled)) { background: #eee6f5; }
   .booking-details label { display: grid; gap: 4px; font-size: .875rem; font-weight: 650; }
-  .booking-details input { padding: 8px 11px; }
+  .booking-details input { padding: 8px 11px; border-radius: 8px; }
   .booking-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .booking-selection { min-height: 1.4em; margin-top: 1px; }
-  .booking-panel .booking-submit {
+  .booking-panel .booking-submit:not([hidden]) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -171,7 +167,7 @@ const t = de ? {
     min-height: 48px;
     padding: 9px 15px;
     border: 1px solid #573869;
-    border-radius: 9px;
+    border-radius: 9999px;
     background: #573869;
     color: #fff;
     font-weight: 700;
@@ -181,7 +177,7 @@ const t = de ? {
   .booking-panel .booking-submit:hover:not(:disabled) { background: #402a4d; }
   .booking-submit:disabled { opacity: .55; cursor: default; }
   .booking-calendar :is(input, select, button, a):focus-visible,
-  .booking-slots :global(input:focus-visible + span) { outline: 2px solid #8038ee; outline-offset: 3px; }
+  .booking-slots :global(button:focus-visible) { outline: 2px solid #8038ee; outline-offset: 3px; }
   .booking-link, .booking-close { color: #573869; text-decoration: underline; text-underline-offset: 3px; font-size: .875rem; }
   .booking-link { display: inline-block; width: fit-content; }
   .booking-privacy { font-size: .75rem; }
@@ -190,12 +186,11 @@ const t = de ? {
   .booking-times .booking-notice { margin: 12px 0; }
   .booking-skeleton { display: grid; gap: 12px; }
   .booking-skeleton div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-  .booking-skeleton span { display: block; min-height: 44px; border-radius: 8px; background: #eee6f5; }
+  .booking-skeleton span { display: block; min-height: 44px; border-radius: 9999px; background: #eee6f5; }
   .booking-success { display: grid; gap: 10px; }
   .booking-confirmed-time { font-weight: 650; }
   @media (max-width: 640px) {
     .booking-calendar { margin-top: 24px; }
     .booking-panel { border-radius: 13px; }
-    .booking-form { grid-template-columns: minmax(0, 1fr); }
   }
 </style>
