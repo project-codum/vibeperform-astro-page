@@ -102,7 +102,7 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
 
 .hp-contact-detail{max-width:76ch;font-size:15px;line-height:1.7;margin:18px 0 32px;color:#62516e;text-align:left}
 .hp-home-contact :is(#contact-title,.hp-intro,.hp-contact-detail){text-align:center;margin-inline:auto}
-.hp-contact-benefits{list-style:disc inside;margin:4px auto 0;padding:0;text-align:center;font-size:1.125rem;line-height:1.6}
+.hp-contact-benefits{list-style:disc outside;width:fit-content;max-width:100%;margin:4px auto 0;padding-inline-start:1.25rem;text-align:start;font-size:1.125rem;line-height:1.6}
 .hp-contact-more{margin-top:48px;text-align:center}
 .hp-contact-more h3{margin:0 0 16px;font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:700}
 .hp-contact-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}

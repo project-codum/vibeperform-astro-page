@@ -6,9 +6,9 @@ const { locale, autoOpen = false, analyticsLocation = 'home-contact' } = Astro.p
 const de = locale === 'de';
 const t = de ? {
   button: 'Termin finden', close: 'Kalender schließen',
-  title: 'Wann passt es?',
+  title: 'Wann passt es dir?',
   place: 'Google Meet', zone: 'Berliner Zeit', day: 'Tag', time: 'Uhrzeit',
-  name: 'Name', email: 'E-Mail', book: 'Termin buchen', booking: 'Termin wird gebucht …', retry: 'Buchung prüfen',
+  email: 'E-Mail', book: 'Termin buchen', booking: 'Termin wird gebucht …', retry: 'Buchung prüfen',
   privacy: 'Datenschutz zur Terminbuchung',
   fallback: 'Termin per E-Mail anfragen',
   unavailable: 'Die Termine sind gerade nicht verfügbar.',
@@ -17,7 +17,7 @@ const t = de ? {
   failed: 'Die Buchung konnte gerade nicht abgeschlossen werden. Bitte versuche es erneut.',
   unconfirmed: 'Die Buchung konnte noch nicht bestätigt werden. Prüfe sie erneut.',
   limited: 'Bitte warte eine Minute und versuche es erneut.',
-  invalid: 'Bitte prüfe deinen Namen und deine E-Mail-Adresse.',
+  invalid: 'Bitte prüfe deine E-Mail-Adresse.',
   confirmed: 'Dein Termin ist gebucht.',
   invitation: 'Die Kalendereinladung geht an deine E-Mail-Adresse.',
   meet: 'Google Meet öffnen',
@@ -25,7 +25,7 @@ const t = de ? {
   button: 'Find a time', close: 'Close calendar',
   title: 'What time works for you?',
   place: 'Google Meet', zone: 'Berlin time', day: 'Day', time: 'Time',
-  name: 'Name', email: 'Email', book: 'Book appointment', booking: 'Booking appointment …', retry: 'Check booking',
+  email: 'Email', book: 'Book appointment', booking: 'Booking appointment …', retry: 'Check booking',
   privacy: 'Appointment booking privacy',
   fallback: 'Ask for a time by email',
   unavailable: 'Appointment times are temporarily unavailable.',
@@ -34,7 +34,7 @@ const t = de ? {
   failed: 'We could not complete the booking. Please try again.',
   unconfirmed: 'Your booking could not be confirmed yet. Check it again.',
   limited: 'Please wait a minute and try again.',
-  invalid: 'Please check your name and email address.',
+  invalid: 'Please check your email address.',
   confirmed: 'Your appointment is booked.',
   invitation: 'The calendar invitation will be sent to your email address.',
   meet: 'Open Google Meet',
@@ -68,13 +68,12 @@ const t = de ? {
         <a class="booking-link" data-booking-alternative href={`mailto:${contactEmail}`} hidden>{t.fallback}</a>
       </div>
       <div class="booking-details" data-booking-details hidden>
-        <label>{t.name}<input name="name" type="text" autocomplete="name" maxlength="120" required disabled /></label>
-        <label data-booking-email-field hidden>
-          {t.email}
-          <input name="email" type="email" autocomplete="email" maxlength="254" pattern={String.raw`[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+`} required disabled />
+        <label class="booking-email-field" data-booking-email-field>
+          <span>{t.email}</span>
+          <input name="email" type="email" autocomplete="email" maxlength="254" placeholder=" " pattern={String.raw`[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+`} required disabled />
         </label>
         <div class="booking-honeypot" aria-hidden="true"><label>Contact note<input type="text" name="contactNote" autocomplete="off" tabindex="-1" /></label></div>
-        <button class="booking-submit" type="submit" data-booking-submit disabled hidden>{t.book}<span aria-hidden="true">↗</span></button>
+        <button class="booking-submit" type="submit" data-booking-submit disabled hidden>{t.book}</button>
         <a class="booking-link booking-privacy" data-booking-privacy href={de ? '/de/datenschutz/' : '/en/privacy/'} hidden>{t.privacy}</a>
       </div>
       <div class="booking-notice" role="status" data-booking-message hidden></div>
@@ -123,7 +122,9 @@ const t = de ? {
   .booking-trigger, .booking-close { border-radius: 9999px; }
   .booking-panel fieldset { border: 0; padding: 0; margin: 12px 0 0; min-width: 0; }
   .booking-picker fieldset:first-child { margin-top: 0; }
+  .booking-picker fieldset + fieldset { margin-top: 22px; }
   .booking-days, .booking-slots { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+  .booking-slots { gap: 10px; }
   .booking-days :global(button), .booking-slots :global(button) {
     border: 1px solid #bcb0c5;
     border-radius: 9999px;
@@ -137,37 +138,59 @@ const t = de ? {
     align-content: center;
     width: 65px;
     min-height: 55px;
+    border-radius: 10px;
     padding: 5px 2px;
     line-height: 1.2;
     font-size: .8rem;
   }
   .booking-days :global(button span:first-child) { font-weight: 500; }
-  .booking-slots :global(button) { min-width: 76px; min-height: 44px; padding: 6px 14px; font-size: .9rem; }
+  .booking-slots :global(button) { min-width: 100px; min-height: 58px; padding: 8px 18px; font-size: 1rem; }
   .booking-days :global(button[aria-pressed="true"]), .booking-slots :global(button[aria-pressed="true"]) {
     border-color: #573869; background: #573869; color: #fff;
   }
   .booking-days :global(button[aria-pressed="false"]:hover:not(:disabled)),
   .booking-slots :global(button[aria-pressed="false"]:hover:not(:disabled)) { background: #eee6f5; }
-  .booking-details label { display: grid; gap: 4px; font-size: .875rem; font-weight: 650; }
-  .booking-details input {
-    width: 100%;
-    min-height: 44px;
-    padding: 8px 11px;
+  .booking-email-field {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 14px;
     border: 1px solid #bcb0c5;
     border-radius: 8px;
     background: #fff;
     color: #2d2137;
+    font-size: .875rem;
+    font-weight: 650;
+  }
+  .booking-email-field:focus-within { outline: 2px solid #8038ee; outline-offset: 3px; }
+  .booking-email-field span { pointer-events: none; }
+  .booking-email-field:has(input:placeholder-shown) span {
+    position: absolute;
+    inset-inline: 14px;
     text-align: center;
+  }
+  .booking-email-field input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    min-height: 46px;
+    padding: 8px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    text-align: left;
   }
   .booking-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .booking-panel .booking-submit:not([hidden]) {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     width: 100%;
     min-height: 48px;
-    padding: 9px 34px;
+    padding: 9px 18px;
     border: 1px solid #573869;
     border-radius: 9999px;
     background: #573869;
@@ -176,10 +199,9 @@ const t = de ? {
     text-align: center;
     cursor: pointer;
   }
-  .booking-submit span { position: absolute; inset-inline-end: 15px; }
   .booking-panel .booking-submit:hover:not(:disabled) { background: #402a4d; }
   .booking-submit:disabled { opacity: .55; cursor: default; }
-  .booking-calendar :is(input, select, button, a):focus-visible,
+  .booking-calendar :is(button, a):focus-visible,
   .booking-days :global(button:focus-visible),
   .booking-slots :global(button:focus-visible) { outline: 2px solid #8038ee; outline-offset: 3px; }
   .booking-link, .booking-close { color: #573869; text-decoration: underline; text-underline-offset: 3px; font-size: .875rem; }

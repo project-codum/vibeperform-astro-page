@@ -97,7 +97,7 @@ function fixture(t) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Origin: source },
     body: JSON.stringify({
-      requestId: crypto.randomUUID(), locale: 'de', name: 'Test Person',
+      requestId: crypto.randomUUID(), locale: 'de',
       email: 'test@example.com', start: firstSlot, contactNote: '', ...overrides,
     }),
   }), env);
@@ -160,7 +160,7 @@ test('concurrent submissions produce one Calendar invitation and replay the winn
   assert.equal(await responses[1 - winner].json().then(data => data.error), 'slot_taken');
   assert.equal(state.writes.length, 1);
   const [event] = state.writes;
-  assert.deepEqual(event.attendees, [{ email: 'test@example.com', displayName: 'Test Person' }]);
+  assert.deepEqual(event.attendees, [{ email: 'test@example.com' }]);
   assert.deepEqual(event.start, { dateTime: requests[winner].start, timeZone: 'Europe/Berlin' });
   assert.equal(Date.parse(event.end.dateTime) - Date.parse(event.start.dateTime), 45 * 60_000);
   assert.equal(event.transparency, 'opaque');
@@ -171,8 +171,8 @@ test('concurrent submissions produce one Calendar invitation and replay the winn
   assert.equal(state.writes.length, 1);
   const locked = await slots().then(response => response.json());
   assert.equal(locked.slots.includes(firstSlot) || locked.slots.includes(overlappingStart), false);
-  assert.doesNotMatch(JSON.stringify(sqlite.prepare('SELECT * FROM calendar_bookings').all()), /Test Person|test@example.com/);
-  assert.equal((await booking({ ...requests[winner], name: 'Different Person' })).status, 409);
+  assert.doesNotMatch(JSON.stringify(sqlite.prepare('SELECT * FROM calendar_bookings').all()), /test@example.com/);
+  assert.equal((await booking({ ...requests[winner], email: 'other@example.com' })).status, 409);
 });
 
 test('rechecks stale availability, validates submissions and recovers lost Google responses', async t => {

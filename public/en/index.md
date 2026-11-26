@@ -41,5 +41,5 @@ During the call, you’ll receive a free assessment of your online presence, inc
 
 ## Still deciding?
 
-- [View case study](https://www.vibeperform.com/de/fallstudien/wunderwelt-kids/)
-- [About me](https://www.vibeperform.com/en/about-us/)
+- [View a client project](https://www.vibeperform.com/de/fallstudien/wunderwelt-kids/)
+- [Get to know VibePerform](https://www.vibeperform.com/en/about-us/)

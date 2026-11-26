@@ -129,7 +129,7 @@ ${section('Projekte, Fachwissen und Veranstaltungen sichtbar machen', 'Wir mache
 ${section(c.seo.title, `${c.seo.body}\n\n[${c.seo.link}](${absoluteUrl(c.seo.href)})`)}
 ${renderStudyLinks('de')}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\n${bulletList(c.contact.benefits)}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}
+${section('Kontakt', `${c.contact.body} **${c.contact.bodyEmphasis}**:\n\n${bulletList(c.contact.benefits)}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}
 ${section(c.contact.moreTitle, c.contact.moreLinks.map(link => `- [${link.label}](${absoluteUrl(link.href)})`).join('\n'))}`);
 }
 

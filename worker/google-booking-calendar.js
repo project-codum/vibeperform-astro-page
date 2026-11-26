@@ -114,7 +114,7 @@ export function googleCalendar(env) {
         visibility: 'private',
         transparency: 'opaque',
         guestsCanInviteOthers: false,
-        attendees: [{ email: booking.email, displayName: booking.name }],
+        attendees: [{ email: booking.email }],
         conferenceData: {
           createRequest: { requestId: id, conferenceSolutionKey: { type: 'hangoutsMeet' } },
         },

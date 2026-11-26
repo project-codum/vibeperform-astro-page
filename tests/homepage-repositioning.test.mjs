@@ -30,12 +30,12 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     if (language === 'de') {
       const contact = html.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)?.[0];
       assert.ok(contact);
-      assert.match(contact, /Im Gespräch bekommst du von mir kostenlos:/);
-      assert.match(contact, /<li>einen Statuscheck deines Online-Auftritts<\/li>\s*<li>Benotung<\/li>\s*<li>Feedback für Verbesserungen<\/li>/);
+      assert.match(contact, /Im Gespräch bekommst du von mir\s*<strong>kostenlos<\/strong>:/);
+      assert.match(contact, /<li>einen Statuscheck<\/li>\s*<li>Benotung des Online-Auftritts<\/li>\s*<li>Feedback für Verbesserungen<\/li>/);
       assert.doesNotMatch(contact, /hp-contact-price|Lieber eine E-Mail schreiben/);
       assert.match(contact, /Noch nicht überzeugt\?/);
-      assert.match(contact, /href="\/de\/fallstudien\/wunderwelt-kids\/"[^>]*>Fallstudie ansehen/);
-      assert.match(contact, /href="\/de\/ueber-uns\/"[^>]*>Über mich/);
+      assert.match(contact, /href="\/de\/fallstudien\/wunderwelt-kids\/"[^>]*>Kundenprojekt ansehen/);
+      assert.match(contact, /href="\/de\/ueber-uns\/"[^>]*>VibePerform kennenlernen/);
       assert.doesNotMatch(contact, /Wir schauen auf Gestaltung/);
     }
     assert.doesNotMatch(html,/UNSERE LEISTUNGEN|UNSERE VISION|SO ARBEITEN WIR ZUSAMMEN|VOR DEM ERSTEN GESPRÄCH|DER NÄCHSTE SCHRITT|OUR SERVICES|OUR VISION|WORKING TOGETHER|BEFORE WE TALK|THE NEXT STEP/);

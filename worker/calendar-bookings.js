@@ -12,10 +12,9 @@ function normalize(input) {
   if (typeof start !== 'string' || start.length !== 24 || typeof requestId !== 'string' || !uuid.test(requestId)) return null;
   const time = Date.parse(start);
   if (!Number.isFinite(time) || new Date(time).toISOString() !== start) return null;
-  const { name, email } = input;
-  if (typeof name !== 'string' || typeof email !== 'string' || name.length > 120 || email.length > 254
-    || !name.trim() || /[\u0000-\u001f\u007f]/.test(name) || !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email.trim())) return null;
-  return { requestId: requestId.toLowerCase(), start: time, locale, name: name.trim(), email: email.trim() };
+  const { email } = input;
+  if (typeof email !== 'string' || email.length > 254 || !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email.trim())) return null;
+  return { requestId: requestId.toLowerCase(), start: time, locale, email: email.trim() };
 }
 
 const unavailable = () => reply(503, { error: 'temporarily_unavailable' });

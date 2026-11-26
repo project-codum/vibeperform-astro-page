@@ -33,13 +33,11 @@ export function mountBookingCalendar(root: HTMLElement) {
   const dayOptions = find('days');
   const slots = find('slots');
   const details = find('details');
-  const emailField = find('email-field');
   const privacy = find('privacy');
   const submit = find<HTMLButtonElement>('submit');
   const message = find('message');
   const success = find('success');
   const meet = find<HTMLAnchorElement>('meet');
-  const nameInput = form.elements.namedItem('name') as HTMLInputElement;
   const emailInput = form.elements.namedItem('email') as HTMLInputElement;
   const contactNote = form.elements.namedItem('contactNote') as HTMLInputElement;
   const submitText = submit.firstChild!;
@@ -67,12 +65,9 @@ export function mountBookingCalendar(root: HTMLElement) {
 
   function syncControls() {
     const hasSlot = Boolean(selectedSlot);
-    const hasName = hasSlot && Boolean(nameInput.value.trim());
     details.hidden = !hasSlot;
-    nameInput.disabled = !hasSlot;
-    emailField.hidden = !hasName;
-    emailInput.disabled = !hasName;
-    const complete = hasName && emailInput.validity.valid;
+    emailInput.disabled = !hasSlot;
+    const complete = hasSlot && emailInput.validity.valid;
     submit.hidden = !complete;
     privacy.hidden = !complete;
     submit.disabled = busy || !complete;
@@ -85,7 +80,6 @@ export function mountBookingCalendar(root: HTMLElement) {
       button.disabled = selectionDisabled;
       button.setAttribute('aria-pressed', String(button.value === selectedSlot));
     });
-    nameInput.readOnly = busy || needsConfirmation;
     emailInput.readOnly = busy || needsConfirmation;
     if (hide) hide.disabled = busy || needsConfirmation;
     panel.setAttribute('aria-busy', String(busy || root.dataset.phase === 'loading'));
@@ -224,22 +218,14 @@ export function mountBookingCalendar(root: HTMLElement) {
     if (!(event.target instanceof HTMLButtonElement) || event.target.disabled) return;
     select(event.target.value);
     notify(message);
-    nameInput.focus();
-  });
-
-  function updateContactDetails() {
-    requestId = '';
-    syncControls();
-  }
-  for (const input of [nameInput, emailInput]) {
-    input.addEventListener('input', updateContactDetails);
-    input.addEventListener('change', syncControls);
-  }
-  nameInput.addEventListener('keydown', event => {
-    if (event.key !== 'Enter' || event.isComposing || emailInput.disabled || nameInput.readOnly) return;
-    event.preventDefault();
     emailInput.focus();
   });
+
+  emailInput.addEventListener('input', () => {
+    requestId = '';
+    syncControls();
+  });
+  emailInput.addEventListener('change', syncControls);
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -255,7 +241,7 @@ export function mountBookingCalendar(root: HTMLElement) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           requestId, start: selectedSlot, locale: root.lang,
-          name: nameInput.value, email: emailInput.value, contactNote: contactNote.value,
+          email: emailInput.value, contactNote: contactNote.value,
         }),
         signal: AbortSignal.timeout(24_000),
       });
