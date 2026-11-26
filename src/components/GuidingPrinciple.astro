@@ -1,0 +1,32 @@
+---
+import { homePageContent } from '../data/homePageContent';
+import type { Locale } from '../lib/siteMetadata';
+
+interface Props {
+  locale: Locale;
+  id?: string;
+  analyticsSection?: string;
+  purpose?: { title: string; middle: string; emphasis: string; mission: string; segments?: readonly { id: string; before: string; text: string }[] };
+}
+const { locale, id = 'leitgedanke', analyticsSection = 'home-purpose', purpose = homePageContent[locale].purpose } = Astro.props;
+---
+<section class="hp-section hp-purpose" id={id} aria-labelledby="purpose-title" data-analytics-section={analyticsSection}>
+  <div class="hp-wrap">
+    <div class="hp-purpose-stage" data-purpose-stage>
+      <div class="hp-purpose-pin" data-purpose-pin>
+        <h2 id="purpose-title" data-caption-reveal aria-label={`${purpose.title} ${purpose.middle} ${purpose.emphasis}`}>
+          {[purpose.title, purpose.middle, purpose.emphasis].map((line, index) => {
+            const Tag = index === 2 ? 'em' : 'span';
+            return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
+          })}
+        </h2>
+        <p class="hp-purpose-mission" data-purpose-mission>{'segments' in purpose && purpose.segments
+          ? purpose.segments.map(segment => <>{segment.before}<span id={segment.id}>{segment.text}</span></>)
+          : purpose.mission}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  import '../scripts/purposeCaption';
+</script>

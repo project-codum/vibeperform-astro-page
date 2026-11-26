@@ -1,0 +1,120 @@
+---
+import { aboutInternetIntro } from '../data/aboutContent';
+
+const words = aboutInternetIntro.split(' ');
+---
+<dialog class="ag-internet-intro" id="internet-im-wandel" aria-label={aboutInternetIntro} data-internet-intro>
+  <canvas aria-hidden="true"></canvas>
+  <div class="ag-internet-stage" aria-hidden="true">
+    {words.map((word, index) => index === 1 ? <em>{word}</em> : <span>{word}</span>)}
+  </div>
+  <form method="dialog">
+    <button type="submit">Überspringen</button>
+  </form>
+</dialog>
+
+<script is:inline>
+  {
+    const intro = document.querySelector('[data-internet-intro]');
+    const openingHash = ['', '#top', '#internet-im-wandel'].includes(location.hash);
+    const historyRestore = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+    if (intro?.showModal && openingHash && !historyRestore && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (location.hash === '#internet-im-wandel') history.replaceState(history.state, '', location.pathname + location.search);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      intro.showModal();
+      document.documentElement.classList.add('about-intro-open');
+      // The page stays usable if the animation module is delayed or fails to load.
+      const timeout = setTimeout(() => intro.close(), 6000);
+      intro.addEventListener('close', () => {
+        clearTimeout(timeout);
+        document.documentElement.classList.remove('about-intro-open');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, { once: true });
+    }
+  }
+</script>
+
+<script>
+  import { mountInternetIntro } from '../scripts/internetIntro';
+
+  const intro = document.querySelector<HTMLDialogElement>('[data-internet-intro]');
+  if (intro?.open) mountInternetIntro(intro);
+</script>
+
+<style>
+  :global(html.about-intro-open) { overflow: hidden; }
+
+  .ag-internet-intro {
+    position: fixed;
+    inset: 0;
+    isolation: isolate;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    overscroll-behavior: contain;
+    color: #f7f4fb;
+    color-scheme: dark;
+    background: radial-gradient(ellipse at center, #06050b 10%, #0c0914 60%, #1c1428 100%);
+  }
+
+  .ag-internet-intro[open] { display: grid; place-items: center; }
+  .ag-internet-intro::backdrop { background: transparent; }
+
+  canvas {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .ag-internet-stage {
+    display: grid;
+    place-items: center;
+    perspective: 900px;
+    font-size: clamp(2.75rem, 10.2vw, 9rem);
+    line-height: 1;
+    letter-spacing: -.055em;
+    text-shadow: 0 2px 30px #06050b, 0 0 9px #06050b;
+    pointer-events: none;
+  }
+
+  .ag-internet-stage > * {
+    grid-area: 1 / 1;
+    white-space: nowrap;
+    opacity: 0;
+    backface-visibility: hidden;
+  }
+
+  em {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #dfc8f4;
+  }
+
+  form {
+    position: absolute;
+    right: max(1.25rem, env(safe-area-inset-right));
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+
+  button {
+    min-height: 44px;
+    padding: 0 .875rem;
+    color: inherit;
+    font: inherit;
+    font-size: .875rem;
+    background: #15101d;
+    border: 1px solid #62556d;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover { background: #2e2238; }
+  button:focus-visible { outline: 2px solid #dfc8f4; outline-offset: 3px; }
+</style>

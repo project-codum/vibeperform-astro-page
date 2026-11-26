@@ -1,83 +1,76 @@
 ---
 import { Image, getImage } from 'astro:assets';
 import AgencyDocument from './AgencyDocument.astro';
-import { aboutContent, aboutPaths, type AboutLocale } from '../data/aboutContent';
 import ContactActions from './ContactActions.astro';
-import portrait from '../assets/agency/marlon-studio-portrait-v1.png';
+import { aboutContent, aboutPaths, type AboutLocale } from '../data/aboutContent';
+import AboutInternetIntro from './AboutInternetIntro.astro';
 import heroPortrait from '../assets/agency/marlon-studio-portrait-outside-frame-v1.png';
+import GuidingPrinciple from './GuidingPrinciple.astro';
+import StoryControls from './StoryControls.astro';
 import '../styles/about-page.css';
+
 interface Props { locale: AboutLocale; }
 const { locale } = Astro.props;
 const c = aboutContent[locale];
+const de = locale === 'de';
+const guideLabels = de ? {
+  label: 'Audioguide mit Marlons KI-Stimme',
+  transcript: 'Audioguide zum Mitlesen',
+} : {
+  label: 'Audio guide in Marlon’s AI voice',
+  transcript: 'Read the audio guide transcript',
+};
+const chapters = c.guide.map(chapter => chapter.label);
+const cues = [...c.guide].flatMap((entry, chapter) => [...entry.cues].map(cue => ({
+  start: cue.start, chapter, anchor: 'anchor' in cue ? cue.anchor : undefined,
+  caption: 'caption' in cue ? cue.caption : undefined,
+})));
 const alternate = locale === 'de' ? 'en' : 'de';
 const shareImage = await getImage({ src: heroPortrait, width: 900, format: 'webp' });
 const shareImageAlt = locale === 'de' ? 'Marlon Dietrich, Inhaber von VibePerform' : 'Marlon Dietrich, owner of VibePerform';
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 ---
 <AgencyDocument locale={locale} title={c.metaTitle} description={c.metaDescription} path={aboutPaths[locale]} alternatePath={aboutPaths[alternate]} about image={shareImage.src} imageWidth={Number(shareImage.attributes.width)} imageHeight={Number(shareImage.attributes.height)} imageAlt={shareImageAlt}>
+  {de && <AboutInternetIntro />}
   <section class="ag-hero" aria-labelledby="agency-title" id="home-intro" tabindex="-1">
     <div class="hp-wrap ag-hero-grid">
       <div class="ag-hero-copy">
         <h1 id="agency-title">{c.hero.title} <em>{c.hero.emphasis}</em></h1>
         <p class="sv-lead">{c.hero.intro}</p>
-        <a class="hp-button" href="#kontakt">{c.hero.action}<span aria-hidden="true">↗</span></a>
+        <a class="hp-button" href="#kontakt">{c.hero.action}</a>
       </div>
-      <figure class="ag-portrait">
+      <figure class="ag-portrait" id="marlon">
         <div class="ag-portrait-frame"><Image src={heroPortrait} alt="Marlon Dietrich" widths={[400,640,900,1122]} sizes="(max-width: 760px) 90vw, 42vw" format="webp" loading="eager" fetchpriority="high" /></div>
         <figcaption><strong>Marlon Dietrich</strong><span>{c.hero.role}</span></figcaption>
       </figure>
     </div>
-    <div class="hp-wrap ag-hero-foot"><a class="hp-text-link" href="#ueberzeugung">{c.vision.kicker} <span aria-hidden="true">↓</span></a></div>
+    <div class="ag-guide-origin" data-controls-origin aria-hidden="true"></div>
+    <StoryControls chapters={chapters} playLabel={de ? 'Start' : 'Listen'} locale={locale} label={guideLabels.label} />
+    <audio data-about-guide data-cues={JSON.stringify(cues)} lang={locale} preload="none"
+      src={base + '/audio/about/' + locale + '-mission-vision.mp3'}></audio>
+    <noscript><audio class="ag-guide-fallback" controls aria-label={guideLabels.label} preload="none"
+      src={base + '/audio/about/' + locale + '-mission-vision.mp3'}></audio></noscript>
   </section>
-
-  <section class="hp-section ag-vision" id="ueberzeugung" aria-labelledby="vision-title">
-    <div class="hp-wrap">
-      <div class="hp-split">
-        <h2 id="vision-title">{c.vision.title}<br/><em data-about-slide-in>{c.vision.emphasis}</em></h2>
-        <div class="ag-prose"><p class="ag-statement">{c.vision.body}</p><p>{c.vision.mission}</p><a class="hp-text-link" href={c.vision.href}>{c.vision.link}<span aria-hidden="true">↗</span></a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hp-section ag-journey" aria-labelledby="journey-title">
-    <div class="hp-wrap hp-split">
-      <div><h2 id="journey-title">{c.journey.title}<br/><em data-about-slide-in>{c.journey.emphasis}</em></h2></div>
-      <div class="ag-prose">{c.journey.paragraphs.map(p => <p>{p}</p>)}<span class="ag-signature">Marlon</span></div>
-    </div>
-  </section>
-
-
-  <section class="hp-section hp-evolution ag-future" aria-labelledby="future-title">
-    <div class="hp-wrap hp-split">
-      <div><h2 id="future-title">{c.future.title}<br/><em>{c.future.emphasis}</em></h2><div class="ag-prose"><p>{c.future.body}</p><p>{c.future.extra}</p></div><a class="hp-text-link" href={c.future.href}>{c.future.link}<span aria-hidden="true">↗</span></a></div>
-      <div class="ag-access" role="group" aria-label={locale === 'de' ? 'Ein verständlicher Auftritt für Menschen und digitale Suche' : 'An understandable presence for people and digital search'}>
-        <div class="ag-access-core"><span class="ag-access-spark" aria-hidden="true">✳</span><strong>{c.future.center}</strong><div class="ag-access-surfaces"><span>{c.future.website}</span><span>{c.future.profile}</span></div><small>{c.future.foundation}</small></div>
-        <div class="ag-access-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="ag-access-audience">{c.future.audience.map((a,i)=><div><span aria-hidden="true">{['◎','⌕','✧'][i]}</span><strong>{a}</strong></div>)}</div>
-      </div>
-    </div>
-  </section>
-
+  <GuidingPrinciple locale={locale} purpose={c.purpose} id="vision" analyticsSection="agency-purpose" />
   <section class="hp-section hp-contact ag-contact" id="kontakt" aria-labelledby="contact-title" data-analytics-section="contact">
     <div class="hp-wrap">
-      <Image class="ag-contact-portrait" src={portrait} alt="Marlon Dietrich" width={144} height={144} fit="cover" format="webp" loading="lazy"/>
-      <h2 id="contact-title">{c.contact.title}<br/><em>{c.contact.emphasis}</em></h2>
-      <p class="hp-intro">{c.contact.body}</p>
-    <ContactActions locale={locale} analyticsLocation="agency-contact" />
+      <h2 id="contact-title">{c.contact.title}{' '}{de && <br />}<em>{c.contact.emphasis}</em></h2>
+      {'questions' in c.contact
+        ? <ul class="ag-contact-questions" role="list">{c.contact.questions.map(question => <li>{question}</li>)}</ul>
+        : <p class="ag-body">{c.contact.body}</p>}
+      <ContactActions locale={locale} analyticsLocation="agency-contact" />
     </div>
   </section>
+  <div class="ag-transcript">
+    <details class="hp-wrap">
+      <summary>{guideLabels.transcript}</summary>
+      {c.guide.map(chapter => chapter.cues.map(cue => <p>{cue.text}</p>))}
+    </details>
+  </div>
 </AgencyDocument>
 
 <script>
-  const aboutSlideIns = Array.from(document.querySelectorAll<HTMLElement>('[data-about-slide-in]'));
-  if (aboutSlideIns.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('has-about-scroll-reveals');
-    const observer = new IntersectionObserver((entries, currentObserver) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
-        entry.target.dataset.aboutVisible = 'true';
-        currentObserver.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -18% 0px', threshold: 0.2 });
-    aboutSlideIns.forEach(element => observer.observe(element));
-  }
+  import { mountAboutGuide } from '../scripts/aboutGuide';
+  const hero = document.querySelector<HTMLElement>('.ag-hero');
+  if (hero) mountAboutGuide(hero);
 </script>

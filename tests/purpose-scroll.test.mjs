@@ -15,10 +15,10 @@ async function fixture(t, reduced = false) {
   window.matchMedia = () => motion;
   const mission = { style: style() };
   const pin = { getBoundingClientRect: () => ({ height: 865 }), querySelector: () => mission };
-  const stage = {
+  const stage = Object.assign(new EventTarget(), {
     style: style(), dataset: {}, querySelector: () => pin,
     getBoundingClientRect: () => ({ top: 2000 - window.scrollY }),
-  };
+  });
   const values = {
     window,
     document: { querySelector: selector => selector === '[data-caption-reveal]' ? heading : stage },
@@ -91,4 +91,22 @@ test('reduced motion keeps the complete text static without a scroll stage', asy
   assert(f.words.every(word => word.style.opacity === undefined));
   assert.equal(f.mission.style.opacity, undefined);
   assert.equal(f.frames.size, 0);
+});
+
+test('audio takes over the word reveal and can replay it after manual completion', async t => {
+  const f = await fixture(t);
+  f.scroll(2000);
+  assert.equal(f.heading.dataset.captionState, 'complete');
+  const audioProgress = detail => f.stage.dispatchEvent(new CustomEvent('purpose:audio-progress', { detail }));
+  audioProgress(-1);
+  assert(f.words.every(word => word.style.opacity === '0'));
+  audioProgress(2.5 / 9);
+  assert.equal(f.heading.dataset.captionState, 'audio');
+  assert.equal(f.words.filter(word => word.style.opacity === '1').length, 3);
+  f.scroll(0);
+  assert.equal(f.words.filter(word => word.style.opacity === '1').length, 3);
+  audioProgress(1);
+  assert.equal(f.heading.dataset.captionState, 'complete');
+  assert(f.words.every(word => word.style.opacity === undefined));
+  assert.equal(f.mission.style.opacity, undefined);
 });
