@@ -70,7 +70,7 @@ const t = de ? {
       <div class="booking-details" data-booking-details hidden>
         <label class="booking-email-field" data-booking-email-field>
           <span>{t.email}</span>
-          <input name="email" type="email" autocomplete="email" maxlength="254" placeholder=" " pattern={String.raw`[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+`} required disabled />
+          <input name="email" type="email" autocomplete="email" maxlength="254" pattern={String.raw`[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+`} required disabled />
         </label>
         <div class="booking-honeypot" aria-hidden="true"><label>Contact note<input type="text" name="contactNote" autocomplete="off" tabindex="-1" /></label></div>
         <button class="booking-submit" type="submit" data-booking-submit disabled hidden>{t.book}</button>
@@ -152,29 +152,22 @@ const t = de ? {
   .booking-slots :global(button[aria-pressed="false"]:hover:not(:disabled)) { background: #eee6f5; }
   .booking-email-field {
     display: flex;
-    position: relative;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     min-height: 48px;
-    padding: 0 14px;
+    padding: 0 16px;
     border: 1px solid #bcb0c5;
-    border-radius: 8px;
+    border-radius: 9999px;
     background: #fff;
     color: #2d2137;
     font-size: .875rem;
     font-weight: 650;
   }
   .booking-email-field:focus-within { outline: 2px solid #8038ee; outline-offset: 3px; }
-  .booking-email-field span { pointer-events: none; }
-  .booking-email-field:has(input:placeholder-shown) span {
-    position: absolute;
-    inset-inline: 14px;
-    text-align: center;
-  }
+  .booking-email-field span { flex: none; }
   .booking-email-field input {
     flex: 1;
     min-width: 0;
-    width: 100%;
     min-height: 46px;
     padding: 8px 0;
     border: 0;
