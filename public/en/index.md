@@ -37,4 +37,9 @@ We make an online presence with the quality of leading brands affordable for sma
 
 During the call, you’ll receive a free assessment of your online presence, including a rating and feedback.
 
-contact@vibeperform.com · [Book an introductory call](https://www.vibeperform.com/en/#kontakt)
+[Book an introductory call](https://www.vibeperform.com/en/#kontakt)
+
+## Still deciding?
+
+- [View case study](https://www.vibeperform.com/de/fallstudien/wunderwelt-kids/)
+- [About me](https://www.vibeperform.com/en/about-us/)

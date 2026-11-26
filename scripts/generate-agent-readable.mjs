@@ -129,7 +129,8 @@ ${section('Projekte, Fachwissen und Veranstaltungen sichtbar machen', 'Wir mache
 ${section(c.seo.title, `${c.seo.body}\n\n[${c.seo.link}](${absoluteUrl(c.seo.href)})`)}
 ${renderStudyLinks('de')}
 ${section('Häufige Fragen', c.faq.items.map(item=>`### ${item.question}\n\n${item.answer}`).join('\n\n'))}
-${section('Kontakt', `${c.contact.body}\n\n${bulletList(c.contact.benefits)}\n\n${c.contact.price}\n\nE-Mail: ${contactEmail}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}`);
+${section('Kontakt', `${c.contact.body}\n\n${bulletList(c.contact.benefits)}\n\n${c.contact.booking}: ${calendarUrl('de')}`)}
+${section(c.contact.moreTitle, c.contact.moreLinks.map(link => `- [${link.label}](${absoluteUrl(link.href)})`).join('\n'))}`);
 }
 
 function renderWorkshopsAgentPage(locale='de') {
@@ -416,7 +417,8 @@ const negotiatedPages = [
    pageHeader({title:'VibePerform', canonicalPath:'/en/', alternatePath:'/de/', description:homeIntroContent.en.description}),
    homeIntroContent.en.intro.join(' '), homePageContent.en.purpose.mission, renderStudyLinks('en'),
    section('Services', `[All services](${absoluteUrl(servicePaths.en.overview)})`),
-   section('Contact', `${homePageContent.en.contact.body}\n\n${contactEmail} · [Book an introductory call](${calendarUrl('en')})`),
+   section('Contact', `${homePageContent.en.contact.body}\n\n[Book an introductory call](${calendarUrl('en')})`),
+   section(homePageContent.en.contact.moreTitle, homePageContent.en.contact.moreLinks.map(link => `- [${link.label}](${absoluteUrl(link.href)})`).join('\n')),
  ].join('\n\n'))},
  {relativePath:'de/blog/index.md',content:renderKnowledgeIndex('de',blogPosts)},
  {relativePath:'en/blog/index.md',content:renderKnowledgeIndex('en',englishBlogPosts)},

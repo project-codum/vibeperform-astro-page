@@ -23,9 +23,15 @@ export const homePageContent = {
         { question: 'Wie funktioniert die laufende Betreuung?', answer: 'Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit dir ab.' },
       ],
     },
-    contact: { title: 'Buch dir ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommst du von mir:',
+    contact: { title: 'Buch dir ein', emphasis: 'Kennenlerngespräch', body: 'Im Gespräch bekommst du von mir kostenlos:',
       benefits: ['einen Statuscheck deines Online-Auftritts', 'Benotung', 'Feedback für Verbesserungen'],
-      price: 'kostenlos.', booking: 'Erstgespräch buchen', email: 'Lieber eine E-Mail schreiben', emailButton: 'E-Mail schreiben' },
+      booking: 'Erstgespräch buchen', emailButton: 'E-Mail schreiben',
+      moreTitle: 'Noch nicht überzeugt?',
+      moreLinks: [
+        { label: 'Fallstudie ansehen', href: '/de/fallstudien/wunderwelt-kids/' },
+        { label: 'Über mich', href: '/de/ueber-uns/' },
+      ],
+    },
     footer: { tagline: 'Webseiten und Unternehmensprofile. Erstellt, betreut und weitergedacht.', services: 'Leistungen', support: 'Betreuung', about: 'Über uns', aboutHref: '/de/ueber-uns/', legal: 'Impressum', legalHref: '/de/impressum/', privacy: 'Datenschutz', privacyHref: '/de/datenschutz/', top: 'Zurück nach oben', rights: 'Alle Rechte vorbehalten.' },
   },
   en: {
@@ -52,7 +58,13 @@ export const homePageContent = {
         { question: 'How does ongoing support work?', answer: 'We agree which content and areas we will maintain. New services, projects, usage data and search trends can all inform further improvements. We agree the scope with you.' },
       ],
     },
-    contact: { title: 'Book an', emphasis: 'introductory call', body: 'During the call, you’ll receive a free assessment of your online presence, including a rating and feedback.', detail: 'We look at design, clarity and ways to get in touch. No website yet? Then we discuss the presence you want to build.', booking: 'Book an intro call', email: 'Prefer to send an email?', emailButton: 'Send an email' },
+    contact: { title: 'Book an', emphasis: 'introductory call', body: 'During the call, you’ll receive a free assessment of your online presence, including a rating and feedback.', detail: 'We look at design, clarity and ways to get in touch. No website yet? Then we discuss the presence you want to build.', booking: 'Book an intro call', emailButton: 'Send an email',
+      moreTitle: 'Still deciding?',
+      moreLinks: [
+        { label: 'View case study', href: '/de/fallstudien/wunderwelt-kids/' },
+        { label: 'About me', href: '/en/about-us/' },
+      ],
+    },
     footer: { tagline: 'Websites and business profiles. Created, maintained and continuously developed.', services: 'Services', support: 'Ongoing support', about: 'About us', aboutHref: '/en/about-us/', legal: 'Legal notice', legalHref: '/en/legal-notice/', privacy: 'Privacy', privacyHref: '/en/privacy/', top: 'Back to top', rights: 'All rights reserved.' },
   },
 } as const;

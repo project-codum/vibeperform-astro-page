@@ -30,9 +30,7 @@ export function mountBookingCalendar(root: HTMLElement) {
   const skeleton = find('skeleton');
   const availability = find('availability');
   const alternative = find('alternative');
-  const daySelect = find<HTMLSelectElement>('day');
-  const previous = find<HTMLButtonElement>('previous');
-  const next = find<HTMLButtonElement>('next');
+  const dayOptions = find('days');
   const slots = find('slots');
   const details = find('details');
   const emailField = find('email-field');
@@ -78,11 +76,13 @@ export function mountBookingCalendar(root: HTMLElement) {
     submit.hidden = !complete;
     privacy.hidden = !complete;
     submit.disabled = busy || !complete;
-    daySelect.disabled = busy || needsConfirmation;
-    previous.disabled = daySelect.disabled || selectedDay === 0;
-    next.disabled = daySelect.disabled || selectedDay >= days.length - 1;
+    const selectionDisabled = busy || needsConfirmation;
+    dayOptions.querySelectorAll('button').forEach((button, index) => {
+      button.disabled = selectionDisabled;
+      button.setAttribute('aria-pressed', String(index === selectedDay));
+    });
     slots.querySelectorAll('button').forEach(button => {
-      button.disabled = daySelect.disabled;
+      button.disabled = selectionDisabled;
       button.setAttribute('aria-pressed', String(button.value === selectedSlot));
     });
     nameInput.readOnly = busy || needsConfirmation;
@@ -102,7 +102,6 @@ export function mountBookingCalendar(root: HTMLElement) {
     const times = days[index];
     if (!times) return;
     selectedDay = index;
-    daySelect.selectedIndex = index;
     slots.replaceChildren(...times.map(slot => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -157,7 +156,21 @@ export function mountBookingCalendar(root: HTMLElement) {
         root.dataset.phase = 'empty';
         return;
       }
-      daySelect.replaceChildren(...days.map(([slot], index) => new Option(dayLabel.format(new Date(slot)), String(index))));
+      const weekdayLabel = new Intl.DateTimeFormat(locale, { timeZone, weekday: 'short' });
+      const dateLabel = new Intl.DateTimeFormat(locale, { timeZone, day: 'numeric', month: 'short' });
+      dayOptions.replaceChildren(...days.map(([slot], index) => {
+        const date = new Date(slot);
+        const button = document.createElement('button');
+        const weekday = document.createElement('span');
+        const calendarDate = document.createElement('span');
+        button.type = 'button';
+        button.value = String(index);
+        button.setAttribute('aria-label', dayLabel.format(date));
+        weekday.textContent = weekdayLabel.format(date);
+        calendarDate.textContent = dateLabel.format(date);
+        button.append(weekday, calendarDate);
+        return button;
+      }));
       picker.hidden = false;
       showDay(0);
       root.dataset.phase = 'ready';
@@ -201,9 +214,12 @@ export function mountBookingCalendar(root: HTMLElement) {
     load.focus({ preventScroll: true });
   });
 
-  daySelect.addEventListener('change', () => showDay(daySelect.selectedIndex));
-  previous.addEventListener('click', () => showDay(selectedDay - 1));
-  next.addEventListener('click', () => showDay(selectedDay + 1));
+  dayOptions.addEventListener('click', event => {
+    const button = (event.target as Element).closest('button');
+    if (!button || button.disabled) return;
+    const index = Number(button.value);
+    if (index !== selectedDay) showDay(index);
+  });
   slots.addEventListener('click', event => {
     if (!(event.target instanceof HTMLButtonElement) || event.target.disabled) return;
     select(event.target.value);

@@ -8,7 +8,6 @@ const t = de ? {
   button: 'Termin finden', close: 'Kalender schließen',
   title: 'Wann passt es?',
   place: 'Google Meet', zone: 'Berliner Zeit', day: 'Tag', time: 'Uhrzeit',
-  previous: 'Vorheriger Tag', next: 'Nächster Tag',
   name: 'Name', email: 'E-Mail', book: 'Termin buchen', booking: 'Termin wird gebucht …', retry: 'Buchung prüfen',
   privacy: 'Datenschutz zur Terminbuchung',
   fallback: 'Termin per E-Mail anfragen',
@@ -26,7 +25,6 @@ const t = de ? {
   button: 'Find a time', close: 'Close calendar',
   title: 'What time works for you?',
   place: 'Google Meet', zone: 'Berlin time', day: 'Day', time: 'Time',
-  previous: 'Previous day', next: 'Next day',
   name: 'Name', email: 'Email', book: 'Book appointment', booking: 'Booking appointment …', retry: 'Check booking',
   privacy: 'Appointment booking privacy',
   fallback: 'Ask for a time by email',
@@ -53,14 +51,10 @@ const t = de ? {
         <div class="booking-heading">{t.title}</div>
         <div class="booking-meta"><span data-booking-duration></span><span>{t.place}</span><span data-booking-zone hidden>{t.zone}</span></div>
         <div class="booking-picker" data-booking-picker hidden>
-          <div class="booking-days">
-            <button type="button" data-booking-previous aria-label={t.previous}><span aria-hidden="true">←</span></button>
-            <label>
-              <span class="sr-only">{t.day}</span>
-              <select data-booking-day></select>
-            </label>
-            <button type="button" data-booking-next aria-label={t.next}><span aria-hidden="true">→</span></button>
-          </div>
+          <fieldset>
+            <legend class="sr-only">{t.day}</legend>
+            <div class="booking-days" data-booking-days></div>
+          </fieldset>
           <fieldset>
             <legend class="sr-only">{t.time}</legend>
             <div class="booking-slots" data-booking-slots></div>
@@ -104,9 +98,9 @@ const t = de ? {
   .booking-calendar {
     width: 100%;
     max-width: 570px;
-    margin: 32px 0 0;
+    margin: 32px auto 0;
     color: #2d2137;
-    text-align: left;
+    text-align: center;
     font-family: inherit;
   }
   .booking-calendar [hidden] { display: none; }
@@ -117,69 +111,79 @@ const t = de ? {
     background: #fff;
     box-shadow: 0 18px 55px -38px #32214066;
   }
-  .booking-panel :is(button, input, select) { font: inherit; }
+  .booking-panel :is(button, input) { font: inherit; }
   .booking-form, .booking-success { padding: clamp(20px, 3.4vw, 36px); }
   .booking-form { display: grid; gap: 18px; background: #f8f4fb; }
   .booking-details { display: grid; gap: 13px; }
   .booking-heading { font-size: 1.2rem; font-weight: 730; line-height: 1.25; }
-  .booking-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; margin: 7px 0 20px; }
+  .booking-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 10px; margin: 7px 0 20px; }
   .booking-meta, .booking-notice { font-size: .875rem; line-height: 1.5; }
   .booking-meta { color: #66576f; }
   .booking-meta span:empty { display: none; }
-  .booking-days { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 6px; }
-  .booking-days label { min-width: 0; }
-  .booking-panel :is(select, input, .booking-days button) {
-    width: 100%;
-    min-height: 44px;
-    border: 1px solid #bcb0c5;
-    background: #fff;
-    color: #2d2137;
-  }
-  .booking-days :is(select, button), .booking-trigger, .booking-close { border-radius: 9999px; }
-  .booking-days select { padding: 0 14px; font-size: .875rem; font-weight: 650; }
-  .booking-days button { cursor: pointer; font-size: 1.05rem; }
-  .booking-days button:disabled { opacity: .36; cursor: default; }
+  .booking-trigger, .booking-close { border-radius: 9999px; }
   .booking-panel fieldset { border: 0; padding: 0; margin: 12px 0 0; min-width: 0; }
-  .booking-slots { display: flex; flex-wrap: wrap; gap: 7px; }
-  .booking-slots :global(button) {
-    min-width: 76px;
-    min-height: 44px;
-    padding: 6px 14px;
+  .booking-picker fieldset:first-child { margin-top: 0; }
+  .booking-days, .booking-slots { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+  .booking-days :global(button), .booking-slots :global(button) {
     border: 1px solid #bcb0c5;
     border-radius: 9999px;
     background: #fff;
     color: #2d2137;
     cursor: pointer;
-    font-size: .9rem;
     font-weight: 650;
   }
-  .booking-slots :global(button[aria-pressed="true"]) { border-color: #573869; background: #573869; color: #fff; }
-  .booking-days button:hover:not(:disabled), .booking-slots :global(button[aria-pressed="false"]:hover:not(:disabled)) { background: #eee6f5; }
+  .booking-days :global(button) {
+    display: grid;
+    align-content: center;
+    width: 65px;
+    min-height: 55px;
+    padding: 5px 2px;
+    line-height: 1.2;
+    font-size: .8rem;
+  }
+  .booking-days :global(button span:first-child) { font-weight: 500; }
+  .booking-slots :global(button) { min-width: 76px; min-height: 44px; padding: 6px 14px; font-size: .9rem; }
+  .booking-days :global(button[aria-pressed="true"]), .booking-slots :global(button[aria-pressed="true"]) {
+    border-color: #573869; background: #573869; color: #fff;
+  }
+  .booking-days :global(button[aria-pressed="false"]:hover:not(:disabled)),
+  .booking-slots :global(button[aria-pressed="false"]:hover:not(:disabled)) { background: #eee6f5; }
   .booking-details label { display: grid; gap: 4px; font-size: .875rem; font-weight: 650; }
-  .booking-details input { padding: 8px 11px; border-radius: 8px; }
+  .booking-details input {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 11px;
+    border: 1px solid #bcb0c5;
+    border-radius: 8px;
+    background: #fff;
+    color: #2d2137;
+    text-align: center;
+  }
   .booking-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .booking-panel .booking-submit:not([hidden]) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: center;
+    position: relative;
     width: 100%;
     min-height: 48px;
-    padding: 9px 15px;
+    padding: 9px 34px;
     border: 1px solid #573869;
     border-radius: 9999px;
     background: #573869;
     color: #fff;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
   }
+  .booking-submit span { position: absolute; inset-inline-end: 15px; }
   .booking-panel .booking-submit:hover:not(:disabled) { background: #402a4d; }
   .booking-submit:disabled { opacity: .55; cursor: default; }
   .booking-calendar :is(input, select, button, a):focus-visible,
+  .booking-days :global(button:focus-visible),
   .booking-slots :global(button:focus-visible) { outline: 2px solid #8038ee; outline-offset: 3px; }
   .booking-link, .booking-close { color: #573869; text-decoration: underline; text-underline-offset: 3px; font-size: .875rem; }
-  .booking-link { display: inline-block; width: fit-content; }
+  .booking-link { display: inline-block; width: fit-content; margin-inline: auto; }
   .booking-privacy { font-size: .75rem; }
   .booking-close { margin: 0 22px 18px; padding: 8px 0; border: 0; background: transparent; cursor: pointer; }
   .booking-notice { color: #5d325a; }

@@ -8,7 +8,9 @@ function assertNativeWidget(html, file, locale) {
   const widget = html.match(/<div class="booking-calendar"[\s\S]*?<\/form>/)?.[0];
   assert.ok(widget, file);
   assert.match(widget, /data-auto-open="true"/, file);
+  assert.match(widget, /data-booking-days/, file);
   assert.match(widget, /data-booking-slots/, file);
+  assert.doesNotMatch(widget, /<select\b/, file);
   assert.match(widget, /<form[^>]+action="\/api\/booking\/reservations"[^>]+method="post"/, file);
   assert.match(widget, /data-booking-details hidden/, file);
   assert.match(widget, /data-booking-email-field hidden/, file);
