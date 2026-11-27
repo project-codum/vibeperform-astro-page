@@ -91,6 +91,6 @@ We price the required content, available source material, formats and agreed rev
 
 Bring a topic, a project or existing material. Together, we clarify what your customers need to understand and what content would help them.
 
-[Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss your project](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com

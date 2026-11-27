@@ -91,6 +91,6 @@ Yes. We can agree ongoing support suited to your system and needs. Content updat
 
 Show us your current website. Together, we identify what still works and what needs to change.
 
-[Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss your project](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com

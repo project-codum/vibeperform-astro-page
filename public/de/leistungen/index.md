@@ -46,6 +46,6 @@ Wir bringen auf den Punkt, was Ihren Betrieb ausmacht. Mit verständlichen Texte
 
 ## Kontakt
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://www.vibeperform.com/de/#kontakt)
 
 contact@vibeperform.com

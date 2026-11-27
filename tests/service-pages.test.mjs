@@ -29,7 +29,7 @@ for (const page of pages) {
     assert.ok(schemas.some(item => item['@type'] === 'BreadcrumbList'));
     assert.ok(schemas.every(item => !item.aggregateRating && !item.offers), 'no fabricated ratings or price offers');
     assert.match(html, /mailto:contact@vibeperform.com/);
-    assert.match(html, /calendar.app.google\/utFQgw33PwJTiDk56/);
+    assert.match(html, /data-booking-calendar/);
     assert.match(html, /<details class="home-services-menu"/);
     assert.doesNotMatch(html, /href="(?:#|javascript:[^"]*)"/);
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);

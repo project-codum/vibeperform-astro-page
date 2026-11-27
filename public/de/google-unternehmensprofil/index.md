@@ -91,6 +91,6 @@ Einrichtung, Überarbeitung und laufende Pflege haben unterschiedliche Umfänge.
 
 Wir sehen uns Ihr Unternehmensprofil gemeinsam an: Stimmen die Angaben, zeigen die Bilder Ihre Arbeit und finden Interessenten den Kontakt? Daraus ergibt sich, ob Einrichtung, Überarbeitung oder laufende Pflege sinnvoll ist.
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://www.vibeperform.com/de/#kontakt)
 
 contact@vibeperform.com

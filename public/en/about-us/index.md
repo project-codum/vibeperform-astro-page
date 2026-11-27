@@ -17,7 +17,7 @@ We make an online presence with the quality of leading brands affordable for sma
 
 Tell me what’s changed in your business and what your customers can already see online. Together we’ll work out where to start.
 
-[Arrange a call with Marlon](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Arrange a call with Marlon](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com
 

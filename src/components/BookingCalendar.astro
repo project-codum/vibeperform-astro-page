@@ -1,98 +1,215 @@
 ---
-import { bookingEmbedUrl, bookingUrl, type Locale } from '../lib/siteMetadata';
+import { contactEmail, type Locale } from '../lib/siteMetadata';
+
 interface Props { locale: Locale; autoOpen?: boolean; analyticsLocation?: string; }
 const { locale, autoOpen = false, analyticsLocation = 'home-contact' } = Astro.props;
 const de = locale === 'de';
 const t = de ? {
-  button: 'Termin finden',
-  description: 'Lädt die freien Termine von Google Kalender.',
-  external: 'Kalender in neuem Tab öffnen',
-  hide: 'Kalender schließen',
-  loading: 'Wir laden die freien Termine …',
-  frame: 'Freie Termine für dein Erstgespräch mit VibePerform',
+  button: 'Termin finden', close: 'Kalender schließen',
+  title: 'Wann passt es dir?',
+  place: 'Google Meet', zone: 'Berliner Zeit', day: 'Tag', time: 'Uhrzeit',
+  email: 'E-Mail', book: 'Termin buchen', booking: 'Termin wird gebucht …', retry: 'Buchung prüfen',
+  privacy: 'Datenschutz zur Terminbuchung',
+  fallback: 'Termin per E-Mail anfragen',
+  unavailable: 'Die Termine sind gerade nicht verfügbar.',
+  empty: 'Zurzeit sind keine freien Termine verfügbar.',
+  taken: 'Dieser Termin ist inzwischen vergeben. Bitte wähle aus den aktuellen Terminen.',
+  failed: 'Die Buchung konnte gerade nicht abgeschlossen werden. Bitte versuche es erneut.',
+  unconfirmed: 'Die Buchung konnte noch nicht bestätigt werden. Prüfe sie erneut.',
+  limited: 'Bitte warte eine Minute und versuche es erneut.',
+  invalid: 'Bitte prüfe deine E-Mail-Adresse.',
+  confirmed: 'Dein Termin ist gebucht.',
+  invitation: 'Die Kalendereinladung geht an deine E-Mail-Adresse.',
+  meet: 'Google Meet öffnen',
 } : {
-  button: 'Find a time',
-  description: 'Loads available times from Google Calendar.',
-  external: 'Open calendar in a new tab',
-  hide: 'Close calendar',
-  loading: 'Loading available times …',
-  frame: 'Available times for your introductory call with VibePerform',
+  button: 'Find a time', close: 'Close calendar',
+  title: 'What time works for you?',
+  place: 'Google Meet', zone: 'Berlin time', day: 'Day', time: 'Time',
+  email: 'Email', book: 'Book appointment', booking: 'Booking appointment …', retry: 'Check booking',
+  privacy: 'Appointment booking privacy',
+  fallback: 'Ask for a time by email',
+  unavailable: 'Appointment times are temporarily unavailable.',
+  empty: 'There are currently no available appointments.',
+  taken: 'That time has been taken. Please choose from the available times.',
+  failed: 'We could not complete the booking. Please try again.',
+  unconfirmed: 'Your booking could not be confirmed yet. Check it again.',
+  limited: 'Please wait a minute and try again.',
+  invalid: 'Please check your email address.',
+  confirmed: 'Your appointment is booked.',
+  invitation: 'The calendar invitation will be sent to your email address.',
+  meet: 'Open Google Meet',
 };
 ---
-<div class="booking-calendar" data-booking-calendar data-auto-open={autoOpen ? 'true' : undefined} data-phase="closed">
+<div class="booking-calendar" data-booking-calendar data-auto-open={autoOpen ? 'true' : undefined} data-phase="closed" data-copy={JSON.stringify(t)} lang={locale}>
   <div class="booking-placeholder" data-booking-placeholder>
-    <button class="hp-button booking-trigger booking-load" type="button" data-booking-load hidden aria-description={t.description} aria-controls={`booking-panel-${locale}`} aria-expanded="false" data-analytics-event="contact_start" data-analytics-name="load-booking-calendar" data-analytics-location={analyticsLocation}>{t.button}</button>
-    <a class="hp-button booking-trigger booking-fallback" data-booking-fallback href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.button}</a>
+    <button class="hp-button booking-trigger" type="button" data-booking-load hidden aria-expanded="false" data-analytics-event="contact_start" data-analytics-name="load-booking-calendar" data-analytics-location={analyticsLocation}>{t.button}</button>
+    <a class="hp-button booking-trigger" data-booking-fallback href={`mailto:${contactEmail}`}>{t.fallback}</a>
   </div>
-  <div class="booking-panel" id={`booking-panel-${locale}`} data-booking-panel hidden aria-busy="false">
-    <div class="booking-window">
-      <div class="booking-status" role="status" data-booking-status>
-        <div class="booking-preview" aria-hidden="true">
-          <svg class="booking-spark" viewBox="88 32 84 68.5"><path fill="currentColor" d="M128 32C128 57 118 68 88 68C118 68 128 79 128 100.5C128 79 140 68 172 68C140 68 128 57 128 32Z" /></svg>
-          <div class="booking-preview-line"></div>
-          <div class="booking-preview-grid">{Array.from({length:21},(_,i)=><span style={`--cell:${i}`} />)}</div>
+  <div class="booking-panel" data-booking-panel hidden aria-busy="false">
+    <form class="booking-form" action="/api/booking/reservations" method="post" data-booking-form>
+      <div class="booking-times">
+        <div class="booking-heading">{t.title}</div>
+        <div class="booking-meta"><span data-booking-duration></span><span>{t.place}</span><span data-booking-zone hidden>{t.zone}</span></div>
+        <div class="booking-picker" data-booking-picker hidden>
+          <fieldset>
+            <legend class="sr-only">{t.day}</legend>
+            <div class="booking-days" data-booking-days></div>
+          </fieldset>
+          <fieldset>
+            <legend class="sr-only">{t.time}</legend>
+            <div class="booking-slots" data-booking-slots></div>
+          </fieldset>
         </div>
-        <p>{t.loading}</p>
+        <div class="booking-skeleton" data-booking-skeleton aria-hidden="true">
+          <span></span>
+          <div>{Array.from({ length: 4 }, () => <span></span>)}</div>
+        </div>
+        <div class="booking-notice" data-booking-availability role="status" hidden></div>
+        <a class="booking-link" data-booking-alternative href={`mailto:${contactEmail}`} hidden>{t.fallback}</a>
       </div>
-      <iframe loading="lazy" data-booking-frame data-src={`${bookingEmbedUrl}&hl=${locale}`} title={t.frame} width="100%" height="720" referrerpolicy="no-referrer" data-cmp-ab="1"></iframe>
+      <div class="booking-details" data-booking-details hidden>
+        <label class="booking-email-field" data-booking-email-field>
+          <span>{t.email}</span>
+          <input name="email" type="email" autocomplete="email" maxlength="254" pattern={String.raw`[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+`} required disabled />
+        </label>
+        <div class="booking-honeypot" aria-hidden="true"><label>Contact note<input type="text" name="contactNote" autocomplete="off" tabindex="-1" /></label></div>
+        <button class="booking-submit" type="submit" data-booking-submit disabled hidden>{t.book}</button>
+        <a class="booking-link booking-privacy" data-booking-privacy href={de ? '/de/datenschutz/' : '/en/privacy/'} hidden>{t.privacy}</a>
+      </div>
+      <div class="booking-notice" role="status" data-booking-message hidden></div>
+    </form>
+    <div class="booking-success" data-booking-success hidden tabindex="-1">
+      <div class="booking-heading">{t.confirmed}</div>
+      <div class="booking-confirmed-time" data-booking-confirmed-time></div>
+      <div>{t.invitation}</div>
+      <a class="booking-link" data-booking-meet hidden target="_blank" rel="noopener noreferrer">{t.meet} <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="booking-tools"><a href={bookingUrl} target="_blank" rel="noopener noreferrer">{t.external}<span aria-hidden="true">↗</span></a><button type="button" data-booking-hide>{t.hide}</button></div>
+    {!autoOpen && <button class="booking-close" type="button" data-booking-hide>{t.close}</button>}
   </div>
 </div>
+
 <script>
   import { mountBookingCalendar } from '../scripts/bookingCalendar';
-  document.querySelectorAll<HTMLElement>('[data-booking-calendar]').forEach(root => {
-    mountBookingCalendar(root);
-    const triggers = [...root.querySelectorAll<HTMLElement>('.booking-trigger')];
-    if (!('IntersectionObserver' in window)) {
-      triggers.forEach(trigger => trigger.classList.add('is-animation-visible'));
-      return;
-    }
-    const visible = new Set<Element>();
-    const sync = () => triggers.forEach(trigger => trigger.classList.toggle('is-animation-visible', !document.hidden && visible.has(trigger)));
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) visible.add(entry.target);
-        else visible.delete(entry.target);
-      });
-      sync();
-    });
-    root.dataset.motionReady = 'true';
-    triggers.forEach(trigger => observer.observe(trigger));
-    document.addEventListener('visibilitychange', sync);
-  });
+  document.querySelectorAll<HTMLElement>('[data-booking-calendar]').forEach(mountBookingCalendar);
 </script>
+
 <style>
-  .booking-calendar{width:100%;max-width:1040px;margin:36px auto 0;text-align:center}
-  .booking-load{cursor:pointer;font-family:inherit}
-  .booking-placeholder .booking-trigger{min-width:180px;justify-content:center;background:var(--hp-plum);border-color:var(--hp-plum);color:#fff}
-  .booking-placeholder .booking-trigger:hover{background:#5d3e70;border-color:#5d3e70}
-  .booking-load[hidden],.booking-fallback[hidden],.booking-panel[hidden],.booking-placeholder[hidden],.booking-status[hidden]{display:none}
-  .booking-panel{text-align:left;background:#fff;border:1px solid #d6c9e0;border-radius:16px;overflow:hidden;box-shadow:0 18px 55px -38px #32214066;transform-origin:top center}
-  .booking-window{position:relative;background:white}
-  .booking-window iframe{display:block;width:100%;height:720px;border:0;background:#fff;opacity:0}
-  [data-phase=ready] .booking-window iframe{opacity:1}
-  .booking-status{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:100px 24px 32px;background:#fff;color:#745188;text-align:center;pointer-events:none}
-  .booking-status p{font-size:14px;line-height:1.6;color:#706873;margin:32px 0 0}
-  .booking-preview{width:min(320px,90%)}
-  .booking-spark{display:block;width:70px;height:58px;margin:0 auto 30px;color:#ad46ff}
-  .booking-preview-line{height:8px;width:40%;border-radius:4px;background:#e9dff1;margin-bottom:22px}
-  .booking-preview-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-  .booking-preview-grid span{aspect-ratio:1;border-radius:9px;background:#eee6f5}
-  .booking-tools{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 22px;border-top:1px solid #eee7f2;font-size:12px;line-height:1.6}
-  .booking-tools a{display:inline-flex;gap:15px;align-items:center;color:#745188;text-decoration:underline;text-underline-offset:4px}
-  .booking-tools button{background:none;border:1px solid currentColor;border-radius:var(--radius-pill,9999px);padding:8px 14px;color:#706873;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit}
-  .booking-calendar :is(button,a):focus-visible{outline:3px solid #8038ee;outline-offset:4px}
-  @media(prefers-reduced-motion:no-preference){
-    [data-phase=loading] .booking-spark{animation:booking-spark-breathe 2.4s ease-in-out infinite}
-    [data-phase=loading] .booking-preview-grid span{animation:booking-cell-wave 1.8s ease-in-out infinite;animation-delay:calc(var(--cell)*45ms)}
-    [data-phase=ready] .booking-window iframe{animation:booking-content-in .3s ease-out both}
-    @keyframes booking-spark-breathe{50%{transform:rotate(90deg) scale(.82);opacity:.7}}
-    @keyframes booking-cell-wave{50%{transform:translateY(-5px);background:#d8bdf2}}
-    @keyframes booking-content-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  .booking-calendar {
+    width: 100%;
+    max-width: 570px;
+    margin: 32px auto 0;
+    color: #2d2137;
+    text-align: center;
+    font-family: inherit;
   }
-  @media(max-width:700px){.booking-calendar{margin-top:28px}.booking-panel{border-radius:12px}.booking-placeholder .hp-button{justify-content:space-between;padding:15px 22px}.booking-window iframe{height:1100px}.booking-status{padding:80px 20px 30px}.booking-tools{flex-wrap:wrap;padding:14px 16px;gap:13px}.booking-tools :is(a,button){min-height:36px}}
-  :global(.home-shell--front) .booking-status p { color: #000; font-size: 1rem; }
-  :global(.home-shell--front) .booking-tools { font-size: 1rem; font-weight: 700; flex-wrap: wrap; }
-  :global(.home-shell--front) .booking-tools :is(a, button) { color: #000; min-height: 44px; }
+  .booking-calendar [hidden] { display: none; }
+  .booking-panel {
+    border: 1px solid #d6c9e0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 18px 55px -38px #32214066;
+  }
+  .booking-panel :is(button, input) { font: inherit; }
+  .booking-form, .booking-success { padding: clamp(20px, 3.4vw, 36px); }
+  .booking-form { display: grid; gap: 18px; background: #f8f4fb; }
+  .booking-details { display: grid; gap: 13px; }
+  .booking-heading { font-size: 1.2rem; font-weight: 730; line-height: 1.25; }
+  .booking-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 10px; margin: 7px 0 20px; }
+  .booking-meta, .booking-notice { font-size: .875rem; line-height: 1.5; }
+  .booking-meta { color: #66576f; }
+  .booking-meta span:empty { display: none; }
+  .booking-trigger, .booking-close { border-radius: 9999px; }
+  .booking-panel fieldset { border: 0; padding: 0; margin: 12px 0 0; min-width: 0; }
+  .booking-picker fieldset:first-child { margin-top: 0; }
+  .booking-picker fieldset + fieldset { margin-top: 22px; }
+  .booking-days, .booking-slots { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+  .booking-slots { gap: 10px; }
+  .booking-days :global(button), .booking-slots :global(button) {
+    border: 1px solid #bcb0c5;
+    border-radius: 9999px;
+    background: #fff;
+    color: #2d2137;
+    cursor: pointer;
+    font-weight: 650;
+  }
+  .booking-days :global(button) {
+    display: grid;
+    align-content: center;
+    width: 65px;
+    min-height: 55px;
+    border-radius: 10px;
+    padding: 5px 2px;
+    line-height: 1.2;
+    font-size: .8rem;
+  }
+  .booking-days :global(button span:first-child) { font-weight: 500; }
+  .booking-slots :global(button) { min-width: 100px; min-height: 58px; padding: 8px 18px; font-size: 1rem; }
+  .booking-days :global(button[aria-pressed="true"]), .booking-slots :global(button[aria-pressed="true"]) {
+    border-color: #573869; background: #573869; color: #fff;
+  }
+  .booking-days :global(button[aria-pressed="false"]:hover:not(:disabled)),
+  .booking-slots :global(button[aria-pressed="false"]:hover:not(:disabled)) { background: #eee6f5; }
+  .booking-email-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid #bcb0c5;
+    border-radius: 9999px;
+    background: #fff;
+    color: #2d2137;
+    font-size: .875rem;
+    font-weight: 650;
+  }
+  .booking-email-field:focus-within { outline: 2px solid #8038ee; outline-offset: 3px; }
+  .booking-email-field span { flex: none; }
+  .booking-email-field input {
+    flex: 1;
+    min-width: 0;
+    min-height: 46px;
+    padding: 8px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+  }
+  .booking-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .booking-panel .booking-submit:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 9px 18px;
+    border: 1px solid #573869;
+    border-radius: 9999px;
+    background: #573869;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+  }
+  .booking-panel .booking-submit:hover:not(:disabled) { background: #402a4d; }
+  .booking-submit:disabled { opacity: .55; cursor: default; }
+  .booking-calendar :is(button, a):focus-visible,
+  .booking-days :global(button:focus-visible),
+  .booking-slots :global(button:focus-visible) { outline: 2px solid #8038ee; outline-offset: 3px; }
+  .booking-link, .booking-close { color: #573869; text-decoration: underline; text-underline-offset: 3px; font-size: .875rem; }
+  .booking-link { display: inline-block; width: fit-content; margin-inline: auto; }
+  .booking-privacy { font-size: .75rem; }
+  .booking-close { margin: 0 22px 18px; padding: 8px 0; border: 0; background: transparent; cursor: pointer; }
+  .booking-notice { color: #5d325a; }
+  .booking-times .booking-notice { margin: 12px 0; }
+  .booking-skeleton { display: grid; gap: 12px; }
+  .booking-skeleton div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .booking-skeleton span { display: block; min-height: 44px; border-radius: 9999px; background: #eee6f5; }
+  .booking-success { display: grid; gap: 10px; }
+  .booking-confirmed-time { font-weight: 650; }
+  @media (max-width: 640px) {
+    .booking-calendar { margin-top: 24px; }
+    .booking-panel { border-radius: 13px; }
+  }
 </style>

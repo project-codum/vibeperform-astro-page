@@ -75,10 +75,10 @@ Ja. Wir bieten laufende Betreuung und Weiterentwicklung an. Welche Inhalte, tech
 
 Wir sprechen über Ihr Angebot, Ihre Wunschkunden und darüber, was Ihr Auftritt leisten soll. Gibt es bereits eine Webseite, bekommen Sie einen kostenlosen Statuscheck mit Benotung und Feedback. Ohne bestehende Webseite klären wir gemeinsam den Einstieg.
 
-[Ihre Webseite besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Ihre Webseite besprechen](https://www.vibeperform.com/de/#kontakt)
 
 ## Kontakt
 
-[Vorhaben besprechen](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Vorhaben besprechen](https://www.vibeperform.com/de/#kontakt)
 
 contact@vibeperform.com

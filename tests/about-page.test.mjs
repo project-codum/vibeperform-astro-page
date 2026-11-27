@@ -76,7 +76,7 @@ for (const [locale, route, alternate, role] of [
       if (url.hash) assert.ok(dest.includes(`id="${url.hash.slice(1)}"`), href);
     }
     assert.ok(main.includes('mailto:contact@vibeperform.com'));
-    assert.ok(main.includes('https://calendar.app.google/utFQgw33PwJTiDk56'));
+    assert.ok(main.includes('data-booking-calendar'));
     const home = await load(locale);
     const purpose = page => page.match(/<div class="hp-purpose-stage"[\s\S]*?<\/section>/)[0];
     if (locale === 'de') {

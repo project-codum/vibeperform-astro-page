@@ -91,6 +91,6 @@ Setup, improvements and ongoing maintenance have different scopes. After reviewi
 
 We review your profile together: is the information accurate, do the images show your work and can people easily contact you? This helps us identify whether you need setup, improvements or ongoing care.
 
-[Discuss your project](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Discuss your project](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com

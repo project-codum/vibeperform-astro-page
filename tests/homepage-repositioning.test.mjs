@@ -18,7 +18,7 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     assert.doesNotMatch(html,/Kein KI-Theater|Von der Werkbank|Was Sie von uns nicht bekommen|No AI theatre|From the workshop floor|home-promise-workshop-ai|home-offer-document/);
     const actions=html.match(/<div class="vf-actions">([\s\S]*?)<\/div>/)?.[1];
     assert.ok(actions);
-    assert.match(actions,/href="https:\/\/calendar.app.google\/utFQgw33PwJTiDk56"/);
+    assert.ok(actions.includes(`href="/${language}/#kontakt"`));
     assert.equal((actions.match(/<a\b/g)||[]).length,2);
     assert.match(actions,/href="#designstudien"/);
     assert.match(actions,language==='de'?/Unsere Arbeit ansehen/:/See our work/);
@@ -26,7 +26,18 @@ for (const [route,language] of [['index.html','de'],['de/index.html','de'],['en/
     for (const [,id] of html.matchAll(/href="#([^" ]+)"/g)) assert(html.includes(`id="${id}"`),`Anchor ${id} exists`);
     for (const [,href] of html.matchAll(/href="(\/(?:de|en)\/[^"#?]*)"/g)) await access(path.join(dist,href.slice(1),'index.html'));
     assert.match(html,/mailto:contact@vibeperform.com/);
-    assert.match(html,/calendar.app.google\/utFQgw33PwJTiDk56/);
+    assert.match(html,/data-booking-calendar/);
+    if (language === 'de') {
+      const contact = html.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)?.[0];
+      assert.ok(contact);
+      assert.match(contact, /Im Gespräch bekommst du von mir\s*<strong>kostenlos<\/strong>:/);
+      assert.match(contact, /<li>Statuscheck der Webseite<\/li>\s*<li>Benotung des Online-Auftritts<\/li>\s*<li>Feedback für Verbesserungen<\/li>/);
+      assert.doesNotMatch(contact, /hp-contact-price|Lieber eine E-Mail schreiben/);
+      assert.match(contact, /Noch nicht überzeugt\?/);
+      assert.match(contact, /href="\/de\/fallstudien\/wunderwelt-kids\/"[^>]*>Kundenprojekt ansehen/);
+      assert.match(contact, /href="\/de\/ueber-uns\/"[^>]*>VibePerform kennenlernen/);
+      assert.doesNotMatch(contact, /Wir schauen auf Gestaltung/);
+    }
     assert.doesNotMatch(html,/UNSERE LEISTUNGEN|UNSERE VISION|SO ARBEITEN WIR ZUSAMMEN|VOR DEM ERSTEN GESPRÄCH|DER NÄCHSTE SCHRITT|OUR SERVICES|OUR VISION|WORKING TOGETHER|BEFORE WE TALK|THE NEXT STEP/);
     assert.equal(html.includes('id="home-next"'), language === 'en');
     assert.match(html,language==='de'?/Termin finden/:/Find a time/);

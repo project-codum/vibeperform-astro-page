@@ -61,10 +61,14 @@ Wir bieten Einrichtung und Pflege von Unternehmensprofilen an. Welche Profile un
 Wir vereinbaren, welche Inhalte und Bereiche wir betreuen. Neue Leistungen, Projekte, Nutzungsdaten und Suchtrends können Anlässe für weitere Verbesserungen sein. Den Umfang stimmen wir mit dir ab.
 ## Kontakt
 
-Im Gespräch bekommst du von uns kostenlos einen Statuscheck deines Online-Auftritts mit Benotung und Feedback.
+Im Gespräch bekommst du von mir **kostenlos**:
 
-Wir schauen auf Gestaltung, Verständlichkeit und Kontaktwege. Noch keine Webseite? Dann besprechen wir deinen geplanten Auftritt.
+- Statuscheck der Webseite
+- Benotung des Online-Auftritts
+- Feedback für Verbesserungen
 
-E-Mail: contact@vibeperform.com
+Erstgespräch buchen: https://www.vibeperform.com/de/#kontakt
+## Noch nicht überzeugt?
 
-Erstgespräch buchen: https://calendar.app.google/utFQgw33PwJTiDk56
+- [Kundenprojekt ansehen](https://www.vibeperform.com/de/fallstudien/wunderwelt-kids/)
+- [VibePerform kennenlernen](https://www.vibeperform.com/de/ueber-uns/)

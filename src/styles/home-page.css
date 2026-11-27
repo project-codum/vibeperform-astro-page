@@ -100,6 +100,14 @@ html.home-document.has-scroll-reveals .hp-process:not(.is-revealed) .hp-process-
 @media(prefers-reduced-motion:reduce){.hp-caption-word{opacity:1!important;transform:none!important;filter:none!important}}
 
 .hp-contact-detail{max-width:76ch;font-size:15px;line-height:1.7;margin:18px 0 32px;color:#62516e;text-align:left}
+.hp-home-contact :is(#contact-title,.hp-intro,.hp-contact-detail){text-align:center;margin-inline:auto}
+.hp-contact-benefits{list-style:disc outside;width:fit-content;max-width:100%;margin:4px auto 0;padding-inline-start:1.25rem;text-align:start;font-size:1.125rem;line-height:1.6}
+.hp-contact-more{margin-top:48px;text-align:center}
+.hp-contact-more h3{margin:0 0 16px;font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:700}
+.hp-contact-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.hp-contact-cards a{display:grid;place-items:center;min-height:104px;padding:16px 10px;border:1px solid #cdbdd7;border-radius:14px;background:#f5eff9;color:inherit;text-decoration:none;font-weight:700;font-size:clamp(1rem,2.4vw,1.25rem);line-height:1.3}
+.hp-contact-cards a:hover{background:#fff}
+.hp-contact-cards a:focus-visible{outline:2px solid #8038ee;outline-offset:3px}
 
 /* Keep the statement and its supporting copy together on mobile. */
 @media(max-width:700px){

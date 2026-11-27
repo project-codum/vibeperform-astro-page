@@ -1,4 +1,4 @@
-import { bookingUrl, contactEmail } from '../lib/siteMetadata';
+import { bookingPath, contactEmail } from '../lib/siteMetadata';
 import { homeContent } from './homeContent';
 
 const lastUpdatedDe = '6. November 2026';
@@ -34,7 +34,7 @@ export const legalContent = {
 					title: 'Kontakt',
 					paragraphs: [
 						`E-Mail: <a href="mailto:${contactEmail}">${contactEmail}</a>`,
-						`Terminbuchung: <a href="${bookingUrl}" target="_blank" rel="noreferrer noopener">${bookingUrl}</a>`,
+						`Terminbuchung: <a href="${bookingPath('de')}">Erstgespräch buchen</a>`,
 					],
 				},
 				{
@@ -119,8 +119,8 @@ export const legalContent = {
 				{
 					title: '5. Terminbuchung über Google Calendar',
 					paragraphs: [
-						'Auf der Startseite wird der Google-Kalender im Kontaktbereich automatisch eingeblendet und vom Browser bei Annäherung an den sichtbaren Bereich geladen. Auf anderen Seiten können Sie ihn über „Termin finden“ laden. Sie können die Buchungsseite auch über einen externen Link öffnen. Beim Laden des eingebetteten Kalenders wird eine Verbindung zu Google hergestellt. Ab diesem Zeitpunkt verarbeitet Google Ihre Zugriffsdaten und die von Ihnen eingegebenen Buchungsdaten. Über „Kalender schließen“ können Sie die Einbettung wieder entfernen.',
-						'Wenn Sie einen Termin buchen, verarbeiten wir die Angaben, die für Vorbereitung, Durchführung und Nachbereitung des Gesprächs erforderlich sind. Dazu können Name, E-Mail-Adresse, Terminzeit, Organisation, Anliegen und sonstige freiwillige Angaben gehören.',
+						'Das Buchungsformular ruft freie Zeiten über unseren Server ab. Unser Server fragt dafür die Verfügbarkeit bei Google Calendar ab. Wenn Sie buchen, übermittelt unser Server Ihre E-Mail-Adresse und die Terminzeit an Google Calendar. Google erstellt den Termin, verschickt die Einladung und erstellt den Google-Meet-Link für das Gespräch. Wenn Sie Google Meet aufrufen, verbindet sich Ihr Browser direkt mit Google.',
+						'Um doppelte Buchungen zu vermeiden, speichern wir vorübergehend das Terminzeitfenster, eine zufällige Buchungskennung, den Bestätigungszeitpunkt und einen Prüfwert der Anfrage. Diese Daten werden nach Ende des Zeitfensters gelöscht.',
 						'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn die Buchung zur Anbahnung oder Durchführung einer Zusammenarbeit erfolgt; ergänzend Art. 6 Abs. 1 lit. f DSGVO für effiziente Terminplanung und Kommunikation.',
 						'Google-Calendar-Termine bleiben standardmäßig im Google-Workspace-/Google-Konto gespeichert, bis sie durch uns, durch einen Administrator oder nach den dort eingerichteten Lösch- und Aufbewahrungsregeln gelöscht werden. Wenn Google Vault oder eigene Aufbewahrungsregeln verwendet werden, gelten diese Regeln vorrangig.',
 					],
@@ -197,7 +197,7 @@ export const legalContent = {
 					title: 'Contact',
 					paragraphs: [
 						`Email: <a href="mailto:${contactEmail}">${contactEmail}</a>`,
-						`Appointment booking: <a href="${bookingUrl}" target="_blank" rel="noreferrer noopener">${bookingUrl}</a>`,
+						`Appointment booking: <a href="${bookingPath('en')}">Book an introductory call</a>`,
 					],
 				},
 				{
@@ -282,8 +282,8 @@ export const legalContent = {
 				{
 					title: '5. Appointment booking via Google Calendar',
 					paragraphs: [
-						'On the homepage, Google Calendar is displayed automatically in the contact section and loaded by the browser as it approaches the visible area. On other pages, you can load it by selecting “Find a time”. You can also open the booking page through an external link. Loading the embedded calendar establishes a connection to Google. Google then processes your access data and the booking details you enter. Select “Close calendar” to remove the embedded calendar again.',
-						'If you book an appointment, we process the information required to prepare, conduct and follow up on the meeting. This may include name, email address, appointment time, organisation, request details and other voluntary information.',
+						'The booking form loads available times through our server. Our server checks availability with Google Calendar. When you book, our server sends your email address and appointment time to Google Calendar. Google creates the event, sends the invitation and creates the Google Meet link for the call. When you join Google Meet, your browser connects directly to Google.',
+						'To prevent duplicate bookings, we temporarily store the appointment window, a random booking ID, the confirmation time and a verification hash for the request. We delete these data after the appointment slot ends.',
 						'The legal basis is Art. 6(1)(b) GDPR where the booking relates to pre-contractual steps or collaboration; additionally Art. 6(1)(f) GDPR for efficient scheduling and communication.',
 						'Google Calendar appointments remain stored in the Google Workspace/Google account by default until we, an administrator or the applicable deletion and retention settings delete them. If Google Vault or custom retention rules are used, those rules take precedence.',
 					],

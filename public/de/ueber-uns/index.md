@@ -22,7 +22,7 @@ Gemeinsam entwickeln wir eine Online-Strategie für deinen Betrieb und ideal auf
 - Wo tust du dich schwer?
 - Wobei kann ich helfen?
 
-[Gespräch mit Marlon vereinbaren](https://calendar.app.google/utFQgw33PwJTiDk56)
+[Gespräch mit Marlon vereinbaren](https://www.vibeperform.com/de/#kontakt)
 
 contact@vibeperform.com
 
