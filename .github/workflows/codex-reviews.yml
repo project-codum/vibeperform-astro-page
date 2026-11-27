@@ -58,23 +58,18 @@ jobs:
               | sort_by(.created_at, .id) | last | .review
             ' <<< "$reviews")
             status=$(jq -r '.status // ""' <<< "$review")
-            case "$status" in
-              completed)
-                if jq -e '.has_unresolved_findings == false' <<< "$review" >/dev/null; then
-                  echo "Codex Code Review completed for $PR_HEAD_SHA with no unresolved findings."
-                  exit 0
-                fi
-                echo "::error::Resolve the Codex Code Review findings before merging."
-                exit 1
-                ;;
-              failed|cancelled|canceled)
-                echo "::error::Codex Code Review did not complete. Request a fresh review on the PR."
-                exit 1
-                ;;
-            esac
+            if [[ "$status" == completed ]]; then
+              if jq -e '.has_unresolved_findings == false' <<< "$review" >/dev/null; then
+                echo "Codex Code Review completed for $PR_HEAD_SHA with no unresolved findings."
+                exit 0
+              fi
+              echo "::error::Resolve the Codex Code Review findings and rerun this check."
+              exit 1
+            fi
+            # A fresh connector attempt for the same head can replace a failed or canceled attempt.
             sleep 15
           done
-          echo "::error::No completed Codex Code Review was received for $PR_HEAD_SHA."
+          echo "::error::No completed Codex Code Review was received for $PR_HEAD_SHA. Request a fresh review and rerun this check."
           exit 1
 
       - *verify-snapshot
