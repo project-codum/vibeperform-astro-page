@@ -61,27 +61,34 @@ jobs:
           fi
 
           evidence="$pr_number $QUEUE_BASE $head"
-          checks=$(gh api "$repo/commits/$head/check-runs?filter=latest&per_page=100" --paginate --slurp)
+          # GitHub checks the synthetic merge commit first when it has a check.
+          merge_checks=$(gh api "$repo/commits/$merge_commit/check-runs?filter=latest&per_page=100" --paginate --slurp)
+          head_checks=$(gh api "$repo/commits/$head/check-runs?filter=latest&per_page=100" --paginate --slurp)
           for check in "Codex Code Review / master" "Codex Security / master"; do
-            record=$(jq -ce --arg check "$check" '
-              [.[].check_runs[] | select(.name == $check and .app.id == 15368)] |
-              sort_by(.id) | last
-            ' <<< "$checks") || fail "The required check $check is missing."
-            id=$(jq -er '.id' <<< "$record")
-            url=$(jq -er '.details_url' <<< "$record")
-            if [[ "$url" != "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/"*"/job/$id" ]] ||
-               ! jq -e '.status == "completed" and .conclusion == "success"' <<< "$record" >/dev/null; then
+            record=$(jq -nce --arg check "$check" --argjson merge "$merge_checks" --argjson head "$head_checks" '
+              def latest: [.[].check_runs[] | select(.name == $check and .app.id == 15368)] | max_by(.id);
+              ($merge | latest) // ($head | latest)
+            ') || fail "The required check $check is missing."
+            if ! jq -e '.status == "completed" and .conclusion == "success"' <<< "$record" >/dev/null; then
               fail "The required check $check has not completed successfully."
             fi
-            run_id=$(sed -E 's@.*/actions/runs/([0-9]+)/job/[0-9]+$@\1@' <<< "$url")
-            if [[ ! "$run_id" =~ ^[0-9]+$ ]]; then
-              fail "The workflow run for $check could not be verified."
+            id=$(jq -er '.id' <<< "$record")
+            job=$(gh api "$repo/actions/jobs/$id")
+            run_id=$(jq -er '.run_id' <<< "$job")
+            if ! jq -e --argjson id "$id" --arg check "$check" --arg repo "$repo" '
+              .id == $id and .name == $check and .conclusion == "success" and
+              (.check_run_url | endswith("/" + $repo + "/check-runs/" + ($id | tostring)))
+            ' <<< "$job" >/dev/null; then
+              fail "The Actions job for $check does not match its check run."
             fi
             workflow=$(gh api "$repo/actions/runs/$run_id")
             if ! jq -e --argjson pr "$pr_number" --arg head "$head" '
-              .path == ".github/workflows/codex-reviews.yml" and .event == "pull_request" and
-              .head_sha == $head and
-              any(.pull_requests[]; .number == $pr and .head.sha == $head and .base.ref == "master")
+              . as $run | ".github/workflows/codex-reviews.yml" as $path |
+              ($run.path == $path or $run.path == ($path + "@" + $run.head_branch) or
+               $run.path == ($path + "@refs/heads/" + $run.head_branch) or
+               $run.path == ($path + "@refs/pull/" + ($pr | tostring) + "/merge")) and
+              $run.event == "pull_request" and $run.head_sha == $head and
+              any($run.pull_requests[]; .number == $pr and .head.sha == $head and .base.ref == "master")
             ' <<< "$workflow" >/dev/null; then
               fail "The required check $check did not originate from this PR workflow."
             fi
@@ -149,6 +156,26 @@ jobs:
             if [[ "$status" == completed ]]; then
               if jq -e '.has_unresolved_findings == false' <<< "$review" >/dev/null; then
                 echo "Codex Code Review completed for $PR_HEAD_SHA with no unresolved findings."
+                exit 0
+              fi
+              # GitHub requires review conversations to be resolved; the Connector can lag behind that state.
+              threads=$(gh api graphql --paginate --slurp \
+                -f query='query($owner: String!, $name: String!, $pr: Int!, $endCursor: String) {
+                  repository(owner: $owner, name: $name) {
+                    pullRequest(number: $pr) {
+                      reviewThreads(first: 100, after: $endCursor) {
+                        nodes { isResolved }
+                        pageInfo { hasNextPage endCursor }
+                      }
+                    }
+                  }
+                }' \
+                -f owner="${GITHUB_REPOSITORY%%/*}" -f name="${GITHUB_REPOSITORY#*/}" -F pr="$PR_NUMBER")
+              if jq -e '
+                [.[].data.repository.pullRequest.reviewThreads.nodes[]] |
+                length > 0 and all(.[]; .isResolved == true)
+              ' <<< "$threads" >/dev/null; then
+                echo "Codex Code Review completed for $PR_HEAD_SHA and its GitHub review conversations are resolved."
                 exit 0
               fi
               echo "::error::Resolve the Codex Code Review findings and rerun this check."
