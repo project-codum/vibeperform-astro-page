@@ -1,0 +1,139 @@
+name: Codex PR reviews
+
+'on':
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  PR_NUMBER: ${{ github.event.pull_request.number }}
+  PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+  PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+  PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+
+jobs:
+  code-review:
+    name: ${{ github.event.action == 'edited' && github.event.changes.base == null && 'metadata / ' || '' }}Codex Code Review / master
+    if: github.event.action != 'edited' || github.event.changes.base != null
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - &verify-snapshot
+        name: Verify the current PR snapshot
+        run: |
+          current=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" \
+            --jq '[.head.sha, .base.ref, .base.sha] | @tsv')
+          expected=$(printf '%s\t%s\t%s' "$PR_HEAD_SHA" "$PR_BASE_REF" "$PR_BASE_SHA")
+          live_base=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/master" --jq '.object.sha')
+          if [[ "$current" != "$expected" || "$live_base" != "$PR_BASE_SHA" ]]; then
+            echo "::error::The PR head or master has changed. Run checks on the current snapshot."
+            exit 1
+          fi
+
+      - name: Require the Codex Connector's review for this commit
+        run: |
+          deadline=$((SECONDS + 660))
+          while (( SECONDS < deadline )); do
+            reviews=$(gh api "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments?per_page=100" --paginate --slurp)
+            review=$(jq -c --arg head "$PR_HEAD_SHA" '
+              [.[][] | select(
+                .user.type == "Bot" and
+                .user.id == 199175422 and
+                .performed_via_github_app.id == 1144995
+              ) | .body | split("\n")[] |
+                select(startswith("<!-- codex-review-state:v1 ") and endswith(" -->")) |
+                (try (ltrimstr("<!-- codex-review-state:v1 ") | rtrimstr(" -->") | fromjson) catch null) |
+                .code_review | select(.commit_sha == $head)]
+              | if length == 1 then first else null end
+            ' <<< "$reviews")
+            status=$(jq -r '.status // ""' <<< "$review")
+            case "$status" in
+              completed)
+                if jq -e '.has_unresolved_findings == false' <<< "$review" >/dev/null; then
+                  echo "Codex Code Review completed for $PR_HEAD_SHA with no unresolved findings."
+                  exit 0
+                fi
+                echo "::error::Resolve the Codex Code Review findings before merging."
+                exit 1
+                ;;
+              failed|cancelled|canceled)
+                echo "::error::Codex Code Review did not complete. Request a fresh review on the PR."
+                exit 1
+                ;;
+            esac
+            sleep 15
+          done
+          echo "::error::No completed Codex Code Review was received for $PR_HEAD_SHA."
+          exit 1
+
+      - *verify-snapshot
+
+  security-scan:
+    name: Scan changes with Codex Security
+    if: >-
+      github.event.pull_request.head.repo.id == github.event.repository.id &&
+      (github.event.action != 'edited' || github.event.changes.base != null)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      scan-status: ${{ steps.security.outputs.scan-status }}
+      policy-status: ${{ steps.security.outputs.policy-status }}
+      scanned-sha: ${{ steps.security.outputs.scanned-sha }}
+    steps:
+      - *verify-snapshot
+      - name: Verify the Security credential is available
+        env:
+          CODEX_SECURITY_KEY: ${{ secrets.CODEX_SECURITY_API_KEY }}
+        run: |
+          if [[ -z "$CODEX_SECURITY_KEY" ]]; then
+            echo "::error::CODEX_SECURITY_API_KEY is unavailable to this workflow."
+            exit 1
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Review PR changes
+        id: security
+        uses: openai/codex-security@a98b35d7eef9f85c298c86229445bb64ac427aaf # action-v0.9.1
+        with:
+          scope: diff
+          model: gpt-5.6-sol
+          effort: high
+          max-cost: '5'
+          fail-on-severity: high
+          verbose: 'false'
+          summary: 'false'
+          annotations: 'false'
+          upload-artifacts: 'false'
+        env:
+          GH_TOKEN: ''
+          OPENAI_API_KEY: ${{ secrets.CODEX_SECURITY_API_KEY }}
+
+  security-review:
+    name: ${{ github.event.action == 'edited' && github.event.changes.base == null && 'metadata / ' || '' }}Codex Security / master
+    needs: security-scan
+    if: always() && (github.event.action != 'edited' || github.event.changes.base != null)
+    runs-on: ubuntu-24.04
+    steps:
+      - *verify-snapshot
+      - name: Require a completed Security scan for this commit
+        env:
+          SCAN_RESULT: ${{ needs.security-scan.result }}
+          SCAN_STATUS: ${{ needs.security-scan.outputs.scan-status }}
+          SCAN_POLICY: ${{ needs.security-scan.outputs.policy-status }}
+          SCANNED_SHA: ${{ needs.security-scan.outputs.scanned-sha }}
+        run: |
+          if [[ "$SCAN_RESULT" != success || "$SCAN_STATUS" != completed ||
+                "$SCAN_POLICY" != passed || "$SCANNED_SHA" != "$PR_HEAD_SHA" ]]; then
+            echo "::error::Codex Security must complete and pass for the current PR commit."
+            exit 1
+          fi
+          echo "Codex Security completed and passed for $PR_HEAD_SHA."
