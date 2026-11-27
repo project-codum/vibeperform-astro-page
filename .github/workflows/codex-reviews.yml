@@ -132,6 +132,8 @@ jobs:
 
       - name: Require the Codex Connector's review for this commit
         if: github.event_name == 'pull_request'
+        env:
+          CODEX_REVIEW_RESOLVER_ID: ${{ vars.CODEX_REVIEW_RESOLVER_ID }}
         run: |
           deadline=$((SECONDS + 660))
           while (( SECONDS < deadline )); do
@@ -158,24 +160,37 @@ jobs:
                 echo "Codex Code Review completed for $PR_HEAD_SHA with no unresolved findings."
                 exit 0
               fi
-              # GitHub requires review conversations to be resolved; the Connector can lag behind that state.
+              # A repository admin can resolve Codex findings even if the Connector's summary has not refreshed.
+              if [[ ! "$CODEX_REVIEW_RESOLVER_ID" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::The authorised Codex findings resolver has not been configured."
+                exit 1
+              fi
               threads=$(gh api graphql --paginate --slurp \
                 -f query='query($owner: String!, $name: String!, $pr: Int!, $endCursor: String) {
                   repository(owner: $owner, name: $name) {
                     pullRequest(number: $pr) {
                       reviewThreads(first: 100, after: $endCursor) {
-                        nodes { isResolved }
+                        nodes {
+                          isResolved
+                          resolvedBy { databaseId }
+                          comments(first: 1) {
+                            nodes { body author { ... on Bot { databaseId } } }
+                          }
+                        }
                         pageInfo { hasNextPage endCursor }
                       }
                     }
                   }
                 }' \
                 -f owner="${GITHUB_REPOSITORY%%/*}" -f name="${GITHUB_REPOSITORY#*/}" -F pr="$PR_NUMBER")
-              if jq -e '
-                [.[].data.repository.pullRequest.reviewThreads.nodes[]] |
-                length > 0 and all(.[]; .isResolved == true)
+              if jq -e --arg resolver "$CODEX_REVIEW_RESOLVER_ID" '
+                [.[].data.repository.pullRequest.reviewThreads.nodes[] |
+                  select(any(.comments.nodes[]; .author.databaseId == 199175422 and
+                    (.body | contains("<!-- codex-code-review-finding:v1 -->"))))] |
+                length > 0 and all(.[]; .isResolved == true and
+                  (.resolvedBy.databaseId | tostring) == $resolver)
               ' <<< "$threads" >/dev/null; then
-                echo "Codex Code Review completed for $PR_HEAD_SHA and its GitHub review conversations are resolved."
+                echo "Codex Code Review completed for $PR_HEAD_SHA and its findings were resolved by the authorised reviewer."
                 exit 0
               fi
               echo "::error::Resolve the Codex Code Review findings and rerun this check."
