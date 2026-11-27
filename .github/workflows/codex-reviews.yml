@@ -252,6 +252,22 @@ jobs:
           GH_TOKEN: ''
           OPENAI_API_KEY: ${{ secrets.CODEX_SECURITY_API_KEY }}
 
+      - name: Seal the private diagnostic report
+        if: failure() && steps.security.outputs.json-path != ''
+        env:
+          REPORT_PATH: ${{ steps.security.outputs.json-path }}
+        run: |
+          printf '%s' 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVGRENDQW55Z0F3SUJBZ0lVYWlTSWl6UGdKdmtxanNaMTVhTC9sOXp3QmlZd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0tqRW9NQ1lHQTFVRUF3d2ZWbWxpWlZCbGNtWnZjbTBnYzJWaGJHVmtJSEJwYkc5MElISmxjRzl5ZERBZQpGdzB5TmpFeE1qY3hOakF6TkRsYUZ3MHlOakV4TWpreE5qQXpORGxhTUNveEtEQW1CZ05WQkFNTUgxWnBZbVZRClpYSm1iM0p0SUhObFlXeGxaQ0J3YVd4dmRDQnlaWEJ2Y25Rd2dnR2lNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUIKandBd2dnR0tBb0lCZ1FEVnd5b0JJZmR6dldNRTQ1ZC9PTlUzUEYvRmhVcEdTZm5Kb3FuQ3o4NFhSK0F4RTM3UgpZcHNuYzY4WVc5SEtPZ3RCMFBtM2J3MFY1UW9xYkphYk1STnM4SGwwQ1dmaFpYNkxRWU1sYkJxMnQ3R2VLVU5jCjdUak5mZlZLWDJtSHVqaVAyQTJ1c2xuNmJTTmF2SHNRY1pRbHpDVDQ5b0RoaEpzNVFBVWhJbloyeFZoMlBQdTkKNWxJSTNtZ0tTTVJkT2pWYnZEN004SnNoZzBLcWZWVlM1MysvbzVER2MxNXU1Z3VjcU1EWDRJOHZPQUN4Y25aawpJMnY2RnAvbzI5Q0pEMjBRcEJQT21scUhhTmZvemYwRHQycHJBaUJaR2xtNElHYmlROS8vTWJjVC9KSWxDYm1iCksraWNEVy8xNHVsdjZFWDcvOWczZ01lejdvS09GWVBJNE16SHhoMGpYUkZhYnNsWGh1ZjkwWU9XMG8zQkJoZS8KRy8xSmJLTy9SQlhoc1E2ZXU3N2hENE5TREZHU2hhWThucG5GRDN3akZEWnZyang5STJWVkgzRlVSRjF2NjJyNQpOUkhneDIrVEdrK05GaS9GUWt0UGJxdDFtQ1B3ZkZTaEhNNFZ0RXIzVFI4a1hadWs2VnFLQ3NZYTA5dVBpbzBaCjk3dWNkWjVqNlE0WktJOENBd0VBQWFNeU1EQXdIUVlEVlIwT0JCWUVGTy9WLzBBK012L2Jra1dpWWpKYm5kM3gKdk5mWk1BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFFdGJhQjE2clpQeAoydW1KWk45RFRCV2ZFL09wRVJUbmgyUUNvOW9ScmJjcWwrMWZSVHdQeEV4TlJlR1FiMXN6ektTRmxWendVSWY1CmhMRllWVW1sai9rSWVZTWZrNkpmSkppcXovSDJUOFE3cjliakFKWUZKNnJxRFVFbFZEMTZzRm1SUnlWdVN0NjMKdTZyOVVlSFBNdHRwaVV1NnNSUTdwb3p1Rm81d2FCOVRjZ2k5ajFOMldFV0JNTGRiR040a2NBSUNQcmlZbSthUgovUXdpRWNxWWdVZFV2dHZvMDJSZEtUNlptTVE3dDNZOTkzUjRGVnVHTE03NlRFQkp6cmZMNklIcXZhM3lBeUtzCkRzZmNlZVc5WGs2ZDgvb3dwUEFGT3h6SGk2QkVUck5qdzVnNHROQ2krYnZxQWpEZTJsaXh4aTVMV3g1cGZOZGsKRS9rNlpBVzNOQk4rMjQrUDlJRVBrbW84VHN4NmZBL242SDZFR2tPeWdtalpuVTh5M3lrL2JvRGROR0hUUFgwMgorQnA5cWVDZmZZQm9JWmc1Qy9WKzJDZ0xOTElMN3I5ekxvQVlNYW11VGF4WkZINndZS2RMb2FNNUI1U1NzQmRlCnBiZ2p1cGpRMlAzVGNqbGVBalJOclF1L21ha3owU1VRQWYremN2b1VrdVdRV0dTN2NvZmI3Zz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K' | base64 --decode > "$RUNNER_TEMP/report-recipient.pem"
+          openssl cms -encrypt -binary -aes-256-gcm -outform DER \
+            -in "$REPORT_PATH" -out "$RUNNER_TEMP/codex-pilot.cms" "$RUNNER_TEMP/report-recipient.pem"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: failure() && steps.security.outputs.json-path != ''
+        with:
+          name: sealed-pilot-review
+          path: ${{ runner.temp }}/codex-pilot.cms
+          if-no-files-found: error
+          retention-days: 1
+
   security-review:
     name: ${{ github.event.action == 'edited' && github.event.changes.base == null && 'metadata / ' || '' }}Codex Security / master
     needs: [queue-freshness, security-scan]
