@@ -46,11 +46,16 @@ jobs:
                 .user.type == "Bot" and
                 .user.id == 199175422 and
                 .performed_via_github_app.id == 1144995
-              ) | .body | split("\n")[] |
-                select(startswith("<!-- codex-review-state:v1 ") and endswith(" -->")) |
-                (try (ltrimstr("<!-- codex-review-state:v1 ") | rtrimstr(" -->") | fromjson) catch null) |
-                .code_review | select(.commit_sha == $head)]
-              | if length == 1 then first else null end
+              ) |
+                (.body | split("\n")) as $lines |
+                select($lines[0] == "<!-- codex-pull-request-review-summary -->") |
+                (($lines[1] // "") |
+                  select(startswith("<!-- codex-review-state:v1 ") and endswith(" -->")) |
+                  (try (ltrimstr("<!-- codex-review-state:v1 ") | rtrimstr(" -->") | fromjson) catch null)
+                ) as $state |
+                select($state.code_review.commit_sha == $head) |
+                {id, created_at, review: $state.code_review}]
+              | sort_by(.created_at, .id) | last | .review
             ' <<< "$reviews")
             status=$(jq -r '.status // ""' <<< "$review")
             case "$status" in
