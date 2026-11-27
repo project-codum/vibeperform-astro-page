@@ -13,6 +13,16 @@ for (const [locale, route, alternate, role] of [
     const html = await load(route);
     const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
     const md = await readFile(path.join(dist, route, 'index.md'), 'utf8');
+    const voicePath = `/audio/about/${locale}-mission-vision.mp3`;
+    assert.ok(main.includes(voicePath));
+    await access(path.join(dist, voicePath));
+    const prose = main.replace(/<[^>]+>/g, '');
+    const approved = locale === 'de' ? [
+      'VibePerform ist die moderne Webseitenagentur.',
+      'Spitzenmarketing ist keine Frage der Unternehmensgröße mehr.',
+      'Wenn du mit deinem Betrieb wachsen willst! Dann will ich mit dir arbeiten! Wann passt es dir?',
+    ] : ['VibePerform exists so small businesses can afford an online presence of the same quality as major brands.'];
+    for (const line of approved) assert.ok(prose.includes(line) && md.includes(line));
     assert.equal((main.match(/<h1\b/g) || []).length, 1);
     assert.doesNotMatch(main, /ag-collaboration|ag-expectations/);
     for (const source of [main, md]) {
@@ -56,8 +66,8 @@ for (const [locale, route, alternate, role] of [
     assert.equal(meta('og:locale:alternate'), locale === 'de' ? 'en_US' : 'de_DE');
     assert.ok(html.includes(`hreflang="${locale}" href="https://www.vibeperform.com/${route}/"`));
     assert.ok(html.includes(`hreflang="${locale === 'de' ? 'en' : 'de'}" href="https://www.vibeperform.com/${alternate}/"`));
-    const contactPortrait = main.match(/<img[^>]+class="ag-contact-portrait"[^>]*>/)[0];
-    assert.ok(contactPortrait.match(/ src="([^"]+)"/)[1].includes('marlon-studio-portrait-v1'));
+    assert.doesNotMatch(main, /ag-contact-portrait/);
+    assert.match(main, /<a class="hp-button" href="#kontakt">[^<]+<\/a>/);
     for (const [, href] of html.matchAll(/href="([^" ]+)"/g)) {
       if (!href.startsWith('/') && !href.startsWith('#')) continue;
       const url = new URL(href, `https://www.vibeperform.com/${route}/`);
@@ -67,8 +77,53 @@ for (const [locale, route, alternate, role] of [
     }
     assert.ok(main.includes('mailto:contact@vibeperform.com'));
     assert.ok(main.includes('data-booking-calendar'));
-    assert.equal((main.match(/data-about-slide-in/g) || []).length, 2);
-    assert.ok(main.includes(locale === 'de' ? 'Und für KI verständlich.' : 'And understandable to AI.'));
+    const home = await load(locale);
+    const purpose = page => page.match(/<div class="hp-purpose-stage"[\s\S]*?<\/section>/)[0];
+    if (locale === 'de') {
+      for (const id of ['agency-title', 'purpose-title', 'angebot', 'strategie', 'betreuung', 'contact-title']) {
+        assert.ok(main.includes('id="' + id + '"'));
+        assert.ok(main.includes('&quot;' + id + '&quot;'));
+      }
+      assert.match(main, /<button type="button" data-play[^>]*>Start<\/button>/);
+      assert.ok(main.includes('&quot;caption&quot;'));
+      const intro = main.match(/<dialog[^>]+id="internet-im-wandel"[^>]*>[\s\S]*?<\/dialog>/)[0];
+      assert.match(intro, /aria-label="Das Internet verändert sich\."/);
+      assert.doesNotMatch(intro, /<dialog[^>]*\sopen[\s=>]/);
+      assert.match(intro, /<form method="dialog"[^>]*>[\s\S]*?Überspringen/);
+      assert.ok(main.indexOf(intro) < main.indexOf('id="home-intro"'));
+      assert.doesNotMatch(md, /## Das Internet verändert sich\./);
+      const cards = main.match(/<ul class="ag-contact-questions"[^>]*>([\s\S]*?)<\/ul>/)[1];
+      assert.deepEqual([...cards.matchAll(/<li>([^<]+)<\/li>/g)].map(match => match[1]), [
+        'Was kommt zu kurz?', 'Wo tust du dich schwer?', 'Wobei kann ich helfen?',
+      ]);
+      const contact = main.match(/<section[^>]*id="kontakt"[\s\S]*?<\/section>/)[0];
+      assert.doesNotMatch(contact, /Wenn du mit deinem Betrieb wachsen willst/);
+      assert.match(purpose(home), /Wir glauben, Spitzenmarketing/);
+      assert.match(purpose(main), /aria-label="Spitzenmarketing ist keine Frage der Unternehmensgröße mehr\."/);
+      for (const source of [main, md]) {
+        assert.match(source, /Dein Betrieb auf dem Qualitätsniveau großer, vergleichbarer Unternehmen\.\s+Das ist möglich und bezahlbar\./);
+        assert.match(source, /Gemeinsam entwickeln wir eine Online-Strategie für deinen Betrieb und ideal auf deine Arbeitsweise abgestimmt\./);
+        assert.match(source, /Die Umsetzung und laufende Betreuung übernehme ich\./);
+        assert.match(source, /Dein Auftritt bleibt immer aktuell\. Aus deiner Arbeit, aktuellen Projekten und deiner Expertise werden Inhalte für die Webseite, das Unternehmensprofil und die sozialen Medien\./);
+        assert.doesNotMatch(source, /Branchenbücher|Instagram, TikTok und YouTube/);
+        assert.match(source.replace(/<[^>]+>/g, ''), /Was willst du mit\s+deinem Betrieb erreichen\?/);
+        for (const question of ['Was kommt zu kurz?', 'Wo tust du dich schwer?', 'Wobei kann ich helfen?']) {
+          assert.ok(source.includes(question));
+        }
+      }
+    } else {
+      assert.equal(purpose(main), purpose(home));
+    }
+    assert.ok(main.includes(locale === 'de' ? 'dein erster direkter Ansprechpartner' : 'your first point of contact'));
+    assert.match(main, /<audio[^>]*preload="none"/);
+    for (const control of ['play', 'sound', 'index', 'chapter-menu', 'chapter-count', 'meter']) assert.ok(main.includes('data-' + control));
+    assert.equal([...main.matchAll(/data-choice="/g)].length, locale === 'de' ? 3 : 2);
+    assert.ok(main.indexOf('data-controls-origin') < main.indexOf('data-story-controls'));
+    assert.ok(main.indexOf('data-story-controls') < main.indexOf('id="vision"'));
+    for (const version of [main, md]) {
+      assert.doesNotMatch(version, /Gründerbrief|founder letter|ag-letterhead|ag-signature|marlon-brief|introducing-deep-research|Loistl|Laubbeseitigung|leaf removal/i);
+      assert.ok(version.includes(locale === 'de' ? 'Die moderne Webseitenagentur.' : 'the modern web agency.'));
+    }
     const removedCopy = locale === 'de'
       ? ['Marlon Dietrich · Inhaber von VibePerform', 'Persönlich verantwortlich. Von der ersten Idee an.', 'Mein Weg zu VibePerform', 'Mit Blick nach vorne', 'Sie sprechen direkt mit mir. Ich freue mich auf Ihr Vorhaben.', 'Lernen wir uns kennen']
       : ['Marlon Dietrich · Owner of VibePerform', 'Personally responsible. From the first idea onwards.', 'My path to VibePerform', 'Looking ahead', 'You’ll speak directly with me. I look forward to hearing about your project.', 'Let’s meet'];
@@ -78,14 +133,3 @@ for (const [locale, route, alternate, role] of [
     }
   });
 }
-
-test('about-page emphasis lines reveal from the right on scroll and respect reduced motion', async () => {
-  const component = await readFile(new URL('../src/components/AboutPage.astro', import.meta.url), 'utf8');
-  const styles = await readFile(new URL('../src/styles/about-page.css', import.meta.url), 'utf8');
-  assert.equal((component.match(/<em data-about-slide-in>/g) || []).length, 2);
-  assert.match(component, /rootMargin: '0px 0px -18% 0px', threshold: 0\.2/);
-  assert.match(component, /prefers-reduced-motion: reduce/);
-  assert.match(styles, /@media\(prefers-reduced-motion:no-preference\)/);
-  assert.match(styles, /translateX\(54px\)/);
-  assert.match(styles, /@keyframes ag-slide-in-from-right/);
-});

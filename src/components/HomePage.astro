@@ -1,6 +1,7 @@
 ---
 import HomeNavigation from './HomeNavigation.astro';
 import HomeHero from './HomeHero.astro';
+import GuidingPrinciple from './GuidingPrinciple.astro';
 import HomeDesignStudies from './HomeDesignStudies.astro';
 import HomeProjectVisibility from './HomeProjectVisibility.astro';
 import AgencyFooter from './AgencyFooter.astro';
@@ -28,21 +29,7 @@ const contact = t.contact;
       <HomeDesignStudies locale={locale} />
     </div>
 
-    <section class="hp-section hp-purpose" id="leitgedanke" aria-labelledby="purpose-title" data-analytics-section="home-purpose">
-      <div class="hp-wrap">
-        <div class="hp-purpose-stage" data-purpose-stage>
-          <div class="hp-purpose-pin" data-purpose-pin>
-            <h2 id="purpose-title" data-caption-reveal aria-label={`${t.purpose.title} ${t.purpose.middle} ${t.purpose.emphasis}`}>
-              {[t.purpose.title, t.purpose.middle, t.purpose.emphasis].map((line, index) => {
-                const Tag = index === 2 ? 'em' : 'span';
-                return <Tag aria-hidden="true">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="hp-caption-word">{word}</span></>)}</Tag>;
-              })}
-            </h2>
-            <p class="hp-purpose-mission" data-purpose-mission>{t.purpose.mission}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <GuidingPrinciple locale={locale} />
 
     <HomeSituationSolutions locale={locale} />
     <HomeProjectVisibility locale={locale} />
@@ -87,7 +74,6 @@ const contact = t.contact;
 </div>
 
 <script>
-  import '../scripts/purposeCaption';
   // Repeated SVG and button effects only run while their section is visible.
   const looping = document.querySelectorAll<HTMLElement>('[data-presence-animation], .hp-contact-actions > .hp-button');
   if ('IntersectionObserver' in window) {

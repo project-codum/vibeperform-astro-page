@@ -1,36 +1,28 @@
 # About VibePerform: the modern web agency.
 Canonical URL: https://www.vibeperform.com/en/about-us/
 German alternate: https://www.vibeperform.com/de/ueber-uns/
-Summary: Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.
+Summary: Marlon Dietrich shares why he founded VibePerform and how AI can help small and midsize businesses keep their online presence up to date.
 
 Marlon Dietrich is the owner of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.
 
-## Your business keeps moving. Your website should, too.
+Marlon Dietrich, Owner of VibePerform
 
-A new service, a recent project, new questions from your customers: your business is always evolving. Your online presence should reflect that.
+[Arrange an initial call](https://www.vibeperform.com/en/about-us/#kontakt)
 
-That’s why we bring design, content, search engine optimisation and technology together. We build your presence and offer ongoing development informed by your business, customer questions and available search and usage data.
+## We believe great marketing should never depend on the size of your business.
 
-[Keep your website up to date](https://www.vibeperform.com/en/website-support/)
+We make an online presence with the quality of leading brands affordable for small businesses. We combine first-class design that makes the quality of your business visible, precise copy that guides your customers, and the professional use of AI to speed up tasks.
 
-## Understanding technology. Designing for people.
+## Where do you want to take your business online?
 
-I spent three years developing software for a midsize company. I then worked with several startups, developing AI agents and automated processes and turning digital ideas into usable applications.
-
-Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly online so that the right projects and the right people to join your team can find you.
-
-## Made for people. And understandable to AI.
-
-Customers can also discover businesses through AI-powered search. We consider this from the start so that people and digital assistants can better understand what you offer.
-
-That includes clear ways to enquire. Where it suits your project, we can also plan interfaces for digital assistants as a separate part of the work.
-
-[More about being found](https://www.vibeperform.com/en/search-engine-optimisation/)
-
-## What should your online presence do for you?
-
-Tell me about your business and what you would like to change. In our first conversation, we’ll look at where you are now and identify a sensible next step.
+Tell me what’s changed in your business and what your customers can already see online. Together we’ll work out where to start.
 
 [Arrange a call with Marlon](https://www.vibeperform.com/en/#kontakt)
 
 contact@vibeperform.com
+
+## Audio guide transcript
+
+VibePerform exists so small businesses can afford an online presence of the same quality as major brands. To make that possible, we combine first-class design, precise writing and the professional use of AI.
+
+Our long-term vision is for every small business to have access to the skills of a first-class marketing team for its online sales, without having to build one of its own.

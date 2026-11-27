@@ -1,0 +1,62 @@
+---
+import type { Locale } from '../lib/siteMetadata';
+
+interface Props {
+  chapters: readonly string[];
+  playLabel: string;
+  locale?: Locale;
+  label?: string;
+}
+const { chapters, playLabel, locale = 'de', label } = Astro.props;
+const de = locale === 'de';
+---
+<div class="controls" data-story-controls role="group" aria-label={label ?? (de ? 'Audioguide' : 'Audio guide')} hidden>
+  <div class="control-row">
+    <button type="button" data-play>{playLabel}</button>
+    <button type="button" data-sound>{de ? 'Ton aus' : 'Mute'}</button>
+    <button type="button" class="chapter-trigger" data-index aria-expanded="false" aria-controls="guide-chapters" aria-label={de ? 'Kapitel auswählen' : 'Choose a chapter'}>
+      <span><span data-chapter-count>1 / {chapters.length}</span><span class="chapter-name"> · <span data-current-chapter>{chapters[0]}</span></span></span>
+      <i aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="chapter-menu" id="guide-chapters" data-chapter-menu inert>
+    {chapters.map((name, index) => (
+      <button type="button" data-choice={index} aria-current={index === 0 ? 'step' : undefined}>
+        <span class="chapter-number">{String(index + 1).padStart(2, '0')}</span><span>{name}</span><i aria-hidden="true"></i>
+      </button>
+    ))}
+  </div>
+  <p class="feedback" data-feedback role="status" hidden></p>
+  <div class="track" aria-hidden="true"><i data-meter></i></div>
+</div>
+<style>
+  .controls[hidden] {display:none}
+  .controls:not([data-docked]) {top:var(--hero-top);bottom:auto}
+  .controls {position:fixed;z-index:25;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));translate:-50% 0;width:410px;max-width:calc(100% - 16px);padding:5px 7px 8px;border-radius:18px;border:1px solid #504759;background:#211c27;color:#fff;box-shadow:0 5px 22px #17121d40}
+  .control-row {display:flex;align-items:center;justify-content:center;gap:4px}
+  .controls button {font:inherit;color:inherit;background:#211c27;border:0;min-height:44px;padding:0 12px;cursor:pointer}
+  @media(max-width:360px){.chapter-trigger .chapter-name {display:none}}
+  .controls [data-play] {min-width:5em;border-radius:12px;background:#eed8fc;color:#261b2d;font-weight:650}
+  .controls .chapter-trigger {display:flex;flex:1;align-items:center;justify-content:space-between;gap:6px;min-width:0;border-left:1px solid #54495b}
+  .chapter-trigger span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chapter-trigger i {width:9px;height:9px;flex:none;border:solid #dfc6ed;border-width:2px 2px 0 0;transform:rotate(-45deg);transition:transform .22s}
+  .chapter-trigger[aria-expanded="true"] i {transform:rotate(135deg)}
+  .chapter-menu {position:absolute;bottom:calc(100% + 7px);left:-1px;right:-1px;padding:7px;max-height:calc(var(--hero-top,100dvh) - 16px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #625168;border-radius:18px;background:#211c27;box-shadow:0 12px 30px #17121d40;opacity:0;visibility:hidden;transform:translateY(8px) scale(.98);transform-origin:center bottom;transition:transform .22s ease,opacity .18s ease,visibility 0s .22s}
+  .controls[data-docked] .chapter-menu {max-height:calc(100dvh - 100px - env(safe-area-inset-bottom))}
+  .controls[data-menu-open] .chapter-menu {visibility:visible;opacity:1;transform:none;transition-delay:0s}
+  .controls .chapter-menu button {display:grid;grid-template-columns:2.2em 1fr 12px;align-items:center;gap:8px;width:100%;min-height:52px;padding:7px 13px;border-radius:10px;text-align:left;font-size:clamp(19px,2vw,23px);line-height:1.25}
+  .chapter-number {font-size:14px;font-variant-numeric:tabular-nums;color:#c7b3cf}
+  .chapter-menu button:hover,.chapter-menu button:focus-visible {background:#382f40}
+  .chapter-menu button[aria-current] {background:#49394f;color:#f3ddff}
+  .chapter-menu button[aria-current] i {width:8px;height:8px;border-radius:50%;background:#e8c7fb}
+  @media(prefers-reduced-motion:reduce){.chapter-menu,.chapter-trigger i {transition:none}}
+
+  .controls :focus-visible {outline:2px solid #ad74d2;outline-offset:-3px}
+  .controls .feedback {margin:0;max-width:32ch;padding:6px 8px;font-size:14px;line-height:1.4}
+  .track {position:absolute;inset:auto 14px 0;height:3px;overflow:hidden;border-radius:2px;background:#514955}
+  .track i {display:block;width:100%;height:100%;background:#dab9ec;transform-origin:left;transform:scaleX(0)}
+  @media(max-width:700px) {
+    .control-row {font-size:14px;gap:2px}
+    .controls button {padding-inline:8px}
+  }
+</style>

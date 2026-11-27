@@ -1,4 +1,5 @@
 import { chapters, storyCues } from '../data/wunderweltStory';
+import { mountStoryControls } from './storyControls';
 
 export function mountWunderweltStory(root: HTMLElement) {
   const guide = root.querySelector<HTMLVideoElement>('[data-narration]')!;
@@ -6,12 +7,6 @@ export function mountWunderweltStory(root: HTMLElement) {
   const controls = root.querySelector<HTMLElement>('[data-story-controls]')!;
   const play = root.querySelector<HTMLButtonElement>('[data-play]')!;
   const sound = root.querySelector<HTMLButtonElement>('[data-sound]')!;
-  const index = root.querySelector<HTMLButtonElement>('[data-index]')!;
-  const chapterCount = root.querySelector<HTMLElement>('[data-chapter-count]')!;
-  const currentChapter = root.querySelector<HTMLElement>('[data-current-chapter]')!;
-  const menu = root.querySelector<HTMLElement>('[data-chapter-menu]')!;
-  const choices = Array.from(menu.querySelectorAll<HTMLButtonElement>('[data-choice]'));
-  const origin = root.querySelector<HTMLElement>('[data-controls-origin]')!;
   const meter = root.querySelector<HTMLElement>('[data-meter]')!;
   const feedback = root.querySelector<HTMLElement>('[data-feedback]')!;
   const scenes = chapters.map(c => document.getElementById(c.id)!);
@@ -39,29 +34,21 @@ export function mountWunderweltStory(root: HTMLElement) {
 
   let started = false;
   let onCover = false;
-  let docking: Animation | undefined;
-
-  function placeControls(animate = true) {
-    const dock = started || scrollY > 2;
-    const moving = controls.hasAttribute('data-docked') !== dock;
-    const oldTop = controls.getBoundingClientRect().top;
-    if (!dock) controls.style.setProperty('--hero-top', origin.getBoundingClientRect().top + 'px');
-    if (!moving) return;
-    docking?.cancel();
-    controls.toggleAttribute('data-docked', dock);
-    if (animate && !reducedMotion.matches) {
-      const distance = oldTop - controls.getBoundingClientRect().top;
-      docking = controls.animate([{transform:'translateY('+distance+'px)'},{transform:'none'}], {
-        duration:400, easing:'cubic-bezier(.22,.68,.22,1)',
-      });
-    }
-  }
-
-  function setMenu(open: boolean) {
-    controls.toggleAttribute('data-menu-open', open);
-    index.setAttribute('aria-expanded', String(open));
-    menu.inert = !open;
-  }
+  const { place: placeControls, setMenu, showChapter: showControlsChapter } = mountStoryControls(
+    root,
+    chapters.map(chapter => chapter.name),
+    () => started || scrollY > 2,
+    position => {
+      if (following) void run(position, false);
+      else {
+        releaseGuide();
+        pausedAt = -1;
+        showChapter(position);
+        scrollToChapter(position);
+        paint();
+      }
+    },
+  );
 
   // Scroll the actual sticky cards in both modes. Only the guide supplies a scroll position.
   let stepOffsets: number[] = [];
@@ -236,12 +223,7 @@ export function mountWunderweltStory(root: HTMLElement) {
 
   function showChapter(position: number) {
     current = position;
-    chapterCount.textContent = (position+1)+' / '+chapters.length;
-    currentChapter.textContent = chapters[position].name;
-    choices.forEach((button,i) => {
-      if (i === position) button.setAttribute('aria-current','step');
-      else button.removeAttribute('aria-current');
-    });
+    showControlsChapter(position);
     comparison.dataset.phase = position === 0 ? 'before' : 'after';
     syncClips();
   }
@@ -390,43 +372,6 @@ export function mountWunderweltStory(root: HTMLElement) {
     guide.muted = !guide.muted;
     paint();
   });
-  index.addEventListener('click', () => setMenu(menu.inert));
-  controls.addEventListener('keydown', event => {
-    const at = choices.indexOf(document.activeElement as HTMLButtonElement);
-    if (event.key === 'Escape' && !menu.inert) {
-      setMenu(false);
-      index.focus({preventScroll:true});
-    } else if ((at >= 0 || event.target === index) && ['ArrowUp','ArrowDown','Home','End'].includes(event.key)) {
-      event.preventDefault();
-      setMenu(true);
-      let next = current;
-      if (event.key === 'Home') next = 0;
-      else if (event.key === 'End') next = choices.length-1;
-      else if (at >= 0) next = (at + (event.key === 'ArrowUp' ? -1 : 1) + choices.length) % choices.length;
-      choices[next].focus({preventScroll:true});
-    }
-  });
-  document.addEventListener('pointerdown', event => {
-    if (!controls.contains(event.target as Node)) setMenu(false);
-  });
-  controls.addEventListener('focusout', event => {
-    if (!controls.contains(event.relatedTarget as Node)) setMenu(false);
-  });
-  menu.addEventListener('wheel', event => event.stopPropagation(), {passive:true});
-  menu.addEventListener('touchmove', event => event.stopPropagation(), {passive:true});
-  choices.forEach((button,position) => button.addEventListener('click', () => {
-    index.focus({preventScroll:true});
-    setMenu(false);
-    if (following) void run(position,false);
-    else {
-      releaseGuide();
-      pausedAt=-1;
-      showChapter(position);
-      scrollToChapter(position);
-      paint();
-    }
-  }));
-
   function trackManualPosition() {
     frame=0;
     if (!started) placeControls();
@@ -481,16 +426,11 @@ export function mountWunderweltStory(root: HTMLElement) {
   },{threshold:.15});
   clips.forEach(clip=>observer.observe(clip));
   reducedMotion.addEventListener('change',()=>{layoutSteps();measureStages();if(root.hasAttribute('data-guided')) visualCue();else readManualStages();syncClips();});
-  controls.hidden=false;
   layoutSteps();
   const stepObserver = new ResizeObserver(layoutSteps);
   stepObserver.observe(processHeading);
   cards.forEach(card => stepObserver.observe(card.querySelector('header')!));
   measureStages();
   window.addEventListener('resize',()=>{layoutSteps();measureStages();if (!root.hasAttribute('data-guided')) readManualStages();});
-  placeControls(false);
-  new ResizeObserver(()=>placeControls(false)).observe(origin.parentElement!);
-  window.addEventListener('resize',()=>placeControls(false));
-  window.addEventListener('pageshow',()=>placeControls(false));
   trackManualPosition();
 }

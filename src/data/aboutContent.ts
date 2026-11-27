@@ -1,76 +1,92 @@
+import { homePageContent } from './homePageContent';
+
+export const aboutInternetIntro = 'Das Internet verändert sich.';
+
 export const aboutPaths = { de: '/de/ueber-uns/', en: '/en/about-us/' } as const;
+
+const dePurposeHeading = {
+  title: 'Spitzenmarketing ist',
+  middle: 'keine Frage',
+  emphasis: 'der Unternehmensgröße mehr.',
+};
+
+const dePurposeSegments = [
+  {
+    id: 'angebot',
+    before: '',
+    text: 'Dein Betrieb auf dem Qualitätsniveau großer, vergleichbarer Unternehmen.\nDas ist möglich und bezahlbar.',
+  },
+  {
+    id: 'strategie',
+    before: '\n\n',
+    text: 'Gemeinsam entwickeln wir eine Online-Strategie für deinen Betrieb und ideal auf deine Arbeitsweise abgestimmt. Die Umsetzung und laufende Betreuung übernehme ich.',
+  },
+  {
+    id: 'betreuung',
+    before: ' ',
+    text: 'Dein Auftritt bleibt immer aktuell. Aus deiner Arbeit, aktuellen Projekten und deiner Expertise werden Inhalte für die Webseite, das Unternehmensprofil und die sozialen Medien.',
+  },
+] as const;
 
 export const aboutContent = {
   de: {
-    metaTitle: 'Marlon Dietrich & die Agentur | VibePerform',
-    metaDescription: 'Lernen Sie Marlon Dietrich kennen: Ihr persönlicher Ansprechpartner für Webseiten und Unternehmensprofile, die mit Ihrem Unternehmen weiterwachsen.',
+    metaTitle: 'Über VibePerform – Warum es unsere Agentur gibt | VibePerform',
+    metaDescription: 'Marlon Dietrich erzählt, warum er VibePerform gegründet hat und wie KI kleinen und mittleren Unternehmen hilft, ihren Online-Auftritt weiterzuentwickeln.',
+    guide: [
+      { label: 'VibePerform', cues: [
+        { start: 0, anchor: 'agency-title', text: 'VibePerform ist die moderne Webseitenagentur.' },
+      ] },
+      { label: 'Leitgedanke', cues: [
+        {
+          start: 3.82,
+          anchor: 'purpose-title',
+          text: Object.values(dePurposeHeading).join(' '),
+          caption: { words: [4.55, 5.37, 5.57, 5.83, 6.15, 6.33, 7.23], end: 7.43 },
+        },
+        { start: 7.66, anchor: 'angebot', text: dePurposeSegments[0].text },
+        { start: 13.66, anchor: 'strategie', text: dePurposeSegments[1].text },
+        { start: 23.16, anchor: 'betreuung', text: dePurposeSegments[2].text },
+      ] },
+      { label: 'Kennenlernen', cues: [
+        { start: 32.68, anchor: 'contact-title', text: 'Wenn du mit deinem Betrieb wachsen willst! Dann will ich mit dir arbeiten! Wann passt es dir?' },
+      ] },
+    ],
     hero: {
       title: 'Über VibePerform:', emphasis: 'Die moderne Webseitenagentur.',
-      intro: 'Marlon Dietrich ist Inhaber von VibePerform und Ihr erster direkter Ansprechpartner. Im Erstgespräch geht es um Sie und Ihren digitalen Firmenauftritt.',
+      intro: 'Marlon Dietrich ist Inhaber von VibePerform und dein erster direkter Ansprechpartner. Im Erstgespräch geht es um dich und deinen digitalen Firmenauftritt.',
       action: 'Erstgespräch vereinbaren', role: 'Inhaber von VibePerform',
     },
-    vision: {
-      kicker: 'Unsere Überzeugung', title: 'Ihr Unternehmen steht nicht still.', emphasis: 'Ihr Auftritt auch nicht.',
-      body: 'Eine neue Leistung, ein neues Projekt, neue Fragen Ihrer Kunden: Ihr Unternehmen entwickelt sich ständig. Das sollte sich auch in Ihrem digitalen Auftritt zeigen.',
-      mission: 'Deshalb verbinden wir Gestaltung, Inhalte, Suchmaschinenoptimierung und Technik. Wir erstellen Ihren Auftritt und entwickeln ihn auf Wunsch laufend weiter – mit Blick auf Ihren Betrieb, Kundenfragen und verfügbare Such- und Nutzungsdaten.',
-      link: 'So bleibt Ihre Website aktuell', href: '/de/website-betreuung/',
-    },
-    journey: {
-      title: 'Technik verstehen.', emphasis: 'Für Menschen gestalten.',
-      paragraphs: [
-        'Drei Jahre lang habe ich für ein mittelständisches Unternehmen Software entwickelt. Anschließend habe ich in verschiedenen Startups KI-Agenten und automatisierte Prozesse entwickelt und digitale Ideen in nutzbare Anwendungen übersetzt.',
-        'Heute verbinde ich diese Erfahrung mit dem Einsatz von KI-Agenten, um Websites und den digitalen Firmenauftritt neu zu denken. Mit VibePerform bieten wir genau diesen Service. Wir helfen Ihnen, Ihr Unternehmen online klar zu präsentieren, sodass die richtigen Aufträge und die passenden Mitarbeiter zu Ihnen finden.',
-      ],
-    },
-    future: {
-      title: 'Für Menschen gemacht.', emphasis: 'Und für KI verständlich.',
-      body: 'Kunden können Unternehmen auch über KI-gestützte Suche entdecken. Das denken wir direkt mit, sodass Menschen und digitale Assistenten Ihr Angebot besser verstehen.',
-      extra: 'Dazu gehören verständliche Wege zur Anfrage. Wo es zu Ihrem Vorhaben passt, können wir auch Schnittstellen für digitale Assistenten gesondert planen.',
-      center: 'Ihr Unternehmen', website: 'Website', profile: 'Unternehmensprofil',
-      foundation: 'Klare Leistungen · aktuelle Informationen', audience: ['Menschen', 'Suchmaschinen', 'KI-Assistenten'],
-      link: 'Mehr über Auffindbarkeit', href: '/de/suchmaschinenoptimierung/',
+    purpose: {
+      ...dePurposeHeading,
+      mission: dePurposeSegments.map(({ before, text }) => before + text).join(''),
+      segments: dePurposeSegments,
     },
     contact: {
-      title: 'Was soll Ihr Auftritt', emphasis: 'für Sie leisten?',
-      body: 'Erzählen Sie mir von Ihrem Unternehmen und dem, was Sie verändern möchten. Im ersten Gespräch klären wir, wo Sie stehen und welcher nächste Schritt sinnvoll ist.',
+      title: 'Was willst du mit',
+      emphasis: 'deinem Betrieb erreichen?',
+      questions: ['Was kommt zu kurz?', 'Wo tust du dich schwer?', 'Wobei kann ich helfen?'],
       action: 'Gespräch mit Marlon vereinbaren',
     },
   },
   en: {
-    metaTitle: 'Marlon Dietrich & the Agency | VibePerform',
-    metaDescription: 'Meet Marlon Dietrich, your direct contact for websites and business profiles that keep growing with your company.',
+    metaTitle: 'About VibePerform – Why our agency exists | VibePerform',
+    metaDescription: 'Marlon Dietrich shares why he founded VibePerform and how AI can help small and midsize businesses keep their online presence up to date.',
+    guide: [
+      { label: 'Mission', cues: [
+        { start: 0, text: 'VibePerform exists so small businesses can afford an online presence of the same quality as major brands. To make that possible, we combine first-class design, precise writing and the professional use of AI.' },
+      ] },
+      { label: 'Vision', cues: [
+        { start: 14.12, text: 'Our long-term vision is for every small business to have access to the skills of a first-class marketing team for its online sales, without having to build one of its own.' },
+      ] },
+    ],
     hero: {
       title: 'About VibePerform:', emphasis: 'the modern web agency.',
       intro: 'Marlon Dietrich is the owner of VibePerform and your first point of contact. Our initial conversation is about you and your online presence.',
       action: 'Arrange an initial call', role: 'Owner of VibePerform',
     },
-    vision: {
-      kicker: 'What we believe', title: 'Your business keeps moving.', emphasis: 'Your website should, too.',
-      body: 'A new service, a recent project, new questions from your customers: your business is always evolving. Your online presence should reflect that.',
-      mission: 'That’s why we bring design, content, search engine optimisation and technology together. We build your presence and offer ongoing development informed by your business, customer questions and available search and usage data.',
-      link: 'Keep your website up to date', href: '/en/website-support/',
-    },
-    journey: {
-      title: 'Understanding technology.', emphasis: 'Designing for people.',
-      paragraphs: [
-        'I spent three years developing software for a midsize company. I then worked with several startups, developing AI agents and automated processes and turning digital ideas into usable applications.',
-        'Today, I combine that experience with AI agents to rethink websites and the way businesses present themselves online. This is exactly the service we offer through VibePerform. We help you present your business clearly online so that the right projects and the right people to join your team can find you.',
-      ],
-    },
-    future: {
-      title: 'Made for people.', emphasis: 'And understandable to AI.',
-      body: 'Customers can also discover businesses through AI-powered search. We consider this from the start so that people and digital assistants can better understand what you offer.',
-      extra: 'That includes clear ways to enquire. Where it suits your project, we can also plan interfaces for digital assistants as a separate part of the work.',
-      center: 'Your business', website: 'Website', profile: 'Business profile',
-      foundation: 'Clear services · current information', audience: ['People', 'Search engines', 'AI assistants'],
-      link: 'More about being found', href: '/en/search-engine-optimisation/',
-    },
-    contact: {
-      title: 'What should your online presence', emphasis: 'do for you?',
-      body: 'Tell me about your business and what you would like to change. In our first conversation, we’ll look at where you are now and identify a sensible next step.',
-      action: 'Arrange a call with Marlon',
-    },
+    purpose: homePageContent.en.purpose,
+    contact: { title: 'Where do you want to take', emphasis: 'your business online?', body: 'Tell me what’s changed in your business and what your customers can already see online. Together we’ll work out where to start.', action: 'Arrange a call with Marlon' },
   },
 } as const;
+
 export type AboutLocale = keyof typeof aboutContent;
-export type AboutContent = (typeof aboutContent)[AboutLocale];

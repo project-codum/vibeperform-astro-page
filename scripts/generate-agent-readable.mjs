@@ -169,15 +169,20 @@ function renderTradePage(locale) {
 
 function renderAboutAgentPage(locale = 'de') {
   const c = aboutContent[locale];
+  const { purpose } = c;
+  const contactCopy = 'questions' in c.contact
+    ? c.contact.questions.map(question => `- ${question}`).join('\n')
+    : c.contact.body;
   const canonicalPath = locale === 'de' ? '/de/ueber-uns/' : '/en/about-us/';
   const alternatePath = locale === 'de' ? '/en/about-us/' : '/de/ueber-uns/';
   return normalizeBlankLines([
     pageHeader({ title: `${c.hero.title} ${c.hero.emphasis}`, canonicalPath, description: c.metaDescription, alternatePath }),
     c.hero.intro,
-    section(`${c.vision.title} ${c.vision.emphasis}`, `${c.vision.body}\n\n${c.vision.mission}\n\n[${c.vision.link}](${absoluteUrl(c.vision.href)})`),
-    section(`${c.journey.title} ${c.journey.emphasis}`, c.journey.paragraphs.join('\n\n')),
-    section(`${c.future.title} ${c.future.emphasis}`, `${c.future.body}\n\n${c.future.extra}\n\n[${c.future.link}](${absoluteUrl(c.future.href)})`),
-    section(`${c.contact.title} ${c.contact.emphasis}`, `${c.contact.body}\n\n[${c.contact.action}](${calendarUrl(locale)})\n\n${contactEmail}`),
+    `Marlon Dietrich, ${c.hero.role}`,
+    `[${c.hero.action}](${absoluteUrl(canonicalPath)}#kontakt)`,
+    section(`${purpose.title} ${purpose.middle} ${purpose.emphasis}`, purpose.mission),
+    section(`${c.contact.title} ${c.contact.emphasis}`, `${contactCopy}\n\n[${c.contact.action}](${calendarUrl(locale)})\n\n${contactEmail}`),
+    section(locale === 'de' ? 'Audioguide zum Mitlesen' : 'Audio guide transcript', c.guide.flatMap(chapter => chapter.cues.map(cue => cue.text)).join('\n\n')),
   ].join('\n\n'));
 }
 
