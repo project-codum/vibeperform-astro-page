@@ -4,6 +4,8 @@ name: Codex PR reviews
   pull_request:
     branches: [master]
     types: [opened, synchronize, reopened, ready_for_review, edited]
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   contents: read
@@ -18,14 +20,99 @@ env:
   PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
 
 jobs:
+  queue-freshness:
+    name: Verify Codex reviews for the queued merge
+    if: github.event_name == 'merge_group' && github.event.merge_group.base_ref == 'refs/heads/master'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Match both successful PR reviews to the queue snapshot
+        env:
+          QUEUE_REF: ${{ github.ref }}
+          QUEUE_HEAD: ${{ github.event.merge_group.head_sha }}
+          QUEUE_BASE: ${{ github.event.merge_group.base_sha }}
+        run: |
+          fail() { echo "::error::$1"; exit 1; }
+          if [[ ! "$QUEUE_REF" =~ ^refs/heads/gh-readonly-queue/master/pr-([0-9]+)-[0-9a-f]{40}$ ]]; then
+            fail "Cannot identify a single pull request for this merge group."
+          fi
+          pr_number=${BASH_REMATCH[1]}
+          repo="repos/$GITHUB_REPOSITORY"
+          pr=$(gh api "$repo/pulls/$pr_number")
+          head=$(jq -er '.head.sha' <<< "$pr")
+          base=$(jq -er '.base.sha' <<< "$pr")
+          merge_commit=$(jq -er '.merge_commit_sha' <<< "$pr")
+          live_base=$(gh api "$repo/git/ref/heads/master" --jq '.object.sha')
+          if [[ "$base" != "$QUEUE_BASE" || "$live_base" != "$QUEUE_BASE" ||
+                "$QUEUE_HEAD" != "$GITHUB_SHA" ]] ||
+             ! jq -e --arg repo "$GITHUB_REPOSITORY" '.state == "open" and .base.ref == "master" and .head.repo.full_name == $repo' <<< "$pr" >/dev/null; then
+            fail "The queued PR does not match the current master snapshot. Refresh the PR and rerun the reviews."
+          fi
+
+          queued_tree=$(gh api "$repo/git/commits/$QUEUE_HEAD" --jq '.tree.sha')
+          pr_tree=$(gh api "$repo/git/commits/$merge_commit" --jq '.tree.sha')
+          if [[ "$queued_tree" != "$pr_tree" ]]; then
+            fail "The queued tree differs from this PR's merge tree. Requeue the PR separately."
+          fi
+
+          evidence="$pr_number $QUEUE_BASE $head"
+          checks=$(gh api "$repo/commits/$head/check-runs?filter=latest&per_page=100" --paginate --slurp)
+          for check in "Codex Code Review / master" "Codex Security / master"; do
+            record=$(jq -ce --arg check "$check" '
+              [.[].check_runs[] | select(.name == $check and .app.id == 15368)] |
+              sort_by(.id) | last
+            ' <<< "$checks") || fail "The required check $check is missing."
+            id=$(jq -er '.id' <<< "$record")
+            url=$(jq -er '.details_url' <<< "$record")
+            if [[ "$url" != "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/"*"/job/$id" ]] ||
+               ! jq -e '.status == "completed" and .conclusion == "success"' <<< "$record" >/dev/null; then
+              fail "The required check $check has not completed successfully."
+            fi
+            run_id=$(sed -E 's@.*/actions/runs/([0-9]+)/job/[0-9]+$@\1@' <<< "$url")
+            if [[ ! "$run_id" =~ ^[0-9]+$ ]]; then
+              fail "The workflow run for $check could not be verified."
+            fi
+            workflow=$(gh api "$repo/actions/runs/$run_id")
+            if ! jq -e --argjson pr "$pr_number" --arg head "$head" '
+              .path == ".github/workflows/codex-reviews.yml" and .event == "pull_request" and
+              .head_sha == $head and
+              any(.pull_requests[]; .number == $pr and .head.sha == $head and .base.ref == "master")
+            ' <<< "$workflow" >/dev/null; then
+              fail "The required check $check did not originate from this PR workflow."
+            fi
+            annotations=$(gh api "$repo/check-runs/$id/annotations?per_page=100")
+            if ! jq -e --arg evidence "$evidence" '
+              any(.[]; .annotation_level == "notice" and .title == "Codex verified PR snapshot" and .message == $evidence)
+            ' <<< "$annotations" >/dev/null; then
+              fail "The required check $check is stale. Refresh the PR and rerun both reviews for the current master."
+            fi
+          done
+          echo "Both reviews match queued PR #$pr_number at $head on $QUEUE_BASE."
+
   code-review:
     name: ${{ github.event.action == 'edited' && github.event.changes.base == null && 'metadata / ' || '' }}Codex Code Review / master
-    if: github.event.action != 'edited' || github.event.changes.base != null
+    needs: queue-freshness
+    if: >-
+      always() && (
+        (github.event_name == 'pull_request' && (github.event.action != 'edited' || github.event.changes.base != null)) ||
+        (github.event_name == 'merge_group' && github.event.merge_group.base_ref == 'refs/heads/master')
+      )
     runs-on: ubuntu-24.04
     timeout-minutes: 13
     steps:
+      - name: Require matching review evidence for the queued merge
+        if: github.event_name == 'merge_group'
+        env:
+          QUEUE_RESULT: ${{ needs.queue-freshness.result }}
+        run: test "$QUEUE_RESULT" = success
       - &verify-snapshot
         name: Verify the current PR snapshot
+        if: github.event_name == 'pull_request'
         run: |
           current=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" \
             --jq '[.head.sha, .base.ref, .base.sha] | @tsv')
@@ -37,6 +124,7 @@ jobs:
           fi
 
       - name: Require the Codex Connector's review for this commit
+        if: github.event_name == 'pull_request'
         run: |
           deadline=$((SECONDS + 660))
           while (( SECONDS < deadline )); do
@@ -73,16 +161,21 @@ jobs:
           exit 1
 
       - *verify-snapshot
+      - name: Record the reviewed PR snapshot
+        if: github.event_name == 'pull_request'
+        run: echo "::notice file=.github/workflows/codex-reviews.yml,line=1,title=Codex verified PR snapshot::$PR_NUMBER $PR_BASE_SHA $PR_HEAD_SHA"
 
   security-scan:
     name: Scan changes with Codex Security
     if: >-
+      github.event_name == 'pull_request' &&
       github.event.pull_request.head.repo.id == github.event.repository.id &&
       (github.event.action != 'edited' || github.event.changes.base != null)
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     outputs:
       scan-status: ${{ steps.security.outputs.scan-status }}
+      skip-reason: ${{ steps.security.outputs.skip-reason }}
       policy-status: ${{ steps.security.outputs.policy-status }}
       scanned-sha: ${{ steps.security.outputs.scanned-sha }}
     steps:
@@ -119,21 +212,39 @@ jobs:
 
   security-review:
     name: ${{ github.event.action == 'edited' && github.event.changes.base == null && 'metadata / ' || '' }}Codex Security / master
-    needs: security-scan
-    if: always() && (github.event.action != 'edited' || github.event.changes.base != null)
+    needs: [queue-freshness, security-scan]
+    if: >-
+      always() && (
+        (github.event_name == 'pull_request' && (github.event.action != 'edited' || github.event.changes.base != null)) ||
+        (github.event_name == 'merge_group' && github.event.merge_group.base_ref == 'refs/heads/master')
+      )
     runs-on: ubuntu-24.04
     steps:
+      - name: Require matching review evidence for the queued merge
+        if: github.event_name == 'merge_group'
+        env:
+          QUEUE_RESULT: ${{ needs.queue-freshness.result }}
+        run: test "$QUEUE_RESULT" = success
       - *verify-snapshot
       - name: Require a completed Security scan for this commit
+        if: github.event_name == 'pull_request'
         env:
           SCAN_RESULT: ${{ needs.security-scan.result }}
           SCAN_STATUS: ${{ needs.security-scan.outputs.scan-status }}
+          SKIP_REASON: ${{ needs.security-scan.outputs.skip-reason }}
           SCAN_POLICY: ${{ needs.security-scan.outputs.policy-status }}
           SCANNED_SHA: ${{ needs.security-scan.outputs.scanned-sha }}
         run: |
+          if [[ "$SCAN_RESULT" == success && "$SCAN_STATUS" == skipped && "$SKIP_REASON" == empty-diff ]]; then
+            echo "Codex Security verified an empty diff for $PR_HEAD_SHA."
+            exit 0
+          fi
           if [[ "$SCAN_RESULT" != success || "$SCAN_STATUS" != completed ||
                 "$SCAN_POLICY" != passed || "$SCANNED_SHA" != "$PR_HEAD_SHA" ]]; then
             echo "::error::Codex Security must complete and pass for the current PR commit."
             exit 1
           fi
           echo "Codex Security completed and passed for $PR_HEAD_SHA."
+      - name: Record the reviewed PR snapshot
+        if: github.event_name == 'pull_request'
+        run: echo "::notice file=.github/workflows/codex-reviews.yml,line=1,title=Codex verified PR snapshot::$PR_NUMBER $PR_BASE_SHA $PR_HEAD_SHA"
